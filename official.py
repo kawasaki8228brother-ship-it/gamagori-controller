@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import datetime as dt
+import json
 import logging
 from typing import Dict, Optional
 
@@ -15,6 +16,7 @@ logger = logging.getLogger("gamagori-controller")
 
 class OfficialDataFetcher:
     BASE_URL = "https://www.boatrace.jp/owpc/pc/race"
+    TRACKING_FALLBACK_BASE = "https://boatraceopenapi.github.io/api/v1"
 
     def __init__(
         self,
@@ -94,6 +96,77 @@ class OfficialDataFetcher:
         html, acquired_at = await self._get_text(url)
         races = parse_race_index(html, date_str, url, acquired_at)
         return RaceIndexSnapshot(date=date_str, races=races, source_url=url, acquired_at=acquired_at)
+
+    async def fetch_tracking_race_index(self, now_jst: dt.datetime) -> RaceIndexSnapshot:
+        """Non-official fallback used only to track the expected race universe/deadlines.
+
+        Data from this method must never be treated as official confirmation for locks,
+        closure, cancellation, or formal scoring.
+        """
+        date_str = now_jst.strftime("%Y%m%d")
+        year = now_jst.strftime("%Y")
+        url = f"{self.TRACKING_FALLBACK_BASE}/{year}/{date_str}.json"
+        text, acquired_at = await self._get_text(url)
+        try:
+            payload = json.loads(text)
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(f"tracking fallback returned invalid JSON: {url}: {exc}") from exc
+
+        stadiums = payload.get("programs", {}).get("stadiums", {})
+        stadium = stadiums.get("7") or stadiums.get("07")
+        if not isinstance(stadium, dict):
+            raise RuntimeError(f"tracking fallback has no Gamagori stadium 7: {url}")
+
+        raw_races = stadium.get("races", {})
+        if not isinstance(raw_races, dict):
+            raise RuntimeError(f"tracking fallback races is not an object: {url}")
+
+        races = []
+        for race_key, raw in raw_races.items():
+            if not isinstance(raw, dict):
+                continue
+            try:
+                race_no = int(raw.get("race_number", race_key))
+            except (TypeError, ValueError):
+                continue
+            if not 1 <= race_no <= 12:
+                continue
+
+            closed_at = raw.get("closed_at")
+            if not isinstance(closed_at, str) or not closed_at.strip():
+                continue
+            try:
+                deadline = dt.datetime.strptime(closed_at.strip(), "%Y-%m-%d %H:%M:%S").replace(tzinfo=JST)
+            except ValueError:
+                try:
+                    deadline = dt.datetime.fromisoformat(closed_at.strip())
+                    if deadline.tzinfo is None:
+                        deadline = deadline.replace(tzinfo=JST)
+                    else:
+                        deadline = deadline.astimezone(JST)
+                except ValueError:
+                    continue
+
+            races.append(
+                OfficialRaceInfo(
+                    race_id=f"{date_str}_GAM_{race_no:02d}R",
+                    official_deadline=deadline,
+                    is_closed=False,
+                    is_cancelled=False,
+                    sales_status="FALLBACK_TRACKING_ONLY",
+                    source_url=url,
+                    acquired_at=acquired_at,
+                )
+            )
+
+        if not races:
+            raise RuntimeError(f"tracking fallback returned no usable Gamagori races: {url}")
+        return RaceIndexSnapshot(
+            date=date_str,
+            races=sorted(races, key=lambda item: item.race_id),
+            source_url=url,
+            acquired_at=acquired_at,
+        )
 
     async def fetch_live_data(self, race_id: str) -> LiveDataCompleteness:
         # race_id format validated by parsers/state layer usage
