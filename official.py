@@ -29,28 +29,64 @@ class OfficialDataFetcher:
         self.semaphore = asyncio.Semaphore(max_concurrency)
         self.client = httpx.AsyncClient(
             timeout=self.timeout,
-            headers={"User-Agent": "gamagori-controller-shadow/0.4.1"},
+            headers={
+                "User-Agent": (
+                    "Mozilla/5.0 (X11; Linux x86_64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/140.0 Safari/537.36"
+                ),
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+                "Accept-Language": "ja-JP,ja;q=0.9,en-US;q=0.7,en;q=0.6",
+                "Cache-Control": "no-cache",
+                "Pragma": "no-cache",
+            },
             follow_redirects=True,
         )
 
     async def close(self) -> None:
         await self.client.aclose()
 
+    @staticmethod
+    def _candidate_urls(url: str) -> list[str]:
+        """Try both official host spellings without increasing total retry count."""
+        candidates = [url]
+        if url.startswith("https://www.boatrace.jp/"):
+            candidates.append(url.replace("https://www.boatrace.jp/", "https://boatrace.jp/", 1))
+        elif url.startswith("https://boatrace.jp/"):
+            candidates.append(url.replace("https://boatrace.jp/", "https://www.boatrace.jp/", 1))
+        return candidates
+
     async def _get_text(self, url: str) -> tuple[str, str]:
         last_error: Optional[Exception] = None
+        candidates = self._candidate_urls(url)
+
         for attempt in range(1, self.max_retries + 1):
+            request_url = candidates[(attempt - 1) % len(candidates)]
             try:
                 async with self.semaphore:
-                    response = await self.client.get(url)
+                    response = await self.client.get(request_url)
                 response.raise_for_status()
                 acquired_at = dt.datetime.now(JST).isoformat()
+                if request_url != url:
+                    logger.info("HTTP fallback host succeeded: %s", request_url)
                 return response.text, acquired_at
             except (httpx.HTTPError, httpx.TimeoutException) as exc:
                 last_error = exc
-                logger.warning("HTTP attempt %s/%s failed for %s: %s", attempt, self.max_retries, url, exc)
+                logger.warning(
+                    "HTTP attempt %s/%s failed for %s: type=%s repr=%r",
+                    attempt,
+                    self.max_retries,
+                    request_url,
+                    type(exc).__name__,
+                    exc,
+                )
                 if attempt < self.max_retries:
                     await asyncio.sleep(self.backoff_seconds * (2 ** (attempt - 1)))
-        raise RuntimeError(f"HTTP fetch failed after {self.max_retries} attempts: {url}: {last_error}")
+
+        raise RuntimeError(
+            f"HTTP fetch failed after {self.max_retries} attempts: {url}: "
+            f"{type(last_error).__name__ if last_error else 'UnknownError'} {last_error!r}"
+        )
 
     async def fetch_race_index(self, now_jst: dt.datetime) -> RaceIndexSnapshot:
         date_str = now_jst.strftime("%Y%m%d")
