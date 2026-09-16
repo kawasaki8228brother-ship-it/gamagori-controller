@@ -1,0 +1,31 @@
+services:
+  - type: worker
+    name: gamagori-controller-shadow
+    runtime: python
+    region: singapore
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: DRY_RUN
+        value: "true"
+      - key: POLL_INTERVAL_SECONDS
+        value: "30"
+      - key: STATE_DB_PATH
+        value: /var/data/gamagori_shadow.db
+      - key: HTTP_TIMEOUT_SECONDS
+        value: "8"
+      - key: HTTP_MAX_RETRIES
+        value: "3"
+      - key: HTTP_BACKOFF_SECONDS
+        value: "0.5"
+      - key: HTTP_MAX_CONCURRENCY
+        value: "4"
+      - key: SOURCE_ERROR_GRACE_MINUTES
+        value: "20"
+      - key: LOG_LEVEL
+        value: INFO
+    disk:
+      name: gamagori-shadow-data
+      mountPath: /var/data
+      sizeGB: 1
