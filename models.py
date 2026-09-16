@@ -124,6 +124,9 @@ class RaceState(BaseModel):
     terminal_reason: Optional[TerminalReason] = None
     terminal_missed_reason: Optional[MissedObservationReason] = None
     official_deadline: Optional[dt.datetime] = None
+    tracking_deadline: Optional[dt.datetime] = None
+    tracking_source_url: Optional[str] = None
+    tracking_source_kind: Optional[str] = None
     deadline_version: int = 1
     last_checked_at: Optional[dt.datetime] = None
     last_successful_official_fetch_at: Optional[dt.datetime] = None
