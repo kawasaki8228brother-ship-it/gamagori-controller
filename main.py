@@ -74,12 +74,13 @@ class GamagoriController:
                 )
             else:
                 logger.info(
-                    "WATCHDOG race=%s status=%s dl_ver=%s c_events=%s errors=%s",
+                    "WATCHDOG race=%s status=%s dl_ver=%s c_events=%s errors=%s tracking_dl=%s",
                     race_id,
                     st.status.value,
                     st.deadline_version,
                     len(st.c_events),
                     st.consecutive_source_error_count,
+                    st.tracking_deadline.isoformat() if st.tracking_deadline else "NONE",
                 )
         logger.info(
             "WATCHDOG coverage terminal=%s/%s missed_observations=%s/%s",
@@ -101,6 +102,7 @@ class GamagoriController:
                 iteration += 1
                 now_jst = dt.datetime.now(JST)
                 index_failed = False
+                tracking_fallback_active = False
                 try:
                     snapshot = await self.fetcher.fetch_race_index(now_jst)
                     self._known_races = {r.race_id: r for r in snapshot.races}
@@ -113,36 +115,60 @@ class GamagoriController:
                 except Exception as exc:
                     index_failed = True
                     logger.error("Poll #%s raceindex FAILED: %s", iteration, exc)
-                    if not self._known_races:
-                        # Recover known races from persistent states if this is a restart during an outage.
-                        persisted = await self.repo.list_all_states()
-                        self._known_races = {
-                            s.race_id: OfficialRaceInfo(
-                                race_id=s.race_id,
-                                official_deadline=s.official_deadline,
-                                is_closed=False,
-                                is_cancelled=False,
-                                sales_status="UNKNOWN",
-                                source_url="PERSISTED_LAST_KNOWN",
-                                acquired_at=(s.last_successful_official_fetch_at or now_jst).isoformat(),
-                            )
-                            for s in persisted
-                            if s.official_deadline is not None and s.status != RaceStatus.TERMINAL
-                        }
+
+                    # Tracking-only fallback: discovers the expected Gamagori race universe and
+                    # approximate published deadlines without promoting them to official evidence.
+                    try:
+                        tracking_snapshot = await self.fetcher.fetch_tracking_race_index(now_jst)
+                        self._known_races = {r.race_id: r for r in tracking_snapshot.races}
+                        tracking_fallback_active = True
+                        logger.warning(
+                            "Poll #%s TRACKING_FALLBACK OK races=%s source=%s acquired_at=%s; "
+                            "NOT VALID FOR OFFICIAL LOCK/TIMING CONFIRMATION",
+                            iteration,
+                            len(self._known_races),
+                            tracking_snapshot.source_url,
+                            tracking_snapshot.acquired_at,
+                        )
+                    except Exception as fallback_exc:
+                        logger.error("Poll #%s tracking fallback FAILED: %s", iteration, fallback_exc)
+                        if not self._known_races:
+                            # Recover known races from persistent states if this is a restart during an outage.
+                            persisted = await self.repo.list_all_states()
+                            self._known_races = {
+                                s.race_id: OfficialRaceInfo(
+                                    race_id=s.race_id,
+                                    official_deadline=s.tracking_deadline or s.official_deadline,
+                                    is_closed=False,
+                                    is_cancelled=False,
+                                    sales_status="PERSISTED_LAST_KNOWN",
+                                    source_url=s.tracking_source_url or "PERSISTED_LAST_KNOWN",
+                                    acquired_at=(s.last_successful_official_fetch_at or now_jst).isoformat(),
+                                )
+                                for s in persisted
+                                if (s.tracking_deadline or s.official_deadline) is not None
+                                and s.status != RaceStatus.TERMINAL
+                            }
 
                 race_ids = sorted(self._known_races)
                 if not race_ids:
-                    logger.info("No verified Gamagori races currently known for %s", now_jst.date())
+                    logger.info("No verified/tracked Gamagori races currently known for %s", now_jst.date())
                 else:
                     tasks = []
                     for race_id in race_ids:
                         info = None if index_failed else self._known_races[race_id]
+                        tracking_info = (
+                            self._known_races[race_id]
+                            if index_failed and tracking_fallback_active
+                            else None
+                        )
                         tasks.append(
                             self.state_machine.process_race(
                                 race_id,
                                 now_jst,
                                 official_info=info,
                                 official_fetch_failed=index_failed,
+                                tracking_info=tracking_info,
                             )
                         )
                     await asyncio.gather(*tasks)
