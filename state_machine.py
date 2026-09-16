@@ -74,6 +74,9 @@ class RaceStateMachine:
             "terminal_missed_reason": state.terminal_missed_reason.value if state.terminal_missed_reason else None,
             "officially_confirmed": officially_confirmed,
             "official_deadline": official_deadline.isoformat() if official_deadline else None,
+            "tracking_deadline": state.tracking_deadline.isoformat() if state.tracking_deadline else None,
+            "tracking_source_url": state.tracking_source_url,
+            "tracking_source_kind": state.tracking_source_kind,
             "deadline_version": state.deadline_version,
             "c_event_count": len(state.c_events),
             "current_version_c_event_emitted": state.window_state().c_event_emitted,
@@ -114,12 +117,18 @@ class RaceStateMachine:
         now_jst: dt.datetime,
         official_info: Optional[OfficialRaceInfo],
         official_fetch_failed: bool = False,
+        tracking_info: Optional[OfficialRaceInfo] = None,
     ) -> RaceState:
         state = await self.repo.get_race_state(race_id) or RaceState(race_id=race_id)
         if state.status == RaceStatus.TERMINAL:
             return state
 
         state.last_checked_at = now_jst
+
+        if tracking_info is not None:
+            state.tracking_deadline = tracking_info.official_deadline
+            state.tracking_source_url = tracking_info.source_url
+            state.tracking_source_kind = tracking_info.sales_status
 
         if official_fetch_failed or official_info is None:
             state.consecutive_source_error_count += 1
@@ -129,8 +138,10 @@ class RaceStateMachine:
                 current.source_error_streak_max, state.consecutive_source_error_count
             )
 
-            # No guessed deadline: force terminal only from the last known official deadline.
-            if state.official_deadline and now_jst > state.official_deadline + self.source_error_grace:
+            # Formal timing uses only official_deadline. A non-official tracking deadline
+            # is permitted only to prevent an unresolved race from hanging forever.
+            timeout_deadline = state.official_deadline or state.tracking_deadline
+            if timeout_deadline and now_jst > timeout_deadline + self.source_error_grace:
                 state.last_error_streak_before_success = state.consecutive_source_error_count
                 return await self._emit_terminal(
                     state,
@@ -142,10 +153,11 @@ class RaceStateMachine:
 
             await self.repo.save_race_state(state)
             logger.warning(
-                "[%s] official source error streak=%s total=%s",
+                "[%s] official source error streak=%s total=%s tracking_deadline=%s",
                 race_id,
                 state.consecutive_source_error_count,
                 state.total_source_error_count,
+                state.tracking_deadline.isoformat() if state.tracking_deadline else "NONE",
             )
             return state
 
