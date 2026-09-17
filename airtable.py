@@ -37,6 +37,17 @@ class DryRunAirtableAdapter(AirtableAdapter):
         return hashlib.sha256(canonical_json.encode("utf-8")).hexdigest()
 
     async def append_event(self, record: EventRecord) -> AppendOutcome:
+        # EventRecord requires identity_hash, but fail closed here as a second line of defense
+        # against malformed/model_construct inputs instead of allowing logging or persistence
+        # to raise outside the explicit AppendOutcome failure contract.
+        if not record.identity_hash:
+            logger.error("[IDENTITY_HASH_MISSING] %s", record.race_id)
+            return AppendOutcome(
+                status=AppendOutcomeStatus.FAILED,
+                failure_class=FailureClass.NON_RETRYABLE,
+                message="IDENTITY_HASH_MISSING",
+            )
+
         calc_hash = self.generate_canonical_hash(record.payload)
         if calc_hash != record.payload_hash:
             logger.error(
