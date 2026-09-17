@@ -6,7 +6,12 @@ import logging
 from abc import ABC, abstractmethod
 from typing import Any, Dict
 
-from models import EventRecord
+from models import (
+    AppendOutcome,
+    AppendOutcomeStatus,
+    EventRecord,
+    FailureClass,
+)
 from repositories import SQLiteStateRepository
 
 logger = logging.getLogger("gamagori-controller")
@@ -14,7 +19,7 @@ logger = logging.getLogger("gamagori-controller")
 
 class AirtableAdapter(ABC):
     @abstractmethod
-    async def append_event(self, record: EventRecord) -> tuple[bool, str, str]:
+    async def append_event(self, record: EventRecord) -> AppendOutcome:
         raise NotImplementedError
 
 
@@ -31,20 +36,34 @@ class DryRunAirtableAdapter(AirtableAdapter):
         )
         return hashlib.sha256(canonical_json.encode("utf-8")).hexdigest()
 
-    async def append_event(self, record: EventRecord) -> tuple[bool, str, str]:
+    async def append_event(self, record: EventRecord) -> AppendOutcome:
         calc_hash = self.generate_canonical_hash(record.payload)
         if calc_hash != record.payload_hash:
-            logger.error("[HASH_MISMATCH] %s expected=%s got=%s", record.race_id, record.payload_hash, calc_hash)
-            return False, "HASH_MISMATCH", record.event_uuid
+            logger.error(
+                "[HASH_MISMATCH] %s expected=%s got=%s",
+                record.race_id,
+                record.payload_hash,
+                calc_hash,
+            )
+            return AppendOutcome(
+                status=AppendOutcomeStatus.FAILED,
+                failure_class=FailureClass.NON_RETRYABLE,
+                message="HASH_MISMATCH",
+            )
 
-        ok, status, persisted_uuid = await self.repo.append_shadow_event_atomic(record)
-        logger.info(
-            "[DRY_RUN:%s] race=%s type=%s dl_ver=%s key=%s hash=%s readback=NOT_APPLICABLE_DRY_RUN",
-            status,
+        outcome = await self.repo.append_shadow_event_atomic(record)
+        level = logging.ERROR if outcome.status == AppendOutcomeStatus.DUPLICATE_CONFLICT else logging.INFO
+        logger.log(
+            level,
+            "[DRY_RUN:%s] race=%s type=%s dl_ver=%s key=%s identity=%s hash=%s "
+            "existing_uuid=%s readback=NOT_APPLICABLE_DRY_RUN",
+            outcome.status.value,
             record.race_id,
             record.event_type,
             record.deadline_version,
             record.idempotency_key,
+            record.identity_hash[:8],
             record.payload_hash[:8],
+            outcome.event_uuid or "NONE",
         )
-        return ok, status, persisted_uuid
+        return outcome
