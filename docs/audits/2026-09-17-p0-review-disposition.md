@@ -121,12 +121,21 @@ The normal official Closing path had zero verified live executions on 2026-09-17
 
 ## Merge gate after this disposition
 
-Required before merge remains:
+Observed on the updated PR merge-result checkout:
 
-- compile check PASS;
-- full pytest PASS, including migration provenance, canonical reason adoption, ambiguous-candidate quarantine, sticky `TERMINAL_FAILED`, and watchdog legacy counters;
-- PR remains mergeable;
+- Python compile check: **PASS**
+- pytest: **29 passed** on Python 3.12
+- migration provenance tests: **PASS**
+- canonical Event reason adoption test: **PASS**
+- ambiguous legacy candidate quarantine test: **PASS**
+- invalid legacy Event reason quarantine test: **PASS**
+- sticky `TERMINAL_FAILED` guard test: **PASS**
+- watchdog legacy migration counter test: **PASS**
+
+Still required before merge:
+
 - independent review of the updated branch or explicit acceptance of the recorded dispositions;
-- no production deploy until merge is intentionally approved.
+- intentional merge approval;
+- no production deploy until that approval.
 
 No statement in this addendum upgrades the unexercised normal official Closing path to PASS.
