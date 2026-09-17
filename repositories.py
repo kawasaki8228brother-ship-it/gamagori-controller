@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import datetime as dt
 import json
 import logging
 import sqlite3
@@ -12,8 +13,10 @@ from models import (
     AppendOutcomeStatus,
     EventRecord,
     FailureClass,
+    MissedObservationReason,
     RaceState,
     RaceStatus,
+    TerminalReason,
 )
 
 logger = logging.getLogger("gamagori-controller")
@@ -104,11 +107,53 @@ class SQLiteStateRepository(StateRepository):
             self._migrate_legacy_terminal_states(conn)
 
     @staticmethod
-    def _quarantine_legacy_terminal(data: dict, detail: str) -> dict:
-        candidate_reason = data.get("terminal_candidate_reason") or data.get("terminal_reason")
+    def _migration_timestamp() -> str:
+        return dt.datetime.now(dt.timezone.utc).isoformat()
+
+    @staticmethod
+    def _valid_terminal_reason(value: object) -> Optional[str]:
+        if not value:
+            return None
+        try:
+            return TerminalReason(str(value)).value
+        except ValueError:
+            return None
+
+    @staticmethod
+    def _valid_missed_reason(value: object) -> Optional[str]:
+        if not value:
+            return None
+        try:
+            return MissedObservationReason(str(value)).value
+        except ValueError:
+            return None
+
+    @classmethod
+    def _quarantine_legacy_terminal(
+        cls,
+        data: dict,
+        detail: str,
+        candidate_event_uuids: list[str],
+    ) -> dict:
+        pre_status = data.get("status")
+        pre_reason = data.get("terminal_reason")
+        candidate_reason = cls._valid_terminal_reason(
+            data.get("terminal_candidate_reason")
+        ) or cls._valid_terminal_reason(pre_reason)
+
+        data["pre_reconcile_status"] = data.get("pre_reconcile_status") or pre_status
+        if data.get("pre_reconcile_terminal_reason") is None:
+            data["pre_reconcile_terminal_reason"] = pre_reason
+        data["legacy_migration_disposition"] = "QUARANTINED_UNRECONCILABLE"
+        data["legacy_reconciled"] = False
+        data["legacy_reconciled_at"] = data.get("legacy_reconciled_at")
+        data["legacy_reconcile_source_uuid"] = None
+        data["legacy_candidate_event_uuids"] = candidate_event_uuids
+
         data["status"] = RaceStatus.TERMINAL_FAILED.value
         data["terminal_candidate_reason"] = candidate_reason
         data["terminal_reason"] = None
+        data["terminal_missed_reason"] = None
         data["terminal_event_id"] = None
         data["terminal_failure_class"] = FailureClass.NON_RETRYABLE.value
         data["terminal_failure_detail"] = detail
@@ -117,9 +162,14 @@ class SQLiteStateRepository(StateRepository):
     def _migrate_legacy_terminal_states(self, conn: sqlite3.Connection) -> None:
         """Make pre-P0 TERMINAL rows safe before Pydantic load validation runs.
 
-        A legacy TERMINAL row without terminal_event_id is reconciled to its sole persisted
-        RACE_TERMINAL Event when that linkage is unambiguous. Otherwise the row is quarantined
-        as TERMINAL_FAILED with a critical log instead of crashing worker startup.
+        A legacy TERMINAL row without terminal_event_id is reconciled only when there is exactly
+        one persisted RACE_TERMINAL Event *and* that Event contains a valid canonical terminal
+        reason. The Event remains canonical. The pre-migration State values and repair provenance
+        are retained in RaceState so the repair itself stays auditable.
+
+        Zero, ambiguous, or semantically invalid Event evidence is quarantined as
+        TERMINAL_FAILED with an explicit LEGACY_UNRECONCILABLE detail instead of crashing worker
+        startup or silently normalizing the row.
         """
         rows = conn.execute(
             "SELECT race_id, data_json FROM race_states ORDER BY race_id"
@@ -149,47 +199,94 @@ class SQLiteStateRepository(StateRepository):
                 """,
                 (row["race_id"],),
             ).fetchall()
+            candidate_uuids = [event["event_uuid"] for event in terminal_events]
 
             if len(terminal_events) == 1:
                 existing = terminal_events[0]
-                data["terminal_event_id"] = existing["event_uuid"]
                 try:
                     payload = json.loads(existing["payload_json"])
                 except json.JSONDecodeError:
-                    payload = {}
-                if payload.get("terminal_reason"):
-                    data["terminal_reason"] = payload["terminal_reason"]
-                conn.execute(
-                    "UPDATE race_states SET data_json = ?, updated_at = CURRENT_TIMESTAMP WHERE race_id = ?",
-                    (
-                        json.dumps(data, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
-                        row["race_id"],
-                    ),
-                )
-                logger.warning(
-                    "[%s] LEGACY_TERMINAL_RECONCILED event_uuid=%s",
-                    row["race_id"],
-                    existing["event_uuid"],
-                )
-                continue
+                    payload = None
 
-            detail = (
-                "LEGACY_TERMINAL_WITHOUT_EVENT"
-                if not terminal_events
-                else f"LEGACY_TERMINAL_EVENT_AMBIGUOUS:{len(terminal_events)}"
+                canonical_reason = self._valid_terminal_reason(
+                    payload.get("terminal_reason") if payload else None
+                )
+                if canonical_reason is not None:
+                    pre_status = data.get("status")
+                    pre_reason = data.get("terminal_reason")
+                    previous_candidate = self._valid_terminal_reason(
+                        data.get("terminal_candidate_reason")
+                    ) or self._valid_terminal_reason(pre_reason)
+
+                    data["pre_reconcile_status"] = (
+                        data.get("pre_reconcile_status") or pre_status
+                    )
+                    if data.get("pre_reconcile_terminal_reason") is None:
+                        data["pre_reconcile_terminal_reason"] = pre_reason
+                    data["legacy_migration_disposition"] = "RECONCILED_TO_EVENT"
+                    data["legacy_reconciled"] = True
+                    data["legacy_reconciled_at"] = self._migration_timestamp()
+                    data["legacy_reconcile_source_uuid"] = existing["event_uuid"]
+                    data["legacy_candidate_event_uuids"] = candidate_uuids
+
+                    data["terminal_candidate_reason"] = previous_candidate
+                    data["terminal_event_id"] = existing["event_uuid"]
+                    data["terminal_reason"] = canonical_reason
+                    data["terminal_missed_reason"] = self._valid_missed_reason(
+                        payload.get("terminal_missed_reason")
+                    )
+                    data["terminal_failure_class"] = None
+                    data["terminal_failure_detail"] = None
+
+                    conn.execute(
+                        "UPDATE race_states SET data_json = ?, updated_at = CURRENT_TIMESTAMP WHERE race_id = ?",
+                        (
+                            json.dumps(
+                                data,
+                                ensure_ascii=False,
+                                sort_keys=True,
+                                separators=(",", ":"),
+                            ),
+                            row["race_id"],
+                        ),
+                    )
+                    logger.warning(
+                        "[%s] LEGACY_TERMINAL_RECONCILED event_uuid=%s pre_reason=%s canonical_reason=%s",
+                        row["race_id"],
+                        existing["event_uuid"],
+                        pre_reason or "NONE",
+                        canonical_reason,
+                    )
+                    continue
+
+                detail = "LEGACY_UNRECONCILABLE:INVALID_EVENT_REASON"
+            elif not terminal_events:
+                detail = "LEGACY_UNRECONCILABLE:NO_TERMINAL_EVENT"
+            else:
+                detail = f"LEGACY_UNRECONCILABLE:AMBIGUOUS_EVENT_COUNT:{len(terminal_events)}"
+
+            data = self._quarantine_legacy_terminal(
+                data,
+                detail,
+                candidate_uuids,
             )
-            data = self._quarantine_legacy_terminal(data, detail)
             conn.execute(
                 "UPDATE race_states SET data_json = ?, updated_at = CURRENT_TIMESTAMP WHERE race_id = ?",
                 (
-                    json.dumps(data, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
+                    json.dumps(
+                        data,
+                        ensure_ascii=False,
+                        sort_keys=True,
+                        separators=(",", ":"),
+                    ),
                     row["race_id"],
                 ),
             )
             logger.critical(
-                "[%s] %s; quarantined as TERMINAL_FAILED",
+                "[%s] %s; candidates=%s; quarantined as TERMINAL_FAILED",
                 row["race_id"],
                 detail,
+                candidate_uuids,
             )
 
     async def get_race_state(self, race_id: str) -> Optional[RaceState]:
