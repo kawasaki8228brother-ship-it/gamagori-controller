@@ -92,16 +92,23 @@ async def test_legacy_terminal_without_event_is_quarantined_instead_of_crashing(
     assert state.terminal_reason is None
     assert state.terminal_candidate_reason == TerminalReason.OFFICIALLY_CLOSED
     assert state.terminal_failure_class == FailureClass.NON_RETRYABLE
-    assert state.terminal_failure_detail == "LEGACY_TERMINAL_WITHOUT_EVENT"
+    assert state.terminal_failure_detail == "LEGACY_UNRECONCILABLE:NO_TERMINAL_EVENT"
+    assert state.legacy_migration_disposition == "QUARANTINED_UNRECONCILABLE"
+    assert state.legacy_reconciled is False
+    assert state.pre_reconcile_status == "TERMINAL"
+    assert state.pre_reconcile_terminal_reason == "OFFICIALLY_CLOSED"
+    assert state.legacy_candidate_event_uuids == []
 
 
 @pytest.mark.asyncio
-async def test_legacy_terminal_with_one_event_is_reconciled_to_event_uuid(tmp_path):
+async def test_legacy_terminal_reconcile_preserves_trace_and_adopts_event_reason(tmp_path):
     db_path = tmp_path / "legacy.db"
     repo = SQLiteStateRepository(str(db_path))
     rid = "20260916_GAM_02R"
     event_uuid = "legacy-terminal-event"
-    _insert_legacy_state(repo, rid)
+
+    # Deliberately make State and Event disagree: the persisted Event is canonical.
+    _insert_legacy_state(repo, rid, reason="CANCELLED")
     _insert_legacy_event(
         repo,
         race_id=rid,
@@ -112,6 +119,7 @@ async def test_legacy_terminal_with_one_event_is_reconciled_to_event_uuid(tmp_pa
             "race_id": rid,
             "event_type": "RACE_TERMINAL",
             "terminal_reason": "OFFICIALLY_CLOSED",
+            "terminal_missed_reason": None,
         },
     )
 
@@ -122,12 +130,87 @@ async def test_legacy_terminal_with_one_event_is_reconciled_to_event_uuid(tmp_pa
     assert state.status == RaceStatus.TERMINAL
     assert state.terminal_event_id == event_uuid
     assert state.terminal_reason == TerminalReason.OFFICIALLY_CLOSED
+    assert state.terminal_candidate_reason == TerminalReason.CANCELLED
+    assert state.legacy_migration_disposition == "RECONCILED_TO_EVENT"
+    assert state.legacy_reconciled is True
+    assert state.legacy_reconciled_at is not None
+    assert state.legacy_reconcile_source_uuid == event_uuid
+    assert state.pre_reconcile_status == "TERMINAL"
+    assert state.pre_reconcile_terminal_reason == "CANCELLED"
+    assert state.legacy_candidate_event_uuids == [event_uuid]
 
-    # Migration must be idempotent across another process restart.
+    first_reconciled_at = state.legacy_reconciled_at
+
+    # Migration must be idempotent across another process restart and must not erase provenance.
     migrated_again = SQLiteStateRepository(str(db_path))
     state_again = await migrated_again.get_race_state(rid)
     assert state_again.status == RaceStatus.TERMINAL
     assert state_again.terminal_event_id == event_uuid
+    assert state_again.terminal_reason == TerminalReason.OFFICIALLY_CLOSED
+    assert state_again.terminal_candidate_reason == TerminalReason.CANCELLED
+    assert state_again.legacy_reconciled_at == first_reconciled_at
+    assert state_again.legacy_reconcile_source_uuid == event_uuid
+
+
+@pytest.mark.asyncio
+async def test_legacy_terminal_multiple_events_is_quarantined_with_candidate_uuids(tmp_path):
+    db_path = tmp_path / "legacy.db"
+    repo = SQLiteStateRepository(str(db_path))
+    rid = "20260916_GAM_04R"
+    _insert_legacy_state(repo, rid)
+
+    for suffix, reason in (("a", "OFFICIALLY_CLOSED"), ("b", "CANCELLED")):
+        _insert_legacy_event(
+            repo,
+            race_id=rid,
+            event_uuid=f"legacy-terminal-{suffix}",
+            idempotency_key=f"{rid}_TERMINAL_{reason}_{suffix}",
+            event_type="RACE_TERMINAL",
+            payload={
+                "race_id": rid,
+                "event_type": "RACE_TERMINAL",
+                "terminal_reason": reason,
+            },
+        )
+
+    migrated = SQLiteStateRepository(str(db_path))
+    state = await migrated.get_race_state(rid)
+
+    assert state.status == RaceStatus.TERMINAL_FAILED
+    assert state.legacy_migration_disposition == "QUARANTINED_UNRECONCILABLE"
+    assert state.terminal_failure_detail == "LEGACY_UNRECONCILABLE:AMBIGUOUS_EVENT_COUNT:2"
+    assert state.legacy_candidate_event_uuids == [
+        "legacy-terminal-a",
+        "legacy-terminal-b",
+    ]
+
+
+@pytest.mark.asyncio
+async def test_legacy_terminal_invalid_event_reason_is_quarantined(tmp_path):
+    db_path = tmp_path / "legacy.db"
+    repo = SQLiteStateRepository(str(db_path))
+    rid = "20260916_GAM_05R"
+    _insert_legacy_state(repo, rid)
+    _insert_legacy_event(
+        repo,
+        race_id=rid,
+        event_uuid="legacy-terminal-invalid-reason",
+        idempotency_key=f"{rid}_TERMINAL_BAD",
+        event_type="RACE_TERMINAL",
+        payload={
+            "race_id": rid,
+            "event_type": "RACE_TERMINAL",
+            "terminal_reason": "NOT_A_REAL_REASON",
+        },
+    )
+
+    migrated = SQLiteStateRepository(str(db_path))
+    state = await migrated.get_race_state(rid)
+
+    assert state.status == RaceStatus.TERMINAL_FAILED
+    assert state.terminal_reason is None
+    assert state.terminal_failure_detail == "LEGACY_UNRECONCILABLE:INVALID_EVENT_REASON"
+    assert state.legacy_candidate_event_uuids == ["legacy-terminal-invalid-reason"]
 
 
 @pytest.mark.asyncio
