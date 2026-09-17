@@ -26,7 +26,7 @@ class GamagoriController:
     def __init__(self):
         self.dry_run = os.getenv("DRY_RUN", "true").lower() == "true"
         if not self.dry_run:
-            raise RuntimeError("v0.4.1 is SHADOW ONLY. DRY_RUN must remain true.")
+            raise RuntimeError("v0.5.0 is SHADOW ONLY. DRY_RUN must remain true.")
 
         self.poll_interval = int(os.getenv("POLL_INTERVAL_SECONDS", "30"))
         self.db_path = os.getenv("STATE_DB_PATH", "./gamagori_shadow.db")
@@ -45,6 +45,7 @@ class GamagoriController:
             self.fetcher,
             self.airtable,
             source_error_grace_minutes=int(os.getenv("SOURCE_ERROR_GRACE_MINUTES", "20")),
+            terminal_max_retries=int(os.getenv("TERMINAL_MAX_RETRIES", "3")),
         )
         self._stop = asyncio.Event()
         self._known_races: Dict[str, OfficialRaceInfo] = {}
@@ -55,7 +56,23 @@ class GamagoriController:
     async def run_watchdog_check(self, race_ids: list[str]) -> None:
         states = {s.race_id: s for s in await self.repo.list_all_states()}
         terminal_count = 0
+        terminal_pending_count = 0
+        terminal_failed_count = 0
         missed_count = 0
+
+        # Migration provenance is intentionally counted across the persisted DB, not only the
+        # current race universe. This keeps historical repair/quarantine visible after deploy.
+        legacy_reconciled_total = sum(
+            1
+            for st in states.values()
+            if st.legacy_migration_disposition == "RECONCILED_TO_EVENT"
+        )
+        legacy_unreconcilable_total = sum(
+            1
+            for st in states.values()
+            if st.legacy_migration_disposition == "QUARANTINED_UNRECONCILABLE"
+        )
+
         for race_id in race_ids:
             st = states.get(race_id)
             if not st:
@@ -66,11 +83,48 @@ class GamagoriController:
                 if st.terminal_missed_reason:
                     missed_count += 1
                 logger.info(
-                    "WATCHDOG race=%s TERMINAL reason=%s miss=%s c_events=%s",
+                    "WATCHDOG race=%s TERMINAL reason=%s miss=%s terminal_event_id=%s "
+                    "attempts=%s conflict=%s c_events=%s legacy_disposition=%s",
                     race_id,
                     st.terminal_reason.value if st.terminal_reason else "UNKNOWN",
                     st.terminal_missed_reason.value if st.terminal_missed_reason else "NONE",
+                    st.terminal_event_id,
+                    st.terminal_emit_attempts,
+                    st.idempotency_conflict,
                     len(st.c_events),
+                    st.legacy_migration_disposition or "NONE",
+                )
+            elif st.status == RaceStatus.TERMINAL_PENDING:
+                terminal_pending_count += 1
+                logger.warning(
+                    "WATCHDOG race=%s TERMINAL_PENDING candidate_reason=%s attempts=%s "
+                    "failure_class=%s detail=%s",
+                    race_id,
+                    st.terminal_candidate_reason.value
+                    if st.terminal_candidate_reason
+                    else "UNKNOWN",
+                    st.terminal_emit_attempts,
+                    st.terminal_failure_class.value
+                    if st.terminal_failure_class
+                    else "NONE",
+                    st.terminal_failure_detail or "NONE",
+                )
+            elif st.status == RaceStatus.TERMINAL_FAILED:
+                terminal_failed_count += 1
+                logger.critical(
+                    "WATCHDOG race=%s TERMINAL_FAILED candidate_reason=%s attempts=%s "
+                    "failure_class=%s detail=%s legacy_disposition=%s candidates=%s",
+                    race_id,
+                    st.terminal_candidate_reason.value
+                    if st.terminal_candidate_reason
+                    else "UNKNOWN",
+                    st.terminal_emit_attempts,
+                    st.terminal_failure_class.value
+                    if st.terminal_failure_class
+                    else "NONE",
+                    st.terminal_failure_detail or "NONE",
+                    st.legacy_migration_disposition or "NONE",
+                    st.legacy_candidate_event_uuids,
                 )
             else:
                 logger.info(
@@ -80,19 +134,34 @@ class GamagoriController:
                     st.deadline_version,
                     len(st.c_events),
                     st.consecutive_source_error_count,
-                    st.tracking_deadline.isoformat() if st.tracking_deadline else "NONE",
+                    st.tracking_deadline.isoformat()
+                    if st.tracking_deadline
+                    else "NONE",
                 )
         logger.info(
-            "WATCHDOG coverage terminal=%s/%s missed_observations=%s/%s",
+            "WATCHDOG coverage TERMINAL=%s/%s TERMINAL_PENDING=%s/%s "
+            "TERMINAL_FAILED=%s/%s terminal_reached=%s/%s "
+            "terminal_in_progress=%s terminal_unrecorded=%s missed_observations=%s/%s "
+            "legacy_reconciled_total=%s legacy_unreconcilable_total=%s",
             terminal_count,
             len(race_ids),
+            terminal_pending_count,
+            len(race_ids),
+            terminal_failed_count,
+            len(race_ids),
+            terminal_count,
+            len(race_ids),
+            terminal_pending_count,
+            terminal_failed_count,
             missed_count,
             len(race_ids),
+            legacy_reconciled_total,
+            legacy_unreconcilable_total,
         )
 
     async def start(self) -> None:
         logger.info(
-            "Starting gamagori-controller v0.4.1 LIVE TRANSPORT SHADOW dry_run=%s db=%s",
+            "Starting gamagori-controller v0.5.0 LIVE TRANSPORT SHADOW dry_run=%s db=%s",
             self.dry_run,
             self.db_path,
         )
@@ -131,28 +200,40 @@ class GamagoriController:
                             tracking_snapshot.acquired_at,
                         )
                     except Exception as fallback_exc:
-                        logger.error("Poll #%s tracking fallback FAILED: %s", iteration, fallback_exc)
+                        logger.error(
+                            "Poll #%s tracking fallback FAILED: %s",
+                            iteration,
+                            fallback_exc,
+                        )
                         if not self._known_races:
                             # Recover known races from persistent states if this is a restart during an outage.
                             persisted = await self.repo.list_all_states()
                             self._known_races = {
                                 s.race_id: OfficialRaceInfo(
                                     race_id=s.race_id,
-                                    official_deadline=s.tracking_deadline or s.official_deadline,
+                                    official_deadline=s.tracking_deadline
+                                    or s.official_deadline,
                                     is_closed=False,
                                     is_cancelled=False,
                                     sales_status="PERSISTED_LAST_KNOWN",
-                                    source_url=s.tracking_source_url or "PERSISTED_LAST_KNOWN",
-                                    acquired_at=(s.last_successful_official_fetch_at or now_jst).isoformat(),
+                                    source_url=s.tracking_source_url
+                                    or "PERSISTED_LAST_KNOWN",
+                                    acquired_at=(
+                                        s.last_successful_official_fetch_at or now_jst
+                                    ).isoformat(),
                                 )
                                 for s in persisted
-                                if (s.tracking_deadline or s.official_deadline) is not None
+                                if (s.tracking_deadline or s.official_deadline)
+                                is not None
                                 and s.status != RaceStatus.TERMINAL
                             }
 
                 race_ids = sorted(self._known_races)
                 if not race_ids:
-                    logger.info("No verified/tracked Gamagori races currently known for %s", now_jst.date())
+                    logger.info(
+                        "No verified/tracked Gamagori races currently known for %s",
+                        now_jst.date(),
+                    )
                 else:
                     tasks = []
                     for race_id in race_ids:
@@ -177,7 +258,9 @@ class GamagoriController:
                         await self.run_watchdog_check(race_ids)
 
                 try:
-                    await asyncio.wait_for(self._stop.wait(), timeout=self.poll_interval)
+                    await asyncio.wait_for(
+                        self._stop.wait(), timeout=self.poll_interval
+                    )
                 except asyncio.TimeoutError:
                     pass
         finally:

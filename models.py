@@ -6,7 +6,7 @@ from enum import Enum
 from typing import Any, Dict, List, Optional
 from zoneinfo import ZoneInfo
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 JST = ZoneInfo("Asia/Tokyo")
 
@@ -19,6 +19,8 @@ class RaceStatus(str, Enum):
     SAFE_STOP = "SAFE_STOP"
     C_EVENT_DONE = "C_EVENT_DONE"
     REOPENED = "REOPENED"
+    TERMINAL_PENDING = "TERMINAL_PENDING"
+    TERMINAL_FAILED = "TERMINAL_FAILED"
     TERMINAL = "TERMINAL"
 
 
@@ -32,6 +34,19 @@ class MissedObservationReason(str, Enum):
     MISSED_DATA_INCOMPLETE = "MISSED_DATA_INCOMPLETE"
     MISSED_WINDOW_SKIPPED_BY_DEADLINE_CHANGE = "MISSED_WINDOW_SKIPPED_BY_DEADLINE_CHANGE"
     MISSED_SOURCE_ERROR = "MISSED_SOURCE_ERROR"
+
+
+class FailureClass(str, Enum):
+    RETRYABLE = "RETRYABLE"
+    NON_RETRYABLE = "NON_RETRYABLE"
+    UNKNOWN = "UNKNOWN"
+
+
+class AppendOutcomeStatus(str, Enum):
+    CREATED = "CREATED"
+    DUPLICATE_MATCH = "DUPLICATE_MATCH"
+    DUPLICATE_CONFLICT = "DUPLICATE_CONFLICT"
+    FAILED = "FAILED"
 
 
 class SourceEvidence(BaseModel):
@@ -96,6 +111,7 @@ def validate_trifecta_list(predictions: List[str]) -> List[str]:
 class EventRecord(BaseModel):
     event_uuid: str
     idempotency_key: str
+    identity_hash: str
     race_id: str
     event_type: str
     source: str = "Observer_C"
@@ -118,11 +134,45 @@ class EventRecord(BaseModel):
         return validate_trifecta_list(value)
 
 
+class AppendOutcome(BaseModel):
+    status: AppendOutcomeStatus
+    event_uuid: Optional[str] = None
+    failure_class: Optional[FailureClass] = None
+    message: str = ""
+    existing_payload: Optional[Dict[str, Any]] = None
+    existing_payload_hash: Optional[str] = None
+    existing_identity_hash: Optional[str] = None
+
+    @property
+    def persisted(self) -> bool:
+        return self.status in {
+            AppendOutcomeStatus.CREATED,
+            AppendOutcomeStatus.DUPLICATE_MATCH,
+            AppendOutcomeStatus.DUPLICATE_CONFLICT,
+        }
+
+
 class RaceState(BaseModel):
     race_id: str
     status: RaceStatus = RaceStatus.PENDING
     terminal_reason: Optional[TerminalReason] = None
+    terminal_candidate_reason: Optional[TerminalReason] = None
     terminal_missed_reason: Optional[MissedObservationReason] = None
+    terminal_emit_attempts: int = 0
+    terminal_failure_class: Optional[FailureClass] = None
+    terminal_failure_detail: Optional[str] = None
+    idempotency_conflict: bool = False
+
+    # Migration provenance is deliberately persisted in the derived RaceState so a repaired
+    # legacy row remains distinguishable from a row that was internally consistent all along.
+    legacy_migration_disposition: Optional[str] = None
+    legacy_reconciled: bool = False
+    legacy_reconciled_at: Optional[str] = None
+    legacy_reconcile_source_uuid: Optional[str] = None
+    pre_reconcile_status: Optional[str] = None
+    pre_reconcile_terminal_reason: Optional[str] = None
+    legacy_candidate_event_uuids: List[str] = Field(default_factory=list)
+
     official_deadline: Optional[dt.datetime] = None
     tracking_deadline: Optional[dt.datetime] = None
     tracking_source_url: Optional[str] = None
@@ -136,6 +186,12 @@ class RaceState(BaseModel):
     c_events: List[str] = Field(default_factory=list)
     terminal_event_id: Optional[str] = None
     window_history: Dict[str, WindowVersionState] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def terminal_requires_event(self) -> "RaceState":
+        if self.status == RaceStatus.TERMINAL and not self.terminal_event_id:
+            raise ValueError("TERMINAL state requires terminal_event_id")
+        return self
 
     def window_state(self, version: Optional[int] = None) -> WindowVersionState:
         version = version or self.deadline_version

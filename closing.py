@@ -37,8 +37,8 @@ class ClosingEvaluator:
 
         payload = {
             "schema_version": 1,
-            "model_version": "v0.4.1_shadow",
-            "controller_version": "v0.4.1",
+            "model_version": "v0.5.0_shadow",
+            "controller_version": "v0.5.0",
             "race_id": race_id,
             "source": "Observer_C",
             "deadline_version": deadline_version,

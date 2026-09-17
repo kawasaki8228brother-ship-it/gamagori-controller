@@ -3,12 +3,14 @@ from __future__ import annotations
 import datetime as dt
 import logging
 import uuid
-from typing import Optional
+from typing import Callable, Optional
 
 from airtable import DryRunAirtableAdapter
 from closing import ClosingEvaluator
 from models import (
+    AppendOutcomeStatus,
     EventRecord,
+    FailureClass,
     JST,
     MissedObservationReason,
     OfficialRaceInfo,
@@ -30,12 +32,16 @@ class RaceStateMachine:
         fetcher: OfficialDataFetcher,
         airtable: DryRunAirtableAdapter,
         source_error_grace_minutes: int = 20,
+        terminal_max_retries: int = 3,
+        now_provider: Optional[Callable[[], dt.datetime]] = None,
     ):
         self.repo = repository
         self.baseline_repo = baseline_repo
         self.fetcher = fetcher
         self.airtable = airtable
         self.source_error_grace = dt.timedelta(minutes=source_error_grace_minutes)
+        self.terminal_max_retries = max(1, terminal_max_retries)
+        self.now_provider = now_provider or (lambda: dt.datetime.now(JST))
 
     def _classify_miss(self, state: RaceState) -> Optional[MissedObservationReason]:
         current = state.window_state()
@@ -50,6 +56,49 @@ class RaceStateMachine:
             return MissedObservationReason.MISSED_DATA_INCOMPLETE
         return None
 
+    @staticmethod
+    def _terminal_identity_hash(race_id: str, reason: TerminalReason) -> str:
+        return DryRunAirtableAdapter.generate_canonical_hash(
+            {
+                "race_id": race_id,
+                "terminal_reason": reason.value,
+            }
+        )
+
+    @staticmethod
+    def _closing_identity_hash(race_id: str, deadline_version: int) -> str:
+        return DryRunAirtableAdapter.generate_canonical_hash(
+            {
+                "event_type": "CLOSING_OBSERVATION",
+                "race_id": race_id,
+                "deadline_version": deadline_version,
+            }
+        )
+
+    @staticmethod
+    def _reason_from_payload(payload: Optional[dict]) -> Optional[TerminalReason]:
+        if not payload:
+            return None
+        value = payload.get("terminal_reason")
+        if not value:
+            return None
+        try:
+            return TerminalReason(value)
+        except ValueError:
+            return None
+
+    @staticmethod
+    def _miss_from_payload(payload: Optional[dict]) -> Optional[MissedObservationReason]:
+        if not payload:
+            return None
+        value = payload.get("terminal_missed_reason")
+        if not value:
+            return None
+        try:
+            return MissedObservationReason(value)
+        except ValueError:
+            return None
+
     async def _emit_terminal(
         self,
         state: RaceState,
@@ -58,20 +107,30 @@ class RaceStateMachine:
         official_info: Optional[OfficialRaceInfo],
         officially_confirmed: bool,
     ) -> RaceState:
-        state.status = RaceStatus.TERMINAL
-        state.terminal_reason = reason
-        state.terminal_missed_reason = self._classify_miss(state)
+        candidate_miss = self._classify_miss(state)
+        official_deadline = state.official_deadline or (
+            official_info.official_deadline if official_info else None
+        )
+
+        # Persist intent before the Event append. A crash after Event persistence but before
+        # final State commit will restart from TERMINAL_PENDING and reconcile by idempotency.
+        state.status = RaceStatus.TERMINAL_PENDING
+        state.terminal_candidate_reason = reason
+        state.terminal_emit_attempts += 1
+        state.terminal_failure_class = None
+        state.terminal_failure_detail = None
+        await self.repo.save_race_state(state)
+
         terminal_uuid = str(uuid.uuid4())
-        official_deadline = state.official_deadline or (official_info.official_deadline if official_info else None)
         payload = {
             "schema_version": 1,
-            "model_version": "v0.4.1_shadow",
-            "controller_version": "v0.4.1",
+            "model_version": "v0.5.0_shadow",
+            "controller_version": "v0.5.0",
             "race_id": state.race_id,
             "source": "Observer_C",
             "event_type": "RACE_TERMINAL",
             "terminal_reason": reason.value,
-            "terminal_missed_reason": state.terminal_missed_reason.value if state.terminal_missed_reason else None,
+            "terminal_missed_reason": candidate_miss.value if candidate_miss else None,
             "officially_confirmed": officially_confirmed,
             "official_deadline": official_deadline.isoformat() if official_deadline else None,
             "tracking_deadline": state.tracking_deadline.isoformat() if state.tracking_deadline else None,
@@ -83,11 +142,13 @@ class RaceStateMachine:
             "total_source_error_count": state.total_source_error_count,
             "last_error_streak_before_success": state.last_error_streak_before_success,
             "window_history": {k: v.model_dump() for k, v in state.window_history.items()},
+            "terminal_emit_attempts": state.terminal_emit_attempts,
             "observed_at": now_jst.isoformat(),
         }
         record = EventRecord(
             event_uuid=terminal_uuid,
-            idempotency_key=f"{state.race_id}_TERMINAL_{reason.value}",
+            idempotency_key=f"{state.race_id}_TERMINAL",
+            identity_hash=self._terminal_identity_hash(state.race_id, reason),
             race_id=state.race_id,
             event_type="RACE_TERMINAL",
             source="Observer_C",
@@ -97,18 +158,92 @@ class RaceStateMachine:
             official_deadline=official_deadline.isoformat() if official_deadline else "",
             payload_hash=DryRunAirtableAdapter.generate_canonical_hash(payload),
         )
-        success, _, persisted_uuid = await self.airtable.append_event(record)
-        if success:
-            state.terminal_event_id = persisted_uuid
+        outcome = await self.airtable.append_event(record)
+
+        if outcome.status in {
+            AppendOutcomeStatus.CREATED,
+            AppendOutcomeStatus.DUPLICATE_MATCH,
+            AppendOutcomeStatus.DUPLICATE_CONFLICT,
+        }:
+            canonical_payload = (
+                outcome.existing_payload
+                if outcome.status != AppendOutcomeStatus.CREATED
+                else payload
+            )
+            canonical_reason = self._reason_from_payload(canonical_payload)
+            canonical_miss = self._miss_from_payload(canonical_payload)
+
+            state.terminal_event_id = outcome.event_uuid
+            state.terminal_reason = canonical_reason or reason
+            state.terminal_missed_reason = canonical_miss
+            state.terminal_failure_class = None
+            state.terminal_failure_detail = None
+            state.idempotency_conflict = (
+                outcome.status == AppendOutcomeStatus.DUPLICATE_CONFLICT
+            )
+            state.status = RaceStatus.TERMINAL
+            await self.repo.save_race_state(state)
+
+            if outcome.status == AppendOutcomeStatus.DUPLICATE_CONFLICT:
+                logger.critical(
+                    "[%s] DUPLICATE_CONFLICT terminal key=%s candidate_reason=%s "
+                    "existing_reason=%s existing_uuid=%s",
+                    state.race_id,
+                    record.idempotency_key,
+                    reason.value,
+                    canonical_reason.value if canonical_reason else "UNKNOWN",
+                    outcome.event_uuid,
+                )
+
+            logger.warning(
+                "[%s] TERMINAL reason=%s miss=%s c_events=%s confirmed=%s "
+                "attempts=%s append_outcome=%s",
+                state.race_id,
+                state.terminal_reason.value if state.terminal_reason else "UNKNOWN",
+                state.terminal_missed_reason.value if state.terminal_missed_reason else "NONE",
+                len(state.c_events),
+                officially_confirmed,
+                state.terminal_emit_attempts,
+                outcome.status.value,
+            )
+            return state
+
+        failure_class = outcome.failure_class or FailureClass.UNKNOWN
+        state.terminal_failure_class = failure_class
+        state.terminal_failure_detail = outcome.message or "APPEND_FAILED"
+        state.terminal_event_id = None
+        state.terminal_reason = None
+        state.terminal_missed_reason = None
+
+        if (
+            failure_class == FailureClass.NON_RETRYABLE
+            or state.terminal_emit_attempts >= self.terminal_max_retries
+        ):
+            state.status = RaceStatus.TERMINAL_FAILED
+            logger.critical(
+                "[%s] TERMINAL_FAILED candidate_reason=%s attempts=%s/%s "
+                "failure_class=%s detail=%s",
+                state.race_id,
+                reason.value,
+                state.terminal_emit_attempts,
+                self.terminal_max_retries,
+                failure_class.value,
+                state.terminal_failure_detail,
+            )
+        else:
+            state.status = RaceStatus.TERMINAL_PENDING
+            logger.error(
+                "[%s] TERMINAL_PENDING candidate_reason=%s attempts=%s/%s "
+                "failure_class=%s detail=%s",
+                state.race_id,
+                reason.value,
+                state.terminal_emit_attempts,
+                self.terminal_max_retries,
+                failure_class.value,
+                state.terminal_failure_detail,
+            )
+
         await self.repo.save_race_state(state)
-        logger.warning(
-            "[%s] TERMINAL reason=%s miss=%s c_events=%s confirmed=%s",
-            state.race_id,
-            reason.value,
-            state.terminal_missed_reason.value if state.terminal_missed_reason else "NONE",
-            len(state.c_events),
-            officially_confirmed,
-        )
         return state
 
     async def process_race(
@@ -122,6 +257,25 @@ class RaceStateMachine:
         state = await self.repo.get_race_state(race_id) or RaceState(race_id=race_id)
         if state.status == RaceStatus.TERMINAL:
             return state
+        if state.status == RaceStatus.TERMINAL_FAILED:
+            return state
+        if state.status == RaceStatus.TERMINAL_PENDING:
+            if state.terminal_candidate_reason is None:
+                state.status = RaceStatus.TERMINAL_FAILED
+                state.terminal_failure_class = FailureClass.NON_RETRYABLE
+                state.terminal_failure_detail = "PENDING_WITHOUT_CANDIDATE_REASON"
+                await self.repo.save_race_state(state)
+                logger.critical("[%s] TERMINAL_FAILED pending state has no candidate reason", race_id)
+                return state
+            return await self._emit_terminal(
+                state,
+                state.terminal_candidate_reason,
+                now_jst,
+                official_info,
+                officially_confirmed=(
+                    state.terminal_candidate_reason != TerminalReason.SOURCE_ERROR_TIMEOUT
+                ),
+            )
 
         state.last_checked_at = now_jst
 
@@ -186,7 +340,9 @@ class RaceStateMachine:
             diff_seconds = (official_info.official_deadline - old_deadline).total_seconds()
             if abs(diff_seconds) >= 30.0:
                 old_remaining = ClosingEvaluator.calculate_time_to_deadline(old_deadline, now_jst)
-                new_remaining = ClosingEvaluator.calculate_time_to_deadline(official_info.official_deadline, now_jst)
+                new_remaining = ClosingEvaluator.calculate_time_to_deadline(
+                    official_info.official_deadline, now_jst
+                )
                 new_status = ClosingEvaluator.evaluate_window_status(new_remaining)
 
                 skipped_by_shortening = (
@@ -211,7 +367,9 @@ class RaceStateMachine:
                 )
 
         state.official_deadline = official_info.official_deadline
-        remaining_minutes = ClosingEvaluator.calculate_time_to_deadline(state.official_deadline, now_jst)
+        remaining_minutes = ClosingEvaluator.calculate_time_to_deadline(
+            state.official_deadline, now_jst
+        )
         window_status = ClosingEvaluator.evaluate_window_status(remaining_minutes)
         current = state.window_state()
 
@@ -221,12 +379,20 @@ class RaceStateMachine:
             return state
 
         if window_status == "SAFE_STOP":
-            state.status = RaceStatus.SAFE_STOP if not current.c_event_emitted else RaceStatus.C_EVENT_DONE
+            state.status = (
+                RaceStatus.SAFE_STOP
+                if not current.c_event_emitted
+                else RaceStatus.C_EVENT_DONE
+            )
             await self.repo.save_race_state(state)
             return state
 
         if window_status == "FREEZE_ZONE":
-            state.status = RaceStatus.FREEZE_ZONE if not current.c_event_emitted else RaceStatus.C_EVENT_DONE
+            state.status = (
+                RaceStatus.FREEZE_ZONE
+                if not current.c_event_emitted
+                else RaceStatus.C_EVENT_DONE
+            )
             await self.repo.save_race_state(state)
             return state
 
@@ -248,7 +414,7 @@ class RaceStateMachine:
 
         baseline_a_id, baseline_b_id = await self.baseline_repo.get_latest_baseline_ids(race_id)
         # observed_at is the freeze time after all data acquisition/baseline reads are complete.
-        observed_at = dt.datetime.now(JST)
+        observed_at = self.now_provider()
         if observed_at >= state.official_deadline:
             state.status = RaceStatus.SAFE_STOP
             await self.repo.save_race_state(state)
@@ -268,6 +434,7 @@ class RaceStateMachine:
         record = EventRecord(
             event_uuid=event_uuid,
             idempotency_key=f"{race_id}_C_v{state.deadline_version}",
+            identity_hash=self._closing_identity_hash(race_id, state.deadline_version),
             race_id=race_id,
             event_type="CLOSING_OBSERVATION",
             source="Observer_C",
@@ -281,12 +448,30 @@ class RaceStateMachine:
             official_deadline=state.official_deadline.isoformat(),
             payload_hash=DryRunAirtableAdapter.generate_canonical_hash(payload),
         )
-        success, _, persisted_uuid = await self.airtable.append_event(record)
-        if success:
-            if persisted_uuid not in state.c_events:
+        outcome = await self.airtable.append_event(record)
+        if outcome.status in {
+            AppendOutcomeStatus.CREATED,
+            AppendOutcomeStatus.DUPLICATE_MATCH,
+        }:
+            persisted_uuid = outcome.event_uuid
+            if persisted_uuid and persisted_uuid not in state.c_events:
                 state.c_events.append(persisted_uuid)
             current.c_event_emitted = True
             state.status = RaceStatus.C_EVENT_DONE
             await self.repo.save_race_state(state)
-            logger.info("[%s] C_EVENT_DONE v%s uuid=%s", race_id, state.deadline_version, persisted_uuid)
+            logger.info(
+                "[%s] C_EVENT_DONE v%s uuid=%s outcome=%s",
+                race_id,
+                state.deadline_version,
+                persisted_uuid,
+                outcome.status.value,
+            )
+        elif outcome.status == AppendOutcomeStatus.DUPLICATE_CONFLICT:
+            logger.critical(
+                "[%s] C_EVENT DUPLICATE_CONFLICT v%s key=%s existing_uuid=%s",
+                race_id,
+                state.deadline_version,
+                record.idempotency_key,
+                outcome.event_uuid,
+            )
         return state
