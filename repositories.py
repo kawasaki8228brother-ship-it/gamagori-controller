@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import sqlite3
 from abc import ABC, abstractmethod
 from pathlib import Path
@@ -10,9 +11,12 @@ from models import (
     AppendOutcome,
     AppendOutcomeStatus,
     EventRecord,
+    FailureClass,
     RaceState,
     RaceStatus,
 )
+
+logger = logging.getLogger("gamagori-controller")
 
 
 class BaselineRepository(ABC):
@@ -97,6 +101,97 @@ class SQLiteStateRepository(StateRepository):
             if "identity_hash" not in columns:
                 conn.execute("ALTER TABLE shadow_events ADD COLUMN identity_hash TEXT")
 
+            self._migrate_legacy_terminal_states(conn)
+
+    @staticmethod
+    def _quarantine_legacy_terminal(data: dict, detail: str) -> dict:
+        candidate_reason = data.get("terminal_candidate_reason") or data.get("terminal_reason")
+        data["status"] = RaceStatus.TERMINAL_FAILED.value
+        data["terminal_candidate_reason"] = candidate_reason
+        data["terminal_reason"] = None
+        data["terminal_event_id"] = None
+        data["terminal_failure_class"] = FailureClass.NON_RETRYABLE.value
+        data["terminal_failure_detail"] = detail
+        return data
+
+    def _migrate_legacy_terminal_states(self, conn: sqlite3.Connection) -> None:
+        """Make pre-P0 TERMINAL rows safe before Pydantic load validation runs.
+
+        A legacy TERMINAL row without terminal_event_id is reconciled to its sole persisted
+        RACE_TERMINAL Event when that linkage is unambiguous. Otherwise the row is quarantined
+        as TERMINAL_FAILED with a critical log instead of crashing worker startup.
+        """
+        rows = conn.execute(
+            "SELECT race_id, data_json FROM race_states ORDER BY race_id"
+        ).fetchall()
+        for row in rows:
+            try:
+                data = json.loads(row["data_json"])
+            except json.JSONDecodeError:
+                logger.critical(
+                    "[%s] LEGACY_STATE_JSON_INVALID; row left unchanged for explicit investigation",
+                    row["race_id"],
+                )
+                continue
+
+            if (
+                data.get("status") != RaceStatus.TERMINAL.value
+                or data.get("terminal_event_id")
+            ):
+                continue
+
+            terminal_events = conn.execute(
+                """
+                SELECT event_uuid, payload_json
+                FROM shadow_events
+                WHERE race_id = ? AND event_type = 'RACE_TERMINAL'
+                ORDER BY created_at, rowid
+                """,
+                (row["race_id"],),
+            ).fetchall()
+
+            if len(terminal_events) == 1:
+                existing = terminal_events[0]
+                data["terminal_event_id"] = existing["event_uuid"]
+                try:
+                    payload = json.loads(existing["payload_json"])
+                except json.JSONDecodeError:
+                    payload = {}
+                if payload.get("terminal_reason"):
+                    data["terminal_reason"] = payload["terminal_reason"]
+                conn.execute(
+                    "UPDATE race_states SET data_json = ?, updated_at = CURRENT_TIMESTAMP WHERE race_id = ?",
+                    (
+                        json.dumps(data, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
+                        row["race_id"],
+                    ),
+                )
+                logger.warning(
+                    "[%s] LEGACY_TERMINAL_RECONCILED event_uuid=%s",
+                    row["race_id"],
+                    existing["event_uuid"],
+                )
+                continue
+
+            detail = (
+                "LEGACY_TERMINAL_WITHOUT_EVENT"
+                if not terminal_events
+                else f"LEGACY_TERMINAL_EVENT_AMBIGUOUS:{len(terminal_events)}"
+            )
+            data = self._quarantine_legacy_terminal(data, detail)
+            conn.execute(
+                "UPDATE race_states SET data_json = ?, updated_at = CURRENT_TIMESTAMP WHERE race_id = ?",
+                (
+                    json.dumps(data, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
+                    row["race_id"],
+                ),
+            )
+            logger.critical(
+                "[%s] %s; quarantined as TERMINAL_FAILED",
+                row["race_id"],
+                detail,
+            )
+
     async def get_race_state(self, race_id: str) -> Optional[RaceState]:
         with self._connect() as conn:
             row = conn.execute(
@@ -126,7 +221,12 @@ class SQLiteStateRepository(StateRepository):
 
     @staticmethod
     def _legacy_identity_matches(row: sqlite3.Row, record: EventRecord) -> bool:
-        """Backward compatibility for pre-P0 rows that have no identity_hash."""
+        """Backward compatibility for pre-P0 rows that have no identity_hash.
+
+        Closing identity is exactly race_id + event_type + deadline_version, all of which were
+        already persisted as structured columns before identity_hash existed. A legacy row is
+        therefore semantically verifiable for that event class rather than merely assumed equal.
+        """
         return (
             row["race_id"] == record.race_id
             and row["event_type"] == record.event_type
