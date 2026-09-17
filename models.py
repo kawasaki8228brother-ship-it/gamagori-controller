@@ -162,6 +162,17 @@ class RaceState(BaseModel):
     terminal_failure_class: Optional[FailureClass] = None
     terminal_failure_detail: Optional[str] = None
     idempotency_conflict: bool = False
+
+    # Migration provenance is deliberately persisted in the derived RaceState so a repaired
+    # legacy row remains distinguishable from a row that was internally consistent all along.
+    legacy_migration_disposition: Optional[str] = None
+    legacy_reconciled: bool = False
+    legacy_reconciled_at: Optional[str] = None
+    legacy_reconcile_source_uuid: Optional[str] = None
+    pre_reconcile_status: Optional[str] = None
+    pre_reconcile_terminal_reason: Optional[str] = None
+    legacy_candidate_event_uuids: List[str] = Field(default_factory=list)
+
     official_deadline: Optional[dt.datetime] = None
     tracking_deadline: Optional[dt.datetime] = None
     tracking_source_url: Optional[str] = None
