@@ -4,9 +4,15 @@ import json
 import sqlite3
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import List, Optional, Tuple
+from typing import List, Optional
 
-from models import EventRecord, RaceState
+from models import (
+    AppendOutcome,
+    AppendOutcomeStatus,
+    EventRecord,
+    RaceState,
+    RaceStatus,
+)
 
 
 class BaselineRepository(ABC):
@@ -74,6 +80,7 @@ class SQLiteStateRepository(StateRepository):
                 CREATE TABLE IF NOT EXISTS shadow_events (
                     event_uuid TEXT PRIMARY KEY,
                     idempotency_key TEXT NOT NULL UNIQUE,
+                    identity_hash TEXT,
                     race_id TEXT NOT NULL,
                     event_type TEXT NOT NULL,
                     payload_json TEXT NOT NULL,
@@ -84,6 +91,11 @@ class SQLiteStateRepository(StateRepository):
                 )
                 """
             )
+            columns = {
+                row["name"] for row in conn.execute("PRAGMA table_info(shadow_events)").fetchall()
+            }
+            if "identity_hash" not in columns:
+                conn.execute("ALTER TABLE shadow_events ADD COLUMN identity_hash TEXT")
 
     async def get_race_state(self, race_id: str) -> Optional[RaceState]:
         with self._connect() as conn:
@@ -93,6 +105,8 @@ class SQLiteStateRepository(StateRepository):
             return RaceState.model_validate_json(row["data_json"]) if row else None
 
     async def save_race_state(self, state: RaceState) -> None:
+        if state.status == RaceStatus.TERMINAL and not state.terminal_event_id:
+            raise ValueError("Refusing to persist TERMINAL without terminal_event_id")
         with self._connect() as conn:
             conn.execute(
                 """
@@ -110,8 +124,17 @@ class SQLiteStateRepository(StateRepository):
             rows = conn.execute("SELECT data_json FROM race_states ORDER BY race_id").fetchall()
             return [RaceState.model_validate_json(row["data_json"]) for row in rows]
 
-    async def append_shadow_event_atomic(self, record: EventRecord) -> Tuple[bool, str, str]:
-        """One connection + one transaction: duplicate check, idempotency registration, event insert."""
+    @staticmethod
+    def _legacy_identity_matches(row: sqlite3.Row, record: EventRecord) -> bool:
+        """Backward compatibility for pre-P0 rows that have no identity_hash."""
+        return (
+            row["race_id"] == record.race_id
+            and row["event_type"] == record.event_type
+            and int(row["deadline_version"]) == record.deadline_version
+        )
+
+    async def append_shadow_event_atomic(self, record: EventRecord) -> AppendOutcome:
+        """One transaction: duplicate lookup, semantic comparison, key registration, event insert."""
         payload_json = json.dumps(
             record.payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")
         )
@@ -119,12 +142,38 @@ class SQLiteStateRepository(StateRepository):
         try:
             conn.execute("BEGIN IMMEDIATE")
             existing = conn.execute(
-                "SELECT event_uuid FROM idempotency_keys WHERE idempotency_key = ?",
+                """
+                SELECT event_uuid, idempotency_key, identity_hash, race_id, event_type,
+                       payload_json, payload_hash, observed_at, deadline_version
+                FROM shadow_events
+                WHERE idempotency_key = ?
+                """,
                 (record.idempotency_key,),
             ).fetchone()
             if existing:
+                existing_payload = json.loads(existing["payload_json"])
+                existing_identity_hash = existing["identity_hash"]
+                if existing_identity_hash is None:
+                    semantic_match = self._legacy_identity_matches(existing, record)
+                else:
+                    semantic_match = existing_identity_hash == record.identity_hash
                 conn.rollback()
-                return True, "DUPLICATE_SKIPPED", existing["event_uuid"]
+                return AppendOutcome(
+                    status=(
+                        AppendOutcomeStatus.DUPLICATE_MATCH
+                        if semantic_match
+                        else AppendOutcomeStatus.DUPLICATE_CONFLICT
+                    ),
+                    event_uuid=existing["event_uuid"],
+                    message=(
+                        "DUPLICATE_MATCH"
+                        if semantic_match
+                        else "DUPLICATE_CONFLICT"
+                    ),
+                    existing_payload=existing_payload,
+                    existing_payload_hash=existing["payload_hash"],
+                    existing_identity_hash=existing_identity_hash,
+                )
 
             conn.execute(
                 "INSERT INTO idempotency_keys (idempotency_key, event_uuid) VALUES (?, ?)",
@@ -133,13 +182,14 @@ class SQLiteStateRepository(StateRepository):
             conn.execute(
                 """
                 INSERT INTO shadow_events (
-                    event_uuid, idempotency_key, race_id, event_type,
+                    event_uuid, idempotency_key, identity_hash, race_id, event_type,
                     payload_json, payload_hash, observed_at, deadline_version
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     record.event_uuid,
                     record.idempotency_key,
+                    record.identity_hash,
                     record.race_id,
                     record.event_type,
                     payload_json,
@@ -149,7 +199,11 @@ class SQLiteStateRepository(StateRepository):
                 ),
             )
             conn.commit()
-            return True, "SHADOW_EVENT_PERSISTED", record.event_uuid
+            return AppendOutcome(
+                status=AppendOutcomeStatus.CREATED,
+                event_uuid=record.event_uuid,
+                message="SHADOW_EVENT_PERSISTED",
+            )
         except Exception:
             conn.rollback()
             raise
