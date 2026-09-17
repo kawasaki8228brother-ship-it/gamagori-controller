@@ -59,6 +59,20 @@ class GamagoriController:
         terminal_pending_count = 0
         terminal_failed_count = 0
         missed_count = 0
+
+        # Migration provenance is intentionally counted across the persisted DB, not only the
+        # current race universe. This keeps historical repair/quarantine visible after deploy.
+        legacy_reconciled_total = sum(
+            1
+            for st in states.values()
+            if st.legacy_migration_disposition == "RECONCILED_TO_EVENT"
+        )
+        legacy_unreconcilable_total = sum(
+            1
+            for st in states.values()
+            if st.legacy_migration_disposition == "QUARANTINED_UNRECONCILABLE"
+        )
+
         for race_id in race_ids:
             st = states.get(race_id)
             if not st:
@@ -70,7 +84,7 @@ class GamagoriController:
                     missed_count += 1
                 logger.info(
                     "WATCHDOG race=%s TERMINAL reason=%s miss=%s terminal_event_id=%s "
-                    "attempts=%s conflict=%s c_events=%s",
+                    "attempts=%s conflict=%s c_events=%s legacy_disposition=%s",
                     race_id,
                     st.terminal_reason.value if st.terminal_reason else "UNKNOWN",
                     st.terminal_missed_reason.value if st.terminal_missed_reason else "NONE",
@@ -78,6 +92,7 @@ class GamagoriController:
                     st.terminal_emit_attempts,
                     st.idempotency_conflict,
                     len(st.c_events),
+                    st.legacy_migration_disposition or "NONE",
                 )
             elif st.status == RaceStatus.TERMINAL_PENDING:
                 terminal_pending_count += 1
@@ -98,7 +113,7 @@ class GamagoriController:
                 terminal_failed_count += 1
                 logger.critical(
                     "WATCHDOG race=%s TERMINAL_FAILED candidate_reason=%s attempts=%s "
-                    "failure_class=%s detail=%s",
+                    "failure_class=%s detail=%s legacy_disposition=%s candidates=%s",
                     race_id,
                     st.terminal_candidate_reason.value
                     if st.terminal_candidate_reason
@@ -108,6 +123,8 @@ class GamagoriController:
                     if st.terminal_failure_class
                     else "NONE",
                     st.terminal_failure_detail or "NONE",
+                    st.legacy_migration_disposition or "NONE",
+                    st.legacy_candidate_event_uuids,
                 )
             else:
                 logger.info(
@@ -124,7 +141,8 @@ class GamagoriController:
         logger.info(
             "WATCHDOG coverage TERMINAL=%s/%s TERMINAL_PENDING=%s/%s "
             "TERMINAL_FAILED=%s/%s terminal_reached=%s/%s "
-            "terminal_in_progress=%s terminal_unrecorded=%s missed_observations=%s/%s",
+            "terminal_in_progress=%s terminal_unrecorded=%s missed_observations=%s/%s "
+            "legacy_reconciled_total=%s legacy_unreconcilable_total=%s",
             terminal_count,
             len(race_ids),
             terminal_pending_count,
@@ -137,6 +155,8 @@ class GamagoriController:
             terminal_failed_count,
             missed_count,
             len(race_ids),
+            legacy_reconciled_total,
+            legacy_unreconcilable_total,
         )
 
     async def start(self) -> None:
