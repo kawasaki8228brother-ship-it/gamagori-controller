@@ -16,7 +16,10 @@ from models import JST, OfficialRaceInfo, RaceStatus
 from state_machine import RaceStateMachine
 from repositories import MockBaselineRepository, SQLiteStateRepository
 from airtable import DryRunAirtableAdapter
-from test_parsers import BEFORE_HTML
+from test_v11_beforeinfo import fixture as beforeinfo_fixture
+
+# The connected parser uses the semantic official-layout fixture; assertions unchanged.
+BEFORE_HTML = beforeinfo_fixture()
 from test_v11_candidate import matrix, explicit
 
 ACQUIRED='2026-09-18T18:40:00+09:00'
@@ -109,8 +112,8 @@ async def test_fetch_failure_does_not_erase_other_source(failed):
 
 @pytest.mark.asyncio
 async def test_shadow_state_path_with_mock_complete_inputs_and_local_store(tmp_path):
-    # Positive is synthetic: it does not prove that the legacy beforeinfo parser
-    # can consume official HTML. Mock baselines/adapter never write production.
+    # Positive remains synthetic after fixture migration.
+    # Mock baselines/adapter never write production.
     now=dt.datetime(2026,9,18,18,40,tzinfo=JST)
     repo=SQLiteStateRepository(str(tmp_path/'shadow.sqlite'))
     fetcher,_=await make_fetcher(matrix()[0])
