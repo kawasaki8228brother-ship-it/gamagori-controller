@@ -64,6 +64,7 @@ def _matrix_header(table: Tag) -> list[int] | None:
     head = table.find('thead', recursive=False)
     if head is None:
         return None
+    headers: list[list[int]] = []
     for row in head.find_all('tr'):
         cells = _cells(row)
         if len(cells) != 6 or any(c.get('colspan') != '3' for c in cells):
@@ -74,8 +75,10 @@ def _matrix_header(table: Tag) -> list[int] | None:
             continue
         if len(set(boats)) != 6:
             raise OddsParseError('DUPLICATE_FIRST_BOAT_HEADER')
-        return boats
-    return None
+        headers.append(boats)
+    if len(headers) > 1:
+        raise OddsParseError('AMBIGUOUS_FIRST_BOAT_HEADER')
+    return headers[0] if headers else None
 
 
 def _matrix(table: Tag, firsts: list[int]) -> dict[str, float]:
@@ -131,11 +134,17 @@ def _explicit(table: Tag) -> dict[str, float]:
         if row.find_parent('table') is not table:
             raise OddsParseError('NESTED_TABLE')
         cells = _cells(row)
-        if len(cells) != 2:
+        # Ignore header rows, never malformed data rows. Otherwise a full
+        # set of valid cells could conceal a second broken/ambiguous layout.
+        if not any(cell.name == 'td' for cell in cells):
             continue
+        if len(cells) != 2:
+            raise OddsParseError('EXPLICIT_DATA_ROW_WIDTH')
+        if any(cell.get('rowspan', '1') != '1' or cell.get('colspan', '1') != '1' for cell in cells):
+            raise OddsParseError('EXPLICIT_DATA_ROW_SPAN')
         match = re.fullmatch(r'([1-6])\s*[-－>]\s*([1-6])\s*[-－>]\s*([1-6])', _text(cells[0]))
         if match is None:
-            continue
+            raise OddsParseError('INVALID_COMBINATION_CELL')
         _put(out, tuple(map(int, match.groups())), _odds(_text(cells[1])))
     return out
 
