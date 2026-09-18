@@ -5,6 +5,7 @@ bytes. A saved HTTP response is not automatically a valid official fixture.
 """
 from __future__ import annotations
 import datetime as dt
+from dataclasses import asdict
 import hashlib
 import json
 from pathlib import Path
@@ -15,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from parsers import parse_odds3t, parse_beforeinfo
 from v11_candidate.odds import parse_trifecta
+from v11_candidate.beforeinfo import parse_beforeinfo_snapshot
 
 
 def capture(out: Path) -> list[dict]:
@@ -57,11 +59,18 @@ def capture(out: Path) -> list[dict]:
                         except Exception as exc:
                             record[label] = {'status': 'REJECTED', 'error_type': type(exc).__name__, 'error': str(exc)}
                 else:
-                    parsed = parse_beforeinfo(response.text, url, acquired)
-                    record['old_beforeinfo'] = {'exhibition_times': parsed.exhibition_times,
-                                               'entry_courses': parsed.entry_courses,
-                                               'start_st': parsed.start_exhibition_st,
-                                               'missing_fields': parsed.missing_fields}
+                    try:
+                        parsed = parse_beforeinfo(response.text, url, acquired)
+                        record['old_beforeinfo'] = {'exhibition_times': parsed.exhibition_times,
+                                                   'entry_courses': parsed.entry_courses,
+                                                   'start_st': parsed.start_exhibition_st,
+                                                   'missing_fields': parsed.missing_fields}
+                    except Exception as exc:
+                        record['old_beforeinfo'] = {'status': 'REJECTED', 'error_type': type(exc).__name__, 'error': str(exc)}
+                    try:
+                        record['candidate_beforeinfo'] = asdict(parse_beforeinfo_snapshot(response.text))
+                    except Exception as exc:
+                        record['candidate_beforeinfo'] = {'status': 'REJECTED', 'error_type': type(exc).__name__, 'error': str(exc)}
             except Exception as exc:
                 record.update(fetch_or_parse_status='ERROR', error_type=type(exc).__name__, error=str(exc))
             record['finished_at'] = dt.datetime.now(dt.timezone.utc).isoformat()
