@@ -1,8 +1,4 @@
-"""Bounded, read-only capture for candidate review; never changes production.
-
-These are post-incident responses fetched now, not original 2026-09-18 runtime
-bytes. A saved HTTP response is not automatically a valid official fixture.
-"""
+"""Bounded read-only post-incident captures; no production or current-state claim."""
 from __future__ import annotations
 import datetime as dt
 from dataclasses import asdict
@@ -24,8 +20,9 @@ from v11_candidate.readiness import assess_exhibition_readiness
 def capture(out: Path) -> list[dict]:
     out.mkdir(parents=True, exist_ok=True)
     reports = []
-    # Fixed public URLs only; no user-supplied host, credentials or redirects.
-    targets = [(12, 'odds3t'), (12, 'beforeinfo'), (3, 'odds3t')]
+    # Fixed public URLs only, bounded requests; no credentials or redirects.
+    targets = [(12, 'odds3t'), (12, 'beforeinfo'), (3, 'odds3t'),
+               (12, 'racelist'), (3, 'racelist')]
     with httpx.Client(timeout=20.0, follow_redirects=False,
                       headers={'User-Agent': 'GamagoriResearchFixtureReview/1.1'}) as client:
         for race, endpoint in targets:
@@ -48,10 +45,17 @@ def capture(out: Path) -> list[dict]:
                               content_type=response.headers.get('content-type'),
                               acquired_at=acquired, body_size_bytes=len(body),
                               body_sha256=hashlib.sha256(body).hexdigest(),
-                              snapshot_reference=name, snapshot_persisted=True)
+                              snapshot_reference=name, snapshot_persisted=True,
+                              response_headers={k: response.headers[k] for k in
+                                  ('date', 'last-modified', 'etag', 'age', 'cache-control') if k in response.headers},
+                              source_effective_at=None)
                 record['saved_bytes_match'] = hashlib.sha256(path.read_bytes()).hexdigest() == record['body_sha256']
                 if response.status_code != 200 or 'text/html' not in response.headers.get('content-type', '').lower():
                     record['parse_status'] = 'NOT_ATTEMPTED_HTTP_OR_CONTENT_TYPE'
+                elif endpoint == 'racelist':
+                    # Preserve before assigning semantics. HTTP Date/acquired_at
+                    # do not certify the roster's effective time or race status.
+                    record['parse_status'] = 'CAPTURE_ONLY_PENDING_SEMANTIC_REVIEW'
                 elif endpoint == 'odds3t':
                     for label, parser in [('old', lambda: parse_odds3t(response.text, url, acquired)[0]),
                                           ('candidate', lambda: parse_trifecta(response.text).odds)]:
@@ -77,7 +81,6 @@ def capture(out: Path) -> list[dict]:
                         observation = parse_beforeinfo_observation(response.text)
                         record['candidate_observation'] = asdict(observation)
                         record['candidate_coverage'] = coverage(observation.data)
-                        # HTTP success / URL identity never grants freshness.
                         record['candidate_readiness_unverified'] = asdict(assess_exhibition_readiness(observation))
                     except Exception as exc:
                         record['candidate_observation'] = {'status': 'REJECTED', 'error_type': type(exc).__name__, 'error': str(exc)}
@@ -85,7 +88,6 @@ def capture(out: Path) -> list[dict]:
                 record.update(fetch_or_parse_status='ERROR', error_type=type(exc).__name__, error=str(exc))
             record['finished_at'] = dt.datetime.now(dt.timezone.utc).isoformat()
             reports.append(record)
-            # Preserve progress after each bounded fetch, including failures.
             (out / 'capture_report.json').write_text(json.dumps(reports, ensure_ascii=False, indent=2, allow_nan=False), encoding='utf-8')
     return reports
 
