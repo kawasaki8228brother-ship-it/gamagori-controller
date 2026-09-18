@@ -9,7 +9,8 @@ from typing import Dict, Optional
 import httpx
 
 from models import JST, LiveDataCompleteness, OfficialRaceInfo, RaceIndexSnapshot, SourceEvidence
-from parsers import ParserError, parse_beforeinfo, parse_odds3t, parse_race_index
+from parsers import ParserError, parse_beforeinfo, parse_race_index
+from odds_bridge import parse_c_odds
 
 logger = logging.getLogger("gamagori-controller")
 
@@ -184,7 +185,7 @@ class OfficialDataFetcher:
 
         async def fetch_odds():
             html, acquired_at = await self._get_text(odds_url)
-            return parse_odds3t(html, odds_url, acquired_at)
+            return parse_c_odds(html, odds_url, acquired_at)
 
         before_task = asyncio.create_task(fetch_before())
         odds_task = asyncio.create_task(fetch_odds())
