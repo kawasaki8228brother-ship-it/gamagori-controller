@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 
 from . import beforeinfo as parser
 from .contracts import SourceStatus
+from . import table_selection
 
 
 class ParseState(str, Enum):
@@ -106,16 +107,7 @@ def parse_beforeinfo_observation(html: str) -> BeforeObservation:
     if not isinstance(html, str) or len(html) > 2_000_000:
         raise parser.BeforeInfoParseError('BODY_TYPE_OR_SIZE')
     soup = BeautifulSoup(html, 'html.parser')
-    tables = {'exhibition': [], 'start': []}
-    for table in soup.find_all('table'):
-        if table.find_parent('table') is not None:
-            continue
-        head = table.find('thead', recursive=False)
-        labels = {parser.label(c) for c in head.find_all('th')} if head else set()
-        if {'枠', '展示タイム'} <= labels:
-            tables['exhibition'].append(table)
-        if 'スタート展示' in labels:
-            tables['start'].append(table)
+    tables = table_selection.select_beforeinfo_tables(soup)
 
     data, reports = parser.BeforeInfoSnapshot(), {}
     fields = {'exhibition': ('exhibition_times',), 'start': ('entry_courses', 'starts'), 'weather': ('weather',)}
@@ -129,9 +121,9 @@ def parse_beforeinfo_observation(html: str) -> BeforeObservation:
                 if not candidates:
                     staged.missing_fields.append(name + '_section')
                 elif name == 'exhibition':
-                    parser._exhibition(candidates[0], staged)
+                    parser._exhibition(candidates[0].table, staged)
                 else:
-                    parser._starts(candidates[0], staged)
+                    parser._starts(candidates[0].table, staged)
             else:
                 parser._weather(soup, staged)
             caps = coverage(staged)
