@@ -67,10 +67,24 @@ def _matrix_header(table: Tag) -> list[int] | None:
     headers: list[list[int]] = []
     for row in head.find_all('tr'):
         cells = _cells(row)
-        if len(cells) != 6 or any(c.get('colspan') != '3' for c in cells):
+        if len(cells) == 6 and all(c.get('colspan') == '3' for c in cells):
+            number_cells = cells
+        elif len(cells) == 12 and all(
+            cells[i].get('colspan', '1') == '1' and cells[i + 1].get('colspan') == '2'
+            for i in range(0, 12, 2)
+        ):
+            # Observed in post-incident official captures: boat number plus
+            # a separate racer-name cell spanning the remaining two columns.
+            number_cells = cells[::2]
+            for number, name in zip(number_cells, cells[1::2]):
+                boat = _boat(_text(number))
+                boat_class = f'is-boatColor{boat}'
+                if not _text(name) or boat_class not in number.get('class', []) or boat_class not in name.get('class', []):
+                    raise OddsParseError('MATRIX_HEADER_IDENTITY_MISMATCH')
+        else:
             continue
         try:
-            boats = [_boat(_text(c)) for c in cells]
+            boats = [_boat(_text(c)) for c in number_cells]
         except OddsParseError:
             continue
         if len(set(boats)) != 6:
