@@ -1,6 +1,7 @@
 """Pure guards for prospective integration, not a database permission system."""
 from __future__ import annotations
 import datetime as dt
+import copy
 import hashlib
 import json
 import math
@@ -58,7 +59,9 @@ class DeadlineSnapshot:
     live_state_consistent: bool
 
     def allow_revision(self, now: str, reserve_seconds: float) -> bool:
-        if not math.isfinite(reserve_seconds) or reserve_seconds < 0:
+        if type(self.live_state_consistent) is not bool:
+            raise ContractError('INVALID_LIVE_STATE_TYPE')
+        if type(reserve_seconds) not in (int, float) or not math.isfinite(reserve_seconds) or reserve_seconds < 0:
             raise ContractError('INVALID_RESERVE')
         if not self.live_state_consistent or self.official_deadline_observed is None:
             return False
@@ -89,12 +92,20 @@ class SourceScopedReader:
         self.source, self.source_field, self.choice_id, self.race_field = source, source_field, choice_id, race_field
 
     def read(self, query: Callable[[dict], list[dict]], race_id: str) -> list[dict]:
-        if not re.fullmatch(r'\d{8}_GAMAGORI_(?:[1-9]|1[0-2])R', race_id):
+        if not isinstance(race_id, str) or not re.fullmatch(r'\d{8}_GAMAGORI_(?:[1-9]|1[0-2])R', race_id):
             raise ContractError('INVALID_RACE_ID')
+        try:
+            dt.datetime.strptime(race_id[:8], '%Y%m%d')
+        except ValueError as exc:
+            raise ContractError('INVALID_RACE_DATE') from exc
         filters = {'operator':'and','operands':[
             {'operator':'=','operands':[self.source_field,self.choice_id]},
             {'operator':'contains','operands':[self.race_field,race_id]}]}
-        rows = query(filters)
+        result = query(filters)
+        if type(result) is not list or not all(type(row) is dict for row in result):
+            raise ContractError('INVALID_QUERY_RESPONSE_TYPE')
+        # Detach the validated response from adapter-owned mutable objects.
+        rows = copy.deepcopy(result)
         # Consume the entire response before allowing even one row through.
         for row in rows:
             if row.get('source') != self.source or row.get('race_id') != race_id:
