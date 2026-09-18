@@ -1,0 +1,35 @@
+name: Stage14 result evidence one-off
+on:
+  pull_request:
+    branches: [main]
+    paths: ['.github/workflows/stage14-result-evidence.yml']
+permissions:
+  contents: read
+jobs:
+  capture:
+    if: >-
+      github.event.pull_request.number == 2 &&
+      github.event.pull_request.head.ref == 'v11-audit-parser-candidate-20260919' &&
+      github.run_number == 1 && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: |
+          mkdir -p review_artifacts
+          python -m pytest -q --junitxml=review_artifacts/baseline-tests.xml
+      - name: Fixed past-date results, 12 requests, no retries
+        run: timeout --signal=TERM --kill-after=10s 240s python tools/capture_stage14_results.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stage14-results-${{ github.run_id }}
+          path: review_artifacts/
+          retention-days: 14
+          if-no-files-found: error
