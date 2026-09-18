@@ -54,6 +54,10 @@ class ClosingEvaluator:
                 "exhibition_times": live_data.exhibition_times,
                 "entry_courses": live_data.entry_courses,
                 "start_exhibition_st": live_data.start_exhibition_st,
+                "start_exhibition_readings": {
+                    boat: reading.model_dump()
+                    for boat, reading in live_data.start_exhibition_readings.items()
+                },
                 "weather_info": live_data.weather_info,
                 "odds_3t": live_data.odds_3t,
             },
