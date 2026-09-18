@@ -1,0 +1,29 @@
+name: Minimal C schema2 release review
+on:
+  push:
+    branches: [release/c-schema2-minimal-20260919]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Full suite on the exact minimal tree, no test exclusion
+        run: |
+          mkdir -p review_artifacts
+          python -m compileall -q .
+          python -m pytest -q --junitxml=review_artifacts/all-tests.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c-minimal-${{ github.run_id }}
+          path: review_artifacts/
+          retention-days: 14

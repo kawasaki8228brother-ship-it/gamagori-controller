@@ -9,7 +9,9 @@ from typing import Dict, Optional
 import httpx
 
 from models import JST, LiveDataCompleteness, OfficialRaceInfo, RaceIndexSnapshot, SourceEvidence
-from parsers import ParserError, parse_beforeinfo, parse_odds3t, parse_race_index
+from parsers import ParserError, parse_race_index
+from beforeinfo_bridge import prepare_beforeinfo
+from odds_bridge import parse_c_odds
 
 logger = logging.getLogger("gamagori-controller")
 
@@ -180,11 +182,11 @@ class OfficialDataFetcher:
 
         async def fetch_before():
             html, acquired_at = await self._get_text(before_url)
-            return parse_beforeinfo(html, before_url, acquired_at)
+            return prepare_beforeinfo(html, before_url, acquired_at).live_data
 
         async def fetch_odds():
             html, acquired_at = await self._get_text(odds_url)
-            return parse_odds3t(html, odds_url, acquired_at)
+            return parse_c_odds(html, odds_url, acquired_at)
 
         before_task = asyncio.create_task(fetch_before())
         odds_task = asyncio.create_task(fetch_odds())
@@ -202,7 +204,9 @@ class OfficialDataFetcher:
         else:
             result.exhibition_times = before_result.exhibition_times
             result.entry_courses = before_result.entry_courses
+            # Compatibility projection only: not a six-boat coverage field.
             result.start_exhibition_st = before_result.start_exhibition_st
+            result.start_exhibition_readings = dict(before_result.start_exhibition_readings)
             result.weather_info = before_result.weather_info
             result.source_evidence.update(before_result.source_evidence)
             missing.extend(before_result.missing_fields)

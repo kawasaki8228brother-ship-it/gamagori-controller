@@ -4,6 +4,7 @@ import datetime as dt
 from typing import Any, Dict, List, Optional, Tuple
 
 from models import LiveDataCompleteness
+from c_payload_schema import C_PAYLOAD_SCHEMA_VERSION
 
 
 class ClosingEvaluator:
@@ -36,7 +37,7 @@ class ClosingEvaluator:
         c_b_5pts = ["1-2-3", "1-2-5", "1-3-2", "1-5-2", "1-5-3"]
 
         payload = {
-            "schema_version": 1,
+            "schema_version": C_PAYLOAD_SCHEMA_VERSION,
             "model_version": "v0.4.1_shadow",
             "controller_version": "v0.4.1",
             "race_id": race_id,
@@ -54,6 +55,10 @@ class ClosingEvaluator:
                 "exhibition_times": live_data.exhibition_times,
                 "entry_courses": live_data.entry_courses,
                 "start_exhibition_st": live_data.start_exhibition_st,
+                "start_exhibition_readings": {
+                    boat: reading.model_dump()
+                    for boat, reading in live_data.start_exhibition_readings.items()
+                },
                 "weather_info": live_data.weather_info,
                 "odds_3t": live_data.odds_3t,
             },
