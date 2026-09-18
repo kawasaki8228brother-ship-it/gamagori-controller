@@ -7,6 +7,7 @@ from typing import Any, Dict, List, Optional
 from zoneinfo import ZoneInfo
 
 from pydantic import BaseModel, Field, field_validator
+from start_reading import ExhibitionStartReading
 
 JST = ZoneInfo("Asia/Tokyo")
 
@@ -63,6 +64,8 @@ class LiveDataCompleteness(BaseModel):
     exhibition_times: Dict[int, float] = Field(default_factory=dict)
     entry_courses: Dict[int, int] = Field(default_factory=dict)
     start_exhibition_st: Dict[int, float] = Field(default_factory=dict)
+    # Lossless observations; marked ST must not enter the legacy unsigned map.
+    start_exhibition_readings: Dict[int, ExhibitionStartReading] = Field(default_factory=dict)
     weather_info: Dict[str, Any] = Field(default_factory=dict)
     odds_3t: Dict[str, float] = Field(default_factory=dict)
     missing_fields: List[str] = Field(default_factory=list)

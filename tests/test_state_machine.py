@@ -56,7 +56,7 @@ def info(race_id, deadline, closed=False, cancelled=False):
 async def test_closing_event_persisted_and_idempotent(repo):
     now = dt.datetime(2026, 9, 17, 15, 14, tzinfo=JST)
     rid = "20260917_GAM_01R"
-    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), DryRunAirtableAdapter(repo))
+    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), DryRunAirtableAdapter(repo), clock=lambda: now)
     st = await sm.process_race(rid, now, info(rid, now + dt.timedelta(minutes=7)))
     assert st.status == RaceStatus.C_EVENT_DONE
     assert len(st.c_events) == 1
@@ -64,7 +64,7 @@ async def test_closing_event_persisted_and_idempotent(repo):
     assert len(events) == 1
 
     # restart: same repo, same version -> no duplicate event
-    sm2 = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), DryRunAirtableAdapter(repo))
+    sm2 = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), DryRunAirtableAdapter(repo), clock=lambda: now)
     st2 = await sm2.process_race(rid, now, info(rid, now + dt.timedelta(minutes=7)))
     assert len(st2.c_events) == 1
     assert len(await repo.list_shadow_events(rid)) == 1
@@ -74,7 +74,7 @@ async def test_closing_event_persisted_and_idempotent(repo):
 async def test_shortening_skips_window_and_is_recorded(repo):
     now = dt.datetime(2026, 9, 17, 15, 0, tzinfo=JST)
     rid = "20260917_GAM_02R"
-    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), DryRunAirtableAdapter(repo))
+    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), DryRunAirtableAdapter(repo), clock=lambda: now)
     st = await sm.process_race(rid, now, info(rid, now + dt.timedelta(minutes=20)))
     assert st.status == RaceStatus.PENDING
 
@@ -93,7 +93,7 @@ async def test_shortening_skips_window_and_is_recorded(repo):
 async def test_data_incomplete_miss(repo):
     now = dt.datetime(2026, 9, 17, 15, 10, tzinfo=JST)
     rid = "20260917_GAM_03R"
-    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(complete=False), DryRunAirtableAdapter(repo))
+    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(complete=False), DryRunAirtableAdapter(repo), clock=lambda: now)
     st = await sm.process_race(rid, now, info(rid, now + dt.timedelta(minutes=7)))
     assert st.status == RaceStatus.DATA_WAIT
     st = await sm.process_race(rid, now + dt.timedelta(minutes=8), info(rid, now + dt.timedelta(minutes=7), closed=True))
@@ -110,6 +110,7 @@ async def test_source_error_timeout_from_last_known_official_deadline(repo):
         FakeFetcher(),
         DryRunAirtableAdapter(repo),
         source_error_grace_minutes=10,
+        clock=lambda: now,
     )
     st = await sm.process_race(rid, now, info(rid, now + dt.timedelta(minutes=20)))
     assert st.official_deadline is not None
@@ -126,12 +127,12 @@ async def test_source_error_timeout_from_last_known_official_deadline(repo):
 async def test_terminal_payload_records_zero_observation(repo):
     now = dt.datetime(2026, 9, 17, 15, 0, tzinfo=JST)
     rid = "20260917_GAM_05R"
-    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), DryRunAirtableAdapter(repo))
+    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), DryRunAirtableAdapter(repo), clock=lambda: now)
     st = await sm.process_race(rid, now, info(rid, now + dt.timedelta(minutes=20)))
     st = await sm.process_race(rid, now + dt.timedelta(minutes=21), info(rid, now + dt.timedelta(minutes=20), closed=True))
     events = await repo.list_shadow_events(rid)
     terminal = [e for e in events if e["event_type"] == "RACE_TERMINAL"][0]
-    assert '"c_event_count":0' in terminal["payload_json"]
+    assert '\"c_event_count\":0' in terminal["payload_json"]
 
 
 @pytest.mark.asyncio
@@ -139,7 +140,7 @@ async def test_atomic_duplicate_reuses_existing_event_uuid(repo):
     now = dt.datetime(2026, 9, 17, 15, 0, tzinfo=JST)
     rid = "20260917_GAM_06R"
     adapter = DryRunAirtableAdapter(repo)
-    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), adapter)
+    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), adapter, clock=lambda: now)
     st = await sm.process_race(rid, now, info(rid, now + dt.timedelta(minutes=7)))
     first_uuid = st.c_events[0]
 
@@ -158,7 +159,7 @@ async def test_atomic_duplicate_reuses_existing_event_uuid(repo):
 async def test_previous_version_event_does_not_hide_current_version_miss(repo):
     now = dt.datetime(2026, 9, 17, 15, 0, tzinfo=JST)
     rid = "20260917_GAM_07R"
-    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), DryRunAirtableAdapter(repo))
+    sm = RaceStateMachine(repo, MockBaselineRepository(), FakeFetcher(), DryRunAirtableAdapter(repo), clock=lambda: now)
 
     # v1 gets a valid C event.
     st = await sm.process_race(rid, now, info(rid, now + dt.timedelta(minutes=7)))
