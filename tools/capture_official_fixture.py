@@ -17,6 +17,8 @@ sys.path.insert(0, str(ROOT))
 from parsers import parse_odds3t, parse_beforeinfo
 from v11_candidate.odds import parse_trifecta
 from v11_candidate.beforeinfo import parse_beforeinfo_snapshot
+from v11_candidate.observation import parse_beforeinfo_observation, coverage
+from v11_candidate.readiness import assess_exhibition_readiness
 
 
 def capture(out: Path) -> list[dict]:
@@ -71,6 +73,14 @@ def capture(out: Path) -> list[dict]:
                         record['candidate_beforeinfo'] = asdict(parse_beforeinfo_snapshot(response.text))
                     except Exception as exc:
                         record['candidate_beforeinfo'] = {'status': 'REJECTED', 'error_type': type(exc).__name__, 'error': str(exc)}
+                    try:
+                        observation = parse_beforeinfo_observation(response.text)
+                        record['candidate_observation'] = asdict(observation)
+                        record['candidate_coverage'] = coverage(observation.data)
+                        # HTTP success / URL identity never grants freshness.
+                        record['candidate_readiness_unverified'] = asdict(assess_exhibition_readiness(observation))
+                    except Exception as exc:
+                        record['candidate_observation'] = {'status': 'REJECTED', 'error_type': type(exc).__name__, 'error': str(exc)}
             except Exception as exc:
                 record.update(fetch_or_parse_status='ERROR', error_type=type(exc).__name__, error=str(exc))
             record['finished_at'] = dt.datetime.now(dt.timezone.utc).isoformat()
