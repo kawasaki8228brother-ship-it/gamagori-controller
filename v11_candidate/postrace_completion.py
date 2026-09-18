@@ -149,7 +149,7 @@ def parse_result_publication(body: bytes):
         registrations.add(reg)
         if not mark:
             raise ResultUnavailable('BLANK_FINISH_LABEL')
-        labels.append((boat,mark))
+        labels.append((boat,c[0].get_text('',strip=False)))  # preserve visible original text
         if re.fullmatch('[1-6]',mark):
             if int(mark) in numeric:
                 raise ResultUnavailable('TIED_FINISH_LAYOUT_NOT_REVIEWED')
