@@ -3,7 +3,7 @@ from __future__ import annotations
 import datetime as dt
 import logging
 import uuid
-from typing import Optional
+from typing import Callable, Optional
 
 from airtable import DryRunAirtableAdapter
 from closing import ClosingEvaluator
@@ -30,12 +30,27 @@ class RaceStateMachine:
         fetcher: OfficialDataFetcher,
         airtable: DryRunAirtableAdapter,
         source_error_grace_minutes: int = 20,
+        *,
+        clock: Optional[Callable[[], dt.datetime]] = None,
     ):
         self.repo = repository
         self.baseline_repo = baseline_repo
         self.fetcher = fetcher
         self.airtable = airtable
         self.source_error_grace = dt.timedelta(minutes=source_error_grace_minutes)
+        # Production uses a fresh wall-clock read; tests supply their own clock.
+        # Never silently reuse process_race(now_jst) as the post-fetch timestamp.
+        if clock is not None and not callable(clock):
+            raise TypeError("clock must be callable")
+        self._clock = clock if clock is not None else lambda: dt.datetime.now(JST)
+
+    def _read_clock(self, not_before: dt.datetime) -> dt.datetime:
+        value = self._clock()
+        if not isinstance(value, dt.datetime) or value.tzinfo is None or value.utcoffset() is None:
+            raise ValueError("clock must return an aware datetime")
+        if value < not_before:
+            raise ValueError("clock moved backwards relative to this processing stage")
+        return value.astimezone(JST)
 
     def _classify_miss(self, state: RaceState) -> Optional[MissedObservationReason]:
         current = state.window_state()
@@ -248,7 +263,14 @@ class RaceStateMachine:
 
         baseline_a_id, baseline_b_id = await self.baseline_repo.get_latest_baseline_ids(race_id)
         # observed_at is the freeze time after all data acquisition/baseline reads are complete.
-        observed_at = dt.datetime.now(JST)
+        try:
+            observed_at = self._read_clock(now_jst)
+        except Exception as exc:
+            # A broken test or wall clock must not create a closing observation.
+            state.status = RaceStatus.SAFE_STOP
+            await self.repo.save_race_state(state)
+            logger.warning("[%s] invalid observation clock; event suppressed (%s)", race_id, type(exc).__name__)
+            return state
         if observed_at >= state.official_deadline:
             state.status = RaceStatus.SAFE_STOP
             await self.repo.save_race_state(state)
@@ -281,6 +303,20 @@ class RaceStateMachine:
             official_deadline=state.official_deadline.isoformat(),
             payload_hash=DryRunAirtableAdapter.generate_canonical_hash(payload),
         )
+        # Recheck after evaluation/serialization too. This is a pre-append
+        # safety check, NOT a guarantee that storage completes before deadline.
+        try:
+            append_at = self._read_clock(observed_at)
+        except Exception as exc:
+            state.status = RaceStatus.SAFE_STOP
+            await self.repo.save_race_state(state)
+            logger.warning("[%s] invalid pre-append clock; event suppressed (%s)", race_id, type(exc).__name__)
+            return state
+        if append_at >= state.official_deadline:
+            state.status = RaceStatus.SAFE_STOP
+            await self.repo.save_race_state(state)
+            logger.warning("[%s] pre-append deadline reached; event suppressed", race_id)
+            return state
         success, _, persisted_uuid = await self.airtable.append_event(record)
         if success:
             if persisted_uuid not in state.c_events:
