@@ -13,6 +13,7 @@ import unicodedata
 from bs4 import BeautifulSoup, Tag
 
 from . import beforeinfo as parser
+from . import table_selection
 
 
 @dataclass(frozen=True)
@@ -129,16 +130,7 @@ def scan_withdrawal_text(body: bytes) -> WithdrawalScan:
         raise parser.BeforeInfoParseError('BODY_ENCODING') from exc
     digest = hashlib.sha256(body).hexdigest()
     soup = BeautifulSoup(html, 'html.parser')
-    candidates = {'exhibition': [], 'start': []}
-    for index, table in enumerate(soup.find_all('table'), 1):
-        if table.find_parent('table') is not None:
-            continue
-        head = table.find('thead', recursive=False)
-        labels = {parser.label(c) for c in head.find_all('th')} if head else set()
-        if {'枠', '展示タイム'} <= labels:
-            candidates['exhibition'].append((index, table))
-        if 'スタート展示' in labels:
-            candidates['start'].append((index, table))
+    candidates = table_selection.select_beforeinfo_tables(soup)
     signals, reports, parsed = [], [], {}
     for section, parse in (('exhibition', _exhibition_signals), ('start', _start_signals)):
         tables = candidates[section]
@@ -148,7 +140,7 @@ def scan_withdrawal_text(body: bytes) -> WithdrawalScan:
         try:
             if len(tables) != 1:
                 raise parser.BeforeInfoParseError('AMBIGUOUS_DATA_TABLES')
-            index, table = tables[0]
+            index, table = tables[0].absolute_index, tables[0].table
             found, snapshot, state = parse(table, index, digest)
         except Exception as exc:
             code = str(exc) if isinstance(exc, parser.BeforeInfoParseError) else 'UNEXPECTED_SECTION_ERROR:' + type(exc).__name__
