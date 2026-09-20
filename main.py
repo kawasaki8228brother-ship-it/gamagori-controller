@@ -14,7 +14,6 @@ from error_rate_limit import RepeatedErrorRateLimiter
 from models import JST, OfficialRaceInfo, RaceStatus
 from official import OfficialDataFetcher
 from repositories import MockBaselineRepository, SQLiteStateRepository
-from sqlite_readonly_audit import SQLiteReadOnlyAuditor
 from state_machine import RaceStateMachine
 
 logging.basicConfig(
@@ -57,7 +56,6 @@ class GamagoriController:
         self._error_log_limiter = RepeatedErrorRateLimiter(
             REPEATED_ERROR_LOG_INTERVAL_SECONDS
         )
-        self._sqlite_auditor = SQLiteReadOnlyAuditor(self.db_path)
         self._last_sqlite_audit_at: dt.datetime | None = None
 
     def request_stop(self) -> None:
@@ -69,11 +67,21 @@ class GamagoriController:
             if 0 <= elapsed < SQLITE_AUDIT_INTERVAL_SECONDS:
                 return
 
-        # Mark the attempt time even when the diagnostic fails so a transient
-        # read failure cannot create a tight retry/log loop.
+        # Mark the attempt time even when diagnostics fail so a transient
+        # read error cannot create a tight retry/log loop.
         self._last_sqlite_audit_at = now_jst
         try:
-            snapshot = self._sqlite_auditor.snapshot(now_jst.strftime("%Y%m%d"))
+            # Keep both import and call inside the safety boundary. Diagnostic
+            # module failures must not prevent controller startup or polling.
+            from sqlite_readonly_audit import SQLiteReadOnlyAuditor
+
+            snapshot = SQLiteReadOnlyAuditor(
+                self.db_path,
+                busy_timeout_ms=2500,
+            ).snapshot(
+                now_jst.strftime("%Y%m%d"),
+                process_now_jst=now_jst.isoformat(),
+            )
             logger.info(
                 "SQLITE_AUDIT_READONLY reason=%s snapshot=%s",
                 reason,
