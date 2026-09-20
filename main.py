@@ -9,6 +9,7 @@ import sys
 from typing import Dict
 
 from airtable import DryRunAirtableAdapter
+from error_rate_limit import RepeatedErrorRateLimiter
 from models import JST, OfficialRaceInfo, RaceStatus
 from official import OfficialDataFetcher
 from repositories import MockBaselineRepository, SQLiteStateRepository
@@ -20,6 +21,8 @@ logging.basicConfig(
     handlers=[logging.StreamHandler(sys.stdout)],
 )
 logger = logging.getLogger("gamagori-controller")
+
+REPEATED_ERROR_LOG_INTERVAL_SECONDS = 600.0
 
 
 class GamagoriController:
@@ -48,6 +51,9 @@ class GamagoriController:
         )
         self._stop = asyncio.Event()
         self._known_races: Dict[str, OfficialRaceInfo] = {}
+        self._error_log_limiter = RepeatedErrorRateLimiter(
+            REPEATED_ERROR_LOG_INTERVAL_SECONDS
+        )
 
     def request_stop(self) -> None:
         self._stop.set()
@@ -114,7 +120,12 @@ class GamagoriController:
                     )
                 except Exception as exc:
                     index_failed = True
-                    logger.error("Poll #%s raceindex FAILED: %s", iteration, exc)
+                    self._error_log_limiter.emit(
+                        logger,
+                        context="raceindex",
+                        prefix=f"Poll #{iteration} raceindex FAILED",
+                        exc=exc,
+                    )
 
                     # Tracking-only fallback: discovers the expected Gamagori race universe and
                     # approximate published deadlines without promoting them to official evidence.
@@ -131,7 +142,12 @@ class GamagoriController:
                             tracking_snapshot.acquired_at,
                         )
                     except Exception as fallback_exc:
-                        logger.error("Poll #%s tracking fallback FAILED: %s", iteration, fallback_exc)
+                        self._error_log_limiter.emit(
+                            logger,
+                            context="tracking_fallback",
+                            prefix=f"Poll #{iteration} tracking fallback FAILED",
+                            exc=fallback_exc,
+                        )
                         if not self._known_races:
                             # Recover known races from persistent states if this is a restart during an outage.
                             persisted = await self.repo.list_all_states()
