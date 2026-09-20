@@ -1,28 +1,44 @@
 from __future__ import annotations
 
+import datetime as dt
 import json
 import sqlite3
+from contextlib import closing
 from pathlib import Path
 from typing import Any
 
 
 class SQLiteReadOnlyAuditor:
-    """Strictly read-only diagnostics for the controller's persistent SQLite DB.
+    """Point-in-time, strictly read-only diagnostics for the persistent SQLite DB.
 
-    The auditor opens SQLite with URI mode=ro. It never initializes schemas,
-    changes PRAGMAs, or writes audit data back into the database.
+    Safety invariants:
+    - DB is opened with URI mode=ro.
+    - immutable=1 is intentionally forbidden for a live database.
+    - Connections are opened for one short snapshot and explicitly closed.
+    - No schema creation, checkpoint, or database-mutating PRAGMA is executed.
     """
 
     TABLES = ("race_states", "idempotency_keys", "shadow_events")
 
-    def __init__(self, db_path: str):
+    def __init__(self, db_path: str, *, busy_timeout_ms: int = 2500):
+        if busy_timeout_ms <= 0:
+            raise ValueError("busy_timeout_ms must be > 0")
         self.db_path = str(db_path)
+        self.busy_timeout_ms = int(busy_timeout_ms)
 
     def _connect_ro(self) -> sqlite3.Connection:
         path = Path(self.db_path).resolve()
+        # Do not add immutable=1. The production DB is live and can change.
         uri = f"{path.as_uri()}?mode=ro"
-        conn = sqlite3.connect(uri, uri=True, timeout=10.0)
+        conn = sqlite3.connect(
+            uri,
+            uri=True,
+            timeout=self.busy_timeout_ms / 1000.0,
+            isolation_level=None,
+        )
         conn.row_factory = sqlite3.Row
+        # Connection-local timeout only; this does not mutate the database.
+        conn.execute(f"PRAGMA busy_timeout={self.busy_timeout_ms}")
         return conn
 
     @staticmethod
@@ -57,13 +73,22 @@ class SQLiteReadOnlyAuditor:
             "updated_at": updated_at,
         }
 
-    def snapshot(self, target_date_yyyymmdd: str) -> dict[str, Any]:
+    def snapshot(
+        self,
+        target_date_yyyymmdd: str,
+        *,
+        process_now_jst: str,
+    ) -> dict[str, Any]:
         if len(target_date_yyyymmdd) != 8 or not target_date_yyyymmdd.isdigit():
             raise ValueError("target_date_yyyymmdd must be YYYYMMDD")
 
+        path = Path(self.db_path).resolve()
+        stat = path.stat()  # Missing DB must fail; mode=ro must never create it.
         race_prefix = f"{target_date_yyyymmdd}_GAM_%"
 
-        with self._connect_ro() as conn:
+        # This is intentionally one short-lived connection. isolation_level=None
+        # avoids holding an explicit multi-query read transaction between queries.
+        with closing(self._connect_ro()) as conn:
             existing_tables = {
                 row["name"]
                 for row in conn.execute(
@@ -77,10 +102,15 @@ class SQLiteReadOnlyAuditor:
                     "required SQLite tables missing: " + ",".join(missing_tables)
                 )
 
-            table_counts = {
-                table: int(conn.execute(f"SELECT COUNT(*) AS n FROM {table}").fetchone()["n"])
-                for table in self.TABLES
-            }
+            journal_mode_row = conn.execute("PRAGMA journal_mode").fetchone()
+            journal_mode = journal_mode_row[0] if journal_mode_row else None
+            busy_timeout_row = conn.execute("PRAGMA busy_timeout").fetchone()
+            busy_timeout_ms = busy_timeout_row[0] if busy_timeout_row else None
+
+            table_counts = {}
+            for table in self.TABLES:
+                row = conn.execute(f"SELECT COUNT(*) AS n FROM {table}").fetchone()
+                table_counts[table] = int(row["n"])
 
             state_rows = conn.execute(
                 """
@@ -109,15 +139,21 @@ class SQLiteReadOnlyAuditor:
                 row["event_type"]: int(row["n"]) for row in event_type_rows
             }
 
-            journal_mode_row = conn.execute("PRAGMA journal_mode").fetchone()
-            journal_mode = journal_mode_row[0] if journal_mode_row else None
-
         return {
             "audit_mode": "STRICT_READ_ONLY",
+            "snapshot_semantics": "POINT_IN_TIME_NOT_TRACE",
             "sqlite_open_mode": "mode=ro",
+            "immutable": False,
             "db_path": self.db_path,
+            "db_file_size_bytes": stat.st_size,
+            "db_file_mtime_ns": stat.st_mtime_ns,
+            "db_file_mtime_utc": dt.datetime.fromtimestamp(
+                stat.st_mtime, tz=dt.timezone.utc
+            ).isoformat(),
+            "process_now_jst": process_now_jst,
             "target_date": target_date_yyyymmdd,
             "journal_mode": journal_mode,
+            "busy_timeout_ms": busy_timeout_ms,
             "table_counts": table_counts,
             "current_date_race_state_count": len(race_states),
             "current_date_race_states": race_states,
