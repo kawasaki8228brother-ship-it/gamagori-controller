@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import datetime as dt
+import json
 import logging
 import os
 import signal
@@ -23,6 +24,7 @@ logging.basicConfig(
 logger = logging.getLogger("gamagori-controller")
 
 REPEATED_ERROR_LOG_INTERVAL_SECONDS = 600.0
+SQLITE_AUDIT_INTERVAL_SECONDS = 3600.0
 
 
 class GamagoriController:
@@ -54,9 +56,45 @@ class GamagoriController:
         self._error_log_limiter = RepeatedErrorRateLimiter(
             REPEATED_ERROR_LOG_INTERVAL_SECONDS
         )
+        self._last_sqlite_audit_at: dt.datetime | None = None
 
     def request_stop(self) -> None:
         self._stop.set()
+
+    def _maybe_log_sqlite_audit(self, now_jst: dt.datetime, *, reason: str) -> None:
+        if self._last_sqlite_audit_at is not None:
+            elapsed = (now_jst - self._last_sqlite_audit_at).total_seconds()
+            if 0 <= elapsed < SQLITE_AUDIT_INTERVAL_SECONDS:
+                return
+
+        # Mark the attempt time even when diagnostics fail so a transient
+        # read error cannot create a tight retry/log loop.
+        self._last_sqlite_audit_at = now_jst
+        try:
+            # Keep both import and call inside the safety boundary. Diagnostic
+            # module failures must not prevent controller startup or polling.
+            from sqlite_readonly_audit import SQLiteReadOnlyAuditor
+
+            snapshot = SQLiteReadOnlyAuditor(
+                self.db_path,
+                busy_timeout_ms=2500,
+            ).snapshot(
+                now_jst.strftime("%Y%m%d"),
+                process_now_jst=now_jst.isoformat(),
+            )
+            logger.info(
+                "SQLITE_AUDIT_READONLY reason=%s snapshot=%s",
+                reason,
+                json.dumps(snapshot, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
+            )
+        except Exception as exc:
+            # Diagnostics must never change controller behavior or stop polling.
+            logger.warning(
+                "SQLITE_AUDIT_READONLY_FAILED reason=%s type=%s error=%s",
+                reason,
+                type(exc).__name__,
+                exc,
+            )
 
     async def run_watchdog_check(self, race_ids: list[str]) -> None:
         states = {s.race_id: s for s in await self.repo.list_all_states()}
@@ -107,6 +145,9 @@ class GamagoriController:
             while not self._stop.is_set():
                 iteration += 1
                 now_jst = dt.datetime.now(JST)
+                self._maybe_log_sqlite_audit(
+                    now_jst, reason="startup" if iteration == 1 else "hourly"
+                )
                 index_failed = False
                 tracking_fallback_active = False
                 try:
