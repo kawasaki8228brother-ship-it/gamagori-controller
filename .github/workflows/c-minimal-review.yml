@@ -1,7 +1,7 @@
 name: Minimal C schema2 release review
 on:
   push:
-    branches: [release/c-schema2-minimal-20260919]
+    branches: [release/c-schema2-minimal-20260919, feat/sqlite-readonly-audit-20260921]
 permissions:
   contents: read
 jobs:
