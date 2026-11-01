@@ -1,0 +1,10 @@
+TRUST REDACTED
+ORIGINAL_SHA256 48b165f27fa78d76fe6337ef843da875bd20a0ab61645cf3d99bc6565d920e92
+ORIGINAL_BYTES 479
+STATUS ARCHIVED_CODEX_ISOLATED_CHECK_NOT_CLAUDE_REVIEW
+ENV {"openssl": "OpenSSL 3.5.5 27 Jan 2026", "os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"}
+COMMAND_SELFTEST PASS (isolated development only; not Render; one local-wheel URL withheld)
+SYNTHETIC_SECRET_REDACTION PASS
+FREEZE_UNSAFE_LINES_WITHHELD PASS count=3 stderr_suppressed=True
+AUDIT_GUARDS PASS {"application_not_imported": true, "network": true, "subprocess": true, "write": true}
+A5_COMMAND_EXECUTION NOT_RUN

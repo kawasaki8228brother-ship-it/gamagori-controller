@@ -1,0 +1,88 @@
+{
+  "data": {
+    "certifi": {
+      "ca_path": "[REDACTED_PATH]",
+      "ca_sha256": "2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b",
+      "version": "2026.10.23"
+    },
+    "default_verify_paths": {
+      "cafile": "REDACTED_ENV_OVERRIDE",
+      "capath": "[REDACTED_PATH]",
+      "openssl_cafile": "[REDACTED_PATH]",
+      "openssl_cafile_env": "SSL_CERT_FILE",
+      "openssl_capath": "[REDACTED_PATH]",
+      "openssl_capath_env": "SSL_CERT_DIR"
+    },
+    "env_present": {
+      "ALL_PROXY": false,
+      "HTTPS_PROXY": true,
+      "HTTP_PROXY": true,
+      "NO_PROXY": true,
+      "REQUESTS_CA_BUNDLE": true,
+      "SSL_CERT_DIR": false,
+      "SSL_CERT_FILE": true
+    },
+    "executable": "[REDACTED_PATH]",
+    "execution_scope": "ISOLATED_DEVELOPMENT_ONLY_NOT_RENDER",
+    "httpx_default_ssl_context": {
+      "check_hostname": true,
+      "loaded_ca_count": 154,
+      "store_stats": {
+        "crl": 0,
+        "x509": 154,
+        "x509_ca": 154
+      },
+      "verify_mode": 2,
+      "version": "0.28.1"
+    },
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "os": {
+      "machine": "x86_64",
+      "release": "6.18.57",
+      "system": "Linux"
+    },
+    "pip_freeze": {
+      "complete_for_A2": false,
+      "exit_code": 0,
+      "safe_pins": [
+        "Pygments==2.21.0",
+        "annotated-types==0.8.0",
+        "anyio==4.16.0",
+        "beautifulsoup4==4.14.3",
+        "h11==0.16.0",
+        "httpcore==1.0.9",
+        "httpx==0.28.1",
+        "idna==3.20",
+        "iniconfig==2.3.1",
+        "packaging==26.3",
+        "pip==25.3",
+        "pluggy==1.7.0",
+        "pydantic==2.13.4",
+        "pydantic_core==2.46.4",
+        "pytest-asyncio==1.3.0",
+        "pytest==9.0.2",
+        "soupsieve==3.0.4",
+        "typing-inspection==0.4.4",
+        "typing_extensions==4.16.0"
+      ],
+      "stderr_suppressed": false,
+      "withheld_line_count": 1
+    },
+    "prefix": "[REDACTED_PATH]",
+    "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]",
+    "sqlite_stat_only": {
+      "error_type": "FileNotFoundError"
+    },
+    "utc": "2026-11-01T15:52:05.119746+00:00",
+    "var_data_disk_bytes": {
+      "error_type": "FileNotFoundError"
+    }
+  },
+  "original": {
+    "bytes": 2164,
+    "name": "records/readonly-command-isolated.json",
+    "sha256": "7c0be227068a84d330c81d730ee0f97f274a96a37aeff34ed215234b86c20a9a"
+  },
+  "test_status": "ARCHIVED_ISOLATED_ONLY_NOT_RENDER",
+  "trust": "REDACTED"
+}

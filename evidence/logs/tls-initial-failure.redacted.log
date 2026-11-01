@@ -1,0 +1,99 @@
+TRUST REDACTED
+ORIGINAL_SHA256 4ab8241b4b886f0b669e7e5f840e6c3d6ca8549dab29a883bd64f6e1d463150b
+ORIGINAL_BYTES 6284
+STATUS ARCHIVED_FIXTURE_AKI_FAILURE_PRESERVED
+ENV {"openssl": "OpenSSL 3.5.5 27 Jan 2026", "os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"}
+COMMAND ["[REDACTED_PATH]", "-B", "[REDACTED_PATH]"]
+BUNDLE_SUBJECT {"expected": false, "name": "emSign ECC Root CA - G3", "present": false}
+BUNDLE_SUBJECT {"expected": false, "name": "emSign Root CA - C1", "present": false}
+BUNDLE_SUBJECT {"expected": false, "name": "emSign ECC Root CA - C3", "present": false}
+BUNDLE_SUBJECT {"expected": true, "name": "emSign Root CA - G1", "present": true}
+BUNDLE_PASS {"cacert_sha256": "2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b", "loaded_count_explicit_certifi": 118, "pem_count": 118, "version": "2026.10.23"}
+Traceback (most recent call last):
+  File "[REDACTED_PATH]", line 101, in map_httpcore_exceptions
+    yield
+  File "[REDACTED_PATH]", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REDACTED_PATH]", line 256, in handle_async_request
+    raise exc from None
+  File "[REDACTED_PATH]", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "[REDACTED_PATH]", line 101, in handle_async_request
+    raise exc
+  File "[REDACTED_PATH]", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REDACTED_PATH]", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REDACTED_PATH]", line 67, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "[REDACTED_PATH]", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "[REDACTED_PATH]", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1081)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "[REDACTED_PATH]", line 111, in <module>
+    asyncio.run(local_tests())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "[REDACTED_PATH]", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "[REDACTED_PATH]", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "[REDACTED_PATH]", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "[REDACTED_PATH]", line 68, in local_tests
+    response = await client.get(servers["valid"].url)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REDACTED_PATH]", line 1768, in get
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "[REDACTED_PATH]", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REDACTED_PATH]", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "[REDACTED_PATH]", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "[REDACTED_PATH]", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REDACTED_PATH]", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REDACTED_PATH]", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "[REDACTED_PATH]", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "[REDACTED_PATH]", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1081)
+EXIT_CODE 1

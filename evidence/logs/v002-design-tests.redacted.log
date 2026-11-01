@@ -1,0 +1,17 @@
+TRUST REDACTED
+ORIGINAL_SHA256 54262e9da76ed2e39c4a2f329c8b1ad6860325c2667b4fa3bd682e07c957a359
+ORIGINAL_BYTES 927
+STATUS CODEX_ISOLATED_DESIGN_TEST_ONLY_CLAUDE_REVIEW_PENDING
+ENV {"openssl": "OpenSSL 3.5.5 27 Jan 2026", "os": {"machine": "x86_64", "release": "6.18.57", "system": "Linux"}, "python": "3.14.3"}
+COMPLETE_COMMAND PASS one python -B -c; known isolated interpreter/prefix matched
+LIVE_WORKER_IDENTITY UNVERIFIED (no Render execution or approved live reference)
+ENV_PRESENCE PASS upper/lower names=14 values_not_printed
+FRAME PASS BEGIN/END body_lines=10
+TAIL_CUT_STRUCTURE PASS proper_prefixes_without_group_terminator=10288
+TAIL_CUT_EXECUTION PASS samples=18 syntax_error_no_collector_output
+ENVELOPE_GUARD PASS missing_end_token_and_corrupt_payload_rejected_before_collection
+OUTPUT_DAMAGE PASS truncated_body/footer edited_body extra_output_rejected
+SYNTHETIC_SAFETY PASS freeze_redacted_lines=4 lower_env_presence_only unsafe_path_redacted guards=write,dotenv,network,subprocess,sqlite app_not_imported
+RENDER_EXECUTION NOT_RUN
+A2_REVIEW NOT_PERFORMED
+CLAUDE_INDEPENDENT_REVIEW PENDING

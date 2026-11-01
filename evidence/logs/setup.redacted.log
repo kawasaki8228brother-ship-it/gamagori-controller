@@ -1,0 +1,69 @@
+TRUST REDACTED
+ORIGINAL_SHA256 93ec98ee790bdc6604c80b493c4515deee0ff412fed2675f3bb17bf71e090f48
+ORIGINAL_BYTES 6164
+STATUS ARCHIVED_SETUP_NOT_RERUN
+ENV {"os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]", "role": "setup/download driver"}
+WHEEL {"filename": "certifi-2026.10.23-py3-none-any.whl", "sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1", "yanked": false}
+TARGET_ENV {"openssl": "OpenSSL 3.5.5 27 Jan 2026", "os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"}
+COMMAND ["[REDACTED_PATH]", "-m", "pip", "--isolated", "--disable-pip-version-check", "--no-cache-dir", "--keyring-provider", "disabled", "install", "--index-url", "[REDACTED_URL]", "-r", "[REDACTED_PATH]", "[REDACTED_PATH]"]
+Processing ./work/certifi-phase1/certifi-2026.10.23-py3-none-any.whl
+Collecting pydantic==2.13.4 (from -r [REDACTED_PATH] (line 1))
+  Downloading pydantic-2.13.4-py3-none-any.whl.metadata (109 kB)
+Collecting httpx==0.28.1 (from -r [REDACTED_PATH] (line 2))
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting beautifulsoup4==4.14.3 (from -r [REDACTED_PATH] (line 4))
+  Downloading beautifulsoup4-4.14.3-py3-none-any.whl.metadata (3.8 kB)
+Collecting pytest==9.0.2 (from -r [REDACTED_PATH] (line 5))
+  Downloading pytest-9.0.2-py3-none-any.whl.metadata (7.6 kB)
+Collecting pytest-asyncio==1.3.0 (from -r [REDACTED_PATH] (line 6))
+  Downloading pytest_asyncio-1.3.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting annotated-types>=0.6.0 (from pydantic==2.13.4->-r [REDACTED_PATH] (line 1))
+  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.46.4 (from pydantic==2.13.4->-r [REDACTED_PATH] (line 1))
+  Downloading pydantic_core-2.46.4-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting typing-extensions>=4.14.1 (from pydantic==2.13.4->-r [REDACTED_PATH] (line 1))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting typing-inspection>=0.4.2 (from pydantic==2.13.4->-r [REDACTED_PATH] (line 1))
+  Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting anyio (from httpx==0.28.1->-r [REDACTED_PATH] (line 2))
+  Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore==1.* (from httpx==0.28.1->-r [REDACTED_PATH] (line 2))
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting idna (from httpx==0.28.1->-r [REDACTED_PATH] (line 2))
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting soupsieve>=1.6.1 (from beautifulsoup4==4.14.3->-r [REDACTED_PATH] (line 4))
+  Downloading soupsieve-3.0.4-py3-none-any.whl.metadata (4.4 kB)
+Collecting iniconfig>=1.0.1 (from pytest==9.0.2->-r [REDACTED_PATH] (line 5))
+  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting packaging>=22 (from pytest==9.0.2->-r [REDACTED_PATH] (line 5))
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest==9.0.2->-r [REDACTED_PATH] (line 5))
+  Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting pygments>=2.7.2 (from pytest==9.0.2->-r [REDACTED_PATH] (line 5))
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx==0.28.1->-r [REDACTED_PATH] (line 2))
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Downloading pydantic-2.13.4-py3-none-any.whl (472 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading beautifulsoup4-4.14.3-py3-none-any.whl (107 kB)
+Downloading pytest-9.0.2-py3-none-any.whl (374 kB)
+Downloading pytest_asyncio-1.3.0-py3-none-any.whl (15 kB)
+Downloading pydantic_core-2.46.4-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 24.4 MB/s  0:00:00
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 11.0 MB/s  0:00:00
+Downloading soupsieve-3.0.4-py3-none-any.whl (42 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Installing collected packages: typing-extensions, soupsieve, pygments, pluggy, packaging, iniconfig, idna, h11, certifi, annotated-types, typing-inspection, pytest, pydantic-core, httpcore, beautifulsoup4, anyio, pytest-asyncio, pydantic, httpx
+
+Successfully installed annotated-types-0.8.0 anyio-4.16.0 beautifulsoup4-4.14.3 certifi-2026.10.23 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.20 iniconfig-2.3.1 packaging-26.3 pluggy-1.7.0 pydantic-2.13.4 pydantic-core-2.46.4 pygments-2.21.0 pytest-9.0.2 pytest-asyncio-1.3.0 soupsieve-3.0.4 typing-extensions-4.16.0 typing-inspection-0.4.4
+EXIT_CODE 0

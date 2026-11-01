@@ -1,0 +1,95 @@
+CERTIFI PHASE 1 - A1-A3 v002 CANDIDATE / DESIGN ONLY
+
+No Render execution, deployment, suspend/resume, production change, or merge is
+authorized by this file. Claude independent review remains pending.
+
+C1. One Python process: the ASCII one-line command contains one `python -B -c`
+invocation inside a POSIX shell group. It uses the same launch token as the
+recorded start command `python main.py`; it prints sys.executable and sys.prefix.
+There is no pip install, sudo, or child pip process. This does NOT establish that
+the current Shell PATH/virtual environment equals the live worker's environment.
+The live worker reference is unavailable and its identity remains UNVERIFIED.
+Before any later execution approval, an authorized operator must compare the
+reported executable/prefix against an independently approved worker reference.
+Where a specific worker PID has separately been approved, a separate read-only
+comparison of os.stat(sys.executable) against os.stat('/proc/<PID>/exe') can test
+device/inode identity without reading process arguments or environment values.
+Binary identity alone does not establish the same virtual environment: prefix
+and package context must also match. That comparison is a design, not executed.
+
+C2. The collector imports standard libraries, certifi, httpx, and
+importlib.metadata, never the application, dotenv, or a database reader. SQLite
+DB/WAL/SHM sizes use os.stat only. The persistent mount uses shutil.disk_usage.
+-B suppresses bytecode writes. Audit hooks reject socket operations, subprocess
+creation, file mutations, .env reads, known application imports and sqlite open.
+The diagnostic creates no temp file. The review/test harness is separate and may
+write only to its caller-supplied isolated work directory, never to Render.
+An audit hook is not a hostile-native-code OS sandbox. Normal Python site startup
+runs before -c, as it does for the start command; unverified sitecustomize/.pth
+startup behavior is a remaining live-environment safety condition, not a PASS.
+
+C3. The upper/lower spellings of SSL_CERT_FILE, SSL_CERT_DIR, REQUESTS_CA_BUNDLE,
+HTTP_PROXY, HTTPS_PROXY, ALL_PROXY and NO_PROXY are reported as present/absent.
+No environment-variable value is printed. Lowercase presence does not assert
+that a particular library honors that spelling.
+
+C4. The same interpreter uses importlib.metadata.distributions(), explicitly
+permitted by the supplied criterion. Distribution origin URL content is NOT read.
+Presence of direct_url.json, missing file metadata, a version containing @, ://,
+or a path, and invalid names/versions trigger `package-name [REDACTED]`; the
+redacted-line count is reported. Invalid names become INVALID_PACKAGE_NAME.
+This may withhold harmless local wheels as well. The inventory is not the result
+of an A2 comparison: A2_review remains NOT_PERFORMED even if there are no redactions.
+
+C5. The approved diagnostic fields are Python/OpenSSL/certifi/httpx versions,
+sys.executable, sys.prefix, certifi.where(), CA SHA-256 and PEM count,
+ssl.get_default_verify_paths(), HTTPX default-context loaded-cert count and store
+stats, persistent-mount free bytes and stat-only DB/WAL/SHM sizes. Only these
+explicitly requested path fields may print clean paths. Paths with control
+characters, URL/userinfo markers or credential-like names are replaced with
+[REDACTED_UNSAFE_PATH]. Environment-derived cafile/capath values are always
+[REDACTED_ENV_VALUE]. General exceptions print only their type, no traceback.
+Public evidence copies redact internal paths again; v001 raw command files are
+preserved exactly under the explicit requirement to match their approved hashes.
+HTTPX measurement calls httpx._config.create_ssl_context() with defaults, followed
+by get_ca_certs(binary_form=True) and cert_store_stats(), without a connection.
+capath can load certificates lazily; this is loaded count, not a proven complete
+trust universe. The fixed DB path is historical, not current-runtime verified.
+
+C6. The command is ASCII with no physical LF and no final LF. A leading shell
+group `{ ...; }` ends only at the final byte. Tail truncation leaves incomplete
+shell syntax: the Python invocation is not executed. The Python envelope also
+requires an exact end token and verifies decoded payload length and SHA-256
+before compiling/executing the diagnostic body. These checks protect against
+accidental truncation/copy damage, not an attacker replacing the whole wrapper.
+Output format:
+BEGIN CERTIFI_AUDIT_V002 LF
+one compact ASCII JSON record per line, each with LF
+END CERTIFI_AUDIT_V002 lines=N bytes=M sha256=H LF
+N/M/H cover only the exact body bytes, including each body LF, excluding BEGIN
+and END. The offline verify-v002-output.py rejects missing frames, altered body,
+wrong counts/hash, extra output and CRLF conversion. A valid checksum is transport
+integrity, not proof that facts are true or approval to proceed.
+
+C7. Andy must copy the bytes from the independently reviewed raw TXT at the
+immutable evidence commit, never retype them or copy a rendered Markdown block.
+Use that file's exact size/SHA-256 from the evidence manifest. The v001 hash in
+the supplied C7 text is replaced only by the reviewed v002 hash for this version.
+Adding one final LF changes both byte count and SHA and is a different file.
+
+IPHONE ABORT PROCEDURE (DESIGN; NOT AN EXECUTION INSTRUCTION)
+If a paste is cut and the Shell shows `>` or another continuation prompt:
+1. Do not append a quote, brace, delimiter, or another copy of the command.
+2. Do not try to repair it by pressing Enter repeatedly.
+3. Close the Render Shell screen/session. This closes the interactive Shell view;
+   it does not mean suspend/resume/restart of the Render service.
+4. Do not repaste until a fresh Shell with no pending input is available and a
+   separate execution GO and independently reviewed file have been confirmed.
+No Render Shell is opened or closed by Codex in this task.
+
+STATUS
+Local design tests are Codex tests, not Claude independent review. C1 live-worker
+matching, site-startup safety, actual DB-path matching, and live environment facts
+are UNVERIFIED. A2 and final production compatibility are NOT_PASSED. External
+HQ12 NEGATIVE_1/2 retain UNVERIFIED_NETWORK_ERROR ProxyError. No network denial,
+DNS error, timeout, HTTP 403 or exit-code zero is promoted to certificate rejection.

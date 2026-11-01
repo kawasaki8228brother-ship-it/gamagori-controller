@@ -1,0 +1,28 @@
+{
+  "source": "PR_6_body_snapshot_and_matching_archived_file_hashes",
+  "verification": [
+    {
+      "file": "evidence/commands/A1-A3_v001.raw.txt",
+      "bytes": 4157,
+      "sha256": "6017d26f3baf8297b6111d3da8b288003ac3c03e3a379e249ed0209240c31f9d",
+      "matches_expected": true,
+      "terminal_lf": false,
+      "with_one_appended_lf": {
+        "bytes": 4158,
+        "sha256": "16d66b912e5d73b3e872d14a6ec3c3bf2ab2a2f60d1f1c23d5530ed2488a7380"
+      }
+    },
+    {
+      "file": "evidence/commands/A5_v001.raw.txt",
+      "bytes": 2016,
+      "sha256": "d963aa0a6778a8fb2827fa4339a4ff96a959be2851db9c5a70255b0c610610c7",
+      "matches_expected": true,
+      "terminal_lf": false,
+      "with_one_appended_lf": {
+        "bytes": 2017,
+        "sha256": "ac35d8183ce9f169de43fcb0675c6a1947898221369952e2836365354eba9559"
+      }
+    }
+  ],
+  "all_15_restored_pr_records_match_original_sha256": true
+}

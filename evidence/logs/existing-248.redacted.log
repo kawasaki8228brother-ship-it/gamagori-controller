@@ -1,0 +1,18 @@
+TRUST REDACTED
+ORIGINAL_SHA256 d9144fb6237948bb078399740f378392e17be503219a4793de48eb6ced09e6c7
+ORIGINAL_BYTES 1335
+STATUS ARCHIVED_248_PASSED_NOT_INDEPENDENTLY_REPRODUCED
+ENV {"openssl": "OpenSSL 3.5.5 27 Jan 2026", "os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"}
+COMMAND ["[REDACTED_PATH]", "-m", "pip", "--disable-pip-version-check", "check"]
+WARNING: The directory '[REDACTED_PATH]' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+No broken requirements found.
+EXIT_CODE 0
+COMMAND ["[REDACTED_PATH]", "-m", "compileall", "-q", "[REDACTED_PATH]"]
+EXIT_CODE 0
+COMMAND ["[REDACTED_PATH]", "-m", "pytest", "-q", "-o", "cache_dir=[REDACTED_PATH]", "--basetemp=[REDACTED_PATH]", "--junitxml=[REDACTED_PATH]"]
+........................................................................ [ 29%]
+........................................................................ [ 58%]
+........................................................................ [ 87%]
+................................                                         [100%]
+248 passed in 3.49s
+EXIT_CODE 0

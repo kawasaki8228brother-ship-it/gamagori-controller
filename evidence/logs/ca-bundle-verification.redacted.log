@@ -1,0 +1,10 @@
+TRUST REDACTED_DERIVED
+ORIGINAL_SHA256 2625ab08baeb200e5582fa5d0e12dbe237f213f11f90243a781fe9fd6d08273d
+ORIGINAL_BYTES 2453
+STATUS DERIVED_ARCHIVED_CA_118_HASH_AND_ROOT_PRESENCE_MATCH_NOT_RERUN
+ENV {"openssl": "OpenSSL 3.5.5 27 Jan 2026", "os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"}
+BUNDLE_SUBJECT {"expected": false, "name": "emSign ECC Root CA - G3", "present": false}
+BUNDLE_SUBJECT {"expected": false, "name": "emSign Root CA - C1", "present": false}
+BUNDLE_SUBJECT {"expected": false, "name": "emSign ECC Root CA - C3", "present": false}
+BUNDLE_SUBJECT {"expected": true, "name": "emSign Root CA - G1", "present": true}
+BUNDLE_PASS {"cacert_sha256": "2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b", "loaded_count_explicit_certifi": 118, "pem_count": 118, "version": "2026.10.23"}

@@ -1,0 +1,12 @@
+BEGIN CERTIFI_AUDIT_V002
+{"data":{"os":{"machine":"DUMMY","release":"DUMMY","system":"DUMMY"},"same_as_live_worker":"UNVERIFIED_REFERENCE_REQUIRED","sys.executable":"[DUMMY_EXECUTABLE_PATH]","sys.prefix":"[DUMMY_PREFIX_PATH]","version":"0.0.0-DUMMY"},"section":"python"}
+{"data":{"version":"OpenSSL DUMMY"},"section":"openssl"}
+{"data":{"ALL_PROXY":"absent","HTTPS_PROXY":"absent","HTTP_PROXY":"absent","NO_PROXY":"absent","REQUESTS_CA_BUNDLE":"absent","SSL_CERT_DIR":"absent","SSL_CERT_FILE":"absent","all_proxy":"absent","http_proxy":"absent","https_proxy":"absent","no_proxy":"absent","requests_ca_bundle":"absent","ssl_cert_dir":"absent","ssl_cert_file":"absent"},"section":"env_presence"}
+{"data":{"bundle_cert_count":0,"bundle_sha256":"0000000000000000000000000000000000000000000000000000000000000000","certifi.where()":"[DUMMY_CA_PATH]","version":"0.0.0"},"section":"certifi"}
+{"data":{"cafile":"[DUMMY_CA_PATH]","capath":null,"openssl_cafile":"[DUMMY_CA_PATH]","openssl_cafile_env":"SSL_CERT_FILE","openssl_capath":"[DUMMY_CA_DIRECTORY]","openssl_capath_env":"SSL_CERT_DIR"},"section":"default_verify_paths"}
+{"data":{"capath_lazy_certificates":"NOT_ENUMERATED_BEFORE_CONNECTION","check_hostname":true,"loaded_cert_count":0,"verify_mode":2,"version":"0.0.0"},"section":"httpx_default_context"}
+{"data":{"free_bytes":123456789},"section":"var_data"}
+{"data":{"db":{"exists":true,"size_bytes":4096},"method":"os.stat only; no database open","shm":{"exists":false},"wal":{"exists":false}},"section":"sqlite_sizes"}
+{"data":{"A2_review":"NOT_PERFORMED","method":"importlib.metadata","redacted_line_count":1,"row_count":2,"rows":["dummy-package==1.2.3","dummy-private [REDACTED]"],"safe_inventory_complete":false},"section":"freeze"}
+{"data":{"production_authorization":"NOT_GRANTED","result":"DUMMY_EXAMPLE_ONLY_NO_GO","runtime_identity":"UNVERIFIED_REFERENCE_REQUIRED"},"section":"gate"}
+END CERTIFI_AUDIT_V002 lines=10 bytes=1868 sha256=2853732c3440e1d566ae955740fee2c0f894d040454290b04f8f16b940146668
