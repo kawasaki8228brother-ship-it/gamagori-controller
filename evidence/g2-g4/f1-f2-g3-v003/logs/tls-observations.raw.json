@@ -1,0 +1,676 @@
+[
+  {
+    "anchor_sha256": "cc9ea4ffb2a92b27f0ec0d683e64198ab0d53a0a7a8a4a9998e5519959b4284f",
+    "bad_root": false,
+    "case": "HANDSHAKE_ONLY",
+    "issuer_reject": false,
+    "state": "CONNECTED",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "NEGATIVE_1",
+    "get": {
+      "end": "ISSUER_VERIFY",
+      "error": "CERT_REJECTED",
+      "http": null,
+      "issuer_reject": true,
+      "last_http": null,
+      "state": "CERT_REJECTED",
+      "v": "PASS",
+      "verify_code": 20,
+      "verify_message": "unable to get local issuer certificate",
+      "why": "ISSUER_VERIFY"
+    },
+    "id": "NEGATIVE_1",
+    "tls": {
+      "anchor_sha256": null,
+      "bad_root": null,
+      "issuer_reject": true,
+      "state": "CERT_REJECTED",
+      "v": "PASS",
+      "verify_code": 20,
+      "verify_message": "unable to get local issuer certificate",
+      "why": "ISSUER_VERIFY"
+    }
+  },
+  {
+    "case": "NEGATIVE_1",
+    "get": {
+      "end": "ISSUER_VERIFY",
+      "error": "CERT_REJECTED",
+      "http": null,
+      "issuer_reject": true,
+      "last_http": null,
+      "state": "CERT_REJECTED",
+      "v": "PASS",
+      "verify_code": 19,
+      "verify_message": "self-signed certificate in certificate chain",
+      "why": "ISSUER_VERIFY"
+    },
+    "id": "NEGATIVE_1",
+    "tls": {
+      "anchor_sha256": null,
+      "bad_root": null,
+      "issuer_reject": true,
+      "state": "CERT_REJECTED",
+      "v": "PASS",
+      "verify_code": 19,
+      "verify_message": "self-signed certificate in certificate chain",
+      "why": "ISSUER_VERIFY"
+    }
+  },
+  {
+    "case": "NEGATIVE_1",
+    "get": {
+      "end": "ISSUER_VERIFY",
+      "error": "CERT_REJECTED",
+      "http": null,
+      "issuer_reject": true,
+      "last_http": null,
+      "state": "CERT_REJECTED",
+      "v": "PASS",
+      "verify_code": 2,
+      "verify_message": "unable to get issuer certificate",
+      "why": "ISSUER_VERIFY"
+    },
+    "id": "NEGATIVE_1",
+    "tls": {
+      "anchor_sha256": null,
+      "bad_root": null,
+      "issuer_reject": true,
+      "state": "CERT_REJECTED",
+      "v": "PASS",
+      "verify_code": 2,
+      "verify_message": "unable to get issuer certificate",
+      "why": "ISSUER_VERIFY"
+    }
+  },
+  {
+    "case": "NEGATIVE_1",
+    "get": {
+      "end": "OTHER_CERT_VERIFY",
+      "error": "CERT_REJECTED",
+      "http": null,
+      "issuer_reject": false,
+      "last_http": null,
+      "state": "CERT_REJECTED",
+      "v": "UNVERIFIED",
+      "verify_code": 10,
+      "verify_message": "certificate has expired",
+      "why": "OTHER_CERT_VERIFY"
+    },
+    "id": "NEGATIVE_1",
+    "tls": {
+      "anchor_sha256": null,
+      "bad_root": null,
+      "issuer_reject": false,
+      "state": "CERT_REJECTED",
+      "v": "UNVERIFIED",
+      "verify_code": 10,
+      "verify_message": "certificate has expired",
+      "why": "OTHER_CERT_VERIFY"
+    }
+  },
+  {
+    "case": "NEGATIVE_1",
+    "get": {
+      "end": "OTHER_CERT_VERIFY",
+      "error": "CERT_REJECTED",
+      "http": null,
+      "issuer_reject": false,
+      "last_http": null,
+      "state": "CERT_REJECTED",
+      "v": "UNVERIFIED",
+      "verify_code": 62,
+      "verify_message": "Hostname mismatch, certificate is not valid for 'localhost'.",
+      "why": "OTHER_CERT_VERIFY"
+    },
+    "id": "NEGATIVE_1",
+    "tls": {
+      "anchor_sha256": null,
+      "bad_root": null,
+      "issuer_reject": false,
+      "state": "CERT_REJECTED",
+      "v": "UNVERIFIED",
+      "verify_code": 62,
+      "verify_message": "Hostname mismatch, certificate is not valid for 'localhost'.",
+      "why": "OTHER_CERT_VERIFY"
+    }
+  },
+  {
+    "case": "NEGATIVE_1",
+    "get": {
+      "end": "OTHER_CERT_VERIFY",
+      "error": "CERT_REJECTED",
+      "http": null,
+      "issuer_reject": false,
+      "last_http": null,
+      "state": "CERT_REJECTED",
+      "v": "UNVERIFIED",
+      "verify_code": 18,
+      "verify_message": "self-signed certificate",
+      "why": "OTHER_CERT_VERIFY"
+    },
+    "id": "NEGATIVE_1",
+    "tls": {
+      "anchor_sha256": null,
+      "bad_root": null,
+      "issuer_reject": false,
+      "state": "CERT_REJECTED",
+      "v": "UNVERIFIED",
+      "verify_code": 18,
+      "verify_message": "self-signed certificate",
+      "why": "OTHER_CERT_VERIFY"
+    }
+  },
+  {
+    "case": "WWW",
+    "get": {
+      "end": "OTHER_CERT_VERIFY",
+      "error": "CERT_REJECTED",
+      "http": null,
+      "issuer_reject": false,
+      "last_http": null,
+      "state": "CERT_REJECTED",
+      "v": "FAIL",
+      "verify_code": 10,
+      "verify_message": "certificate has expired",
+      "why": "OTHER_CERT_VERIFY"
+    },
+    "id": "WWW",
+    "tls": {
+      "anchor_sha256": null,
+      "bad_root": null,
+      "issuer_reject": false,
+      "state": "CERT_REJECTED",
+      "v": "FAIL",
+      "verify_code": 10,
+      "verify_message": "certificate has expired",
+      "why": "OTHER_CERT_VERIFY"
+    }
+  },
+  {
+    "case": "NEGATIVE_2",
+    "get": {
+      "end": "OTHER_CERT_VERIFY",
+      "error": "CERT_REJECTED",
+      "http": null,
+      "issuer_reject": false,
+      "last_http": null,
+      "state": "CERT_REJECTED",
+      "v": "PASS",
+      "verify_code": 10,
+      "verify_message": "certificate has expired",
+      "why": "OTHER_CERT_VERIFY"
+    },
+    "id": "NEGATIVE_2",
+    "tls": {
+      "anchor_sha256": null,
+      "bad_root": null,
+      "issuer_reject": false,
+      "state": "CERT_REJECTED",
+      "v": "PASS",
+      "verify_code": 10,
+      "verify_message": "certificate has expired",
+      "why": "OTHER_CERT_VERIFY"
+    }
+  },
+  {
+    "case": "NEGATIVE_2",
+    "get": {
+      "end": "OTHER_CERT_VERIFY",
+      "error": "CERT_REJECTED",
+      "http": null,
+      "issuer_reject": false,
+      "last_http": null,
+      "state": "CERT_REJECTED",
+      "v": "PASS",
+      "verify_code": 18,
+      "verify_message": "self-signed certificate",
+      "why": "OTHER_CERT_VERIFY"
+    },
+    "id": "NEGATIVE_2",
+    "tls": {
+      "anchor_sha256": null,
+      "bad_root": null,
+      "issuer_reject": false,
+      "state": "CERT_REJECTED",
+      "v": "PASS",
+      "verify_code": 18,
+      "verify_message": "self-signed certificate",
+      "why": "OTHER_CERT_VERIFY"
+    }
+  },
+  {
+    "anchor_sha256": "cc9ea4ffb2a92b27f0ec0d683e64198ab0d53a0a7a8a4a9998e5519959b4284f",
+    "bad_root": false,
+    "case": "VERIFIED_ANCHOR",
+    "issuer_reject": false,
+    "state": "CONNECTED",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "WWW",
+    "get": {
+      "end": "COMPLETE",
+      "http": 200,
+      "issuer_reject": false,
+      "last_http": 200,
+      "state": "HTTP_RESPONSE",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    },
+    "id": "WWW",
+    "tls": {
+      "anchor_sha256": "cc9ea4ffb2a92b27f0ec0d683e64198ab0d53a0a7a8a4a9998e5519959b4284f",
+      "bad_root": false,
+      "issuer_reject": false,
+      "state": "CONNECTED",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    }
+  },
+  {
+    "case": "WWW",
+    "get": {
+      "end": "COMPLETE",
+      "http": 403,
+      "issuer_reject": false,
+      "last_http": 403,
+      "state": "HTTP_RESPONSE",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    },
+    "id": "WWW",
+    "tls": {
+      "anchor_sha256": "cc9ea4ffb2a92b27f0ec0d683e64198ab0d53a0a7a8a4a9998e5519959b4284f",
+      "bad_root": false,
+      "issuer_reject": false,
+      "state": "CONNECTED",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    }
+  },
+  {
+    "case": "WWW",
+    "get": {
+      "end": "COMPLETE",
+      "http": 404,
+      "issuer_reject": false,
+      "last_http": 404,
+      "state": "HTTP_RESPONSE",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    },
+    "id": "WWW",
+    "tls": {
+      "anchor_sha256": "cc9ea4ffb2a92b27f0ec0d683e64198ab0d53a0a7a8a4a9998e5519959b4284f",
+      "bad_root": false,
+      "issuer_reject": false,
+      "state": "CONNECTED",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    }
+  },
+  {
+    "case": "WWW",
+    "get": {
+      "end": "COMPLETE",
+      "http": 503,
+      "issuer_reject": false,
+      "last_http": 503,
+      "state": "HTTP_RESPONSE",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    },
+    "id": "WWW",
+    "tls": {
+      "anchor_sha256": "cc9ea4ffb2a92b27f0ec0d683e64198ab0d53a0a7a8a4a9998e5519959b4284f",
+      "bad_root": false,
+      "issuer_reject": false,
+      "state": "CONNECTED",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    }
+  },
+  {
+    "case": "NEGATIVE_1",
+    "get": {
+      "end": "COMPLETE",
+      "http": 403,
+      "issuer_reject": false,
+      "last_http": 403,
+      "state": "HTTP_RESPONSE",
+      "v": "FAIL",
+      "verify_code": null,
+      "verify_message": null
+    },
+    "id": "NEGATIVE_1",
+    "tls": {
+      "anchor_sha256": "cc9ea4ffb2a92b27f0ec0d683e64198ab0d53a0a7a8a4a9998e5519959b4284f",
+      "bad_root": false,
+      "issuer_reject": false,
+      "state": "CONNECTED",
+      "v": "FAIL",
+      "verify_code": null,
+      "verify_message": null
+    }
+  },
+  {
+    "case": "HUGE_NO_BODY",
+    "end": "COMPLETE",
+    "http": 200,
+    "issuer_reject": false,
+    "last_http": 200,
+    "state": "HTTP_RESPONSE",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "REDIRECT_NO_BODY",
+    "end": "COMPLETE",
+    "http": 302,
+    "issuer_reject": false,
+    "last_http": 200,
+    "state": "HTTP_RESPONSE",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "REDIRECT_SCOPE",
+    "end": "SCOPE",
+    "error": "OTHER_FAILURE",
+    "http": 302,
+    "issuer_reject": false,
+    "last_http": 302,
+    "state": "HTTP_RESPONSE",
+    "verify_code": null,
+    "verify_message": null,
+    "why": "SCOPE"
+  },
+  {
+    "case": "SCOPE_BEFORE_RESPONSE",
+    "end": "SCOPE",
+    "error": "OTHER_FAILURE",
+    "http": null,
+    "issuer_reject": false,
+    "last_http": null,
+    "state": "OTHER_FAILURE",
+    "verify_code": null,
+    "verify_message": null,
+    "why": "SCOPE"
+  },
+  {
+    "case": "REDIRECT_CERT_ERROR",
+    "end": "ISSUER_VERIFY",
+    "error": "CERT_REJECTED",
+    "http": 302,
+    "issuer_reject": true,
+    "last_http": 302,
+    "state": "HTTP_RESPONSE",
+    "verify_code": 20,
+    "verify_message": "unable to get local issuer certificate",
+    "why": "ISSUER_VERIFY"
+  },
+  {
+    "case": "WWW",
+    "get": {
+      "end": "SCOPE",
+      "error": "OTHER_FAILURE",
+      "http": 302,
+      "issuer_reject": false,
+      "last_http": 302,
+      "state": "HTTP_RESPONSE",
+      "v": "UNVERIFIED",
+      "verify_code": null,
+      "verify_message": null,
+      "why": "SCOPE"
+    },
+    "id": "WWW",
+    "tls": {
+      "anchor_sha256": "cc9ea4ffb2a92b27f0ec0d683e64198ab0d53a0a7a8a4a9998e5519959b4284f",
+      "bad_root": false,
+      "issuer_reject": false,
+      "state": "CONNECTED",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    }
+  },
+  {
+    "case": "WWW",
+    "get": {
+      "end": "ISSUER_VERIFY",
+      "error": "CERT_REJECTED",
+      "http": 302,
+      "issuer_reject": true,
+      "last_http": 302,
+      "state": "HTTP_RESPONSE",
+      "v": "FAIL",
+      "verify_code": 20,
+      "verify_message": "unable to get local issuer certificate",
+      "why": "ISSUER_VERIFY"
+    },
+    "id": "WWW",
+    "tls": {
+      "anchor_sha256": "cc9ea4ffb2a92b27f0ec0d683e64198ab0d53a0a7a8a4a9998e5519959b4284f",
+      "bad_root": false,
+      "issuer_reject": false,
+      "state": "CONNECTED",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    }
+  },
+  {
+    "case": "INJECTED_BODY_BOMB",
+    "end": "COMPLETE",
+    "http": 302,
+    "issuer_reject": false,
+    "last_http": 403,
+    "state": "HTTP_RESPONSE",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "BODY_ITERATION_COUNTERS",
+    "closed": 2,
+    "iterated": 0,
+    "requests": 2
+  },
+  {
+    "case": "LOCAL_PROXY_403",
+    "end": "PROXY",
+    "error": "OTHER_FAILURE",
+    "http": null,
+    "issuer_reject": false,
+    "last_http": null,
+    "state": "OTHER_FAILURE",
+    "verify_code": null,
+    "verify_message": null,
+    "why": "PROXY"
+  },
+  {
+    "case": "WWW",
+    "get": {
+      "end": "COMPLETE",
+      "http": 200,
+      "issuer_reject": false,
+      "last_http": 200,
+      "state": "HTTP_RESPONSE",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    },
+    "id": "WWW",
+    "tls": {
+      "anchor_sha256": null,
+      "bad_root": null,
+      "issuer_reject": false,
+      "state": "OTHER_FAILURE",
+      "v": "UNVERIFIED",
+      "verify_code": null,
+      "verify_message": null,
+      "why": "DNS"
+    }
+  },
+  {
+    "case": "INJECTED_GET_DNS",
+    "end": "DNS",
+    "error": "OTHER_FAILURE",
+    "http": null,
+    "issuer_reject": false,
+    "last_http": null,
+    "state": "OTHER_FAILURE",
+    "verify_code": null,
+    "verify_message": null,
+    "why": "DNS"
+  },
+  {
+    "anchor_sha256": null,
+    "bad_root": null,
+    "case": "TLS_HANDSHAKE_TIMEOUT_8",
+    "issuer_reject": false,
+    "state": "OTHER_FAILURE",
+    "verify_code": null,
+    "verify_message": null,
+    "why": "TIMEOUT"
+  },
+  {
+    "case": "WWW",
+    "get": {
+      "end": "TIMEOUT",
+      "error": "OTHER_FAILURE",
+      "http": null,
+      "issuer_reject": false,
+      "last_http": null,
+      "state": "OTHER_FAILURE",
+      "v": "UNVERIFIED",
+      "verify_code": null,
+      "verify_message": null,
+      "why": "TIMEOUT"
+    },
+    "id": "WWW",
+    "tls": {
+      "anchor_sha256": "cc9ea4ffb2a92b27f0ec0d683e64198ab0d53a0a7a8a4a9998e5519959b4284f",
+      "bad_root": false,
+      "issuer_reject": false,
+      "state": "CONNECTED",
+      "v": "PASS",
+      "verify_code": null,
+      "verify_message": null
+    }
+  },
+  {
+    "case": "LOCAL_POST_PROFILE",
+    "combined": {
+      "BARE": "PASS",
+      "FALLBACK": "PASS",
+      "NEGATIVE_1": "PASS",
+      "NEGATIVE_2": "PASS",
+      "WWW": "PASS"
+    },
+    "effect_evidence": 1,
+    "get": "PASS",
+    "go": false,
+    "guard_stop": false,
+    "mode": "POST",
+    "r": "TLS_OBS_PASS",
+    "tls": "PASS"
+  },
+  {
+    "case": "LOCAL_BASELINE_ROLE_PROFILE_ONLY",
+    "combined": {
+      "BARE": "PASS",
+      "FALLBACK": "PASS",
+      "NEGATIVE_1": "PASS",
+      "NEGATIVE_2": "PASS",
+      "WWW": "PASS"
+    },
+    "effect_evidence": 0,
+    "get": "BASELINE_OBS_EXPECTED",
+    "go": false,
+    "guard_stop": false,
+    "mode": "BASELINE",
+    "r": "BASELINE_OBS_EXPECTED",
+    "tls": "BASELINE_OBS_EXPECTED"
+  },
+  {
+    "case": "F1_ACTUAL_TIMEOUT_POST",
+    "combined": {
+      "BARE": "PASS",
+      "FALLBACK": "PASS",
+      "NEGATIVE_1": "PASS",
+      "NEGATIVE_2": "PASS",
+      "WWW": "PASS"
+    },
+    "effect_evidence": 1,
+    "get": "UNVERIFIED",
+    "go": false,
+    "guard_stop": false,
+    "mode": "POST",
+    "r": "TLS_OBS_PASS",
+    "tls": "PASS"
+  },
+  {
+    "case": "F1_ACTUAL_TIMEOUT_BASELINE",
+    "combined": {
+      "BARE": "PASS",
+      "FALLBACK": "PASS",
+      "NEGATIVE_1": "PASS",
+      "NEGATIVE_2": "PASS",
+      "WWW": "PASS"
+    },
+    "effect_evidence": 0,
+    "get": "UNVERIFIED",
+    "go": false,
+    "guard_stop": false,
+    "mode": "BASELINE",
+    "r": "BASELINE_OBS_EXPECTED",
+    "tls": "BASELINE_OBS_EXPECTED"
+  },
+  {
+    "case": "F2_BASELINE_POSITIVE_CERT_FAILURE",
+    "combined": {
+      "BARE": "PASS",
+      "FALLBACK": "PASS",
+      "NEGATIVE_1": "PASS",
+      "NEGATIVE_2": "PASS",
+      "WWW": "FAIL"
+    },
+    "effect_evidence": 0,
+    "get": "UNVERIFIED",
+    "go": false,
+    "guard_stop": false,
+    "mode": "BASELINE",
+    "r": "FAIL",
+    "tls": "BASELINE_OBS_EXPECTED"
+  },
+  {
+    "case": "F2_BASELINE_NEGATIVE1_DIFFERS",
+    "combined": {
+      "BARE": "PASS",
+      "FALLBACK": "PASS",
+      "NEGATIVE_1": "UNVERIFIED",
+      "NEGATIVE_2": "PASS",
+      "WWW": "PASS"
+    },
+    "effect_evidence": 0,
+    "get": "BASELINE_OBS_EXPECTED",
+    "go": false,
+    "guard_stop": false,
+    "mode": "BASELINE",
+    "r": "BASELINE_DIFFERS:NEGATIVE_1",
+    "tls": "UNVERIFIED"
+  }
+]

@@ -1,0 +1,117 @@
+{
+  "command_sha256": {
+    "commands/G3_backup_v003.candidate.txt": "6ccc2772bb7237b826f74f0c6eb6ec3feb0203e4b77adb4dee7a99da7c4d7ccf",
+    "commands/G4_TLS_v003_F1F2.candidate.txt": "1c3a8ff38d7bca7898bf783875b67132edd19ad148934d5c6fff350ff8ac016f",
+    "commands/G4_baseline_v003_F1F2.candidate.txt": "ee1ad231ef7b54d75c92a054d9366038d5b05e1073a7335cd683abf8e59afe0b"
+  },
+  "environment": {
+    "machine": "x86_64",
+    "openssl": "OpenSSL 3.0.18 30 Sep 2025",
+    "os": "Linux",
+    "python": "3.14.3",
+    "sqlite": "3.40.1"
+  },
+  "exact_OpenSSL_3_0_20": "UNVERIFIED",
+  "external_NEGATIVE_1_2": "UNVERIFIED_NOT_RUN",
+  "logs": [
+    {
+      "bytes": 855,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/G3-native-io.raw.json",
+      "git_blob": "554d7f6d86fb0efda906aea9394f73c718d358cd",
+      "sha256": "6d95a3cd2a5659c7fefdaaca089146c3f535a9312fd25bcbceed045e2f7591d4",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2089,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/SETUP-FAILURES-PROVENANCE.json",
+      "git_blob": "4d755772678bcda34380c94bb4cc875b95131661",
+      "sha256": "35cb6641b6a73bd63ff44e39601c158a7c62351dca2bf1ea411876cae0bbe689",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 3477,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/environment.raw.json",
+      "git_blob": "9a817abd3767bc41b16c2fe5efbc47bdae5c12c8",
+      "sha256": "223a79888fa026de432ef615c0a94f8e4a66ad685e16066e333574d38572ada7",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 162,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/g3-version-rejection.raw.log",
+      "git_blob": "a5f6abad8faf3d34e5beea05e496e314c3f1fe67",
+      "sha256": "9897d4cac4b5e9c628d9315efcbc2160ec31a61322f95178ac1654c61692e972",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2744,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/metadata-setup-failure.REDACTED.log",
+      "git_blob": "394917a0553fc1ba27f04d2013f4b0867da32022",
+      "sha256": "30a05720b531f473b5d5036c09431e6c4d4223ab61ccb57eb2838e83f603b719",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 232,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/regeneration.raw.log",
+      "git_blob": "1ce691a84b44191ae9b602cb4c1b5f5712f0e1ec",
+      "sha256": "553e63ee09475fdaaedb2e720820518102c0b1e8bf076428e63863b1efae74d8",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2092,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/sqlite-isolation.raw.log",
+      "git_blob": "5d1fd7965518f4a88886a701399ed720b70dee8d",
+      "sha256": "e7f676068fedf9c7458acf2536b29dd160f76e5bfa357d242db26eb39016c10f",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 768,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/sqlite-setup-failure.REDACTED.log",
+      "git_blob": "af7b47d44bcd0e9d69fe2e5ff2a44431d2d7935b",
+      "sha256": "0a84b6a6d289dd48be68988bc8ee364b4bced7040751630ccfdeee4288d08b5e",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 790,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/sqlite-summary.raw.json",
+      "git_blob": "5b5332fb032ee488e8be4f199247fe098180b5ea",
+      "sha256": "4a549faaccf326f97ba6d4660965303a78451a1ca31b05d1d06885d9696ab356",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 15257,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/tls-isolation.raw.log",
+      "git_blob": "cd37a40f5d72fbacc7b5e98194384d68f459ade6",
+      "sha256": "2cc23acbaad2b62862b24e3b15ce4bc102490b1cc6fa930e0cc38b33d258e86b",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 16065,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/tls-observations.raw.json",
+      "git_blob": "ebf1c408bace32fd34e331da62e666cd623840d0",
+      "sha256": "491502e1d8840d251675ca4965a16028edeeb4f296ac4f9b3e93f10f409f6fb7",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 762,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/tls-setup-failure.REDACTED.log",
+      "git_blob": "ccbe88a967f00eb60f6a9df2fb0900475b210365",
+      "sha256": "c227f90670788a36a7eab6939439c8dce6c9c42d99147f0f0e160319674e547c",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 424,
+      "file": "evidence/g2-g4/f1-f2-g3-v003/logs/tls-summary.raw.json",
+      "git_blob": "60448e867cd99832c315aeaa23eeead35ba3ca69",
+      "sha256": "15805a97ff9c0e81cd99009e5dc02d3b1e62c18f308edff4b452b4a53e5f47ab",
+      "terminal_lf": true
+    }
+  ],
+  "non_3401_rejection_log_environment": "HOST_PYTHON3.14.3_SQLITE3.50.4_OPENSSL3.5.5",
+  "raw_success_logs_redaction_performed": false,
+  "render": "NOT_RUN",
+  "scope": "LOCAL_ONLY_RUNTIME_AND_SYNTHETIC_FIXTURES",
+  "setup_logs": "REDACTED_WITH_SEPARATE_ORIGINAL_SHA",
+  "source_image": "sha256:f21c0d5a44c56805654c15abccc1b2fd576c8d93aca0a3f74b4aba2dc92510e2",
+  "sqlite_cases": 25,
+  "tls_cases": 25
+}

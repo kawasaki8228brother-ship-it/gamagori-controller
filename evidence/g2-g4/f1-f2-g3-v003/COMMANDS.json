@@ -1,0 +1,26 @@
+[
+  {
+    "file": "commands/G4_TLS_v003_F1F2.candidate.txt",
+    "bytes": 31085,
+    "sha256": "1c3a8ff38d7bca7898bf783875b67132edd19ad148934d5c6fff350ff8ac016f",
+    "payload_bytes": 22556,
+    "payload_sha256": "d27195c681955f48f28941b524dfe66878379366b33272880588587672d8cd67",
+    "end_token": "CERTIFI_G_END_d27195c681955f48f28941b524dfe66878379366b33272880588587672d8cd67"
+  },
+  {
+    "file": "commands/G4_baseline_v003_F1F2.candidate.txt",
+    "bytes": 30913,
+    "sha256": "ee1ad231ef7b54d75c92a054d9366038d5b05e1073a7335cd683abf8e59afe0b",
+    "payload_bytes": 22426,
+    "payload_sha256": "fa67ce1b870ed8657e23dcd966fa3f96c0fc9ae42e9aa4780089075392bfe35f",
+    "end_token": "CERTIFI_G_END_fa67ce1b870ed8657e23dcd966fa3f96c0fc9ae42e9aa4780089075392bfe35f"
+  },
+  {
+    "file": "commands/G3_backup_v003.candidate.txt",
+    "bytes": 16033,
+    "sha256": "6ccc2772bb7237b826f74f0c6eb6ec3feb0203e4b77adb4dee7a99da7c4d7ccf",
+    "payload_bytes": 11266,
+    "payload_sha256": "665af99b9e504de91fabd4d9330f0dac2d1a593db00d7df3fc7ab1627499e784",
+    "end_token": "CERTIFI_G_END_665af99b9e504de91fabd4d9330f0dac2d1a593db00d7df3fc7ab1627499e784"
+  }
+]

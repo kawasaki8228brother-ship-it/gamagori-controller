@@ -1,0 +1,17 @@
+{
+  "cases": 25,
+  "claude_independent_review": "PENDING",
+  "command_sha256": {
+    "G2_A5_v002.candidate.txt": "72bbfc047a8fd57beaf23340855e566d3ef4a7b44da41f7c1f14b8b144867f74",
+    "G3_backup_v003.candidate.txt": "6ccc2772bb7237b826f74f0c6eb6ec3feb0203e4b77adb4dee7a99da7c4d7ccf",
+    "G4_SQLite_v002.candidate.txt": "790c6d46a5db5fd2e43d05e6285afca1f18890669ad8175909a5943dcb9faa03",
+    "G4_TLS_v002.candidate.txt": "7339a866ff9e0b860a75a52a5dfc623949e31a613282a8c0c81f6146ac28c78a",
+    "G4_environment_v002.candidate.txt": "9f93035800084e1e26fbf58e9add3aff01b76b39d69215ba22a4a26b62d34886"
+  },
+  "external_NEGATIVE_1_2": "UNVERIFIED_NOT_RUN",
+  "openssl": "OpenSSL 3.0.18 30 Sep 2025",
+  "os": "Linux",
+  "python": "3.14.3",
+  "render_execution": "NOT_RUN",
+  "sqlite": "3.40.1"
+}

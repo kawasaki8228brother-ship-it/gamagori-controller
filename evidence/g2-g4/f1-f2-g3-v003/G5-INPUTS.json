@@ -1,0 +1,51 @@
+{
+  "HQ13_reported_not_Codex_production_measurement": {
+    "openssl": "3.0.20",
+    "python": "3.14.3",
+    "sqlite": "3.40.1"
+  },
+  "development_confirmed": {
+    "PR": 6,
+    "candidate_tree": "568161bd70e0727e3bbbec8d1d3a14603bc64e5d",
+    "head": "97640c8c307fed8eaa19f2557f5057ccade18da1",
+    "main_baseline": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "requirements_git_blob": "1761296a6d8c768184aa6372a9ee873bf01a23ba",
+    "requirements_sha256": "dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7"
+  },
+  "go": false,
+  "isolated_measured": {
+    "openssl": "3.0.18",
+    "python": "3.14.3",
+    "sqlite": "3.40.1"
+  },
+  "pending_private_operational_fields": {
+    "A5_pending_nonterminal_unknown_counts": null,
+    "Andy_individual_GO_scope": null,
+    "Andy_parked_available": null,
+    "Claude_review_receipt": null,
+    "DB_WAL_SHM_sizes_free_space": null,
+    "DB_path_mount_UID_permissions": null,
+    "JST_window_start_end": null,
+    "OpenSSL_3_0_20_disposition": null,
+    "actual_resulting_main_SHA": null,
+    "backup_filename_absence_retention_owner": null,
+    "exact_target_deploy_SHA": null,
+    "live_AutoDeploy_OFF_readback": null,
+    "live_Render_identity": null,
+    "live_deploy_SHA_ID": null,
+    "merge_method": null,
+    "non_race_day_evidence": null,
+    "operator_roster": null,
+    "post_polling_duplicate_evidence_window": null,
+    "worker_python_executable_prefix": null
+  },
+  "purpose": "G5_DRAFT_NOT_EXECUTION_AUTHORIZATION",
+  "rules": {
+    "AutoDeploy_OFF": "PAST_VALUE_NOT_CURRENT_EVIDENCE",
+    "BASELINE_DIFFERS": "REVIEW_BEFORE_MERGE_NEVER_AUTO_PASS",
+    "G6": "SUSPEND_RESUME_SEPARATE_GO",
+    "guard_stop": "STOP_OVERRIDES_LABELS",
+    "resulting_main_SHA": "UNKNOWN_UNTIL_SEPARATELY_AUTHORIZED_MERGE_READBACK",
+    "rollback": "OLD_VULNERABLE_ROLLBACK_NOT_AUTHORIZED"
+  }
+}

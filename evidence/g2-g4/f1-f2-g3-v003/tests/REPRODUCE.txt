@@ -1,0 +1,42 @@
+LOCAL DISPOSABLE ENVIRONMENT ONLY. NEVER RUN THIS HARNESS ON RENDER.
+
+1. Preserve the entire evidence checkout at the submitted immutable commit.
+   Use a disposable PROJECT containing the reviewed requirements.txt, official.py
+   and sqlite_readonly_audit.py. Use the approved 19-package-plus-pip SITE directory.
+   The test environment never installs or changes production dependencies.
+2. Obtain the pinned public image using the managed Docker daemon/proxy/CA rules:
+   python@sha256:f21c0d5a44c56805654c15abccc1b2fd576c8d93aca0a3f74b4aba2dc92510e2
+   Keep registry credentials/proxy/CA settings unchanged. Tests themselves use
+   --network none; no target traffic or external DNS is possible from containers.
+3. Choose NEW, separate TLS_WORK and SQLITE_WORK directories outside the checkout.
+   From an existing separate tool environment providing cryptography, run:
+   python -B tests/generate-fixtures.py TLS_WORK
+   Create SQLITE_WORK, then use the preserved parent tests/generate-fixtures.py
+   for SQLITE_WORK (the old SQLite suite uses its legacy four-certificate fixture).
+   Synthetic private keys stay private in WORK, mode 0600; never publish them.
+4. Run tests/run-container.py metadata META_WORK PROJECT SITE. Verify actual
+   Python 3.14.3, SQLite 3.40.1, measured OpenSSL and exactly 19 packages plus pip.
+   Record source ID and compile options. A wrong environment is STOP.
+5. Run tests/run-container.py tls TLS_WORK PROJECT SITE and capture raw stdout/
+   stderr. It runs all original 22 regressions plus F1/F2's three new cases.
+6. Run tests/run-container.py sqlite SQLITE_WORK PROJECT SITE and capture raw
+   stdout/stderr. It retains all original 25 G2/G3/G4 suite cases, selects only the
+   new G3 source/command and logs actual environment. Completed-copy inspection
+   uses mode=ro&immutable=1; no source immutable mode and no new copy sidecars.
+7. Run new tests/verify-commands.py: seven frozen plus three new raw commands and
+   decoded payloads are rebuilt in memory and compared, with no file rewrites.
+8. From repository root, sha256sum -c
+   evidence/g2-g4/f1-f2-g3-v003/SHA256SUMS.txt
+   covers frozen and new evidence except its own bytes. Use the preserved offline
+   verify-output.py for DUMMY or authorized captured frames; it never grants GO.
+
+The fresh venv uses symlinks to the image interpreter because /tmp is noexec; do
+not remove noexec, mount security or other container restrictions to run a copy.
+Source/packages/project are read-only, root is read-only, caps dropped, and only
+synthetic WORK is writable. Keep every raw failure separately. Redact internal
+paths/URLs before publishing logs, with original AND derivative SHA and REDACTED
+trust labels. Setup-only failures are not failed or successful application tests.
+
+Actual submitted runtime: Python 3.14.3, SQLite 3.40.1, OpenSSL 3.0.18, Linux x86_64.
+Exact production OpenSSL 3.0.20, old-bundle positive gate and external NEGATIVE_1/2
+remain UNVERIFIED. No fixture result is a Render/production acceptance observation.

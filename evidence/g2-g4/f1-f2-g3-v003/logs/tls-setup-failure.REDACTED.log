@@ -1,0 +1,7 @@
+ENV {"phase": "SETUP_ONLY_BEFORE_TEST_BODIES", "runtime": {"machine": "x86_64", "openssl": "OpenSSL 3.0.18 30 Sep 2025", "os": "Linux", "python": "3.14.3", "sqlite": "3.40.1"}, "source": "SAME_IMMUTABLE_IMAGE_MEASUREMENT"}
+TRUST REDACTED
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import venv,os;venv.EnvBuilder(with_pip=False).create('[TEST_VENV]');os.execv('[TEST_VENV]/bin/python',['python','-B','[TEST_SCRIPTS]/tls-isolation.py','[TEST_WORK]','[TEST_PROJECT]'])
+                                                                             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied

@@ -1,0 +1,3 @@
+ENV {"openssl": "OpenSSL 3.5.5 27 Jan 2026", "os": "linux", "python": "3.14.3", "sqlite": "3.50.4"}
+CASE NON_3401_GATE_STOP_BEFORE_DATABASE_OPEN PASS
+EXIT_CODE 0

@@ -1,0 +1,14 @@
+{
+  "actual_old_bundle_gate": "UNVERIFIED_NOT_AVAILABLE",
+  "cases": 25,
+  "classification_and_stream_tests": "PASS",
+  "external_targets": "NOT_RUN",
+  "go": false,
+  "openssl": "OpenSSL 3.0.18 30 Sep 2025",
+  "openssl_3_0_20_compatibility": "UNVERIFIED_EXACT_PATCH_NOT_TESTED",
+  "os": "Linux",
+  "production_openssl_reported_by_HQ13": "OpenSSL 3.0.20",
+  "python": "3.14.3",
+  "render": "NOT_RUN",
+  "sqlite": "3.40.1"
+}

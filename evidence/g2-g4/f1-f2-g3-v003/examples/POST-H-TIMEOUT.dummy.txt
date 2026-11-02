@@ -1,0 +1,9 @@
+BEGIN CERTIFI_AUDIT_V002
+{"example":"DUMMY_NOT_MEASUREMENT"}
+{"get":{"error":"OTHER_FAILURE","http":null,"state":"OTHER_FAILURE","v":"UNVERIFIED","verify_code":null,"verify_message":null,"why":"TIMEOUT"},"id":"WWW","tls":{"anchor_sha256":null,"bad_root":null,"state":"CONNECTED","v":"PASS","verify_code":null,"verify_message":null}}
+{"get":{"http":200,"state":"HTTP_RESPONSE","v":"PASS","verify_code":null,"verify_message":null},"id":"BARE","tls":{"anchor_sha256":null,"bad_root":null,"state":"CONNECTED","v":"PASS","verify_code":null,"verify_message":null}}
+{"get":{"http":200,"state":"HTTP_RESPONSE","v":"PASS","verify_code":null,"verify_message":null},"id":"FALLBACK","tls":{"anchor_sha256":null,"bad_root":null,"state":"CONNECTED","v":"PASS","verify_code":null,"verify_message":null}}
+{"get":{"http":null,"state":"CERT_REJECTED","v":"PASS","verify_code":20,"verify_message":"dummy verification message"},"id":"NEGATIVE_1","tls":{"anchor_sha256":null,"bad_root":null,"state":"CERT_REJECTED","v":"PASS","verify_code":20,"verify_message":"dummy verification message"}}
+{"get":{"http":null,"state":"CERT_REJECTED","v":"PASS","verify_code":20,"verify_message":"dummy verification message"},"id":"NEGATIVE_2","tls":{"anchor_sha256":null,"bad_root":null,"state":"CERT_REJECTED","v":"PASS","verify_code":20,"verify_message":"dummy verification message"}}
+{"combined":{"BARE":"PASS","FALLBACK":"PASS","NEGATIVE_1":"PASS","NEGATIVE_2":"PASS","WWW":"PASS"},"effect_evidence":1,"get":"UNVERIFIED","go":false,"guard_stop":false,"mode":"POST","r":"TLS_OBS_PASS","tls":"PASS"}
+END CERTIFI_AUDIT_V002 lines=7 bytes=1541 sha256=4724fe1350c35a09d445463ab3801e56e2c9022b31a0989fe45225992527e701

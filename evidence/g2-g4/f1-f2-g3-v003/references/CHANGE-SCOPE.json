@@ -1,0 +1,13 @@
+{
+  "G3_all_other_payload_bytes_identical": true,
+  "G3_literal_new": "3.40.1",
+  "G3_literal_old": "3.50.4",
+  "G3_new_payload_bytes": 11266,
+  "G3_old_payload_bytes": 11266,
+  "G3_replacement_occurrences": 1,
+  "TLS_added_function": "combined_verdict",
+  "TLS_all_other_AST_nodes_identical": true,
+  "TLS_all_other_function_source_bytes_identical": true,
+  "TLS_changed_function": "summarize",
+  "baseline_gate_file_identical": true
+}

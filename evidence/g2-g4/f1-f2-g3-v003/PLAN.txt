@@ -1,0 +1,141 @@
+TLS F1/F2 AND G3 v003 - DEVELOPMENT / ISOLATION ONLY, NO EXECUTION GO
+Parent/reference: 02e9f45f910456af9232bcfcc289e807a922d974.
+All 68 parent evidence files remain byte-identical. Older 59833a prototype branch
+also remains unchanged. New files only; no PR #6/main/Render/Production/task/Model/
+BOX/Freeze/canonical/POINTER change. No merge/deploy/baseline/backup/suspend/resume
+on production. Local synthetic fixture backups are the permitted isolated tests.
+
+AUDIT / CHANGE BOUNDARY
+HQ13 accepted F1/F2 from the named Claude audit. The original Drive TXT was read
+privately and hashed; references/AUDIT-SOURCE.json binds its 6104 bytes and SHA.
+The private audit itself and temporary download URLs are NOT republished.
+TLS changes only summarize() and adds combined_verdict(). Every other original
+function's source bytes and all other AST nodes are identical, including S1-S8
+handshake-only TCP/SNI/context/ALPN, 8-second limits, headers-only GET/body guard,
+typed error extraction, verified-chain diagnostics, CA/env/version/private-API
+gates, allowlist, frames and paste guards. baseline_gate_v003.py is unchanged.
+The precise source diff and machine scope proof are supplied.
+
+F1: PER-TARGET COMBINED VERDICT
+For WWW/BARE/FALLBACK, actual certificate verification failure in T or H is FAIL,
+regardless of verify_code. This includes a later-hop H error retained in error=
+CERT_REJECTED after a first HTTP response. Otherwise T=CONNECTED means PASS.
+H timeout, DNS, ProxyError, ScopeBlocked or another communication failure remains
+visible in H but does not cancel T's successful TLS result. H alone never repairs
+a failed/unknown T handshake. If T is not CONNECTED and there is no actual cert
+failure, the positive combined verdict is UNVERIFIED.
+NEGATIVE_1/2 retain the stricter two-stage rules: either stage FAIL -> combined
+FAIL; both stage verdicts PASS -> combined PASS; otherwise UNVERIFIED. NEGATIVE_1
+post-change requires actual issuer rejection code 2/19/20. NEGATIVE_2 requires
+actual certificate rejection, any code, and contributes no remediation evidence.
+POST summary uses the five combined verdicts: FAIL first, all five PASS ->
+TLS_OBS_PASS, otherwise UNVERIFIED. The individual T/H observations are preserved.
+
+F2: BASELINE SUMMARY
+Any positive actual certificate rejection in T or H -> FAIL.
+All five combined expectations match -> BASELINE_OBS_EXPECTED.
+Otherwise -> BASELINE_DIFFERS:<ID[,ID...]>, ordered WWW, BARE, FALLBACK,
+NEGATIVE_1, NEGATIVE_2. Missing expected IDs are included; TARGET_SET is a fixed
+format diagnostic for an otherwise malformed target set, never arbitrary input.
+Expect positives CONNECTED, NEGATIVE_1 old acceptance/CONNECTED, NEGATIVE_2 actual
+verification rejection from the old environment, any code. Positive H network
+failures are record-only under F1 in baseline too. go=false ALWAYS.
+
+Existing cleanup_unknown/close_unknown safety guards are retained. guard_stop=true
+is an explicit STOP priority even if a TLS observation is known. Unknown stream
+closure is not reclassified as a harmless H timeout. Such flags cannot silently
+produce PASS; baseline differing IDs include that affected target. A malformed
+frame/target set or unknown side effect requires STOP independently of verdict.
+
+G3 v003: EXACTLY ONE PAYLOAD LITERAL REPLACEMENT
+Replace the single sqlite3.sqlite_version gate literal "3.50.4" with "3.40.1".
+Every other decoded payload byte is identical, including entry kind, source mode=ro,
+existing-SHM read-mark allowance, source integrity check/read snapshot, exclusive
+new destination, backup API, capacity/deadline checks, inotify scope/aux checks,
+copy integrity/counts/fsync/SHA and partial-file preservation. No other SQLite
+version is automatically accepted. Linux platform gate also remains unchanged.
+The new wrapper has regenerated base64, SHA and end token. COMMANDS.json records
+whole command bytes/SHA plus payload bytes/SHA and the complete end token.
+Both module and FULL-PAYLOAD one-location diffs are supplied.
+
+The destination's integrity/count checks during backup creation use the existing
+owned write connection, unchanged. AFTER a complete closed backup, isolated copy
+inspection uses mode=ro&immutable=1, and does not create new WAL/SHM. This option is
+never applied to the live source. No extra checkpoint, journal_mode change, VACUUM,
+manual SHM write, direct file copy, overwrite or cleanup/retry is introduced.
+Normal SQLite locks/read-marks on an EXISTING source SHM are permitted. Source DB/
+WAL data writes by this reader remain forbidden. Do not claim zero physical writes
+to existing files. Preserve the backup privately, including any partial/unverified
+file on failure; existing destination/helper names block retry and require STOP.
+
+ACTUAL ISOLATED ENVIRONMENT
+Python 3.14.3 / SQLite 3.40.1 / OpenSSL 3.0.18 / Linux x86_64 were measured inside
+the immutable official image:
+python@sha256:f21c0d5a44c56805654c15abccc1b2fd576c8d93aca0a3f74b4aba2dc92510e2
+This is real SQLite, not a changed version attribute or shim. Source ID and compile
+options are recorded. A fresh venv uses symlinks to that interpreter and a read-only
+mount of the already reviewed 19 packages plus pip. No dependency/app file changes.
+Containers use --network none, read-only root/source/packages, unprivileged task
+UID, dropped capabilities, no-new-privileges, and writable synthetic WORK only.
+Tests never contact the five external sites, Render, a production DB or proxy.
+The Docker daemon retrieved the public image separately; this is source/runtime
+acquisition, not an external TLS acceptance probe. Registry credentials/proxy
+settings were not changed or printed. No host networking or privileged container.
+
+TLS suite: all original 22 cases retained (aggregate expectations corrected only
+where F1 mandates it), plus three required cases = 25 PASS. It includes an ACTUAL
+8-second H timeout row reused in complete POST/baseline profiles, positive cert
+failure baseline FAIL, and NEGATIVE_1 mismatch BASELINE_DIFFERS:NEGATIVE_1.
+Other H failures, any-code positive rejection and conservative negative behavior
+are covered. S1-S8 local server, no-body, anchor, codes, frame/gate regressions pass.
+
+SQLite suite: original FULL 25-case suite, including every G2/G3/G4_SQLite case
+and safety guard, executed under Python 3.14.3 + SQLite 3.40.1; all 25 PASS.
+Only the G3 source/command selection and environment logging were adapted. The
+completed-copy check already uses mode=ro&immutable=1. Legacy auxiliary TLS cases
+in this SQLite suite are historical regression checks, not the current F1/F2
+acceptance suite; the separate 25-case TLS log is authoritative for this revision.
+The SQLite native-I/O log separates source DB/WAL fingerprints and SHM changes.
+A separate host 3.50.4 rejection test proves STOP before any sqlite3.connect event.
+
+Initial container venv setup used a copied executable on a noexec temporary mount,
+so three setup launches stopped before test bodies ran. The copied executable was
+replaced with a symlink to the already permitted image interpreter; mount security
+was not weakened. Raw originals are retained privately. Public setup logs are
+REDACTED with original/derived SHA and phase=SETUP_ONLY, separate from PASS runs.
+
+UNVERIFIED / HUMAN-REPORTED ITEMS
+Production Python 3.14.3 / SQLite 3.40.1 / OpenSSL 3.0.20 are HQ13 reports, not a
+Codex Render read. Requested Python/SQLite combination is tested, but EXACT
+OpenSSL 3.0.20 is not: 3.0.18 was used. Production SQLite source/compile options,
+VFS/filesystem and actual disk/runtime identity are not proved by version equality.
+Actual old 121-certificate bundle/gate and external NEGATIVE_1/2 remain UNVERIFIED.
+Baseline role tests use synthetic local certificates/simulated old observations;
+they are not actual old-certifi acceptance measurements. Prior external failures
+and Claude reproduction reports are not promoted to fresh Codex observations.
+
+DELIVERY / FRAMES / IPHONE
+Use new raw ASCII command files, one physical line, NO terminal LF. Old files are
+historical/HOLD. Copy exact reviewed bytes, never retype. The unchanged complete
+shell group and end-token/payload length/SHA check precede execution. New
+verify-commands.py rebuilds seven frozen and three new commands in memory and
+compares bytes; it never rewrites files. New SHA256SUMS covers frozen/new files.
+Output remains BEGIN/END CERTIFI_AUDIT_V002 with body line count, byte count and
+SHA-256 over exact ASCII JSON body lines including LFs. Reconstruct screenshots
+exactly and use the preserved offline verifier. Missing END, OCR damage, CRLF,
+wrong counts/hash, unknown output or side effects mean STOP, not a partial PASS.
+If iPhone shows `>` continuation input, do NOT finish quotes/braces, append a second
+command or press Enter repeatedly. Close that Shell screen/session and wait for
+a fresh session, exact file and individual GO. Closing a running command does not
+prove completion; never auto-retry a backup over an existing/partial file.
+
+STOP / HANDOFF
+Any environment/hash/source/context/private-API mismatch, unsupported SQLite,
+unknown body/closure/file event, missing source sidecar, insufficient space,
+unexpected state, corrupt DB/copy, existing backup destination or incomplete frame
+requires STOP. Baseline FAIL blocks deployment; BASELINE_DIFFERS requires quick
+Claude/HQ13 review BEFORE merge; EXPECTED satisfies only that observation gate.
+guard_stop/unknown safety issues override all labels. POST FAIL/UNVERIFIED blocks
+close. No version, timeout, CA/proxy/DNS, task, app or disk workaround is added.
+G5-PREPARATION.txt organizes FUTURE operations/data only; nothing is authorized by
+this package. Claude independent review and Andy's individual GO remain required.

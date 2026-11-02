@@ -1,0 +1,23 @@
+{
+  "arch": "amd64",
+  "capabilities": "all dropped",
+  "environment": {
+    "machine": "x86_64",
+    "openssl": "OpenSSL 3.0.18 30 Sep 2025",
+    "os": "Linux",
+    "python": "3.14.3",
+    "sqlite": "3.40.1"
+  },
+  "exact_production_openssl_3_0_20": "UNVERIFIED",
+  "image_id": "sha256:1a3e9ba88bc83d060dc63f1bba45ff0c4473f96da4bcd8db31c3b2609d8c7f93",
+  "manifest_digest": "sha256:f21c0d5a44c56805654c15abccc1b2fd576c8d93aca0a3f74b4aba2dc92510e2",
+  "network": "none",
+  "no_new_privileges": true,
+  "os": "linux",
+  "production_SQLite_compile_options_and_VFS": "UNVERIFIED",
+  "rootfs": "read-only",
+  "source_and_packages": "read-only",
+  "tag_used": "python:3.14.3-slim-bookworm",
+  "venv": "symlinks to image interpreter",
+  "writable": "SYNTHETIC_WORK_AND_NOEXEC_TMP_ONLY"
+}

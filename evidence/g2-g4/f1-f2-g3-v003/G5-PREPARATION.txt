@@ -1,0 +1,99 @@
+G5 PREPARATION - REVIEWABLE DRAFT ONLY; NO MERGE/RENDER/BASELINE/BACKUP GO
+
+KNOWN DEVELOPMENT REFERENCES (read-only GitHub verification required at handoff)
+PR #6 head: 97640c8c307fed8eaa19f2557f5057ccade18da1, Draft/unmerged.
+Current main baseline: 8172aec010894a52f36f48b7091476d26494e4ee.
+Expected policy(b) requirements: 19 lines / 340 bytes, SHA
+dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7,
+Git blob 1761296a6d8c768184aa6372a9ee873bf01a23ba.
+Approved candidate application tree: 568161bd70e0727e3bbbec8d1d3a14603bc64e5d.
+Evidence commit is separate from the application/deploy commit: never deploy it.
+
+1. COMPLETE THE GO PACKAGE BEFORE ANY OPERATION
+- Claude review of F1/F2, G3 one-literal diff, full 3.40.1 suite and this G5 draft.
+- Exact evidence commit/file names/bytes/SHA/end tokens and immutable app head/tree.
+- Named operator, evidence recorder, Claude/HQ13 reviewer and Andy decision maker;
+  who can act immediately, Andy parked/available per HQ safety condition, JST window.
+- Non-race-day evidence, remaining tasks/PENDING/nonterminal review, planned start,
+  observation duration and stop/report channel. No existing tasks are cancelled.
+- Actual Render service/workspace identity, start command, Python executable/prefix,
+  Python/OpenSSL/SQLite measurements, current deploy ID/commit and process/instance
+  count. Secrets and internal paths stay in the private GO record, not GitHub.
+- RE-READ AutoDeploy OFF under separate read authorization. Past OFF is not current
+  evidence. Unknown/ON or service/artifact mismatch is STOP; Codex changes nothing.
+- Actual STATE_DB_PATH/mount, UID/permissions, journal/WAL/SHM existence, sizes/free
+  space, unique backup filename/date, prior backup absence, private retention owner.
+- Exact OpenSSL 3.0.20 testing/acceptance disposition, production SQLite build/VFS
+  differences, and external/old-bundle UNVERIFIED items resolved by Claude/HQ13.
+- Andy's individual GO specifies which actions/modes, actors, targets, time window
+  and conditions are authorized. Current request authorizes NONE of these operations.
+
+2. FUTURE BASELINE (ONLY UNDER ITS SEPARATE EXECUTION GO)
+Confirm old certifi/version/SHA/121/effective CA/env gates with the reviewed raw
+baseline command. Paste ONCE. Preserve all framed screenshots privately, reconstruct
+and verify exact body counts/hash before judging. Never retry merely for a result.
+STOP/invalid frame/guard_stop=true -> stop further changes, preserve evidence, HQ.
+FAIL (positive certificate verification failure in T OR H) -> STOP deploy path.
+BASELINE_DIFFERS:<IDs> -> HOLD before merge; send the exact frame for quick Claude/
+HQ13 review. Do not silently map DIFFERS to PASS or use elapsed time as approval.
+BASELINE_OBS_EXPECTED -> baseline observation satisfied; other GO gates still apply.
+Positive H timeout/DNS/proxy/scope alone is recorded, not a lost T success. Real H
+certificate rejection still FAILs. NEGATIVE_1 expects old acceptance; NEGATIVE_2
+expects certificate rejection already on old certifi. go remains false in all cases.
+
+3. FUTURE PRE-CHANGE A5 AND B5 (EACH WITH REQUIRED SCOPED GO)
+Run the existing approved G2/A5 raw command from the project directory immediately
+before the change window; verify auditor hash, RO snapshot, date/states. Unknown
+state/hash/schema/lock error is STOP. PENDING/nonterminal counts require HQ review
+of the agreed race/task window, not cancellation or automatic permission.
+Only with explicit backup-write GO run G3 v003 once. Source mode=ro; ordinary
+existing-SHM read-lock/read-mark writes allowed. No source DB/WAL data writes.
+Check capacity before source open, source integrity, exclusive new destination,
+Backup API, copy integrity/counts, helper cleanup, size/SHA and complete frame.
+Existing destination/helper, insufficient space, timeout, corruption, unexpected
+event/aux or partial result -> STOP. Retain partial file; no delete/rename/overwrite,
+new fallback name, checkpoint or automatic retry. Completed-copy inspection only
+mode=ro&immutable=1; never immutable on live source. Keep backup private, mode 0600.
+
+4. MERGE / RESULTING MAIN SHA - STILL PENDING, NOT FABRICATED
+Choose the PR merge method in the reviewed GO package. Exact new main SHA cannot
+be asserted now because merge is forbidden and has not occurred. A GitHub preview
+merge SHA is NOT guaranteed to equal the eventual real merge commit. Do not label
+head 97640c8 or evidence commit as the resulting main SHA.
+Under a later GO that explicitly includes PR merge, bind head/base checks to the
+approved 97640c8/8172aec and validate the resulting tree/requirements. No direct push
+to main. Record the ACTUAL main SHA and PR merge/readback evidence after that
+authorized action. Any drift is STOP. Final deploy target must be that confirmed
+application SHA, never an unbound 'latest commit'. If GO requires a literal main
+SHA before deploy, complete that readback and the required GO review first.
+This draft neither performs merge nor invents permission for a subsequent step.
+
+5. FUTURE RENDER REFLECTION - ONLY WHEN EXPLICITLY INCLUDED IN ANDY'S GO
+Reconfirm service, AutoDeploy OFF, exact confirmed app SHA, backup validity and
+operator readiness. Use only the approved method; record deploy ID/time/SHA.
+No automatic rollback to the vulnerable old deploy, alternative route, repeated
+deploy or suspend/resume is authorized. G6 suspend/resume testing remains separate.
+
+6. FUTURE POST-CHECKS UNDER SCOPED READ/PROBE GO
+- Re-run reviewed A1-A3: same worker interpreter/patch, fixed 19 plus pip, certifi
+  2026.10.23, CA SHA 2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b,
+  118 certificates, matching HTTPX effective set, all 14 SSL/proxy names absent.
+- Run revised POST TLS command ONCE. Five combined PASS -> TLS_OBS_PASS; any FAIL
+  -> STOP; otherwise UNVERIFIED -> HOLD/report. T/H rows remain distinct. H HTTP
+  status/timeout is informational for a positive whose T succeeds, but any actual
+  T/H positive certificate rejection FAILs. Negative rules remain two-stage strict.
+- Existing G4_SQLite RO check: integrity, duplicate/orphan invariants, counts/time;
+  do not require counts to remain static under a legitimate normal worker.
+- Verify at least two completed normal polling cycles from approved private logs,
+  correct instance/process count, official acquisition recovery separately from
+  tracking fallback, and no unexpected semantic replay/duplicate event. TLS PASS
+  and HTTP403 do not prove business recovery. Do not start main.py as a diagnostic.
+- Preserve START/END/time/frames/logs privately per the existing G1 process. No
+  modification to canonical records, Freeze or POINTER is part of this work.
+
+GLOBAL STOP PRIORITY
+Unknown safety guard, identity, frame or artifact -> STOP regardless of labels.
+Baseline FAIL -> STOP deploy. DIFFERS -> reviewer HOLD BEFORE merge. EXPECTED is
+one prerequisite only. Post FAIL/UNVERIFIED -> do not close the operation.
+STOP means cease further changes and report; it is NOT permission to suspend,
+resume, rollback, repair, change CA/proxy settings, deploy or edit task/app state.

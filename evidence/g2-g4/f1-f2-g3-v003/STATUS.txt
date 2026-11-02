@@ -1,0 +1,10 @@
+F1/F2_IMPLEMENTED_ISOLATED_TESTED_CLAUDE_REVIEW_PENDING_NO_EXECUTION_GO
+G3_v003_ONE_LITERAL_GATE_CHANGE_ONLY_3.40.1_NO_OTHER_VERSION_ALLOWED
+TLS: 22 original regressions + 3 required additions = 25 PASS.
+SQLite: all original 25 G2/G3/G4 regression cases PASS.
+Measured: Python 3.14.3, SQLite 3.40.1, OpenSSL 3.0.18, Linux x86_64.
+Exact OpenSSL 3.0.20: UNVERIFIED. Production filesystem/build identity: UNVERIFIED.
+Old-bundle positive gate / external NEGATIVE_1/2 / Render execution: NOT_RUN.
+All original v002/v003-final files byte-identical; old v003 prototype branch unchanged.
+G5 draft prepared; actual operators/window/AutoDeploy OFF/resulting main SHA/GO pending.
+PR #6 / main / Production / tasks / Model / BOX / Freeze / canonical / POINTER unchanged.

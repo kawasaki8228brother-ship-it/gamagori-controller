@@ -1,0 +1,4 @@
+BEGIN CERTIFI_AUDIT_V002
+{"example":"DUMMY_NOT_MEASUREMENT"}
+{"created":false,"go":false,"r":"STOP","why":"DEST_EXISTS"}
+END CERTIFI_AUDIT_V002 lines=2 bytes=96 sha256=7e2e9bdc6ead35e808c0eac12f1764937fafc598ca4803187be46a96d0be625e

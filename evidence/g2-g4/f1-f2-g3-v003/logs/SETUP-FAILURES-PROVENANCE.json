@@ -1,0 +1,56 @@
+{
+  "environment": {
+    "machine": "x86_64",
+    "openssl": "OpenSSL 3.0.18 30 Sep 2025",
+    "os": "Linux",
+    "python": "3.14.3",
+    "sqlite": "3.40.1"
+  },
+  "failures": [
+    {
+      "original_bytes": 2514,
+      "original_sha256": "f39fd4a54f2fa3b25e396e97efb3710bb18e3c8b9c3f598b48db82f7723658c4",
+      "phase": "SETUP_ONLY_NO_TEST_CASES_EXECUTED",
+      "published": {
+        "bytes": 2744,
+        "file": "evidence/g2-g4/f1-f2-g3-v003/logs/metadata-setup-failure.REDACTED.log",
+        "git_blob": "394917a0553fc1ba27f04d2013f4b0867da32022",
+        "sha256": "30a05720b531f473b5d5036c09431e6c4d4223ab61ccb57eb2838e83f603b719",
+        "terminal_lf": true
+      },
+      "redaction": "CONTAINER_PATHS_ONLY",
+      "resolution": "VENV_SYMLINKS_NO_MOUNT_SECURITY_CHANGE",
+      "trust": "REDACTED"
+    },
+    {
+      "original_bytes": 550,
+      "original_sha256": "1a67b80e72b5082ac13a04ec59d19ad5e83dc539d5a15aac7e9a2d35b4f06cb4",
+      "phase": "SETUP_ONLY_NO_TEST_CASES_EXECUTED",
+      "published": {
+        "bytes": 762,
+        "file": "evidence/g2-g4/f1-f2-g3-v003/logs/tls-setup-failure.REDACTED.log",
+        "git_blob": "ccbe88a967f00eb60f6a9df2fb0900475b210365",
+        "sha256": "c227f90670788a36a7eab6939439c8dce6c9c42d99147f0f0e160319674e547c",
+        "terminal_lf": true
+      },
+      "redaction": "CONTAINER_PATHS_ONLY",
+      "resolution": "VENV_SYMLINKS_NO_MOUNT_SECURITY_CHANGE",
+      "trust": "REDACTED"
+    },
+    {
+      "original_bytes": 556,
+      "original_sha256": "aa028182d1a4bc3e58a6454996e684117d3d12f84e04a551a541422663fdae21",
+      "phase": "SETUP_ONLY_NO_TEST_CASES_EXECUTED",
+      "published": {
+        "bytes": 768,
+        "file": "evidence/g2-g4/f1-f2-g3-v003/logs/sqlite-setup-failure.REDACTED.log",
+        "git_blob": "af7b47d44bcd0e9d69fe2e5ff2a44431d2d7935b",
+        "sha256": "0a84b6a6d289dd48be68988bc8ee364b4bced7040751630ccfdeee4288d08b5e",
+        "terminal_lf": true
+      },
+      "redaction": "CONTAINER_PATHS_ONLY",
+      "resolution": "VENV_SYMLINKS_NO_MOUNT_SECURITY_CHANGE",
+      "trust": "REDACTED"
+    }
+  ]
+}
