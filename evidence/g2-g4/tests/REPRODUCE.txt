@@ -1,0 +1,28 @@
+ISOLATED REPRODUCTION ONLY - NEVER RUN THIS HARNESS ON RENDER
+
+1. Use a disposable Linux workspace and Python 3.14.3 / SQLite 3.50.4.
+2. Install the 19 packages from the reviewed PR head requirements in a fresh venv.
+   Do not change PR files or production dependencies. Retain Python/OpenSSL/SQLite
+   versions and the installed inventory. Extra test-certificate generation tools
+   belong to a separate tool environment; cryptography is NOT added to the 19 pins.
+3. Choose a NEW isolated WORK directory outside the repository. Generate local
+   test-only certificates with tests/generate-fixtures.py WORK from a separate
+   environment already providing cryptography. Private fixture keys stay in WORK
+   with restrictive permissions; never commit or upload them.
+4. From the pinned Python venv, run tests/verify-commands.py. It reconstructs all
+   five commands and decoded payloads in memory and compares exact reviewed bytes.
+5. Run tests/isolation.py WORK PROJECT with that same pinned Python. PROJECT must
+   be a disposable clone of the reviewed target artifact (official.py, the unchanged
+   auditor, and requirements.txt hashes must match). No main.py/controller runs.
+   WORK must contain no earlier fixture directories. The harness creates/deletes
+   only its synthetic fixtures; these operations are not the Render commands.
+6. Capture complete stdout/stderr with a Python/OpenSSL/SQLite/OS header. A nonzero
+   exit, missing cases, unexpected files or changed expected versions is STOP.
+   The suite needs loopback sockets only, not access to the five external targets.
+7. Run tests/verify-output.py on each dummy sample or an authorized captured output.
+   FRAME_VERIFIED means only line/byte/hash framing, never operational PASS or GO.
+
+The submitted run used Python 3.14.3, OpenSSL 3.5.5, SQLite 3.50.4, Linux x86_64,
+and the fixed 19 packages plus pip. All 25 isolated cases passed. No Render command,
+external NEGATIVE_1/2, deploy, merge, suspend/resume or production DB access occurred.
+Claude's independent reproduction and audit remain PENDING.

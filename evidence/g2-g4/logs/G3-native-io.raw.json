@@ -1,0 +1,46 @@
+{
+  "copy_integrity": "ok",
+  "existing_shm_changed": true,
+  "extra_final_files": 1,
+  "shm_normal_readmarks_allowed_by_HQ13": true,
+  "source_db_unchanged": true,
+  "source_wal_unchanged": true,
+  "sqlite": "3.50.4",
+  "sqlite_native_aux_events": [
+    {
+      "create": true,
+      "delete": false,
+      "role": "BACKUP"
+    },
+    {
+      "create": true,
+      "delete": false,
+      "role": "BACKUP-journal"
+    },
+    {
+      "create": false,
+      "delete": true,
+      "role": "BACKUP-journal"
+    },
+    {
+      "create": true,
+      "delete": false,
+      "role": "BACKUP-wal"
+    },
+    {
+      "create": true,
+      "delete": false,
+      "role": "BACKUP-shm"
+    },
+    {
+      "create": false,
+      "delete": true,
+      "role": "BACKUP-shm"
+    },
+    {
+      "create": false,
+      "delete": true,
+      "role": "BACKUP-wal"
+    }
+  ]
+}

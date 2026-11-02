@@ -1,0 +1,9 @@
+BEGIN CERTIFI_AUDIT_V002
+{"g":"G4_TLS_DUMMY","py":"DUMMY"}
+{"c":"CONNECTED","expect":"CONNECT","id":"WWW"}
+{"c":"CONNECTED","expect":"CONNECT","id":"BARE"}
+{"c":"CONNECTED","expect":"CONNECT","id":"FALLBACK"}
+{"c":"CERT_REJECTED","expect":"REJECT","id":"NEGATIVE_1"}
+{"c":"CERT_REJECTED","expect":"REJECT","id":"NEGATIVE_2"}
+{"go":false,"r":"DUMMY_ONLY_NOT_MEASUREMENT"}
+END CERTIFI_AUDIT_V002 lines=7 bytes=346 sha256=e46effbca31d7f956ca09adf24eee32258280c4ab8e347f9b06eeaa6c4fed0b6

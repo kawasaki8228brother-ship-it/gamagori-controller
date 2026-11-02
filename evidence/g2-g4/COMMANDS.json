@@ -1,0 +1,52 @@
+[
+  {
+    "bytes": 9060,
+    "entry": "g2",
+    "file": "commands/G2_A5_v002.candidate.txt",
+    "kind": "G2_A5_V002",
+    "name": "G2_A5_v002",
+    "payload_bytes": 6038,
+    "payload_sha256": "8a44f059d6c4dfdd60fb138543b98efe949c1dbe2f4569a96e62c810e160a26a",
+    "sha256": "72bbfc047a8fd57beaf23340855e566d3ef4a7b44da41f7c1f14b8b144867f74"
+  },
+  {
+    "bytes": 16033,
+    "entry": "g3",
+    "file": "commands/G3_backup_v002.candidate.txt",
+    "kind": "G3_BACKUP_DESIGN",
+    "name": "G3_backup_v002",
+    "payload_bytes": 11266,
+    "payload_sha256": "c8be4bfb7398e27b4c817c33fb61d15b46a6006172d746f091a0e5fdf9b11487",
+    "sha256": "1525cc407515014975b11b04bbfbc0c17802ad71d6fc7aa22ee241d3ff58d875"
+  },
+  {
+    "bytes": 10980,
+    "entry": "g4_env",
+    "file": "commands/G4_environment_v002.candidate.txt",
+    "kind": "G4_ENV",
+    "name": "G4_environment_v002",
+    "payload_bytes": 7478,
+    "payload_sha256": "7d3157bbab774c36f16f84e1443c10c3f613f3873a07c29ba63e4b5cfc417e7f",
+    "sha256": "9f93035800084e1e26fbf58e9add3aff01b76b39d69215ba22a4a26b62d34886"
+  },
+  {
+    "bytes": 15805,
+    "entry": "g4_tls",
+    "file": "commands/G4_TLS_v002.candidate.txt",
+    "kind": "G4_TLS",
+    "name": "G4_TLS_v002",
+    "payload_bytes": 11095,
+    "payload_sha256": "9976459d0d126d523945f5e699a7cfc05e4a55b4830ae56ee2a31c66e6ec75c5",
+    "sha256": "7339a866ff9e0b860a75a52a5dfc623949e31a613282a8c0c81f6146ac28c78a"
+  },
+  {
+    "bytes": 9668,
+    "entry": "g4_db",
+    "file": "commands/G4_SQLite_v002.candidate.txt",
+    "kind": "G4_DB",
+    "name": "G4_SQLite_v002",
+    "payload_bytes": 6493,
+    "payload_sha256": "7f2cb1e66d6e70c95c08731de792e2c3cc5de16bfe06fec57a09a64c081f3ed8",
+    "sha256": "790c6d46a5db5fd2e43d05e6285afca1f18890669ad8175909a5943dcb9faa03"
+  }
+]

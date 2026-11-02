@@ -1,0 +1,31 @@
+{
+  "head": "97640c8c307fed8eaa19f2557f5057ccade18da1",
+  "read_only_reference_files": [
+    {
+      "bytes": 9950,
+      "path": "official.py",
+      "sha256": "8598ef5937c5b944d87b6cfa8c29dea10dc6f09781cb73a0c55521c5f6a29373"
+    },
+    {
+      "bytes": 11120,
+      "path": "main.py",
+      "sha256": "8ba77c9371e999df08c012978cbb8d0a20654686fbd35846190e565b985a4447"
+    },
+    {
+      "bytes": 6385,
+      "path": "repositories.py",
+      "sha256": "05ffbbdaad5cc8a2e4806d90cb0913d250089e2347207e96a9e9c9c2630b7aad"
+    },
+    {
+      "bytes": 6348,
+      "path": "sqlite_readonly_audit.py",
+      "sha256": "354940e9a77d2eaf86feaa1c50089db4a0e410cc5f2fdafd6598d66367566b94"
+    },
+    {
+      "bytes": 4922,
+      "path": "models.py",
+      "sha256": "2a1dfefe8b5bc1ebac40b7b1ddff042f0967532c36c032b74e9a74f508f0271b"
+    }
+  ],
+  "requirements_sha256": "dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7"
+}

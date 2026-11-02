@@ -1,0 +1,5 @@
+BEGIN CERTIFI_AUDIT_V002
+{"g":"G2_DUMMY","py":"DUMMY","sq":"DUMMY"}
+{"day":"20990101","mode":"ro","nonterminal":0,"pending":0,"unknown":0}
+{"r":"DUMMY_ONLY_NOT_MEASUREMENT"}
+END CERTIFI_AUDIT_V002 lines=3 bytes=149 sha256=f5978251c85d4f9bc4448ecb06ee05f032d89430344f6850d9a37f1be9beaa94

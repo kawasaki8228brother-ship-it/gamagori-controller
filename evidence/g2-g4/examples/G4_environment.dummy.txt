@@ -1,0 +1,6 @@
+BEGIN CERTIFI_AUDIT_V002
+{"g":"G4_ENV_DUMMY","py":"DUMMY"}
+{"bad":0,"deps":19,"env_overrides":0,"pip":true}
+{"ca_n":118,"ca_sha":"0000000000000000000000000000000000000000000000000000000000000000","eff_eq":true,"eff_n":118}
+{"go":false,"r":"DUMMY_ONLY_NOT_MEASUREMENT"}
+END CERTIFI_AUDIT_V002 lines=4 bytes=244 sha256=de35f591cb29601830091c190fbcb2a5640a345637b09f2d55bffcedd217b9da

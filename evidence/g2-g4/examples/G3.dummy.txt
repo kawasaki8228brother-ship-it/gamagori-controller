@@ -1,0 +1,6 @@
+BEGIN CERTIFI_AUDIT_V002
+{"g":"G3_DUMMY","py":"DUMMY","sq":"DUMMY"}
+{"free_before":134217728,"required":67125248,"source_sizes":{"db":8192,"shm":0,"wal":0}}
+{"backup":"DUMMY_NEW_BACKUP.sqlite3","bytes":8192,"sha256":"0000000000000000000000000000000000000000000000000000000000000000"}
+{"aux_left":0,"no_execution_GO":true,"r":"DUMMY_ONLY_NOT_MEASUREMENT"}
+END CERTIFI_AUDIT_V002 lines=4 bytes=330 sha256=4dee5f92a8a9298b9374a7ae045d867e71360b23c183cd024360536af0fc77cd

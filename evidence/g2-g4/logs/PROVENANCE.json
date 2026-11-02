@@ -1,0 +1,34 @@
+{
+  "environment": {
+    "kernel": "6.18.57",
+    "machine": "x86_64",
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "os": "Linux",
+    "packages": "FIXED_19_PLUS_PIP",
+    "python": "3.14.3",
+    "sqlite": "3.50.4"
+  },
+  "external_NEGATIVE_1_2": "UNVERIFIED_NOT_RUN",
+  "independent_claude_audit": "PENDING",
+  "logs": [
+    {
+      "bytes": 2128,
+      "file": "isolation.raw.log",
+      "sha256": "afa69322381609a7623114f70bab45152d37a40bc77d1074d55cd52bce6d28b5"
+    },
+    {
+      "bytes": 789,
+      "file": "isolation-summary.raw.json",
+      "sha256": "85808026829ce86fbd7beba3920f7b1272d75e183831308de6b176b07933cb00"
+    },
+    {
+      "bytes": 855,
+      "file": "G3-native-io.raw.json",
+      "sha256": "87ad5e3aec2af1498ac1c3df2bc543ae96d60072c94dba97eec026ff7edbf4e8"
+    }
+  ],
+  "redaction_performed": false,
+  "render_execution": "NOT_RUN",
+  "scope": "SAME_FINAL_ISOLATED_RUN_SYNTHETIC_FIXTURES_ONLY",
+  "trust": "RAW_SAFE_ISOLATED_FIXTURE_LOGS_NO_REDACTION"
+}

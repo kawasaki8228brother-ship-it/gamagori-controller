@@ -1,0 +1,202 @@
+G2-G4 DESIGN AND ISOLATED VERIFICATION ONLY - NO PRODUCTION EXECUTION GO
+
+Design source: PR #6 head 97640c8c307fed8eaa19f2557f5057ccade18da1.
+This package does not change that PR, main, Render, Production, tasks, Model,
+BOX, Freeze, POINTER or canonical records. No merge/deploy/suspend/resume command
+is supplied or executed. G1 CLOSED is an HQ13 report, not permission to run G2-G4.
+All candidates require Claude independent review and a later scoped execution GO.
+
+COMMON DELIVERY AND OUTPUT CONTRACT
+- Each raw candidate is ASCII, one physical line, with no terminal LF. Use the
+  exact bytes from the immutable evidence commit, never reconstruct from Markdown.
+- One `python -B -c` invocation is enclosed by `{ ...; }`. Every non-empty proper
+  tail prefix lacks the final shell-group terminator; quoted-paste truncation also
+  leaves incomplete syntax. A complete end token, decoded-payload byte count and
+  SHA-256 are checked before the diagnostic body executes.
+- Errors print only fixed reason codes or exception type names. No environment
+  values, proxy URLs, response bodies, process arguments or per-race payloads print.
+- All five candidates emit the A1-A3 v002 frame, in compact ASCII JSON lines:
+  BEGIN CERTIFI_AUDIT_V002 LF
+  BODY (one JSON object and LF per logical line)
+  END CERTIFI_AUDIT_V002 lines=N bytes=M sha256=H LF
+  N/M/H cover only exact BODY bytes including each LF, excluding BEGIN/END.
+  Short summaries target about one or two phone screens; screen wrapping varies.
+  Hash validation detects OCR/copy damage, not authenticity or execution approval.
+  Missing END, invalid counts/hash, smart quotes, extra spaces or CRLF are STOP.
+  Offline verifier: tests/verify-output.py. Examples are DUMMY data, not observations.
+- Python-level audit hooks restrict file mutations, .env reads, SQLite connection
+  URIs and network/subprocess use. These are not an adversarial native-code sandbox.
+  SQLite native I/O is separately bounded by ro source access, exact destination,
+  platform/version checks, inode checks and a Linux inotify directory watch.
+  Normal interpreter site startup precedes -c; unverified startup hooks and live
+  Python/virtual-environment identity remain execution prerequisites, not a PASS.
+
+IPHONE INCOMPLETE-PASTE ABORT
+If `>` or another continuation prompt appears, do NOT append a quote/brace, paste
+another command, or repeatedly press Enter. Close the Render Shell screen/session.
+Do not repaste until a new Shell has no pending input and the exact reviewed file
+and individual execution GO are confirmed. Closing the Shell is not suspending or
+restarting the service. If G3 has already started, a closed connection does NOT
+prove it completed or left no partial file: treat it as STOP/UNKNOWN and do not
+retry over an existing filename. Codex performs none of these Shell actions now.
+
+G2 - A5 v002 (READ-ONLY DESIGN)
+Use only from the approved project directory on the actual deployment day,
+immediately before the separately approved reflection step. First verify the
+existing sqlite_readonly_audit.py SHA-256:
+354940e9a77d2eaf86feaa1c50089db4a0e410cc5f2fdafd6598d66367566b94
+Then use its mode=ro, immutable=False reader. The source file is not modified;
+a command-local subclass adds memory-only temporary storage and a five-second
+SQLite VM progress deadline. Busy timeout remains 2500 ms. These are connection
+settings, not persistent journal-mode changes. No main.py/controller import occurs.
+The fixed source is /var/data/gamagori_shadow.db, subject to prior confirmation
+that this is the real live STATE_DB_PATH. It must be a regular file in a real
+directory; WAL mode requires the existing WAL and SHM files. Missing sidecars STOP
+rather than creating them or using immutable=1 on a live DB.
+Output: current JST date; PENDING count; all non-TERMINAL known-state count;
+unknown/malformed state count; RaceStatus counts; journal mode; review-required flag.
+PENDING/non-terminal presence does NOT grant permission to deploy or cancel work.
+HQ13 must assess the approved maintenance/race window and in-flight work. Unknown
+states, malformed JSON, source/hash/schema errors or lock/deadline failures STOP.
+The existing auditor uses short separate queries: this is not a transaction trace,
+a backup, proof that polling has stopped, or a guarantee of globally atomic counts.
+A5 v001 is preserved exactly as commands/A5_v001.raw.txt (2016 bytes, no final LF).
+
+G3 - B5 CONSISTENT SQLITE BACKUP (WRITE OPERATION; NOT RUN ON RENDER)
+HQ13 boundary adopted: source DB opens mode=ro; necessary SQLite read-lock/read-mark
+updates to EXISTING SHM are permitted. Source DB/WAL data writes, manual SHM writes,
+forced checkpoints, journal_mode assignments and VACUUM are forbidden. Never claim
+"zero writes to existing files". Live application writers may continue normally;
+their changes are distinct from this backup reader's allowed lock bookkeeping.
+
+Candidate sequence:
+1. Fix destination to /var/data/gamagori_shadow.pre-certifi-97640c8c.YYYYMMDD.sqlite3,
+   using the deployment day's JST date. If that filename or its -journal/-wal/-shm
+   helper exists (including a symlink), STOP before opening SQLite. No overwrite.
+   No fallback filename, deletion, rename or automatic retry is authorized.
+2. Require Linux and the tested SQLite 3.50.4. Other versions/platforms require
+   separate verification and a new reviewed candidate. Verify root/source regular
+   files, source SQLite header and existing WAL/SHM. Read only the small header to
+   identify mode; do not copy source file bytes. Observe DB/WAL sizes and disk free.
+   Required free bytes = 2*(DB size + WAL size) + 64 MiB. Insufficient space STOP.
+3. Start a non-persistent inotify directory watch. Lost/overflowed watches, root
+   movement, unexpected filenames/events or unverified native behavior STOP.
+4. Open SOURCE by SQLite URI mode=ro, query_only=ON, temp_store=MEMORY. Begin a short
+   read transaction, run source integrity_check (must be the single result 'ok'),
+   and read the three application-table counts. No source journal setting changes.
+5. Exclusively reserve ONE new destination with O_CREAT|O_EXCL|O_NOFOLLOW, mode 0600.
+   Open only that existing reserved inode with mode=rw. Use temp_store=MEMORY and
+   synchronous=FULL on the new copy connection. Do not assign journal_mode anywhere.
+6. Use SOURCE.backup(DESTINATION), 64 pages per step. The same source read snapshot
+   is retained through integrity, counts and backup. The progress callback checks
+   a 15-second cooperative deadline and at least 16 MiB remaining free space.
+7. Run COPY integrity_check and compare all three table counts to the source snapshot.
+   Close the copy normally, release the source read transaction, fsync the new file
+   and its directory. No manual checkpoint is requested. Normal SQLite copy closure
+   may consolidate its own WAL and remove its own temporary helper files.
+8. Check source/destination inode identities and final directory scope. Only the
+   new completed backup may remain; copy helper residue is STOP. Compute backup size
+   and SHA-256 from the reserved descriptor after close/fsync. Reject size/mtime
+   changes during hashing, deadline expiry, unexpected transient events or new files.
+
+The SQLite 3.50.4 Linux fixture observation found these COPY helpers generated and
+removed normally: BACKUP-journal, BACKUP-wal, BACKUP-shm. They are not extra completed
+backup products. inotify allows only the exact new backup and those three suffixes;
+unknown helpers, even if subsequently deleted, STOP. Source WAL/SHM must pre-exist.
+Source data changes are blocked by mode=ro/query_only. Source DB/WAL modification
+events caused by the independently running worker are not mistaken for writes by
+this reader. Their attribution cannot be proved from a directory event alone.
+Controlled no-writer tests therefore check source DB/WAL fingerprints separately;
+the concurrent-writer test explicitly attributes writes to its fixture writer.
+The ordinary SHM read-mark change is recorded separately in the native-I/O log.
+
+Failure: keep any new/partial/unverified file, report STOP with stage and type/code,
+close owned handles, and do not delete/repair/checkpoint it. A retained file is not
+a valid backup merely because it has a SQLite header. Existing filename blocks a
+retry. Recovery or an alternative reviewed filename needs a separate HQ decision.
+The deadline is cooperative SQLite/progress/hash monitoring, not a guarantee against
+an indefinitely stalled kernel I/O. Loss of END or uncertain completion is STOP.
+No full copy of the live .db, wal or shm is made with cp/shutil/read-write loops.
+Source header reads and copy-only checksum reads are not the backup mechanism.
+No backup file is uploaded by these candidates. Mode 0600 and a private retention
+plan are prerequisites because the real backup can contain confidential state.
+
+G4 - POST-REFLECTION VERIFICATION (DESIGN ONLY)
+This sequence is usable only after a separate GO and an independently confirmed
+reflection completion. It does not instruct Codex to merge or deploy anything.
+0. Confirm approved service, actual accepted artifact/deploy SHA and live worker
+   identity through authorized read-only evidence. Design baseline is head 97640c8c.
+   A different accepted SHA/tree requires a fresh scoped comparison, not assumption.
+1. Re-run the exact independently reviewed A1-A3 v002 from the project directory
+   only after its execution GO. Reference file is included byte-identically from
+   prior evidence: 10289 bytes, SHA-256
+   defcec8945bc9ebd76c1f0721d11e385c9dd47d65f1acc2bfddf77a92bbd61cb
+   If HQ's approved original differs, STOP and obtain that original; do not retype.
+   Require complete frame/hash; compare sys.executable/prefix with the approved
+   worker reference, Python patch 3.14.3, OpenSSL, HTTPX, presence flags and inventory.
+2. Run G4_environment_v002 only with separate authorization. Require the approved
+   requirements SHA dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7,
+   fixed 19 exact package versions plus one pip distribution (pip version unpinned),
+   HTTPX 0.28.1, certifi 2026.10.23, CA SHA
+   2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b
+   and 118 PEM certificates. No upper/lower SSL/proxy override name may be present.
+   Print no values. Require default HTTPX verify_mode CERT_REQUIRED, hostname check,
+   effective loaded DER-certificate set EXACTLY equal to the known certifi set and
+   no affected G3/C1/ECC-C3 fingerprint. Directory lazy loading/overrides are not a
+   PASS. App official.py must match the target source hash. Any mismatch STOP.
+3. G4_TLS_v002 rechecks that environment before any request. Targets only:
+   WWW       https://www.boatrace.jp/
+   BARE      https://boatrace.jp/
+   FALLBACK  https://boatraceopenapi.github.io/
+   NEGATIVE_1 https://dv-g3b-emudhra.we-have-a-problem.com/
+   NEGATIVE_2 https://dv-g3b-aaa-emudhra.we-have-a-problem.com/
+   Preserve HQ12 timeout=8.0, verify=True, trust_env=True, follow_redirects=True,
+   negative URLs, one sequential attempt per target and original error recognition.
+   A pre-send hook only prevents HTTPS downgrade, userinfo, non-443 ports or redirect
+   origins outside those five. It never retries elsewhere or bypasses a proxy/CA.
+   These TLS defaults agree with the app's HTTPX TLS settings. App browser-like HTTP
+   headers are not copied into HQ12's probe: its communication options stay intact.
+   If HTTP_TIMEOUT_SECONDS would differ from 8, STOP instead of silently clamping.
+   HTTPX timeout 8 is per network operation/inactivity, NOT a strict total wall-clock
+   limit across redirects or streaming. Changing HQ12 conditions for a hard total
+   limit requires separate review; no such change is silently introduced here.
+   Three output classes:
+     CERT_REJECTED = certificate verification rejected the connection.
+     CONNECTED = HTTPS response below HTTP 400 after approved redirects.
+     OTHER_FAILURE = DNS, timeout, proxy, HTTP 403/other >=400, scope block or unknown.
+   Proxy/DNS/timeout take priority over certificate-looking nested error strings.
+   OTHER_FAILURE is UNVERIFIED, never certificate-rejection PASS. Expected observations
+   are CONNECTED for the three normal sites and CERT_REJECTED for both negatives.
+   This package does not re-run external NEGATIVE_1/2: their status remains UNVERIFIED.
+4. G4_SQLite_v002 opens only the source mode=ro, takes a short read transaction and
+   integrity_check, checks duplicate event idempotency keys and both orphan mappings,
+   and prints counts / maximum state-updated timestamp only. No payload or event IDs.
+   Compare before/after observations without requiring counts to stay frozen while
+   the normal worker legitimately processes new work. Unknown schema/format, corruption,
+   duplicate/orphan count >0, lock/VM deadline or incomplete frame is STOP.
+5. Normal polling cannot be established from database integrity or 'live' status.
+   Under a later read-only verification GO, inspect at least two completed post-start
+   polling cycles, configured interval, expected source successes, absence of repeated
+   restarts/errors, and worker instance/process count. The app's source success,
+   tracking-only fallback and completed polling are distinct. Fallback alone is not
+   proof that official acquisition recovered. Preserve scoped log/time/instance
+   evidence privately; do not start main.py as a diagnostic or change schedules.
+6. Duplicate-processing closure needs both DB checks and runtime evidence: unique
+   key/event mappings, no second active worker, no unexpected replay/new UUID for the
+   same logical event, and normal readback over the observation window. Existing
+   DUPLICATE_SKIPPED messages alone do not prove a new duplicate event. Local DB
+   invariants cannot prove absence of all external/semantic duplicate processing.
+7. Any known wrong certificate acceptance or valid-site certificate rejection is
+   FAIL. Any missing/OTHER/ambiguous observation remains UNVERIFIED and blocks close.
+   Do not auto-rollback to a vulnerable deploy, change CA settings, retry via another
+   network route, suspend/resume, or re-deploy to make a check pass. Ask HQ for a new
+   scoped decision after a concrete failure report.
+
+ISOLATION TRUST AND LIMITATIONS
+Tests use only disposable local SQLite fixtures and loopback TLS servers, with
+explicit test CA/trust_env overrides confined to those fixture clients. Those are
+not external HQ12 results. HTTPX MockTransport is used only to inject DNS/timeout/
+proxy/403/redirect failures. The app's production behavior is not simulated as fact.
+Claude independent audit, actual Render filesystem/VFS/startup/runtime conditions,
+and all production execution approvals remain pending. No unknown behavior is
+worked around by changing versions, journal modes, source settings or app state.

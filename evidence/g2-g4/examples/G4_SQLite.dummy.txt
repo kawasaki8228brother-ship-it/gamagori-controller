@@ -1,0 +1,6 @@
+BEGIN CERTIFI_AUDIT_V002
+{"g":"G4_DB_DUMMY","py":"DUMMY"}
+{"integrity":"ok","rows":{"idempotency_keys":0,"race_states":0,"shadow_events":0}}
+{"dup":0,"orphan_event":0,"orphan_key":0}
+{"go":false,"poll":"NEEDS_RUNTIME_LOGS","r":"DUMMY_ONLY_NOT_MEASUREMENT"}
+END CERTIFI_AUDIT_V002 lines=4 bytes=232 sha256=b5f4582531a04f0b395516554ffa2c4e2ced73d38debdacd816436e93f56838e
