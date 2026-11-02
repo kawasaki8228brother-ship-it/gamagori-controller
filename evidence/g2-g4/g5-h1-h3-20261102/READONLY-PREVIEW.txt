@@ -1,0 +1,21 @@
+R1 iPhone事前下見／設計のみ・現在未実施・実行ボタン操作禁止
+
+目的: 承認後に指定操作をiPhoneで表示できるか確認する。操作の試行ではない。
+前提: Claude再監査→HQ13整合→アンディの限定読取GOに対象/範囲/担当/時刻を明記。
+公開ブラウザ操作、Render読取やShellをCodexが今回実施する許可はない。
+
+1 GitHub PR #6でrepo/番号/Draft/base/headを読む。Ready for reviewの表示可否を確認する。
+  Ready実行/確定/レビュー依頼等の状態変更は行わない。表示不能/権限不明はHOLD。
+2 merge method欄でCreate a merge commitの選択肢が表示可能か読む。
+  推奨は同方式。実選択はアンディmerge GOで確定する。merge/confirm等は押さない。
+  操作しなければ確認できない場合は未確認のままHOLD。勝手な選択/方式変更なし。
+3 実Render serviceを私的IDで特定し、Deploy a specific commitの入口/表示可否を読む。
+  状態変更を伴わない表示までに限定。SHA入力/送信、Deploy/confirm等は実行しない。
+  表示できてもdeploy承認は別。実main SHAはmerge後readbackまでは未知。
+4 H3の実service ID・live deploy・実mount=/var/data・現行起動dbログを読取範囲で照合。
+  YAMLのshadow名やenv宣言のみを実測へ流用しない。環境変数一覧画面は開かない。
+5 各表示可否/対象/時刻/担当/私的receiptを記録。ログイン情報・認証値を取得/撮影しない。
+  予定タスク重複0と未終了/遅延/手動実行の実衝突確認は別。設定を変更しない。
+
+不明ならSTOP/HOLDして報告する。UI確認のためReady/merge/deploy/Shellを実行しない。
+GO-1には読取と各後続操作を別行で明示する。下見の成功を後続操作GOへ読み替えない。

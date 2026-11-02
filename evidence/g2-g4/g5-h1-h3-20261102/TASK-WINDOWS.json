@@ -1,0 +1,214 @@
+{
+  "approval": false,
+  "live_timezone_and_config_readback": "PENDING",
+  "merge_minimum_remaining_minutes": 30,
+  "next_meeting_start_reported": "2026-11-09",
+  "nominal_collision_zero_is_actual_collision_clearance": false,
+  "nominal_triggers": [
+    {
+      "minute": 795,
+      "task": "A",
+      "time_JST": "13:15"
+    },
+    {
+      "minute": 855,
+      "task": "A",
+      "time_JST": "14:15"
+    },
+    {
+      "minute": 915,
+      "task": "A",
+      "time_JST": "15:15"
+    },
+    {
+      "minute": 975,
+      "task": "A",
+      "time_JST": "16:15"
+    },
+    {
+      "minute": 1035,
+      "task": "A",
+      "time_JST": "17:15"
+    },
+    {
+      "minute": 1095,
+      "task": "A",
+      "time_JST": "18:15"
+    },
+    {
+      "minute": 1155,
+      "task": "A",
+      "time_JST": "19:15"
+    },
+    {
+      "minute": 1215,
+      "task": "A",
+      "time_JST": "20:15"
+    },
+    {
+      "minute": 1275,
+      "task": "A",
+      "time_JST": "21:15"
+    },
+    {
+      "minute": 1335,
+      "task": "A",
+      "time_JST": "22:15"
+    },
+    {
+      "minute": 825,
+      "task": "B",
+      "time_JST": "13:45"
+    },
+    {
+      "minute": 885,
+      "task": "B",
+      "time_JST": "14:45"
+    },
+    {
+      "minute": 945,
+      "task": "B",
+      "time_JST": "15:45"
+    },
+    {
+      "minute": 1005,
+      "task": "B",
+      "time_JST": "16:45"
+    },
+    {
+      "minute": 1065,
+      "task": "B",
+      "time_JST": "17:45"
+    },
+    {
+      "minute": 1125,
+      "task": "B",
+      "time_JST": "18:45"
+    },
+    {
+      "minute": 1185,
+      "task": "B",
+      "time_JST": "19:45"
+    },
+    {
+      "minute": 1245,
+      "task": "B",
+      "time_JST": "20:45"
+    },
+    {
+      "minute": 1305,
+      "task": "B",
+      "time_JST": "21:45"
+    },
+    {
+      "minute": 1365,
+      "task": "B",
+      "time_JST": "22:45"
+    },
+    {
+      "minute": 789,
+      "task": "Health",
+      "time_JST": "13:09"
+    },
+    {
+      "minute": 849,
+      "task": "Health",
+      "time_JST": "14:09"
+    },
+    {
+      "minute": 909,
+      "task": "Health",
+      "time_JST": "15:09"
+    },
+    {
+      "minute": 969,
+      "task": "Health",
+      "time_JST": "16:09"
+    },
+    {
+      "minute": 1029,
+      "task": "Health",
+      "time_JST": "17:09"
+    },
+    {
+      "minute": 1089,
+      "task": "Health",
+      "time_JST": "18:09"
+    },
+    {
+      "minute": 1149,
+      "task": "Health",
+      "time_JST": "19:09"
+    },
+    {
+      "minute": 1209,
+      "task": "Health",
+      "time_JST": "20:09"
+    },
+    {
+      "minute": 1269,
+      "task": "Health",
+      "time_JST": "21:09"
+    },
+    {
+      "minute": 1329,
+      "task": "Health",
+      "time_JST": "22:09"
+    },
+    {
+      "minute": 1389,
+      "task": "Health",
+      "time_JST": "23:09"
+    },
+    {
+      "minute": 1350,
+      "task": "Daily",
+      "time_JST": "22:30"
+    }
+  ],
+  "nonrace_dates_reported": [
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-07",
+    "2026-11-08"
+  ],
+  "post_check_batching": "NOT_ADOPTED_SEPARATE_REVIEW_REQUIRED",
+  "priority": "W60_UNAPPROVED",
+  "running_delayed_manual_jobs_and_polling": "UNKNOWN_MUST_VERIFY_NO_CONFIG_CHANGE",
+  "source": "HQ13_PROVIDED_READ_VALUES_NOT_CODEX_LIVE_TASK_READ",
+  "timezone_design": "Asia/Tokyo",
+  "windows": [
+    {
+      "actual_end_JST": null,
+      "actual_remaining_minutes_at_merge_start": null,
+      "actual_start_JST": null,
+      "approval": "PENDING_PROPOSAL_ONLY",
+      "date": "2026-11-03",
+      "end_candidate_JST": "11:00",
+      "id": "W60",
+      "latest_merge_start_if_this_candidate_is_formally_adopted_JST": "10:30",
+      "listed_trigger_collisions": [],
+      "minutes": 60,
+      "operator_available": null,
+      "priority": 1,
+      "start_candidate_JST": "10:00"
+    },
+    {
+      "actual_end_JST": null,
+      "actual_remaining_minutes_at_merge_start": null,
+      "actual_start_JST": null,
+      "approval": "PENDING_PROPOSAL_ONLY",
+      "date": "2026-11-03",
+      "end_candidate_JST": "11:45",
+      "id": "W45",
+      "latest_merge_start_if_this_candidate_is_formally_adopted_JST": "11:15",
+      "listed_trigger_collisions": [],
+      "minutes": 45,
+      "operator_available": null,
+      "priority": 2,
+      "start_candidate_JST": "11:00"
+    }
+  ]
+}

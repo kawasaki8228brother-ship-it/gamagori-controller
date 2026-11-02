@@ -1,0 +1,27 @@
+{
+  "catalogs": [
+    {
+      "bytes": 6425,
+      "file": "RAW-COMMANDS.json",
+      "old_G5_byte_equal": true,
+      "sha256": "22f98999056220e3025bb5b38988645918d6f0abd180b04770a4694ab0b58136"
+    },
+    {
+      "bytes": 2348,
+      "file": "RAW-COMMANDS.tsv",
+      "old_G5_byte_equal": true,
+      "sha256": "8efffdea1206127e16d86bc2a43bf26563e28c5f83a4a1e8c661f1b769963045"
+    },
+    {
+      "bytes": 3520,
+      "file": "RAW-ORIGINALS.txt",
+      "old_G5_byte_equal": true,
+      "sha256": "434e5239efd9e3d39ccd28160eb81df137d569ab13777ba8e49ec0ebea1e93a7"
+    }
+  ],
+  "commands_run_or_changed": false,
+  "old_G5_commit": "70db14b4371e30b646d72357969d5f575d825431",
+  "raw_source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba",
+  "scope": "STATIC_HASH_CHECK_NO_EXECUTION",
+  "six_source_blobs_match_parent_tree": true
+}

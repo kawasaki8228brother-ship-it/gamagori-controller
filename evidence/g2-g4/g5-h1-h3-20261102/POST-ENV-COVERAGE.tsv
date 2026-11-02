@@ -1,0 +1,12 @@
+ID	監査項目	必須性	観測元	合格条件/制約	未充足時
+E01	Python/OpenSSL/SQLite	必須	G4_env metadata.py/ssl/sq	Python3.14.3/OpenSSL承認値/SQLite事前3.40.1。sq変化は審査	不足なら省略不可/HOLD
+E02	19件+pip/requirements	必須	deps=19,bad=0,pip=true,req=true	固定379検証コードと承認req SHAで照合	ENV未PASSなら停止
+E03	certifi2026.10.23	必須	ENV_OBS_PASS + 固定19件/ca_okのコード条件	実module版/配布版条件の検証を確認。文字列を推測で記入しない	不足なら省略不可/HOLD
+E04	CA118/承認SHA	必須	ca_n=118/ca_sha	2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b	不一致STOP
+E05	HTTPX実効信頼	必須	eff_n=118,eff_eq=true,runtime=true	実効DER集合一致/検証とhostname有効/HTTPX0.28.1	不一致STOP
+E06	SSL/proxy上書きなし	必須	env_overrides=0 + 固定コード14名	大小14名、値非表示。空文字でも存在扱い	不一致STOP
+E07	アプリ起動元/worker identity	運用上の必須条件	承認SHA live＋同service post起動＋G4_env ENV_OBS_PASS/bad0/reqtrue/app_sourcetrue/runtimetrue	対象service/実行時刻/観測対象整合。process identityはUNVERIFIEDの残余リスク、アンディ最終判断	必須運用証拠欠落/新異常はSTOP・審査。数学的証明の不在だけを新必須にしない
+E08	sys.executable/sys.prefix	今回の追加必須から除外・任意補足	原則追加取得なし。必要条件はG4_envで確認	sys.prefix/CAパス/freeze全文はA1重複省略を妨げる必須条件にしない	未取得だけではHOLDにしない。新異常はSTOPし別途審査
+E09	CAパス/default_verify_paths	今回の追加必須から除外・任意補足	原則追加取得なし。必要条件はG4_envで確認	sys.prefix/CAパス/freeze全文はA1重複省略を妨げる必須条件にしない	未取得だけではHOLDにしない。新異常はSTOPし別途審査
+E10	全freeze一覧	今回の追加必須から除外・任意補足	原則追加取得なし。必要条件はG4_envで確認	sys.prefix/CAパス/freeze全文はA1重複省略を妨げる必須条件にしない	未取得だけではHOLDにしない。新異常はSTOPし別途審査
+E11	空き容量/DBサイズ	G3前の必須・追加post要求は要確認	G3容量/DB-WALサイズ/成果物、G4 DB identity/整合性	新たな現在値を要求する場合はその観測を揃える	G4_envから現在容量を推定しない

@@ -1,0 +1,10 @@
+ID	証拠	必要条件	状態	不一致/不足時
+D01	審査済6原本の対象	固定/var/data/gamagori_shadow.db。G2/G3/G4_SQLiteで同じpath	STATIC_CONFIRMED_NOT_RUNTIME	別pathへ置換せずHOLD
+D02	Render実service ID	実体のIDを私的台帳へ。表示名だけでは同一性認定しない	LIVE_UNVERIFIED	G2以降HOLD
+D03	Render実disk mount	D02と同serviceの現行ディスクmount=/var/dataを読取	LIVE_UNVERIFIED	G2以降HOLD
+D04	現行アプリ起動ログdb=	D02のlive deployに属す起動行のdbがD01と一致。時刻・deployを結ぶ	LIVE_UNVERIFIED	G2以降HOLD。別deployの古い起動ログは代用不可
+D05	補足STATE_DB_PATH単独	必要時のみ安全な限定読取・別承認/審査済方法。第7Shellを自動追加しない	OPTIONAL_NOT_EXECUTED	起動ログ欠落を宣言値だけで代用しない
+D06	render.yamlと実名の差	YAML=gamagori-controller-shadow。実名gamagori-controllerはHQ13報告、実ID要照合	STATIC_YAML_AND_HQ13_REPORT	YAML/env宣言だけを本番実測にしない
+D07	G2開始前の結合	D01-D04のservice/deploy/時刻/mount/pathを私的証拠で結合	HOLD_UNTIL_CONFIRMED	ゼロ件をDB identityの証明に流用しない
+D08	G3/G4の再確認	同一対象を保持。post新deployの起動db/実service/実mountを再照合	FUTURE_GO_REQUIRED	ドリフト・不明はHOLD/STOP、パス自動変更なし
+D09	秘匿境界	env一覧画面・秘密値・認証情報を取得/公開しない。実ID等は私的保全	REQUIRED	必要性が不明なら取得せずHOLD

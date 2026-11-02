@@ -1,0 +1,84 @@
+私的GO記録へ複製する空欄テンプレート／公開側へ実値を戻さない
+全欄は未承認・未観測。各段階に必要な欄のみ確定してから進む。推測で埋めない。
+
+案件ID [未定] / 修正版パッケージcommit [未記入] / 証拠担当 [未定]
+Claude独立再監査receipt [未取得] → HQ13整合receipt [未取得] → アンディ正式GO [未承認]
+Production担当候補 アンディ / 本人承認・停車・可用性 [未確定] / Codexは資料のみ
+W60 11/3 10:00〜11:00 JST [優先候補・未承認] / 採用枠 [未定]
+実開始・終了JST [未定] / merge開始JST [未定] / 残枠分数 [未確認・30分以上必須]
+公式非開催日程・取得時点 [未確認] / タスクtimezone・現設定 [未確認]
+予定起動重複 [設計上0・実体未確認] / 未終了・遅延・手動実行との衝突 [未確認]
+
+読取限定iPhone下見（実行ボタンは押さない）
+事前読取承認/対象/実施者/JST [未承認]
+Ready表示 [未確認] / Create a merge commitの表示 [未確認]
+Render Deploy a specific commitの表示 [未確認] / 実行ボタン操作 [禁止]
+
+GO-1 / GO-2 個別行承認台帳（各行に対象・SHA・方法・実施者・STOP・署名を記入）
+GO-1 事前限定読取/G2/baseline/G3/Ready/merge/readback [各行未承認]
+GO-2 実main SHA確定後のdeploy/ログ/env/TLS/DB/N1-N3観測 [各行未承認]
+Ready: PR/base/head/実施者/方法/承認者/JST/receipt [未承認]
+merge: PR/base/head/req SHA/tree/選択方法/実施者/承認者/JST/receipt [未承認]
+deploy: readback後の実main SHA/実service/実施者/方法/承認者/JST/receipt [未承認]
+Shell: 原本ID/固定379 SHA/bytes/end token/対象アプリSHA/実service/実施者/承認JST [6本とも未承認]
+追加限定読取: 目的/項目/審査済方法/実施者/範囲/承認JST [未承認・自動追加なし]
+
+H3 DB identity（G2より前、G3/G4でも同一対象を再照合）
+審査済原本の固定path /var/data/gamagori_shadow.db
+実Render service ID [私的未確認] / service名 [実体未確認・HQ13報告gamagori-controller]
+同serviceの現行live deploy ID/SHA [未確認] / 実disk mount=/var/data [未確認]
+現行アプリ起動ログJSTとdb=... [未確認] / 固定pathとの完全一致 [未確認]
+同じservice/ディスク/現行deploy/起動ログを結び付けたreceipt [未取得]
+render.yamlのgamagori-controller-shadow/STATE_DB_PATH宣言だけを実測へ流用しない。
+必要時のみSTATE_DB_PATH単独の限定読取 [未承認・方法未審査] / 補足結果 [未取得]
+環境変数一覧画面・秘密値・認証情報は取得しない。identity未確認ならG2以降HOLD。
+G2実行前H3判定 [未判定] / post新deploy起動dbとの再照合 [未判定]
+
+実体・GitHub・AutoDeploy台帳
+AutoDeploy初期/merge直前/deploy直前: 各値/対象/取得JST/receipt [各未取得]
+main readback: 実SHA/親/tree/req/PR merged/取得JST [未確定]
+post deploy: 実ID/承認SHA/live/worker数/起動時刻/終了・再起動の有無 [未確認]
+E07: 承認SHA live＋同service post起動＋ENV_OBS_PASS/bad0/reqtrue/app_sourcetrue/runtimetrue [未確認]
+対象service・実行時刻・観測対象の整合 [未確認] / 運用充足判断 [未判定]
+プロセス単位Python identity UNVERIFIED / 残余リスクのアンディ最終判断 [未承認]
+sys.prefix/CAパス/freeze全文 [任意補足・追加必須ではない・未取得]
+A1-A3重複省略: 全19件/実効CA等の必要値とE07充足、新異常なし [未判定]
+新異常ならSTOP。補足取得のためにShellを自動追加しない。
+
+各Shellの1回記録（6本それぞれに作る）
+原本ID/SHA/bytes/end token [未確認] / 操作GO行receipt [未承認]
+貼付回数 [未実施] / 開始・終了JST [未実施] / 全スクショID [未取得]
+BEGIN/END有無 [未確認] / 本文行数 [未確認] / 本文bytes [未確認]
+END本文SHA [未確認] / 再構成本文SHA [未確認] / 一致 [未確認]
+kind/日付/runtime/対象一致 [未確認] / 意味判定 [未判定] / 次工程受理 [未受理]
+後続}{エラー [未観測] / DUPLICATE_PASTE_SUSPECTED [未判定]
+完全フレームVALIDと後続エラーを別記録 [未確認] / 単一実行・副作用不明 [未確認]
+不完全/継続プロンプトなら補完せずShellを閉じSTOP。全状況で同コマンド再実行禁止。
+
+G3バックアップ（実DB/成果物は非公開）
+保存先新規/不存在/空き容量/元DB-WALサイズ [未確認]
+元mode=ro/SQLite3.40.1/元integrity [未確認]
+コピーmode=ro&immutable=1/整合性/完成1件/補助残存0/サイズ/SHA/時刻/保管担当 [未確認]
+既存SHMの通常read-mark管理をDB/WALデータ変更と分けて記録 [未確認]
+partial/不明なら保全してSTOP。削除/上書き/別名再試行なし。
+
+非開催日N1-N3の限定観測（11/3〜8。raceindex OK2周期は当日の必須にしない）
+N1 承認SHA live/新deploy後起動/同一運用worker/単一worker/異常終了・再起動なし [未確認]
+観測窓開始・終了JST/ログ収集範囲/Render実体との対応 [未確認]
+N2 観測A: No verified/tracked...対象JST日付/ログ時刻/worker対応 [未取得]
+N2 観測B以降: 同日メッセージ/別周期のログ時刻/worker対応 [未取得]
+同一ログの重複表示ではなく2周期以上の連続観測 [未確認]
+Poll番号/suppressed件数 [取得できた場合のみ補強・未観測値は生成しない]
+N3 既知no-race-rows ParserError/現行起動後ログ/変更前既知ログ/公式非開催日程 [未確認]
+official.py取得→raise_for_status→parseの経路 [静的確認・実HTTP内容完全性の証明ではない]
+SSL/証明書/接続失敗の有無 [未確認・あればSTOP] / HTTP404等 [別分類]
+既知ParserError以外/原因不明 [HOLD] / tracking fallback [公式成功と別判定]
+ログ時刻TZをJSTへ対応させた方法 [未確認] / 欠落ログを推測していない [未確認]
+N4 11/9以降通常監査へraceindex OK連続2周期を引継ぐ担当/receipt [未確定]
+N4今確認済み [いいえ] / タスク・予測・LOCK・Freeze・Model・BOX・正本・POINTER変更 [禁止]
+
+公開する場合は秘密・認証URL・Proxy値・内部識別子・実payloadを除いた派生版のみ。
+原本と派生版は別ファイル/別SHA、原本bytes/SHAとREDACTEDを併記する。
+秘密を保全目的で取得することも未承認。環境ダンプ・認証header・実バックアップを公開しない。
+Claude審査 [未実施] → HQ13整合 [未実施] → アンディ限定CLOSE判断 [未承認]
+H2残余リスクとN4引継ぎの明示受容 [未判断] / CLOSE [現在不可]

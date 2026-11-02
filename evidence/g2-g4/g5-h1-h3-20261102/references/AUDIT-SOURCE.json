@@ -1,0 +1,11 @@
+{
+  "GO": false,
+  "bytes": 6312,
+  "drive_id": "1UizZX-jyWyd1xh2LQKKshsoWqBMZnUHN",
+  "file_name": "GAMAGORI_20261102_CLAUDE_REVIEW_G5_GO_DRAFT_70db14b_v001.txt",
+  "match": "EXACT_USER_EXPECTATION",
+  "prior_G5_verdict": "HOLD_H1_H2_H3",
+  "raw_original": "PRIVATE_NOT_REPUBLISHED",
+  "sha256": "c03a6898295a7ef19effd855d22658eaf12b8676d79deea379978796bb52b846",
+  "this_revision_review": "PENDING"
+}

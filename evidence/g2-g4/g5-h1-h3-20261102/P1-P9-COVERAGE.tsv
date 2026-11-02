@@ -1,0 +1,10 @@
+要件	資料	維持する統制	現状態
+P1	G5 O01/O05/O06/O08; GO-1/2	初期/merge直前/deploy直前実体AutoDeploy OFF。ON/不明/取得失敗STOP、切替なし	LIVE_AUTO_UNREAD
+P2	G5 O05-O08; GO-1/2; APPROVALS	Ready/merge/deploy別対象。base/head/req/tree/親readback、実main SHA確定後SHA指定GO	MAIN_RESULT_UNKNOWN
+P3	RAW-ORIGINALS; IPHONE; RAW-COMMANDS	固定379原本6本バイト不変、1回貼付、frame逐次確認/中止/二重貼付疑い別記録	ORIGINALS_UNCHANGED_NOT_EXECUTED
+P4	G5 O00/O02; DB-IDENTITY; S06/S25	G2前H3同一性、日付一致、pending/nonterminal/unknown0。作業取消なし	LIVE_STATE_UNKNOWN_HOLD
+P5	G5 O13; NONRACE; TASK-WINDOWS; C20-C24	H1 N1-N3非開催限定/N4通常監査。W60優先未承認、merge残30分、予定0と実衝突を分離	N1_N4_UNOBSERVED
+P6	G5 O09; S15/S16; GO-2	build失敗旧live実確認STOP、新起動不健全追加操作なしSTOP。旧脆弱版rollback/suspendなし	NO_FAILURE_ACTION_GO
+P7	G5 O10; POST-ENV; DB-IDENTITY	必須19/CA/実効集合/ENV維持。H2運用充足とprocess UNVERIFIED分離、任意E08-10を新必須にしない	POST_PENDING_RESIDUAL_RISK
+P8	G5 P8/O03; S07-S10; GO-1	ACCEPT WITH BASELINE提案のみ。FAIL中止/DIFFERS再審査、3.0.20完全適合と外部未測定を格上げしない	BASELINE_NOT_EXECUTED
+P9	G5 roles/O14; GO-1/2; PERMISSIONS; INPUTS	役割/可用性/時間/各行GO。Claude→HQ13→アンディ、N4/残余リスク明示、実証拠非公開	ALL_GO_PENDING

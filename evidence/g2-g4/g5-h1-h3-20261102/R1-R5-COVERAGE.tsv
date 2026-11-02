@@ -1,0 +1,6 @@
+要件	改訂箇所	扱い
+R1	READONLY-PREVIEW; C23; S24; GO-1 G1-READ	将来の承認済読取下見。Ready/merge method/specific commit表示のみ。実行ボタン禁止、現在未実施
+R2	G5 O06; GO-1; INPUTS merge_approval	Create a merge commit推奨、実方法null。アンディmerge GOで確定、勝手なsquash切替なし
+R3	GO-1-DRAFT; GO-2-DRAFT; C25; INPUTS	2通文案だが各操作の対象/SHA/方法/実施者/STOPを個別行で承認。GO-2は実main readback後のみ
+R4	G5 P5/O06; TASK-WINDOWS; C24; S23	11/3 W60優先未承認。merge開始残30分以上。各フレーム省略なし、事後検証一括化未採用・別審査
+R5	TASK-WINDOWS; C02; 私的票; GO-1	予定起動重複0と実未終了/遅延/手動実行との衝突を分離。タスク設定変更なし

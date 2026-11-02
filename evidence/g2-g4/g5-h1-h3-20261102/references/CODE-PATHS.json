@@ -1,0 +1,91 @@
+{
+  "commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba",
+  "files": [
+    {
+      "path": "main.py",
+      "git_blob": "090f74ce5a2bdf6eb6a97241d31e0ec8a19b9996",
+      "url": "https://github.com/kawasaki8228brother-ship-it/gamagori-controller/blob/379cc1d696aa0742f932083dbaecdd03fdda00ba/main.py"
+    },
+    {
+      "path": "official.py",
+      "git_blob": "832c868223b3f72196d7cc3d3de7e40c6c762678",
+      "url": "https://github.com/kawasaki8228brother-ship-it/gamagori-controller/blob/379cc1d696aa0742f932083dbaecdd03fdda00ba/official.py"
+    },
+    {
+      "path": "parsers.py",
+      "git_blob": "c87b22a0b7d1824451861935df513ae2212daa7a",
+      "url": "https://github.com/kawasaki8228brother-ship-it/gamagori-controller/blob/379cc1d696aa0742f932083dbaecdd03fdda00ba/parsers.py"
+    },
+    {
+      "path": "render.yaml",
+      "git_blob": "c46f1318c756183beca46ef2f2f6019916f5ab72",
+      "url": "https://github.com/kawasaki8228brother-ship-it/gamagori-controller/blob/379cc1d696aa0742f932083dbaecdd03fdda00ba/render.yaml"
+    },
+    {
+      "path": "error_rate_limit.py",
+      "git_blob": "4342838ead5ae608a6cd0cbcf84888e385eb63cb",
+      "url": "https://github.com/kawasaki8228brother-ship-it/gamagori-controller/blob/379cc1d696aa0742f932083dbaecdd03fdda00ba/error_rate_limit.py"
+    }
+  ],
+  "facts": [
+    {
+      "file": "main.py",
+      "lines": [
+        26,
+        139,
+        157,
+        212
+      ],
+      "claims": [
+        "Repeated-error interval default 600 seconds; live interval not measured",
+        "Startup line includes db path; live log not observed in this work",
+        "Poll raceindex OK is the race-day observation format, not a nonrace required signal",
+        "No verified/tracked message is the dated nonrace observation format"
+      ]
+    },
+    {
+      "file": "official.py",
+      "lines": [
+        63,
+        95
+      ],
+      "claims": [
+        "_get_text uses client.get, then response.raise_for_status(), then text",
+        "fetch_race_index retrieves text before invoking parse_race_index",
+        "HTTP, TLS and connection failures have separate warning/error paths; a ParserError does not prove HTTP 200 or full content correctness"
+      ]
+    },
+    {
+      "file": "parsers.py",
+      "lines": [
+        72
+      ],
+      "claims": [
+        "Known no-race-rows ParserError: raceindex: no race rows with race number + deadline found"
+      ]
+    },
+    {
+      "file": "error_rate_limit.py",
+      "claims": [
+        "Signature groups context, exception type and message; the first new signature is emitted; repeated same-signature errors are throttled",
+        "Poll number and suppressed count are not required in every cycle; missing values must not be inferred"
+      ]
+    },
+    {
+      "file": "render.yaml",
+      "claims": [
+        "Declared service name is gamagori-controller-shadow and static STATE_DB_PATH is /var/data/gamagori_shadow.db",
+        "The live service name gamagori-controller is an HQ13 report, not a new live read",
+        "YAML alone is not runtime service/environment/DB identity evidence"
+      ]
+    }
+  ],
+  "scope": "STATIC_READ_ONLY_NO_APP_IMPORT_NOT_PRODUCTION_LOG_OBSERVATION",
+  "render_read": false,
+  "code_changed": false,
+  "limits": [
+    "No live service ID, disk mount, startup log, HTTP response body or per-process Python identity was acquired",
+    "Known prechange production log and current official nonrace schedule evidence remain future private inputs"
+  ],
+  "go": false
+}

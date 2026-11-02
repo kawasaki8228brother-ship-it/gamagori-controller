@@ -1,0 +1,188 @@
+{
+  "G2_A5_v002": {
+    "DB_identity_gate": "MUST_BE_CONFIRMED_BY_H3_BEFORE_G2_ELSE_HOLD",
+    "day_DB_identity_or_read_mismatch": "HOLD_HQ13_REVIEW",
+    "fields": {
+      "day": "APPROVED_OPERATION_JST_YYYYMMDD",
+      "mode": "ro",
+      "nonterminal": 0,
+      "pending": 0,
+      "unknown": 0
+    },
+    "kind": "G2_A5_V002",
+    "known_snapshot_does_not_prove_no_future_processing": true,
+    "result": "SNAPSHOT_ONLY"
+  },
+  "G3_backup_v003": {
+    "DB_identity_gate": "SAME_CONFIRMED_H3_TARGET",
+    "completed_copy_inspection": "mode=ro&immutable=1",
+    "completed_files": 1,
+    "fields": {
+      "aux_left": 0,
+      "copy_integrity": "ok",
+      "no_execution_GO": true,
+      "source_mode": "ro",
+      "src_integrity": "ok"
+    },
+    "kind": "G3_BACKUP_DESIGN",
+    "partial_or_existing_destination": "STOP_NO_RETRY_OR_DELETE_OR_OVERWRITE",
+    "record_actual": [
+      "free_before",
+      "required",
+      "source_sizes",
+      "rows",
+      "backup",
+      "bytes",
+      "sha256"
+    ],
+    "result": "BACKUP_VERIFIED",
+    "source_SHM": "NORMAL_EXISTING_READ_LOCK_READMARKS_ALLOWED",
+    "sqlite_required": "3.40.1"
+  },
+  "G4_SQLite_v002": {
+    "DB_identity_gate": "H3_RECONFIRMED_FOR_APPROVED_NEW_DEPLOY",
+    "fields": {
+      "dedup_scope": "LOCAL_DB_ONLY",
+      "dup": 0,
+      "integrity": "ok",
+      "orphan_event": 0,
+      "orphan_key": 0,
+      "poll": "NEEDS_RUNTIME_LOGS"
+    },
+    "go": false,
+    "kind": "G4_DB",
+    "result": "DB_OBS_PASS",
+    "rows_and_timestamp": "RECORD_ACTUAL_NOT_ASSUME_STATIC"
+  },
+  "G4_TLS_v003_F1F2": {
+    "N2_effect_contribution": 0,
+    "NEGATIVE_1": "ACTUAL_ISSUER_REJECTION_2_19_20_IN_BOTH_STAGES",
+    "NEGATIVE_2": "ACTUAL_CERT_REJECTION_ANY_CODE_IN_BOTH_STAGES_CONTROL_ONLY",
+    "POSITIVES": "T_CONNECTED_AND_NO_ACTUAL_T_OR_H_CERT_FAILURE_ANY_CODE",
+    "combined": {
+      "BARE": "PASS",
+      "FALLBACK": "PASS",
+      "NEGATIVE_1": "PASS",
+      "NEGATIVE_2": "PASS",
+      "WWW": "PASS"
+    },
+    "effect_evidence": 1,
+    "go": false,
+    "guard_stop": false,
+    "kind": "G4_TLS_V003",
+    "result": "TLS_OBS_PASS"
+  },
+  "G4_baseline_v003_F1F2": {
+    "BASELINE_DIFFERS:<IDs>": "CLAUDE_HQ13_REVIEW_BEFORE_MERGE",
+    "FAIL": "STOP",
+    "expected_combined": {
+      "BARE": "PASS",
+      "FALLBACK": "PASS",
+      "NEGATIVE_1": "PASS",
+      "NEGATIVE_2": "PASS",
+      "WWW": "PASS"
+    },
+    "gate": {
+      "SSL_proxy_14_names": "ALL_ABSENT",
+      "ca_n": 121,
+      "ca_sha": "9cc2a774b5198dcff14d9be1e66091f538975d867ce029a96bce15a55dfd730f",
+      "certifi": "2026.07.22 (2026.7.22 metadata equivalent)",
+      "eff_eq": true,
+      "eff_n": 121
+    },
+    "go": false,
+    "guard_stop": "STOP_PRIORITY",
+    "kind": "G4_BASELINE_V003",
+    "result": "BASELINE_OBS_EXPECTED",
+    "roles": {
+      "NEGATIVE_1": "OLD_CONNECTED_IN_BOTH_STAGES",
+      "NEGATIVE_2": "ACTUAL_CERT_REJECTION_ANY_CODE_BOTH_STAGES_CONTROL_ONLY",
+      "POSITIVES": "T_CONNECTED_AND_NO_ACTUAL_H_CERT_REJECTION"
+    }
+  },
+  "G4_environment_v002": {
+    "E07_operational": "LIVE_APPROVED_SHA_POST_STARTUP_SAME_SERVICE_VALID_ENV_AND_TIME_TARGET_ALIGNMENT",
+    "additional_sys_prefix_CA_path_fullfreeze_required": false,
+    "certifi_required": "2026.10.23",
+    "fields": {
+      "app_source": true,
+      "bad": 0,
+      "ca_n": 118,
+      "ca_sha": "2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b",
+      "deps": 19,
+      "eff_eq": true,
+      "eff_n": 118,
+      "env_overrides": 0,
+      "pip": true,
+      "req": true,
+      "runtime": true
+    },
+    "go": false,
+    "kind": "G4_ENV",
+    "process_level_identity": "UNVERIFIED",
+    "result": "ENV_OBS_PASS",
+    "version_evidence": "FIXED_VERIFIER_MODULE_AND_19_PIN_CONDITIONS_MUST_PASS"
+  },
+  "frame": {
+    "begin": "BEGIN CERTIFI_AUDIT_V002",
+    "body_hash_includes_line_LF": true,
+    "end": "END CERTIFI_AUDIT_V002 lines=N bytes=M sha256=H",
+    "frame_integrity_is_not_semantic_PASS": true,
+    "verify_before_next_step": true
+  },
+  "nonrace_observation": {
+    "Andy_limited_acceptance": null,
+    "N1": {
+      "approved_SHA_live": null,
+      "postdeploy_startup": null,
+      "single_worker_no_restart_exit": null
+    },
+    "N2": {
+      "Poll_numbers_optional": null,
+      "actual_dated_messages_private": null,
+      "missing_values_may_be_invented": false,
+      "required_no_race_cycles": 2,
+      "same_operational_worker": null,
+      "suppressed_count_optional": null
+    },
+    "N3": {
+      "HTTP_status_404_etc": "SEPARATE_CLASSIFICATION_NOT_CERT_FAILURE",
+      "TLS_SSL_connection_failure": "STOP",
+      "current_error_evidence_private": null,
+      "full_response_correctness": "NOT_GUARANTEED_BY_PARSER_ERROR",
+      "known_parser_error": "raceindex: no race rows with race number + deadline found",
+      "official_nonrace_schedule_private": null,
+      "prechange_reference_log_private": null,
+      "retrieval_then_parse_code_path": "STATIC_CONFIRMED_NOT_FULL_HTTP_CONTENT_PROOF",
+      "unknown_error_cause": "HOLD"
+    },
+    "N4": {
+      "already_verified": false,
+      "handoff_receipt_private": null,
+      "new_task_or_prediction_LOCK_Freeze_canonical_change_allowed": false,
+      "owner_private": null,
+      "requirement": "RACE_DAY_OFFICIAL_RACEINDEX_OK_TWO_CONSECUTIVE_CYCLES",
+      "status": "DEFERRED_NORMAL_AUDIT_FROM_2026-11-09"
+    },
+    "limited_scope_only": true,
+    "period_HQ13_reported": "2026-11-03_through_2026-11-08"
+  },
+  "normal_cycles": {
+    "already_verified": false,
+    "from": "2026-11-09",
+    "new_task_or_prediction_LOCK_Freeze_canonical_changes": false,
+    "official_success": "Poll #N raceindex OK races=... acquired_at=...",
+    "required": 2,
+    "scope": "N4_DEFERRED_RACE_DAY_OBSERVATION_NOT_NONRACE_CLOSE_GATE"
+  },
+  "runtime": {
+    "DB_identity": "FIXED_PATH_ACTUAL_SERVICE_ID_ACTUAL_MOUNT_CURRENT_STARTUP_DB_MATCH_BEFORE_G2",
+    "OpenSSL_live_observation": "PENDING",
+    "OpenSSL_pre_reported": "3.0.20",
+    "post_sqlite_changed": "REVIEW_HOLD",
+    "python_required": "3.14.3",
+    "sqlite_pre_reported": "3.40.1",
+    "worker_identity": "E07_OPERATIONAL_CONDITIONS_WITH_PROCESS_LEVEL_UNVERIFIED_RESIDUAL_RISK_AND_ANDY_DECISION"
+  },
+  "status": "H1_H2_H3_EXPECTED_CONTRACT_NOT_LIVE_MEASUREMENT_NO_GO"
+}

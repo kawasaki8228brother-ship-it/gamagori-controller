@@ -1,0 +1,62 @@
+GO-2 条件付き承認文案（未署名・実main SHA readback後に作る）
+Claude審査方針に従うHQ13整合receipt [未取得] / アンディ正式署名/JST [未承認]
+GO-1実施/readback receipt [未取得] / 実main SHA [未確定・40桁で記入必須]
+親/tree/requirements/PR状態のreadback [未確認] / 承認対象service ID [私的未記入]
+実施者 [未指定・本人承認待ち] / 承認JST窓 [未定] / 各対象行の承認 [未承認]
+各行は同じ「実main SHA」を明示して束縛する。空欄をGo済みと見なさず、GO-1からdeployを推定しない。
+
+G2-DEPLOY manual deploy
+承認 [未承認] / 実施者 [未指定] / 対象SHA [GO-1 readback後の実main SHAを記入]
+方法 Render「Deploy a specific commit」/ 表示下見 [未確認] / 対象service [私的未記入]
+条件 実SHAへの個別deploy承認、直前の実AutoDeploy OFF、残枠/担当/backup/STOP体制。
+ON/不明/取得失敗/違うSHA/preview/evidence/latest選択はSTOP。勝手な再deploy・設定修復なし。
+
+G2-LOGS Renderの限定読取・実deploy/起動/稼働確認
+承認 [未承認] / 実施者 [未指定] / 対象SHA [同じ実main SHA] / 方法 同serviceの実体/起動/ログ読取
+build失敗は旧deploy残存を実確認してSTOP報告。新起動失敗/クラッシュ/不健全は追加操作せずSTOP報告。
+旧脆弱版rollback・suspend/resume・再起動は許可しない。新起動dbパスとH3 DB identityも再照合。
+
+G2-ENV G4_environment_v002 / 操作範囲 ENV_READ_ONLY
+承認 [未承認] / 実施者 [未指定・本人承認待ち] / 対象実service ID [私的未記入]
+対象アプリSHA [当該段階の確定値を私的記入] / 方法 固定原本を1回だけ貼付
+原本commit 379cc1d696aa0742f932083dbaecdd03fdda00ba
+原本SHA256 9f93035800084e1e26fbf58e9add3aff01b76b39d69215ba22a4a26b62d34886 / bytes 10980
+end token CERTIFI_G_END_7d3157bbab774c36f16f84e1443c10c3f613f3873a07c29ba63e4b5cfc417e7f
+追加条件 全19/CA/実効集合とE07運用証拠。プロセスidentityはUNVERIFIED、下記残余リスク判断が必要。prefix/CAパス/freeze全文を新必須化しない。
+STOP/禁止 STOP-MATRIX該当条件・frame不正・不明副作用で停止。再実行/補完/別条件への変更なし。
+
+G2-TLS G4_TLS_v003_F1F2 / 操作範囲 POST_TLS_NETWORK
+承認 [未承認] / 実施者 [未指定・本人承認待ち] / 対象実service ID [私的未記入]
+対象アプリSHA [当該段階の確定値を私的記入] / 方法 固定原本を1回だけ貼付
+原本commit 379cc1d696aa0742f932083dbaecdd03fdda00ba
+原本SHA256 1c3a8ff38d7bca7898bf783875b67132edd19ad148934d5c6fff350ff8ac016f / bytes 31085
+end token CERTIFI_G_END_d27195c681955f48f28941b524dfe66878379366b33272880588587672d8cd67
+追加条件 5件統合判定/guard。F1/F2のShell判定は変更なし。App観測のSSL/接続失敗STOPとは別ゲート。
+STOP/禁止 STOP-MATRIX該当条件・frame不正・不明副作用で停止。再実行/補完/別条件への変更なし。
+
+G2-DB G4_SQLite_v002 / 操作範囲 DB_READ_ONLY
+承認 [未承認] / 実施者 [未指定・本人承認待ち] / 対象実service ID [私的未記入]
+対象アプリSHA [当該段階の確定値を私的記入] / 方法 固定原本を1回だけ貼付
+原本commit 379cc1d696aa0742f932083dbaecdd03fdda00ba
+原本SHA256 790c6d46a5db5fd2e43d05e6285afca1f18890669ad8175909a5943dcb9faa03 / bytes 9668
+end token CERTIFI_G_END_7f2cb1e66d6e70c95c08731de792e2c3cc5de16bfe06fec57a09a64c081f3ed8
+追加条件 H3で同じ新deployのDB対象を再確認。DB_OBS_PASS/整合性/重複・孤児を照合。
+STOP/禁止 STOP-MATRIX該当条件・frame不正・不明副作用で停止。再実行/補完/別条件への変更なし。
+
+G2-NONRACE 読取観測のみ・限定CLOSE審査用
+承認 [未承認] / 実施者 [未指定] / 対象SHA [同じ実main SHA] / 方法 同service/時刻のログと実体の読取
+N1 承認SHAがlive、deploy後起動、単一worker、異常終了・再起動なし。
+N2 同じ運用workerの対象日No-raceメッセージを別時刻で連続2周期以上。Poll/suppressedは取得時のみ補強。
+N3 既知no-race-rows ParserError、取得後解析のコード経路、変更前ログ、公式非開催日程、接続失敗有無を限定照合。
+SSL/証明書/接続失敗はSTOP。HTTP404等は別分類。ParserErrorだけでHTTP内容の完全性を保証しない。
+N4 11/9以降の通常監査で開催日raceindex OK2周期を観測。今確認済みとしない。新task作成・既存変更なし。
+各frameは次工程前に確認。一括化/後まとめ確認は本GO-2の対象外、別途審査。
+
+残余リスクのアンディ最終判断（未選択は受容ではない）
+E07運用条件での受理を判断し、プロセス単位Python identityはUNVERIFIEDのままと理解する [未判断]
+本番OpenSSL3.0.20の完全同一性/SQLite build/VFSの未検証項目とbaseline判断を理解する [未判断]
+非開催日N1-N3は限定稼働確認であり公式データ/HTTP内容完全性の保証ではないと理解する [未判断]
+N4を通常監査へ引継ぎ、Freeze/予測/LOCK/Model/BOX/正本/POINTERを変更しない [未判断]
+
+Claude独立審査・HQ13整合・アンディ判断が揃う範囲で限定CLOSEを審査する。現在の承認はない。
+アンディ正式GO-2 [未署名] / 対象行番号 [未記入] / 実main SHA [未確定] / 署名JST [未記入]

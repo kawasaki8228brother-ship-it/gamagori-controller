@@ -1,0 +1,77 @@
+GO-1 条件付き承認文案（未署名・全操作未承認）
+文書基点70db14bのH1〜H3修正版。実使用のパッケージcommit/SHA [未記入]
+Claude独立再監査receipt [未取得] → HQ13整合receipt [未取得] → アンディ署名/JST [未承認]
+対象repo kawasaki8228brother-ship-it/gamagori-controller / PR #6
+承認停車枠 [未定] / 読取下見の承認時間帯 [未定] / 操作担当 [本人承認待ち]
+W60 11/3 10:00〜11:00 JSTは優先候補に過ぎない。全実時刻・可用性は未確定。
+
+この1通に記載した以下の行を、各々の対象/SHA/方法/実施者/条件で明示承認する形式。
+空欄・未承認行は実行不可。「GO-1」の一言で全てを黙示承認しない。未記入の実値を推測しない。
+新たな異常/署名条件不成立はSTOP/HOLD。GO-1はdeploy/post Shellを許可しない。
+
+G1-READ 事前の限定読取/下見
+承認 [未承認] / 実施者 [未指定] / 対象実service ID [私的未記入]
+対象SHA PR head 97640c8c307fed8eaa19f2557f5057ccade18da1 / main base 8172aec010894a52f36f48b7091476d26494e4ee
+本番現行deploy ID/SHA [私的未記入・他段階実施前に読取結果を承認記録と束縛]
+方法 GitHub/Renderの読取限定。Ready/merge method/Deploy a specific commitの表示のみ確認。
+初期・merge直前AutoDeploy OFF、実service/実mount/現行起動dbログ、既知変更前エラーログ、
+公式非開催日程、タスク未終了/遅延/手動実行との衝突を承認範囲で確認する。
+実行ボタンは押さず、環境変数一覧・秘密値・認証情報は取得しない。
+DB identityは固定path /var/data/gamagori_shadow.db と実ID/実mount=/var/data/現行起動dbログで照合。
+render.yamlのgamagori-controller-shadowを実体認定に使わない。実名gamagori-controllerはHQ13報告であり要実体照合。
+不明/不一致はG2以降HOLD。STATE_DB_PATH単独補足が必要なら別の限定読取範囲・審査済方法を明示し、
+今回の6原本に第7のShellを自動追加しない。
+
+G1-G2 G2_A5_v002 / 操作範囲 DB_READ_ONLY
+承認 [未承認] / 実施者 [未指定・本人承認待ち] / 対象実service ID [私的未記入]
+対象アプリSHA [当該段階の確定値を私的記入] / 方法 固定原本を1回だけ貼付
+原本commit 379cc1d696aa0742f932083dbaecdd03fdda00ba
+原本SHA256 72bbfc047a8fd57beaf23340855e566d3ef4a7b44da41f7c1f14b8b144867f74 / bytes 9060
+end token CERTIFI_G_END_8a44f059d6c4dfdd60fb138543b98efe949c1dbe2f4569a96e62c810e160a26a
+追加条件 H3 DB identity確認済み、対象日一致、pending/nonterminal/unknown各0が進行条件。非ゼロ/不一致HOLD、作業取消なし。
+STOP/禁止 STOP-MATRIX該当条件・frame不正・不明副作用で停止。再実行/補完/別条件への変更なし。
+
+G1-BASELINE G4_baseline_v003_F1F2 / 操作範囲 BASELINE_NETWORK
+承認 [未承認] / 実施者 [未指定・本人承認待ち] / 対象実service ID [私的未記入]
+対象アプリSHA [当該段階の確定値を私的記入] / 方法 固定原本を1回だけ貼付
+原本commit 379cc1d696aa0742f932083dbaecdd03fdda00ba
+原本SHA256 ee1ad231ef7b54d75c92a054d9366038d5b05e1073a7335cd683abf8e59afe0b / bytes 30913
+end token CERTIFI_G_END_fa67ce1b870ed8657e23dcd966fa3f96c0fc9ae42e9aa4780089075392bfe35f
+追加条件 旧バンドルゲート・OpenSSL条件確認。FAIL中止、DIFFERSはmerge前Claude/HQ13審査、EXPECTEDも他条件必要。
+STOP/禁止 STOP-MATRIX該当条件・frame不正・不明副作用で停止。再実行/補完/別条件への変更なし。
+
+G1-BACKUP G3_backup_v003 / 操作範囲 BACKUP_NEW_FILE_WRITE
+承認 [未承認] / 実施者 [未指定・本人承認待ち] / 対象実service ID [私的未記入]
+対象アプリSHA [当該段階の確定値を私的記入] / 方法 固定原本を1回だけ貼付
+原本commit 379cc1d696aa0742f932083dbaecdd03fdda00ba
+原本SHA256 6ccc2772bb7237b826f74f0c6eb6ec3feb0203e4b77adb4dee7a99da7c4d7ccf / bytes 16033
+end token CERTIFI_G_END_665af99b9e504de91fabd4d9330f0dac2d1a593db00d7df3fc7ab1627499e784
+追加条件 SQLite3.40.1だけ。元RO/既存SHM正常読取管理のみ/完成新規1件/上書きなし/部分失敗保全。実バックアップ非公開。
+STOP/禁止 STOP-MATRIX該当条件・frame不正・不明副作用で停止。再実行/補完/別条件への変更なし。
+
+G1-READY Ready for review（mergeとは別対象）
+承認 [未承認] / 実施者 [未指定] / 方法 Ready for review / iPhone表示確認 [未確認]
+対象 PR #6 / base 8172aec010894a52f36f48b7091476d26494e4ee / head 97640c8c307fed8eaa19f2557f5057ccade18da1
+条件 先行frame/意味/安全条件が確認済み。実施後にPR/base/head/差分/treeを読戻し。
+禁止 この行からmerge又はdeployを推定しない。状態/権限不明はSTOP。
+
+G1-MERGE PR merge
+承認 [未承認] / 実施者 [未指定] / 実方法 [未選択]
+推奨 Create a merge commit。squashを採る場合もアンディのmerge GOで明示。
+対象 PR #6 / base 8172aec010894a52f36f48b7091476d26494e4ee / head 97640c8c307fed8eaa19f2557f5057ccade18da1
+期待requirements SHA256 dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7
+期待tree 568161bd70e0727e3bbbec8d1d3a14603bc64e5d
+条件 Ready行が別途承認済み、G2/baseline/G3/H3条件及びframe受理、直前の実AutoDeploy OFF。
+merge開始時に承認枠残り30分以上。残時刻 [未確認] / 計算receipt [未取得]。
+条件不成立・UI不可・base/head/req/tree漂流はSTOP。main直接push・方法自動切替・ゲート省略は禁止。
+
+G1-READBACK merge後の読取
+承認 [未承認] / 実施者 [未指定] / 方法 main ref/commit/parents/tree/req/PR状態の読取
+実main SHA [未確定] / 親 [未確定] / tree [未確認] / PR merged [未確認]
+merge commitなら親はbase 8172aec010894a52f36f48b7091476d26494e4ee と head 97640c8c307fed8eaa19f2557f5057ccade18da1。
+squashなら唯一の親は同base。いずれも承認tree/req一致を必要とし、実SHAを40桁で確定する。
+preview/head/証拠commitをdeploy先にしない。GO-2はこの実SHA確認後に別途承認する。
+
+署名前確認: 全先行条件/DB identity/個別行/対象/時刻/停止方針を理解した [未確認]
+アンディ正式GO-1 [未署名] / 対象行番号 [未記入] / 署名JST [未記入]
+本書を作成しただけでは、何も実行できない。

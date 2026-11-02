@@ -1,0 +1,31 @@
+{
+  "Andy_residual_risk_decision": "PENDING",
+  "DB_identity_live": "UNVERIFIED_HOLD_BEFORE_G2",
+  "E08_E10_additional_mandatory": false,
+  "H1_H3_rows": 3,
+  "P1_P9_coverage_rows": 9,
+  "Production_operations": false,
+  "R1_R5_rows": 5,
+  "Render_read_or_write": false,
+  "actual_merged_main_SHA": null,
+  "actual_task_collision": "UNKNOWN",
+  "all_operational_approvals": "UNFILLED",
+  "commands_executed": false,
+  "go": false,
+  "latest_private_audit_bytes": 6312,
+  "latest_private_audit_sha256": "c03a6898295a7ef19effd855d22658eaf12b8676d79deea379978796bb52b846",
+  "merge_minimum_remaining_minutes": 30,
+  "new_TLS_or_SQLite_tests": "NOT_RUN_DOCUMENT_ONLY",
+  "nominal_collision_count_each_window": [
+    0,
+    0
+  ],
+  "nonrace_contract": "N1_N3_LIMITED_OBSERVATION_N4_DEFERRED",
+  "parent_G5_local_documents_match_GitHub_tree": true,
+  "parent_blob_count": 183,
+  "parent_commit": "70db14b4371e30b646d72357969d5f575d825431",
+  "post_check_batching": "NOT_ADOPTED",
+  "process_level_identity": "UNVERIFIED",
+  "scope": "DOCUMENT_HASH_AND_CONSISTENCY_INSPECTION_ONLY_NOT_OPERATIONAL_TEST",
+  "six_source_blobs_and_catalogs_byte_preserved": true
+}

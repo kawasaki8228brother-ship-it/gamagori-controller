@@ -1,0 +1,35 @@
+{
+  "Claude_reported": {
+    "SQLite_cases": 24,
+    "TLS_cases": 24,
+    "limitations": "ENV_PINNED_CASE_SKIPPED_NOT_IDENTICAL_PRODUCTION_PYTHON",
+    "openssl": "3.0.13",
+    "python": "3.13.18",
+    "source": "references/PREVIOUS-AUDIT-SOURCE.json (6508 bytes)",
+    "sqlite": "3.40.1"
+  },
+  "Codex": {
+    "SQLite_cases": 25,
+    "SQLite_log": {
+      "bytes": 2092,
+      "sha256": "e7f676068fedf9c7458acf2536b29dd160f76e5bfa357d242db26eb39016c10f",
+      "url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/379cc1d696aa0742f932083dbaecdd03fdda00ba/evidence/g2-g4/f1-f2-g3-v003/logs/sqlite-isolation.raw.log"
+    },
+    "TLS_cases": 25,
+    "TLS_log": {
+      "bytes": 15257,
+      "sha256": "2cc23acbaad2b62862b24e3b15ce4bc102490b1cc6fa930e0cc38b33d258e86b",
+      "url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/379cc1d696aa0742f932083dbaecdd03fdda00ba/evidence/g2-g4/f1-f2-g3-v003/logs/tls-isolation.raw.log"
+    },
+    "openssl": "3.0.18",
+    "python": "3.14.3",
+    "sqlite": "3.40.1"
+  },
+  "latest_G5_review": "references/AUDIT-SOURCE.json: HOLD_H1_H2_H3",
+  "old_bundle_and_external_NEGATIVE_1_2": "UNVERIFIED",
+  "production_openssl_3_0_20": "UNVERIFIED_BEFORE_LIVE_BASELINE",
+  "proposal_approved": false,
+  "review_proposal": "ACCEPT WITH BASELINE",
+  "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba",
+  "status": "PRIOR_EVIDENCE_NOT_FRESH_PRODUCTION_OBSERVATIONS"
+}

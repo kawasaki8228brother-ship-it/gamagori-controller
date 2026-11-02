@@ -1,0 +1,354 @@
+{
+  "A1_A3_omission": {
+    "design": "SKIP_DUPLICATE_A1_A3_IF_REQUIRED_G4_ENV_AND_E07_COMPLETE_AND_NO_NEW_ANOMALY",
+    "new_anomaly_action": "STOP_AND_REVIEW_NO_AUTO_ADDITIONAL_SHELL",
+    "new_anomaly_observed": null,
+    "operational_decision": null,
+    "required_conditions_complete": null,
+    "sys_prefix_CA_path_fullfreeze_additional_mandatory": false
+  },
+  "AutoDeploy": {
+    "immediately_before_manual_deploy": {
+      "evidence_id_private": null,
+      "observed": null,
+      "observed_at_JST": null,
+      "required": "OFF",
+      "service_identity_private": null
+    },
+    "immediately_before_merge": {
+      "evidence_id_private": null,
+      "observed": null,
+      "observed_at_JST": null,
+      "required": "OFF",
+      "service_identity_private": null
+    },
+    "initial": {
+      "evidence_id_private": null,
+      "observed": null,
+      "observed_at_JST": null,
+      "required": "OFF",
+      "service_identity_private": null
+    }
+  },
+  "CLOSE": {
+    "Andy_final_decision": null,
+    "Claude_review": null,
+    "H2_process_identity_residual_risk_acceptance": null,
+    "HQ13_decision": null,
+    "N4_handoff_receipt_private": null,
+    "evidence_ids_private": null,
+    "official_race_day_success_already_verified": false,
+    "scope": "LIMITED_NONRACE_CERTIFI_CASE_WITH_N4_HANDOFF_AND_H2_RESIDUAL_RISK_DECISION",
+    "unresolved_items": null
+  },
+  "DB_identity": {
+    "actual_disk_mount_private": null,
+    "actual_service_ID_matches_private_reference": null,
+    "actual_service_ID_private": null,
+    "actual_service_name_reported_by_HQ13": "gamagori-controller",
+    "current_live_deploy_ID_SHA_private": null,
+    "current_startup_db_path_private": null,
+    "fixed_path_match": null,
+    "operational_identity_confirmed": null,
+    "render_yaml_declared_name": "gamagori-controller-shadow",
+    "required_mount": "/var/data",
+    "reviewed_fixed_path": "/var/data/gamagori_shadow.db",
+    "startup_log_bound_to_current_deploy": null,
+    "supplementary_STATE_DB_PATH_only_read": {
+      "environment_list_screen_allowed": false,
+      "needed": null,
+      "reviewed_reader_artifact": null,
+      "separate_read_approval": null,
+      "value_private": null
+    },
+    "unconfirmed_action": "HOLD_BEFORE_G2_NO_LATER_DB_OPERATION",
+    "yaml_not_live_evidence": true
+  },
+  "GO1_GO2": {
+    "GO1_document": "GO-1-DRAFT.txt",
+    "GO1_signed": null,
+    "GO2_document": "GO-2-DRAFT.txt",
+    "GO2_requires_actual_main_SHA_readback": true,
+    "GO2_signed": null,
+    "format": "TWO_CONDITIONAL_DRAFTS_PER_ACTION_ROWS_NOT_BLANKET_APPROVAL"
+  },
+  "OpenSSL_disposition": {
+    "Claude_test_reported": "3.0.13",
+    "Codex_test": "3.0.18",
+    "decision": null,
+    "exact_compatibility": "UNVERIFIED",
+    "live_baseline_actual": null,
+    "production_reported": "3.0.20",
+    "proposal": "ACCEPT WITH BASELINE",
+    "reviewer": null
+  },
+  "Ready_approval": {
+    "approved_at_JST": null,
+    "approver": null,
+    "decision": null,
+    "evidence_id_private": null,
+    "executor": null
+  },
+  "Shell_approvals": [
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 9060,
+      "expected_command_sha256": "72bbfc047a8fd57beaf23340855e566d3ef4a7b44da41f7c1f14b8b144867f74",
+      "expected_end_token": "CERTIFI_G_END_8a44f059d6c4dfdd60fb138543b98efe949c1dbe2f4569a96e62c810e160a26a",
+      "id": "G2_A5_v002",
+      "mode_and_target_scope": "READ_ONLY_DB",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    },
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 30913,
+      "expected_command_sha256": "ee1ad231ef7b54d75c92a054d9366038d5b05e1073a7335cd683abf8e59afe0b",
+      "expected_end_token": "CERTIFI_G_END_fa67ce1b870ed8657e23dcd966fa3f96c0fc9ae42e9aa4780089075392bfe35f",
+      "id": "G4_baseline_v003_F1F2",
+      "mode_and_target_scope": "NETWORK_BASELINE",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    },
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 16033,
+      "expected_command_sha256": "6ccc2772bb7237b826f74f0c6eb6ec3feb0203e4b77adb4dee7a99da7c4d7ccf",
+      "expected_end_token": "CERTIFI_G_END_665af99b9e504de91fabd4d9330f0dac2d1a593db00d7df3fc7ab1627499e784",
+      "id": "G3_backup_v003",
+      "mode_and_target_scope": "NEW_BACKUP_WRITE",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    },
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 10980,
+      "expected_command_sha256": "9f93035800084e1e26fbf58e9add3aff01b76b39d69215ba22a4a26b62d34886",
+      "expected_end_token": "CERTIFI_G_END_7d3157bbab774c36f16f84e1443c10c3f613f3873a07c29ba63e4b5cfc417e7f",
+      "id": "G4_environment_v002",
+      "mode_and_target_scope": "READ_ONLY_ENV",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    },
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 31085,
+      "expected_command_sha256": "1c3a8ff38d7bca7898bf783875b67132edd19ad148934d5c6fff350ff8ac016f",
+      "expected_end_token": "CERTIFI_G_END_d27195c681955f48f28941b524dfe66878379366b33272880588587672d8cd67",
+      "id": "G4_TLS_v003_F1F2",
+      "mode_and_target_scope": "NETWORK_POST",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    },
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 9668,
+      "expected_command_sha256": "790c6d46a5db5fd2e43d05e6285afca1f18890669ad8175909a5943dcb9faa03",
+      "expected_end_token": "CERTIFI_G_END_7f2cb1e66d6e70c95c08731de792e2c3cc5de16bfe06fec57a09a64c081f3ed8",
+      "id": "G4_SQLite_v002",
+      "mode_and_target_scope": "READ_ONLY_DB",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    }
+  ],
+  "approval_order": [
+    "CLAUDE_INDEPENDENT_REAUDIT",
+    "HQ13_CONSISTENCY",
+    "ANDY_FORMAL_GO"
+  ],
+  "deploy_approval": {
+    "Render_service_private_id": null,
+    "approved_at_JST": null,
+    "approved_target_SHA": null,
+    "approver": null,
+    "decision": null,
+    "evidence_id_private": null,
+    "exact_SHA_selection_method": null,
+    "executor": null,
+    "mobile_UI_feasibility_verified": null,
+    "requires_confirmed_actual_main_SHA": true
+  },
+  "document_parent_commit": "70db14b4371e30b646d72357969d5f575d825431",
+  "forbidden_now": [
+    "Ready",
+    "merge",
+    "Render_read_or_write",
+    "Shell",
+    "baseline",
+    "G3_backup",
+    "deploy",
+    "rollback",
+    "suspend",
+    "resume",
+    "task_change",
+    "main_push",
+    "canonical_or_POINTER_or_Freeze_change",
+    "prediction_change",
+    "LOCK_change",
+    "environment_list_screen",
+    "secret_or_auth_value_capture",
+    "post_check_batching_without_review"
+  ],
+  "go": false,
+  "merge_approval": {
+    "actual_remaining_seconds_at_start": null,
+    "allowed_methods": [
+      "merge commit",
+      "squash"
+    ],
+    "approved_at_JST": null,
+    "approver": null,
+    "base_sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "decision": null,
+    "evidence_id_private": null,
+    "executor": null,
+    "expected_tree": "568161bd70e0727e3bbbec8d1d3a14603bc64e5d",
+    "head_sha": "97640c8c307fed8eaa19f2557f5057ccade18da1",
+    "minimum_remaining_minutes_at_merge_start": 30,
+    "mobile_UI_feasibility_verified": null,
+    "recommended_method": "Create a merge commit",
+    "requirements_sha256": "dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7",
+    "selected_method": null
+  },
+  "merge_readback": {
+    "PR_merged": null,
+    "actual_main_sha": null,
+    "actual_parents": null,
+    "actual_tree": null,
+    "preview_SHA_acceptable": false,
+    "verified_at_JST": null
+  },
+  "nonrace_acceptance": {
+    "Andy_limited_acceptance": null,
+    "N1": {
+      "approved_SHA_live": null,
+      "postdeploy_startup": null,
+      "single_worker_no_restart_exit": null
+    },
+    "N2": {
+      "Poll_numbers_optional": null,
+      "actual_dated_messages_private": null,
+      "missing_values_may_be_invented": false,
+      "required_no_race_cycles": 2,
+      "same_operational_worker": null,
+      "suppressed_count_optional": null
+    },
+    "N3": {
+      "HTTP_status_404_etc": "SEPARATE_CLASSIFICATION_NOT_CERT_FAILURE",
+      "TLS_SSL_connection_failure": "STOP",
+      "current_error_evidence_private": null,
+      "full_response_correctness": "NOT_GUARANTEED_BY_PARSER_ERROR",
+      "known_parser_error": "raceindex: no race rows with race number + deadline found",
+      "official_nonrace_schedule_private": null,
+      "prechange_reference_log_private": null,
+      "retrieval_then_parse_code_path": "STATIC_CONFIRMED_NOT_FULL_HTTP_CONTENT_PROOF",
+      "unknown_error_cause": "HOLD"
+    },
+    "N4": {
+      "already_verified": false,
+      "handoff_receipt_private": null,
+      "new_task_or_prediction_LOCK_Freeze_canonical_change_allowed": false,
+      "owner_private": null,
+      "requirement": "RACE_DAY_OFFICIAL_RACEINDEX_OK_TWO_CONSECUTIVE_CYCLES",
+      "status": "DEFERRED_NORMAL_AUDIT_FROM_2026-11-09"
+    },
+    "limited_scope_only": true,
+    "period_HQ13_reported": "2026-11-03_through_2026-11-08"
+  },
+  "package_status": "H1_H2_H3_REVISED_DRAFT_CLAUDE_REAUDIT_PENDING_NO_GO",
+  "readonly_mobile_preview": {
+    "Ready_display": null,
+    "Render_Deploy_specific_commit_display": null,
+    "execution_button_press_allowed": false,
+    "executor_private": null,
+    "future_scope_only": true,
+    "performed": false,
+    "read_only_approval_private": null,
+    "recommended_merge_method_display": null
+  },
+  "roles": {
+    "Claude": "INDEPENDENT_AUDIT",
+    "Codex": "DEVELOPMENT_AND_EVIDENCE_ONLY",
+    "GitHub_Ready_executor": null,
+    "GitHub_merge_executor": null,
+    "HQ13": "CONSISTENCY_AND_DECISION_MATERIALS",
+    "production_operator": {
+      "available_parked": null,
+      "candidate": "Andy",
+      "personal_consent": null
+    }
+  },
+  "runtime_and_DB_private_inputs": {
+    "DB_WAL_SHM_sizes_and_free_bytes": null,
+    "DB_path_mount_identity": null,
+    "G2_day_and_zero_counts": null,
+    "actual_worker_count": null,
+    "backup_completed_size_SHA": null,
+    "backup_filename_absent_and_retention_owner": null,
+    "expected_active_worker_count": 1,
+    "expected_worker_count_source": "N1_REQUIREMENT_NOT_A_LIVE_MEASUREMENT",
+    "optional_python_executable_prefix_NOT_A_GATE": null,
+    "postdeploy_ID_SHA": null,
+    "predeploy_ID_SHA": null,
+    "restart_exit_check": null,
+    "semantic_duplicate_check": null,
+    "service_identity": null,
+    "start_command": null,
+    "two_poll_records": "REPLACED_BY_N2_NO_RACE_MESSAGE_RECORDS_POLL_NUMBERS_OPTIONAL",
+    "worker_instance_IDs": null
+  },
+  "schedule": {
+    "N2_observation_basis": "DATED_NO_RACE_MESSAGES_AND_LOG_TIMES_2_PLUS_CYCLES",
+    "W45_status": "NONPREFERRED_REVIEW_REQUIRED",
+    "actual_end_JST": null,
+    "actual_start_JST": null,
+    "candidate_date": "2026-11-03",
+    "live_task_timezone_config_readback": null,
+    "normal_poll_interval_actual": "UNVERIFIED_OPTIONAL_CONTEXT_NOT_INVENTED",
+    "official_schedule_private_evidence": null,
+    "parked_minutes": null,
+    "post_check_batching": "NOT_ADOPTED_SEPARATE_REVIEW_REQUIRED",
+    "priority_candidate": "W60_2026-11-03_10:00_to_11:00_JST_UNAPPROVED",
+    "running_delayed_manual_task_collision_check": null,
+    "two_cycle_observation_duration": null,
+    "window_choice": null
+  },
+  "source_evidence_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba",
+  "worker_identity": {
+    "Andy_final_risk_acceptance": null,
+    "acceptance_receipt_private": null,
+    "operational_E07_required": [
+      "APPROVED_APP_SHA_LIVE_IN_RENDER",
+      "SAME_SERVICE_POSTDEPLOY_STARTUP_LOG",
+      "G4_ENV_ENV_OBS_PASS_BAD0_REQTRUE_APPSOURCETRUE_RUNTIMETRUE",
+      "SERVICE_TIME_OBSERVATION_ALIGNMENT"
+    ],
+    "operational_conditions_observed": null,
+    "process_level_identity": "UNVERIFIED",
+    "residual_risk": "NOT_A_MATHEMATICAL_PROOF_OF_PER_PROCESS_PYTHON_IDENTITY"
+  }
+}

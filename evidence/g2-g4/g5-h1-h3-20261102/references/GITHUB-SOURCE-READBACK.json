@@ -1,0 +1,75 @@
+{
+  "purpose": "H1_H2_H3_DOCUMENT_PREPARATION_ONLY_NOT_OPERATIONAL_GO",
+  "document_parent_commit": "70db14b4371e30b646d72357969d5f575d825431",
+  "parent_tree": "b4a98e67c8735a42d5e56efff9729de49fbbbaca",
+  "parent_blob_count": 183,
+  "raw_source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba",
+  "main_observed": "8172aec010894a52f36f48b7091476d26494e4ee",
+  "PR": {
+    "number": 6,
+    "head": "97640c8c307fed8eaa19f2557f5057ccade18da1",
+    "base": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "draft": true,
+    "merged": false,
+    "changed_files": 1,
+    "additions": 17,
+    "deletions": 3
+  },
+  "expected_candidate_tree": "568161bd70e0727e3bbbec8d1d3a14603bc64e5d",
+  "requirements": {
+    "git_blob": "1761296a6d8c768184aa6372a9ee873bf01a23ba",
+    "bytes": 340,
+    "expected_sha256": "dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7"
+  },
+  "commands": [
+    {
+      "id": "G2_A5_v002",
+      "path": "evidence/g2-g4/commands/G2_A5_v002.candidate.txt",
+      "expected_bytes": 9060,
+      "github_blob": "cda3b28e49a05e295656bbfa6cd60b32e0d95858",
+      "observed_ASCII": true
+    },
+    {
+      "id": "G4_baseline_v003_F1F2",
+      "path": "evidence/g2-g4/f1-f2-g3-v003/commands/G4_baseline_v003_F1F2.candidate.txt",
+      "expected_bytes": 30913,
+      "github_blob": "452d9d28f41a0a11d327b0576d906e7daeec3061",
+      "observed_ASCII": true
+    },
+    {
+      "id": "G3_backup_v003",
+      "path": "evidence/g2-g4/f1-f2-g3-v003/commands/G3_backup_v003.candidate.txt",
+      "expected_bytes": 16033,
+      "github_blob": "90f410a7e5538350c24958bc8dc463949aed21fe",
+      "observed_ASCII": true
+    },
+    {
+      "id": "G4_environment_v002",
+      "path": "evidence/g2-g4/commands/G4_environment_v002.candidate.txt",
+      "expected_bytes": 10980,
+      "github_blob": "007e55c5ee928edd7f3e91da9cf967b7cfd10649",
+      "observed_ASCII": true
+    },
+    {
+      "id": "G4_TLS_v003_F1F2",
+      "path": "evidence/g2-g4/f1-f2-g3-v003/commands/G4_TLS_v003_F1F2.candidate.txt",
+      "expected_bytes": 31085,
+      "github_blob": "7cd7fc5b64444b5bc82990eaff8c95f9468721a0",
+      "observed_ASCII": true
+    },
+    {
+      "id": "G4_SQLite_v002",
+      "path": "evidence/g2-g4/commands/G4_SQLite_v002.candidate.txt",
+      "expected_bytes": 9668,
+      "github_blob": "14b78b5638f351738b4bb349953cca612166ef5b",
+      "observed_ASCII": true
+    }
+  ],
+  "Render_live_read": false,
+  "production_execution": false,
+  "operational_approvals": "PENDING",
+  "new_branch_initially_absent": true,
+  "observed_at_UTC": "2026-11-02T12:14:26+00:00",
+  "observed_at_JST": "2026-11-02T21:14:26+09:00",
+  "operational_gate_revalidation": "REQUIRED_LATER_NOT_SATISFIED_BY_DOCUMENT_SNAPSHOT"
+}

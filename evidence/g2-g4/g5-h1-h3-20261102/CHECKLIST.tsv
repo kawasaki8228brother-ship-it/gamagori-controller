@@ -1,0 +1,27 @@
+ID	段階	確認	証拠	現在
+C00	資料	H1-H3修正版Claude再監査・P1-P9維持・HQ13整合・個別承認欄の確定	審査receipt/個別GO	DRAFT/HOLD
+C01	開始前	本人承認/停車/役割/45-60分JST枠/連絡体制	私的担当者記録	PENDING
+C02	開始前	非開催日根拠/タスクtimezone・予定/稼働/遅延/手動・枠衝突	公式根拠/HQ13読取	PENDING
+C03	開始前	実service ID/live deploy/現行起動/実mount=/var/data/db固定パス一致。YAMLだけは不可	H3 DB-IDENTITYと私的実体記録（G2前）	PENDING
+C04	開始前	6原本379固定・bytes/フルSHA/end token・1回準備	RAW-COMMANDS/照合記録	DEV_SOURCE_VERIFIED_LIVE_PASTE_PENDING
+C05	初期	Render実体AutoDeploy OFF・取得JST・証拠	承認読取/対象一致	PENDING
+C06	G2	フレーム/日付/DB identity・pending=nonterminal=unknown=0	私的フレーム/identity	PENDING
+C07	baseline	旧版ゲート/実OpenSSL/5件統合/guard/判定と再審査	私的フレーム/レビュー	PENDING
+C08	G3	書込GO・3.40.1・source RO・容量・新規1件・整合性・SHA・partialなし	私的フレーム/バックアップメタ	PENDING
+C09	Ready	Ready個別GO・実施者・iPhone方法・ready後PR readback	GitHub実体/承認	PENDING
+C10	merge前	方法/実施者・merge個別GO・base/head/req/tree/差分・チェック/権限・実merge開始前の残枠30分以上	GitHub実体/承認	PENDING
+C11	merge直前	Render実体AutoDeploy OFFを再読取	新しい私的OFF証拠	PENDING
+C12	merge後	実main SHA/選択方法に対応する親/tree/req/PR merged整合	Git commit/ref/PR readback	PENDING
+C13	deploy前	確定実SHA個別deploy GO・対象サービス/方法/実施者	SHA束縛した承認	PENDING
+C14	deploy直前	Render実体AutoDeploy OFFを再読取	新しい私的OFF証拠	PENDING
+C15	deploy後	実deploy ID/SHA/build/起動/instance/終了・再起動・不健全判定	私的Renderログ/実体	PENDING
+C16	post env	ENV必須値＋E07運用充足。process identity UNVERIFIED残余リスクをアンディ判断	承認SHA live/同service post起動/G4_envフレーム/時刻観測整合	PENDING
+C17	post env	SQLite事前3.40.1照合。E08〜E10追加必須から除外。全19/実効CA等が揃えばA1重複省略、新異常STOP	POST-ENV-COVERAGEと運用証拠	PENDING
+C18	post TLS	統合5PASS/TLS_OBS_PASS/guard=false・N1 issuer拒否・N2 control	私的フレーム	PENDING
+C19	post DB	DB_OBS_PASS/integrityok/dup0/orphan0・identity・時刻	私的フレーム	PENDING
+C20	post polling	非開催日N1新deploy/起動/単一worker異常なし、N2日付一致No-raceメッセージ連続2周期以上と時刻	同一運用workerのログ。Poll/suppressedは取得時のみ補強、生成禁止	PENDING
+C21	post polling	N3既知no-race-rows Parser経路/変更前ログ/公式非開催日程/接続失敗を限定照合	SSL/証明書/接続失敗STOP。404等別分類、HTTP内容完全保証なし	PENDING
+C22	CLOSE前	Claude再監査→HQ13整合→アンディ正式判断、N4持越しとH2残余リスクを明記	非開催日限定CLOSE/11-9以降通常監査引継ぎ。予測/LOCK/Freeze/正本変更なし	PENDING
+C23	枠前/GO-1読取	iPhone Ready/merge method/Deploy specific commitの表示可能性を読取限定確認	READONLY-PREVIEW。実行ボタン操作なし	PENDING
+C24	merge開始直前	承認終了時刻-実merge開始時刻 >=30分	私的JST時刻・残枠計算	PENDING
+C25	GO-1/GO-2	各操作の対象/SHA/方法/実施者/STOPを個別承認、GO-2は実main readback後	GO-1/GO-2文案の各行。黙示一括承認不可	PENDING

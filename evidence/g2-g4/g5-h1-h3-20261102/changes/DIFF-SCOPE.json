@@ -1,0 +1,33 @@
+{
+  "GitHub_change_type": "ALL_NEW_FILES_OLD_DOCUMENTS_UNTOUCHED",
+  "after_prefix": "evidence/g2-g4/g5-h1-h3-20261102/",
+  "before_commit": "70db14b4371e30b646d72357969d5f575d825431",
+  "before_prefix": "evidence/g2-g4/g5-go-draft-20261102/",
+  "changed_common_documents": [
+    "APPROVALS-AND-INPUTS.json",
+    "CHECKLIST.tsv",
+    "EXPECTED-OBSERVATIONS.json",
+    "G5-GO-PACKAGE-DRAFT.txt",
+    "IPHONE-OPERATOR.txt",
+    "P1-P9-COVERAGE.tsv",
+    "PERMISSIONS.tsv",
+    "POST-ENV-COVERAGE.tsv",
+    "PRIVATE-EVIDENCE-TEMPLATE.txt",
+    "README.txt",
+    "STATUS.txt",
+    "STOP-MATRIX.tsv",
+    "TASK-WINDOWS.json",
+    "references/AUDIT-SOURCE.json",
+    "references/GITHUB-SOURCE-READBACK.json",
+    "references/PRIOR-VALIDATION.json"
+  ],
+  "exact_unified_content_diff": "G5-H1-H3.diff",
+  "excluded_regenerated_inventories_and_validation": [
+    "INDEX.tsv",
+    "MANIFEST.json",
+    "SHA256SUMS.txt",
+    "validation/*"
+  ],
+  "new_documents_are_listed_in_INDEX_and_GitHub_added_files": true,
+  "raw_command_or_application_source_diff": "NONE"
+}

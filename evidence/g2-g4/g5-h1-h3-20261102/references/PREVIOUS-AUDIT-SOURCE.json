@@ -1,0 +1,14 @@
+{
+  "bytes": 6508,
+  "comparison": "EXACT_USER_EXPECTATION_MATCH",
+  "drive_id": "19GTuqCuzxkYkwPd5eJPqtlSIB4f4G5GC",
+  "file_name": "GAMAGORI_20261102_CLAUDE_REVIEW_F1F2_G3V003_G5PREP_379cc1d_v001.txt",
+  "privacy": "RAW_AUDIT_READ_PRIVATELY_NOT_REPUBLISHED",
+  "production_GO": false,
+  "reported_claude_verdicts": {
+    "G3_v003": "PASS",
+    "G5_draft": "PASS_WITH_MANDATORY_P1_P9",
+    "TLS_F1F2": "PASS"
+  },
+  "sha256": "ec2c5fe0646475a094982e1317ad2d518d9adf984bb60cd75e68cd83943fb0da"
+}

@@ -1,0 +1,4 @@
+要件	改訂箇所	変更内容	残る未確認
+H1	G5 O13/O14; C20-C22; S21; NONRACE; EXPECTED; 私的票	非開催日raceindex OK2周期撤回、N1/N2/N3限定観測、N4は11/9以降。Poll/抑制は任意、ParserのHTTP限界を記す	本番N1-N3、既知変更前ログ/実日程、N4引継ぎ担当は未取得
+H2	G5 O10; E07-E10; S17; C16-C17; INPUTS; GO-2	E07運用充足と数学的process証明を分離。process UNVERIFIED残余リスクをアンディ判断。E08-10追加必須除外/A1重複省略	運用実測とアンディ最終判断は未実施。新異常ならSTOP
+H3	G5 O00/O02/O12; DB-IDENTITY; C03; S06/S25; GO-1	固定path＋実service ID＋実mount＋現行起動dbログ。YAMLshadow名≠HQ13実名。未確認はG2以降HOLD	実ID/mount/現行起動ログは私的照合待ち。秘密/env一覧取得なし

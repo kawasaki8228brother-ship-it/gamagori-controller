@@ -1,0 +1,17 @@
+ID	操作	実施者	承認者	現在	承認に必須の束縛情報	暗黙に含まれない操作
+A00	資料作成/新規証拠ブランチ追加	Codex	今回のHQ13依頼	今回許可	証拠基点379cc1d/新規資料のみ	既存ファイル変更・本番操作
+A01	GitHub読取/readback	Codex	今回の資料作成範囲	今回許可	対象repo/PR6/固定commit	Ready・merge・main書込
+A02	Render実体読取/ログ/AutoDeploy確認	アンディ候補・本人承認待ち	アンディ案件別GO	未承認	サービス/観測項目/実施者/時刻/証拠・R1読取下見/H3限定DB証拠（実行ボタン・env一覧なし）	設定変更・Shell・deploy
+A03	PR Ready for review	GitHub担当未指定	アンディ個別Ready GO	未承認	PR6/base/head/実施者/実施方法/JST	merge・deploy
+A04	PR merge	GitHub担当未指定	アンディ個別merge GO	未承認	merge commit又はsquash/実施者/base/head/req SHA/tree/直前AutoDeploy OFF・残枠30分以上。推奨Create a merge commit、実選択はGOで確定	Ready化・deploy・main直接push
+A05	manual deploy	アンディ候補・本人承認待ち	アンディ個別deploy GO	未承認	確定後の実main SHA/サービス/方法/実施者/JST/直前AutoDeploy OFF	別SHA・latest・rollback・再deploy
+A06	G2_A5_v002	アンディ候補・本人承認待ち	アンディ対象Shell GO	未承認	固定379原本SHA/1回/対象日/DB identity	タスク取消・DB書込・再実行
+A07	G4_baseline_v003_F1F2	アンディ候補・本人承認待ち	アンディbaseline個別GO	未承認	固定379原本SHA/旧バンドルゲート/5ホスト/1回	deploy・旧版install・rollback
+A08	G3_backup_v003	アンディ候補・本人承認待ち	アンディバックアップ書込個別GO	未承認	固定379原本SHA/SQLite3.40.1/新規1件/1回/私的保全	上書き・削除・強制checkpoint・再試行
+A09	G4_environment_v002	アンディ候補・本人承認待ち	アンディpost確認GO	未承認	固定379原本SHA/承認deploy/worker/1回	環境値変更・秘密取得・追加Shell
+A10	G4_TLS_v003_F1F2	アンディ候補・本人承認待ち	アンディpost TLS GO	未承認	固定379原本SHA/5ホスト/通信条件/1回	追加接続先・TLS回避・再実行
+A11	G4_SQLite_v002	アンディ候補・本人承認待ち	アンディpost DB読取GO	未承認	固定379原本SHA/DB identity/1回	DB修復・タスク変更
+A12	整合確認・判断資料	HQ13	案件管理範囲	資料のみ	受理した原本・フレーム・承認の整合	本番操作担当の推定
+A13	独立監査	Claude	HQ13依頼/原本	本改訂監査待ち	P1〜P9/実測と報告の区別	アンディGOの代替
+A14	CLOSE判断	HQ13・アンディ・Claude審査	案件別判断	未承認	N1-N3限定観測/N4通常監査引継ぎ/H2残余risk/全post証拠/独立審査	正本・POINTER・Freeze変更権限
+A15	rollback/suspend/resume/タスク・Model・BOX・Freeze・正本・POINTER変更・予測/LOCK変更	該当なし	本パッケージ対象外	禁止/未承認	新規依頼なし	停止分岐からの自動操作

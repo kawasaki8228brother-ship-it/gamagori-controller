@@ -1,0 +1,10 @@
+ID	分類	要求/限界	判定/扱い
+N1	新deploy/worker	承認SHA live、deploy後起動、同service単一worker、異常終了・再起動なし	未確認はHOLD。起動不健全はS16 STOP
+N2	非開催日メッセージ	起動後同一運用workerの対象JST日付No verified/tracked...を別時刻で連続2周期以上	メッセージ/時刻が基本。重複表示を数えず未観測番号を生成しない
+N2a	任意補強	Poll番号/suppressed件数は取得時のみ。エラー抑制600秒、同じsignatureに適用	番号欠落だけでHOLDしない。欠落内容の証明にも使わない
+N3	既知ParserError	raceindex: no race rows with race number + deadline found。変更前既知ログ・公式日程・現行ログ・取得後解析コード経路を併用	限定的整合確認。HTTP本文完全性/厳密HTTP200/公式取得成功は保証しない
+N3a	SSL/証明書/接続失敗	アプリ公式/fallbackのSSL/cert/DNS/timeout/接続等の失敗をParserErrorと区別	STOP。Shell TLS F1のH通信失敗と異なるアプリ稼働ゲート
+N3b	HTTP404等	HTTP status失敗でありTLS証明書拒否ではない。officialの失敗なら既知Parser経路条件未充足	HOLD/審査。tracking-only既知失敗は変更前パターン別照合、新規/未知を通さない
+N3c	未知/欠落ログ	新しいParser原因、異常signature、観測窓不足、対象worker/時刻不明	HOLD。抑制や非開催を理由に推測PASSにしない
+N4	11/9以降への引継ぎ	開催日のraceindex OK連続2周期は通常監査へ持越し。今回は未確認	新タスク/予測/LOCK/Freeze/Model/BOX/正本/POINTER変更なし。deploy再実行権限なし
+CLOSE	限定稼働確認	post env/TLS/DB、N1-N3、N4引継ぎ、H2残余リスク明示判断、各承認/フレーム	Claude→HQ13→アンディ判断。公式取得成功と呼ばず、現在GOなし

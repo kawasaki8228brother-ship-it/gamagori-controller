@@ -1,0 +1,12 @@
+G5_H1_H2_H3_REVISED_DRAFT / CLAUDE_REAUDIT_PENDING / GO_FALSE
+親: 70db14b4371e30b646d72357969d5f575d825431。新規証拠フォルダへの文書追加のみ。
+監査原本6312 bytes/SHA c03a6898...を照合。旧G5 HOLDのH1-H3に対応、本改訂は独立再監査待ち。
+P1-P9の統制維持。6 Shell原本/旧証拠/アプリ/予測Model/PR #6/mainは変更しない。
+H1 N1-N3は非開催日限定稼働確認、N4は11/9以降通常監査。番号/抑制件数を生成しない。
+H2 E07運用充足条件を定義。process-level Python identityはUNVERIFIED、アンディ残余リスク判断待ち。
+E08-E10は追加必須でない。G4_env必要観測が揃い新異常なしならA1重複省略を審査可能。
+H3 固定DB path/実service ID/実mount/現行起動dbログを結べなければG2以降HOLD。YAMLを本番実測にしない。
+W60優先候補・未承認。merge開始残30分以上、予定重複0でも実衝突確認は未実施。
+OpenSSL3.0.20の完全適合/外部否定試験は未VERIFIED。baseline未実行、go=false。
+GO-1/GO-2は未署名。Ready/merge/deploy/Render/Shell/baseline/G3/suspend/resume/タスク操作なし。
+次: Claude独立再監査 → HQ13整合確認 → アンディ正式GO。現時点は本番実行不可。
