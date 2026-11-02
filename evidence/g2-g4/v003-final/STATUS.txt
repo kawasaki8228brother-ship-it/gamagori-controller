@@ -1,0 +1,14 @@
+CONFIRMED_SPEC_IMPLEMENTATION_CANDIDATE - NO PRODUCTION OR BASELINE EXECUTION GO.
+Base/sole parent: 680630e088682d67f19d3dcbfc261caa4d7acf78.
+G4_TLS_v002: HOLD, all 40 base evidence files byte-identical.
+Earlier 59833a prototype: SUPERSEDED, historical branch left unchanged.
+TLS-only TCP443/SNI and independent headers-only HQ12 GET: implemented separately.
+NEGATIVE_1: issuer verification codes 2/19/20 required post-change.
+NEGATIVE_2: actual verification rejection any code, control only, no effect evidence.
+Baseline: positives CONNECTED, NEGATIVE_1 CONNECTED, NEGATIVE_2 rejected; go=false.
+Claude independent review: PENDING.
+OpenSSL 3.0.20 compatibility: UNVERIFIED.
+Actual old-bundle gate compatibility: UNVERIFIED; simulated success observations only.
+External targets / Render: NOT_RUN.
+PR #6 / main / Production: UNCHANGED.
+G3 v003: NOT_CREATED.

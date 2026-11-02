@@ -1,0 +1,63 @@
+{
+  "actual_old_bundle_gate": "UNVERIFIED",
+  "cases": 22,
+  "command_sha256": {
+    "commands/G4_TLS_v003.candidate.txt": "ab1c824893e21abff0c1463e2c76dd1b846bb9a1db5bdc5c3a0591bda2238570",
+    "commands/G4_baseline_v003.candidate.txt": "7e843d1487746b5c519141be69c4203dac571b68aaab722f184d77b42189cff0"
+  },
+  "environment": {
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "os": "Linux",
+    "python": "3.14.3"
+  },
+  "external_targets": "NOT_RUN",
+  "logs": [
+    {
+      "bytes": 1484,
+      "file": "evidence/g2-g4/v003-final/logs/dependencies.raw.json",
+      "git_blob": "9f23707d5c6dc1a329241d8785f459050cc968f4",
+      "sha256": "25b55dca32ee274b6c682ea9a18fb11cf884557191d622cfe5fa2a879ff11348",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 13522,
+      "file": "evidence/g2-g4/v003-final/logs/isolation.raw.log",
+      "git_blob": "a8f5221cd4db376028cf415de24e1d935a1ad462",
+      "sha256": "b191ec9b1b79db016b20a55ddf33b4bae78c183d442e86ef66d0281808f21c2d",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 14202,
+      "file": "evidence/g2-g4/v003-final/logs/observations.raw.json",
+      "git_blob": "a7ac8016f66c5f37be4a70aeed371f3af825ee99",
+      "sha256": "5bdbb5a824c6f54b72f33db3d1dda34a15355be1054394e39c28b99e5734afd9",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 408,
+      "file": "evidence/g2-g4/v003-final/logs/platform-availability.json",
+      "git_blob": "677caab7f999245dae1a8ac6e271ef3c43ad47d5",
+      "sha256": "fbda4e9ee7b4f359d0749b9f2318a15bdb57e73e8287b769592502f753d841ec",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 392,
+      "file": "evidence/g2-g4/v003-final/logs/summary.raw.json",
+      "git_blob": "255c2f215df62ef94095870e7f2b19d31a57c992",
+      "sha256": "c2642bf48badba154b8e77e0c9ee871951b9821d8eca39fd3029eb5c43be04f9",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 165,
+      "file": "evidence/g2-g4/v003-final/logs/verification.raw.log",
+      "git_blob": "5cf64d35e12b3cae7bf6f4939fbd19bea487fc07",
+      "sha256": "485859ff13703b50248e0f07fd379ac58fffc0c4e45ced8ce1a61e048201a82a",
+      "terminal_lf": true
+    }
+  ],
+  "openssl_3_0_20": "UNVERIFIED",
+  "redaction_performed": false,
+  "render": "NOT_RUN",
+  "scope": "CONFIRMED_SPEC_LOCAL_TLS_AND_HEADERS_ONLY_TESTS",
+  "trust": "RAW_SAFE_ISOLATED_LOGS_SEPARATE_DERIVED_PLATFORM_NOTE"
+}

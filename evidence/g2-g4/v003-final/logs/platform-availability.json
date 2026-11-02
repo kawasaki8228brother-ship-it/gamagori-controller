@@ -1,0 +1,14 @@
+{
+  "actual_old_bundle_gate": "UNVERIFIED_NOT_AVAILABLE_LOCALLY",
+  "environment": {
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "os": "Linux",
+    "python": "3.14.3"
+  },
+  "external_five_targets": "NOT_RUN",
+  "go": false,
+  "openssl_3_0_20_compatibility": "UNVERIFIED_NOT_TESTED",
+  "production_openssl": "3.0.20",
+  "production_source": "HQ13_REPORTED_NOT_RENDER_READ",
+  "tested_openssl": "3.5.5"
+}

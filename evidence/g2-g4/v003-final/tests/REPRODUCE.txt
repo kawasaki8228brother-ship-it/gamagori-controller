@@ -1,0 +1,34 @@
+ISOLATED LOCAL REPRODUCTION ONLY - NEVER RUN THIS HARNESS ON RENDER
+
+Use disposable Linux and reviewed Python 3.14.3 with the unchanged fixed 19 packages
+plus pip. Retain Python/OpenSSL/OS metadata. Keep the parent evidence files intact;
+common.py/g4_env.py are read as source, never the application/controller.
+
+1. Choose a NEW WORK directory outside the repository.
+2. From a separate environment already containing cryptography, run
+   python -B tests/generate-fixtures.py WORK
+   It generates synthetic local certificates/private key under WORK/tls-fixtures.
+   Keys remain private, mode 0600, and must never be committed or uploaded.
+3. With the pinned Python run tests/verify-commands.py. It compares all seven
+   regenerated command/payload files in memory with no rewrites.
+4. Run tests/isolation.py WORK PROJECT using the same pinned Python. PROJECT is a
+   disposable copy of the approved requirements.txt and official.py. Hashes must
+   match. It starts only loopback servers and writes only synthetic WORK evidence.
+   Never invoke either Render command or contact the real five target hosts.
+5. Capture complete stdout/stderr as a raw log. Retain WORK/summary.raw.json and
+   WORK/observations.raw.json. A nonzero exit, unknown behavior or lost case is STOP.
+6. Check dummy and actual local gate-STOP frames with the preserved parent
+   tests/verify-output.py. Frame verification is not operational PASS or permission.
+7. From repository root, run
+   sha256sum -c evidence/g2-g4/v003-final/SHA256SUMS.txt
+   This covers frozen parent evidence and new deliverables except its own bytes.
+
+Tests use actual local TLS codes 2/19/20/10/62/18, TLS-only application-byte counters,
+SNI and actual HTTPX context identity/ALPN, header-only/no-body servers, exploding
+body iterators, redirects, local proxy403, injected DNS and both 8-second timeout
+kinds. Tests explicitly assert HQ12 client options. No fixture CA/proxy/ephemeral
+port is substituted into a production candidate.
+
+OpenSSL 3.0.20 is NOT supplied by these fixtures. Neither is the actual approved
+old certifi bundle. Local success cannot close those UNVERIFIED evidence items.
+No cryptography dependency, test key, temp DB or package cache belongs in the PR.
