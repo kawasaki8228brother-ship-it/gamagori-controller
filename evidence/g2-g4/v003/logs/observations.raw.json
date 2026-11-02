@@ -1,0 +1,171 @@
+[
+  {
+    "case": "ISSUER_20",
+    "http": null,
+    "id": "ISSUER_20",
+    "tls": "CERT_REJECTED",
+    "verify_code": 20,
+    "verify_message": "unable to get local issuer certificate",
+    "why": "ISSUER_VERIFY"
+  },
+  {
+    "case": "ISSUER_19",
+    "http": null,
+    "id": "ISSUER_19",
+    "tls": "CERT_REJECTED",
+    "verify_code": 19,
+    "verify_message": "self-signed certificate in certificate chain",
+    "why": "ISSUER_VERIFY"
+  },
+  {
+    "case": "ISSUER_2",
+    "http": null,
+    "id": "ISSUER_2",
+    "tls": "CERT_REJECTED",
+    "verify_code": 2,
+    "verify_message": "unable to get issuer certificate",
+    "why": "ISSUER_VERIFY"
+  },
+  {
+    "case": "EXPIRED",
+    "http": null,
+    "id": "EXPIRED",
+    "tls": "OTHER_FAILURE",
+    "verify_code": 10,
+    "verify_message": "certificate has expired",
+    "why": "VERIFY_OTHER"
+  },
+  {
+    "case": "HOSTNAME",
+    "http": null,
+    "id": "HOSTNAME",
+    "tls": "OTHER_FAILURE",
+    "verify_code": 64,
+    "verify_message": "IP address mismatch, certificate is not valid for '127.0.0.1'.",
+    "why": "VERIFY_OTHER"
+  },
+  {
+    "case": "SELF_SIGNED_LEAF",
+    "http": null,
+    "id": "SELF_SIGNED_LEAF",
+    "tls": "OTHER_FAILURE",
+    "verify_code": 18,
+    "verify_message": "self-signed certificate",
+    "why": "VERIFY_OTHER"
+  },
+  {
+    "case": "HTTP_200",
+    "http": 200,
+    "id": "HTTP_200",
+    "tls": "CONNECTED",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "HTTP_403",
+    "http": 403,
+    "id": "HTTP_403",
+    "tls": "CONNECTED",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "HTTP_404",
+    "http": 404,
+    "id": "HTTP_404",
+    "tls": "CONNECTED",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "HTTP_503",
+    "http": 503,
+    "id": "HTTP_503",
+    "tls": "CONNECTED",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "REDIRECT_SCOPE",
+    "http": 302,
+    "id": "REDIRECT_SCOPE",
+    "tls": "CONNECTED",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "REDIRECT_FIRST_HOP",
+    "http": 302,
+    "id": "REDIRECT_FIRST_HOP",
+    "tls": "CONNECTED",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "REDIRECT_LATER_CERT_ERROR",
+    "http": 302,
+    "id": "REDIRECT_LATER_CERT_ERROR",
+    "tls": "CONNECTED",
+    "verify_code": null,
+    "verify_message": null
+  },
+  {
+    "case": "SCOPE_BEFORE_RESPONSE",
+    "http": null,
+    "id": "SCOPE_BEFORE_RESPONSE",
+    "tls": "OTHER_FAILURE",
+    "verify_code": null,
+    "verify_message": null,
+    "why": "SCOPE"
+  },
+  {
+    "case": "PROXY_403",
+    "http": null,
+    "id": "PROXY_403",
+    "tls": "OTHER_FAILURE",
+    "verify_code": null,
+    "verify_message": null,
+    "why": "PROXY"
+  },
+  {
+    "case": "TIMEOUT_8_SECONDS",
+    "http": null,
+    "id": "TIMEOUT_8_SECONDS",
+    "tls": "OTHER_FAILURE",
+    "verify_code": null,
+    "verify_message": null,
+    "why": "TIMEOUT"
+  },
+  {
+    "case": "INJECTED_DNS",
+    "http": null,
+    "id": "INJECTED_DNS",
+    "tls": "OTHER_FAILURE",
+    "verify_code": null,
+    "verify_message": null,
+    "why": "DNS"
+  },
+  {
+    "case": "LOCAL_POST_AGGREGATE",
+    "go": false,
+    "mode": "POST",
+    "r": "TLS_OBS_PASS"
+  },
+  {
+    "case": "LOCAL_BASELINE_CLASSIFIER_ONLY",
+    "go": false,
+    "mode": "BASELINE",
+    "r": "BASELINE_OBS_EXPECTED"
+  },
+  {
+    "app_source": true,
+    "ca_n": 118,
+    "ca_sha": "2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b",
+    "case": "ACTUAL_NEW_BUNDLE_BASELINE_STOP",
+    "eff_eq": false,
+    "eff_n": 118,
+    "env_overrides": 0,
+    "old_release": false,
+    "runtime": true
+  }
+]

@@ -1,0 +1,10 @@
+BEGIN CERTIFI_AUDIT_V002
+{"example":"DUMMY_NOT_MEASUREMENT"}
+{"ca_n":121,"eff_eq":true,"eff_n":121,"env_overrides":0,"gate":"BASELINE_ENV_PASS"}
+{"http":200,"id":"WWW","tls":"CONNECTED","verify_code":null,"verify_message":null}
+{"http":200,"id":"BARE","tls":"CONNECTED","verify_code":null,"verify_message":null}
+{"http":200,"id":"FALLBACK","tls":"CONNECTED","verify_code":null,"verify_message":null}
+{"http":200,"id":"NEGATIVE_1","tls":"CONNECTED","verify_code":null,"verify_message":null}
+{"http":200,"id":"NEGATIVE_2","tls":"CONNECTED","verify_code":null,"verify_message":null}
+{"go":false,"mode":"BASELINE","r":"BASELINE_OBS_EXPECTED"}
+END CERTIFI_AUDIT_V002 lines=8 bytes=614 sha256=e92461402c4cd0aca7036d6d4df04947e9b12f8aa553622d1c0472a027a2c690

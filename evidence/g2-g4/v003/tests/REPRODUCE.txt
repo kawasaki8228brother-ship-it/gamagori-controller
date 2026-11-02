@@ -1,0 +1,29 @@
+ISOLATED LOCAL REPRODUCTION ONLY - NEVER RUN ON RENDER
+
+Use a disposable Linux workspace and the reviewed Python 3.14.3 environment with
+the unchanged 19 application pins plus pip. Retain Python/OpenSSL/OS versions.
+Keep the parent evidence directory intact because common.py/g4_env.py and frozen
+command references are imported as source text, never the app/controller.
+
+1. Select a NEW disposable WORK directory, outside the repository.
+2. From a separate environment already providing cryptography, run:
+   python -B tests/generate-fixtures.py WORK
+   Keys are synthetic, mode 0600, and must remain private in WORK/tls-fixtures.
+   No production key, package install, network fetch or environment dump is needed.
+3. With the pinned Python run tests/verify-commands.py. It compares all seven
+   regenerated commands/payloads in memory and writes no files.
+4. Run tests/isolation.py WORK PROJECT using that Python. PROJECT is a disposable
+   copy of the reviewed official.py and requirements.txt; hashes must match.
+   WORK must already contain the generated test fixtures. No external targets,
+   DNS probes or Render accesses are permitted. Only local servers are started.
+5. Capture stdout/stderr as an independent raw log. The harness writes safe summary
+   and observation JSON under WORK. Unexpected errors or nonzero exit mean STOP.
+6. Use the preserved ../tests/verify-output.py to check each dummy output frame.
+   FRAME_VERIFIED proves counts/bytes/hash only, not permission or operational PASS.
+7. Run sha256sum -c evidence/g2-g4/v003/SHA256SUMS.txt from repository root.
+   It covers the frozen parent files and new deliverables except its own bytes.
+
+No cryptography dependency is added to requirements.txt. No fixture private key,
+temporary certificate file, package cache or local database belongs in the commit.
+The actual old certifi bundle and OpenSSL 3.0.20 are not supplied by these fixtures.
+Their absence must remain UNVERIFIED, even when all local classifier cases PASS.

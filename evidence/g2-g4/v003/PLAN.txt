@@ -1,0 +1,171 @@
+G4 TLS v003 - DESIGN AND ISOLATED VERIFICATION ONLY
+No Render execution, external target probes, merge, deploy or production GO.
+
+STATUS AND PROVENANCE
+Parent evidence commit: 680630e088682d67f19d3dcbfc261caa4d7acf78.
+Application baseline: PR #6 head 97640c8c307fed8eaa19f2557f5057ccade18da1.
+G4_TLS_v002 is HOLD. It and ALL 40 parent evidence files remain byte-identical.
+New material lives only in evidence/g2-g4/v003/. Earlier v002 classifications and
+examples are historical, not current acceptance criteria. G2/G3 are unchanged.
+No G3 v003 is created: production SQLite version is still unmeasured here.
+Claude independent review and individual Andy execution GO remain prerequisites.
+
+HQ13 reports extraction of the HQ12 Python body matches the preserved reference:
+2169 bytes; SHA-256 497559457e4bdc481c4c16dd515d0b8148af8644654d23cd8dd67eac2e60f935.
+The bytes actually executed on Render on 2026-10-29 remain UNVERIFIED.
+
+RAW COMMANDS AND PASTE SAFETY
+commands/G4_TLS_v003.candidate.txt is POST mode.
+commands/G4_baseline_v003.candidate.txt is the independent OLD baseline mode.
+Each file is ASCII, one physical line, with NO terminal LF. COMMANDS.json records
+exact byte lengths, whole-file SHA-256 and decoded-payload SHA-256. The payload is
+also supplied as readable source. Copy the exact raw file; never retype it.
+One python -B -c process is enclosed in a complete shell group. Truncated prefixes
+cannot execute that group. The complete end token and payload length/SHA are checked
+before the body executes. tests/verify-commands.py rebuilds all five frozen commands
+and both new commands IN MEMORY and compares bytes; it does not rewrite any file.
+The original v002 verifier is preserved unchanged and is not used for this check.
+
+Before any future run, independently confirm the project directory and that
+`python` resolves to the app's actual Python/virtual environment, using approved
+A1-A3 evidence. Python patch 3.14.3 and HTTPX 0.28.1 are prerequisites. Startup hooks
+and actual service identity must already be reviewed. Do not print process args,
+secret environment values or internal paths to establish that identity.
+
+If an iPhone paste leaves a `>` continuation prompt: do not close quotes/braces,
+append text, paste another command, or repeatedly press Enter. Close the Shell
+screen/session, then wait for a fresh session, exact reviewed raw file and scoped GO.
+Closing a Shell is not proof that an already started probe completed. Missing END
+means UNKNOWN/STOP; do not automatically retry or change the network route.
+
+The output retains the A1-A3 v002 contract:
+BEGIN CERTIFI_AUDIT_V002 LF
+one compact ASCII JSON object per body line, each followed by LF
+END CERTIFI_AUDIT_V002 lines=N bytes=M sha256=H LF
+N/M/H cover BODY only, including its LFs. Reconstruct exactly from screenshots and
+verify offline with the preserved tests/verify-output.py. Wrong counts/hash, CRLF,
+missing rows or END, OCR damage or unexpected output is STOP. Framing proves byte
+integrity only, not provenance, safe deployment or permission. Dummy examples are
+marked EXAMPLE and are never measurement evidence. Short output is preferred;
+phone wrapping and 100-character verification messages may need extra screenshots.
+
+PRE-FLIGHT GATES (BEFORE ANY TARGET COMMUNICATION)
+Both modes first reject the PRESENCE, even with an empty value, of these 14 names:
+SSL_CERT_FILE, SSL_CERT_DIR, REQUESTS_CA_BUNDLE, HTTP_PROXY, HTTPS_PROXY, ALL_PROXY,
+NO_PROXY, and the seven lowercase equivalents. Only a count is printed; no values.
+SSLKEYLOGFILE presence also STOPs before SSL context creation, to prevent key logs.
+HTTP_TIMEOUT_SECONDS must parse to exactly 8.0 or be absent (the app default).
+No variable is changed or unset by either command.
+
+POST uses the unchanged reviewed g4_env verifier: fixed 19 package versions plus
+pip, approved requirements and official.py hashes, certifi 2026.10.23, bundle SHA
+2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b,
+118 unique CA certificates, and the default HTTPX effective DER set exactly equal
+to that bundle. CERT_REQUIRED and hostname checking must be enabled. A mismatch
+STOPs before the first request. Bundle SHA/count/effective count/equality print.
+
+OLD baseline does NOT install old certifi, change requirements, select an older
+deploy or authorize rollback. It is usable only if a later approved live baseline
+already has certifi 2026.07.22. Metadata 2026.7.22 is the same month-normalized release;
+only these two spellings are accepted, with no suffixes/prereleases. Require BOTH
+the module and distribution versions; bundle SHA
+9cc2a774b5198dcff14d9be1e66091f538975d867ce029a96bce15a55dfd730f;
+121 unique PEM certificates; default HTTPX effective count 121 and EXACT DER-set
+equality; verification and hostname checking ON; all 14 names absent. The same
+official.py hash, Python patch and HTTPX prerequisites apply. Old requirements
+are not silently replaced with the post-change 19-line lock file. Any gate error,
+unknown version, count/hash mismatch or read failure STOPs before target traffic.
+
+TARGET SCOPE AND UNCHANGED HQ12 COMMUNICATION CONDITIONS
+Exactly these five targets, one sequential attempt each, in this order:
+WWW        https://www.boatrace.jp/
+BARE       https://boatrace.jp/
+FALLBACK   https://boatraceopenapi.github.io/
+NEGATIVE_1 https://dv-g3b-emudhra.we-have-a-problem.com/
+NEGATIVE_2 https://dv-g3b-aaa-emudhra.we-have-a-problem.com/
+Keep timeout=8.0, verify=True, trust_env=True, follow_redirects=True. Keep the HQ12
+default request headers and negative URLs. No retry, TLS bypass, custom production
+CA/context, proxy removal, alternate resolver or extra target is introduced.
+A request hook blocks non-HTTPS, userinfo, non-443 and origins outside these five,
+including redirects, BEFORE sending. An async response hook separately remembers
+the FIRST approved target HTTP response before following any redirect.
+Eight seconds is HTTPX's per-operation/inactivity timeout, not a hard total wall
+clock bound over all redirects/body reads. A hard outer limit would change HQ12
+conditions and needs separate review. No unlimited retry is added.
+
+PER-TARGET SCHEMA AND CLASSIFICATION
+id: fixed target label, never its URL.
+tls: CONNECTED, CERT_REJECTED or OTHER_FAILURE.
+http: FIRST approved target response status, or null before any response.
+verify_code: int from an actual ssl.SSLCertVerificationError, or null.
+verify_message: only that exception's verify_message attribute, or null.
+why: a fixed reason enum when relevant; never str(exc), headers or proxy values.
+
+1. ANY HTTP response from the approved target, including 403, 404, 5xx or a redirect,
+   proves that target's TLS connection succeeded: CONNECTED. A later redirect scope
+   block, timeout or certificate error does not erase the first response. http is
+   the first status, not necessarily the final status. Verification fields are null
+   for this already-proven CONNECTED result; no later-hop error is misattributed.
+2. Before a response, traverse __cause__ AND __context__ with cycle detection, at
+   most 16 nodes and depth 8. Decisions use isinstance, never exception text.
+   ProxyError, TimeoutException, gaierror and ScopeBlocked take priority and produce
+   OTHER_FAILURE. A proxy CONNECT 403 is not a target response: OTHER_FAILURE/http=null.
+3. CERT_REJECTED requires a real SSLCertVerificationError and int verify_code in
+   {2,19,20}. Missing/non-int/bool codes, other codes (including 18,10,62,64), an
+   ambiguous chain, traversal limit or a string merely mentioning certificate
+   verification failure produce OTHER_FAILURE. Codes describe the failure class;
+   they are not independently a proof about a particular distrust incident.
+4. Read verify_message only from the real verification exception. Replace non-ASCII
+   or non-printable characters, suppress URL/path-like tokens, then truncate to
+   100 printable ASCII characters. No str(exc), response text, request URLs,
+   authentication data or environment values print. Unknown failures remain unknown.
+
+POST AGGREGATE (go=false ALWAYS)
+TLS_OBS_PASS: all three positives CONNECTED and both negatives CERT_REJECTED with
+codes 2/19/20. HTTP statuses do not affect this TLS verdict.
+FAIL: any negative CONNECTED (even HTTP 403), or any positive CERT_REJECTED.
+Otherwise UNVERIFIED, including expiry, hostname errors, missing codes, DNS, proxy,
+timeout, pre-response scope block, or incomplete results. FAIL takes precedence.
+TLS success alone does not prove polling, HTTP business success or DB consistency.
+
+BASELINE AGGREGATE (go=false ALWAYS)
+Expected observation is CONNECTED for all five, including both negatives. Name
+this BASELINE_OBS_EXPECTED, never TLS_OBS_PASS or remediation success. Positive
+issuer-code rejection is FAIL; missing/other/unexpected negative rejection remains
+UNVERIFIED. Baseline acceptance of a negative is the expected old behavior, not
+permission to continue running a vulnerable release or to roll back to it.
+
+Optional verified-chain anchor DER hashing was NOT implemented. No trust-anchor
+identity is inferred from verify_code, the bundle or response extensions.
+
+ISOLATED EVIDENCE AND LIMITS
+The submitted classifier run uses Python 3.14.3 / OpenSSL 3.5.5 / Linux, fixed 19
+packages plus pip. Actual local TLS servers cover issuer codes 2/19/20, expiry 10,
+IP/hostname mismatch 64, self-signed leaf 18, HTTP 200/403/404/503, redirect blocking,
+later-hop certificate error, a real local proxy CONNECT 403 and an 8-second read
+timeout. Code 2 uses an intermediate-only fixture CA and clears PARTIAL_CHAIN ONLY
+in that fixture; production defaults are unchanged. DNS and malformed exception
+attributes/chains use injected objects without any external resolver call.
+The test harness enforces loopback-only socket bind/connect/DNS audit checks.
+Fixture transports have explicit test CA/proxy routing confined to loopback. The
+production command options are asserted independently and are never replaced by
+those fixture settings. Local five-label aggregates are not external HQ12 results.
+Private synthetic fixture keys/DBs and internal work paths are not published.
+
+OpenSSL 3.0.x is not available in the selected environment. HQ13 reports production
+OpenSSL 3.0.20; Codex has NOT read Render. OpenSSL 3.0.20 compatibility is UNVERIFIED.
+No old bundle matching the approved 121-certificate SHA is present locally. Old
+baseline success-gate tests use SIMULATED observations; actual new-bundle rejection
+is measured. The actual old-bundle positive gate remains UNVERIFIED. No download or
+external target probe was used to fill this gap. Current NEGATIVE_1/2 remain
+UNVERIFIED; earlier ProxyError observations are historical and never promoted.
+
+STOP AND HANDOFF
+HOLD v002. Do not execute either v003 command without Claude's independent review
+and Andy's separate, mode-specific GO. OpenSSL 3.0.20 testing and any required
+old-bundle verification remain open evidence items. Confirm the actual artifact,
+Python identity, environment and gate values before an approved run. A FAIL,
+UNVERIFIED, STOP, incomplete frame, unknown side effect or mismatch blocks closure.
+Do not change versions, CA/proxy settings, task state, polling, DBs or retry routes
+to make a test pass. Do not auto-rollback, merge, deploy, suspend/resume or execute
+Render Shell. Report the concrete failure to HQ13 for a new scoped decision.

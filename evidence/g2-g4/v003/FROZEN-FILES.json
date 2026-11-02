@@ -1,0 +1,286 @@
+{
+  "files": [
+    {
+      "bytes": 1778,
+      "file": "evidence/g2-g4/COMMANDS.json",
+      "git_blob": "b321961ec5e76e28a8b423fc2fdd6dcf95c0ad82",
+      "sha256": "26f5f3ab72c790bfdadf52ec7f1434150b640487cf3a18b2af837957883e1896",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 14877,
+      "file": "evidence/g2-g4/G2-G4-PLAN.txt",
+      "git_blob": "b219ee6f2ca4298293a90027b3c042eae44affd2",
+      "sha256": "cd5ac7cda3d9509d5273bbf1c541bb315629b5615f68646d0bbf09c2fa9df83c",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 6001,
+      "file": "evidence/g2-g4/INDEX.tsv",
+      "git_blob": "aa4b5ee3f45b908b72f42a1f99183d3434138862",
+      "sha256": "48a9a552e2c20957adf795b0dec5180bf5208d5f4c33e54da5bb096abf639571",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 13241,
+      "file": "evidence/g2-g4/MANIFEST.json",
+      "git_blob": "5fc465270d95f30b92115a6b0ba966a2186ed6ec",
+      "sha256": "538516e88e41fc8af2b11070030cbbe4424f59798a0eff1e4db85e119ab9f2d2",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 1409,
+      "file": "evidence/g2-g4/README.txt",
+      "git_blob": "e85c06cffa582c26d31d59db5132ec149a7b93c9",
+      "sha256": "f905a9c51c542f9f749f7924bfbf70713be6c56095d536ccb662a7cafea8ca95",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 4152,
+      "file": "evidence/g2-g4/SHA256SUMS.txt",
+      "git_blob": "a24dfe5cab4a12acbf7d49474bedabde682d3b60",
+      "sha256": "ad8461442e89376c57e1ef4dc381647beee07cb374707d86c395865f7f0f62b0",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2016,
+      "file": "evidence/g2-g4/commands/A5_v001.raw.txt",
+      "git_blob": "d9ced1eb86990798c186d261f1d704e9d91842a1",
+      "sha256": "d963aa0a6778a8fb2827fa4339a4ff96a959be2851db9c5a70255b0c610610c7",
+      "terminal_lf": false
+    },
+    {
+      "bytes": 9060,
+      "file": "evidence/g2-g4/commands/G2_A5_v002.candidate.txt",
+      "git_blob": "cda3b28e49a05e295656bbfa6cd60b32e0d95858",
+      "sha256": "72bbfc047a8fd57beaf23340855e566d3ef4a7b44da41f7c1f14b8b144867f74",
+      "terminal_lf": false
+    },
+    {
+      "bytes": 16033,
+      "file": "evidence/g2-g4/commands/G3_backup_v002.candidate.txt",
+      "git_blob": "9b1e9841337b4e85d3ac30e8eb463246cbe7d44b",
+      "sha256": "1525cc407515014975b11b04bbfbc0c17802ad71d6fc7aa22ee241d3ff58d875",
+      "terminal_lf": false
+    },
+    {
+      "bytes": 9668,
+      "file": "evidence/g2-g4/commands/G4_SQLite_v002.candidate.txt",
+      "git_blob": "14b78b5638f351738b4bb349953cca612166ef5b",
+      "sha256": "790c6d46a5db5fd2e43d05e6285afca1f18890669ad8175909a5943dcb9faa03",
+      "terminal_lf": false
+    },
+    {
+      "bytes": 15805,
+      "file": "evidence/g2-g4/commands/G4_TLS_v002.candidate.txt",
+      "git_blob": "7c8992d0fb096ba495c06286fc618e1279bc3ce2",
+      "sha256": "7339a866ff9e0b860a75a52a5dfc623949e31a613282a8c0c81f6146ac28c78a",
+      "terminal_lf": false
+    },
+    {
+      "bytes": 10980,
+      "file": "evidence/g2-g4/commands/G4_environment_v002.candidate.txt",
+      "git_blob": "007e55c5ee928edd7f3e91da9cf967b7cfd10649",
+      "sha256": "9f93035800084e1e26fbf58e9add3aff01b76b39d69215ba22a4a26b62d34886",
+      "terminal_lf": false
+    },
+    {
+      "bytes": 287,
+      "file": "evidence/g2-g4/examples/G2.dummy.txt",
+      "git_blob": "f0ecd8ebe301e7c6ff96b13f0292bb5a5037c8ee",
+      "sha256": "c0a01f0bc297ab473293dce41e29fd201402361292afa849ac773ad0e6bf40a0",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 468,
+      "file": "evidence/g2-g4/examples/G3.dummy.txt",
+      "git_blob": "25236a090d3647a075d93064a9c13cfea7ab6d2b",
+      "sha256": "9b391156cd2fbcf53c617b800e44b9791c93d14b8ff189de4098dea22a6491e9",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 370,
+      "file": "evidence/g2-g4/examples/G4_SQLite.dummy.txt",
+      "git_blob": "ea9bf44c792886e2829cfd778dae9bb196deb1c4",
+      "sha256": "44225150533a51338ca5da83fefa5e876f5f32b488bf20590036931ea50caaae",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 484,
+      "file": "evidence/g2-g4/examples/G4_TLS.dummy.txt",
+      "git_blob": "89ff16d42de4fb7fdfd53c65c9356c52607d4cc4",
+      "sha256": "b468b62f09298e3712c5f7ef79a2bda5c65c1f26ce201fcc017998c43304451f",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 382,
+      "file": "evidence/g2-g4/examples/G4_environment.dummy.txt",
+      "git_blob": "c8733844fe9627703d426faeaf4637360b154721",
+      "sha256": "73e884c35eb7cc1410fdbd6e9d15a19a4325a745cb25ca71157111e80febf6e8",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 855,
+      "file": "evidence/g2-g4/logs/G3-native-io.raw.json",
+      "git_blob": "15999a39e39730d3d4c5e94f8eb9165353ede60e",
+      "sha256": "87ad5e3aec2af1498ac1c3df2bc543ae96d60072c94dba97eec026ff7edbf4e8",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 982,
+      "file": "evidence/g2-g4/logs/PROVENANCE.json",
+      "git_blob": "7bbbced954046fb1910cee0a7f20374986e9a0e8",
+      "sha256": "04d0ad32dca656f730869bf8d52e1b99df2fbad7cf7506d63eba1b10e6ec3589",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 789,
+      "file": "evidence/g2-g4/logs/isolation-summary.raw.json",
+      "git_blob": "7b37b36c44380fd575fa67cf1e18fec0769b396a",
+      "sha256": "85808026829ce86fbd7beba3920f7b1272d75e183831308de6b176b07933cb00",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2128,
+      "file": "evidence/g2-g4/logs/isolation.raw.log",
+      "git_blob": "c99155f6f3dbb55c6ace2d25489da2fe9317130c",
+      "sha256": "afa69322381609a7623114f70bab45152d37a40bc77d1074d55cd52bce6d28b5",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 10289,
+      "file": "evidence/g2-g4/references/A1-A3_v002.reviewed-reference.txt",
+      "git_blob": "9e7cced90be241b7900f8685e4e65d7d0a8a92a1",
+      "sha256": "defcec8945bc9ebd76c1f0721d11e385c9dd47d65f1acc2bfddf77a92bbd61cb",
+      "terminal_lf": false
+    },
+    {
+      "bytes": 2169,
+      "file": "evidence/g2-g4/references/HQ12_original.py",
+      "git_blob": "7405d027c603ef896c7f293294efc74466d7948f",
+      "sha256": "497559457e4bdc481c4c16dd515d0b8148af8644654d23cd8dd67eac2e60f935",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 929,
+      "file": "evidence/g2-g4/references/TARGET-SOURCE-HASHES.json",
+      "git_blob": "8f8e7b4c59277431ebf4cbc6b649c420ab5d470d",
+      "sha256": "0cc30f9ef91abb422ee43c03da7e8ec21bfee91402dc837a87c0c1a9bfc83a19",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 6038,
+      "file": "evidence/g2-g4/source/G2_A5_v002.payload.py",
+      "git_blob": "4f2ede3abf3562ab6a87aeaa3df267982442343c",
+      "sha256": "8a44f059d6c4dfdd60fb138543b98efe949c1dbe2f4569a96e62c810e160a26a",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 11266,
+      "file": "evidence/g2-g4/source/G3_backup_v002.payload.py",
+      "git_blob": "4278b01827cabde73d519ee21be60f7aeb1a24aa",
+      "sha256": "c8be4bfb7398e27b4c817c33fb61d15b46a6006172d746f091a0e5fdf9b11487",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 6493,
+      "file": "evidence/g2-g4/source/G4_SQLite_v002.payload.py",
+      "git_blob": "3257bb4dacbdd52c115d9e69d97a669bd8c2692f",
+      "sha256": "7f2cb1e66d6e70c95c08731de792e2c3cc5de16bfe06fec57a09a64c081f3ed8",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 11095,
+      "file": "evidence/g2-g4/source/G4_TLS_v002.payload.py",
+      "git_blob": "b8cf7f015529572a05ec2763931f9af43f869418",
+      "sha256": "9976459d0d126d523945f5e699a7cfc05e4a55b4830ae56ee2a31c66e6ec75c5",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 7478,
+      "file": "evidence/g2-g4/source/G4_environment_v002.payload.py",
+      "git_blob": "f02731e1354e04a740254995cb6b9f3144a046f1",
+      "sha256": "7d3157bbab774c36f16f84e1443c10c3f613f3873a07c29ba63e4b5cfc417e7f",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 4564,
+      "file": "evidence/g2-g4/source/common.py",
+      "git_blob": "2160b833ae52b3acb26758228b5949b0ffe75ed6",
+      "sha256": "a77d7968cc27ab36338f5e71414140f5f2047da6d69e2b5467bcbf40f4bd1351",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 1472,
+      "file": "evidence/g2-g4/source/g2.py",
+      "git_blob": "806d0d2693e0cbd6c473fcc5bddcf3f759cf8e7a",
+      "sha256": "85bd7b184454760572b402315cb8b4fea420d6a03473382d1c43596c982da0bc",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 6700,
+      "file": "evidence/g2-g4/source/g3.py",
+      "git_blob": "2cea7acfde5d03c16ee5918048eec16d5f46ae51",
+      "sha256": "d6ace374d777fa034bb44809fb9cce39fc6166b4204ebc20cc624e5e5fa9c8d9",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 1926,
+      "file": "evidence/g2-g4/source/g4_db.py",
+      "git_blob": "84dc0c14915f612cfa8756cdea962b92393398ed",
+      "sha256": "d71135dbebac8771e89d362793278b4b562218c413c17849baf98dbc112a4bca",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2911,
+      "file": "evidence/g2-g4/source/g4_env.py",
+      "git_blob": "edb706741985f6705cd156fff5a19b19fa86f1ce",
+      "sha256": "84fc7c78d4c8b7143ea7d7a58817bd8bd953bdea2d7bc0ffcb5cc5e2885a2394",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 3664,
+      "file": "evidence/g2-g4/source/g4_tls.py",
+      "git_blob": "e2b1948d8befe5761f9ec81e7b8c6ee1050a3905",
+      "sha256": "16c29f3313854c758fa94eae10788b0a7d820d5dd761f4759b76339af1df664c",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2067,
+      "file": "evidence/g2-g4/tests/REPRODUCE.txt",
+      "git_blob": "b53f4af130ff7999efe5afa1ced6aaf473cfc4dc",
+      "sha256": "d80535da03b36729d6176687934b74eb8c0992c9eef8f7db8413ec4f435e31e6",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 3679,
+      "file": "evidence/g2-g4/tests/generate-fixtures.py",
+      "git_blob": "e357726149152249930f6af246a7d0b40bb50c7f",
+      "sha256": "1ee542dac137b19e91b6692f54c9cf4e9aa2af9d638dbad830ec30ae9652ebd9",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 19000,
+      "file": "evidence/g2-g4/tests/isolation.py",
+      "git_blob": "a97ceb45e962a1f1a147938d03ec8b2b1a03eeaf",
+      "sha256": "ff655c9164258268b679692c1589a503bc488509520dc7e2f3be575ade185631",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2220,
+      "file": "evidence/g2-g4/tests/verify-commands.py",
+      "git_blob": "f5453297bdb90fd26ac0e601aef511579bb3ea9e",
+      "sha256": "291a7c15a9abb6c9cf39fa219b042f79ceb7fd649e72c6165bf938abbd3285ce",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 1046,
+      "file": "evidence/g2-g4/tests/verify-output.py",
+      "git_blob": "5dc104eb054ac40030756e37e8b702cf6ed8a9ec",
+      "sha256": "5d150a9c34c42fc4cc79373c1587eebf5d6d68f257d6b25592946b5d5e9873ba",
+      "terminal_lf": true
+    }
+  ],
+  "parent_commit": "680630e088682d67f19d3dcbfc261caa4d7acf78",
+  "status": "ALL_40_FILES_BYTE_UNCHANGED_TLS_V002_HOLD"
+}

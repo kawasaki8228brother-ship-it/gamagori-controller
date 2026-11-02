@@ -1,0 +1,10 @@
+BEGIN CERTIFI_AUDIT_V002
+{"example":"DUMMY_NOT_MEASUREMENT"}
+{"ca_n":118,"eff_eq":true,"eff_n":118,"env_overrides":0,"gate":"ENV_OBS_PASS"}
+{"http":200,"id":"WWW","tls":"CONNECTED","verify_code":null,"verify_message":null}
+{"http":403,"id":"BARE","tls":"CONNECTED","verify_code":null,"verify_message":null}
+{"http":302,"id":"FALLBACK","tls":"CONNECTED","verify_code":null,"verify_message":null}
+{"http":null,"id":"NEGATIVE_1","tls":"CERT_REJECTED","verify_code":20,"verify_message":"dummy issuer verification message"}
+{"http":null,"id":"NEGATIVE_2","tls":"CERT_REJECTED","verify_code":19,"verify_message":"dummy issuer verification message"}
+{"go":false,"mode":"POST","r":"TLS_OBS_PASS"}
+END CERTIFI_AUDIT_V002 lines=8 bytes=664 sha256=e8e5e3be59b3d9f0e9092f20d056c56bdacde4b1532edf4f63546e9013e159d2

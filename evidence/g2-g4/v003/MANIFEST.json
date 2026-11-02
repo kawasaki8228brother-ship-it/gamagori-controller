@@ -1,0 +1,215 @@
+{
+  "actual_old_bundle_gate": "UNVERIFIED",
+  "application_head": "97640c8c307fed8eaa19f2557f5057ccade18da1",
+  "claude_independent_review": "PENDING",
+  "external_NEGATIVE_1_2": "UNVERIFIED_NOT_RUN",
+  "files": [
+    {
+      "bytes": 564,
+      "file": "evidence/g2-g4/v003/COMMANDS.json",
+      "git_blob": "f16c950a6aecc06d70b36b403351ee78710a3939",
+      "sha256": "bc3e33bb80361d25113cd92fa8a062cc0807385997d09a66736190ee8a2f5f26",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 10675,
+      "file": "evidence/g2-g4/v003/FROZEN-FILES.json",
+      "git_blob": "dfc997720e20ac9de133208b3ed699abe463107a",
+      "sha256": "f5f50daf788159b36972108fe9b5114abdc7b1228f2cc24415ab941b1217e32b",
+      "status": "DERIVED_PROVENANCE",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 11374,
+      "file": "evidence/g2-g4/v003/PLAN.txt",
+      "git_blob": "b73132ab4b92ab98aa1532d061fb5ad706205e4d",
+      "sha256": "1b98e5ca78b1bd50f87cebd2cebdca01be859ba0dce5d4191952c6964102a929",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 593,
+      "file": "evidence/g2-g4/v003/STATUS.txt",
+      "git_blob": "b618a46c12f2dd88b13aa23f1b322adad3cca48e",
+      "sha256": "4e9402ef3656cf4841904e533c8f55c446321b569f3f3ca6222a93941d3e7e12",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 19197,
+      "file": "evidence/g2-g4/v003/commands/G4_TLS_v003.candidate.txt",
+      "git_blob": "29dda1432adc6332e96924d3d78418603eec9cd3",
+      "sha256": "8006fe9edddee003e8f20ed723d161c895f5aea8372dbff8b236f97d20c7e162",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": false
+    },
+    {
+      "bytes": 19025,
+      "file": "evidence/g2-g4/v003/commands/G4_baseline_v003.candidate.txt",
+      "git_blob": "640ef79dc71d490931f4d7961b4d344a671f82ea",
+      "sha256": "2fda964f661f7b079362fd683718d356cc096769525c837df9fe10202efe1bd0",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": false
+    },
+    {
+      "bytes": 752,
+      "file": "evidence/g2-g4/v003/examples/BASELINE.dummy.txt",
+      "git_blob": "5eb3300cb704c3d57164bf685e5fd7ea4c343a41",
+      "sha256": "6e83bfc5f3e44bc8b3126c24eef4cfa6f5daa12699408bca4d1028cbc1adefd3",
+      "status": "DUMMY_NOT_MEASUREMENT",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 802,
+      "file": "evidence/g2-g4/v003/examples/POST.dummy.txt",
+      "git_blob": "f0274e3e64072c1ecb049f61f231acb11d0fc95f",
+      "sha256": "60b312a04075ec6d8dd36a0c7f5382c0216985d51bdfa57d693950037f51ac82",
+      "status": "DUMMY_NOT_MEASUREMENT",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 224,
+      "file": "evidence/g2-g4/v003/examples/STOP.dummy.txt",
+      "git_blob": "c49aff2d3234b7dbbb3e366858f5b7529bafc4ef",
+      "sha256": "5053327f8f4d7d8ad1d9311cf5c3590b730f2ebb500afeab8889414df7ac2655",
+      "status": "DUMMY_NOT_MEASUREMENT",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2274,
+      "file": "evidence/g2-g4/v003/logs/PROVENANCE.json",
+      "git_blob": "4fcde6636362c279f44a6437c78d5143516c0e75",
+      "sha256": "2b1e51672305030a360506b46a7ac721340ebac515036185737106dc0c7e372e",
+      "status": "DERIVED_PROVENANCE",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 1484,
+      "file": "evidence/g2-g4/v003/logs/dependencies.raw.json",
+      "git_blob": "9f23707d5c6dc1a329241d8785f459050cc968f4",
+      "sha256": "25b55dca32ee274b6c682ea9a18fb11cf884557191d622cfe5fa2a879ff11348",
+      "status": "RAW_ISOLATED_TEST_EVIDENCE",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 5146,
+      "file": "evidence/g2-g4/v003/logs/isolation.raw.log",
+      "git_blob": "d48bcf408f593ea9ea21c1efea4dae61048d0102",
+      "sha256": "c6c3e0f47ed980d49865c0ad4edfe12607ddbc694b1899396ced3f3a45b158a8",
+      "status": "RAW_ISOLATED_TEST_EVIDENCE",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 3672,
+      "file": "evidence/g2-g4/v003/logs/observations.raw.json",
+      "git_blob": "50488eb495da8b1711cb19fdc84b9eab3635dc20",
+      "sha256": "1caa90940c22843c377e1ea2ba6aa549390f7a09eeffcc294a40cd8e66ad376a",
+      "status": "RAW_ISOLATED_TEST_EVIDENCE",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 660,
+      "file": "evidence/g2-g4/v003/logs/platform-availability.json",
+      "git_blob": "faedccdcfa12d5bab408b4b874d96f6296533553",
+      "sha256": "0e0c495453e8af468a73caae8c91d6fb3f79257e0db3a8f7731a6d4e432c6f99",
+      "status": "DERIVED_PROVENANCE",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 387,
+      "file": "evidence/g2-g4/v003/logs/summary.raw.json",
+      "git_blob": "a2eed82d3b21011eca9c291442b162b7473c8952",
+      "sha256": "4ada79fab4541b43f6b20e5c7bf0275ff4124c6a8beea4fbb395f3d3a756b16d",
+      "status": "RAW_ISOLATED_TEST_EVIDENCE",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 165,
+      "file": "evidence/g2-g4/v003/logs/verification.raw.log",
+      "git_blob": "5cf64d35e12b3cae7bf6f4939fbd19bea487fc07",
+      "sha256": "485859ff13703b50248e0f07fd379ac58fffc0c4e45ced8ce1a61e048201a82a",
+      "status": "RAW_ISOLATED_TEST_EVIDENCE",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 13640,
+      "file": "evidence/g2-g4/v003/source/G4_TLS_v003.payload.py",
+      "git_blob": "553bad97da070a397b5c631efca595507a29b92e",
+      "sha256": "9f1d702ff17859da4a4ba187fa66bbc0a736e0b86e9c2e664e0068b9cfc27624",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 13510,
+      "file": "evidence/g2-g4/v003/source/G4_baseline_v003.payload.py",
+      "git_blob": "2288570cdaa4e6faad99bd00822f542d835a3a19",
+      "sha256": "1ef41884e6dbea50d5c6679c7a6e66f83993af2c2967cdcaa060064414a09dbf",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2724,
+      "file": "evidence/g2-g4/v003/source/baseline_gate_v003.py",
+      "git_blob": "b837664aeac6761092c7140ee3f4bc376fb2cba1",
+      "sha256": "512f75593b53418e56b21c784eee7cf5065f3355e8cad6d900264d0bccbe32ea",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 6152,
+      "file": "evidence/g2-g4/v003/source/g4_tls_v003.py",
+      "git_blob": "8feeec28fb423e9cfd4d6607db851b2a920b9e2d",
+      "sha256": "ad7419b00ea6b881571b3dd900206dd0881f4fb80145601cd4fc736dfd512386",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 9409,
+      "file": "evidence/g2-g4/v003/source/v002-to-v003.diff",
+      "git_blob": "a32bb275ae4a7550f0cc319ea26c13d26355a2c3",
+      "sha256": "b21569f6a4e737e236c23da6d3b3d7688e2bee05cf25647935686b8cbcbcad3c",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 1995,
+      "file": "evidence/g2-g4/v003/tests/REPRODUCE.txt",
+      "git_blob": "8e209f1cd0ae111ec6c3f633f71f10e1964e6efa",
+      "sha256": "f8839557975e66536b2d41a1b55adab5290f8040c478aeb92414f235e65ceacb",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 3712,
+      "file": "evidence/g2-g4/v003/tests/generate-fixtures.py",
+      "git_blob": "b3191d4705e7d743c8af1ceedd93f54133ce23d3",
+      "sha256": "25a6ee4924605b40c599f26c406682bd71f04bf980d0739b68cce9ab4c80a4f2",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 19787,
+      "file": "evidence/g2-g4/v003/tests/isolation.py",
+      "git_blob": "0e24d05af5be4f9e10a0edc4b8950fbb6b0416c0",
+      "sha256": "0c093354f0c2083ccb29538035c9660924a774139ed2e50be17585f56aa3695e",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 2719,
+      "file": "evidence/g2-g4/v003/tests/verify-commands.py",
+      "git_blob": "b08bb2c682b5420c47e5c35bea3f5e2452f5a900",
+      "sha256": "79368655a754f1d61835967f713875061e3e400288a810e94e4f050751c8529d",
+      "status": "DESIGN_CANDIDATE_REVIEW_PENDING_NO_EXECUTION_GO",
+      "terminal_lf": true
+    }
+  ],
+  "go": false,
+  "isolated_cases": 26,
+  "openssl_3_0_20": "UNVERIFIED",
+  "parent_commit": "680630e088682d67f19d3dcbfc261caa4d7acf78",
+  "render_execution": "NOT_RUN",
+  "scope": "EVIDENCE_ADDITIONS_ONLY",
+  "v002": "HOLD_BYTE_UNCHANGED"
+}

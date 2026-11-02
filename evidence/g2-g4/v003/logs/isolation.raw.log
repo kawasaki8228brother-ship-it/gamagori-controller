@@ -1,0 +1,50 @@
+ENV {"certifi": "2026.10.23", "httpx": "0.28.1", "kernel": "6.18.57", "machine": "x86_64", "network": "LOOPBACK_ONLY_NO_EXTERNAL_TARGETS", "openssl": "OpenSSL 3.5.5 27 Jan 2026", "os": "Linux", "python": "3.14.3"}
+OBS {"case": "ISSUER_20", "http": null, "id": "ISSUER_20", "tls": "CERT_REJECTED", "verify_code": 20, "verify_message": "unable to get local issuer certificate", "why": "ISSUER_VERIFY"}
+CASE ACTUAL_UNKNOWN_ISSUER_CODE20 PASS
+OBS {"case": "ISSUER_19", "http": null, "id": "ISSUER_19", "tls": "CERT_REJECTED", "verify_code": 19, "verify_message": "self-signed certificate in certificate chain", "why": "ISSUER_VERIFY"}
+CASE ACTUAL_UNTRUSTED_ROOT_CHAIN_CODE19 PASS
+OBS {"case": "ISSUER_2", "http": null, "id": "ISSUER_2", "tls": "CERT_REJECTED", "verify_code": 2, "verify_message": "unable to get issuer certificate", "why": "ISSUER_VERIFY"}
+CASE ACTUAL_MISSING_ISSUER_CODE2_FIXTURE_FLAGS PASS
+OBS {"case": "EXPIRED", "http": null, "id": "EXPIRED", "tls": "OTHER_FAILURE", "verify_code": 10, "verify_message": "certificate has expired", "why": "VERIFY_OTHER"}
+CASE ACTUAL_EXPIRED_CODE10_OTHER PASS
+OBS {"case": "HOSTNAME", "http": null, "id": "HOSTNAME", "tls": "OTHER_FAILURE", "verify_code": 64, "verify_message": "IP address mismatch, certificate is not valid for '127.0.0.1'.", "why": "VERIFY_OTHER"}
+CASE ACTUAL_HOSTNAME_MISMATCH_OTHER PASS
+OBS {"case": "SELF_SIGNED_LEAF", "http": null, "id": "SELF_SIGNED_LEAF", "tls": "OTHER_FAILURE", "verify_code": 18, "verify_message": "self-signed certificate", "why": "VERIFY_OTHER"}
+CASE ACTUAL_SELF_SIGNED_LEAF_CODE18_OTHER PASS
+OBS {"case": "HTTP_200", "http": 200, "id": "HTTP_200", "tls": "CONNECTED", "verify_code": null, "verify_message": null}
+OBS {"case": "HTTP_403", "http": 403, "id": "HTTP_403", "tls": "CONNECTED", "verify_code": null, "verify_message": null}
+OBS {"case": "HTTP_404", "http": 404, "id": "HTTP_404", "tls": "CONNECTED", "verify_code": null, "verify_message": null}
+OBS {"case": "HTTP_503", "http": 503, "id": "HTTP_503", "tls": "CONNECTED", "verify_code": null, "verify_message": null}
+CASE TARGET_HTTP_200_403_404_503_CONNECTED PASS
+OBS {"case": "REDIRECT_SCOPE", "http": 302, "id": "REDIRECT_SCOPE", "tls": "CONNECTED", "verify_code": null, "verify_message": null}
+CASE FIRST_RESPONSE_RETAINED_AFTER_REDIRECT_BLOCK PASS
+OBS {"case": "REDIRECT_FIRST_HOP", "http": 302, "id": "REDIRECT_FIRST_HOP", "tls": "CONNECTED", "verify_code": null, "verify_message": null}
+CASE FIRST_RESPONSE_RETAINED_AFTER_LOCAL_REDIRECT PASS
+OBS {"case": "REDIRECT_LATER_CERT_ERROR", "http": 302, "id": "REDIRECT_LATER_CERT_ERROR", "tls": "CONNECTED", "verify_code": null, "verify_message": null}
+CASE FIRST_RESPONSE_RETAINED_AFTER_LATER_CERT_ERROR PASS
+OBS {"case": "SCOPE_BEFORE_RESPONSE", "http": null, "id": "SCOPE_BEFORE_RESPONSE", "tls": "OTHER_FAILURE", "verify_code": null, "verify_message": null, "why": "SCOPE"}
+CASE SCOPE_BEFORE_RESPONSE_OTHER_NO_NETWORK PASS
+OBS {"case": "PROXY_403", "http": null, "id": "PROXY_403", "tls": "OTHER_FAILURE", "verify_code": null, "verify_message": null, "why": "PROXY"}
+CASE ACTUAL_LOCAL_PROXY_CONNECT_403_OTHER PASS
+OBS {"case": "TIMEOUT_8_SECONDS", "http": null, "id": "TIMEOUT_8_SECONDS", "tls": "OTHER_FAILURE", "verify_code": null, "verify_message": null, "why": "TIMEOUT"}
+CASE ACTUAL_LOCAL_READ_TIMEOUT_8_SECONDS_OTHER PASS
+OBS {"case": "INJECTED_DNS", "http": null, "id": "INJECTED_DNS", "tls": "OTHER_FAILURE", "verify_code": null, "verify_message": null, "why": "DNS"}
+CASE INJECTED_DNS_OTHER_NO_RESOLVER PASS
+CASE INSTANCE_ONLY_TEXT_AND_MISSING_OR_OTHER_CODES PASS
+CASE VERIFY_ATTRIBUTES_ASCII_100_URL_PATH_SUPPRESSION PASS
+CASE CAUSE_CONTEXT_CYCLES_LIMIT_AMBIGUITY_PROXY_TIMEOUT PASS
+OBS {"case": "LOCAL_POST_AGGREGATE", "go": false, "mode": "POST", "r": "TLS_OBS_PASS"}
+OBS {"case": "LOCAL_BASELINE_CLASSIFIER_ONLY", "go": false, "mode": "BASELINE", "r": "BASELINE_OBS_EXPECTED"}
+CASE REAL_LOCAL_FIVE_TARGET_POST_AND_BASELINE_AGGREGATES PASS
+CASE POST_FAIL_UNVERIFIED_AND_GO_ALWAYS_FALSE PASS
+CASE BASELINE_EXPECTED_IS_NOT_POST_PASS_POSITIVE_REJECTION_FAIL PASS
+CASE BASELINE_PREDICATE_SIMULATED_OLD_OBSERVATIONS_ONLY PASS
+CASE ALL_14_ENV_NAMES_AND_MISMATCH_STOP_BEFORE_CLIENT PASS
+OBS {"app_source": true, "ca_n": 118, "ca_sha": "2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b", "case": "ACTUAL_NEW_BUNDLE_BASELINE_STOP", "eff_eq": false, "eff_n": 118, "env_overrides": 0, "old_release": false, "runtime": true}
+CASE ACTUAL_POST_BUNDLE_PASS_OLD_BASELINE_REJECTS_NEW_BUNDLE PASS
+CASE GATE_OUTPUT_CA_HASH_EFFECTIVE_SET_SIMULATED_CLIENT_NO_NETWORK PASS
+CASE HQ12_URLS_FOUR_OPTIONS_AND_SINGLE_ATTEMPT_PRESERVED PASS
+COMMAND_FILES_VERIFIED frozen=5 new=2 writes=0
+CASE ASCII_FRAMES_TRUNCATION_HASH_GUARDS_AND_FULL_GATE_STOP PASS
+SUMMARY {"baseline_old_bundle_actual": "UNVERIFIED_NOT_AVAILABLE", "cases": 26, "classification_tests": "PASS", "external_five_targets": "NOT_RUN", "go": false, "openssl": "OpenSSL 3.5.5 27 Jan 2026", "openssl_3_0_compatibility": "UNVERIFIED_NOT_AVAILABLE", "os": "Linux", "production_openssl_reported_by_HQ13": "OpenSSL 3.0.20", "python": "3.14.3", "render": "NOT_RUN"}
+EXIT_CODE 0

@@ -1,0 +1,10 @@
+G4_TLS_v002: HOLD, historical file preserved byte-for-byte.
+G4_TLS_v003: CANDIDATE, CLAUDE_INDEPENDENT_REVIEW_PENDING, NO_EXECUTION_GO.
+G4_baseline_v003: SEPARATE_CANDIDATE, NO_EXTERNAL_EXECUTION_GO.
+OpenSSL 3.0.20 compatibility: UNVERIFIED.
+Actual old-certifi 121-certificate gate: UNVERIFIED; simulated gate tests only.
+External NEGATIVE_1/2: UNVERIFIED, NOT_RUN in this work.
+Render / Production: NOT_TOUCHED.
+PR #6 / main: NO_CHANGES_AUTHORIZED.
+G3 v003: NOT_CREATED; wait for actual production SQLite version.
+Earlier v002 logs/examples remain historical. PLAN.txt is the current design.

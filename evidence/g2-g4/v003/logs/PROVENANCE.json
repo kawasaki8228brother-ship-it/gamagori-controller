@@ -1,0 +1,61 @@
+{
+  "actual_old_bundle_gate": "UNVERIFIED",
+  "command_sha256": {
+    "commands/G4_TLS_v003.candidate.txt": "8006fe9edddee003e8f20ed723d161c895f5aea8372dbff8b236f97d20c7e162",
+    "commands/G4_baseline_v003.candidate.txt": "2fda964f661f7b079362fd683718d356cc096769525c837df9fe10202efe1bd0"
+  },
+  "environment": {
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "os": "Linux",
+    "python": "3.14.3"
+  },
+  "logs": [
+    {
+      "bytes": 1484,
+      "file": "evidence/g2-g4/v003/logs/dependencies.raw.json",
+      "git_blob": "9f23707d5c6dc1a329241d8785f459050cc968f4",
+      "sha256": "25b55dca32ee274b6c682ea9a18fb11cf884557191d622cfe5fa2a879ff11348",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 5146,
+      "file": "evidence/g2-g4/v003/logs/isolation.raw.log",
+      "git_blob": "d48bcf408f593ea9ea21c1efea4dae61048d0102",
+      "sha256": "c6c3e0f47ed980d49865c0ad4edfe12607ddbc694b1899396ced3f3a45b158a8",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 3672,
+      "file": "evidence/g2-g4/v003/logs/observations.raw.json",
+      "git_blob": "50488eb495da8b1711cb19fdc84b9eab3635dc20",
+      "sha256": "1caa90940c22843c377e1ea2ba6aa549390f7a09eeffcc294a40cd8e66ad376a",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 660,
+      "file": "evidence/g2-g4/v003/logs/platform-availability.json",
+      "git_blob": "faedccdcfa12d5bab408b4b874d96f6296533553",
+      "sha256": "0e0c495453e8af468a73caae8c91d6fb3f79257e0db3a8f7731a6d4e432c6f99",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 387,
+      "file": "evidence/g2-g4/v003/logs/summary.raw.json",
+      "git_blob": "a2eed82d3b21011eca9c291442b162b7473c8952",
+      "sha256": "4ada79fab4541b43f6b20e5c7bf0275ff4124c6a8beea4fbb395f3d3a756b16d",
+      "terminal_lf": true
+    },
+    {
+      "bytes": 165,
+      "file": "evidence/g2-g4/v003/logs/verification.raw.log",
+      "git_blob": "5cf64d35e12b3cae7bf6f4939fbd19bea487fc07",
+      "sha256": "485859ff13703b50248e0f07fd379ac58fffc0c4e45ced8ce1a61e048201a82a",
+      "terminal_lf": true
+    }
+  ],
+  "production_openssl_3_0_20": "UNVERIFIED",
+  "redaction_performed": false,
+  "render": "NOT_RUN",
+  "scope": "SYNTHETIC_LOOPBACK_AND_INJECTED_EXCEPTION_TESTS_ONLY",
+  "trust": "RAW_SAFE_ISOLATED_LOGS_WITH_SEPARATE_DERIVED_PLATFORM_NOTE"
+}

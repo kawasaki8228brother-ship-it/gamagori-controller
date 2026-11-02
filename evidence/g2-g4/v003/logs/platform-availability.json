@@ -1,0 +1,20 @@
+{
+  "baseline_old_bundle": "UNVERIFIED_NOT_AVAILABLE_LOCALLY",
+  "environment": {
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "os": "Linux",
+    "python": "3.14.3"
+  },
+  "external_five_targets": "NOT_RUN",
+  "go": false,
+  "observed_runtimes": {
+    "HOST_PYTHON": "3.12.14 / OpenSSL 3.5.8",
+    "PINNED_PYTHON": "3.14.3 / OpenSSL 3.5.5",
+    "PYTHON_3_13": "3.13.5 / OpenSSL 3.5.7",
+    "SYSTEM_LIBCRYPTO": "OpenSSL 3.5.7"
+  },
+  "openssl_3_0_compatibility": "UNVERIFIED_NOT_TESTED",
+  "production_openssl": "3.0.20",
+  "production_version_source": "HQ13_INSTRUCTION_NOT_CODEX_RENDER_MEASUREMENT",
+  "source": "BOUNDED_LOCAL_RUNTIME_CHECKS_NOT_RENDER"
+}

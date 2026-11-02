@@ -1,0 +1,16 @@
+[
+  {
+    "file": "commands/G4_TLS_v003.candidate.txt",
+    "bytes": 19197,
+    "sha256": "8006fe9edddee003e8f20ed723d161c895f5aea8372dbff8b236f97d20c7e162",
+    "payload_bytes": 13640,
+    "payload_sha256": "9f1d702ff17859da4a4ba187fa66bbc0a736e0b86e9c2e664e0068b9cfc27624"
+  },
+  {
+    "file": "commands/G4_baseline_v003.candidate.txt",
+    "bytes": 19025,
+    "sha256": "2fda964f661f7b079362fd683718d356cc096769525c837df9fe10202efe1bd0",
+    "payload_bytes": 13510,
+    "payload_sha256": "1ef41884e6dbea50d5c6679c7a6e66f83993af2c2967cdcaa060064414a09dbf"
+  }
+]
