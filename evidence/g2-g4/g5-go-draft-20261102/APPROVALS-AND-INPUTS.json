@@ -1,0 +1,238 @@
+{
+  "A1_A3_omission": {
+    "HQ13_needs_freeze_or_additional_path_capacity_fields": null,
+    "additional_read_GO_if_needed": null,
+    "allowed_only_when_required_observations_complete": true,
+    "coverage_evidence_complete": null,
+    "decision": null
+  },
+  "AutoDeploy": {
+    "immediately_before_manual_deploy": {
+      "evidence_id_private": null,
+      "observed": null,
+      "observed_at_JST": null,
+      "required": "OFF",
+      "service_identity_private": null
+    },
+    "immediately_before_merge": {
+      "evidence_id_private": null,
+      "observed": null,
+      "observed_at_JST": null,
+      "required": "OFF",
+      "service_identity_private": null
+    },
+    "initial": {
+      "evidence_id_private": null,
+      "observed": null,
+      "observed_at_JST": null,
+      "required": "OFF",
+      "service_identity_private": null
+    }
+  },
+  "CLOSE": {
+    "Claude_review": null,
+    "HQ13_decision": null,
+    "evidence_ids_private": null,
+    "unresolved_items": null
+  },
+  "OpenSSL_disposition": {
+    "Claude_test_reported": "3.0.13",
+    "Codex_test": "3.0.18",
+    "decision": null,
+    "exact_compatibility": "UNVERIFIED",
+    "live_baseline_actual": null,
+    "production_reported": "3.0.20",
+    "proposal": "ACCEPT WITH BASELINE",
+    "reviewer": null
+  },
+  "Ready_approval": {
+    "approved_at_JST": null,
+    "approver": null,
+    "decision": null,
+    "evidence_id_private": null,
+    "executor": null
+  },
+  "Shell_approvals": [
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 9060,
+      "expected_command_sha256": "72bbfc047a8fd57beaf23340855e566d3ef4a7b44da41f7c1f14b8b144867f74",
+      "expected_end_token": "CERTIFI_G_END_8a44f059d6c4dfdd60fb138543b98efe949c1dbe2f4569a96e62c810e160a26a",
+      "id": "G2_A5_v002",
+      "mode_and_target_scope": "READ_ONLY_DB",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    },
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 30913,
+      "expected_command_sha256": "ee1ad231ef7b54d75c92a054d9366038d5b05e1073a7335cd683abf8e59afe0b",
+      "expected_end_token": "CERTIFI_G_END_fa67ce1b870ed8657e23dcd966fa3f96c0fc9ae42e9aa4780089075392bfe35f",
+      "id": "G4_baseline_v003_F1F2",
+      "mode_and_target_scope": "NETWORK_BASELINE",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    },
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 16033,
+      "expected_command_sha256": "6ccc2772bb7237b826f74f0c6eb6ec3feb0203e4b77adb4dee7a99da7c4d7ccf",
+      "expected_end_token": "CERTIFI_G_END_665af99b9e504de91fabd4d9330f0dac2d1a593db00d7df3fc7ab1627499e784",
+      "id": "G3_backup_v003",
+      "mode_and_target_scope": "NEW_BACKUP_WRITE",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    },
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 10980,
+      "expected_command_sha256": "9f93035800084e1e26fbf58e9add3aff01b76b39d69215ba22a4a26b62d34886",
+      "expected_end_token": "CERTIFI_G_END_7d3157bbab774c36f16f84e1443c10c3f613f3873a07c29ba63e4b5cfc417e7f",
+      "id": "G4_environment_v002",
+      "mode_and_target_scope": "READ_ONLY_ENV",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    },
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 31085,
+      "expected_command_sha256": "1c3a8ff38d7bca7898bf783875b67132edd19ad148934d5c6fff350ff8ac016f",
+      "expected_end_token": "CERTIFI_G_END_d27195c681955f48f28941b524dfe66878379366b33272880588587672d8cd67",
+      "id": "G4_TLS_v003_F1F2",
+      "mode_and_target_scope": "NETWORK_POST",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    },
+    {
+      "approved_at_JST": null,
+      "approver": null,
+      "decision": null,
+      "evidence_id_private": null,
+      "executor": null,
+      "expected_bytes": 9668,
+      "expected_command_sha256": "790c6d46a5db5fd2e43d05e6285afca1f18890669ad8175909a5943dcb9faa03",
+      "expected_end_token": "CERTIFI_G_END_7f2cb1e66d6e70c95c08731de792e2c3cc5de16bfe06fec57a09a64c081f3ed8",
+      "id": "G4_SQLite_v002",
+      "mode_and_target_scope": "READ_ONLY_DB",
+      "paste_limit": 1,
+      "source_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+    }
+  ],
+  "deploy_approval": {
+    "Render_service_private_id": null,
+    "approved_at_JST": null,
+    "approved_target_SHA": null,
+    "approver": null,
+    "decision": null,
+    "evidence_id_private": null,
+    "exact_SHA_selection_method": null,
+    "executor": null,
+    "mobile_UI_feasibility_verified": null,
+    "requires_confirmed_actual_main_SHA": true
+  },
+  "forbidden_now": [
+    "Ready",
+    "merge",
+    "Render_read_or_write",
+    "Shell",
+    "baseline",
+    "G3_backup",
+    "deploy",
+    "rollback",
+    "suspend",
+    "resume",
+    "task_change",
+    "main_push",
+    "canonical_or_POINTER_or_Freeze_change"
+  ],
+  "go": false,
+  "merge_approval": {
+    "allowed_methods": [
+      "merge commit",
+      "squash"
+    ],
+    "approved_at_JST": null,
+    "approver": null,
+    "base_sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "decision": null,
+    "evidence_id_private": null,
+    "executor": null,
+    "expected_tree": "568161bd70e0727e3bbbec8d1d3a14603bc64e5d",
+    "head_sha": "97640c8c307fed8eaa19f2557f5057ccade18da1",
+    "mobile_UI_feasibility_verified": null,
+    "requirements_sha256": "dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7",
+    "selected_method": null
+  },
+  "merge_readback": {
+    "PR_merged": null,
+    "actual_main_sha": null,
+    "actual_parents": null,
+    "actual_tree": null,
+    "preview_SHA_acceptable": false,
+    "verified_at_JST": null
+  },
+  "package_status": "DRAFT_NOT_SIGNED_NO_PRODUCTION_GO",
+  "roles": {
+    "Claude": "INDEPENDENT_AUDIT",
+    "Codex": "DEVELOPMENT_AND_EVIDENCE_ONLY",
+    "GitHub_Ready_executor": null,
+    "GitHub_merge_executor": null,
+    "HQ13": "CONSISTENCY_AND_DECISION_MATERIALS",
+    "production_operator": {
+      "available_parked": null,
+      "candidate": "Andy",
+      "personal_consent": null
+    }
+  },
+  "runtime_and_DB_private_inputs": {
+    "DB_WAL_SHM_sizes_and_free_bytes": null,
+    "DB_path_mount_identity": null,
+    "G2_day_and_zero_counts": null,
+    "actual_worker_count": null,
+    "backup_completed_size_SHA": null,
+    "backup_filename_absent_and_retention_owner": null,
+    "expected_active_worker_count": null,
+    "postdeploy_ID_SHA": null,
+    "predeploy_ID_SHA": null,
+    "python_executable_prefix": null,
+    "restart_exit_check": null,
+    "semantic_duplicate_check": null,
+    "service_identity": null,
+    "start_command": null,
+    "two_poll_records": null,
+    "worker_instance_IDs": null
+  },
+  "schedule": {
+    "actual_end_JST": null,
+    "actual_start_JST": null,
+    "candidate_date": "2026-11-03",
+    "live_task_timezone_config_readback": null,
+    "normal_poll_interval_actual": null,
+    "official_schedule_private_evidence": null,
+    "parked_minutes": null,
+    "running_delayed_manual_task_collision_check": null,
+    "two_cycle_observation_duration": null,
+    "window_choice": null
+  },
+  "source_evidence_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba"
+}

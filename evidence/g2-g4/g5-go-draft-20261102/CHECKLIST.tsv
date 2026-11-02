@@ -1,0 +1,24 @@
+ID	段階	確認	証拠	現在
+C00	資料	P1-P9改訂Claude審査・承認欄未確定の解消	審査receipt/個別GO	DRAFT/HOLD
+C01	開始前	本人承認/停車/役割/45-60分JST枠/連絡体制	私的担当者記録	PENDING
+C02	開始前	非開催日根拠/タスクtimezone・予定/稼働/遅延/手動・枠衝突	公式根拠/HQ13読取	PENDING
+C03	開始前	対象service/deploy/worker/起動Python/project/DB identity	私的実体照合	PENDING
+C04	開始前	6原本379固定・bytes/フルSHA/end token・1回準備	RAW-COMMANDS/照合記録	DEV_SOURCE_VERIFIED_LIVE_PASTE_PENDING
+C05	初期	Render実体AutoDeploy OFF・取得JST・証拠	承認読取/対象一致	PENDING
+C06	G2	フレーム/日付/DB identity・pending=nonterminal=unknown=0	私的フレーム/identity	PENDING
+C07	baseline	旧版ゲート/実OpenSSL/5件統合/guard/判定と再審査	私的フレーム/レビュー	PENDING
+C08	G3	書込GO・3.40.1・source RO・容量・新規1件・整合性・SHA・partialなし	私的フレーム/バックアップメタ	PENDING
+C09	Ready	Ready個別GO・実施者・iPhone方法・ready後PR readback	GitHub実体/承認	PENDING
+C10	merge前	方法/実施者・merge個別GO・base/head/req/tree/差分・チェック/権限	GitHub実体/承認	PENDING
+C11	merge直前	Render実体AutoDeploy OFFを再読取	新しい私的OFF証拠	PENDING
+C12	merge後	実main SHA/選択方法に対応する親/tree/req/PR merged整合	Git commit/ref/PR readback	PENDING
+C13	deploy前	確定実SHA個別deploy GO・対象サービス/方法/実施者	SHA束縛した承認	PENDING
+C14	deploy直前	Render実体AutoDeploy OFFを再読取	新しい私的OFF証拠	PENDING
+C15	deploy後	実deploy ID/SHA/build/起動/instance/終了・再起動・不健全判定	私的Renderログ/実体	PENDING
+C16	post env	ENV_OBS_PASS/bad0/reqtrue/19+pip/certifi/CA/HTTPX集合/runtime/worker	POST-ENV-COVERAGE/フレーム	PENDING
+C17	post env	SQLite3.40.1と照合・版数変化の審査・A1省略条件	実sq/coverage/HQ判断	PENDING
+C18	post TLS	統合5PASS/TLS_OBS_PASS/guard=false・N1 issuer拒否・N2 control	私的フレーム	PENDING
+C19	post DB	DB_OBS_PASS/integrityok/dup0/orphan0・identity・時刻	私的フレーム	PENDING
+C20	post polling	同一workerのN/N+1公式OK・時刻/acquired_at/件数・2周期	私的ログ2周期	PENDING
+C21	post polling	承認instance数/重複なし/異常終了・再起動なし・fallback別	実体/ログ/DB照合	PENDING
+C22	CLOSE前	全frame検証/承認/実SHA/残件/Claude審査・HQ13判断	私的案件証拠	PENDING

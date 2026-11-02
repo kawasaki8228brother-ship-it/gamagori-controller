@@ -1,0 +1,146 @@
+{
+  "G2_A5_v002": {
+    "day_DB_identity_or_read_mismatch": "HOLD_HQ13_REVIEW",
+    "fields": {
+      "day": "APPROVED_OPERATION_JST_YYYYMMDD",
+      "mode": "ro",
+      "nonterminal": 0,
+      "pending": 0,
+      "unknown": 0
+    },
+    "kind": "G2_A5_V002",
+    "known_snapshot_does_not_prove_no_future_processing": true,
+    "result": "SNAPSHOT_ONLY"
+  },
+  "G3_backup_v003": {
+    "completed_copy_inspection": "mode=ro&immutable=1",
+    "completed_files": 1,
+    "fields": {
+      "aux_left": 0,
+      "copy_integrity": "ok",
+      "no_execution_GO": true,
+      "source_mode": "ro",
+      "src_integrity": "ok"
+    },
+    "kind": "G3_BACKUP_DESIGN",
+    "partial_or_existing_destination": "STOP_NO_RETRY_OR_DELETE_OR_OVERWRITE",
+    "record_actual": [
+      "free_before",
+      "required",
+      "source_sizes",
+      "rows",
+      "backup",
+      "bytes",
+      "sha256"
+    ],
+    "result": "BACKUP_VERIFIED",
+    "source_SHM": "NORMAL_EXISTING_READ_LOCK_READMARKS_ALLOWED",
+    "sqlite_required": "3.40.1"
+  },
+  "G4_SQLite_v002": {
+    "fields": {
+      "dedup_scope": "LOCAL_DB_ONLY",
+      "dup": 0,
+      "integrity": "ok",
+      "orphan_event": 0,
+      "orphan_key": 0,
+      "poll": "NEEDS_RUNTIME_LOGS"
+    },
+    "go": false,
+    "kind": "G4_DB",
+    "result": "DB_OBS_PASS",
+    "rows_and_timestamp": "RECORD_ACTUAL_NOT_ASSUME_STATIC"
+  },
+  "G4_TLS_v003_F1F2": {
+    "N2_effect_contribution": 0,
+    "NEGATIVE_1": "ACTUAL_ISSUER_REJECTION_2_19_20_IN_BOTH_STAGES",
+    "NEGATIVE_2": "ACTUAL_CERT_REJECTION_ANY_CODE_IN_BOTH_STAGES_CONTROL_ONLY",
+    "POSITIVES": "T_CONNECTED_AND_NO_ACTUAL_T_OR_H_CERT_FAILURE_ANY_CODE",
+    "combined": {
+      "BARE": "PASS",
+      "FALLBACK": "PASS",
+      "NEGATIVE_1": "PASS",
+      "NEGATIVE_2": "PASS",
+      "WWW": "PASS"
+    },
+    "effect_evidence": 1,
+    "go": false,
+    "guard_stop": false,
+    "kind": "G4_TLS_V003",
+    "result": "TLS_OBS_PASS"
+  },
+  "G4_baseline_v003_F1F2": {
+    "BASELINE_DIFFERS:<IDs>": "CLAUDE_HQ13_REVIEW_BEFORE_MERGE",
+    "FAIL": "STOP",
+    "expected_combined": {
+      "BARE": "PASS",
+      "FALLBACK": "PASS",
+      "NEGATIVE_1": "PASS",
+      "NEGATIVE_2": "PASS",
+      "WWW": "PASS"
+    },
+    "gate": {
+      "SSL_proxy_14_names": "ALL_ABSENT",
+      "ca_n": 121,
+      "ca_sha": "9cc2a774b5198dcff14d9be1e66091f538975d867ce029a96bce15a55dfd730f",
+      "certifi": "2026.07.22 (2026.7.22 metadata equivalent)",
+      "eff_eq": true,
+      "eff_n": 121
+    },
+    "go": false,
+    "guard_stop": "STOP_PRIORITY",
+    "kind": "G4_BASELINE_V003",
+    "result": "BASELINE_OBS_EXPECTED",
+    "roles": {
+      "NEGATIVE_1": "OLD_CONNECTED_IN_BOTH_STAGES",
+      "NEGATIVE_2": "ACTUAL_CERT_REJECTION_ANY_CODE_BOTH_STAGES_CONTROL_ONLY",
+      "POSITIVES": "T_CONNECTED_AND_NO_ACTUAL_H_CERT_REJECTION"
+    }
+  },
+  "G4_environment_v002": {
+    "certifi_required": "2026.10.23",
+    "fields": {
+      "app_source": true,
+      "bad": 0,
+      "ca_n": 118,
+      "ca_sha": "2ef52ad56b4803e264045c915e55c236cbfa045b84b81efefc218a19eb44bd2b",
+      "deps": 19,
+      "eff_eq": true,
+      "eff_n": 118,
+      "env_overrides": 0,
+      "pip": true,
+      "req": true,
+      "runtime": true
+    },
+    "go": false,
+    "kind": "G4_ENV",
+    "result": "ENV_OBS_PASS",
+    "version_evidence": "FIXED_VERIFIER_MODULE_AND_19_PIN_CONDITIONS_MUST_PASS"
+  },
+  "frame": {
+    "begin": "BEGIN CERTIFI_AUDIT_V002",
+    "body_hash_includes_line_LF": true,
+    "end": "END CERTIFI_AUDIT_V002 lines=N bytes=M sha256=H",
+    "frame_integrity_is_not_semantic_PASS": true,
+    "verify_before_next_step": true
+  },
+  "normal_cycles": {
+    "code_default_poll_seconds": 30,
+    "empty_day_context_only": "No verified/tracked Gamagori races currently known for ...",
+    "live_interval": "UNKNOWN",
+    "official_success": "Poll #N raceindex OK races=... acquired_at=...",
+    "poll_numbers": "N_AND_N_PLUS_1_SAME_WORKER",
+    "required": 2,
+    "tracking_fallback": "SEPARATE_NOT_OFFICIAL_SUCCESS",
+    "worker_count_restarts_exits": "VERIFY_PRIVATE_APPROVED_EXPECTATION"
+  },
+  "runtime": {
+    "OpenSSL_live_observation": "PENDING",
+    "OpenSSL_pre_reported": "3.0.20",
+    "post_sqlite_changed": "REVIEW_HOLD",
+    "python_required": "3.14.3",
+    "sqlite_pre_reported": "3.40.1",
+    "worker_identity": "REQUIRES_SEPARATE_FRESH_PRIVATE_EVIDENCE"
+  },
+  "status": "EXPECTED_CONTRACT_NOT_LIVE_MEASUREMENT_NO_GO"
+}

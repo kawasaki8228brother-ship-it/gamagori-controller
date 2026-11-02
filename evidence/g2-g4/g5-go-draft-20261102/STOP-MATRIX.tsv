@@ -1,0 +1,23 @@
+ID	段階	条件	判定	次の扱い	禁止する自動操作
+S01	全段階	対象/identity/原本hash/時刻/承認範囲が不明	STOP	追加変更を止めHQ13報告	対象推定・黙示承認
+S02	全Shell	途中切れ・継続プロンプト・不完全/不正フレーム	STOP	補完せずShell閉鎖・証拠保全	追記・再貼付・再実行
+S03	全Shell	完全有効フレーム後の}{エラー	別件DUPLICATE_PASTE_SUSPECTED	フレームVALID維持・後続殻エラー別記録・単一実行/意味判定確認	同コマンド再実行・有効フレーム破棄
+S04	全Shell	複数実行/複数フレーム/副作用が不明	STOP	全画面を保全しHQ13審査	正常と推定して続行
+S05	初期/merge直前/deploy直前	AutoDeploy ON/不明/取得失敗	STOP	対象実体・値・時刻・失敗を報告	OFFへ変更・merge/deploy
+S06	G2	pending/nonterminal/unknownの非ゼロ・日付/DB不一致・読取異常	HOLD	HQ13再審査・既存作業維持	取消・修復・無承認再測定
+S07	baseline	FAIL=POSITIVE実際の証明書検証拒否	STOP	merge/deploy前に中止・報告	TLS条件変更・更新強行
+S08	baseline	BASELINE_DIFFERS:<IDs>	HOLD	merge前にClaude/HQ13再審査	PASSへの読み替え
+S09	baseline	BASELINE_OBS_EXPECTEDだが他安全条件未充足	STOP	不足欄を解消するまで実行不可	EXPECTEDを包括GOへ流用
+S10	全段階	guard_stop/不明なclose・file副作用/未知挙動	STOP優先	ラベルに関係なく報告	timeout扱いへの緩和
+S11	G3	SQLite≠3.40.1・保存先既存・容量不足・整合性/補助ファイル異常・partial	STOP	部分結果を私的保全・完了と扱わない	上書き・削除・別名自動再試行・checkpoint
+S12	Ready/merge	承認別立てなし・方法/実施者未確定・PR/base/head/req/tree不一致	STOP	再審査・指定方法を確認	既定方法でmerge・直接push
+S13	merge readback	親関係/tree/req/PR状態/実SHA不整合	STOP	実commit証拠を保全	preview又はhead/evidence SHAでdeploy
+S14	deploy承認	実main SHA未確定又はそのSHAの個別deploy GOなし	STOP	readback後に該当SHA承認を得る	merge GOの流用
+S15	build	build失敗	STOP	旧deploy残存のID/SHA/状態を実確認し報告	旧版が残ると推測・再deploy
+S16	起動/稼働	新deployの起動失敗・クラッシュ・不健全/状態不明	STOP	追加操作せず報告・アンディ判断	旧脆弱版rollback・suspend/resume・再起動
+S17	post環境	ENV_OBS_PASSでない・必須値/worker不一致・必要観測欠落	HOLD/STOP	監査項目を揃え再審査	A1省略を既定にする・環境変更
+S18	post SQLite	事前3.40.1から版数変化	審査HOLD	版数・build/VFS情報を記録	G3ゲートの自動許容
+S19	post TLS	FAIL又はUNVERIFIED/期待5件不足	CLOSE不可	結果/各段/guardを保全して報告	外部未実測をPASSへ格上げ
+S20	post DB	integrity/dup/orphan異常・identity不一致	STOP	読取結果を保全	修復・DB書込
+S21	post polling	公式OKが連続2周期揃わない・fallbackだけ・instance/再起動異常	HOLD	実ログとworkerを照合	非開催メッセージだけで復帰PASS
+S22	日程/タスク/枠	非開催根拠/可用性未確定・実行中/遅延/手動タスク衝突・枠不足	HOLD	開始前に枠と体制を再審査	既存タスク設定変更・監査省略

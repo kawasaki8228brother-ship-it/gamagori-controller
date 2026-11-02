@@ -1,0 +1,53 @@
+私的GO記録へ複製する空欄テンプレート／公開側へ実値を戻さない
+
+案件ID [未定] / 証拠記録担当 [未定] / 参照パッケージcommit [公開後の実SHA]
+Production担当候補 アンディ / 本人承認 [未承認] / 停車・即応可 [未確認]
+HQ13整合担当 [未定] / Claudeレビューreceipt [未取得] / Codexは資料作成のみ
+採用枠 [未定] / 実開始JST [未定] / 実終了JST [未定] / 必要観測時間 [未定]
+非開催日公式根拠・取得時点 [未確認] / タスク現設定・timezone・稼働/遅延/手動衝突 [未確認]
+
+承認台帳（1行を他操作へ流用しない）
+Ready化: PR/base/head/実施者/端末/方法/承認者/JST/receipt [全て未承認]
+merge: PR/base/head/req SHA/tree/method/実施者/承認者/JST/receipt [全て未承認]
+deploy: readback後の実main SHA/対象service/実施者/方法/承認者/JST/receipt [全て未承認]
+Shell: 原本ID/固定379 SHA/1回/対象/実施者/mode/承認者/JST/receipt [6本とも未承認]
+追加読取: 必要項目/既存承認原本/範囲/承認者/JST [未承認。自動追加なし]
+
+実体台帳（秘密・認証値は記載しない。内部識別子やパスは私的保全）
+対象service/workspace [未確認] / pre deploy ID/SHA [未確認]
+worker instance/数/起動command/Python executable/prefix [未確認]
+DB path/mount/identity/UID/権限/journal/WAL/SHM [未確認]
+AutoDeploy初期: 値 [不明] / 対象 [未確認] / 取得JST [未取得] / receipt [未取得]
+AutoDeploy merge直前: 値 [不明] / 対象 [未確認] / 取得JST [未取得] / receipt [未取得]
+AutoDeploy deploy直前: 値 [不明] / 対象 [未確認] / 取得JST [未取得] / receipt [未取得]
+main readback: 実SHA [未確定] / 親 [未確定] / tree [未確認] / req [未確認] / PR merged [未確認]
+post deploy: 実ID/SHA [未確定] / worker identity [未確認] / build/稼働/再起動 [未確認]
+
+各Shellの1回記録（6本それぞれに作る）
+原本ID/SHA/bytes/end token [未確認] / 操作GO receipt [未承認]
+貼付回数 [未実施] / 開始JST [未実施] / 終了JST [未実施] / 全スクショID [未取得]
+BEGIN/END有無 [未確認] / 本文行数 [未確認] / 本文bytes [未確認]
+END本文SHA [未確認] / 再構成本文SHA [未確認] / 一致 [未確認]
+kind/日付/runtime/対象一致 [未確認] / 意味判定 [未判定] / 記録担当受理 [未受理]
+後続シェルエラー [未観測] / DUPLICATE_PASTE_SUSPECTED [未判定]
+完全フレームVALIDと後続エラーを別記録したか [未確認] / 実行回数・副作用不明 [未確認]
+次工程判断 [未承認] / 再実行 [禁止]
+
+バックアップは別の私的保全
+新規保存先/不存在確認/空き容量/元DB-WALサイズ [未確認]
+元RO・SQLite3.40.1・元/コピー整合性 [未確認]
+完成1件・helper残存0・サイズ/SHA/時刻/保管担当 [未確認]
+partial/不明なら保存してSTOP。実DB/実バックアップを公開しない。
+
+正常観測2周期
+同一worker/instance [未確認]
+Poll #N: 番号 [未取得] / ログJST [未取得] / raceindex OK [未確認] / races [未取得] / acquired_at [未取得]
+Poll #N+1: 番号 [未取得] / ログJST [未取得] / raceindex OK [未確認] / races [未取得] / acquired_at [未取得]
+実poll interval [未確認] / 異常終了/再起動/番号リセット [未確認]
+tracking fallbackは別記録 [未確認] / DB不変条件・意味的重複確認 [未確認]
+
+公開する必要がある記録は、秘密・認証URL・Proxy値・内部パス・識別子・payloadを伏せた派生版のみ。
+原本と派生版は別ファイル/別SHA。原本SHA/bytes、派生版SHA/bytes、REDACTED、元と異なることを記す。
+秘密値を「保全のため」に取得・出力することも承認されていない。環境ダンプや認証headerを記録しない。
+
+Claude審査 [未実施] / HQ13整合 [未実施] / アンディ判断 [未承認] / CLOSE [不可]

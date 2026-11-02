@@ -1,0 +1,132 @@
+G5 最終GOパッケージ「草案」／資料作成のみ／本番実行GOなし
+
+本書はP1〜P9を反映した審査用資料。承認欄は未承認のままであり、Ready化、merge、
+Render読取・設定・Shell・deploy、baseline、実バックアップ、suspend/resume、タスク変更を
+Codexに許可するものではない。今回行うのは新規証拠ブランチへの資料追加とGitHub読取のみ。
+秘密情報・実DB・実バックアップ・認証URL・一時取得URLは公開証拠へ置かない。
+
+参照と確定事項
+- 証拠基点379cc1d696aa0742f932083dbaecdd03fdda00ba。6本のShell原本はこのcommitに固定。
+- アプリ候補PR #6 head: 97640c8c307fed8eaa19f2557f5057ccade18da1。
+- merge前main/base: 8172aec010894a52f36f48b7091476d26494e4ee。
+- 期待アプリtree: 568161bd70e0727e3bbbec8d1d3a14603bc64e5d。
+- requirements.txt: 19行/340 bytes、SHA256
+  dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7、Git blob
+  1761296a6d8c768184aa6372a9ee873bf01a23ba。PR差分は同ファイルのみ。
+- Claude監査原本6508 bytes/SHA ec2c5fe0646475a094982e1317ad2d518d9adf984bb60cd75e68cd83943fb0daを照合。
+  TLS F1/F2・G3 v003はClaude PASS、G5旧草案はP1〜P9追加条件付きPASS。本G5改訂自体は独立監査待ち。
+- Codex隔離実測: Python3.14.3/OpenSSL3.0.18/SQLite3.40.1、TLS25・SQLite25 PASS。
+  Claude独立試験3.0.13は監査原本の報告値。本番3.0.20の完全適合VERIFIEDとはしない。
+  Claude側はPython3.13.18、env-pinnedケース除外で各24/24という報告であり、完全同一環境の実測ではない。
+
+P9 役割・承認境界（全て実行前に記名・案件別GOが必要）
+Production操作担当はアンディを候補とする。本人承認・停車/即応可否・利用端末・時間は未確定。
+GitHub Ready実施者とmerge実施者も未指定。Production担当の承認からGitHub権限を推定しない。
+HQ13は整合確認・判断資料、Claudeは独立監査、Codexは開発・資料・証拠作成のみ。
+Ready化GO、merge GO、確定main SHAに対するdeploy GOは独立した承認。Shellも6本を
+各モード/原本SHA/実施者/対象/時間窓で承認する。GOが明記する範囲を超えない。
+PERMISSIONS.tsvとAPPROVALS-AND-INPUTS.jsonに記名欄、方法、承認者、JST、証拠IDを用意。
+承認者・実施者・利用可能な操作方法が未確定なら開始しない。iPhoneで指定merge方法や
+対象SHA指定deployが行えるかも未確認。できなければ独断で別方法・別担当へ切り替えない。
+
+P5 日程・停車枠・タスク衝突
+HQ13提供の公式日程参照値: 11/3〜8非開催、11/9次節開始。最短候補は2026/11/3 JST。
+今回Codexが公式サイト・実タスクを再実測した事実はない。採用時の根拠/取得時点を私的GO記録に添付。
+候補W60: 11/3 10:00〜11:00 JST（60分）、候補W45: 同11:00〜11:45（45分）。
+いずれも提案のみ。実際の開始/終了、担当者の停車・可用性、レビュー即応性は未確定。
+原則60分を候補とし、45分は必須観測/承認を省略せず収まると事前判断できる場合に限る。
+HQ13読取値: A=13〜22時台毎時15分、B=13〜22時台毎時45分、Health=13〜23時台毎時09分、
+Daily=22:30。計32予定起動との候補枠重複は0件。TASK-WINDOWS.jsonに計算を記録。
+これは予定起動のみの比較。実timezone/現設定、前日からの未終了、遅延・再試行・手動実行、
+本体の常時ポーリングは未確認。稼働状況を照合するまで「衝突なし」とは判定しない。
+設定・起動時刻・既存作業を変更/停止しない。重複なら枠を再審査し、勝手にキャンセルしない。
+deploy間隙の既存監視通知があり得る旨と扱いを事前記録する。通知抑止・結果改変はしない。
+枠不足なら開始前HOLD。途中で不足が判明した場合は追加変更を止め、HQ13/アンディが
+監視継続・延長可否を判断する。監査省略、時間切れによる自動CLOSEや自動rollbackは禁止。
+
+実施順（全て将来の独立GOに従う。各段階で停止可能）
+O00 準備: 本草案のClaude審査、必要承認、操作者、停車枠、サービス/worker/DB identity、
+    原本SHA、証拠記録担当、非開催日・タスク衝突・連絡体制を確認。公開資料の空欄に秘密を入れない。
+O01 P1 初期AutoDeploy確認: 対象Render実体を承認された読取で確認。OFFの値/対象/取得JST/証拠を記録。
+    過去OFFやrender.yamlを現実体の代用にしない。ON・不明・取得失敗はSTOP。OFFへ変更しない。
+O02 P4 G2_A5_v002: プロジェクトディレクトリ・対象日JST・承認済みDB identityを照合して1回だけ実施。
+    フレーム検証後、pending=0、nonterminal=0、unknown=0、mode=ro、日付一致が進行条件。
+    r=SNAPSHOT_ONLYは自動GOではない。ゼロ件もDB identityの証明にはならない。
+    日付/DB identity不一致、状態不一致、読取異常はHOLDしHQ13再審査。稼働中作業はキャンセルしない。
+    取得後に稼働状態・日付・identityが変われば過去のゼロ件を流用せずHOLD。勝手な再測定や作業取消をしない。
+O03 P8 baseline: 別のbaseline実行GOに従い、固定原本を1回だけ実施。旧certifi/CA121/実効集合/
+    14環境変数absent等の通信前ゲート一致が必要。FAILは中止。BASELINE_DIFFERS:<ID>はmerge前に
+    Claude/HQ13再審査。BASELINE_OBS_EXPECTEDも他条件・承認が未充足ならSTOP。
+    正常3件はT接続成功かつHに実際の証明書検証失敗なし。H timeout/DNS/proxy/scopeだけでは
+    T成立を取り消さない。NEGATIVE_1は旧版CONNECTED、NEGATIVE_2は旧版から実際の証明書拒否を期待。
+    guard_stop/STOP/不完全フレームはラベルに関係なくSTOP。go=falseは常時維持。
+O04 G3_backup_v003: バックアップ書込GOに従い1回だけ実施。SQLite3.40.1以外は受け入れない。
+    元DB mode=ro、既存SHMの通常読取管理のみ許容。DB/WALサイズ・容量、元整合性、新規排他保存先、
+    Backup API、コピー整合性、補助ファイル消滅、完成サイズ/SHA、完全フレームを確認。
+    既存ファイルがあればSTOP。上書き・直接コピー・強制checkpoint・部分失敗の削除/自動再試行は禁止。
+    完了後コピー点検はmode=ro&immutable=1。ライブ元DBにimmutableを使わない。実バックアップは非公開保全。
+O05 P1/P2 Ready化: Ready for reviewの独立承認を得て指定者だけが実施。merge承認とは別。
+    Draft解除後、PR番号/base ref/head/base SHA/差分/requirements/treeを再照合。解除だけでmergeしない。
+O06 P1/P2 merge: merge commitまたはsquashの一方、実施者、base/head/期待tree/requirementsをGOに明記。
+    merge直前にRender実体のAutoDeploy OFFを改めて読取。O01の古い観測を再利用しない。
+    ON・不明・取得失敗ならmergeしない。GitHub UIの既定方法やpreview SHAを承認値にしない。
+    PR状態/チェック/権限不明、base/head変更、指定方法がiPhoneで実施不可ならSTOP。main直接pushは禁止。
+O07 P2 main readback: merge後の実際のmain SHAを取得し、完全40桁で私的GO記録へ固定する。
+    merge commitなら親2件: 第一親8172aec010894a52f36f48b7091476d26494e4ee、
+    第二親97640c8c307fed8eaa19f2557f5057ccade18da1。squashなら親1件8172aec010894a52f36f48b7091476d26494e4ee。
+    いずれもtree=568161bd70e0727e3bbbec8d1d3a14603bc64e5d、requirements承認SHA/blob/340 bytes/19行、
+    PR merged=true、承認したhead、実際のmerge commit SHAとmain refの整合を確認する。
+    post PRのbase.sha表示を事前baseやGit親と混同しない。親は実commit objectで検査する。
+    現時点の結果main SHAは未確定。推測値・preview・候補head・証拠commitをdeploy先に使用しない。
+O08 P1/P2 deploy承認: O07で確定した実際のSHAに対し、別途アンディのdeploy承認を得る。
+    対象サービス、指定方法、実施者、時刻、SHAを記名。承認後manual deploy直前にもRender実体の
+    AutoDeploy OFFを再確認する。ON・不明・取得失敗はSTOP。承認SHAを確実に指定できなければ実行しない。
+    未固定の「最新commit」、証拠ブランチ、別SHAを選ばない。Ready/merge GOをdeploy GOに流用しない。
+O09 P6 Renderログ: deploy ID/SHA、build/起動/稼働状態、worker instance、終了・再起動を記録。
+    build失敗なら旧deployが実際に残っているID/SHA/状態を確認してSTOP・報告。残存を推測しない。
+    新deployの起動失敗・クラッシュ・不健全は追加操作せずSTOP・報告、アンディ判断を受ける。
+    旧脆弱版への自動rollback、手動rollback、suspend/resume、再deploy、設定修復は承認されていない。
+O10 P7 G4_environment_v002: 1回のみ。ENV_OBS_PASS、deps=19、bad=0、pip=true、env_overrides=0、
+    req=true、app_source=true、runtime=true、certifi2026.10.23、CA118/承認SHA、eff_n=118、eff_eq=trueを確認。
+    Python3.14.3、OpenSSL、SQLite版、worker identityも照合。SQLiteが事前実測3.40.1から変われば審査。
+    certifi版は固定19件/検証コードの条件を含めて確認し、推測しない。詳細はPOST-ENV-COVERAGE.tsv。
+    監査項目が全て新鮮な証拠で揃う場合だけA1-A3重複実行を省略可能。揃わなければ省略不可/HOLD。
+    6原本にない追加Shellを自動実行しない。必要な追加読取は別GOに従う。
+O11 G4_TLS_v003_F1F2: post試験GOに従い1回のみ。統合5件PASS、TLS_OBS_PASS、guard_stop=falseを確認。
+    POSITIVEのT/H実際の証明書検証失敗はコード不問でFAIL。NEGATIVE_1はT/Hの2/19/20拒否、
+    NEGATIVE_2はT/Hのコード不問の実際の拒否。後者を更新効果へ加算しない。FAIL/UNVERIFIEDはCLOSE不可。
+    外部NEGATIVE_1/2は今回未実測。ローカルPASSや他者報告から本番PASSへ格上げしない。
+O12 G4_SQLite_v002: 1回のみ。DB_OBS_PASS、integrity=ok、dup/orphan_event/orphan_key=0を確認。
+    SQLite3.40.1、DB identity、時刻を再照合。通常workerにより行数が増え得るため静止を要求しない。
+O13 P5 正常観測: 同一worker/instanceで連続2周期、Poll #Nと#N+1の時刻・取得結果・acquired_atを照合。
+    main.pyの候補ログは「Poll #N raceindex OK races=... acquired_at=...」。races=0も非開催日にはあり得る。
+    「No verified/tracked Gamagori races currently known for ...」単独を公式成功としない。
+    TRACKING_FALLBACKは公式raceindex成功と別。2周期とも公式取得結果を確認し、異常終了・再起動・
+    番号リセットや複数workerがないか照合する。取得結果が足りなければHOLD、架空の成功行を補わない。
+    コード既定POLL_INTERVAL_SECONDSは30秒だが本番値は未確認。実設定と処理時間を踏まえた観測時間を記名。
+    TLS成功/HTTP403だけで本体復帰としない。runtimeログとDBの重複/孤児検査を併せ、外部・意味的重複も確認。
+O14 P9 Claude審査→CLOSE: 全フレーム、承認、実SHA/deploy、ログ2周期、DB確認、未解決事項を提出。
+    独立審査とHQ13判断が揃うまでCLOSEしない。CLOSEは正本/POINTER等の変更権限を付与しない。
+
+P3 貼付・出力の共通ゲート
+6原本のraw URL/フルSHA/bytes/end tokenはRAW-ORIGINALS.txt、機械可読はRAW-COMMANDS.json/tsv。
+各原本の意味判定の承認期待値はEXPECTED-OBSERVATIONS.json。例示や未実測値を実観測として記入しない。
+各原本はASCII・1物理行・末尾LFなし。元文字列をコピーし各1回のみ貼付。手入力・再整形・継ぎ足しは禁止。
+BEGIN/END CERTIFI_AUDIT_V002、本文行数/bytes/SHAの一致と意味判定を証拠記録者が確認するまで次へ進まない。
+SHAは本文各行のLFを含む。表示折返しを実改行にしない。フレーム照合だけで業務PASS/GOとはしない。
+途中切れ、継続プロンプト「>」、不完全フレームはSTOP。引用符/括弧を補完せずShell画面を閉じ、再実行しない。
+完全なハッシュ一致フレーム後の「}{」エラーは別件の二重貼付疑いとして記録。有効フレームはVALIDのまま保持し、
+同コマンドを再実行しない。実行回数/追加フレーム/副作用に不明点があればSTOP。受理・意味判定・単一実行の
+確認が済み不確実性がなければ元のGO範囲内だけ進める。Shellを閉じても処理完了の証明にはならない。
+
+P8 OpenSSL判断候補
+3.0.18の開発試験と3.0.13のClaude独立試験を根拠に「ACCEPT WITH BASELINE」を審査候補とする。
+まだ採用/承認されていない。本番3.0.20のbaseline実測前は完全適合VERIFIEDではない。
+baseline FAIL→中止、DIFFERS→merge前Claude/HQ13再審査、EXPECTEDでも他条件不足→STOP。
+EXPECTEDは対象試験の動作証拠であり、完全環境同一性の証明ではない。評価タグの更新はClaude/HQ13審査に従う。
+本番SQLite build/VFS・worker identity・旧バンドルゲート・外部否定試験等の未確認を明示して承認判断する。
+
+記録と停止
+STOP/HOLDは追加変更を止めて報告する意味。サービス停止、rollback、suspend/resumeやタスク修復の許可ではない。
+全ての承認・readback・フレーム・スクショ・実バックアップ情報は私的証拠に保全。公開側は秘匿化版と別SHA/信頼区分のみ。
+詳細なSTOP条件はSTOP-MATRIX.tsv、前後チェックはCHECKLIST.tsv、空欄はAPPROVALS-AND-INPUTS.json。

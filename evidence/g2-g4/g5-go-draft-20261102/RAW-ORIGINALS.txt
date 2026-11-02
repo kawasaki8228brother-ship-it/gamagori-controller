@@ -1,0 +1,59 @@
+FIXED RAW ORIGINALS - REFERENCE ONLY / NO EXECUTION GO
+All URLs bind commit 379cc1d696aa0742f932083dbaecdd03fdda00ba. ASCII, one line, no terminal LF.
+SHA-256 below hashes the entire command file; end token hashes decoded payload.
+Copy the entire reviewed raw file exactly, paste once only. Never retype.
+
+G2_A5_v002
+RAW_URL: https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/379cc1d696aa0742f932083dbaecdd03fdda00ba/evidence/g2-g4/commands/G2_A5_v002.candidate.txt
+BYTES: 9060
+COMMAND_SHA256: 72bbfc047a8fd57beaf23340855e566d3ef4a7b44da41f7c1f14b8b144867f74
+END_TOKEN: CERTIFI_G_END_8a44f059d6c4dfdd60fb138543b98efe949c1dbe2f4569a96e62c810e160a26a
+PAYLOAD_SHA256: 8a44f059d6c4dfdd60fb138543b98efe949c1dbe2f4569a96e62c810e160a26a
+EXPECTED_KIND: G2_A5_V002
+PASTE_LIMIT: 1; RETRY: FORBIDDEN
+
+G4_baseline_v003_F1F2
+RAW_URL: https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/379cc1d696aa0742f932083dbaecdd03fdda00ba/evidence/g2-g4/f1-f2-g3-v003/commands/G4_baseline_v003_F1F2.candidate.txt
+BYTES: 30913
+COMMAND_SHA256: ee1ad231ef7b54d75c92a054d9366038d5b05e1073a7335cd683abf8e59afe0b
+END_TOKEN: CERTIFI_G_END_fa67ce1b870ed8657e23dcd966fa3f96c0fc9ae42e9aa4780089075392bfe35f
+PAYLOAD_SHA256: fa67ce1b870ed8657e23dcd966fa3f96c0fc9ae42e9aa4780089075392bfe35f
+EXPECTED_KIND: G4_BASELINE_V003
+PASTE_LIMIT: 1; RETRY: FORBIDDEN
+
+G3_backup_v003
+RAW_URL: https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/379cc1d696aa0742f932083dbaecdd03fdda00ba/evidence/g2-g4/f1-f2-g3-v003/commands/G3_backup_v003.candidate.txt
+BYTES: 16033
+COMMAND_SHA256: 6ccc2772bb7237b826f74f0c6eb6ec3feb0203e4b77adb4dee7a99da7c4d7ccf
+END_TOKEN: CERTIFI_G_END_665af99b9e504de91fabd4d9330f0dac2d1a593db00d7df3fc7ab1627499e784
+PAYLOAD_SHA256: 665af99b9e504de91fabd4d9330f0dac2d1a593db00d7df3fc7ab1627499e784
+EXPECTED_KIND: G3_BACKUP_DESIGN
+PASTE_LIMIT: 1; RETRY: FORBIDDEN
+
+G4_environment_v002
+RAW_URL: https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/379cc1d696aa0742f932083dbaecdd03fdda00ba/evidence/g2-g4/commands/G4_environment_v002.candidate.txt
+BYTES: 10980
+COMMAND_SHA256: 9f93035800084e1e26fbf58e9add3aff01b76b39d69215ba22a4a26b62d34886
+END_TOKEN: CERTIFI_G_END_7d3157bbab774c36f16f84e1443c10c3f613f3873a07c29ba63e4b5cfc417e7f
+PAYLOAD_SHA256: 7d3157bbab774c36f16f84e1443c10c3f613f3873a07c29ba63e4b5cfc417e7f
+EXPECTED_KIND: G4_ENV
+PASTE_LIMIT: 1; RETRY: FORBIDDEN
+
+G4_TLS_v003_F1F2
+RAW_URL: https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/379cc1d696aa0742f932083dbaecdd03fdda00ba/evidence/g2-g4/f1-f2-g3-v003/commands/G4_TLS_v003_F1F2.candidate.txt
+BYTES: 31085
+COMMAND_SHA256: 1c3a8ff38d7bca7898bf783875b67132edd19ad148934d5c6fff350ff8ac016f
+END_TOKEN: CERTIFI_G_END_d27195c681955f48f28941b524dfe66878379366b33272880588587672d8cd67
+PAYLOAD_SHA256: d27195c681955f48f28941b524dfe66878379366b33272880588587672d8cd67
+EXPECTED_KIND: G4_TLS_V003
+PASTE_LIMIT: 1; RETRY: FORBIDDEN
+
+G4_SQLite_v002
+RAW_URL: https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/379cc1d696aa0742f932083dbaecdd03fdda00ba/evidence/g2-g4/commands/G4_SQLite_v002.candidate.txt
+BYTES: 9668
+COMMAND_SHA256: 790c6d46a5db5fd2e43d05e6285afca1f18890669ad8175909a5943dcb9faa03
+END_TOKEN: CERTIFI_G_END_7f2cb1e66d6e70c95c08731de792e2c3cc5de16bfe06fec57a09a64c081f3ed8
+PAYLOAD_SHA256: 7f2cb1e66d6e70c95c08731de792e2c3cc5de16bfe06fec57a09a64c081f3ed8
+EXPECTED_KIND: G4_DB
+PASTE_LIMIT: 1; RETRY: FORBIDDEN
+

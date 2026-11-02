@@ -1,0 +1,48 @@
+iPhone操作票／草案・実行禁止／各段階の個別GO待ち
+
+0 準備
+停車45〜60分、本人の可用性、HQ13/記録担当/Claude即応、対象サービス、project/worker/DB identity、
+具体JST窓とタスク衝突確認を揃える。候補時刻は未承認。CodexはProduction操作担当ではない。
+GitHub Ready化、merge、確定main SHAへのdeployは別承認。Render AutoDeployの切替は行わない。
+
+1 原本
+RAW-ORIGINALS.txtの6本はcommit379cc1d固定。rawリンクから完全な原本を用意し、別の信頼できる
+環境でbytes/SHA/end tokenを照合してもらう。GitHub画面の折返し・省略を文字列へ混ぜない。
+全文を正確にコピーできなければSTOP。手入力やスクショOCRでコマンドを再作成しない。
+Renderには毎段階その1本だけを各1回貼付し、Enterは1回だけ。待っている間に再貼付しない。
+
+2 順番（いずれもGO未発行）
+初期AutoDeploy OFF実体確認 → G2 → baseline → G3 → Ready個別承認/実行/照合 →
+merge個別承認・直前AutoDeploy OFF再確認・実行 → 実main SHA/親/tree/PR readback →
+その実SHAのdeploy個別承認・直前AutoDeploy OFF再確認・manual deploy → Renderログ →
+G4_environment → G4_TLS → G4_SQLite → 連続2周期/instance/重複確認 → Claude審査 → CLOSE判断。
+各矢印は、前段階のフレーム検証・意味判定・必要承認が完了するまで進まないゲート。
+全てのフレームをスクショで記録し、記録担当の検証完了を待つ。監査省略で時間を縮めない。
+
+3 必ず止める表示
+「>」等の継続入力、途中切れ、BEGIN/END欠落、出力不完全、SHA/行数/bytes不一致 → STOP。
+閉じ引用符や括弧を足さず、そのShell画面/セッションを閉じる。同じセッションで再試行しない。
+Shellを閉じることはRender suspend/resumeではない。既に処理が始まった場合の完了も保証しない。
+G3が不明なら部分ファイルを保持し、削除・上書き・代替名・再実行をしない。
+
+4 完全フレームの後だけに「}{」エラーがある場合
+最初の完全フレームの行数/bytes/SHAが一致すれば、そのフレームはVALIDとして残す。
+後続エラーはDUPLICATE_PASTE_SUSPECTEDとして別記録し、同じ原本を再実行しない。
+エラーを消すための追加Shellも打たない。複数BEGIN/複数実行/副作用の疑いが不明ならSTOP。
+有効フレームの意味判定・受理・単一実行確認まで済み、他に不確実性がない場合だけ、元のGO範囲内で次へ。
+
+5 スクショからの出力照合（Renderで検証コマンドを追加しない）
+BEGIN CERTIFI_AUDIT_V002 とENDの全行を欠かさず記録。本文は論理JSON行ごとのLFを復元し、
+画面折返しを改行にしない。末尾LFも含め本文行数/bytes/SHAを記録担当がオフラインで検証する。
+固定commit379cc1dの evidence/g2-g4/tests/verify-output.py は出力ファイルのオフライン確認用。
+FRAME_VERIFIEDは整形/ハッシュ一致だけ。対象、kind、日付、runtime、値、意味判定、GOも別に照合する。
+記録用スクショに他の秘密・認証値・内部画面が混じれば私的保全し、公開しない。
+
+6 その場の判定
+G2はpending=nonterminal=unknown=0かつ日付/DB identity一致のみ進行候補。不一致はHOLD/HQ13再審査。
+baseline FAIL→中止、BASELINE_DIFFERS→merge前Claude/HQ13再審査。EXPECTEDでも他条件未充足ならSTOP。
+G3はBACKUP_VERIFIEDと完成証拠を確認。partial/既存保存先/不明はSTOP、やり直さない。
+merge後SHAは未確定。表示されたpreviewや証拠commitをdeploy先にしない。実SHA readback後にdeploy承認。
+build失敗は旧deploy残存を実確認してSTOP報告。新deploy起動失敗/不健全は追加操作なしでSTOP報告。
+旧脆弱版rollback、再deploy、suspend/resume、タスク変更は承認外。
+postのTLS成功だけで復旧としない。公式成功ログ2周期とDB確認、Claude審査までCLOSEしない。

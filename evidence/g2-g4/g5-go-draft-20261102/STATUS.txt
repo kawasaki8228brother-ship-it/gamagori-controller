@@ -1,0 +1,10 @@
+G5_FINAL_GO_PACKAGE_DRAFT / P1-P9 INCLUDED / NO EXECUTION GO
+今回の権限: 資料作成・GitHub読取・新規証拠ブランチへのファイル追加のみ。
+本G5改訂のClaude独立監査: 未実施。アンディの操作GO: 未承認。
+TLS F1/F2・G3 v003: 指定SHA一致のClaude監査原本でPASSを確認。
+6原本: 固定commit379cc1dから読取、bytes/SHA/end tokenを照合。改変・実行なし。
+AutoDeploy現在値: 不明/未読取。結果main SHA: 未確定。担当者/実時間窓: 未確定。
+候補日: 2026/11/3。W60/W45は未承認案。予定タスク起動重複0は実稼働衝突なしを意味しない。
+OpenSSL: ACCEPT WITH BASELINEは審査候補のみ。本番3.0.20完全適合と外部否定試験は未VERIFIED。
+Ready化、merge、Render、Shell、baseline、実G3 backup、deploy、suspend/resume、タスク等の操作なし。
+実運用データ・バックアップ・秘密・認証URL・一時URLは収録しない。
