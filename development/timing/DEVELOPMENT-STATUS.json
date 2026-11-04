@@ -1,0 +1,52 @@
+{
+  "task_ids": [
+    "SYS-27",
+    "SYS-09"
+  ],
+  "branch": "dev/sys27-sys09-20261105-v001",
+  "base_main": "8172aec010894a52f36f48b7091476d26494e4ee",
+  "base_tree": "9143c19742b672c93f67228669166a8f86c2f37a",
+  "base_files": 40,
+  "state": "DEV_READY",
+  "created_development": true,
+  "independently_reviewed": false,
+  "production_GO": false,
+  "applicable": false,
+  "production_applied": false,
+  "CLOSE": false,
+  "OPEN": [
+    "SCHEDULER_ORIGINALS_AND_RUN_ID",
+    "CLOCK_AUTHENTICITY"
+  ],
+  "test_report": "results.json",
+  "test_counts": 38,
+  "first_report_target_JST": "2026-11-06T18:00:00+09:00",
+  "certifi_priority": "FIRST_20261106_0500_0630_JST",
+  "review_timing": "AFTER_HQ14_CONFIRMS_CERTIFI_COMPLETE",
+  "milestones": {
+    "interim": "2026-11-11",
+    "Claude_materials": "2026-11-13",
+    "development_review_target": "2026-11-14"
+  },
+  "real_data_validation": "HQ14_PRIVATE_ENV_ONLY_NOT_PERFORMED_HERE",
+  "existing_SYS01_SYS02": {
+    "SYS-01": {
+      "branch": "dev/sys01-20261105-v001",
+      "commit": "0379dcb3287915e9ba9fbe63819a72fbcdb03ce1"
+    },
+    "SYS-02": {
+      "branch": "dev/sys02-20261105-v001",
+      "commit": "db914c95894b892e8dcea4c763d2575991f12d8e"
+    }
+  },
+  "cross_case_code_integration": false,
+  "change_scope": "NEW_PREFIX_ONLY_NO_APP_OR_FORMAL_CI_CHANGES",
+  "original_bytes_for_added_paths": "ABSENT",
+  "restore": "NO_PRODUCTION_APPLICATION_NO_RESTORE_ACTION_REQUIRED",
+  "discard": "DO_NOT_ADOPT_THIS_ISOLATED_BRANCH; DO_NOT_RESET_MAIN_OR_EXISTING_BRANCHES",
+  "required_review_inputs": [
+    "SCHEDULER_ORIGINALS_AND_RUN_ID",
+    "CLOCK_AUTHENTICITY"
+  ],
+  "runtime_services_connected": false
+}

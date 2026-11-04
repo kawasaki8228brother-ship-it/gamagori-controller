@@ -1,0 +1,44 @@
+ENV {"os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.12.14", "scope": "OFFLINE_SYNTHETIC_ONLY"}
+test_CLI_valid_and_rejected_inputs_no_secret_echo (test_timing.ContractTests.test_CLI_valid_and_rejected_inputs_no_secret_echo) ... ok
+test_all_time_classifications_covered (test_timing.ContractTests.test_all_time_classifications_covered) ... ok
+test_clock_failure_configuration_rejects_invalid_data (test_timing.ContractTests.test_clock_failure_configuration_rejects_invalid_data) ... ok
+test_each_of_six_fields_stays_independent (test_timing.ContractTests.test_each_of_six_fields_stays_independent) ... ok
+test_exact_intervals_do_not_use_float_arithmetic (test_timing.ContractTests.test_exact_intervals_do_not_use_float_arithmetic) ... ok
+test_no_clock_source_failure_substitution (test_timing.ContractTests.test_no_clock_source_failure_substitution) ... ok
+test_policy_invalid_numbers_no_automatic_default (test_timing.ContractTests.test_policy_invalid_numbers_no_automatic_default) ... ok
+test_run_identity_selfclaim_never_authenticity (test_timing.ContractTests.test_run_identity_selfclaim_never_authenticity) ... ok
+test_time_type_and_syntax_boundaries (test_timing.ContractTests.test_time_type_and_syntax_boundaries) ... ok
+test_JST_midnight (test_timing.FixtureTests.test_JST_midnight) ... ok
+test_all_times_missing (test_timing.FixtureTests.test_all_times_missing) ... ok
+test_at_schedule (test_timing.FixtureTests.test_at_schedule) ... ok
+test_clock_failure (test_timing.FixtureTests.test_clock_failure) ... ok
+test_clock_failure_conflicting_value (test_timing.FixtureTests.test_clock_failure_conflicting_value) ... ok
+test_completed_before_started (test_timing.FixtureTests.test_completed_before_started) ... ok
+test_conflicting_run_ID (test_timing.FixtureTests.test_conflicting_run_ID) ... ok
+test_consistent_provided_scheduler_record (test_timing.FixtureTests.test_consistent_provided_scheduler_record) ... ok
+test_early (test_timing.FixtureTests.test_early) ... ok
+test_empty_started (test_timing.FixtureTests.test_empty_started) ... ok
+test_equivalent_offsets (test_timing.FixtureTests.test_equivalent_offsets) ... ok
+test_false_is_not_timestamp (test_timing.FixtureTests.test_false_is_not_timestamp) ... ok
+test_invalid_policy_no_default (test_timing.FixtureTests.test_invalid_policy_no_default) ... ok
+test_late (test_timing.FixtureTests.test_late) ... ok
+test_malformed_calendar (test_timing.FixtureTests.test_malformed_calendar) ... ok
+test_malformed_offset (test_timing.FixtureTests.test_malformed_offset) ... ok
+test_microsecond_outside_proposed_only (test_timing.FixtureTests.test_microsecond_outside_proposed_only) ... ok
+test_microsecond_policy_boundary (test_timing.FixtureTests.test_microsecond_policy_boundary) ... ok
+test_missing_started (test_timing.FixtureTests.test_missing_started) ... ok
+test_naive_time (test_timing.FixtureTests.test_naive_time) ... ok
+test_null_started (test_timing.FixtureTests.test_null_started) ... ok
+test_precision_not_truncated (test_timing.FixtureTests.test_precision_not_truncated) ... ok
+test_saved_after_deadline (test_timing.FixtureTests.test_saved_after_deadline) ... ok
+test_saved_at_deadline (test_timing.FixtureTests.test_saved_at_deadline) ... ok
+test_saved_before_observed_is_independent (test_timing.FixtureTests.test_saved_before_observed_is_independent) ... ok
+test_scheduler_record_time_missing (test_timing.FixtureTests.test_scheduler_record_time_missing) ... ok
+test_selfclaim_not_scheduler_evidence (test_timing.FixtureTests.test_selfclaim_not_scheduler_evidence) ... ok
+test_unknown_offset (test_timing.FixtureTests.test_unknown_offset) ... ok
+test_unknown_run_ID (test_timing.FixtureTests.test_unknown_run_ID) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.269s
+
+OK

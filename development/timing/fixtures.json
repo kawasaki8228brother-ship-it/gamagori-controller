@@ -1,0 +1,602 @@
+{
+  "classification": "SYNTHETIC_NOT_REAL_RUNS",
+  "cases": [
+    {
+      "id": "at_schedule",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "start_comparison.classification": "AT_SCHEDULE",
+        "intervals.scheduled_to_started.microseconds": 0,
+        "save_deadline_relation": "BEFORE_DEADLINE",
+        "scheduler.internal_run_id_status": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "early",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:08:30+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "start_comparison.classification": "EARLY",
+        "intervals.scheduled_to_started.microseconds": -30000000
+      }
+    },
+    {
+      "id": "late",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:10:30+09:00",
+        "observed_at": "2026-11-09T13:10:32+09:00",
+        "completed_at": "2026-11-09T13:10:35+09:00",
+        "saved_at": "2026-11-09T13:10:36+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "start_comparison.classification": "LATE",
+        "intervals.scheduled_to_started.microseconds": 90000000,
+        "anomalies": []
+      }
+    },
+    {
+      "id": "equivalent_offsets",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T04:09:00Z",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "start_comparison.classification": "AT_SCHEDULE",
+        "times.started_at.jst": "2026-11-09T13:09:00.000000+09:00"
+      }
+    },
+    {
+      "id": "JST_midnight",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T23:59:50+09:00",
+        "started_at": "2026-11-10T00:00:05+09:00",
+        "observed_at": "2026-11-10T00:00:06+09:00",
+        "completed_at": "2026-11-10T00:00:07+09:00",
+        "saved_at": "2026-11-10T00:00:08+09:00",
+        "deadline": "2026-11-10T00:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "intervals.scheduled_to_started.microseconds": 15000000,
+        "start_comparison.JST_date_changed": true
+      }
+    },
+    {
+      "id": "missing_started",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "times.started_at.status": "MISSING",
+        "start_comparison.classification": "UNVERIFIED",
+        "intervals.scheduled_to_started.microseconds": null,
+        "times.observed_at.status": "VALID"
+      }
+    },
+    {
+      "id": "null_started",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": null,
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "times.started_at.status": "NULL",
+        "times.started_at.jst": null
+      }
+    },
+    {
+      "id": "empty_started",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "times.started_at.status": "EMPTY",
+        "times.started_at.jst": null
+      }
+    },
+    {
+      "id": "false_is_not_timestamp",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": false,
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "times.started_at.status": "INVALID_TYPE",
+        "times.started_at.jst": null
+      }
+    },
+    {
+      "id": "naive_time",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "times.started_at.status": "NAIVE_TIME",
+        "start_comparison.classification": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "unknown_offset",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00-00:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "times.started_at.status": "UNKNOWN_OFFSET",
+        "start_comparison.classification": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "malformed_calendar",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-99-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "times.started_at.status": "MALFORMED"
+      }
+    },
+    {
+      "id": "malformed_offset",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:99",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "times.started_at.status": "MALFORMED"
+      }
+    },
+    {
+      "id": "precision_not_truncated",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00.0000001+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "times.started_at.status": "MALFORMED"
+      }
+    },
+    {
+      "id": "clock_failure",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": null,
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN",
+        "clock_failures": [
+          "started_at"
+        ]
+      },
+      "expected": {
+        "times.started_at.status": "CLOCK_FAILED",
+        "times.started_at.presence": "NULL",
+        "start_comparison.classification": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "clock_failure_conflicting_value",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN",
+        "clock_failures": [
+          "started_at"
+        ]
+      },
+      "expected": {
+        "times.started_at.status": "CONFLICT_CLOCK_FAILURE_WITH_VALUE",
+        "times.started_at.jst": null
+      }
+    },
+    {
+      "id": "completed_before_started",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:08:59+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "anomalies": [
+          "COMPLETED_BEFORE_STARTED"
+        ],
+        "intervals.started_to_completed.microseconds": -1000000
+      }
+    },
+    {
+      "id": "saved_before_observed_is_independent",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:01+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "intervals.observed_to_saved.microseconds": -1000000,
+        "intervals.completed_to_saved.microseconds": -4000000,
+        "anomalies": []
+      }
+    },
+    {
+      "id": "saved_at_deadline",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:09:06+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "save_deadline_relation": "AT_DEADLINE",
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "saved_after_deadline",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:09:05+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN"
+      },
+      "expected": {
+        "save_deadline_relation": "AFTER_DEADLINE",
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "unknown_run_ID",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": null,
+        "execution_origin_claim": "SCHEDULED_CONTEXT"
+      },
+      "expected": {
+        "scheduler.internal_run_id_status": "UNVERIFIED",
+        "scheduler.origin_proven": false,
+        "scheduler.origin_claim": "SCHEDULED_CONTEXT"
+      }
+    },
+    {
+      "id": "consistent_provided_scheduler_record",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "SCHEDULED_CONTEXT",
+        "scheduler_evidence": {
+          "evidence_class": "INTERNAL_SCHEDULER_RECORD",
+          "internal_run_id": "SYNTHETIC_RUN_01",
+          "scheduled_for": "2026-11-09T13:09:00+09:00",
+          "started_at": "2026-11-09T13:09:00+09:00"
+        }
+      },
+      "expected": {
+        "scheduler.internal_run_id_status": "MATCHING_PROVIDED_RECORD",
+        "scheduler.link_status": "CONSISTENT_PROVIDED_RECORD",
+        "scheduler.origin_proven": false
+      }
+    },
+    {
+      "id": "conflicting_run_ID",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN",
+        "scheduler_evidence": {
+          "evidence_class": "INTERNAL_SCHEDULER_RECORD",
+          "internal_run_id": "SYNTHETIC_OTHER_RUN",
+          "scheduled_for": "2026-11-09T13:09:00+09:00",
+          "started_at": "2026-11-09T13:09:00+09:00"
+        }
+      },
+      "expected": {
+        "scheduler.internal_run_id_status": "CONFLICT",
+        "scheduler.link_status": "CONFLICT"
+      }
+    },
+    {
+      "id": "scheduler_record_time_missing",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN",
+        "scheduler_evidence": {
+          "evidence_class": "INTERNAL_SCHEDULER_RECORD",
+          "internal_run_id": "SYNTHETIC_RUN_01",
+          "scheduled_for": "2026-11-09T13:09:00+09:00"
+        }
+      },
+      "expected": {
+        "scheduler.internal_run_id_status": "MATCHING_PROVIDED_RECORD",
+        "scheduler.link_status": "CONFLICT_OR_INCOMPLETE"
+      }
+    },
+    {
+      "id": "selfclaim_not_scheduler_evidence",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN",
+        "scheduler_evidence": {
+          "evidence_class": "SELF_CLAIM",
+          "internal_run_id": "SYNTHETIC_RUN_01",
+          "scheduled_for": "2026-11-09T13:09:00+09:00",
+          "started_at": "2026-11-09T13:09:00+09:00"
+        }
+      },
+      "expected": {
+        "scheduler.internal_run_id_status": "UNVERIFIED",
+        "scheduler.link_status": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "microsecond_policy_boundary",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00.000001+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN",
+        "tolerance_policy": {
+          "status": "PROPOSED",
+          "early_seconds": 0,
+          "late_seconds": 1e-06
+        }
+      },
+      "expected": {
+        "intervals.scheduled_to_started.microseconds": 1,
+        "start_comparison.outside_proposed_tolerance": false,
+        "tolerance_policy.adopted": false
+      }
+    },
+    {
+      "id": "microsecond_outside_proposed_only",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00.000002+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN",
+        "tolerance_policy": {
+          "status": "PROPOSED",
+          "early_seconds": 0,
+          "late_seconds": 1e-06
+        }
+      },
+      "expected": {
+        "start_comparison.outside_proposed_tolerance": true,
+        "LOCK_validity": "NOT_EVALUATED",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "invalid_policy_no_default",
+      "synthetic": true,
+      "input": {
+        "synthetic": true,
+        "scheduled_for": "2026-11-09T13:09:00+09:00",
+        "started_at": "2026-11-09T13:09:00+09:00",
+        "observed_at": "2026-11-09T13:09:02+09:00",
+        "completed_at": "2026-11-09T13:09:05+09:00",
+        "saved_at": "2026-11-09T13:09:06+09:00",
+        "deadline": "2026-11-09T13:15:00+09:00",
+        "run_id": "SYNTHETIC_RUN_01",
+        "execution_origin_claim": "UNKNOWN",
+        "tolerance_policy": {
+          "status": "ADOPTED",
+          "early_seconds": 5,
+          "late_seconds": 5
+        }
+      },
+      "expected": {
+        "tolerance_policy.status": "INVALID_OR_UNADOPTED_POLICY",
+        "start_comparison.outside_proposed_tolerance": null
+      }
+    },
+    {
+      "id": "all_times_missing",
+      "synthetic": true,
+      "input": {
+        "synthetic": true
+      },
+      "expected": {
+        "start_comparison.classification": "UNVERIFIED",
+        "save_deadline_relation": "UNVERIFIED",
+        "times.deadline.status": "MISSING"
+      }
+    }
+  ]
+}

@@ -1,0 +1,525 @@
+{
+  "status": "PASS_DEVELOPMENT_ONLY",
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "scope": "OFFLINE_SYNTHETIC_ONLY"
+  },
+  "synthetic_fixtures": 29,
+  "unittest_tests": 38,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "time_statuses_exercised": [
+    "CLOCK_FAILED",
+    "CONFLICT_CLOCK_FAILURE_WITH_VALUE",
+    "EMPTY",
+    "INVALID_TYPE",
+    "MALFORMED",
+    "MISSING",
+    "NAIVE_TIME",
+    "NULL",
+    "UNKNOWN_OFFSET",
+    "VALID"
+  ],
+  "real_records_received": 0,
+  "source_authenticity": "UNVERIFIED",
+  "actual_scheduler_validation": "UNVERIFIED_NOT_CONNECTED",
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "production_GO": false,
+  "cases": [
+    {
+      "id": "at_schedule",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "early",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "EARLY",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "late",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "LATE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "equivalent_offsets",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "JST_midnight",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "LATE",
+        "JST_date_changed": true,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "missing_started",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "null_started",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "empty_started",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "false_is_not_timestamp",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "naive_time",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "unknown_offset",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "malformed_calendar",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "malformed_offset",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "precision_not_truncated",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "clock_failure",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "clock_failure_conflicting_value",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "completed_before_started",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "saved_before_observed_is_independent",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "saved_at_deadline",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "saved_after_deadline",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "unknown_run_ID",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "SCHEDULED_CONTEXT",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "consistent_provided_scheduler_record",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "SCHEDULED_CONTEXT",
+        "origin_proven": false,
+        "internal_run_id_status": "MATCHING_PROVIDED_RECORD",
+        "link_status": "CONSISTENT_PROVIDED_RECORD",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "conflicting_run_ID",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "CONFLICT",
+        "link_status": "CONFLICT",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "scheduler_record_time_missing",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "MATCHING_PROVIDED_RECORD",
+        "link_status": "CONFLICT_OR_INCOMPLETE",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "selfclaim_not_scheduler_evidence",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "microsecond_policy_boundary",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "LATE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": false
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "microsecond_outside_proposed_only",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "LATE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": true
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "invalid_policy_no_default",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "AT_SCHEDULE",
+        "JST_date_changed": false,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    },
+    {
+      "id": "all_times_missing",
+      "status": "PASS_SYNTHETIC",
+      "start": {
+        "classification": "UNVERIFIED",
+        "JST_date_changed": null,
+        "outside_proposed_tolerance": null
+      },
+      "scheduler": {
+        "origin_claim": "UNKNOWN",
+        "origin_proven": false,
+        "internal_run_id_status": "UNVERIFIED",
+        "link_status": "UNVERIFIED",
+        "evidence_authenticity": "NOT_PROVEN_OFFLINE"
+      },
+      "LOCK_validity": "NOT_EVALUATED"
+    }
+  ]
+}
