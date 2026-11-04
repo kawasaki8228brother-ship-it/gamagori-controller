@@ -1,0 +1,153 @@
+{
+  "applicable": false,
+  "base": {
+    "base_blob_count": 40,
+    "base_sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "base_tree": "9143c19742b672c93f67228669166a8f86c2f37a"
+  },
+  "branch": "dev/sys01-20261105-v001",
+  "created_development": true,
+  "files": [
+    {
+      "bytes": 406,
+      "file": "BASELINE.json",
+      "git_blob": "5c801ef33a1a06b728823b2abe1ac5a63a400182",
+      "sha256": "40ec6c9f3dd7787c1fdb2fc4e0eaffdcf80c707f4c861ca8e47f729f2e6f4e59",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 4391,
+      "file": "CASE-MATRIX.tsv",
+      "git_blob": "1ab547f8b2b9cb16070a86fee13ea7be16c987e5",
+      "sha256": "654413704e334ad5b15e5049e07c712804fe5b967a096b3f789839f6dac066eb",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 435,
+      "file": "CHANGE-SCOPE.json",
+      "git_blob": "c633f6c0230574ad2f8ec0a693d7e9451d834418",
+      "sha256": "fed2231c9370f33910099dfbe9b3a17ba60ec29837df13e3573d03a667716d69",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 6075,
+      "file": "DESIGN.md",
+      "git_blob": "2d0da029d7178c7fdcad5ecd02f8a558d0d21e14",
+      "sha256": "a01236accbe1d381932b7fec78030aa591965164133f69ca13b20496b9e3d1eb",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 193,
+      "file": "ENVIRONMENT.json",
+      "git_blob": "28219b752d5952db6c3419ed27ef43549317201d",
+      "sha256": "28c0f2db90cff111c1e744e23201564a4d74b0d11c116db9e4acd46eed5c895f",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 2287,
+      "file": "INTERFACES.txt",
+      "git_blob": "9445c92d38ace79f88df867bf7e8e01a715d1b2a",
+      "sha256": "7f9407df82f5ad2329e6340c1472ffc25c7c996d0983d2af28656db6da6e1ef8",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 2567,
+      "file": "LIVE-MAP-REQUIRED.md",
+      "git_blob": "cf778306c82dfbd49615bf0fe12046bd5d76ea61",
+      "sha256": "f4d20911313da7173346a838b7452f0ce196a601dc2e5bab92be4f226cbff3b3",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 991,
+      "file": "OPEN-INPUTS.json",
+      "git_blob": "b2befd4fbd1e465c91b462e75eb16b3cb69eea5e",
+      "sha256": "caf59b0251e93f4acbfb901f8311b6be7689b416a42bb2f58abb38f0dddefcc6",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 2596,
+      "file": "README.md",
+      "git_blob": "956bbf4b5a7248a2e2c227a31b623f14844fce06",
+      "sha256": "a52c9dce6fb262afe9149505cf1f12f6e7e6c64cc4654f362b6eb5baccf0965c",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 470,
+      "file": "SOURCE-REFERENCE.json",
+      "git_blob": "7bc66b12cf77b1df0ad556633ffaa62e9202649f",
+      "sha256": "a8c064f2f20e40167b71c103c358a627adc2e117c7478ab746a10bf8c5af8f37",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 589,
+      "file": "STATUS.json",
+      "git_blob": "51337888326631457468fd860513cd550e1f063a",
+      "sha256": "2bd26f5e83d644a7aa0651bf851a85d5f25a2a517a87393f17bbcf7deac1eb92",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 79265,
+      "file": "fixtures.json",
+      "git_blob": "d9197a2ce7a57938356bff6c0e1609f8035142fb",
+      "sha256": "876cfdd79838c53420029f8f60ee3e6a10d154c7ba1b3ef0059f9f286b7c0ba6",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 7696,
+      "file": "results/design-validation.json",
+      "git_blob": "3380be1b379c2275dae296170c3b1ca6bca2e3a5",
+      "sha256": "351ffa7fb054145d145af314b97f7ddc072e8b10011690182ed8f9436b1becd3",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 7806,
+      "file": "results/design-validation.log",
+      "git_blob": "2162576863d657b983bc4d521b264c82b235beb1",
+      "sha256": "041dfc1a9f77ed784b0169b22f4d173f2c80d23ea91ca6a91659952bc83551a0",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 6025,
+      "file": "state-machine.json",
+      "git_blob": "3a8758f1a05ae6bf1965d9520f506e9cc85e8c72",
+      "sha256": "745945cb8221532274952b29be314bb03bc1e602e4e0f5580822ceb2a9606571",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    },
+    {
+      "bytes": 4592,
+      "file": "validate_design.py",
+      "git_blob": "97525f1cca7f2ebeb2b780b60bad954d202c0290",
+      "sha256": "36172c3dd74bfcb8bafb012c46b4454300403db43de9bfcdf79850795b49df03",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING",
+      "trust": "SYNTHETIC_OR_PUBLIC_DESIGN_AND_DEVELOPMENT_RESULT"
+    }
+  ],
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "production_GO": false,
+  "production_applied": false,
+  "results": {
+    "declared_transitions": 33,
+    "design_cases": 36,
+    "production_GO": false,
+    "runtime_tests": "UNVERIFIED_NOT_IMPLEMENTED",
+    "section_map": "OPEN",
+    "structural_validation": "PASS"
+  },
+  "self_INDEX_SHA_excluded_to_avoid_hash_cycles": true,
+  "task": "sys01"
+}

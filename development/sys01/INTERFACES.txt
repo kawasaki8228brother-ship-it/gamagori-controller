@@ -1,0 +1,48 @@
+SYS-01 擬似interface（実装ではない）
+
+FrozenEvidence:
+ source: A | B （1呼出し1source）
+ race: 固定race identity
+ idempotency_key: 元の固定key
+ original_raw_bytes: readonly opaque bytes
+ original_raw_sha256: raw bytes hash。canonical hashと混同しない
+ prediction_spec_reference: HQ14照合済みprivate参照、未提供ならOPEN
+
+SearchSnapshot:
+ read_permission_reference, source/race/key scope, observed_at, completeness
+ result: READ_OK_COMPLETE | READ_FAILED | INCOMPLETE | UNAVAILABLE
+ candidate_count: integer only when known; unavailable is null, never coerced to 0
+ candidates: private record identities、他sourceの予想は読まない
+
+WriteResponse:
+ attempt_number, frozen identity reference
+ class: HTTP_SUCCESS | HTTP_ERROR | TIMEOUT | SAFETY_BLOCK | CONNECTION_FAILURE | UNKNOWN_RESPONSE
+ response_observed_at/evidence_reference: real only when obtained; unknown remains unknown
+ Acknowledgment is not persistence evidence.
+
+ReadbackEvidence:
+ scoped key/source/race, raw_payload_bytes or UNAVAILABLE, hash
+ record identity, readback_at, complete-page search reference
+ outer HTTP JSON bytes are NOT necessarily stored payload bytes
+
+GuardSnapshot:
+ initial_or_retry scope, same frozen bytes/key/source/race, attempt counter
+ upstream_existing_deadline_and_Freeze_verdict: PASS | FAIL | UNVERIFIED
+ prior_write_settled evidence, complete absence observation
+ atomic uniqueness/idempotent sink evidence, permission/GO/safety state
+ all actual values and capability proof are currently UNVERIFIED
+
+Outcome (design output):
+ write_response_class independent of persistence_evidence
+ save_confirmed_unique_exact: true | false(at confirmed absence observation) | null(unknown/anomaly)
+ persistence_unverified: boolean referring ONLY to persistence axis
+ exact_retry: DENY | DESIGN_ELIGIBLE_NO_EXECUTION
+ LOCK_validity: NOT_EVALUATED
+ other_OPEN: safety/capability/mapping findings
+ execution_permission: NONE_DESIGN_ONLY
+
+InterventionReceipt (future private procedure only):
+ same-day race/source, real time, actor, action, evidence and explicit GO reference
+ no automatic replay, record repair, new prediction generation or metadata/schema write
+
+No production adapter, no write transport, no retry scheduler, no A/B prompt patch is supplied.

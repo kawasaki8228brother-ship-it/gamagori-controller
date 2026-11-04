@@ -1,0 +1,7 @@
+{
+  "coverage_available": false,
+  "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+  "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "scope": "OFFLINE_SYNTHETIC_PROTOTYPE_ONLY"
+}

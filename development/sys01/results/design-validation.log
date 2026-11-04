@@ -1,0 +1,265 @@
+ENV {"os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.12.14", "scope": "OFFLINE_STATIC_DESIGN_ONLY"}
+{
+  "status": "PASS_STATIC_DESIGN_CONSISTENCY_ONLY",
+  "case_count": 36,
+  "declared_transitions": 33,
+  "covered_transition_ids": [
+    "e01",
+    "e02",
+    "e03",
+    "e04",
+    "e05",
+    "e06",
+    "e07",
+    "e08",
+    "e09",
+    "e10",
+    "e11",
+    "e12",
+    "e13",
+    "e14",
+    "e15",
+    "e16",
+    "e17",
+    "e18",
+    "e19",
+    "e20",
+    "e21",
+    "e22",
+    "e23",
+    "e24",
+    "e25",
+    "e26",
+    "e27",
+    "e28",
+    "e29",
+    "e30",
+    "e31",
+    "e32",
+    "e33"
+  ],
+  "runtime_implemented": false,
+  "writer_requests_executed": 0,
+  "A_B_live_originals": "NOT_RECEIVED",
+  "section_map": "OPEN",
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "production_GO": false,
+  "cases": [
+    {
+      "id": "timeout_but_stored",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "CONFIRMED"
+    },
+    {
+      "id": "timeout_no_row_unsettled",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_INFLIGHT"
+    },
+    {
+      "id": "timeout_absent_settled_retry_design",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "RETRY_DESIGN_ELIGIBLE"
+    },
+    {
+      "id": "unknown_response_but_stored",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "CONFIRMED"
+    },
+    {
+      "id": "HTTP_success_readback_missing",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_READBACK"
+    },
+    {
+      "id": "HTTP_error_but_stored",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "CONFIRMED"
+    },
+    {
+      "id": "connection_failure_read_unavailable",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_READ"
+    },
+    {
+      "id": "safety_block_absent",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_SAFETY_BLOCK"
+    },
+    {
+      "id": "safety_block_already_stored",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_SAFETY_PERSISTED"
+    },
+    {
+      "id": "partial_write_observed",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_PARTIAL"
+    },
+    {
+      "id": "readback_fields_missing",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_PARTIAL"
+    },
+    {
+      "id": "duplicate_same_bytes",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_DUPLICATE"
+    },
+    {
+      "id": "duplicate_different_bytes",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_DUPLICATE"
+    },
+    {
+      "id": "same_key_different_raw",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_CONFLICT"
+    },
+    {
+      "id": "wrong_source_metadata",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_SCOPE"
+    },
+    {
+      "id": "precheck_existing_exact",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "CONFIRMED"
+    },
+    {
+      "id": "precheck_duplicate",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_DUPLICATE"
+    },
+    {
+      "id": "precheck_failed",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_READ"
+    },
+    {
+      "id": "precheck_incomplete",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_READ"
+    },
+    {
+      "id": "frozen_original_missing",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_FROZEN"
+    },
+    {
+      "id": "frozen_hash_mismatch",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_FROZEN"
+    },
+    {
+      "id": "initial_GO_absent",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_GUARD"
+    },
+    {
+      "id": "initial_deadline_failed",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_GUARD"
+    },
+    {
+      "id": "retry_late",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_GUARD"
+    },
+    {
+      "id": "retry_clock_unknown",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_GUARD"
+    },
+    {
+      "id": "retry_not_approved",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_GUARD"
+    },
+    {
+      "id": "retry_original_bytes_missing",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_GUARD"
+    },
+    {
+      "id": "retry_bytes_changed",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_GUARD"
+    },
+    {
+      "id": "retry_key_source_race_changed",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_GUARD"
+    },
+    {
+      "id": "retry_attempts_exhausted",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_GUARD"
+    },
+    {
+      "id": "retry_sink_atomicity_unproven",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_DEDUP"
+    },
+    {
+      "id": "one_exact_retry_then_readback",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "CONFIRMED"
+    },
+    {
+      "id": "canonical_same_but_raw_different",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_CONFLICT"
+    },
+    {
+      "id": "success_ACK_search_failed",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_READ"
+    },
+    {
+      "id": "read_scope_GO_absent",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "STOP_GUARD"
+    },
+    {
+      "id": "initial_sink_atomicity_unproven",
+      "structural_validation": "PASS",
+      "runtime_validation": "UNVERIFIED_NOT_IMPLEMENTED",
+      "final_state_declared": "HOLD_DEDUP"
+    }
+  ]
+}

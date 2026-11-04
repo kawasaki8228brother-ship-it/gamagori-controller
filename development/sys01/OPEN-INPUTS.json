@@ -1,0 +1,23 @@
+{
+  "state": "OPEN",
+  "scope": "DESIGN_STATE_TRANSITIONS_SYNTHETIC_FIXTURES_ONLY",
+  "live_A": {"bytes_received": false, "full_sha256": null, "verified_section_map": null},
+  "live_B": {"bytes_received": false, "full_sha256": null, "verified_section_map": null},
+  "private_originals_to_public_repository": false,
+  "decision_sections_old_new_byte_identity": "NOT_AVAILABLE_NO_LIVE_PATCH_CREATED",
+  "old_20261011_copy_acceptable": false,
+  "raw_payload_readback_contract": null,
+  "atomic_sink_dedup_guarantee": null,
+  "prior_write_settled_proof": null,
+  "existing_deadline_Freeze_gate_mapping": null,
+  "proposed_total_attempts": 2,
+  "adopted_attempt_limit": null,
+  "exact_retry_GO_contract": null,
+  "manual_intervention_recording_path": null,
+  "runtime_implementation": false,
+  "A_B_body_modified": false,
+  "Model_BOX_LOCK_deadline_Freeze_modified": false,
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "production_application": "NOT_AUTHORIZED",
+  "production_GO": false
+}

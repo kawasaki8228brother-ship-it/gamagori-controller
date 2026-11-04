@@ -1,0 +1,17 @@
+{
+  "A_B_body_modified": false,
+  "Claude_submission_target": "2026-11-13",
+  "SYS01_section_map": "OPEN_NOT_RECEIVED",
+  "applicable": false,
+  "certifi_priority": "FIRST",
+  "created_development": true,
+  "independently_reviewed": false,
+  "initial_report_target_JST": "2026-11-06T18:00:00+09:00",
+  "production_GO": false,
+  "production_applied": false,
+  "real_56_record_verification": "HQ14_PRIVATE_NOT_PERFORMED_HERE",
+  "review_timing": "ONLY_AFTER_HQ14_CONFIRMS_CERTIFI_COMPLETE",
+  "runtime_writer_implemented": false,
+  "scope": "DESIGN_GRAPH_FIXTURES_ONLY",
+  "state": "OPEN"
+}

@@ -1,0 +1,12 @@
+{
+  "Production_restore_required": false,
+  "base_blob_count": 40,
+  "base_sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+  "base_tree": "9143c19742b672c93f67228669166a8f86c2f37a",
+  "existing_app_changes": [],
+  "live_A_B_bytes_received": false,
+  "main_rollback_authorized": false,
+  "new_prefix": "development/sys01/",
+  "old_files_for_new_paths": "ABSENT",
+  "real_events_or_logs_received": false
+}

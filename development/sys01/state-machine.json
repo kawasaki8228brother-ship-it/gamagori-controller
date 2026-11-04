@@ -1,0 +1,248 @@
+{
+  "classification": "DESIGN_ONLY_NO_WRITER_OR_STATE_ENGINE",
+  "runtime_implemented": false,
+  "states": [
+    "CONFIRMED",
+    "HOLD_CONFLICT",
+    "HOLD_DEDUP",
+    "HOLD_DUPLICATE",
+    "HOLD_INFLIGHT",
+    "HOLD_PARTIAL",
+    "HOLD_READ",
+    "HOLD_READBACK",
+    "HOLD_SAFETY_BLOCK",
+    "HOLD_SAFETY_PERSISTED",
+    "HOLD_SCOPE",
+    "PRECHECK",
+    "PREPARE_WRITE",
+    "READBACK",
+    "RECONCILE",
+    "RETRY_DESIGN_ELIGIBLE",
+    "RETRY_GUARDS",
+    "START",
+    "STOP_FROZEN",
+    "STOP_GUARD",
+    "WRITE_REQUESTED"
+  ],
+  "terminal_or_reportable_states": [
+    "CONFIRMED",
+    "HOLD_CONFLICT",
+    "HOLD_DEDUP",
+    "HOLD_DUPLICATE",
+    "HOLD_INFLIGHT",
+    "HOLD_PARTIAL",
+    "HOLD_READ",
+    "HOLD_READBACK",
+    "HOLD_SAFETY_BLOCK",
+    "HOLD_SAFETY_PERSISTED",
+    "HOLD_SCOPE",
+    "RETRY_DESIGN_ELIGIBLE",
+    "STOP_FROZEN",
+    "STOP_GUARD"
+  ],
+  "transitions": [
+    {
+      "id": "e01",
+      "from": "START",
+      "to": "STOP_FROZEN",
+      "event": "missing/corrupt frozen evidence or original scope"
+    },
+    {
+      "id": "e02",
+      "from": "START",
+      "to": "PRECHECK",
+      "event": "valid frozen evidence, authorized scoped read"
+    },
+    {
+      "id": "e03",
+      "from": "PRECHECK",
+      "to": "HOLD_READ",
+      "event": "search failed or incomplete"
+    },
+    {
+      "id": "e04",
+      "from": "PRECHECK",
+      "to": "READBACK",
+      "event": "exactly one scoped candidate"
+    },
+    {
+      "id": "e05",
+      "from": "PRECHECK",
+      "to": "HOLD_DUPLICATE",
+      "event": "more than one matching key record"
+    },
+    {
+      "id": "e06",
+      "from": "PRECHECK",
+      "to": "PREPARE_WRITE",
+      "event": "authoritative complete search: zero records"
+    },
+    {
+      "id": "e07",
+      "from": "PREPARE_WRITE",
+      "to": "STOP_GUARD",
+      "event": "existing deadline/GO/frozen/attempt guard fails or unknown"
+    },
+    {
+      "id": "e08",
+      "from": "PREPARE_WRITE",
+      "to": "WRITE_REQUESTED",
+      "event": "all INITIAL guards satisfied in proposed design"
+    },
+    {
+      "id": "e09",
+      "from": "WRITE_REQUESTED",
+      "to": "RECONCILE",
+      "event": "HTTP_SUCCESS"
+    },
+    {
+      "id": "e10",
+      "from": "WRITE_REQUESTED",
+      "to": "RECONCILE",
+      "event": "HTTP_ERROR"
+    },
+    {
+      "id": "e11",
+      "from": "WRITE_REQUESTED",
+      "to": "RECONCILE",
+      "event": "TIMEOUT"
+    },
+    {
+      "id": "e12",
+      "from": "WRITE_REQUESTED",
+      "to": "RECONCILE",
+      "event": "SAFETY_BLOCK"
+    },
+    {
+      "id": "e13",
+      "from": "WRITE_REQUESTED",
+      "to": "RECONCILE",
+      "event": "CONNECTION_FAILURE"
+    },
+    {
+      "id": "e14",
+      "from": "WRITE_REQUESTED",
+      "to": "RECONCILE",
+      "event": "UNKNOWN_RESPONSE"
+    },
+    {
+      "id": "e15",
+      "from": "RECONCILE",
+      "to": "HOLD_READ",
+      "event": "search failed/incomplete or unavailable"
+    },
+    {
+      "id": "e16",
+      "from": "RECONCILE",
+      "to": "READBACK",
+      "event": "exactly one candidate requiring raw readback"
+    },
+    {
+      "id": "e17",
+      "from": "RECONCILE",
+      "to": "HOLD_DUPLICATE",
+      "event": "duplicate records, identical or conflicting bytes"
+    },
+    {
+      "id": "e18",
+      "from": "RECONCILE",
+      "to": "HOLD_PARTIAL",
+      "event": "partial record(s), not a valid complete readback"
+    },
+    {
+      "id": "e19",
+      "from": "RECONCILE",
+      "to": "HOLD_SAFETY_BLOCK",
+      "event": "safety-block and no exact persisted confirmation"
+    },
+    {
+      "id": "e20",
+      "from": "RECONCILE",
+      "to": "HOLD_INFLIGHT",
+      "event": "zero records but original write not proven settled"
+    },
+    {
+      "id": "e21",
+      "from": "RECONCILE",
+      "to": "RETRY_GUARDS",
+      "event": "zero records, request settled, no unresolved safety block"
+    },
+    {
+      "id": "e22",
+      "from": "READBACK",
+      "to": "CONFIRMED",
+      "event": "one scoped raw/hash exact record, no safety event"
+    },
+    {
+      "id": "e23",
+      "from": "READBACK",
+      "to": "HOLD_SAFETY_PERSISTED",
+      "event": "persistence exact but safety event remains open"
+    },
+    {
+      "id": "e24",
+      "from": "READBACK",
+      "to": "HOLD_CONFLICT",
+      "event": "same key but different raw bytes/hash"
+    },
+    {
+      "id": "e25",
+      "from": "READBACK",
+      "to": "HOLD_SCOPE",
+      "event": "wrong source/race/key identity; do not inspect other-source prediction"
+    },
+    {
+      "id": "e26",
+      "from": "READBACK",
+      "to": "HOLD_PARTIAL",
+      "event": "raw bytes/hash/required fields missing"
+    },
+    {
+      "id": "e27",
+      "from": "READBACK",
+      "to": "HOLD_READBACK",
+      "event": "candidate disappeared or readback failed"
+    },
+    {
+      "id": "e28",
+      "from": "RETRY_GUARDS",
+      "to": "STOP_GUARD",
+      "event": "retry GO/deadline/original identity/bytes/counter fails or unknown"
+    },
+    {
+      "id": "e29",
+      "from": "RETRY_GUARDS",
+      "to": "HOLD_DEDUP",
+      "event": "atomic key uniqueness/idempotent sink guarantee unproven"
+    },
+    {
+      "id": "e30",
+      "from": "RETRY_GUARDS",
+      "to": "RETRY_DESIGN_ELIGIBLE",
+      "event": "all explicit exact-retry guards satisfied; no runtime implementation"
+    },
+    {
+      "id": "e31",
+      "from": "RETRY_DESIGN_ELIGIBLE",
+      "to": "WRITE_REQUESTED",
+      "event": "separately authorized SAME bytes/key once, synthetic design only"
+    },
+    {
+      "id": "e32",
+      "from": "START",
+      "to": "STOP_GUARD",
+      "event": "scoped read GO absent/unknown; do not query"
+    },
+    {
+      "id": "e33",
+      "from": "PREPARE_WRITE",
+      "to": "HOLD_DEDUP",
+      "event": "initial atomic uniqueness guarantee unproven; no search-then-create race claim"
+    }
+  ],
+  "retry_policy_status": "PROPOSED_NOT_ADOPTED",
+  "proposed_max_total_attempts": 2,
+  "existing_deadline_rule": "OPAQUE_UPSTREAM_PASS_FAIL_UNVERIFIED_NO_REDEFINITION",
+  "live_A_B_mapping": "OPEN_NOT_RECEIVED",
+  "production_GO": false
+}

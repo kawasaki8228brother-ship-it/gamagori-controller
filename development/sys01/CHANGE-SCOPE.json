@@ -1,0 +1,10 @@
+{
+  "base_sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+  "change_kind": "ADDITIONS_ONLY",
+  "existing_APP_CI_Render_requirements_or_test_changes": false,
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "permitted_prefix": "development/sys01/",
+  "prediction_sections_changed": false,
+  "restore": "NO_PRODUCTION_APPLICATION_NO_RESTORE_ACTION",
+  "section_byte_identity_proof": "NOT_AVAILABLE_LIVE_INPUT_MISSING_NO_A_B_PATCH"
+}
