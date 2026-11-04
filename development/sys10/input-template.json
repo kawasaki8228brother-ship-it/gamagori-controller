@@ -1,0 +1,87 @@
+{
+  "classification": "SYNTHETIC_ONLY",
+  "phase": "BASELINE",
+  "official_schedule": {
+    "status": "VERIFIED",
+    "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+    "complete": true,
+    "races": [
+      {
+        "race_id": "SYNTHETIC_R1",
+        "meet_id": "SYNTHETIC_BASELINE_MEET",
+        "target_date": "2026-11-09"
+      }
+    ]
+  },
+  "lock_record_coverage": {
+    "status": "VERIFIED",
+    "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+    "complete": true,
+    "race_ids": [
+      "SYNTHETIC_R1"
+    ],
+    "sources": [
+      "A",
+      "B"
+    ]
+  },
+  "intervention_coverage": {
+    "status": "VERIFIED",
+    "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+    "complete": true,
+    "race_ids": [
+      "SYNTHETIC_R1"
+    ],
+    "sources": [
+      "A",
+      "B"
+    ]
+  },
+  "lock_records": [
+    {
+      "race_id": "SYNTHETIC_R1",
+      "source": "A",
+      "record_id": "SYNTHETIC_INITIAL_A",
+      "kind": "INITIAL_LOCK",
+      "saved": true,
+      "existing_validity": {
+        "status": "VERIFIED",
+        "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+        "verdict": "VALID",
+        "predeadline": true
+      }
+    },
+    {
+      "race_id": "SYNTHETIC_R1",
+      "source": "B",
+      "record_id": "SYNTHETIC_INITIAL_B",
+      "kind": "INITIAL_LOCK",
+      "saved": true,
+      "existing_validity": {
+        "status": "VERIFIED",
+        "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+        "verdict": "VALID",
+        "predeadline": true
+      }
+    }
+  ],
+  "interventions": [],
+  "pair_attestations": [
+    {
+      "race_id": "SYNTHETIC_R1",
+      "source": "A",
+      "status": "VERIFIED",
+      "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+      "coverage_complete": true,
+      "conclusion": "NO_INTERVENTION"
+    },
+    {
+      "race_id": "SYNTHETIC_R1",
+      "source": "B",
+      "status": "VERIFIED",
+      "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+      "coverage_complete": true,
+      "conclusion": "NO_INTERVENTION"
+    }
+  ]
+}

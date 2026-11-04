@@ -1,0 +1,3124 @@
+{
+  "classification": "SYNTHETIC_ONLY",
+  "cases": [
+    {
+      "id": "baseline_complete_100",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 2,
+        "unknown": 0,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "empty_logs_not_proof",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": []
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 0,
+        "unknown": 2,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "coverage_unknown",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": false,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 0,
+        "unknown": 2,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "events_scope_unknown",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": false,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 0,
+        "unknown": 2,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "complete_scope_no_initial_lock",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 0,
+        "unknown": 0,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "upstream_postdeadline",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": false
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 1,
+        "unknown": 0,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "validity_unknown",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "UNVERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 1,
+        "unknown": 1,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "duplicate_initial_lock",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 1,
+        "unknown": 1,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "revision_not_initial",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "REVISION",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 2,
+        "unknown": 0,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "unknown_role_not_noninitial",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "UNVERIFIED",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 1,
+        "unknown": 1,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "manual_replay",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "at": "2026-11-09T04:00:00Z",
+            "action": "REPLAY",
+            "initial_lock_effect": "AFFECTS_INITIAL",
+            "evidence_ref": "SYNTHETIC_MANUAL_REPLAY_RECEIPT"
+          }
+        ],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 1,
+        "unknown": 0,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "later_non_initial_action",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "at": "2026-11-09T04:00:00Z",
+            "action": "REPLAY",
+            "initial_lock_effect": "DOES_NOT_AFFECT_INITIAL",
+            "evidence_ref": "SYNTHETIC_MANUAL_REPLAY_RECEIPT"
+          }
+        ],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 2,
+        "unknown": 0,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "intervention_time_unknown",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "at": null,
+            "action": "REPLAY",
+            "initial_lock_effect": "AFFECTS_INITIAL",
+            "evidence_ref": "SYNTHETIC_MANUAL_REPLAY_RECEIPT"
+          }
+        ],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 1,
+        "unknown": 1,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "intervention_effect_unknown",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "at": "2026-11-09T04:00:00Z",
+            "action": "REPLAY",
+            "initial_lock_effect": "UNVERIFIED",
+            "evidence_ref": "SYNTHETIC_MANUAL_REPLAY_RECEIPT"
+          }
+        ],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 1,
+        "unknown": 1,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "schedule_incomplete",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": false,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": null,
+        "auto": 2,
+        "unknown": 0,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "duplicate_schedule_identity",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            },
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": null,
+        "auto": 2,
+        "unknown": 0,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "baseline_cannot_formal_pass",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 2,
+        "unknown": 0,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "formal_complete_pass",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_MEET1",
+              "target_date": "2026-11-16"
+            },
+            {
+              "race_id": "SYNTHETIC_R2",
+              "meet_id": "SYNTHETIC_MEET2",
+              "target_date": "2026-11-23"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ],
+        "formal_cohort": {
+          "adoptions": {
+            "SYS-01": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-01",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            },
+            "SYS-02": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-02",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            }
+          },
+          "first_two_meet_ids": [
+            "SYNTHETIC_MEET1",
+            "SYNTHETIC_MEET2"
+          ],
+          "first_two_after_adoption_attestation": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "both_meets_complete": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "threshold_rule": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "scope": "EACH_SOURCE"
+          }
+        }
+      },
+      "expected": {
+        "denominator": 4,
+        "auto": 4,
+        "unknown": 0,
+        "formal": "PASS"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "formal_complete_fail",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_MEET1",
+              "target_date": "2026-11-16"
+            },
+            {
+              "race_id": "SYNTHETIC_R2",
+              "meet_id": "SYNTHETIC_MEET2",
+              "target_date": "2026-11-23"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ],
+        "formal_cohort": {
+          "adoptions": {
+            "SYS-01": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-01",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            },
+            "SYS-02": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-02",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            }
+          },
+          "first_two_meet_ids": [
+            "SYNTHETIC_MEET1",
+            "SYNTHETIC_MEET2"
+          ],
+          "first_two_after_adoption_attestation": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "both_meets_complete": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "threshold_rule": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "scope": "EACH_SOURCE"
+          }
+        }
+      },
+      "expected": {
+        "denominator": 4,
+        "auto": 3,
+        "unknown": 0,
+        "formal": "FAIL"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "formal_missing_adoption",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_MEET1",
+              "target_date": "2026-11-16"
+            },
+            {
+              "race_id": "SYNTHETIC_R2",
+              "meet_id": "SYNTHETIC_MEET2",
+              "target_date": "2026-11-23"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ],
+        "formal_cohort": {
+          "adoptions": {
+            "SYS-01": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-01",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            }
+          },
+          "first_two_meet_ids": [
+            "SYNTHETIC_MEET1",
+            "SYNTHETIC_MEET2"
+          ],
+          "first_two_after_adoption_attestation": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "both_meets_complete": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "threshold_rule": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "scope": "EACH_SOURCE"
+          }
+        }
+      },
+      "expected": {
+        "denominator": 4,
+        "auto": 4,
+        "unknown": 0,
+        "formal": "UNVERIFIED"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "first_two_meets_unproven",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_MEET1",
+              "target_date": "2026-11-16"
+            },
+            {
+              "race_id": "SYNTHETIC_R2",
+              "meet_id": "SYNTHETIC_MEET2",
+              "target_date": "2026-11-23"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ],
+        "formal_cohort": {
+          "adoptions": {
+            "SYS-01": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-01",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            },
+            "SYS-02": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-02",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            }
+          },
+          "first_two_meet_ids": [
+            "SYNTHETIC_MEET1",
+            "SYNTHETIC_MEET2"
+          ],
+          "first_two_after_adoption_attestation": {
+            "status": "UNVERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "both_meets_complete": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "threshold_rule": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "scope": "EACH_SOURCE"
+          }
+        }
+      },
+      "expected": {
+        "denominator": 4,
+        "auto": 4,
+        "unknown": 0,
+        "formal": "UNVERIFIED"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "formal_meets_not_complete",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_MEET1",
+              "target_date": "2026-11-16"
+            },
+            {
+              "race_id": "SYNTHETIC_R2",
+              "meet_id": "SYNTHETIC_MEET2",
+              "target_date": "2026-11-23"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ],
+        "formal_cohort": {
+          "adoptions": {
+            "SYS-01": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-01",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            },
+            "SYS-02": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-02",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            }
+          },
+          "first_two_meet_ids": [
+            "SYNTHETIC_MEET1",
+            "SYNTHETIC_MEET2"
+          ],
+          "first_two_after_adoption_attestation": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "both_meets_complete": {
+            "status": "UNVERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "threshold_rule": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "scope": "EACH_SOURCE"
+          }
+        }
+      },
+      "expected": {
+        "denominator": 4,
+        "auto": 4,
+        "unknown": 0,
+        "formal": "UNVERIFIED"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "formal_intervention_completeness_unknown",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_MEET1",
+              "target_date": "2026-11-16"
+            },
+            {
+              "race_id": "SYNTHETIC_R2",
+              "meet_id": "SYNTHETIC_MEET2",
+              "target_date": "2026-11-23"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": false,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ],
+        "formal_cohort": {
+          "adoptions": {
+            "SYS-01": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-01",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            },
+            "SYS-02": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-02",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            }
+          },
+          "first_two_meet_ids": [
+            "SYNTHETIC_MEET1",
+            "SYNTHETIC_MEET2"
+          ],
+          "first_two_after_adoption_attestation": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "both_meets_complete": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "threshold_rule": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "scope": "EACH_SOURCE"
+          }
+        }
+      },
+      "expected": {
+        "denominator": 4,
+        "auto": 0,
+        "unknown": 4,
+        "formal": "UNVERIFIED"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "formal_threshold_scope_unadopted",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_MEET1",
+              "target_date": "2026-11-16"
+            },
+            {
+              "race_id": "SYNTHETIC_R2",
+              "meet_id": "SYNTHETIC_MEET2",
+              "target_date": "2026-11-23"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1",
+            "SYNTHETIC_R2"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R2",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ],
+        "formal_cohort": {
+          "adoptions": {
+            "SYS-01": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-01",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            },
+            "SYS-02": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_ADOPTION_SYS-02",
+              "adopted_at": "2026-11-15T10:00:00+09:00"
+            }
+          },
+          "first_two_meet_ids": [
+            "SYNTHETIC_MEET1",
+            "SYNTHETIC_MEET2"
+          ],
+          "first_two_after_adoption_attestation": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          },
+          "both_meets_complete": {
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_FORMAL_WINDOW_PROOF",
+            "cohort_meet_ids": [
+              "SYNTHETIC_MEET1",
+              "SYNTHETIC_MEET2"
+            ],
+            "adoption_evidence_refs": {
+              "SYS-01": "SYNTHETIC_ADOPTION_SYS-01",
+              "SYS-02": "SYNTHETIC_ADOPTION_SYS-02"
+            }
+          }
+        }
+      },
+      "expected": {
+        "denominator": 4,
+        "auto": 4,
+        "unknown": 0,
+        "formal": "UNVERIFIED"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    },
+    {
+      "id": "attestation_conflicts_with_replay",
+      "input": {
+        "classification": "SYNTHETIC_ONLY",
+        "phase": "BASELINE",
+        "official_schedule": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_OFFICIAL_SCHEDULE",
+          "complete": true,
+          "races": [
+            {
+              "race_id": "SYNTHETIC_R1",
+              "meet_id": "SYNTHETIC_BASELINE_MEET",
+              "target_date": "2026-11-09"
+            }
+          ]
+        },
+        "lock_record_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "intervention_coverage": {
+          "status": "VERIFIED",
+          "evidence_ref": "SYNTHETIC_EXTERNAL_PROOF",
+          "complete": true,
+          "race_ids": [
+            "SYNTHETIC_R1"
+          ],
+          "sources": [
+            "A",
+            "B"
+          ]
+        },
+        "lock_records": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "record_id": "SYNTHETIC_INITIAL_A",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "record_id": "SYNTHETIC_INITIAL_B",
+            "kind": "INITIAL_LOCK",
+            "saved": true,
+            "existing_validity": {
+              "status": "VERIFIED",
+              "evidence_ref": "SYNTHETIC_UPSTREAM_VERDICT",
+              "verdict": "VALID",
+              "predeadline": true
+            }
+          }
+        ],
+        "interventions": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "at": "2026-11-09T04:00:00Z",
+            "action": "REPLAY",
+            "initial_lock_effect": "AFFECTS_INITIAL",
+            "evidence_ref": "SYNTHETIC_MANUAL_REPLAY_RECEIPT"
+          }
+        ],
+        "pair_attestations": [
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "A",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          },
+          {
+            "race_id": "SYNTHETIC_R1",
+            "source": "B",
+            "status": "VERIFIED",
+            "evidence_ref": "SYNTHETIC_INDEPENDENT_NO_INTERVENTION",
+            "coverage_complete": true,
+            "conclusion": "NO_INTERVENTION"
+          }
+        ]
+      },
+      "expected": {
+        "denominator": 2,
+        "auto": 1,
+        "unknown": 0,
+        "formal": "NOT_APPLICABLE_BASELINE"
+      },
+      "classification": "SYNTHETIC_ONLY_NOT_REAL_APPROVAL"
+    }
+  ]
+}

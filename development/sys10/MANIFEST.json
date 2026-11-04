@@ -1,0 +1,128 @@
+{
+  "group": "sys10",
+  "task_ids": [
+    "SYS-10"
+  ],
+  "branch": "dev/sys10-ac1-20261105-v001",
+  "base": {
+    "sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "tree": "9143c19742b672c93f67228669166a8f86c2f37a",
+    "blob_count": 40
+  },
+  "only_new_files": true,
+  "tests": 40,
+  "actual_result_source": "results.json",
+  "development_state": "DEV_READY",
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "applicable": false,
+  "production_GO": false,
+  "production_applied": false,
+  "CLOSE": false,
+  "self_INDEX_SHA_excluded": true,
+  "files": [
+    {
+      "file": "DEVELOPMENT-STATUS.json",
+      "bytes": 1718,
+      "sha256": "f99f8e08fa6a15dbd84d0f38883324e995d02aa1aa804d6d53042edea5144499",
+      "git_blob": "cec2378f56161955553d78a4157d373fef0819c6",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "MEASUREMENT-EXAMPLES.tsv",
+      "bytes": 3205,
+      "sha256": "b2756ce4b4764e453a13df1abc28c709e34c291532594970127c7c48037acb97",
+      "git_blob": "824e632b44e6f3e2d41dd952e4df4872fdaf8979",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "README.md",
+      "bytes": 5158,
+      "sha256": "a849a83aba7f747a7b9864255d9fa4327a1947c38fab7e0a079834d2f741e30f",
+      "git_blob": "0b9143738bdd93e07dc4f4f8631410f7a02c4271",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "SOURCE-AND-SCOPE.json",
+      "bytes": 1012,
+      "sha256": "c28011d3c5792c8f1b1ed4367bbcad22ac2b6977a050ee07b2e7e7a31b4301d1",
+      "git_blob": "78eb679181f79c10a99f72f5fb45fd3ddbf5fabf",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "ac1.py",
+      "bytes": 15347,
+      "sha256": "01da5360ec29d0d6b2f804e1bf89b0b5342a3262922952b8ee1f2aa966f841de",
+      "git_blob": "df7a76185dcad88c7ce62c56f5aa95b3d275b0d6",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 92368,
+      "sha256": "786ea64225bb44e92e7f8d6fc7d6f3d766b75ce27a71f85ae8c2d0a8f6b71a25",
+      "git_blob": "e5bcda7b1d3b5b5b92b2f04f43b30133021dd157",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "input-template.json",
+      "bytes": 1994,
+      "sha256": "5ab5d748fb4caae69081184c05d8639565e64296f3506f7f294083cf3fa0fc99",
+      "git_blob": "7a5a86018afe6ac380a1abb5d4756e8927110afb",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "intervention-template.json",
+      "bytes": 399,
+      "sha256": "9d80c21766d79023a1b50e0c5d3090160d7e2345ba0798e7f489309e7c5b1005",
+      "git_blob": "cd89f413860bf4c32a34e5218494ee11a9d415bf",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "make_fixtures.py",
+      "bytes": 7655,
+      "sha256": "a4fd16f01e32c9247ea7caf78279cec6354ad3a8aae9e03eb924155cb46fdae9",
+      "git_blob": "c3c8e8cd9c8d72d5aa5bbe8ea8379498f2fd7bcb",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "record_tests.py",
+      "bytes": 2008,
+      "sha256": "ac1ff5c52f8c26c975b0bd3af4987e8fba0aef2123e80f34a0e1d6f1ecab5292",
+      "git_blob": "3c01f3c39b290b78d0eecc6f11c0c3e70d15d218",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "results.json",
+      "bytes": 53417,
+      "sha256": "9af0b0e65b63b60a416bc91dd5a9c854bba15ccdd2b11e483f0f8a64f4ae40be",
+      "git_blob": "5ee52ba5c4d9b664056b5932ae101e7504bad0da",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "test_ac1.py",
+      "bytes": 7888,
+      "sha256": "daea64e932c7ba40a8ac861b18d91ee3d7d02b77a450a7be19a0904d6e8d35f8",
+      "git_blob": "c7dd1a963535886646dff87faef501ffd2de3c06",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "tests.raw.log",
+      "bytes": 4186,
+      "sha256": "3c83c974e947340846c3a280b40829885815529f2ab0c3e6cacf0e459e1feadf",
+      "git_blob": "4c386bf54e5c3beebd1b9687964d7ce86934290f",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    }
+  ]
+}

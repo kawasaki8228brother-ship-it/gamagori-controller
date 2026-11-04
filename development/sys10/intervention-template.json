@@ -1,0 +1,11 @@
+{
+  "classification": "SYNTHETIC_INPUT_SHAPE_ONLY",
+  "race_id": "SYNTHETIC_R1",
+  "source": "A",
+  "at": "2026-11-09T13:00:00+09:00",
+  "action": "REPLAY",
+  "initial_lock_effect": "UNVERIFIED",
+  "actor_reference": "SYNTHETIC_PRIVATE_ACTOR_REFERENCE",
+  "description": "SYNTHETIC intervention description; do not infer effect from missing log",
+  "evidence_ref": "SYNTHETIC_INTERVENTION_RECORD"
+}

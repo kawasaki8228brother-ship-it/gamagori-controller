@@ -1,0 +1,1718 @@
+{
+  "module": "SYS-10",
+  "development_state": "DEV_READY",
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "scope": "OFFLINE_SYNTHETIC_ONLY_NOT_REAL_MEASUREMENT"
+  },
+  "tests_run": 40,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "synthetic_fixture_cases": 25,
+  "real_data_received": false,
+  "real_measurement": "NOT_PERFORMED_HQ14_PRIVATE_INPUT_REQUIRED",
+  "Claude_review": "PENDING_AFTER_CERTIFI",
+  "production_application": "NOT_AUTHORIZED",
+  "production_GO": false,
+  "cases": [
+    {
+      "id": "baseline_complete_100",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 2,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "exact": 1.0
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "AT_OR_ABOVE_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "empty_logs_not_proof",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 0,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 2
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": 0.0,
+          "upper_bound": 1.0,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "INTERVAL_CROSSES_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "coverage_unknown",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 0,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 2
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": 0.0,
+          "upper_bound": 1.0,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "INTERVAL_CROSSES_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [
+          "INTERVENTION_RECORD_SCOPE_COMPLETENESS_UNVERIFIED"
+        ],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "events_scope_unknown",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 0,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 2
+        },
+        "valid_initial_saved_count": 0,
+        "auto_save_rate": {
+          "lower_bound": 0.0,
+          "upper_bound": 1.0,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "INTERVAL_CROSSES_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [
+          "LOCK_RECORD_SCOPE_COMPLETENESS_UNVERIFIED"
+        ],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "complete_scope_no_initial_lock",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 0,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 2,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 0,
+        "auto_save_rate": {
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "exact": 0.0
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 1,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 0.0,
+              "exact": 0.0
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 1,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 0.0,
+              "exact": 0.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "BELOW_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "upstream_postdeadline",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 1,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 1,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 1,
+        "auto_save_rate": {
+          "lower_bound": 0.5,
+          "upper_bound": 0.5,
+          "exact": 0.5
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 1,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 0.0,
+              "exact": 0.0
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "BELOW_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "validity_unknown",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 1,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 1
+        },
+        "valid_initial_saved_count": 1,
+        "auto_save_rate": {
+          "lower_bound": 0.5,
+          "upper_bound": 1.0,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "INTERVAL_CROSSES_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "duplicate_initial_lock",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 1,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 1
+        },
+        "valid_initial_saved_count": 1,
+        "auto_save_rate": {
+          "lower_bound": 0.5,
+          "upper_bound": 1.0,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "INTERVAL_CROSSES_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "revision_not_initial",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 2,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "exact": 1.0
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "AT_OR_ABOVE_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "unknown_role_not_noninitial",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 1,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 1
+        },
+        "valid_initial_saved_count": 1,
+        "auto_save_rate": {
+          "lower_bound": 0.5,
+          "upper_bound": 1.0,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "INTERVAL_CROSSES_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "manual_replay",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 1,
+          "INTERVENED": 1,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": 0.5,
+          "upper_bound": 0.5,
+          "exact": 0.5
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 1,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 0.0,
+              "exact": 0.0
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "BELOW_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "later_non_initial_action",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 2,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "exact": 1.0
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "AT_OR_ABOVE_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "intervention_time_unknown",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 1,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 1
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": 0.5,
+          "upper_bound": 1.0,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "INTERVAL_CROSSES_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "intervention_effect_unknown",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 1,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 1
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": 0.5,
+          "upper_bound": 1.0,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 1
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "INTERVAL_CROSSES_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "schedule_incomplete",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": null,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 2,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": null,
+          "upper_bound": null,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": null,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": null,
+              "upper_bound": null,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": null,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": null,
+              "upper_bound": null,
+              "exact": null
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "UNVERIFIED",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [
+          "OFFICIAL_SCHEDULE_NOT_VERIFIED_COMPLETE"
+        ],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "duplicate_schedule_identity",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": null,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 2,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": null,
+          "upper_bound": null,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": null,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": null,
+              "upper_bound": null,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": null,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": null,
+              "upper_bound": null,
+              "exact": null
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "UNVERIFIED",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [
+          "SCHEDULE_IDENTITY_DUPLICATE_OR_MISSING"
+        ],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "baseline_cannot_formal_pass",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 2,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "exact": 1.0
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "AT_OR_ABOVE_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "formal_complete_pass",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_races_observed": 2,
+        "denominator": 4,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 4,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 4,
+        "auto_save_rate": {
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "exact": 1.0
+        },
+        "by_source": {
+          "A": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          },
+          "B": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "AT_OR_ABOVE_95_PERCENT",
+          "formal_judgment": "PASS",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "formal_complete_fail",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_races_observed": 2,
+        "denominator": 4,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 3,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 1,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 3,
+        "auto_save_rate": {
+          "lower_bound": 0.75,
+          "upper_bound": 0.75,
+          "exact": 0.75
+        },
+        "by_source": {
+          "A": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          },
+          "B": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 1,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.5,
+              "upper_bound": 0.5,
+              "exact": 0.5
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "BELOW_95_PERCENT",
+          "formal_judgment": "FAIL",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "formal_missing_adoption",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_races_observed": 2,
+        "denominator": 4,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 4,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 4,
+        "auto_save_rate": {
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "exact": 1.0
+        },
+        "by_source": {
+          "A": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          },
+          "B": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "AT_OR_ABOVE_95_PERCENT",
+          "formal_judgment": "UNVERIFIED",
+          "formal_gate_reasons": [
+            "ADOPTION_EVIDENCE_MISSING_SYS-02",
+            "BOTH_MEETS_NOT_CONFIRMED_COMPLETE",
+            "FIRST_TWO_AFTER_ADOPTION_UNVERIFIED"
+          ]
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "first_two_meets_unproven",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_races_observed": 2,
+        "denominator": 4,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 4,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 4,
+        "auto_save_rate": {
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "exact": 1.0
+        },
+        "by_source": {
+          "A": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          },
+          "B": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "AT_OR_ABOVE_95_PERCENT",
+          "formal_judgment": "UNVERIFIED",
+          "formal_gate_reasons": [
+            "FIRST_TWO_AFTER_ADOPTION_UNVERIFIED"
+          ]
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "formal_meets_not_complete",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_races_observed": 2,
+        "denominator": 4,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 4,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 4,
+        "auto_save_rate": {
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "exact": 1.0
+        },
+        "by_source": {
+          "A": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          },
+          "B": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "AT_OR_ABOVE_95_PERCENT",
+          "formal_judgment": "UNVERIFIED",
+          "formal_gate_reasons": [
+            "BOTH_MEETS_NOT_CONFIRMED_COMPLETE"
+          ]
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "formal_intervention_completeness_unknown",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_races_observed": 2,
+        "denominator": 4,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 0,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 4
+        },
+        "valid_initial_saved_count": 4,
+        "auto_save_rate": {
+          "lower_bound": 0.0,
+          "upper_bound": 1.0,
+          "exact": null
+        },
+        "by_source": {
+          "A": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 2
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          },
+          "B": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 2
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 1.0,
+              "exact": null
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "INTERVAL_CROSSES_95_PERCENT",
+          "formal_judgment": "UNVERIFIED",
+          "formal_gate_reasons": [
+            "MEASUREMENT_COMPLETENESS_UNVERIFIED_OR_EMPTY"
+          ]
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [
+          "INTERVENTION_RECORD_SCOPE_COMPLETENESS_UNVERIFIED"
+        ],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "formal_threshold_scope_unadopted",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "FORMAL_FIRST_TWO_MEETS",
+        "official_races_observed": 2,
+        "denominator": 4,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 4,
+          "INTERVENED": 0,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 4,
+        "auto_save_rate": {
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "exact": 1.0
+        },
+        "by_source": {
+          "A": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          },
+          "B": {
+            "denominator": 2,
+            "counts": {
+              "AUTO_CONFIRMED": 2,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "AT_OR_ABOVE_95_PERCENT",
+          "formal_judgment": "UNVERIFIED",
+          "formal_gate_reasons": [
+            "THRESHOLD_SCOPE_RULE_UNVERIFIED"
+          ]
+        },
+        "measurement_status": "VERIFIED_INPUT_CONTRACT_ONLY",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 0,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    },
+    {
+      "id": "attestation_conflicts_with_replay",
+      "classification": "SYNTHETIC_ONLY",
+      "result": {
+        "module": "SYS-10_OFFLINE_PROTOTYPE",
+        "phase": "BASELINE_20261109_14",
+        "official_races_observed": 1,
+        "denominator": 2,
+        "denominator_definition": "OFFICIAL_SCHEDULED_RACES_X_A_B_INITIAL_LOCK_OPPORTUNITIES",
+        "counts": {
+          "AUTO_CONFIRMED": 1,
+          "INTERVENED": 1,
+          "NO_VALID_INITIAL_SAVE": 0,
+          "UNVERIFIED": 0
+        },
+        "valid_initial_saved_count": 2,
+        "auto_save_rate": {
+          "lower_bound": 0.5,
+          "upper_bound": 0.5,
+          "exact": 0.5
+        },
+        "by_source": {
+          "A": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 0,
+              "INTERVENED": 1,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 0.0,
+              "upper_bound": 0.0,
+              "exact": 0.0
+            }
+          },
+          "B": {
+            "denominator": 1,
+            "counts": {
+              "AUTO_CONFIRMED": 1,
+              "INTERVENED": 0,
+              "NO_VALID_INITIAL_SAVE": 0,
+              "UNVERIFIED": 0
+            },
+            "auto_save_rate": {
+              "lower_bound": 1.0,
+              "upper_bound": 1.0,
+              "exact": 1.0
+            }
+          }
+        },
+        "comparison_95_percent": {
+          "threshold": 0.95,
+          "descriptive_only": "BELOW_95_PERCENT",
+          "formal_judgment": "NOT_APPLICABLE_BASELINE",
+          "formal_gate_reasons": []
+        },
+        "measurement_status": "UNVERIFIED",
+        "reasons": [],
+        "outside_scope_evidence_rows": 0,
+        "intervention_evidence_conflicts": 1,
+        "LOCK_validity_rule": "NOT_IMPLEMENTED_UPSTREAM_EVIDENCE_ONLY",
+        "external_evidence_authenticity": "NOT_PROVEN_BY_THIS_MODULE",
+        "independent_review": "PENDING_AFTER_CERTIFI",
+        "production_GO": false
+      }
+    }
+  ]
+}

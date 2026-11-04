@@ -1,0 +1,46 @@
+ENV {"os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.12.14", "scope": "OFFLINE_SYNTHETIC_ONLY_NOT_REAL_MEASUREMENT"}
+test_CLI_private_local_input_and_bad_input_no_path_echo (test_ac1.Contract.test_CLI_private_local_input_and_bad_input_no_path_echo) ... ok
+test_aggregate_output_omits_pair_identity (test_ac1.Contract.test_aggregate_output_omits_pair_identity) ... ok
+test_all_95_boundary_arithmetic (test_ac1.Contract.test_all_95_boundary_arithmetic) ... ok
+test_attestation_contradiction_remains_open (test_ac1.Contract.test_attestation_contradiction_remains_open) ... ok
+test_bool_null_zero_are_not_silently_interchangeable (test_ac1.Contract.test_bool_null_zero_are_not_silently_interchangeable) ... ok
+test_cohort_attestations_cannot_be_reused_for_other_meets (test_ac1.Contract.test_cohort_attestations_cannot_be_reused_for_other_meets) ... ok
+test_empty_log_bounds_not_automatic_success (test_ac1.Contract.test_empty_log_bounds_not_automatic_success) ... ok
+test_input_contract_rejects_invalid_shape (test_ac1.Contract.test_input_contract_rejects_invalid_shape) ... ok
+test_missing_phase_cannot_formal_pass (test_ac1.Contract.test_missing_phase_cannot_formal_pass) ... ok
+test_naive_unknown_and_JST_conversion (test_ac1.Contract.test_naive_unknown_and_JST_conversion) ... ok
+test_non_initial_intervention_does_not_disqualify_initial (test_ac1.Contract.test_non_initial_intervention_does_not_disqualify_initial) ... ok
+test_nonrace_zero_denominator_is_not_100_percent (test_ac1.Contract.test_nonrace_zero_denominator_is_not_100_percent) ... ok
+test_same_day_adoption_order_cannot_be_inferred (test_ac1.Contract.test_same_day_adoption_order_cannot_be_inferred) ... ok
+test_scope_must_bind_coverage_to_whole_denominator (test_ac1.Contract.test_scope_must_bind_coverage_to_whole_denominator) ... ok
+test_source_C_does_not_enter_A_B_denominator (test_ac1.Contract.test_source_C_does_not_enter_A_B_denominator) ... ok
+test_attestation_conflicts_with_replay (test_ac1.Fixtures.test_attestation_conflicts_with_replay) ... ok
+test_baseline_cannot_formal_pass (test_ac1.Fixtures.test_baseline_cannot_formal_pass) ... ok
+test_baseline_complete_100 (test_ac1.Fixtures.test_baseline_complete_100) ... ok
+test_complete_scope_no_initial_lock (test_ac1.Fixtures.test_complete_scope_no_initial_lock) ... ok
+test_coverage_unknown (test_ac1.Fixtures.test_coverage_unknown) ... ok
+test_duplicate_initial_lock (test_ac1.Fixtures.test_duplicate_initial_lock) ... ok
+test_duplicate_schedule_identity (test_ac1.Fixtures.test_duplicate_schedule_identity) ... ok
+test_empty_logs_not_proof (test_ac1.Fixtures.test_empty_logs_not_proof) ... ok
+test_events_scope_unknown (test_ac1.Fixtures.test_events_scope_unknown) ... ok
+test_first_two_meets_unproven (test_ac1.Fixtures.test_first_two_meets_unproven) ... ok
+test_formal_complete_fail (test_ac1.Fixtures.test_formal_complete_fail) ... ok
+test_formal_complete_pass (test_ac1.Fixtures.test_formal_complete_pass) ... ok
+test_formal_intervention_completeness_unknown (test_ac1.Fixtures.test_formal_intervention_completeness_unknown) ... ok
+test_formal_meets_not_complete (test_ac1.Fixtures.test_formal_meets_not_complete) ... ok
+test_formal_missing_adoption (test_ac1.Fixtures.test_formal_missing_adoption) ... ok
+test_formal_threshold_scope_unadopted (test_ac1.Fixtures.test_formal_threshold_scope_unadopted) ... ok
+test_intervention_effect_unknown (test_ac1.Fixtures.test_intervention_effect_unknown) ... ok
+test_intervention_time_unknown (test_ac1.Fixtures.test_intervention_time_unknown) ... ok
+test_later_non_initial_action (test_ac1.Fixtures.test_later_non_initial_action) ... ok
+test_manual_replay (test_ac1.Fixtures.test_manual_replay) ... ok
+test_revision_not_initial (test_ac1.Fixtures.test_revision_not_initial) ... ok
+test_schedule_incomplete (test_ac1.Fixtures.test_schedule_incomplete) ... ok
+test_unknown_role_not_noninitial (test_ac1.Fixtures.test_unknown_role_not_noninitial) ... ok
+test_upstream_postdeadline (test_ac1.Fixtures.test_upstream_postdeadline) ... ok
+test_validity_unknown (test_ac1.Fixtures.test_validity_unknown) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 0.070s
+
+OK
