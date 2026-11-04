@@ -1,0 +1,12 @@
+{
+ "state":"OPEN",
+ "stdlib_units_three_versions":"6_PASS_EACH",
+ "python3143_existing_suite":"248_PASS_WITH_NETWORK_GUARD",
+ "python312_full_suite":"UNVERIFIED_NO_PINNED_ISOLATED_ENV",
+ "python313_full_suite":"UNVERIFIED_NO_PINNED_ISOLATED_ENV",
+ "actual_hosted_CI":"NOT_EXECUTED",
+ "clean_install":"NOT_EXECUTED_NO_PACKAGES_INSTALLED",
+ "runtime_OpenSSL_SQLite_vs_Production":"UNVERIFIED_NO_PRODUCTION_CONNECTION",
+ "independent_review":"PENDING_AFTER_CERTIFI",
+ "production_GO":false
+}

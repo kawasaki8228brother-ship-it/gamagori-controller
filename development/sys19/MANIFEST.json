@@ -1,0 +1,165 @@
+{
+  "group": "sys19",
+  "task_ids": [
+    "SYS-19"
+  ],
+  "branch": "dev/sys19-compat-20261105-v001",
+  "base": {
+    "sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "tree": "9143c19742b672c93f67228669166a8f86c2f37a",
+    "blob_count": 40
+  },
+  "only_new_files": true,
+  "tests": {
+    "stdlib_units_per_runtime": 6,
+    "runtime_count": 3,
+    "existing_suite_python3143": 248,
+    "full_suite_other_versions": "UNVERIFIED"
+  },
+  "actual_result_source": "results/matrix.json",
+  "development_state": "OPEN",
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "applicable": false,
+  "production_GO": false,
+  "production_applied": false,
+  "CLOSE": false,
+  "self_INDEX_SHA_excluded": true,
+  "files": [
+    {
+      "file": "DEVELOPMENT-STATUS.json",
+      "bytes": 1909,
+      "sha256": "9cca458c8faf2d7b5aeaab4392e47b442c0b1b2bfeb650081c70ed58d7d0a665",
+      "git_blob": "3fb1af896bb9b69faddee4ee513463f19f59520c",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "OPEN.json",
+      "bytes": 489,
+      "sha256": "969b09073893a621b01587c2afeaf65a7d2e9d7debb07555b178c97cdcefb896",
+      "git_blob": "6cf490835309c78fad8bc6115ce54bac86419f5a",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3477,
+      "sha256": "5b0356dab5d425fac4fbdd10b95ca08d2a95a378ab5bba92affa8d4c1668b791",
+      "git_blob": "f527c1d537dbb95b40ff0b201cd4085b2a68e115",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "REFERENCES.json",
+      "bytes": 945,
+      "sha256": "70601d99551af37714d15a0957e433f3403da7460419e428e2e82b81f0b7e801",
+      "git_blob": "edecd7cfe101692624bdd1b07d9b0004bdc3dcd6",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "SOURCE-AND-SCOPE.json",
+      "bytes": 1012,
+      "sha256": "6cd3cbef11e0a7bbb35e8811a39d8dd702770a028bdf92310d7e5b7da4498f1b",
+      "git_blob": "4a8ff220056934ba48613e3a6f60301330542aa4",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "ci-proposal.yml.example",
+      "bytes": 824,
+      "sha256": "d6167242d6f52b60761860ef1e51b4e35c10ce927b38b3e2593534c73cb3e22a",
+      "git_blob": "174fb4dba60d4653f464b8de2c96f8c28e95402d",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "offline_guard.py",
+      "bytes": 266,
+      "sha256": "8224f8a2b74f82d616dd85fed01b992299d04fa0d841989b9152d735fa65de8e",
+      "git_blob": "4b8dedc7a2006b5a0cc12db4885ea31ba809b0e1",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "probe_runtime.py",
+      "bytes": 1357,
+      "sha256": "4b9828d74a7e81bf089494dc4d9876da4c46248193a4f0250e6399f13ec3adf0",
+      "git_blob": "a6c80b0b8480d1acdfb14673f6f5d4f9fec795da",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "requirements.reference.txt",
+      "bytes": 340,
+      "sha256": "dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7",
+      "git_blob": "1761296a6d8c768184aa6372a9ee873bf01a23ba",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "results/existing-suite.redacted.log",
+      "bytes": 724,
+      "sha256": "5b935a3862f2440eaeaa3347439cfa4cf5b90d330528ad3f9b255beeb84bb29e",
+      "git_blob": "c6c338ad7a274b14b5706540030ffcc7645837dc",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "results/matrix.json",
+      "bytes": 9746,
+      "sha256": "bf070392aa3364479465e081058c7076fba6c6fd840aaad97195aa5e3a24608a",
+      "git_blob": "638b9a19770a2fb6681ad4a1d2a760c410a3508b",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "results/probe-cli.json",
+      "bytes": 495,
+      "sha256": "17e4c2eeb1852c967c31913acc0ff4fb6d6bef0f1ccfcb38315fa92480017443",
+      "git_blob": "78a033f8b8ad01e3dc517c945552e3096aa5cd03",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "results/py312-unit.log",
+      "bytes": 871,
+      "sha256": "a289d92dd37086767525cf47105673d9211508819d5ad5582d74a9261404542a",
+      "git_blob": "ce1d15e66b115c3d3387d98cd5e3ab4bdc4cf34f",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "results/py313-unit.log",
+      "bytes": 869,
+      "sha256": "8490ee51ad553d53b8f8919ade096a6297d34586b3dc76e1cb75a6127ebd55bb",
+      "git_blob": "7e44b918e49f2dbefa53564a5103a2e350b62959",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "results/py314-unit.log",
+      "bytes": 870,
+      "sha256": "6e25abb0ae93a2e7c0f3807fd12d8b23310992fe7133e8bfbd22debac56bdc79",
+      "git_blob": "cf757c35b27a1bbe307b383e74efa7d18b2f07e7",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "runtime_check.py",
+      "bytes": 2784,
+      "sha256": "b2cddcc6b4b5820a715dd7db5281d0bec22566c54b64eb9f193c700375c8a941",
+      "git_blob": "8e9b8b35b8d4a1d0ef4bc9251b39e9aaa7165ba2",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "test_runtime_check.py",
+      "bytes": 1589,
+      "sha256": "170b668fa229f62d0590acd62f8dfae1e44415dc3f3f4a29aeb19344c85c426c",
+      "git_blob": "a20ef4c54e4dcc7f6962602d54549b4ec206b92c",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    }
+  ]
+}

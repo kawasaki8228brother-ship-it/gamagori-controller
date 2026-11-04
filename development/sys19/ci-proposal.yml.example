@@ -1,0 +1,23 @@
+# INERT PROPOSAL ONLY. Do not move into .github/workflows without separate approval.
+name: SYS19 proposed compatibility matrix
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.12', '3.14.3']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '${{ matrix.python }}'
+      # Installation is a FUTURE CI proposal, not run by the offline checker.
+      - run: python -m pip install -r development/sys19/requirements.reference.txt
+      - run: python -B -m unittest discover -s development/sys19 -p 'test_*.py'
+      - run: python -m pip check
+      - run: python -m pytest -q -o cache_dir=/tmp/sys19-pytest-cache

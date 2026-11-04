@@ -1,0 +1,14 @@
+ENV {"openssl": "OpenSSL 3.5.7 9 Jun 2026", "os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.13.5", "sqlite": "3.46.1"}
+TRUST REDACTED_LOCAL_TEST_LOG
+ORIGINAL_STDOUT_SHA256 2fad48fc5d5a199d7a9f5b7cd210fe20be33bf0c3074ca90dee27cff9af85e2d
+test_all_diagnostics (test_runtime_check.Tests.test_all_diagnostics) ... ok
+test_complete_and_pip_exclusion (test_runtime_check.Tests.test_complete_and_pip_exclusion) ... ok
+test_duplicate_distribution_not_hidden (test_runtime_check.Tests.test_duplicate_distribution_not_hidden) ... ok
+test_invalid_pins (test_runtime_check.Tests.test_invalid_pins) ... ok
+test_known_vectors (test_runtime_check.Tests.test_known_vectors) ... ok
+test_reference_format_and_type (test_runtime_check.Tests.test_reference_format_and_type) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

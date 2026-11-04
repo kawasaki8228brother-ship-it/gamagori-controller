@@ -1,0 +1,26 @@
+{
+  "base_main_sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+  "dependency_reference_commit": "97640c8c307fed8eaa19f2557f5057ccade18da1",
+  "dependency_reference_is_not_code_integration": true,
+  "main_requirements": {
+    "bytes": 90,
+    "sha256": "125749db489c1885b54524b46ce4ed032896e2cf12d72021a69590e72220febd"
+  },
+  "reference_requirements": {
+    "bytes": 340,
+    "sha256": "dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7",
+    "pin_count": 19
+  },
+  "main_vs_reference_raw_equal": false,
+  "raw_difference_status": "EXPECTED_EXISTING_MAIN_VS_APPROVED_PR_REFERENCE_NOT_APPLIED",
+  "CI_snapshot": {
+    "path": ".github/workflows/c-minimal-review.yml",
+    "bytes": 837,
+    "sha256": "1ff1aa75136db226e0965c4896406a65437f77039fd13b7e1b42cd4403f3f1d9",
+    "python_family": "3.12",
+    "patch_fixed": false,
+    "actual_hosted_run": "NOT_EXECUTED"
+  },
+  "formal_files_modified": false,
+  "production_GO": false
+}
