@@ -1,0 +1,81 @@
+{
+  "kind": "CERTIFI_PLAN_A_TIMEOUT30_EVIDENCE",
+  "date": "2026-11-05",
+  "derived_from_git_commit": "379cc1d696aa0742f932083dbaecdd03fdda00ba",
+  "target_value_seconds": 30,
+  "source_of_value": "Andy screenshot Render Environment UI: HTTP_TI... masked field value 30; baseline STOP !=8; render.yaml key HTTP_TIMEOUT_SECONDS",
+  "I1": "SCREENSHOT_CORROBORATED_KEY_TRUNCATED",
+  "I2": "PARTIAL: Render service events since Sep 21 found Sep 28 AutoDeploy disable only; no evidence env value changed, but full history cannot be proved",
+  "scope": "EVIDENCE_BRANCH_ONLY / NO_PRODUCTION_CHANGE / NO_GO",
+  "other_commands": "G2_A5_v002, G3_backup_v003, G4_environment_v002, G4_SQLite_v002 left intact",
+  "entries": [
+    {
+      "item": "baseline",
+      "original": {
+        "path": "evidence/g2-g4/f1-f2-g3-v003/commands/G4_baseline_v003_F1F2.candidate.txt",
+        "bytes": 30913,
+        "sha256": "ee1ad231ef7b54d75c92a054d9366038d5b05e1073a7335cd683abf8e59afe0b",
+        "payload_bytes": 22426,
+        "payload_sha256": "fa67ce1b870ed8657e23dcd966fa3f96c0fc9ae42e9aa4780089075392bfe35f"
+      },
+      "candidate": {
+        "path": "evidence/certifi-timeout30-planA-20261105-v001/commands/G4_baseline_v004_timeout30.candidate.txt",
+        "bytes": 30917,
+        "sha256": "7157bd6711b8949a1e73ca9dfb35b194bf634955a9ab16add26c407ca16b7b62",
+        "payload_bytes": 22430,
+        "payload_sha256": "f181e22fa50882f81ef0d21f6f583570e20d39db98cb88e268bfa6fd8a140f58",
+        "terminal_token": "CERTIFI_G_END_f181e22fa50882f81ef0d21f6f583570e20d39db98cb88e268bfa6fd8a140f58"
+      },
+      "changes": [
+        {
+          "from": "ssl_handshake_timeout=8.0),timeout=8.0",
+          "to": "ssl_handshake_timeout=30.0),timeout=30.0"
+        },
+        {
+          "from": "kwargs={\"timeout\":8.0",
+          "to": "kwargs={\"timeout\":30.0"
+        },
+        {
+          "from": "if value!=8.0:raise Stop(\"APP_TIMEOUT_DIFFERS_FROM_HQ12\")",
+          "to": "if value!=30.0:raise Stop(\"APP_TIMEOUT_DIFFERS_FROM_HQ12\")"
+        }
+      ],
+      "static_verification": "PASS: base64 roundtrip; exact 3 replace-sites corresponding to 4 constants; reverse diff reproduces original payload; wrapper token/hash/len retied",
+      "status": "UNREVIEWED_CANDIDATE_DO_NOT_EXECUTE"
+    },
+    {
+      "item": "TLS",
+      "original": {
+        "path": "evidence/g2-g4/f1-f2-g3-v003/commands/G4_TLS_v003_F1F2.candidate.txt",
+        "bytes": 31085,
+        "sha256": "1c3a8ff38d7bca7898bf783875b67132edd19ad148934d5c6fff350ff8ac016f",
+        "payload_bytes": 22556,
+        "payload_sha256": "d27195c681955f48f28941b524dfe66878379366b33272880588587672d8cd67"
+      },
+      "candidate": {
+        "path": "evidence/certifi-timeout30-planA-20261105-v001/commands/G4_TLS_v004_timeout30.candidate.txt",
+        "bytes": 31089,
+        "sha256": "e77a2acbf33954984023d1fe3e78ba901f155ca7270b6372f8ecfa1656df4759",
+        "payload_bytes": 22560,
+        "payload_sha256": "c9a250d61f75f0ca47bdf7a828e273935ac855e96ea6139bbe83f5d67d9312e2",
+        "terminal_token": "CERTIFI_G_END_c9a250d61f75f0ca47bdf7a828e273935ac855e96ea6139bbe83f5d67d9312e2"
+      },
+      "changes": [
+        {
+          "from": "ssl_handshake_timeout=8.0),timeout=8.0",
+          "to": "ssl_handshake_timeout=30.0),timeout=30.0"
+        },
+        {
+          "from": "kwargs={\"timeout\":8.0",
+          "to": "kwargs={\"timeout\":30.0"
+        },
+        {
+          "from": "if value!=8.0:raise Stop(\"APP_TIMEOUT_DIFFERS_FROM_HQ12\")",
+          "to": "if value!=30.0:raise Stop(\"APP_TIMEOUT_DIFFERS_FROM_HQ12\")"
+        }
+      ],
+      "static_verification": "PASS: base64 roundtrip; exact 3 replace-sites corresponding to 4 constants; reverse diff reproduces original payload; wrapper token/hash/len retied",
+      "status": "UNREVIEWED_CANDIDATE_DO_NOT_EXECUTE"
+    }
+  ]
+}
