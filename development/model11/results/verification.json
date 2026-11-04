@@ -1,0 +1,70 @@
+{
+  "external_communications": "NOT_IMPLEMENTED_OR_TESTED",
+  "full_demo_cross_runtime_equal": true,
+  "legacy_comparison": "OPEN",
+  "network_test_guard": "socket.connect and socket.create_connection blocked during full tests",
+  "package_absolute_imports": [
+    "__future__",
+    "argparse",
+    "collections",
+    "copy",
+    "datetime",
+    "hashlib",
+    "itertools",
+    "json",
+    "math",
+    "pathlib",
+    "platform",
+    "random",
+    "re",
+    "ssl",
+    "sys"
+  ],
+  "production_go": false,
+  "real_data_used": false,
+  "tests": {
+    "312": {
+      "bytes": 20394,
+      "result": {
+        "errors": 0,
+        "failures": 0,
+        "real_performance": "UNVERIFIED",
+        "scope": "SYNTHETIC_SOFTWARE_ONLY",
+        "skipped": 0,
+        "status": "PASS",
+        "tests_run": 148
+      },
+      "runtime": {
+        "data": "SYNTHETIC_ONLY",
+        "network": "BLOCKED_IN_PROCESS",
+        "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "production_go": false,
+        "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+      },
+      "sha256": "eaf5da834b6577778f5eae76cda3b03c41494220f04dc8b3717b7d107cc65037"
+    },
+    "314": {
+      "bytes": 20393,
+      "result": {
+        "errors": 0,
+        "failures": 0,
+        "real_performance": "UNVERIFIED",
+        "scope": "SYNTHETIC_SOFTWARE_ONLY",
+        "skipped": 0,
+        "status": "PASS",
+        "tests_run": 148
+      },
+      "runtime": {
+        "data": "SYNTHETIC_ONLY",
+        "network": "BLOCKED_IN_PROCESS",
+        "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "production_go": false,
+        "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"
+      },
+      "sha256": "24a481ba4ed06835d2cc3f6c80ca6228945e3b422165ac92cfbc9fd341ff7b07"
+    }
+  },
+  "third_party_dependencies": []
+}

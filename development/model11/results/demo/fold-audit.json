@@ -1,0 +1,2588 @@
+{
+  "classification": "SYNTHETIC_ONLY",
+  "config": {
+    "alphas": [
+      0.0,
+      0.5
+    ],
+    "candidates": [
+      "hierarchical",
+      "contextual"
+    ],
+    "epochs": 20,
+    "evaluation": {
+      "day_bootstrap": {
+        "confidence": 0.95,
+        "enabled": true,
+        "min_clusters": 5,
+        "preregistration_reference": "PROPOSED_SYNTHETIC_SOFTWARE_DEMO_NOT_REAL_CONFIRMATORY",
+        "replicates": 500,
+        "seed": 20261105
+      }
+    },
+    "l2": 0.01,
+    "learning_rate": 0.3,
+    "market_weights": [
+      0.0,
+      0.25,
+      0.5
+    ],
+    "selection": {},
+    "selection_days": 4,
+    "temperatures": [
+      0.8,
+      1.0,
+      1.2
+    ],
+    "test_days": 4,
+    "train_days": 12
+  },
+  "config_status": "PROPOSED",
+  "dataset_sha256": "7213e3bfd50197c147271fec39c6e1e88c0569deb20b3376c5b06a17720d28cf",
+  "folds": [
+    {
+      "candidate_selection": {
+        "contextual": {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.832130836472606,
+          "temperature": 0.8
+        },
+        "hierarchical": {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.702547683974685,
+          "temperature": 0.8
+        }
+      },
+      "fold": 1,
+      "forecast_hashes": [
+        "f8afa21870c8115d7304267a088cf98758f9fbc98d018f68254a00369df99754",
+        "d583f5662beed69fb02e90fed5e466f48b9445f4f7934d88549e67aee9b5d4b0",
+        "76c1752581e46c2088e2839e2343d87a8bac688bbe10d54b7a39af02e30b3cec",
+        "6097297237e3c1b222c1a7cead7e300d985b9a28f1acd4b82ad29b13e4f2e1f6",
+        "51c3e019194a043bd219a8a46ea89dbc734971fac538609ecdf04bada28b6529",
+        "54d81690cbf68fa9b3d7cccc89967dddaf5b939fa8bbcb99bfd167ced9dbe64f",
+        "d957e447b86e80aef3530c166f04ef7b2c1bac59780471ff8d103611642b055b",
+        "9d3ac556a09ebf2194505e77c135924cd47bd6ce2eeaab42382aef19b146e1f3"
+      ],
+      "model": {
+        "candidate_id": "hierarchical",
+        "config": {
+          "alpha": 0.5,
+          "epochs": 20,
+          "l2": 0.01,
+          "learning_rate": 0.3,
+          "prior_strength": 2.0
+        },
+        "config_status": "PROPOSED",
+        "course_counts": [
+          [
+            12,
+            2,
+            2,
+            5,
+            3,
+            0
+          ],
+          [
+            1,
+            6,
+            6,
+            4,
+            3,
+            4
+          ],
+          [
+            4,
+            5,
+            9,
+            1,
+            2,
+            3
+          ]
+        ],
+        "feature_names": [
+          "st",
+          "turn",
+          "motor",
+          "ability",
+          "exhibition"
+        ],
+        "fit_status": "FITTED_RESEARCH_NOT_REAL_DATA_VALIDATED",
+        "performance_improvement": "UNVERIFIED",
+        "training_count": 24,
+        "training_ids_sha256": "bc7282bf80778fceacf430b13223414e8451079160ebeeacb373ddca65a6857d",
+        "training_max_available_at": "2099-01-12T13:40:00+09:00",
+        "training_max_prediction_at": "2099-01-12T13:25:00+09:00",
+        "training_time_provenance": "UNVERIFIED_SELF_REPORTED_INPUT",
+        "version": "model11-research-0.1",
+        "weights": [
+          [
+            1.1201833033522666,
+            -0.4729569537291125,
+            0.318307719980257,
+            0.43132369918612007,
+            0.9423121885569641
+          ],
+          [
+            -0.1189021853837992,
+            0.7526579998977817,
+            0.8829037551788859,
+            0.6010958277710625,
+            0.4654148839137877
+          ],
+          [
+            -0.10454278369044631,
+            -0.03944693186399998,
+            0.4298331056541631,
+            0.44463273930369873,
+            0.32558191471430314
+          ]
+        ]
+      },
+      "model_sha256": "8fbd40456bb4a53518d78ddc1e3593a167e55c4543715d1637f7c1342e435e60",
+      "selected": {
+        "alpha": 0.5,
+        "candidate": "hierarchical",
+        "market_weight": 0.0,
+        "selection_mean_log_loss": 3.702547683974685,
+        "temperature": 0.8
+      },
+      "selection_days": [
+        "2099-01-13",
+        "2099-01-14",
+        "2099-01-15",
+        "2099-01-16"
+      ],
+      "selection_ids": [
+        "20990113_GAMAGORI_1R",
+        "20990113_GAMAGORI_2R",
+        "20990114_GAMAGORI_1R",
+        "20990114_GAMAGORI_2R",
+        "20990115_GAMAGORI_1R",
+        "20990115_GAMAGORI_2R",
+        "20990116_GAMAGORI_1R",
+        "20990116_GAMAGORI_2R"
+      ],
+      "selection_label_cutoff": "2099-01-17T12:55:00+09:00",
+      "selection_scores": [
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.7796620641786287,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.807766246514854,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.885180721532584,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.8720527382513557,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.882654768475095,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.9402009379234153,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.959708509276075,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9474995321534734,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.9836152743634528,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.702547683974685,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.7497555307876587,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.845835834986028,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.782056379288726,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.8189301398480517,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.9003279001839477,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.8664472259036664,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.8835587697623226,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.945319302909121,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.9585872707526684,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.885347855575749,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.896173787083981,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.9811674365401024,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9244318499889315,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.9397409807942894,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.032538826433026,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9714546029401423,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.978238658715536,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.889553263046031,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.832130836472606,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.8595033544646324,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.8998311124342853,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.8652881096435516,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.902200414720551,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.9467139435768006,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9113593184760482,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.941897742344628,
+          "temperature": 1.2
+        }
+      ],
+      "test_days": [
+        "2099-01-17",
+        "2099-01-18",
+        "2099-01-19",
+        "2099-01-20"
+      ],
+      "test_ids": [
+        "20990117_GAMAGORI_1R",
+        "20990117_GAMAGORI_2R",
+        "20990118_GAMAGORI_1R",
+        "20990118_GAMAGORI_2R",
+        "20990119_GAMAGORI_1R",
+        "20990119_GAMAGORI_2R",
+        "20990120_GAMAGORI_1R",
+        "20990120_GAMAGORI_2R"
+      ],
+      "train_days": [
+        "2099-01-01",
+        "2099-01-02",
+        "2099-01-03",
+        "2099-01-04",
+        "2099-01-05",
+        "2099-01-06",
+        "2099-01-07",
+        "2099-01-08",
+        "2099-01-09",
+        "2099-01-10",
+        "2099-01-11",
+        "2099-01-12"
+      ],
+      "train_ids": [
+        "20990101_GAMAGORI_1R",
+        "20990101_GAMAGORI_2R",
+        "20990102_GAMAGORI_1R",
+        "20990102_GAMAGORI_2R",
+        "20990103_GAMAGORI_1R",
+        "20990103_GAMAGORI_2R",
+        "20990104_GAMAGORI_1R",
+        "20990104_GAMAGORI_2R",
+        "20990105_GAMAGORI_1R",
+        "20990105_GAMAGORI_2R",
+        "20990106_GAMAGORI_1R",
+        "20990106_GAMAGORI_2R",
+        "20990107_GAMAGORI_1R",
+        "20990107_GAMAGORI_2R",
+        "20990108_GAMAGORI_1R",
+        "20990108_GAMAGORI_2R",
+        "20990109_GAMAGORI_1R",
+        "20990109_GAMAGORI_2R",
+        "20990110_GAMAGORI_1R",
+        "20990110_GAMAGORI_2R",
+        "20990111_GAMAGORI_1R",
+        "20990111_GAMAGORI_2R",
+        "20990112_GAMAGORI_1R",
+        "20990112_GAMAGORI_2R"
+      ],
+      "train_label_cutoff": "2099-01-13T12:55:00+09:00"
+    },
+    {
+      "candidate_selection": {
+        "contextual": {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.026950844371342,
+          "temperature": 1.0
+        },
+        "hierarchical": {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.271419706834983,
+          "temperature": 1.2
+        }
+      },
+      "fold": 2,
+      "forecast_hashes": [
+        "679e2951db105b4eea251de769b2a481c54dac2e2056b143774e12a5de599283",
+        "025ac4257c310cc605618a75e316601672f1481a9c7af7197b5edeeca41b9666",
+        "0c56695ee0f4425138bea36baa6b753e261c11753eac4253477a88b8ce5e5a31",
+        "406eddece20b0df937ea991e5278f804503cd314923270330b891b373822c6fa",
+        "4efe2623f6c5e844a329def2d414fa2f2c54e54448699b8f12f3ac496dc99a47",
+        "64e48f80559f571a5d20496bcacfb45cd521c537687999d669c4fb572eab6f7f",
+        "1b590cd0fb4c9c0d339057a0c55ce4214cfbe03466e5a3c6cae9ac9552d7b25d",
+        "773be726a7c3e7e3e757071c92c4dc36ac9a1bbaf52b66567ec4c9ea11a6bf96"
+      ],
+      "model": {
+        "candidate_id": "contextual",
+        "config": {
+          "alpha": 0.0,
+          "epochs": 20,
+          "l2": 0.01,
+          "learning_rate": 0.3,
+          "prior_strength": 2.0
+        },
+        "config_status": "PROPOSED",
+        "course_counts": [
+          [
+            17,
+            2,
+            3,
+            5,
+            3,
+            2
+          ],
+          [
+            1,
+            10,
+            10,
+            4,
+            3,
+            4
+          ],
+          [
+            4,
+            5,
+            9,
+            4,
+            5,
+            5
+          ]
+        ],
+        "feature_names": [
+          "st",
+          "turn",
+          "motor",
+          "ability",
+          "exhibition",
+          "st*first.st",
+          "st*first.turn",
+          "st*first.motor",
+          "st*first.ability",
+          "st*first.exhibition",
+          "turn*first.st",
+          "turn*first.turn",
+          "turn*first.motor",
+          "turn*first.ability",
+          "turn*first.exhibition",
+          "motor*first.st",
+          "motor*first.turn",
+          "motor*first.motor",
+          "motor*first.ability",
+          "motor*first.exhibition",
+          "ability*first.st",
+          "ability*first.turn",
+          "ability*first.motor",
+          "ability*first.ability",
+          "ability*first.exhibition",
+          "exhibition*first.st",
+          "exhibition*first.turn",
+          "exhibition*first.motor",
+          "exhibition*first.ability",
+          "exhibition*first.exhibition",
+          "st*second.st",
+          "st*second.turn",
+          "st*second.motor",
+          "st*second.ability",
+          "st*second.exhibition",
+          "turn*second.st",
+          "turn*second.turn",
+          "turn*second.motor",
+          "turn*second.ability",
+          "turn*second.exhibition",
+          "motor*second.st",
+          "motor*second.turn",
+          "motor*second.motor",
+          "motor*second.ability",
+          "motor*second.exhibition",
+          "ability*second.st",
+          "ability*second.turn",
+          "ability*second.motor",
+          "ability*second.ability",
+          "ability*second.exhibition",
+          "exhibition*second.st",
+          "exhibition*second.turn",
+          "exhibition*second.motor",
+          "exhibition*second.ability",
+          "exhibition*second.exhibition"
+        ],
+        "fit_status": "FITTED_RESEARCH_NOT_REAL_DATA_VALIDATED",
+        "performance_improvement": "UNVERIFIED",
+        "training_count": 32,
+        "training_ids_sha256": "4f7c8ddffbf2cf02f2d94812c0e438314a3210f1cd72ca768bf0efa3d7af86f0",
+        "training_max_available_at": "2099-01-16T13:40:00+09:00",
+        "training_max_prediction_at": "2099-01-16T13:25:00+09:00",
+        "training_time_provenance": "UNVERIFIED_SELF_REPORTED_INPUT",
+        "version": "model11-research-0.1",
+        "weights": [
+          [
+            1.349922515619695,
+            -0.3989292252997955,
+            0.3420153574397671,
+            0.3323918172696427,
+            0.8948940536927764,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.2589288573942628,
+            0.501191108208905,
+            0.7180810452125229,
+            0.4516026459032397,
+            0.26067787436874196,
+            0.08175616887941924,
+            0.3026090972597242,
+            -0.00767170790304236,
+            0.010236405822362168,
+            -0.2813601767266778,
+            0.19272273942785595,
+            0.030522907345589455,
+            0.22949529611552238,
+            0.49298718279408443,
+            0.3550498068506154,
+            0.3962471547990021,
+            -0.05743876236794125,
+            0.10512289160590525,
+            0.08850519835170562,
+            0.08261518801029714,
+            0.13639392474206227,
+            0.5710737521524216,
+            0.02019583943023073,
+            0.6336221808543617,
+            0.26212453837178895,
+            0.2087620263761802,
+            -0.08088761472524805,
+            0.04145125984362347,
+            -0.3838673789875704,
+            -0.04599209072249576,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.03773059814256299,
+            -0.157998018857453,
+            0.25119612547471387,
+            0.3889204839285299,
+            0.25147136570053874,
+            -0.1627970615302443,
+            -0.11307073185176585,
+            0.20132871913300368,
+            -0.04423409608905885,
+            0.11009053228555253,
+            -0.1862286019763246,
+            -0.3420361943129089,
+            0.004741401401713928,
+            0.045131929102896845,
+            -0.10520061686796538,
+            0.18450268420198884,
+            0.12344877771888565,
+            -0.2332948027379079,
+            -0.41831098211795,
+            -0.0031499879464645616,
+            0.33139270092880724,
+            -0.233987259590274,
+            0.002663784644412422,
+            0.07072350321054363,
+            -0.19492823802068826,
+            0.2024597731985422,
+            0.1175870538985954,
+            0.18086739604294194,
+            0.37379161668772,
+            -0.06300939548855512,
+            -0.07933533988190603,
+            -0.07514771151068712,
+            -0.47266593771914267,
+            0.14662517853448384,
+            -0.04529514640865313,
+            0.13237516390427165,
+            -0.10782846162636396,
+            0.19024122552451422,
+            -0.16611043120039734,
+            -0.28027322348090183,
+            -0.15413782225490444,
+            -0.1499508787294142,
+            0.5214605672008134,
+            -0.03416587947326204,
+            0.20960262335592594,
+            -0.04827506842463321,
+            0.15379613135806913,
+            -0.014102574334513259,
+            -0.3379887385618712,
+            0.15479481176641002,
+            -0.06359288012400846,
+            0.05159083185129244,
+            0.08664148965686864,
+            0.09067436256264516,
+            -0.3698491761546662
+          ]
+        ]
+      },
+      "model_sha256": "48d9d47a8e1956d151fe8bfe03eca36d7181209a7ecbf423e6e7f6e1b8078c34",
+      "selected": {
+        "alpha": 0.0,
+        "candidate": "contextual",
+        "market_weight": 0.5,
+        "selection_mean_log_loss": 4.026950844371342,
+        "temperature": 1.0
+      },
+      "selection_days": [
+        "2099-01-17",
+        "2099-01-18",
+        "2099-01-19",
+        "2099-01-20"
+      ],
+      "selection_ids": [
+        "20990117_GAMAGORI_1R",
+        "20990117_GAMAGORI_2R",
+        "20990118_GAMAGORI_1R",
+        "20990118_GAMAGORI_2R",
+        "20990119_GAMAGORI_1R",
+        "20990119_GAMAGORI_2R",
+        "20990120_GAMAGORI_1R",
+        "20990120_GAMAGORI_2R"
+      ],
+      "selection_label_cutoff": "2099-01-21T12:55:00+09:00",
+      "selection_scores": [
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.933228197249084,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.621558348063597,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.382787919393872,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.763426659483762,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.501403181155952,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.310628592628643,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.6819494329449585,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.440278371139614,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.271419706834983,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.9219098166465916,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.625590178407087,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.395135191788058,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.747380694060589,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.500799239572471,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.3189704663591275,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.663468073558788,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.437071704866499,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.277332038241323,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.359313164601978,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.15399520780691,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.044851542010298,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.260902941049504,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.1000256845943595,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.026950844371342,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.239072939944376,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.09033405708481,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.027509121309112,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.344530214064567,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.162155918120727,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.063110542203492,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.246785995307637,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.104922614484411,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.040589242145147,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.224235544081019,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.092568634496036,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.037983406338412,
+          "temperature": 1.2
+        }
+      ],
+      "test_days": [
+        "2099-01-21",
+        "2099-01-22",
+        "2099-01-23",
+        "2099-01-24"
+      ],
+      "test_ids": [
+        "20990121_GAMAGORI_1R",
+        "20990121_GAMAGORI_2R",
+        "20990122_GAMAGORI_1R",
+        "20990122_GAMAGORI_2R",
+        "20990123_GAMAGORI_1R",
+        "20990123_GAMAGORI_2R",
+        "20990124_GAMAGORI_1R",
+        "20990124_GAMAGORI_2R"
+      ],
+      "train_days": [
+        "2099-01-01",
+        "2099-01-02",
+        "2099-01-03",
+        "2099-01-04",
+        "2099-01-05",
+        "2099-01-06",
+        "2099-01-07",
+        "2099-01-08",
+        "2099-01-09",
+        "2099-01-10",
+        "2099-01-11",
+        "2099-01-12",
+        "2099-01-13",
+        "2099-01-14",
+        "2099-01-15",
+        "2099-01-16"
+      ],
+      "train_ids": [
+        "20990101_GAMAGORI_1R",
+        "20990101_GAMAGORI_2R",
+        "20990102_GAMAGORI_1R",
+        "20990102_GAMAGORI_2R",
+        "20990103_GAMAGORI_1R",
+        "20990103_GAMAGORI_2R",
+        "20990104_GAMAGORI_1R",
+        "20990104_GAMAGORI_2R",
+        "20990105_GAMAGORI_1R",
+        "20990105_GAMAGORI_2R",
+        "20990106_GAMAGORI_1R",
+        "20990106_GAMAGORI_2R",
+        "20990107_GAMAGORI_1R",
+        "20990107_GAMAGORI_2R",
+        "20990108_GAMAGORI_1R",
+        "20990108_GAMAGORI_2R",
+        "20990109_GAMAGORI_1R",
+        "20990109_GAMAGORI_2R",
+        "20990110_GAMAGORI_1R",
+        "20990110_GAMAGORI_2R",
+        "20990111_GAMAGORI_1R",
+        "20990111_GAMAGORI_2R",
+        "20990112_GAMAGORI_1R",
+        "20990112_GAMAGORI_2R",
+        "20990113_GAMAGORI_1R",
+        "20990113_GAMAGORI_2R",
+        "20990114_GAMAGORI_1R",
+        "20990114_GAMAGORI_2R",
+        "20990115_GAMAGORI_1R",
+        "20990115_GAMAGORI_2R",
+        "20990116_GAMAGORI_1R",
+        "20990116_GAMAGORI_2R"
+      ],
+      "train_label_cutoff": "2099-01-17T12:55:00+09:00"
+    },
+    {
+      "candidate_selection": {
+        "contextual": {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.251440302288267,
+          "temperature": 1.2
+        },
+        "hierarchical": {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.126905353508898,
+          "temperature": 1.0
+        }
+      },
+      "fold": 3,
+      "forecast_hashes": [
+        "b7aaed726906ec2fa2f8989cc6ef07a6d5f1c47e170c26fafa23fe9120d67d8c",
+        "3d0228db6d1703cebd5cb1e4328e4cd32100b6ef3ce16877e3d6425dfc2c58ae",
+        "76ae245ca56b0f7a4e5e40516c17fc6fe633386c21a0eff23ca6b9ee1d1a0d68",
+        "8b677ea5ce9be555d8d8e5435a8a34d14f57eef3c957506b85520433eef47b15",
+        "a4c41681af718f7c331b76d44fc6d6133284b18546ff9abb3c9bfdfb0822c478",
+        "faebf8532035f19692af3ae896a6ef405d205fd71d6460b49001d9ec1ee299da",
+        "6678c7759cf597944b23e61974c4900efc7849201dc1f4a4edb8c004d3681f9f",
+        "b9c05735d037aa7ab82b285179f27dee5a9356007812dd0df876db13282b99c5"
+      ],
+      "model": {
+        "candidate_id": "hierarchical",
+        "config": {
+          "alpha": 0.0,
+          "epochs": 20,
+          "l2": 0.01,
+          "learning_rate": 0.3,
+          "prior_strength": 2.0
+        },
+        "config_status": "PROPOSED",
+        "course_counts": [
+          [
+            20,
+            4,
+            5,
+            6,
+            3,
+            2
+          ],
+          [
+            2,
+            11,
+            11,
+            7,
+            4,
+            5
+          ],
+          [
+            7,
+            5,
+            9,
+            6,
+            7,
+            6
+          ]
+        ],
+        "feature_names": [
+          "st",
+          "turn",
+          "motor",
+          "ability",
+          "exhibition"
+        ],
+        "fit_status": "FITTED_RESEARCH_NOT_REAL_DATA_VALIDATED",
+        "performance_improvement": "UNVERIFIED",
+        "training_count": 40,
+        "training_ids_sha256": "b5c8d3b121093754663e6aec0bb8548f96578376e746c690a6696d5d6c2456d4",
+        "training_max_available_at": "2099-01-20T13:40:00+09:00",
+        "training_max_prediction_at": "2099-01-20T13:25:00+09:00",
+        "training_time_provenance": "UNVERIFIED_SELF_REPORTED_INPUT",
+        "version": "model11-research-0.1",
+        "weights": [
+          [
+            1.1550885043327963,
+            -0.21916865721716286,
+            0.2577547272234721,
+            0.43517957376059313,
+            0.8540544292984409
+          ],
+          [
+            -0.21065657848401773,
+            0.6975573672530184,
+            0.7219151952102025,
+            0.48355764356365427,
+            0.2003810585851984
+          ],
+          [
+            -0.09530558564274344,
+            0.014053769312406431,
+            0.3835701934305838,
+            0.4401586953657158,
+            0.12967896885487223
+          ]
+        ]
+      },
+      "model_sha256": "6cd6df9731b313442684505a0878690082955fbb803d005a7f5995769498acf7",
+      "selected": {
+        "alpha": 0.0,
+        "candidate": "hierarchical",
+        "market_weight": 0.5,
+        "selection_mean_log_loss": 4.126905353508898,
+        "temperature": 1.0
+      },
+      "selection_days": [
+        "2099-01-21",
+        "2099-01-22",
+        "2099-01-23",
+        "2099-01-24"
+      ],
+      "selection_ids": [
+        "20990121_GAMAGORI_1R",
+        "20990121_GAMAGORI_2R",
+        "20990122_GAMAGORI_1R",
+        "20990122_GAMAGORI_2R",
+        "20990123_GAMAGORI_1R",
+        "20990123_GAMAGORI_2R",
+        "20990124_GAMAGORI_1R",
+        "20990124_GAMAGORI_2R"
+      ],
+      "selection_label_cutoff": "2099-01-25T12:55:00+09:00",
+      "selection_scores": [
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.406702502370362,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.243670248029497,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.129197848106453,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.381048136944361,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.2318022938623505,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.126905353508898,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.3881063363135695,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.237709943788181,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.131599905764137,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.408575945995524,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.250168943018071,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.137272694987637,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.364803156140564,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.225932149337764,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.1279815526051,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.363347271916667,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.226079074927443,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.129330628341665,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.950754079596968,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.5989923492654015,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.331219657749171,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.7814399326801365,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.495495227920964,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.279017598995719,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.702119741430547,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.445892224144782,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.253025616109863,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.950224925818024,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.606623783664677,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.340927073673113,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.766251064860021,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.49125992293328,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.281200284354986,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.678948536094935,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.435616331554401,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 4.251440302288267,
+          "temperature": 1.2
+        }
+      ],
+      "test_days": [
+        "2099-01-25",
+        "2099-01-26",
+        "2099-01-27",
+        "2099-01-28"
+      ],
+      "test_ids": [
+        "20990125_GAMAGORI_1R",
+        "20990125_GAMAGORI_2R",
+        "20990126_GAMAGORI_1R",
+        "20990126_GAMAGORI_2R",
+        "20990127_GAMAGORI_1R",
+        "20990127_GAMAGORI_2R",
+        "20990128_GAMAGORI_1R",
+        "20990128_GAMAGORI_2R"
+      ],
+      "train_days": [
+        "2099-01-01",
+        "2099-01-02",
+        "2099-01-03",
+        "2099-01-04",
+        "2099-01-05",
+        "2099-01-06",
+        "2099-01-07",
+        "2099-01-08",
+        "2099-01-09",
+        "2099-01-10",
+        "2099-01-11",
+        "2099-01-12",
+        "2099-01-13",
+        "2099-01-14",
+        "2099-01-15",
+        "2099-01-16",
+        "2099-01-17",
+        "2099-01-18",
+        "2099-01-19",
+        "2099-01-20"
+      ],
+      "train_ids": [
+        "20990101_GAMAGORI_1R",
+        "20990101_GAMAGORI_2R",
+        "20990102_GAMAGORI_1R",
+        "20990102_GAMAGORI_2R",
+        "20990103_GAMAGORI_1R",
+        "20990103_GAMAGORI_2R",
+        "20990104_GAMAGORI_1R",
+        "20990104_GAMAGORI_2R",
+        "20990105_GAMAGORI_1R",
+        "20990105_GAMAGORI_2R",
+        "20990106_GAMAGORI_1R",
+        "20990106_GAMAGORI_2R",
+        "20990107_GAMAGORI_1R",
+        "20990107_GAMAGORI_2R",
+        "20990108_GAMAGORI_1R",
+        "20990108_GAMAGORI_2R",
+        "20990109_GAMAGORI_1R",
+        "20990109_GAMAGORI_2R",
+        "20990110_GAMAGORI_1R",
+        "20990110_GAMAGORI_2R",
+        "20990111_GAMAGORI_1R",
+        "20990111_GAMAGORI_2R",
+        "20990112_GAMAGORI_1R",
+        "20990112_GAMAGORI_2R",
+        "20990113_GAMAGORI_1R",
+        "20990113_GAMAGORI_2R",
+        "20990114_GAMAGORI_1R",
+        "20990114_GAMAGORI_2R",
+        "20990115_GAMAGORI_1R",
+        "20990115_GAMAGORI_2R",
+        "20990116_GAMAGORI_1R",
+        "20990116_GAMAGORI_2R",
+        "20990117_GAMAGORI_1R",
+        "20990117_GAMAGORI_2R",
+        "20990118_GAMAGORI_1R",
+        "20990118_GAMAGORI_2R",
+        "20990119_GAMAGORI_1R",
+        "20990119_GAMAGORI_2R",
+        "20990120_GAMAGORI_1R",
+        "20990120_GAMAGORI_2R"
+      ],
+      "train_label_cutoff": "2099-01-21T12:55:00+09:00"
+    },
+    {
+      "candidate_selection": {
+        "contextual": {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.748526847734215,
+          "temperature": 1.0
+        },
+        "hierarchical": {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.713209928752124,
+          "temperature": 0.8
+        }
+      },
+      "fold": 4,
+      "forecast_hashes": [
+        "29c7dc59d6b85e139103b40fe659cb36a8cfe6e254ebc261ecd35acf0617244a",
+        "8beb72e752404cd75f5218eebb28566f4442956748073a9e81abc5ecc415e98b",
+        "79eb09a9d9e73c1a6ffcd14831be432065502c978ca1a3c32d5f287201af7d16",
+        "37d14b4cc9de0c2ecc92df44fcd7b9432f80a86d9191c2a13623746628a56c22",
+        "d50340620e54317bac699fe9a55724c841ec55c0311ef018c20ab4b38e8c1a93",
+        "8e71469ae4d2b5594a5653e109fd64a7c162974a4e8801b247638edcd726dbb3",
+        "15bcc9a00769386f6c17949070d59762d19978ecb4658d8ad567b9f6a9f4df3e",
+        "c58ff8e57958575f44334c3457485fba57efeee07beb6cfb6b75bd6758bccfe2"
+      ],
+      "model": {
+        "candidate_id": "hierarchical",
+        "config": {
+          "alpha": 0.0,
+          "epochs": 20,
+          "l2": 0.01,
+          "learning_rate": 0.3,
+          "prior_strength": 2.0
+        },
+        "config_status": "PROPOSED",
+        "course_counts": [
+          [
+            22,
+            6,
+            6,
+            7,
+            4,
+            3
+          ],
+          [
+            2,
+            13,
+            12,
+            8,
+            6,
+            7
+          ],
+          [
+            7,
+            6,
+            10,
+            6,
+            11,
+            8
+          ]
+        ],
+        "feature_names": [
+          "st",
+          "turn",
+          "motor",
+          "ability",
+          "exhibition"
+        ],
+        "fit_status": "FITTED_RESEARCH_NOT_REAL_DATA_VALIDATED",
+        "performance_improvement": "UNVERIFIED",
+        "training_count": 48,
+        "training_ids_sha256": "fea85d303689107ba91bc224c44b9316e5979a1d7df57912a93023821e2369d4",
+        "training_max_available_at": "2099-01-24T13:40:00+09:00",
+        "training_max_prediction_at": "2099-01-24T13:25:00+09:00",
+        "training_time_provenance": "UNVERIFIED_SELF_REPORTED_INPUT",
+        "version": "model11-research-0.1",
+        "weights": [
+          [
+            1.1494461580817152,
+            -0.2583388879255688,
+            0.34603651197584984,
+            0.36118485006248346,
+            0.6723234058376453
+          ],
+          [
+            -0.010590663903040004,
+            0.8152686950534593,
+            0.6685381182625051,
+            0.6339391729908448,
+            0.27108224373642675
+          ],
+          [
+            -0.23445240469981043,
+            0.17136011403310739,
+            0.20852421558047682,
+            0.30703488943261403,
+            0.031178721734414078
+          ]
+        ]
+      },
+      "model_sha256": "759f52b1fa9e68f79e173a1d0cf9a6f9c85edac330201ded6729243ba47d5e8b",
+      "selected": {
+        "alpha": 0.0,
+        "candidate": "hierarchical",
+        "market_weight": 0.5,
+        "selection_mean_log_loss": 3.713209928752124,
+        "temperature": 0.8
+      },
+      "selection_days": [
+        "2099-01-25",
+        "2099-01-26",
+        "2099-01-27",
+        "2099-01-28"
+      ],
+      "selection_ids": [
+        "20990125_GAMAGORI_1R",
+        "20990125_GAMAGORI_2R",
+        "20990126_GAMAGORI_1R",
+        "20990126_GAMAGORI_2R",
+        "20990127_GAMAGORI_1R",
+        "20990127_GAMAGORI_2R",
+        "20990128_GAMAGORI_1R",
+        "20990128_GAMAGORI_2R"
+      ],
+      "selection_label_cutoff": "2099-01-29T12:55:00+09:00",
+      "selection_scores": [
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.15963510335396,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9140942761723885,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.713209928752124,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.172105526720068,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.923737370766464,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.721268813164831,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.207158266592798,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9452561052678616,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.7333368106784937,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.196652202149362,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.941416157792397,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.733255919414481,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.184552227689256,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9360417888735855,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.733152955765622,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.206513602068234,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.949596739868744,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.740757757431983,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.34328103994365,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.01804959734876,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.758161481808453,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.2884746933204685,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.988627074106224,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.748526847734215,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.287206091340104,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9888659308328656,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.751009161087432,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.37893040219478,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.045662462019718,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.7785030458900573,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.301115887173804,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.001575134088338,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.7605585860935324,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.28703814546625,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9937838040405627,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.758421357071295,
+          "temperature": 1.2
+        }
+      ],
+      "test_days": [
+        "2099-01-29",
+        "2099-01-30",
+        "2099-01-31",
+        "2099-02-01"
+      ],
+      "test_ids": [
+        "20990129_GAMAGORI_1R",
+        "20990129_GAMAGORI_2R",
+        "20990130_GAMAGORI_1R",
+        "20990130_GAMAGORI_2R",
+        "20990131_GAMAGORI_1R",
+        "20990131_GAMAGORI_2R",
+        "20990201_GAMAGORI_1R",
+        "20990201_GAMAGORI_2R"
+      ],
+      "train_days": [
+        "2099-01-01",
+        "2099-01-02",
+        "2099-01-03",
+        "2099-01-04",
+        "2099-01-05",
+        "2099-01-06",
+        "2099-01-07",
+        "2099-01-08",
+        "2099-01-09",
+        "2099-01-10",
+        "2099-01-11",
+        "2099-01-12",
+        "2099-01-13",
+        "2099-01-14",
+        "2099-01-15",
+        "2099-01-16",
+        "2099-01-17",
+        "2099-01-18",
+        "2099-01-19",
+        "2099-01-20",
+        "2099-01-21",
+        "2099-01-22",
+        "2099-01-23",
+        "2099-01-24"
+      ],
+      "train_ids": [
+        "20990101_GAMAGORI_1R",
+        "20990101_GAMAGORI_2R",
+        "20990102_GAMAGORI_1R",
+        "20990102_GAMAGORI_2R",
+        "20990103_GAMAGORI_1R",
+        "20990103_GAMAGORI_2R",
+        "20990104_GAMAGORI_1R",
+        "20990104_GAMAGORI_2R",
+        "20990105_GAMAGORI_1R",
+        "20990105_GAMAGORI_2R",
+        "20990106_GAMAGORI_1R",
+        "20990106_GAMAGORI_2R",
+        "20990107_GAMAGORI_1R",
+        "20990107_GAMAGORI_2R",
+        "20990108_GAMAGORI_1R",
+        "20990108_GAMAGORI_2R",
+        "20990109_GAMAGORI_1R",
+        "20990109_GAMAGORI_2R",
+        "20990110_GAMAGORI_1R",
+        "20990110_GAMAGORI_2R",
+        "20990111_GAMAGORI_1R",
+        "20990111_GAMAGORI_2R",
+        "20990112_GAMAGORI_1R",
+        "20990112_GAMAGORI_2R",
+        "20990113_GAMAGORI_1R",
+        "20990113_GAMAGORI_2R",
+        "20990114_GAMAGORI_1R",
+        "20990114_GAMAGORI_2R",
+        "20990115_GAMAGORI_1R",
+        "20990115_GAMAGORI_2R",
+        "20990116_GAMAGORI_1R",
+        "20990116_GAMAGORI_2R",
+        "20990117_GAMAGORI_1R",
+        "20990117_GAMAGORI_2R",
+        "20990118_GAMAGORI_1R",
+        "20990118_GAMAGORI_2R",
+        "20990119_GAMAGORI_1R",
+        "20990119_GAMAGORI_2R",
+        "20990120_GAMAGORI_1R",
+        "20990120_GAMAGORI_2R",
+        "20990121_GAMAGORI_1R",
+        "20990121_GAMAGORI_2R",
+        "20990122_GAMAGORI_1R",
+        "20990122_GAMAGORI_2R",
+        "20990123_GAMAGORI_1R",
+        "20990123_GAMAGORI_2R",
+        "20990124_GAMAGORI_1R",
+        "20990124_GAMAGORI_2R"
+      ],
+      "train_label_cutoff": "2099-01-25T12:55:00+09:00"
+    },
+    {
+      "candidate_selection": {
+        "contextual": {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.8652971360486426,
+          "temperature": 0.8
+        },
+        "hierarchical": {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.8166333755761035,
+          "temperature": 0.8
+        }
+      },
+      "fold": 5,
+      "forecast_hashes": [
+        "809fbb6ef7702f7446f0fed86b6ee4b91268e0408ef47efcf72fa04e4a35fbf9",
+        "d27424035f846456c171e4b1ce5af7c8c291e3312563f9b9e1097dd6afd8a28d",
+        "e35f8c81b1f521e0264d555f9233f5a716a077a9fc53ed0d68e3b15dc896ae1a",
+        "6ce8247c3448b05ab1569fab2a00f9adf8f20bdb5c595bb41bbc8c1f24a77706",
+        "887d68c12e65b5e6915afea7702dbaa0fe263460d7470da111249b19d90c393f",
+        "896c6f1192680f09ba95021bb9e45072abbd539cc9a8e951008c96075108d462",
+        "616aafd7ac6901066611f947dfcbd6546a835a859384ca4ad8c7ba992943682b",
+        "41749aad782f1891c6dcb87a296e6648f68bca6155b4f197b76b52f80f390f1c"
+      ],
+      "model": {
+        "candidate_id": "hierarchical",
+        "config": {
+          "alpha": 0.0,
+          "epochs": 20,
+          "l2": 0.01,
+          "learning_rate": 0.3,
+          "prior_strength": 2.0
+        },
+        "config_status": "PROPOSED",
+        "course_counts": [
+          [
+            25,
+            10,
+            7,
+            7,
+            4,
+            3
+          ],
+          [
+            4,
+            14,
+            13,
+            10,
+            8,
+            7
+          ],
+          [
+            8,
+            8,
+            12,
+            8,
+            11,
+            9
+          ]
+        ],
+        "feature_names": [
+          "st",
+          "turn",
+          "motor",
+          "ability",
+          "exhibition"
+        ],
+        "fit_status": "FITTED_RESEARCH_NOT_REAL_DATA_VALIDATED",
+        "performance_improvement": "UNVERIFIED",
+        "training_count": 56,
+        "training_ids_sha256": "5099fbadd3bff2c11cd990206925dac0d35ebc23c686c73de6799f0ca36d4e4f",
+        "training_max_available_at": "2099-01-28T13:40:00+09:00",
+        "training_max_prediction_at": "2099-01-28T13:25:00+09:00",
+        "training_time_provenance": "UNVERIFIED_SELF_REPORTED_INPUT",
+        "version": "model11-research-0.1",
+        "weights": [
+          [
+            1.1313557404260146,
+            -0.14224927986981187,
+            0.35926834733700064,
+            0.3564057988406531,
+            0.547799962901092
+          ],
+          [
+            -0.02039857064682926,
+            0.9242544240848041,
+            0.580710885572035,
+            0.6184895389281888,
+            0.3004374228788104
+          ],
+          [
+            -0.1348675704696332,
+            0.26006895871271235,
+            0.09869141114695898,
+            0.5307096839528824,
+            -0.005717495671843741
+          ]
+        ]
+      },
+      "model_sha256": "f5eef36af771c2f0c083b67aa6144fc1a15ff79f561e8d50de6565805368fd6d",
+      "selected": {
+        "alpha": 0.0,
+        "candidate": "hierarchical",
+        "market_weight": 0.5,
+        "selection_mean_log_loss": 3.8166333755761035,
+        "temperature": 0.8
+      },
+      "selection_days": [
+        "2099-01-29",
+        "2099-01-30",
+        "2099-01-31",
+        "2099-02-01"
+      ],
+      "selection_ids": [
+        "20990129_GAMAGORI_1R",
+        "20990129_GAMAGORI_2R",
+        "20990130_GAMAGORI_1R",
+        "20990130_GAMAGORI_2R",
+        "20990131_GAMAGORI_1R",
+        "20990131_GAMAGORI_2R",
+        "20990201_GAMAGORI_1R",
+        "20990201_GAMAGORI_2R"
+      ],
+      "selection_label_cutoff": "2099-02-02T12:55:00+09:00",
+      "selection_scores": [
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.88585434705622,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.8349875053343045,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.8166333755761035,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.96448502026135,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.8958069709738212,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.8587273090268925,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.04087181178143,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9497769068658752,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.892701581496179,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.850823831790862,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.823017153084083,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.818005606547152,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 3.9370912503511653,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.8864521102382996,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.8598868403324613,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.018048473932933,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.941914014457735,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "hierarchical",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.8936344649440047,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.0762742311057965,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.945249031834554,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.8677893375074603,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.097784180223674,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.972989185777593,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.894584703544822,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.142111122420569,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 4.008267926982242,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.0,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.9198542397074956,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.032234001382632,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9268267299264297,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.8652971360486426,
+          "temperature": 0.8
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.0651906034800565,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.959442375281803,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.892952065328234,
+          "temperature": 1.0
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.0,
+          "selection_mean_log_loss": 4.115702619628503,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.25,
+          "selection_mean_log_loss": 3.9972616265343857,
+          "temperature": 1.2
+        },
+        {
+          "alpha": 0.5,
+          "candidate": "contextual",
+          "market_weight": 0.5,
+          "selection_mean_log_loss": 3.9185560298858926,
+          "temperature": 1.2
+        }
+      ],
+      "test_days": [
+        "2099-02-02",
+        "2099-02-03",
+        "2099-02-04",
+        "2099-02-05"
+      ],
+      "test_ids": [
+        "20990202_GAMAGORI_1R",
+        "20990202_GAMAGORI_2R",
+        "20990203_GAMAGORI_1R",
+        "20990203_GAMAGORI_2R",
+        "20990204_GAMAGORI_1R",
+        "20990204_GAMAGORI_2R",
+        "20990205_GAMAGORI_1R",
+        "20990205_GAMAGORI_2R"
+      ],
+      "train_days": [
+        "2099-01-01",
+        "2099-01-02",
+        "2099-01-03",
+        "2099-01-04",
+        "2099-01-05",
+        "2099-01-06",
+        "2099-01-07",
+        "2099-01-08",
+        "2099-01-09",
+        "2099-01-10",
+        "2099-01-11",
+        "2099-01-12",
+        "2099-01-13",
+        "2099-01-14",
+        "2099-01-15",
+        "2099-01-16",
+        "2099-01-17",
+        "2099-01-18",
+        "2099-01-19",
+        "2099-01-20",
+        "2099-01-21",
+        "2099-01-22",
+        "2099-01-23",
+        "2099-01-24",
+        "2099-01-25",
+        "2099-01-26",
+        "2099-01-27",
+        "2099-01-28"
+      ],
+      "train_ids": [
+        "20990101_GAMAGORI_1R",
+        "20990101_GAMAGORI_2R",
+        "20990102_GAMAGORI_1R",
+        "20990102_GAMAGORI_2R",
+        "20990103_GAMAGORI_1R",
+        "20990103_GAMAGORI_2R",
+        "20990104_GAMAGORI_1R",
+        "20990104_GAMAGORI_2R",
+        "20990105_GAMAGORI_1R",
+        "20990105_GAMAGORI_2R",
+        "20990106_GAMAGORI_1R",
+        "20990106_GAMAGORI_2R",
+        "20990107_GAMAGORI_1R",
+        "20990107_GAMAGORI_2R",
+        "20990108_GAMAGORI_1R",
+        "20990108_GAMAGORI_2R",
+        "20990109_GAMAGORI_1R",
+        "20990109_GAMAGORI_2R",
+        "20990110_GAMAGORI_1R",
+        "20990110_GAMAGORI_2R",
+        "20990111_GAMAGORI_1R",
+        "20990111_GAMAGORI_2R",
+        "20990112_GAMAGORI_1R",
+        "20990112_GAMAGORI_2R",
+        "20990113_GAMAGORI_1R",
+        "20990113_GAMAGORI_2R",
+        "20990114_GAMAGORI_1R",
+        "20990114_GAMAGORI_2R",
+        "20990115_GAMAGORI_1R",
+        "20990115_GAMAGORI_2R",
+        "20990116_GAMAGORI_1R",
+        "20990116_GAMAGORI_2R",
+        "20990117_GAMAGORI_1R",
+        "20990117_GAMAGORI_2R",
+        "20990118_GAMAGORI_1R",
+        "20990118_GAMAGORI_2R",
+        "20990119_GAMAGORI_1R",
+        "20990119_GAMAGORI_2R",
+        "20990120_GAMAGORI_1R",
+        "20990120_GAMAGORI_2R",
+        "20990121_GAMAGORI_1R",
+        "20990121_GAMAGORI_2R",
+        "20990122_GAMAGORI_1R",
+        "20990122_GAMAGORI_2R",
+        "20990123_GAMAGORI_1R",
+        "20990123_GAMAGORI_2R",
+        "20990124_GAMAGORI_1R",
+        "20990124_GAMAGORI_2R",
+        "20990125_GAMAGORI_1R",
+        "20990125_GAMAGORI_2R",
+        "20990126_GAMAGORI_1R",
+        "20990126_GAMAGORI_2R",
+        "20990127_GAMAGORI_1R",
+        "20990127_GAMAGORI_2R",
+        "20990128_GAMAGORI_1R",
+        "20990128_GAMAGORI_2R"
+      ],
+      "train_label_cutoff": "2099-01-29T12:55:00+09:00"
+    }
+  ],
+  "future_untouched_real_evaluation": "OPEN",
+  "initial_days_not_evaluated": [
+    "2099-01-01",
+    "2099-01-02",
+    "2099-01-03",
+    "2099-01-04",
+    "2099-01-05",
+    "2099-01-06",
+    "2099-01-07",
+    "2099-01-08",
+    "2099-01-09",
+    "2099-01-10",
+    "2099-01-11",
+    "2099-01-12",
+    "2099-01-13",
+    "2099-01-14",
+    "2099-01-15",
+    "2099-01-16"
+  ],
+  "legacy_comparison": "OPEN",
+  "production_go": false,
+  "status": "SYNTHETIC_SOFTWARE_OBSERVATION",
+  "superiority": "UNVERIFIED",
+  "trailing_days_not_evaluated": []
+}

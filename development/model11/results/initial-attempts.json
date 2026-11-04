@@ -1,0 +1,30 @@
+[
+  {
+    "name": "initial-tests-python312.REDACTED.log",
+    "trust_class": "REDACTED",
+    "original_bytes": 20535,
+    "original_sha256": "9070d59a57a2a70446b5f75f0dab412830fa827425cf1d9e71b340f9a5193732",
+    "bytes": 20421,
+    "sha256": "eb49d49763f5d949e105a92a955da390b2e88192e6c9f8a942cfe1a0a88979d5",
+    "status": "FAIL_INITIAL_ATTEMPT",
+    "cause": [
+      "JSON integer explanation keys changed to strings upon serialization; output normalized to string keys",
+      "test insertion misplaced missing-label assertion; corrected test placement"
+    ],
+    "changes": "local package path only redacted; original private copy preserved"
+  },
+  {
+    "name": "initial-tests-python314.REDACTED.log",
+    "trust_class": "REDACTED",
+    "original_bytes": 20575,
+    "original_sha256": "a082129fea07d548b7ce0244b21cb846fdcd8fe27278e8def1e5776e31d0620b",
+    "bytes": 20461,
+    "sha256": "9ecd039459c185c69ff00ffe72ef24c911aff4bd0c0210bcc6e46d76d96265f8",
+    "status": "FAIL_INITIAL_ATTEMPT",
+    "cause": [
+      "JSON integer explanation keys changed to strings upon serialization; output normalized to string keys",
+      "test insertion misplaced missing-label assertion; corrected test placement"
+    ],
+    "changes": "local package path only redacted; original private copy preserved"
+  }
+]

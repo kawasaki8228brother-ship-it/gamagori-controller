@@ -1,0 +1,75 @@
+{
+  "candidate_id": "hierarchical",
+  "config": {
+    "alpha": 0.5,
+    "epochs": 20,
+    "l2": 0.01,
+    "learning_rate": 0.3,
+    "prior_strength": 2.0
+  },
+  "config_status": "PROPOSED",
+  "course_counts": [
+    [
+      12,
+      2,
+      2,
+      5,
+      3,
+      0
+    ],
+    [
+      1,
+      6,
+      6,
+      4,
+      3,
+      4
+    ],
+    [
+      4,
+      5,
+      9,
+      1,
+      2,
+      3
+    ]
+  ],
+  "feature_names": [
+    "st",
+    "turn",
+    "motor",
+    "ability",
+    "exhibition"
+  ],
+  "fit_status": "FITTED_RESEARCH_NOT_REAL_DATA_VALIDATED",
+  "performance_improvement": "UNVERIFIED",
+  "training_count": 24,
+  "training_ids_sha256": "bc7282bf80778fceacf430b13223414e8451079160ebeeacb373ddca65a6857d",
+  "training_max_available_at": "2099-01-12T13:40:00+09:00",
+  "training_max_prediction_at": "2099-01-12T13:25:00+09:00",
+  "training_time_provenance": "UNVERIFIED_SELF_REPORTED_INPUT",
+  "version": "model11-research-0.1",
+  "weights": [
+    [
+      1.1201833033522666,
+      -0.4729569537291125,
+      0.318307719980257,
+      0.43132369918612007,
+      0.9423121885569641
+    ],
+    [
+      -0.1189021853837992,
+      0.7526579998977817,
+      0.8829037551788859,
+      0.6010958277710625,
+      0.4654148839137877
+    ],
+    [
+      -0.10454278369044631,
+      -0.03944693186399998,
+      0.4298331056541631,
+      0.44463273930369873,
+      0.32558191471430314
+    ]
+  ]
+}

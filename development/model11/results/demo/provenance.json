@@ -1,0 +1,69 @@
+{
+  "classification": "SYNTHETIC_ONLY",
+  "files": [
+    {
+      "bytes": 43750,
+      "cross_runtime_byte_equal": true,
+      "name": "results/demo/example-prediction.json",
+      "sha256": "7f85ed7ce0110c53445d1de092d468888a777e01c402748bcfcaf0cb85a47dbd",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 38563,
+      "cross_runtime_byte_equal": true,
+      "name": "results/demo/example-evaluation.json",
+      "sha256": "ad3e19bd0963558eb45922c5e341cacd61b3336d6efd311de3c3d4c5bbe9aaec",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 1402,
+      "cross_runtime_byte_equal": true,
+      "name": "results/demo/selected-model.json",
+      "sha256": "4247a89a8e177284f38965443a2a70e088a932b8d9736252dd42b17e350be8cb",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 68,
+      "cross_runtime_byte_equal": true,
+      "name": "results/demo/selected-pipeline-config.json",
+      "sha256": "96a555083182fc177215bba18bdc218cd5bfa575f355f804638910764d391b62",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 16507,
+      "cross_runtime_byte_equal": true,
+      "name": "results/demo/synthetic-example-input.json",
+      "sha256": "6130390145aef386b6697595c847c7de0595208fbf8038696719b3122c8e61b9",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 292,
+      "cross_runtime_byte_equal": true,
+      "name": "results/demo/synthetic-example-outcome.json",
+      "sha256": "3852b14e646a39324ecf8cbe1ba869913de909314f5153acc1fc7f592107ab52",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    }
+  ],
+  "source_full_summary": {
+    "bytes": 1239489,
+    "sha256": "09a2c12c68583cf02e111276380df007027d0d0750a866052365b1e4e366d587"
+  },
+  "source_full_summary_cross_runtime_byte_equal": true,
+  "source_runtime_312": {
+    "dataset_classification": "SYNTHETIC_ONLY",
+    "executed_at": "2026-11-04T23:55:47.533100+00:00",
+    "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "production_go": false,
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+  },
+  "source_runtime_314": {
+    "dataset_classification": "SYNTHETIC_ONLY",
+    "executed_at": "2026-11-04T23:55:47.387801+00:00",
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "production_go": false,
+    "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"
+  },
+  "summary_derivation": "aggregate and candidate reports are exact JSON subobjects; fold audit omits repeated per-fold metric tables; full output reproducible with documented CLI"
+}
