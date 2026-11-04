@@ -1,0 +1,936 @@
+{
+  "classification": "SYNTHETIC_ONLY_NO_REAL_EVENTS",
+  "cases": [
+    {
+      "id": "identical_object",
+      "synthetic": true,
+      "left_b64": "eyJiIjoyLCJhIjoxfQ==",
+      "right_b64": "eyJiIjoyLCJhIjoxfQ==",
+      "settings": {},
+      "expected": {
+        "raw": true,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "{\"a\":1,\"b\":2}",
+      "canonical_utf8_right": "{\"a\":1,\"b\":2}"
+    },
+    {
+      "id": "key_order",
+      "synthetic": true,
+      "left_b64": "eyJiIjoyLCJhIjoxfQ==",
+      "right_b64": "eyJhIjoxLCJiIjoyfQ==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "{\"a\":1,\"b\":2}",
+      "canonical_utf8_right": "{\"a\":1,\"b\":2}"
+    },
+    {
+      "id": "whitespace_newline",
+      "synthetic": true,
+      "left_b64": "ewogImEiIDogMQp9Cg==",
+      "right_b64": "eyJhIjoxfQ==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "{\"a\":1}",
+      "canonical_utf8_right": "{\"a\":1}"
+    },
+    {
+      "id": "unicode_escape",
+      "synthetic": true,
+      "left_b64": "eyJ4IjoiXHU2NWU1In0=",
+      "right_b64": "eyJ4Ijoi5pelIn0=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "{\"x\":\"日\"}",
+      "canonical_utf8_right": "{\"x\":\"日\"}"
+    },
+    {
+      "id": "unicode_no_NFC",
+      "synthetic": true,
+      "left_b64": "IsOpIg==",
+      "right_b64": "ImXMgSI=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "\"é\"",
+      "canonical_utf8_right": "\"é\""
+    },
+    {
+      "id": "BG_B_NUMERIC_01",
+      "synthetic": true,
+      "left_b64": "eyJuIjoxfQ==",
+      "right_b64": "eyJuIjoxLjB9",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "background": "SYNTHETIC_NUMERIC_REPRESENTATION_NOT_REAL_RECORD",
+      "canonical_utf8_left": "{\"n\":1}",
+      "canonical_utf8_right": "{\"n\":1.0}"
+    },
+    {
+      "id": "BG_B_NUMERIC_02",
+      "synthetic": true,
+      "left_b64": "eyJuIjoxZS03fQ==",
+      "right_b64": "eyJuIjowLjAwMDAwMDF9",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "background": "SYNTHETIC_NUMERIC_REPRESENTATION_NOT_REAL_RECORD",
+      "canonical_utf8_left": "{\"n\":1e-07}",
+      "canonical_utf8_right": "{\"n\":1e-07}"
+    },
+    {
+      "id": "BG_A_DIGIT_KEYS_01",
+      "synthetic": true,
+      "left_b64": "eyIyIjoidHdvIiwiMTAiOiJ0ZW4ifQ==",
+      "right_b64": "eyIxMCI6InRlbiIsIjIiOiJ0d28ifQ==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "background": "SYNTHETIC_DIGIT_KEY_ORDER_NOT_REAL_RECORD",
+      "canonical_utf8_left": "{\"10\":\"ten\",\"2\":\"two\"}",
+      "canonical_utf8_right": "{\"10\":\"ten\",\"2\":\"two\"}"
+    },
+    {
+      "id": "BG_A_DIGIT_KEYS_02",
+      "synthetic": true,
+      "left_b64": "eyIxMiI6MTIsIjEiOjEsIjAiOjB9",
+      "right_b64": "eyIwIjowLCIxIjoxLCIxMiI6MTJ9",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "background": "SYNTHETIC_DIGIT_KEY_ORDER_NOT_REAL_RECORD",
+      "canonical_utf8_left": "{\"0\":0,\"1\":1,\"12\":12}",
+      "canonical_utf8_right": "{\"0\":0,\"1\":1,\"12\":12}"
+    },
+    {
+      "id": "BG_A_DIGIT_KEYS_03",
+      "synthetic": true,
+      "left_b64": "eyJ4Ijp7IjIiOjIsIjEwIjoxMH0sIjEiOnRydWV9",
+      "right_b64": "eyIxIjp0cnVlLCJ4Ijp7IjEwIjoxMCwiMiI6Mn19",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "background": "SYNTHETIC_DIGIT_KEY_ORDER_NOT_REAL_RECORD",
+      "canonical_utf8_left": "{\"1\":true,\"x\":{\"10\":10,\"2\":2}}",
+      "canonical_utf8_right": "{\"1\":true,\"x\":{\"10\":10,\"2\":2}}"
+    },
+    {
+      "id": "BG_A_DIGIT_KEYS_04",
+      "synthetic": true,
+      "left_b64": "eyJtZXRhIjoic3ludGgiLCIyIjoyLCIwMSI6MSwiMSI6MX0=",
+      "right_b64": "eyIxIjoxLCIyIjoyLCJtZXRhIjoic3ludGgiLCIwMSI6MX0=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "background": "SYNTHETIC_DIGIT_KEY_ORDER_NOT_REAL_RECORD",
+      "canonical_utf8_left": "{\"01\":1,\"1\":1,\"2\":2,\"meta\":\"synth\"}",
+      "canonical_utf8_right": "{\"01\":1,\"1\":1,\"2\":2,\"meta\":\"synth\"}"
+    },
+    {
+      "id": "numeric_exponent_integer",
+      "synthetic": true,
+      "left_b64": "MQ==",
+      "right_b64": "MWUw",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "1",
+      "canonical_utf8_right": "1.0"
+    },
+    {
+      "id": "negative_zero",
+      "synthetic": true,
+      "left_b64": "LTAuMA==",
+      "right_b64": "MC4w",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "-0.0",
+      "canonical_utf8_right": "0.0"
+    },
+    {
+      "id": "bool_is_not_number",
+      "synthetic": true,
+      "left_b64": "dHJ1ZQ==",
+      "right_b64": "MQ==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "true",
+      "canonical_utf8_right": "1"
+    },
+    {
+      "id": "bool_false",
+      "synthetic": true,
+      "left_b64": "ZmFsc2U=",
+      "right_b64": "ZmFsc2U=",
+      "settings": {},
+      "expected": {
+        "raw": true,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "false",
+      "canonical_utf8_right": "false"
+    },
+    {
+      "id": "null_is_not_string",
+      "synthetic": true,
+      "left_b64": "bnVsbA==",
+      "right_b64": "Im51bGwi",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "null",
+      "canonical_utf8_right": "\"null\""
+    },
+    {
+      "id": "list_order",
+      "synthetic": true,
+      "left_b64": "WzEsMl0=",
+      "right_b64": "WzIsMV0=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "[1,2]",
+      "canonical_utf8_right": "[2,1]"
+    },
+    {
+      "id": "list_length",
+      "synthetic": true,
+      "left_b64": "W10=",
+      "right_b64": "W251bGxd",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "[]",
+      "canonical_utf8_right": "[null]"
+    },
+    {
+      "id": "container_type",
+      "synthetic": true,
+      "left_b64": "W10=",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "[]",
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "nested_values",
+      "synthetic": true,
+      "left_b64": "eyJhIjpbdHJ1ZSxudWxsLHsieCI6MX1dfQ==",
+      "right_b64": "eyJhIjpbdHJ1ZSxudWxsLHsieCI6MS4wfV19",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "{\"a\":[true,null,{\"x\":1}]}",
+      "canonical_utf8_right": "{\"a\":[true,null,{\"x\":1.0}]}"
+    },
+    {
+      "id": "tampered_value",
+      "synthetic": true,
+      "left_b64": "eyJhIjoxfQ==",
+      "right_b64": "eyJhIjoyfQ==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "{\"a\":1}",
+      "canonical_utf8_right": "{\"a\":2}"
+    },
+    {
+      "id": "different_object_keys",
+      "synthetic": true,
+      "left_b64": "eyJhIjoxfQ==",
+      "right_b64": "eyJiIjoxfQ==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "{\"a\":1}",
+      "canonical_utf8_right": "{\"b\":1}"
+    },
+    {
+      "id": "duplicate_key",
+      "synthetic": true,
+      "left_b64": "eyJhIjoxLCJhIjoyfQ==",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "DUPLICATE_KEY",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "duplicate_nested",
+      "synthetic": true,
+      "left_b64": "eyJ4Ijp7ImEiOjEsImEiOjF9fQ==",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "DUPLICATE_KEY",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "duplicate_escaped_key",
+      "synthetic": true,
+      "left_b64": "eyJhIjoxLCJcdTAwNjEiOjF9",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "DUPLICATE_KEY",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "duplicate_both_identical",
+      "synthetic": true,
+      "left_b64": "eyJhIjoxLCJhIjoxfQ==",
+      "right_b64": "eyJhIjoxLCJhIjoxfQ==",
+      "settings": {},
+      "expected": {
+        "raw": true,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "DUPLICATE_KEY",
+        "right_status": "DUPLICATE_KEY",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "UNAVAILABLE_INPUT",
+        "left_warnings": [],
+        "right_warnings": []
+      }
+    },
+    {
+      "id": "invalid_json",
+      "synthetic": true,
+      "left_b64": "eyJhIjp9",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "INVALID_JSON",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "trailing_content",
+      "synthetic": true,
+      "left_b64": "e30geA==",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "INVALID_JSON",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "empty_input",
+      "synthetic": true,
+      "left_b64": "",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "INVALID_JSON",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "BOM_not_stripped",
+      "synthetic": true,
+      "left_b64": "77u/e30=",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "INVALID_JSON",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "invalid_number_syntax",
+      "synthetic": true,
+      "left_b64": "LjU=",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "INVALID_JSON",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "invalid_UTF8",
+      "synthetic": true,
+      "left_b64": "/w==",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "INVALID_UTF8",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "nonfinite_NaN",
+      "synthetic": true,
+      "left_b64": "TmFO",
+      "right_b64": "bnVsbA==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "NON_FINITE_LITERAL",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "null"
+    },
+    {
+      "id": "nonfinite_Infinity",
+      "synthetic": true,
+      "left_b64": "SW5maW5pdHk=",
+      "right_b64": "bnVsbA==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "NON_FINITE_LITERAL",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "null"
+    },
+    {
+      "id": "nonfinite_-Infinity",
+      "synthetic": true,
+      "left_b64": "LUluZmluaXR5",
+      "right_b64": "bnVsbA==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "NON_FINITE_LITERAL",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "null"
+    },
+    {
+      "id": "finite_decimal_float_overflow",
+      "synthetic": true,
+      "left_b64": "MWU0MDA=",
+      "right_b64": "MTBlMzk5",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_FLOAT_RANGE",
+        "right_canonical_status": "UNAVAILABLE_FLOAT_RANGE",
+        "left_warnings": [],
+        "right_warnings": []
+      }
+    },
+    {
+      "id": "float_underflow",
+      "synthetic": true,
+      "left_b64": "MWUtNDAw",
+      "right_b64": "MC4w",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [
+          "CANONICAL_DECIMAL_ROUNDING"
+        ],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "0.0",
+      "canonical_utf8_right": "0.0"
+    },
+    {
+      "id": "float_rounding_collision",
+      "synthetic": true,
+      "left_b64": "MC4xMDAwMDAwMDAwMDAwMDAwMQ==",
+      "right_b64": "MC4x",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [
+          "CANONICAL_DECIMAL_ROUNDING"
+        ],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "0.1",
+      "canonical_utf8_right": "0.1"
+    },
+    {
+      "id": "large_integer_value_changed",
+      "synthetic": true,
+      "left_b64": "OTAwNzE5OTI1NDc0MDk5Mw==",
+      "right_b64": "OTAwNzE5OTI1NDc0MDk5Mg==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": false,
+        "semantic": false,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "9007199254740993",
+      "canonical_utf8_right": "9007199254740992"
+    },
+    {
+      "id": "unpaired_surrogate",
+      "synthetic": true,
+      "left_b64": "Ilx1ZDgwMCI=",
+      "right_b64": "bnVsbA==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "INVALID_UNICODE_SCALAR",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "null"
+    },
+    {
+      "id": "unpaired_surrogate_key",
+      "synthetic": true,
+      "left_b64": "eyJcdWRmZmYiOjF9",
+      "right_b64": "e30=",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "INVALID_UNICODE_SCALAR",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "valid_surrogate_pair",
+      "synthetic": true,
+      "left_b64": "Ilx1ZDgzZFx1ZGU4MCI=",
+      "right_b64": "IvCfmoAi",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": true,
+        "semantic": true,
+        "left_status": "VALID",
+        "right_status": "VALID",
+        "left_canonical_status": "AVAILABLE",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_left": "\"🚀\"",
+      "canonical_utf8_right": "\"🚀\""
+    },
+    {
+      "id": "byte_budget",
+      "synthetic": true,
+      "left_b64": "eyJhIjoxfQ==",
+      "right_b64": "e30=",
+      "settings": {
+        "max_bytes": 2
+      },
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "RESOURCE_LIMIT",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "{}"
+    },
+    {
+      "id": "depth_budget",
+      "synthetic": true,
+      "left_b64": "W1swXV0=",
+      "right_b64": "WzBd",
+      "settings": {
+        "max_depth": 1
+      },
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "RESOURCE_LIMIT",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "[0]"
+    },
+    {
+      "id": "number_token_budget",
+      "synthetic": true,
+      "left_b64": "MTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTE=",
+      "right_b64": "MQ==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "RESOURCE_LIMIT",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "1"
+    },
+    {
+      "id": "parser_recursion_budget",
+      "synthetic": true,
+      "left_b64": "W1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbMF1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXQ==",
+      "right_b64": "bnVsbA==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "RESOURCE_LIMIT",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "null"
+    },
+    {
+      "id": "decimal_exponent_limit",
+      "synthetic": true,
+      "left_b64": "MWU5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk=",
+      "right_b64": "MQ==",
+      "settings": {},
+      "expected": {
+        "raw": false,
+        "canonical": null,
+        "semantic": null,
+        "left_status": "RESOURCE_LIMIT",
+        "right_status": "VALID",
+        "left_canonical_status": "UNAVAILABLE_INPUT",
+        "right_canonical_status": "AVAILABLE",
+        "left_warnings": [],
+        "right_warnings": []
+      },
+      "canonical_utf8_right": "1"
+    }
+  ]
+}

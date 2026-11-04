@@ -1,0 +1,3051 @@
+{
+  "status": "PASS_DEVELOPMENT_ONLY",
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "scope": "OFFLINE_SYNTHETIC_ONLY_NOT_PRODUCTION"
+  },
+  "unittest_tests": 57,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "synthetic_fixture_cases": 47,
+  "input_classifications_exercised": [
+    "DUPLICATE_KEY",
+    "INVALID_JSON",
+    "INVALID_UNICODE_SCALAR",
+    "INVALID_UTF8",
+    "NON_FINITE_LITERAL",
+    "RESOURCE_LIMIT",
+    "VALID"
+  ],
+  "canonical_classifications_exercised": [
+    "AVAILABLE",
+    "UNAVAILABLE_FLOAT_RANGE",
+    "UNAVAILABLE_INPUT"
+  ],
+  "axis_states_exercised": [
+    "DIFFERENT",
+    "MATCH",
+    "UNVERIFIED"
+  ],
+  "real_records_received": 0,
+  "HQ14_56_record_validation": "NOT_PERFORMED_HQ14_PRIVATE",
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "production_application": "NOT_AUTHORIZED",
+  "production_GO": false,
+  "examples": [
+    {
+      "id": "identical_object",
+      "axes": {
+        "raw_bytes": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 13,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "3fb75453225c732a76b7899ea2096dda1455189c89817239732182f73fe5a09f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 13,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "3fb75453225c732a76b7899ea2096dda1455189c89817239732182f73fe5a09f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "key_order",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 13,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "3fb75453225c732a76b7899ea2096dda1455189c89817239732182f73fe5a09f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 13,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "whitespace_newline",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 13,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "8aaa7e95b2af674d00b25539c774c703e52b772a5ce53979f8a4aa998ea75583",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "015abd7f5cc57a2dd94b7590f04ad8084273905ee33ec5cebeae62276a97f862",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 7,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "015abd7f5cc57a2dd94b7590f04ad8084273905ee33ec5cebeae62276a97f862",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "015abd7f5cc57a2dd94b7590f04ad8084273905ee33ec5cebeae62276a97f862",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "unicode_escape",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 14,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "782974a6c4127e28978f7b94b77e43bc83aa497f46c95f6e53a5b5a757c9f8b9",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "c439b24e91b47aa89d1edd02e7970985c356a68cd5740bc7b3e6dc289f4c725f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 11,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "c439b24e91b47aa89d1edd02e7970985c356a68cd5740bc7b3e6dc289f4c725f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "c439b24e91b47aa89d1edd02e7970985c356a68cd5740bc7b3e6dc289f4c725f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "unicode_no_NFC",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 4,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "f2886017e9c7abacf804b54d64787dce2b611c9544ba21f3affdd126a6e50086",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "f2886017e9c7abacf804b54d64787dce2b611c9544ba21f3affdd126a6e50086",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 5,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "3d68ce21f2899a475713cdbe7562ba9bdb6b1dfde8af1f221bdff4a0935b53b2",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "3d68ce21f2899a475713cdbe7562ba9bdb6b1dfde8af1f221bdff4a0935b53b2",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "BG_B_NUMERIC_01",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 7,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "2bfd14f43d17fc7cea24e0917a8879b4b2f880b8baeec1b9d90fbaad655e71bd",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "2bfd14f43d17fc7cea24e0917a8879b4b2f880b8baeec1b9d90fbaad655e71bd",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 9,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "3b6b06ecd1c968c8e738e0f11c4bb361fca80a9a694de22fe66a05286afbd081",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "3b6b06ecd1c968c8e738e0f11c4bb361fca80a9a694de22fe66a05286afbd081",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "BG_B_NUMERIC_02",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 10,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "747d6d23b64d1b2d579adb832b44de31c91c875bbef7a8e397f5d183a746b54b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "ff7a1315299260617fe404199e54e6d976a0b03e47da54fccec073c2fa48ff5c",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 15,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "aca47411d23fc1465054153271bad57d7f050796d8885fab35d92775ae420ea5",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "ff7a1315299260617fe404199e54e6d976a0b03e47da54fccec073c2fa48ff5c",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "BG_A_DIGIT_KEYS_01",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 22,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "d7d8369c8035a81d2664403842012bcbcf7165d2f980b78a645f5b6a15fa8a60",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "b71e124675fc80e7314688bffdb68e83515851fb51474125db9a0c4c8aca3808",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 22,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "b71e124675fc80e7314688bffdb68e83515851fb51474125db9a0c4c8aca3808",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "b71e124675fc80e7314688bffdb68e83515851fb51474125db9a0c4c8aca3808",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "BG_A_DIGIT_KEYS_02",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 21,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "2647e4ff6c087ba8a92450fd75f43a676248752b463013b68376ebd521d562ae",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "dc76272bc3fef1e5ae8e0679a092ba1e0923f37e23e8c05fdf78a31536687e27",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 21,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "dc76272bc3fef1e5ae8e0679a092ba1e0923f37e23e8c05fdf78a31536687e27",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "dc76272bc3fef1e5ae8e0679a092ba1e0923f37e23e8c05fdf78a31536687e27",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "BG_A_DIGIT_KEYS_03",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 30,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "1c392d434f477ced3ce9ed7f2dad4e26f42292987f02bb23ed8bae2a193609fa",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "18a139d1716124c60dad46b345c726ce5fead590124e0041d0d4d9705988e6b3",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 30,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "18a139d1716124c60dad46b345c726ce5fead590124e0041d0d4d9705988e6b3",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "18a139d1716124c60dad46b345c726ce5fead590124e0041d0d4d9705988e6b3",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "BG_A_DIGIT_KEYS_04",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 35,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "1a34f0186580603f18c9827d067b0c8ed4d2662f40c327658ac211116a60281d",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "fcaed9ba409f9def3666280f0aa7b375139651a549ae1e42b6b3d115247a738e",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 35,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "182326f339696b041a50fc047a23ff0685970adf233d254db9558b022d66161f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "fcaed9ba409f9def3666280f0aa7b375139651a549ae1e42b6b3d115247a738e",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "numeric_exponent_integer",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 1,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 3,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "bcac40fbed4ed4e1042a0c9dafbe9cdd58447415f19a11e59add45fdc083e2f5",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "d0ff5974b6aa52cf562bea5921840c032a860a91a3512f7fe8f768f6bbe005f6",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "negative_zero",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 4,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "c26617c7ccbcaa6631b45d851b8cf56e21d2ca624bdb1193afdbd4b560702cec",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "c26617c7ccbcaa6631b45d851b8cf56e21d2ca624bdb1193afdbd4b560702cec",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 3,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "8aed642bf5118b9d3c859bd4be35ecac75b6e873cce34e7b6f554b06f75550d7",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "8aed642bf5118b9d3c859bd4be35ecac75b6e873cce34e7b6f554b06f75550d7",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "bool_is_not_number",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 4,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 1,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "bool_false",
+      "axes": {
+        "raw_bytes": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 5,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 5,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "null_is_not_string",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 4,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 6,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "f072cbec3bf8841871d4284230c5e983dc211a56837aed862487148f947d1a1f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "f072cbec3bf8841871d4284230c5e983dc211a56837aed862487148f947d1a1f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "list_order",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 5,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "49a64717d5d4cb19952e6eac2946415cf6879adacf9908e7d872332d32c6e684",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "49a64717d5d4cb19952e6eac2946415cf6879adacf9908e7d872332d32c6e684",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 5,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "af1a1fc110b6094c48582b0ef83553cb7908d7a4365424eef28e76ef6c88d630",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "af1a1fc110b6094c48582b0ef83553cb7908d7a4365424eef28e76ef6c88d630",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "list_length",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 6,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "container_type",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "nested_values",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 25,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "a78029c88c7a04dfa4b76d96e681fe268feef44af0c9b817b3341c5fe131de7f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "a78029c88c7a04dfa4b76d96e681fe268feef44af0c9b817b3341c5fe131de7f",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 27,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "53e7694125ca82617a1420214bffb4824fcbde97e3405acdabff4b35c8947d1c",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "53e7694125ca82617a1420214bffb4824fcbde97e3405acdabff4b35c8947d1c",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "tampered_value",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 7,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "015abd7f5cc57a2dd94b7590f04ad8084273905ee33ec5cebeae62276a97f862",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "015abd7f5cc57a2dd94b7590f04ad8084273905ee33ec5cebeae62276a97f862",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 7,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "7e8059f495589fcd981232cc11d00b00da3802c01d688fa1cf1f6bed6e5bb33c",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "7e8059f495589fcd981232cc11d00b00da3802c01d688fa1cf1f6bed6e5bb33c",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "different_object_keys",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 7,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "015abd7f5cc57a2dd94b7590f04ad8084273905ee33ec5cebeae62276a97f862",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "015abd7f5cc57a2dd94b7590f04ad8084273905ee33ec5cebeae62276a97f862",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 7,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "eb8ed3ccb5023093b56f490a46501e88d09736687e609fdbc1c71b3df8b9ccd3",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "eb8ed3ccb5023093b56f490a46501e88d09736687e609fdbc1c71b3df8b9ccd3",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "duplicate_key",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 13,
+        "input_status": "DUPLICATE_KEY",
+        "raw": {
+          "sha256": "1c53ee0df7b12fd4d65b976120c7fa6b847dc41dffd7f0331c3237a1ceab1756",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "duplicate_nested",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 19,
+        "input_status": "DUPLICATE_KEY",
+        "raw": {
+          "sha256": "4f02207e976fe4b50411f93c4b70694d4536c03dd902b01738ef022f6ed804b8",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "duplicate_escaped_key",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 18,
+        "input_status": "DUPLICATE_KEY",
+        "raw": {
+          "sha256": "3b85d1e91c45eb56793fd5c9ebc38cbf73bc0c31482b416b3e5185c25af24867",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "duplicate_both_identical",
+      "axes": {
+        "raw_bytes": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 13,
+        "input_status": "DUPLICATE_KEY",
+        "raw": {
+          "sha256": "e0921f1cf7632d7464378881cc0d323779c1f0812953b740093128741b4fb94d",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 13,
+        "input_status": "DUPLICATE_KEY",
+        "raw": {
+          "sha256": "e0921f1cf7632d7464378881cc0d323779c1f0812953b740093128741b4fb94d",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "invalid_json",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 6,
+        "input_status": "INVALID_JSON",
+        "raw": {
+          "sha256": "6eb96aa0de9598c69117c7341dc4431affee0b3bfcb07cbf3c3641f25111e7e3",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "trailing_content",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 4,
+        "input_status": "INVALID_JSON",
+        "raw": {
+          "sha256": "bbbe9eb3a1d1c2c271edf6367285d9edb35e8cbc2ce3e56e8ddceb2f0886f140",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "empty_input",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 0,
+        "input_status": "INVALID_JSON",
+        "raw": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "BOM_not_stripped",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 5,
+        "input_status": "INVALID_JSON",
+        "raw": {
+          "sha256": "aa25e978046d680ef8740d837e6de5bc1e2a2dc6089dbda1012544b538d53f65",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "invalid_number_syntax",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "INVALID_JSON",
+        "raw": {
+          "sha256": "4b1e53e66b4abd4fa86fe66980fa3affccd4252ec85897c978cf89173b3ad99e",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "invalid_UTF8",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 1,
+        "input_status": "INVALID_UTF8",
+        "raw": {
+          "sha256": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "nonfinite_NaN",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 3,
+        "input_status": "NON_FINITE_LITERAL",
+        "raw": {
+          "sha256": "d5b592c05dc25b5032553f1b27f4139be95e881f73db33b02b05ab20c3f9981e",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 4,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "nonfinite_Infinity",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 8,
+        "input_status": "NON_FINITE_LITERAL",
+        "raw": {
+          "sha256": "d0067cad9a63e0813759a2bb841051ca73570c0da2e08e840a8eb45db6a7a010",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 4,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "nonfinite_-Infinity",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 9,
+        "input_status": "NON_FINITE_LITERAL",
+        "raw": {
+          "sha256": "c64ddf11bcd45660f0cf66dd0c22d2b4570ef3d3fc6527a9a6f6c722aefa3c39",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 4,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "finite_decimal_float_overflow",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 5,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "f2bba4568fecd4b9729970732e571ac9373a33fb2d6a960794a41f0f2ecdbc25",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_FLOAT_RANGE",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 6,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "96664e19376fcbdb6e1d5eb0c4f08da8c0aa41b421457a61d0091e46f3eafd9b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_FLOAT_RANGE",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "float_underflow",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 6,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "d42d88695a3f56ff2ce7799a2f261ccb39a2b1a5db8ed284b74b9c452804ed16",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "8aed642bf5118b9d3c859bd4be35ecac75b6e873cce34e7b6f554b06f75550d7",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [
+          "CANONICAL_DECIMAL_ROUNDING"
+        ],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 3,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "8aed642bf5118b9d3c859bd4be35ecac75b6e873cce34e7b6f554b06f75550d7",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "8aed642bf5118b9d3c859bd4be35ecac75b6e873cce34e7b6f554b06f75550d7",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "float_rounding_collision",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 19,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "01bcb760af885969aa9d8bda4a5c9925a37eecb45aeac57c5068cef9805fa835",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "14be4b45f18e0d8c67b4f719b5144eee88497e413709d11d85b096d8e2346310",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [
+          "CANONICAL_DECIMAL_ROUNDING"
+        ],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 3,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "14be4b45f18e0d8c67b4f719b5144eee88497e413709d11d85b096d8e2346310",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "14be4b45f18e0d8c67b4f719b5144eee88497e413709d11d85b096d8e2346310",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "large_integer_value_changed",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "semantic": {
+          "match": false,
+          "state": "DIFFERENT",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 16,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "a1c367c29158357e62a3ff5d3e800fb7698a22396439dbc0a9d4929322afd35d",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "a1c367c29158357e62a3ff5d3e800fb7698a22396439dbc0a9d4929322afd35d",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 16,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "c681da39d7273a6a24c15c9cac3a75526ff2ecf8ba4ee60346a0c70c8163bdb2",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "c681da39d7273a6a24c15c9cac3a75526ff2ecf8ba4ee60346a0c70c8163bdb2",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "unpaired_surrogate",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 8,
+        "input_status": "INVALID_UNICODE_SCALAR",
+        "raw": {
+          "sha256": "8c0c59dd0d275aadcd462a5fe12eb352cbdfeaf961eae4f85a4660521df7d2f5",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 4,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "unpaired_surrogate_key",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 12,
+        "input_status": "INVALID_UNICODE_SCALAR",
+        "raw": {
+          "sha256": "4c54516af2160a8c0cd8efd10724b3fd455cb64ec310018f7334a73103a5c088",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "valid_surrogate_pair",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": true,
+          "state": "MATCH"
+        },
+        "semantic": {
+          "match": true,
+          "state": "MATCH",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 14,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "d315d6a892d2d59a04fc3993b6fa356a6c507df2dd4712861944c4d127f0814e",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "8d4bdd145400e3e242cbdac47a55f7298bed88a60d26a123a5837384ec060e54",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 6,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "8d4bdd145400e3e242cbdac47a55f7298bed88a60d26a123a5837384ec060e54",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "8d4bdd145400e3e242cbdac47a55f7298bed88a60d26a123a5837384ec060e54",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "byte_budget",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 7,
+        "input_status": "RESOURCE_LIMIT",
+        "raw": {
+          "sha256": "015abd7f5cc57a2dd94b7590f04ad8084273905ee33ec5cebeae62276a97f862",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 2,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "depth_budget",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 5,
+        "input_status": "RESOURCE_LIMIT",
+        "raw": {
+          "sha256": "db407f11d7ede59abaab0e98e097ff2dae10a048207b801745d7199ef19c2387",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 3,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "d0bca111f8628137adc4c16f123496dcdd1d590d06cb5d9acd68b39fe656fb97",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "d0bca111f8628137adc4c16f123496dcdd1d590d06cb5d9acd68b39fe656fb97",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "number_token_budget",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 257,
+        "input_status": "RESOURCE_LIMIT",
+        "raw": {
+          "sha256": "409339361ec2c199ca6a3b2c1134e268ad96880bf73b3a3ef4184ba18805a206",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 1,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "parser_recursion_budget",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 3001,
+        "input_status": "RESOURCE_LIMIT",
+        "raw": {
+          "sha256": "98ba95d50797aa344a32182ad1e03706625429100bf3ba23859fff64db6cff6d",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 4,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "decimal_exponent_limit",
+      "axes": {
+        "raw_bytes": {
+          "match": false,
+          "state": "DIFFERENT"
+        },
+        "canonical": {
+          "match": null,
+          "state": "UNVERIFIED"
+        },
+        "semantic": {
+          "match": null,
+          "state": "UNVERIFIED",
+          "policy": "EXACT_DECIMAL_NUMBERS_BOOL_DISTINCT_NO_UNICODE_NORMALIZATION"
+        }
+      },
+      "left": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 32,
+        "input_status": "RESOURCE_LIMIT",
+        "raw": {
+          "sha256": "ba366452923a30a96097e6091bd4051a8904cfac1c125fe4e05aba36ddb45877",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "UNAVAILABLE_INPUT",
+          "sha256": null,
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      },
+      "right": {
+        "profile": "SYS02_DECIMAL_EXACT_V1_PROTOTYPE",
+        "bytes": 1,
+        "input_status": "VALID",
+        "raw": {
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "canonical": {
+          "status": "AVAILABLE",
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "expected_sha256": null,
+          "expected_match": null
+        },
+        "warnings": [],
+        "provenance_not_proven": [
+          "TIMESTAMP_AUTHENTICITY",
+          "DB_IDENTITY",
+          "SOURCE_AUTHENTICITY"
+        ],
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    }
+  ]
+}

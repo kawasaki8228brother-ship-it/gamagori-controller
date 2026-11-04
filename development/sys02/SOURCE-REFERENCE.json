@@ -1,0 +1,9 @@
+{
+  "authorization": "USER_EXPLICIT_OFFLINE_DEVELOPMENT_ISOLATED_BRANCH_ONLY",
+  "common_rules_sha256": "575f1dda844d5d9639518b6bfcf077ec3fbd51038714f4254ccf7562b5abb5fe",
+  "first_report_target_JST": "2026-11-06T18:00:00+09:00",
+  "instruction_archive_sha256": "a73ff96cea2b3be0b4aea4b6c2261789ffd0dca5fdb5beeadfafef07fcf67cb8",
+  "source_date_JST": "2026-11-05",
+  "task": "sys02",
+  "task_sha256": "e416a2eb3346f61adb76c41d44502f90ed340284a07986802a9b40e8946e8a3c"
+}

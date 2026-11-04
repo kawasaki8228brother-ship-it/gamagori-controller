@@ -1,0 +1,63 @@
+ENV {"os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.12.14", "scope": "OFFLINE_SYNTHETIC_ONLY_NOT_PRODUCTION"}
+test_SHA_empty_and_abc_known_vectors (test_sys02.ContractTests.test_SHA_empty_and_abc_known_vectors) ... ok
+test_SHA_independent_coreutils_backend (test_sys02.ContractTests.test_SHA_independent_coreutils_backend) ... ok
+test_all_public_classification_labels_exercised (test_sys02.ContractTests.test_all_public_classification_labels_exercised) ... ok
+test_expected_hash_axes_true_false_and_absent (test_sys02.ContractTests.test_expected_hash_axes_true_false_and_absent) ... ok
+test_invalid_hash_configuration_rejected_without_echo (test_sys02.ContractTests.test_invalid_hash_configuration_rejected_without_echo) ... ok
+test_invalid_json_can_still_have_matching_raw_hash (test_sys02.ContractTests.test_invalid_json_can_still_have_matching_raw_hash) ... ok
+test_invalid_limits_rejected (test_sys02.ContractTests.test_invalid_limits_rejected) ... ok
+test_no_values_or_keys_echoed_in_reports (test_sys02.ContractTests.test_no_values_or_keys_echoed_in_reports) ... ok
+test_only_bytes_accepted (test_sys02.ContractTests.test_only_bytes_accepted) ... ok
+test_resource_limit_never_hashes_a_truncated_prefix (test_sys02.ContractTests.test_resource_limit_never_hashes_a_truncated_prefix) ... ok
+test_BG_A_DIGIT_KEYS_01 (test_sys02.FixtureTests.test_BG_A_DIGIT_KEYS_01) ... ok
+test_BG_A_DIGIT_KEYS_02 (test_sys02.FixtureTests.test_BG_A_DIGIT_KEYS_02) ... ok
+test_BG_A_DIGIT_KEYS_03 (test_sys02.FixtureTests.test_BG_A_DIGIT_KEYS_03) ... ok
+test_BG_A_DIGIT_KEYS_04 (test_sys02.FixtureTests.test_BG_A_DIGIT_KEYS_04) ... ok
+test_BG_B_NUMERIC_01 (test_sys02.FixtureTests.test_BG_B_NUMERIC_01) ... ok
+test_BG_B_NUMERIC_02 (test_sys02.FixtureTests.test_BG_B_NUMERIC_02) ... ok
+test_BOM_not_stripped (test_sys02.FixtureTests.test_BOM_not_stripped) ... ok
+test_bool_false (test_sys02.FixtureTests.test_bool_false) ... ok
+test_bool_is_not_number (test_sys02.FixtureTests.test_bool_is_not_number) ... ok
+test_byte_budget (test_sys02.FixtureTests.test_byte_budget) ... ok
+test_container_type (test_sys02.FixtureTests.test_container_type) ... ok
+test_decimal_exponent_limit (test_sys02.FixtureTests.test_decimal_exponent_limit) ... ok
+test_depth_budget (test_sys02.FixtureTests.test_depth_budget) ... ok
+test_different_object_keys (test_sys02.FixtureTests.test_different_object_keys) ... ok
+test_duplicate_both_identical (test_sys02.FixtureTests.test_duplicate_both_identical) ... ok
+test_duplicate_escaped_key (test_sys02.FixtureTests.test_duplicate_escaped_key) ... ok
+test_duplicate_key (test_sys02.FixtureTests.test_duplicate_key) ... ok
+test_duplicate_nested (test_sys02.FixtureTests.test_duplicate_nested) ... ok
+test_empty_input (test_sys02.FixtureTests.test_empty_input) ... ok
+test_finite_decimal_float_overflow (test_sys02.FixtureTests.test_finite_decimal_float_overflow) ... ok
+test_float_rounding_collision (test_sys02.FixtureTests.test_float_rounding_collision) ... ok
+test_float_underflow (test_sys02.FixtureTests.test_float_underflow) ... ok
+test_identical_object (test_sys02.FixtureTests.test_identical_object) ... ok
+test_invalid_UTF8 (test_sys02.FixtureTests.test_invalid_UTF8) ... ok
+test_invalid_json (test_sys02.FixtureTests.test_invalid_json) ... ok
+test_invalid_number_syntax (test_sys02.FixtureTests.test_invalid_number_syntax) ... ok
+test_key_order (test_sys02.FixtureTests.test_key_order) ... ok
+test_large_integer_value_changed (test_sys02.FixtureTests.test_large_integer_value_changed) ... ok
+test_list_length (test_sys02.FixtureTests.test_list_length) ... ok
+test_list_order (test_sys02.FixtureTests.test_list_order) ... ok
+test_negative_zero (test_sys02.FixtureTests.test_negative_zero) ... ok
+test_nested_values (test_sys02.FixtureTests.test_nested_values) ... ok
+test_nonfinite_Infinity (test_sys02.FixtureTests.test_nonfinite_Infinity) ... ok
+test_nonfinite_NaN (test_sys02.FixtureTests.test_nonfinite_NaN) ... ok
+test_nonfinite__Infinity (test_sys02.FixtureTests.test_nonfinite__Infinity) ... ok
+test_null_is_not_string (test_sys02.FixtureTests.test_null_is_not_string) ... ok
+test_number_token_budget (test_sys02.FixtureTests.test_number_token_budget) ... ok
+test_numeric_exponent_integer (test_sys02.FixtureTests.test_numeric_exponent_integer) ... ok
+test_parser_recursion_budget (test_sys02.FixtureTests.test_parser_recursion_budget) ... ok
+test_tampered_value (test_sys02.FixtureTests.test_tampered_value) ... ok
+test_trailing_content (test_sys02.FixtureTests.test_trailing_content) ... ok
+test_unicode_escape (test_sys02.FixtureTests.test_unicode_escape) ... ok
+test_unicode_no_NFC (test_sys02.FixtureTests.test_unicode_no_NFC) ... ok
+test_unpaired_surrogate (test_sys02.FixtureTests.test_unpaired_surrogate) ... ok
+test_unpaired_surrogate_key (test_sys02.FixtureTests.test_unpaired_surrogate_key) ... ok
+test_valid_surrogate_pair (test_sys02.FixtureTests.test_valid_surrogate_pair) ... ok
+test_whitespace_newline (test_sys02.FixtureTests.test_whitespace_newline) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 0.014s
+
+OK
