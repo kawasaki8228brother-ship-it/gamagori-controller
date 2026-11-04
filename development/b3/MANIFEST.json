@@ -1,0 +1,120 @@
+{
+  "group": "b3",
+  "task_ids": [
+    "B3"
+  ],
+  "branch": "dev/b3-inventory-20261105-v001",
+  "base": {
+    "sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "tree": "9143c19742b672c93f67228669166a8f86c2f37a",
+    "blob_count": 40
+  },
+  "only_new_files": true,
+  "tests": 31,
+  "actual_result_source": "results/results.json",
+  "development_state": "DEV_READY",
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "applicable": false,
+  "production_GO": false,
+  "production_applied": false,
+  "CLOSE": false,
+  "self_INDEX_SHA_excluded": true,
+  "files": [
+    {
+      "file": "DEVELOPMENT-STATUS.json",
+      "bytes": 1683,
+      "sha256": "c9d3539b31c6299b3cce9659e4448df9d0f914206ed37ddede29c70c7b4ea39b",
+      "git_blob": "a4da6fdcca0dea40e245464be877a86cb7eb67c5",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "INPUT_SPEC.md",
+      "bytes": 2528,
+      "sha256": "2ca5407caa58e63fc2a759d862ee32a4fb1acb8d8730d6b75b03811ee59a92ad",
+      "git_blob": "982b9056094d711953c940c56dc5a96e98e21826",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "OPEN.json",
+      "bytes": 825,
+      "sha256": "53700c836a0d2b6d4806c2e6c268b55eeeb0ee75c38940ddc95f6cb997067ecb",
+      "git_blob": "b65204cd15ca0898b6fa84681ae008551a173bab",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "README.md",
+      "bytes": 4314,
+      "sha256": "7d8d7d63eef03191a1ec85b8daadc28f666964b0fb0f54ddd25e1375adb13be9",
+      "git_blob": "b256014ba50fa67b9e5f87350619910b4a6a78e6",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "SOURCE-AND-SCOPE.json",
+      "bytes": 1009,
+      "sha256": "cb60e9b73b50f8d7ba01e19a6e8f996f1c2b08ebb4c2156d209e20e1eea65140",
+      "git_blob": "14582d3063e1a9513bffe7ec4bbaae5af0df5532",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "b3_inventory.py",
+      "bytes": 14200,
+      "sha256": "37c28acbe2c54391bf9076ed6a708970ef07efc96bdbacaff4743c84ac07e3fe",
+      "git_blob": "b8fc54a8a80a0a40a82d57d309e3ac86243e2e6e",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "make_fixture.py",
+      "bytes": 2087,
+      "sha256": "105d440e5f0378197f1f3dec22be7d3698fb6504ab5dec607f3a6be1f9158db5",
+      "git_blob": "9670402e2fe4da371fa6125304d3688fcb0afc14",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "results/results.json",
+      "bytes": 16773,
+      "sha256": "87624b8d8950f05d8077bebaab50c726ed01338e6019178f55073ba519ffbae0",
+      "git_blob": "ea00d88742ed889a6ab4d84494ca395ebc19b3f7",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "results/tests.log",
+      "bytes": 3375,
+      "sha256": "d01587afc3f43de6c192aa8839a2440f17fb86eba0b7b310b16aa08da43110d6",
+      "git_blob": "d243c5407bf399744c9afabf40a238ebb1fd89a8",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "run_tests.py",
+      "bytes": 1421,
+      "sha256": "1a97f3c2bbf8b275d0289b8325b2db6118ff488de705f525c70d95669d245e21",
+      "git_blob": "55dd3cd57d30b8125214280b0d40a227c5ea679b",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "synthetic_fixture.json",
+      "bytes": 11079,
+      "sha256": "5746e3aa12853755d606c57fb42508e0add1a59af98b800ff0bfd19f42a1e329",
+      "git_blob": "44fee24e33d800d178e96092d858ba9e55c58e32",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "test_b3.py",
+      "bytes": 10242,
+      "sha256": "2940708b640beb079532cb12219278efbec2d962ab6337d95f305c55d26bb2a4",
+      "git_blob": "68b056e8b1752d7095ac4c880e027df3032cfd82",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    }
+  ]
+}

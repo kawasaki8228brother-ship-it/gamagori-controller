@@ -1,0 +1,18 @@
+{
+  "state": "DEV_READY_WITH_OPEN_DATA_AND_POLICY",
+  "real_four_meet_data_received": false,
+  "effective_real_N": null,
+  "existing_LOCK_rules_changed": false,
+  "actual_deadline_precision_policy_verified": false,
+  "new_deadline_grace_added": false,
+  "live_input_schema_compatibility": "UNVERIFIED",
+  "read_coverage_and_hash_flags_authenticity": "HQ14_PRIVATE_VERIFICATION_REQUIRED",
+  "cancelled_race_full_cash_ledger": "OPEN_NOT_COMBINED_WITH_VALID_FINAL_RACE_MONEY",
+  "refund_combination_expansion_from_official_terms": "HQ14_PRIVATE_ADAPTER_REQUIRED",
+  "ranking_evidence_coverage": "UNVERIFIED_FOR_REAL_DATA",
+  "rank_miss_labels_are_causal_proof": false,
+  "SYS01_SYS02_integration": "NONE",
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "production_application": "NOT_AUTHORIZED",
+  "production_GO": false
+}

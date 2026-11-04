@@ -1,0 +1,530 @@
+{
+  "schema": "B3_INPUT_V1_PROPOSED",
+  "classification": "SYNTHETIC_ONLY_NOT_REAL_RACES",
+  "meets": [
+    {
+      "meet_id": "SYNTHETIC_MEET_1",
+      "start_date": "2026-07-11",
+      "end_date": "2026-07-11"
+    },
+    {
+      "meet_id": "SYNTHETIC_MEET_2",
+      "start_date": "2026-08-11",
+      "end_date": "2026-08-11"
+    },
+    {
+      "meet_id": "SYNTHETIC_MEET_3",
+      "start_date": "2026-09-11",
+      "end_date": "2026-09-11"
+    },
+    {
+      "meet_id": "SYNTHETIC_MEET_4",
+      "start_date": "2026-10-11",
+      "end_date": "2026-10-11"
+    }
+  ],
+  "races": [
+    {
+      "race_id": "20260711_GAMAGORI_1R",
+      "meet_id": "SYNTHETIC_MEET_1",
+      "date": "2026-07-11",
+      "deadline": "2026-07-11T14:00:00+09:00",
+      "scheduled": true
+    },
+    {
+      "race_id": "20260811_GAMAGORI_1R",
+      "meet_id": "SYNTHETIC_MEET_2",
+      "date": "2026-08-11",
+      "deadline": "2026-08-11T14:00:00+09:00",
+      "scheduled": true
+    },
+    {
+      "race_id": "20260911_GAMAGORI_1R",
+      "meet_id": "SYNTHETIC_MEET_3",
+      "date": "2026-09-11",
+      "deadline": "2026-09-11T14:00:00+09:00",
+      "scheduled": true
+    },
+    {
+      "race_id": "20261011_GAMAGORI_1R",
+      "meet_id": "SYNTHETIC_MEET_4",
+      "date": "2026-10-11",
+      "deadline": "2026-10-11T14:00:00+09:00",
+      "scheduled": true
+    }
+  ],
+  "locks": [
+    {
+      "record_id": "SYNTH_LOCK_A_1",
+      "race_id": "20260711_GAMAGORI_1R",
+      "source": "A",
+      "tickets": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          4,
+          2
+        ],
+        [
+          1,
+          3,
+          4
+        ]
+      ],
+      "observed_at": "2026-07-11T13:01:00+09:00",
+      "saved_at": "2026-07-11T13:01:01+09:00",
+      "existing_LOCK_validity": "VALID",
+      "existing_deadline_verdict": "PASS",
+      "payload_hash_verified": true,
+      "saved_readback_verified": true
+    },
+    {
+      "record_id": "SYNTH_LOCK_B_1",
+      "race_id": "20260711_GAMAGORI_1R",
+      "source": "B",
+      "tickets": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          4
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "observed_at": "2026-07-11T13:01:00+09:00",
+      "saved_at": "2026-07-11T13:01:01+09:00",
+      "existing_LOCK_validity": "VALID",
+      "existing_deadline_verdict": "PASS",
+      "payload_hash_verified": true,
+      "saved_readback_verified": true
+    },
+    {
+      "record_id": "SYNTH_LOCK_A_2",
+      "race_id": "20260811_GAMAGORI_1R",
+      "source": "A",
+      "tickets": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          4,
+          2
+        ],
+        [
+          1,
+          3,
+          4
+        ]
+      ],
+      "observed_at": "2026-08-11T13:01:00+09:00",
+      "saved_at": "2026-08-11T13:01:01+09:00",
+      "existing_LOCK_validity": "VALID",
+      "existing_deadline_verdict": "PASS",
+      "payload_hash_verified": true,
+      "saved_readback_verified": true
+    },
+    {
+      "record_id": "SYNTH_LOCK_B_2",
+      "race_id": "20260811_GAMAGORI_1R",
+      "source": "B",
+      "tickets": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          4
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "observed_at": "2026-08-11T13:01:00+09:00",
+      "saved_at": "2026-08-11T13:01:01+09:00",
+      "existing_LOCK_validity": "VALID",
+      "existing_deadline_verdict": "PASS",
+      "payload_hash_verified": true,
+      "saved_readback_verified": true
+    },
+    {
+      "record_id": "SYNTH_LOCK_A_3",
+      "race_id": "20260911_GAMAGORI_1R",
+      "source": "A",
+      "tickets": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          4,
+          2
+        ],
+        [
+          1,
+          3,
+          4
+        ]
+      ],
+      "observed_at": "2026-09-11T13:01:00+09:00",
+      "saved_at": "2026-09-11T13:01:01+09:00",
+      "existing_LOCK_validity": "VALID",
+      "existing_deadline_verdict": "PASS",
+      "payload_hash_verified": true,
+      "saved_readback_verified": true
+    },
+    {
+      "record_id": "SYNTH_LOCK_B_3",
+      "race_id": "20260911_GAMAGORI_1R",
+      "source": "B",
+      "tickets": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          4
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "observed_at": "2026-09-11T13:01:00+09:00",
+      "saved_at": "2026-09-11T13:01:01+09:00",
+      "existing_LOCK_validity": "VALID",
+      "existing_deadline_verdict": "PASS",
+      "payload_hash_verified": true,
+      "saved_readback_verified": true
+    },
+    {
+      "record_id": "SYNTH_LOCK_A_4",
+      "race_id": "20261011_GAMAGORI_1R",
+      "source": "A",
+      "tickets": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          4,
+          2
+        ],
+        [
+          1,
+          3,
+          4
+        ]
+      ],
+      "observed_at": "2026-10-11T13:01:00+09:00",
+      "saved_at": "2026-10-11T13:01:01+09:00",
+      "existing_LOCK_validity": "VALID",
+      "existing_deadline_verdict": "PASS",
+      "payload_hash_verified": true,
+      "saved_readback_verified": true
+    },
+    {
+      "record_id": "SYNTH_LOCK_B_4",
+      "race_id": "20261011_GAMAGORI_1R",
+      "source": "B",
+      "tickets": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          4
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "observed_at": "2026-10-11T13:01:00+09:00",
+      "saved_at": "2026-10-11T13:01:01+09:00",
+      "existing_LOCK_validity": "VALID",
+      "existing_deadline_verdict": "PASS",
+      "payload_hash_verified": true,
+      "saved_readback_verified": true
+    }
+  ],
+  "results": [
+    {
+      "record_id": "SYNTH_RESULT_1",
+      "race_id": "20260711_GAMAGORI_1R",
+      "status": "FINAL",
+      "official_result_verified": true,
+      "order": [
+        1,
+        2,
+        3
+      ],
+      "payout_yen_per_100": 1200,
+      "refunded_combinations": [],
+      "refund_evidence_verified": true
+    },
+    {
+      "record_id": "SYNTH_RESULT_2",
+      "race_id": "20260811_GAMAGORI_1R",
+      "status": "FINAL",
+      "official_result_verified": true,
+      "order": [
+        2,
+        1,
+        3
+      ],
+      "payout_yen_per_100": 800,
+      "refunded_combinations": [],
+      "refund_evidence_verified": true
+    },
+    {
+      "record_id": "SYNTH_RESULT_3",
+      "race_id": "20260911_GAMAGORI_1R",
+      "status": "FINAL",
+      "official_result_verified": true,
+      "order": [
+        3,
+        1,
+        2
+      ],
+      "payout_yen_per_100": 1600,
+      "refunded_combinations": [],
+      "refund_evidence_verified": true
+    },
+    {
+      "record_id": "SYNTH_RESULT_4",
+      "race_id": "20261011_GAMAGORI_1R",
+      "status": "FINAL",
+      "official_result_verified": true,
+      "order": [
+        1,
+        4,
+        2
+      ],
+      "payout_yen_per_100": 4000,
+      "refunded_combinations": [],
+      "refund_evidence_verified": true
+    }
+  ],
+  "summaries": [
+    {
+      "record_id": "SYNTH_SUMMARY_A_1",
+      "race_id": "20260711_GAMAGORI_1R",
+      "source": "A",
+      "lock_record_id": "SYNTH_LOCK_A_1",
+      "result_record_id": "SYNTH_RESULT_1",
+      "verification": "VERIFIED",
+      "hit": true,
+      "stake_yen": 500,
+      "payout_yen": 1200,
+      "refund_yen": 0
+    },
+    {
+      "record_id": "SYNTH_SUMMARY_B_1",
+      "race_id": "20260711_GAMAGORI_1R",
+      "source": "B",
+      "lock_record_id": "SYNTH_LOCK_B_1",
+      "result_record_id": "SYNTH_RESULT_1",
+      "verification": "VERIFIED",
+      "hit": false,
+      "stake_yen": 500,
+      "payout_yen": 0,
+      "refund_yen": 0
+    },
+    {
+      "record_id": "SYNTH_SUMMARY_A_2",
+      "race_id": "20260811_GAMAGORI_1R",
+      "source": "A",
+      "lock_record_id": "SYNTH_LOCK_A_2",
+      "result_record_id": "SYNTH_RESULT_2",
+      "verification": "VERIFIED",
+      "hit": false,
+      "stake_yen": 500,
+      "payout_yen": 0,
+      "refund_yen": 0
+    },
+    {
+      "record_id": "SYNTH_SUMMARY_B_2",
+      "race_id": "20260811_GAMAGORI_1R",
+      "source": "B",
+      "lock_record_id": "SYNTH_LOCK_B_2",
+      "result_record_id": "SYNTH_RESULT_2",
+      "verification": "VERIFIED",
+      "hit": true,
+      "stake_yen": 500,
+      "payout_yen": 800,
+      "refund_yen": 0
+    },
+    {
+      "record_id": "SYNTH_SUMMARY_A_3",
+      "race_id": "20260911_GAMAGORI_1R",
+      "source": "A",
+      "lock_record_id": "SYNTH_LOCK_A_3",
+      "result_record_id": "SYNTH_RESULT_3",
+      "verification": "VERIFIED",
+      "hit": false,
+      "stake_yen": 500,
+      "payout_yen": 0,
+      "refund_yen": 0
+    },
+    {
+      "record_id": "SYNTH_SUMMARY_B_3",
+      "race_id": "20260911_GAMAGORI_1R",
+      "source": "B",
+      "lock_record_id": "SYNTH_LOCK_B_3",
+      "result_record_id": "SYNTH_RESULT_3",
+      "verification": "VERIFIED",
+      "hit": false,
+      "stake_yen": 500,
+      "payout_yen": 0,
+      "refund_yen": 0
+    },
+    {
+      "record_id": "SYNTH_SUMMARY_A_4",
+      "race_id": "20261011_GAMAGORI_1R",
+      "source": "A",
+      "lock_record_id": "SYNTH_LOCK_A_4",
+      "result_record_id": "SYNTH_RESULT_4",
+      "verification": "VERIFIED",
+      "hit": true,
+      "stake_yen": 500,
+      "payout_yen": 4000,
+      "refund_yen": 0
+    },
+    {
+      "record_id": "SYNTH_SUMMARY_B_4",
+      "race_id": "20261011_GAMAGORI_1R",
+      "source": "B",
+      "lock_record_id": "SYNTH_LOCK_B_4",
+      "result_record_id": "SYNTH_RESULT_4",
+      "verification": "VERIFIED",
+      "hit": false,
+      "stake_yen": 500,
+      "payout_yen": 0,
+      "refund_yen": 0
+    }
+  ],
+  "read_coverage": {
+    "schedule": "VERIFIED_COMPLETE",
+    "locks": {
+      "A": "VERIFIED_COMPLETE",
+      "B": "VERIFIED_COMPLETE"
+    },
+    "results": "VERIFIED_COMPLETE",
+    "summaries": {
+      "A": "VERIFIED_COMPLETE",
+      "B": "VERIFIED_COMPLETE"
+    }
+  }
+}

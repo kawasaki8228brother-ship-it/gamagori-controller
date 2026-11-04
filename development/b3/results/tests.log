@@ -1,0 +1,37 @@
+ENV {"os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.12.14", "scope": "OFFLINE_SYNTHETIC_ONLY"}
+test_A_duplicate_does_not_affect_B (test_b3.InventoryTests.test_A_duplicate_does_not_affect_B) ... ok
+test_CLI_and_duplicate_JSON_key (test_b3.InventoryTests.test_CLI_and_duplicate_JSON_key) ... ok
+test_UTC_times_convert_to_JST (test_b3.InventoryTests.test_UTC_times_convert_to_JST) ... ok
+test_bad_stage_evidence_is_unspecified (test_b3.InventoryTests.test_bad_stage_evidence_is_unspecified) ... ok
+test_base_four_meet_N_and_money (test_b3.InventoryTests.test_base_four_meet_N_and_money) ... ok
+test_boolean_money_not_zero (test_b3.InventoryTests.test_boolean_money_not_zero) ... ok
+test_cancelled_is_exclusion_not_false_miss (test_b3.InventoryTests.test_cancelled_is_exclusion_not_false_miss) ... ok
+test_cross_source_summary_reference (test_b3.InventoryTests.test_cross_source_summary_reference) ... ok
+test_duplicate_result_no_latest_selection (test_b3.InventoryTests.test_duplicate_result_no_latest_selection) ... ok
+test_evidence_gated_stage_labels (test_b3.InventoryTests.test_evidence_gated_stage_labels) ... ok
+test_failed_read_is_not_zero_records (test_b3.InventoryTests.test_failed_read_is_not_zero_records) ... ok
+test_five_tickets_nonunique (test_b3.InventoryTests.test_five_tickets_nonunique) ... ok
+test_hash_verification_unknown (test_b3.InventoryTests.test_hash_verification_unknown) ... ok
+test_input_not_mutated (test_b3.InventoryTests.test_input_not_mutated) ... ok
+test_late_never_relabels_existing_validity (test_b3.InventoryTests.test_late_never_relabels_existing_validity) ... ok
+test_malformed_identifier_types_fail_closed (test_b3.InventoryTests.test_malformed_identifier_types_fail_closed) ... ok
+test_meet_month_cumulative (test_b3.InventoryTests.test_meet_month_cumulative) ... ok
+test_missing_B_summary (test_b3.InventoryTests.test_missing_B_summary) ... ok
+test_missing_coverage_does_not_assert_representative_valid_N (test_b3.InventoryTests.test_missing_coverage_does_not_assert_representative_valid_N) ... ok
+test_missing_result_affects_both (test_b3.InventoryTests.test_missing_result_affects_both) ... ok
+test_money_unknown_separate_N (test_b3.InventoryTests.test_money_unknown_separate_N) ... ok
+test_no_causal_stage_from_tickets_alone (test_b3.InventoryTests.test_no_causal_stage_from_tickets_alone) ... ok
+test_no_money_data_is_not_zero_totals (test_b3.InventoryTests.test_no_money_data_is_not_zero_totals) ... ok
+test_refunds_by_combination_not_same_indices (test_b3.InventoryTests.test_refunds_by_combination_not_same_indices) ... ok
+test_schema_time_identity_scope_errors (test_b3.InventoryTests.test_schema_time_identity_scope_errors) ... ok
+test_summary_hit_mismatch (test_b3.InventoryTests.test_summary_hit_mismatch) ... ok
+test_summary_money_not_repaired (test_b3.InventoryTests.test_summary_money_not_repaired) ... ok
+test_time_missing_unknown (test_b3.InventoryTests.test_time_missing_unknown) ... ok
+test_unknown_offset_and_precision_are_not_normalized (test_b3.InventoryTests.test_unknown_offset_and_precision_are_not_normalized) ... ok
+test_upstream_deadline_unknown (test_b3.InventoryTests.test_upstream_deadline_unknown) ... ok
+test_winning_refund_conflict (test_b3.InventoryTests.test_winning_refund_conflict) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.086s
+
+OK
