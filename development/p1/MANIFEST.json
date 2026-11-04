@@ -1,0 +1,111 @@
+{
+  "group": "p1",
+  "task_ids": [
+    "SYS-05",
+    "SYS-06",
+    "SYS-07",
+    "SYS-08",
+    "SYS-11",
+    "SYS-12",
+    "SYS-13",
+    "SYS-29"
+  ],
+  "branch": "dev/audit-p1-20261105-v001",
+  "base": {
+    "sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "tree": "9143c19742b672c93f67228669166a8f86c2f37a",
+    "blob_count": 40
+  },
+  "only_new_files": true,
+  "tests": 75,
+  "actual_result_source": "results.json",
+  "development_state": "DEV_READY_WITH_RESEARCH_OPEN",
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "applicable": false,
+  "production_GO": false,
+  "production_applied": false,
+  "CLOSE": false,
+  "self_INDEX_SHA_excluded": true,
+  "files": [
+    {
+      "file": "CLI_EXAMPLE_SYS05.json",
+      "bytes": 49,
+      "sha256": "8645593e60325245e4ad02812d609add222b7d37c531f98a269f5d78d525fa50",
+      "git_blob": "cbd35947865fcf898b3628f638bc5eee85ff05fe",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "DEVELOPMENT-STATUS.json",
+      "bytes": 1868,
+      "sha256": "f5c431d7ceb9cad406ee16f8be354dd5c6c5612ce5e4eb5b37b41b4acda19ed8",
+      "git_blob": "311cc83dd4f2bd9fd97dc9df852c5944d05c93bb",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "OPEN.json",
+      "bytes": 1365,
+      "sha256": "fe19b91cc8178239a6a2f0fff5cb85ff0925e8d357de89b7d279c69b5dd476c8",
+      "git_blob": "a4461fb945c262b8e55a7566af61a47a33bb0005",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "README.md",
+      "bytes": 6217,
+      "sha256": "3b558ad6ca5bd8410bb8b5cea7dd9356d20b30e6d3a5cbbae6fec602a781a51e",
+      "git_blob": "66e10f3eb199c5a8bbce65f39389038e52115261",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "SOURCE-AND-SCOPE.json",
+      "bytes": 1009,
+      "sha256": "fddf992caa50687bfe11f8b1fd94e7d68c62a12fbc464f7b553a39bb8cf2b9fa",
+      "git_blob": "ac8c7e506e0e4e76ba8c1de0cb04a6599c05c32d",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "audit_p1.py",
+      "bytes": 14835,
+      "sha256": "aa1e30d2a203e37af683d5a8e1d9f2d7725a9d5ad1a2f8926f096442eba46372",
+      "git_blob": "edc57a20cdfb700111a2ff5a910e7690e8182191",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "fixtures.json",
+      "bytes": 28321,
+      "sha256": "cfd15fec86bb5c091f942c6024bc3dc66d22b4af536540eae8481edbadc400fb",
+      "git_blob": "98336204d57c0ab01507b693bc14b8e123956c0e",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "results.json",
+      "bytes": 689,
+      "sha256": "36a8a253ab2d9a4bffd32b5920cc7fee719893a01ac6cbd32094a0f9a3463658",
+      "git_blob": "9c245aad643cb7acab5a16f272afa402974f4255",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "test_p1.py",
+      "bytes": 8844,
+      "sha256": "6a9d8beb7117cb3cd659bf3bab90b7ef5f9b8edba0cf82e950802b7a533a4f99",
+      "git_blob": "6e7b3ba5652624bb86c1e4f91e3ae6450be10139",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    },
+    {
+      "file": "tests.log",
+      "bytes": 7184,
+      "sha256": "e5c3ab43f4e21a872a6bb2fc6ddc542a9a56cc4b7d662891719e0ebad1a1abf7",
+      "git_blob": "c7c9e50595b74757b72deadba2a5ce0569721a8d",
+      "trust": "CODE_DESIGN_SYNTHETIC_FIXTURES_OR_NON_SECRET_LOCAL_RESULT",
+      "state": "DEVELOPMENT_ONLY_REVIEW_PENDING"
+    }
+  ]
+}

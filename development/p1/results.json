@@ -1,0 +1,29 @@
+{
+  "state": "DEV_READY_SYNTHETIC_ONLY",
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "scope": "OFFLINE_SYNTHETIC_UNIT_TESTS_ONLY"
+  },
+  "unittest_tests": 75,
+  "synthetic_fixture_cases": 56,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "covered_case_ids": [
+    "SYS-05",
+    "SYS-06",
+    "SYS-07",
+    "SYS-08",
+    "SYS-11",
+    "SYS-12",
+    "SYS-13",
+    "SYS-29"
+  ],
+  "real_data_records_received": 0,
+  "existing_B_hash_specification": "UNVERIFIED",
+  "actual_Daily_prompt_execution": "UNVERIFIED_NOT_EXECUTED",
+  "notification_sends_executed": 0,
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "production_GO": false
+}

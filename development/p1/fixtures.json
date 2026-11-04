@@ -1,0 +1,1121 @@
+{
+  "classification": "SYNTHETIC_ONLY_NOT_REAL_EVENTS_OR_LOGS",
+  "cases": [
+    {
+      "id": "scope_complete_zero",
+      "operation": "SYS-05",
+      "synthetic": true,
+      "input": {
+        "rows": [],
+        "read_status": "READ_OK_COMPLETE"
+      },
+      "expect": {
+        "production_total": 0,
+        "status": "OBSERVED_COMPLETE"
+      }
+    },
+    {
+      "id": "scope_read_failed_not_zero",
+      "operation": "SYS-05",
+      "synthetic": true,
+      "input": {
+        "rows": [],
+        "read_status": "READ_FAILED"
+      },
+      "expect": {
+        "production_total": null,
+        "status": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "scope_incomplete_not_total",
+      "operation": "SYS-05",
+      "synthetic": true,
+      "input": {
+        "rows": [
+          {
+            "is_test": false,
+            "race_id": "SYNTH_R1"
+          }
+        ],
+        "read_status": "INCOMPLETE"
+      },
+      "expect": {
+        "production_total": null,
+        "observed_counts.production_observed": 1
+      }
+    },
+    {
+      "id": "scope_total_and_OBS_subset",
+      "operation": "SYS-05",
+      "synthetic": true,
+      "input": {
+        "rows": [
+          {
+            "id": "SYNTH_1",
+            "is_test": false,
+            "race_id": "SYNTH_R1",
+            "kind": "LOCK"
+          },
+          {
+            "id": "SYNTH_2",
+            "is_test": false,
+            "race_id": null,
+            "kind": "OBS"
+          },
+          {
+            "id": "SYNTH_3",
+            "is_test": false,
+            "race_id": "SYNTH_R2",
+            "kind": "OBS"
+          },
+          {
+            "id": "TEST_SYNTH_4",
+            "is_test": false,
+            "race_id": "SYNTH_R3"
+          }
+        ],
+        "read_status": "READ_OK_COMPLETE"
+      },
+      "expect": {
+        "production_total": 3,
+        "observed_counts.race_linked_observed": 2,
+        "observed_counts.unlinked_observed": 1,
+        "observed_counts.OBS_subset": 2,
+        "observed_counts.test_observed": 1
+      }
+    },
+    {
+      "id": "scope_unknown_production_flag",
+      "operation": "SYS-05",
+      "synthetic": true,
+      "input": {
+        "rows": [
+          {
+            "id": "SYNTH_1",
+            "race_id": "SYNTH_R1"
+          }
+        ],
+        "read_status": "READ_OK_COMPLETE"
+      },
+      "expect": {
+        "production_total": null,
+        "observed_counts.production_unknown": 1
+      }
+    },
+    {
+      "id": "scope_bad_race_ref",
+      "operation": "SYS-05",
+      "synthetic": true,
+      "input": {
+        "rows": [
+          {
+            "is_test": false,
+            "race_id": false
+          }
+        ],
+        "read_status": "READ_OK_COMPLETE"
+      },
+      "expect": {
+        "production_total": 1,
+        "status": "UNVERIFIED",
+        "observed_counts.link_unknown": 1
+      }
+    },
+    {
+      "id": "key_single",
+      "operation": "SYS-06",
+      "synthetic": true,
+      "input": {
+        "records": [
+          {
+            "key": "SYNTH_KEY",
+            "payload_raw_b64": "U1lOVEhFVElDX0E=",
+            "claimed_hash": "f6438dc264ddc21c3c53b85bc33ea59680473435cb0b458eb10e34bcfe7e46e5"
+          }
+        ]
+      },
+      "expect": {
+        "groups.0.classification": "SINGLE",
+        "groups.0.rows.0.claim_matches_calculated_raw": true
+      }
+    },
+    {
+      "id": "key_duplicate_identical",
+      "operation": "SYS-06",
+      "synthetic": true,
+      "input": {
+        "records": [
+          {
+            "key": "SYNTH_KEY",
+            "payload_raw_b64": "U1lOVEhFVElDX0E=",
+            "claimed_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "key": "SYNTH_KEY",
+            "payload_raw_b64": "U1lOVEhFVElDX0E=",
+            "claimed_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "expect": {
+        "groups.0.classification": "DUPLICATE_IDENTICAL_RAW",
+        "groups.0.rows.0.claim_matches_calculated_raw": false
+      }
+    },
+    {
+      "id": "key_same_claim_different_raw",
+      "operation": "SYS-06",
+      "synthetic": true,
+      "input": {
+        "records": [
+          {
+            "key": "SYNTH_KEY",
+            "payload_raw_b64": "U1lOVEhFVElDX0E=",
+            "claimed_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "key": "SYNTH_KEY",
+            "payload_raw_b64": "U1lOVEhFVElDX0I=",
+            "claimed_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "expect": {
+        "groups.0.classification": "CONFLICT_DIFFERENT_RAW"
+      }
+    },
+    {
+      "id": "key_duplicate_raw_missing",
+      "operation": "SYS-06",
+      "synthetic": true,
+      "input": {
+        "records": [
+          {
+            "key": "SYNTH_KEY",
+            "payload_raw_b64": "U1lOVEhFVElDX0E="
+          },
+          {
+            "key": "SYNTH_KEY"
+          }
+        ]
+      },
+      "expect": {
+        "groups.0.classification": "DUPLICATE_RAW_UNVERIFIED",
+        "groups.0.rows.1.raw_status": "RAW_UNAVAILABLE"
+      }
+    },
+    {
+      "id": "key_invalid_base64",
+      "operation": "SYS-06",
+      "synthetic": true,
+      "input": {
+        "records": [
+          {
+            "key": "SYNTH_KEY",
+            "payload_raw_b64": "!"
+          }
+        ]
+      },
+      "expect": {
+        "groups.0.rows.0.raw_status": "INVALID_RAW_ENCODING",
+        "groups.0.rows.0.claim_matches_calculated_raw": null
+      }
+    },
+    {
+      "id": "key_invalid_key",
+      "operation": "SYS-06",
+      "synthetic": true,
+      "input": {
+        "records": [
+          {
+            "key": null,
+            "payload_raw_b64": "U1lOVEhFVElDX0E="
+          }
+        ]
+      },
+      "expect": {
+        "invalid_key_rows": 1
+      }
+    },
+    {
+      "id": "hash_spec_fields_need_not_equal",
+      "operation": "SYS-07",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "payload_raw_b64": "eyJzeW50aGV0aWMiOnRydWUsInN5bnRoZXRpY19zcGVjX2hhc2giOiJkYThiMTNhNDM4N2M0MWY5ZTFkNmI1NGQ5ZDI5MGYzZDM1ZTA4MDA0ZDMyYWRiMzZiZDg3NWJjYjlkZDE0MjdmIn0=",
+          "column_hash": "3470bec8d68923fedf90aa920313e959632cab86c27f4d3dd684f4ce4d50dbaf",
+          "embedded_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f"
+        },
+        "profile": {
+          "column_hash_kind": "RAW_BYTES",
+          "embedded_hash_kind": "FIXED_SPEC_REFERENCE",
+          "expected_spec_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f",
+          "embedded_hash_field": "synthetic_spec_hash"
+        }
+      },
+      "expect": {
+        "column_vs_raw": true,
+        "embedded_vs_fixed_spec": true,
+        "column_and_embedded_equality_required": false,
+        "LOCK_validity": "NOT_EVALUATED"
+      }
+    },
+    {
+      "id": "hash_spec_missing_profile",
+      "operation": "SYS-07",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "payload_raw_b64": "eyJzeW50aGV0aWMiOnRydWUsInN5bnRoZXRpY19zcGVjX2hhc2giOiJkYThiMTNhNDM4N2M0MWY5ZTFkNmI1NGQ5ZDI5MGYzZDM1ZTA4MDA0ZDMyYWRiMzZiZDg3NWJjYjlkZDE0MjdmIn0=",
+          "column_hash": "3470bec8d68923fedf90aa920313e959632cab86c27f4d3dd684f4ce4d50dbaf",
+          "embedded_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f"
+        }
+      },
+      "expect": {
+        "status": "UNVERIFIED",
+        "reason": "PROFILE_REQUIRED"
+      }
+    },
+    {
+      "id": "hash_spec_unrecognized_profile",
+      "operation": "SYS-07",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "payload_raw_b64": "eyJzeW50aGV0aWMiOnRydWUsInN5bnRoZXRpY19zcGVjX2hhc2giOiJkYThiMTNhNDM4N2M0MWY5ZTFkNmI1NGQ5ZDI5MGYzZDM1ZTA4MDA0ZDMyYWRiMzZiZDg3NWJjYjlkZDE0MjdmIn0=",
+          "column_hash": "3470bec8d68923fedf90aa920313e959632cab86c27f4d3dd684f4ce4d50dbaf",
+          "embedded_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f"
+        },
+        "profile": {
+          "column_hash_kind": "CANONICAL",
+          "embedded_hash_field": "synthetic_spec_hash"
+        }
+      },
+      "expect": {
+        "status": "UNVERIFIED",
+        "reason": "UNSUPPORTED_PROFILE"
+      }
+    },
+    {
+      "id": "hash_spec_incomplete_profile",
+      "operation": "SYS-07",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "payload_raw_b64": "eyJzeW50aGV0aWMiOnRydWUsInN5bnRoZXRpY19zcGVjX2hhc2giOiJkYThiMTNhNDM4N2M0MWY5ZTFkNmI1NGQ5ZDI5MGYzZDM1ZTA4MDA0ZDMyYWRiMzZiZDg3NWJjYjlkZDE0MjdmIn0=",
+          "column_hash": "3470bec8d68923fedf90aa920313e959632cab86c27f4d3dd684f4ce4d50dbaf",
+          "embedded_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f"
+        },
+        "profile": {
+          "column_hash_kind": "RAW_BYTES",
+          "embedded_hash_kind": "FIXED_SPEC_REFERENCE",
+          "expected_spec_hash": null,
+          "embedded_hash_field": "synthetic_spec_hash"
+        }
+      },
+      "expect": {
+        "status": "UNVERIFIED",
+        "reason": "PROFILE_INCOMPLETE"
+      }
+    },
+    {
+      "id": "hash_spec_wrong_column",
+      "operation": "SYS-07",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "payload_raw_b64": "eyJzeW50aGV0aWMiOnRydWUsInN5bnRoZXRpY19zcGVjX2hhc2giOiJkYThiMTNhNDM4N2M0MWY5ZTFkNmI1NGQ5ZDI5MGYzZDM1ZTA4MDA0ZDMyYWRiMzZiZDg3NWJjYjlkZDE0MjdmIn0=",
+          "column_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "embedded_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f"
+        },
+        "profile": {
+          "column_hash_kind": "RAW_BYTES",
+          "embedded_hash_kind": "FIXED_SPEC_REFERENCE",
+          "expected_spec_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f",
+          "embedded_hash_field": "synthetic_spec_hash"
+        }
+      },
+      "expect": {
+        "column_vs_raw": false,
+        "embedded_vs_fixed_spec": true,
+        "mismatches": [
+          "COLUMN_RAW"
+        ]
+      }
+    },
+    {
+      "id": "hash_spec_invalid_raw",
+      "operation": "SYS-07",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "payload_raw_b64": "!",
+          "column_hash": "3470bec8d68923fedf90aa920313e959632cab86c27f4d3dd684f4ce4d50dbaf",
+          "embedded_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f"
+        },
+        "profile": {
+          "column_hash_kind": "RAW_BYTES",
+          "embedded_hash_kind": "FIXED_SPEC_REFERENCE",
+          "expected_spec_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f",
+          "embedded_hash_field": "synthetic_spec_hash"
+        }
+      },
+      "expect": {
+        "status": "UNVERIFIED",
+        "reason": "INVALID_RAW_ENCODING"
+      }
+    },
+    {
+      "id": "hash_spec_missing_raw",
+      "operation": "SYS-07",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "embedded_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f",
+          "column_hash": "3470bec8d68923fedf90aa920313e959632cab86c27f4d3dd684f4ce4d50dbaf"
+        },
+        "profile": {
+          "column_hash_kind": "RAW_BYTES",
+          "embedded_hash_kind": "FIXED_SPEC_REFERENCE",
+          "expected_spec_hash": "da8b13a4387c41f9e1d6b54d9d290f3d35e08004d32adb36bd875bcb9dd1427f",
+          "embedded_hash_field": "synthetic_spec_hash"
+        }
+      },
+      "expect": {
+        "status": "UNVERIFIED",
+        "reason": "RAW_PAYLOAD_UNAVAILABLE",
+        "column_vs_raw": null,
+        "embedded_vs_fixed_spec": null
+      }
+    },
+    {
+      "id": "field_null",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": null
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "NULL"
+      }
+    },
+    {
+      "id": "field_empty",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": ""
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "EMPTY_STRING"
+      }
+    },
+    {
+      "id": "field_zero",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": 0
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "ZERO_NUMBER"
+      }
+    },
+    {
+      "id": "field_zero_float",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": 0.0
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "ZERO_NUMBER"
+      }
+    },
+    {
+      "id": "field_false",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": false
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "FALSE_BOOLEAN"
+      }
+    },
+    {
+      "id": "field_true",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": true
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "TRUE_BOOLEAN"
+      }
+    },
+    {
+      "id": "field_string_zero",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": "0"
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "NONEMPTY_STRING"
+      }
+    },
+    {
+      "id": "field_space",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": " "
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "NONEMPTY_STRING"
+      }
+    },
+    {
+      "id": "field_number",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": 7
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "OTHER_NUMBER"
+      }
+    },
+    {
+      "id": "field_array",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": []
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "ARRAY"
+      }
+    },
+    {
+      "id": "field_object",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {
+          "x": {}
+        },
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "OBJECT"
+      }
+    },
+    {
+      "id": "field_missing",
+      "operation": "SYS-08",
+      "synthetic": true,
+      "input": {
+        "record": {},
+        "key": "x"
+      },
+      "expect": {
+        "field_kind": "MISSING"
+      }
+    },
+    {
+      "id": "receipt_pair",
+      "operation": "SYS-11",
+      "synthetic": true,
+      "input": {
+        "receipts": [
+          {
+            "phase": "START",
+            "run_status": "RUNNING",
+            "run_id": "SYNTH_RUN",
+            "task_id": "SYNTH_TASK"
+          },
+          {
+            "phase": "END",
+            "run_status": "PASS",
+            "run_id": "SYNTH_RUN",
+            "task_id": "SYNTH_TASK"
+          }
+        ],
+        "start_save_failure_evidence": false
+      },
+      "expect": {
+        "presence": "PAIR_PRESENT"
+      }
+    },
+    {
+      "id": "receipt_end_only_failure",
+      "operation": "SYS-11",
+      "synthetic": true,
+      "input": {
+        "receipts": [
+          {
+            "phase": "END",
+            "run_status": "PASS",
+            "run_id": "SYNTH_RUN",
+            "task_id": "SYNTH_TASK"
+          }
+        ],
+        "start_save_failure_evidence": true
+      },
+      "expect": {
+        "presence": "END_WITH_START_SAVE_FAILURE_EVIDENCE"
+      }
+    },
+    {
+      "id": "receipt_end_only_unknown",
+      "operation": "SYS-11",
+      "synthetic": true,
+      "input": {
+        "receipts": [
+          {
+            "phase": "END",
+            "run_status": "PASS",
+            "run_id": "SYNTH_RUN",
+            "task_id": "SYNTH_TASK"
+          }
+        ],
+        "start_save_failure_evidence": false
+      },
+      "expect": {
+        "presence": "END_WITHOUT_START_UNVERIFIED"
+      }
+    },
+    {
+      "id": "receipt_start_only",
+      "operation": "SYS-11",
+      "synthetic": true,
+      "input": {
+        "receipts": [
+          {
+            "phase": "START",
+            "run_status": "RUNNING",
+            "run_id": "SYNTH_RUN",
+            "task_id": "SYNTH_TASK"
+          }
+        ],
+        "start_save_failure_evidence": false
+      },
+      "expect": {
+        "presence": "START_ONLY_IN_PROGRESS_OR_END_MISSING"
+      }
+    },
+    {
+      "id": "receipt_none",
+      "operation": "SYS-11",
+      "synthetic": true,
+      "input": {
+        "receipts": [],
+        "start_save_failure_evidence": false
+      },
+      "expect": {
+        "presence": "NO_RECEIPTS_UNVERIFIED"
+      }
+    },
+    {
+      "id": "receipt_duplicate",
+      "operation": "SYS-11",
+      "synthetic": true,
+      "input": {
+        "receipts": [
+          {
+            "phase": "START",
+            "run_status": "RUNNING",
+            "run_id": "SYNTH_RUN",
+            "task_id": "SYNTH_TASK"
+          },
+          {
+            "phase": "START",
+            "run_status": "RUNNING",
+            "run_id": "SYNTH_RUN",
+            "task_id": "SYNTH_TASK"
+          },
+          {
+            "phase": "END",
+            "run_status": "PASS",
+            "run_id": "SYNTH_RUN",
+            "task_id": "SYNTH_TASK"
+          }
+        ],
+        "start_save_failure_evidence": false
+      },
+      "expect": {
+        "presence": "DUPLICATE_PHASE_UNVERIFIED"
+      }
+    },
+    {
+      "id": "receipt_mixed_scope",
+      "operation": "SYS-11",
+      "synthetic": true,
+      "input": {
+        "receipts": [
+          {
+            "phase": "START",
+            "run_status": "RUNNING",
+            "run_id": "SYNTH_RUN",
+            "task_id": "SYNTH_TASK"
+          },
+          {
+            "phase": "END",
+            "run_status": "RUNNING",
+            "run_id": "SYNTH_OTHER",
+            "task_id": "SYNTH_TASK"
+          }
+        ]
+      },
+      "expect": {
+        "warnings": [
+          "MIXED_RUN_OR_TASK_SCOPE",
+          "END_STATUS_NOT_TERMINAL_OR_UNKNOWN"
+        ]
+      }
+    },
+    {
+      "id": "receipt_unknown_phase_and_scope",
+      "operation": "SYS-11",
+      "synthetic": true,
+      "input": {
+        "receipts": [
+          {
+            "phase": "OTHER",
+            "run_status": "UNKNOWN"
+          }
+        ]
+      },
+      "expect": {
+        "presence": "NO_RECEIPTS_UNVERIFIED",
+        "warnings": [
+          "UNKNOWN_PHASE",
+          "RUN_OR_TASK_SCOPE_MISSING"
+        ]
+      }
+    },
+    {
+      "id": "receipt_bad_start_status",
+      "operation": "SYS-11",
+      "synthetic": true,
+      "input": {
+        "receipts": [
+          {
+            "phase": "START",
+            "run_status": "PASS",
+            "run_id": "SYNTH_RUN",
+            "task_id": "SYNTH_TASK"
+          }
+        ]
+      },
+      "expect": {
+        "warnings": [
+          "START_STATUS_NOT_RUNNING"
+        ]
+      }
+    },
+    {
+      "id": "nonrace_no_race",
+      "operation": "SYS-12",
+      "synthetic": true,
+      "input": {
+        "official_status": "NO_RACE_VERIFIED",
+        "summary_kind": "NON_RACE_SUMMARY",
+        "result_kind": "MISSING"
+      },
+      "expect": {
+        "consistency": "NONRACE_OBSERVATION_ONLY",
+        "NON_RACE_SUMMARY_is_official_RESULT": false
+      }
+    },
+    {
+      "id": "nonrace_no_race_conflict",
+      "operation": "SYS-12",
+      "synthetic": true,
+      "input": {
+        "official_status": "NO_RACE_VERIFIED",
+        "summary_kind": "NON_RACE_SUMMARY",
+        "result_kind": "OFFICIAL_RESULT"
+      },
+      "expect": {
+        "consistency": "CONFLICT_REVIEW",
+        "NON_RACE_SUMMARY_is_official_RESULT": false
+      }
+    },
+    {
+      "id": "nonrace_unverified",
+      "operation": "SYS-12",
+      "synthetic": true,
+      "input": {
+        "official_status": "UNVERIFIED",
+        "summary_kind": "NON_RACE_SUMMARY",
+        "result_kind": "MISSING"
+      },
+      "expect": {
+        "consistency": "UNVERIFIED",
+        "NON_RACE_SUMMARY_is_official_RESULT": false
+      }
+    },
+    {
+      "id": "nonrace_race_no_race_summary",
+      "operation": "SYS-12",
+      "synthetic": true,
+      "input": {
+        "official_status": "RACE_VERIFIED",
+        "summary_kind": "NON_RACE_SUMMARY",
+        "result_kind": "OFFICIAL_RESULT"
+      },
+      "expect": {
+        "consistency": "CONFLICT_REVIEW",
+        "NON_RACE_SUMMARY_is_official_RESULT": false
+      }
+    },
+    {
+      "id": "nonrace_race_missing",
+      "operation": "SYS-12",
+      "synthetic": true,
+      "input": {
+        "official_status": "RACE_VERIFIED",
+        "summary_kind": "RACE_SUMMARY",
+        "result_kind": "MISSING"
+      },
+      "expect": {
+        "consistency": "UNVERIFIED_MISSING_OFFICIAL_RESULT",
+        "NON_RACE_SUMMARY_is_official_RESULT": false
+      }
+    },
+    {
+      "id": "nonrace_race_result",
+      "operation": "SYS-12",
+      "synthetic": true,
+      "input": {
+        "official_status": "RACE_VERIFIED",
+        "summary_kind": "RACE_SUMMARY",
+        "result_kind": "OFFICIAL_RESULT"
+      },
+      "expect": {
+        "consistency": "RACE_RESULT_OBSERVATION_ONLY",
+        "NON_RACE_SUMMARY_is_official_RESULT": false
+      }
+    },
+    {
+      "id": "nonrace_nonrace_shadow",
+      "operation": "SYS-12",
+      "synthetic": true,
+      "input": {
+        "official_status": "NO_RACE_VERIFIED",
+        "summary_kind": "NON_RACE_SUMMARY",
+        "result_kind": "SHADOW_DRY_RUN"
+      },
+      "expect": {
+        "consistency": "NONRACE_OBSERVATION_ONLY",
+        "NON_RACE_SUMMARY_is_official_RESULT": false
+      }
+    },
+    {
+      "id": "nonrace_unknown_kind",
+      "operation": "SYS-12",
+      "synthetic": true,
+      "input": {
+        "official_status": "RACE_VERIFIED",
+        "summary_kind": "OTHER",
+        "result_kind": "OFFICIAL_RESULT"
+      },
+      "expect": {
+        "consistency": "UNVERIFIED",
+        "NON_RACE_SUMMARY_is_official_RESULT": false
+      }
+    },
+    {
+      "id": "display_preserves_all",
+      "operation": "SYS-13",
+      "synthetic": true,
+      "input": {
+        "expected": {
+          "audit_status": "UNVERIFIED",
+          "scope": "SYNTH_TOTAL_AND_LINKED_DISTINCT",
+          "counts": {
+            "total": 0,
+            "linked": 0,
+            "read_failed": false
+          },
+          "receipts": {
+            "START": "SYNTH_START",
+            "END": null
+          },
+          "unverified": [
+            "END_SAVE"
+          ]
+        },
+        "observed": {
+          "audit_status": "UNVERIFIED",
+          "scope": "SYNTH_TOTAL_AND_LINKED_DISTINCT",
+          "counts": {
+            "total": 0,
+            "linked": 0,
+            "read_failed": false
+          },
+          "receipts": {
+            "START": "SYNTH_START",
+            "END": null
+          },
+          "unverified": [
+            "END_SAVE"
+          ]
+        }
+      },
+      "expect": {
+        "contract_match": true,
+        "actual_Daily_prompt_execution": "UNVERIFIED_NOT_EXECUTED"
+      }
+    },
+    {
+      "id": "display_missing_receipt",
+      "operation": "SYS-13",
+      "synthetic": true,
+      "input": {
+        "expected": {
+          "audit_status": "UNVERIFIED",
+          "scope": "SYNTH_TOTAL_AND_LINKED_DISTINCT",
+          "counts": {
+            "total": 0,
+            "linked": 0,
+            "read_failed": false
+          },
+          "receipts": {
+            "START": "SYNTH_START",
+            "END": null
+          },
+          "unverified": [
+            "END_SAVE"
+          ]
+        },
+        "observed": {
+          "audit_status": "UNVERIFIED",
+          "scope": "SYNTH_TOTAL_AND_LINKED_DISTINCT",
+          "counts": {
+            "total": 0,
+            "linked": 0,
+            "read_failed": false
+          },
+          "unverified": [
+            "END_SAVE"
+          ]
+        }
+      },
+      "expect": {
+        "contract_match": false,
+        "required_fields_missing": [
+          "receipts"
+        ]
+      }
+    },
+    {
+      "id": "display_false_not_zero",
+      "operation": "SYS-13",
+      "synthetic": true,
+      "input": {
+        "expected": {
+          "audit_status": "UNVERIFIED",
+          "scope": "SYNTH_TOTAL_AND_LINKED_DISTINCT",
+          "counts": {
+            "total": 0,
+            "linked": 0,
+            "read_failed": false
+          },
+          "receipts": {
+            "START": "SYNTH_START",
+            "END": null
+          },
+          "unverified": [
+            "END_SAVE"
+          ]
+        },
+        "observed": {
+          "audit_status": "UNVERIFIED",
+          "scope": "SYNTH_TOTAL_AND_LINKED_DISTINCT",
+          "counts": {
+            "total": false,
+            "linked": 0,
+            "read_failed": false
+          },
+          "receipts": {
+            "START": "SYNTH_START",
+            "END": null
+          },
+          "unverified": [
+            "END_SAVE"
+          ]
+        }
+      },
+      "expect": {
+        "contract_match": false,
+        "required_fields_changed": [
+          "counts"
+        ]
+      }
+    },
+    {
+      "id": "display_unreviewed_extra",
+      "operation": "SYS-13",
+      "synthetic": true,
+      "input": {
+        "expected": {
+          "audit_status": "UNVERIFIED",
+          "scope": "SYNTH_TOTAL_AND_LINKED_DISTINCT",
+          "counts": {
+            "total": 0,
+            "linked": 0,
+            "read_failed": false
+          },
+          "receipts": {
+            "START": "SYNTH_START",
+            "END": null
+          },
+          "unverified": [
+            "END_SAVE"
+          ]
+        },
+        "observed": {
+          "audit_status": "UNVERIFIED",
+          "scope": "SYNTH_TOTAL_AND_LINKED_DISTINCT",
+          "counts": {
+            "total": 0,
+            "linked": 0,
+            "read_failed": false
+          },
+          "receipts": {
+            "START": "SYNTH_START",
+            "END": null
+          },
+          "unverified": [
+            "END_SAVE"
+          ],
+          "extra": "SYNTHETIC"
+        }
+      },
+      "expect": {
+        "contract_match": false,
+        "extra_fields_for_review": [
+          "extra"
+        ]
+      }
+    },
+    {
+      "id": "notification_receipt_only",
+      "operation": "SYS-29",
+      "synthetic": true,
+      "input": {
+        "receipt": {
+          "status": "CONFIRMED",
+          "verified": true,
+          "evidence_ref": "SYNTH_RECEIPT"
+        }
+      },
+      "expect": {
+        "receipt.status": "CONFIRMED",
+        "arrival.status": "UNVERIFIED",
+        "send.status": "UNVERIFIED",
+        "notification_sends_executed": 0
+      }
+    },
+    {
+      "id": "notification_send_not_arrival",
+      "operation": "SYS-29",
+      "synthetic": true,
+      "input": {
+        "send": {
+          "status": "CONFIRMED",
+          "verified": true,
+          "evidence_ref": "SYNTH_RECEIPT"
+        },
+        "receipt": {
+          "status": "CONFIRMED",
+          "verified": true,
+          "evidence_ref": "SYNTH_RECEIPT"
+        }
+      },
+      "expect": {
+        "send.status": "CONFIRMED",
+        "arrival.status": "UNVERIFIED",
+        "derived_E2E_success": "NOT_ASSIGNED"
+      }
+    },
+    {
+      "id": "notification_independent_axes",
+      "operation": "SYS-29",
+      "synthetic": true,
+      "input": {
+        "send": {
+          "status": "FAILED",
+          "verified": true,
+          "evidence_ref": "SYNTH_FAILURE"
+        },
+        "arrival": {
+          "status": "CONFIRMED",
+          "verified": true,
+          "evidence_ref": "SYNTH_RECEIPT"
+        },
+        "receipt": {
+          "status": "FAILED",
+          "verified": true,
+          "evidence_ref": "SYNTH_FAILURE"
+        }
+      },
+      "expect": {
+        "send.status": "FAILED",
+        "arrival.status": "CONFIRMED",
+        "receipt.status": "FAILED"
+      }
+    },
+    {
+      "id": "notification_unverified_claim",
+      "operation": "SYS-29",
+      "synthetic": true,
+      "input": {
+        "send": {
+          "status": "CONFIRMED",
+          "verified": false,
+          "evidence_ref": "SYNTH_CLAIM"
+        }
+      },
+      "expect": {
+        "send.status": "UNVERIFIED"
+      }
+    }
+  ]
+}

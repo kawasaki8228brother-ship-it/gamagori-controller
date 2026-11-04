@@ -1,0 +1,23 @@
+{
+  "state": "DEV_READY_SYNTHETIC_ONLY",
+  "case_ids": ["SYS-05", "SYS-06", "SYS-07", "SYS-08", "SYS-11", "SYS-12", "SYS-13", "SYS-29"],
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "applicable": false,
+  "applied": false,
+  "CLOSE": false,
+  "real_data_received": 0,
+  "actual_prompt_executions": 0,
+  "notification_sends": 0,
+  "required_private_inputs": {
+    "SYS-05": "Production/test/race-link field contract and read completeness summary; no raw Events to public repo",
+    "SYS-06": "Actual key scope, raw payload byte contract, claimed-hash kind and duplicate policy",
+    "SYS-07": "Verified B column/embedded hash specifications, field map and reference hashes; no LOCK VALID change",
+    "SYS-08": "Per-field domain schema; do not conflate generic type state with operational validity",
+    "SYS-11": "Verified stage/run scope contract, failed START evidence source and allowed terminal statuses",
+    "SYS-12": "Audited nonrace Summary/RESULT semantics; RESEARCH ONLY until independently decided",
+    "SYS-13": "Current Daily display obligations and real prompt replay evidence; no writer or judgment patch",
+    "SYS-29": "Independent send/delivery/receipt evidence provenance and same-message scope binding"
+  },
+  "SYS01_SYS02_or_other_case_integration": "NOT_PERFORMED_REQUIRES_EXPLICIT_COMMIT_AND_AUTHORIZATION",
+  "production_GO": false
+}

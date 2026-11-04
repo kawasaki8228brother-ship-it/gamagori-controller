@@ -1,0 +1,85 @@
+ENV {"os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.12.14", "scope": "OFFLINE_SYNTHETIC_UNIT_TESTS_ONLY"}
+COMMAND python -B -m unittest -v test_p1.py
+STDOUT
+STDERR
+test_CLI_ambiguous_or_nonfinite_JSON_rejected (test_p1.BoundaryTests.test_CLI_ambiguous_or_nonfinite_JSON_rejected) ... ok
+test_CLI_local_only_valid_input (test_p1.BoundaryTests.test_CLI_local_only_valid_input) ... ok
+test_CLI_oversized_input_refused_without_prefix_result (test_p1.BoundaryTests.test_CLI_oversized_input_refused_without_prefix_result) ... ok
+test_SYS07_duplicate_or_nonobject_payload_is_unverified (test_p1.BoundaryTests.test_SYS07_duplicate_or_nonobject_payload_is_unverified) ... ok
+test_SYS07_reads_embedded_value_from_exact_payload (test_p1.BoundaryTests.test_SYS07_reads_embedded_value_from_exact_payload) ... ok
+test_SYS08_all_json_and_nonfinite_states (test_p1.BoundaryTests.test_SYS08_all_json_and_nonfinite_states) ... ok
+test_bad_read_status_not_guessed (test_p1.BoundaryTests.test_bad_read_status_not_guessed) ... ok
+test_daily_display_list_order_and_type_preservation (test_p1.BoundaryTests.test_daily_display_list_order_and_type_preservation) ... ok
+test_empty_link_whitespace_and_partial_counts (test_p1.BoundaryTests.test_empty_link_whitespace_and_partial_counts) ... ok
+test_failed_read_not_zero_even_empty (test_p1.BoundaryTests.test_failed_read_not_zero_even_empty) ... ok
+test_invalid_base64_type_and_key_unicode (test_p1.BoundaryTests.test_invalid_base64_type_and_key_unicode) ... ok
+test_key_raw_missing_and_invalid_claim_do_not_pass (test_p1.BoundaryTests.test_key_raw_missing_and_invalid_claim_do_not_pass) ... ok
+test_missing_empty_scope_does_not_form_verified_pair (test_p1.BoundaryTests.test_missing_empty_scope_does_not_form_verified_pair) ... ok
+test_notification_claim_needs_its_own_evidence (test_p1.BoundaryTests.test_notification_claim_needs_its_own_evidence) ... ok
+test_receipt_failure_evidence_requires_literal_true (test_p1.BoundaryTests.test_receipt_failure_evidence_requires_literal_true) ... ok
+test_same_hash_claim_does_not_mask_raw_conflict (test_p1.BoundaryTests.test_same_hash_claim_does_not_mask_raw_conflict) ... ok
+test_scope_does_not_coerce_is_test_zero (test_p1.BoundaryTests.test_scope_does_not_coerce_is_test_zero) ... ok
+test_unknown_operation_rejected (test_p1.BoundaryTests.test_unknown_operation_rejected) ... ok
+test_uppercase_hash_and_empty_raw (test_p1.BoundaryTests.test_uppercase_hash_and_empty_raw) ... ok
+test_display_false_not_zero (test_p1.FixtureTests.test_display_false_not_zero) ... ok
+test_display_missing_receipt (test_p1.FixtureTests.test_display_missing_receipt) ... ok
+test_display_preserves_all (test_p1.FixtureTests.test_display_preserves_all) ... ok
+test_display_unreviewed_extra (test_p1.FixtureTests.test_display_unreviewed_extra) ... ok
+test_field_array (test_p1.FixtureTests.test_field_array) ... ok
+test_field_empty (test_p1.FixtureTests.test_field_empty) ... ok
+test_field_false (test_p1.FixtureTests.test_field_false) ... ok
+test_field_missing (test_p1.FixtureTests.test_field_missing) ... ok
+test_field_null (test_p1.FixtureTests.test_field_null) ... ok
+test_field_number (test_p1.FixtureTests.test_field_number) ... ok
+test_field_object (test_p1.FixtureTests.test_field_object) ... ok
+test_field_space (test_p1.FixtureTests.test_field_space) ... ok
+test_field_string_zero (test_p1.FixtureTests.test_field_string_zero) ... ok
+test_field_true (test_p1.FixtureTests.test_field_true) ... ok
+test_field_zero (test_p1.FixtureTests.test_field_zero) ... ok
+test_field_zero_float (test_p1.FixtureTests.test_field_zero_float) ... ok
+test_hash_spec_fields_need_not_equal (test_p1.FixtureTests.test_hash_spec_fields_need_not_equal) ... ok
+test_hash_spec_incomplete_profile (test_p1.FixtureTests.test_hash_spec_incomplete_profile) ... ok
+test_hash_spec_invalid_raw (test_p1.FixtureTests.test_hash_spec_invalid_raw) ... ok
+test_hash_spec_missing_profile (test_p1.FixtureTests.test_hash_spec_missing_profile) ... ok
+test_hash_spec_missing_raw (test_p1.FixtureTests.test_hash_spec_missing_raw) ... ok
+test_hash_spec_unrecognized_profile (test_p1.FixtureTests.test_hash_spec_unrecognized_profile) ... ok
+test_hash_spec_wrong_column (test_p1.FixtureTests.test_hash_spec_wrong_column) ... ok
+test_key_duplicate_identical (test_p1.FixtureTests.test_key_duplicate_identical) ... ok
+test_key_duplicate_raw_missing (test_p1.FixtureTests.test_key_duplicate_raw_missing) ... ok
+test_key_invalid_base64 (test_p1.FixtureTests.test_key_invalid_base64) ... ok
+test_key_invalid_key (test_p1.FixtureTests.test_key_invalid_key) ... ok
+test_key_same_claim_different_raw (test_p1.FixtureTests.test_key_same_claim_different_raw) ... ok
+test_key_single (test_p1.FixtureTests.test_key_single) ... ok
+test_nonrace_no_race (test_p1.FixtureTests.test_nonrace_no_race) ... ok
+test_nonrace_no_race_conflict (test_p1.FixtureTests.test_nonrace_no_race_conflict) ... ok
+test_nonrace_nonrace_shadow (test_p1.FixtureTests.test_nonrace_nonrace_shadow) ... ok
+test_nonrace_race_missing (test_p1.FixtureTests.test_nonrace_race_missing) ... ok
+test_nonrace_race_no_race_summary (test_p1.FixtureTests.test_nonrace_race_no_race_summary) ... ok
+test_nonrace_race_result (test_p1.FixtureTests.test_nonrace_race_result) ... ok
+test_nonrace_unknown_kind (test_p1.FixtureTests.test_nonrace_unknown_kind) ... ok
+test_nonrace_unverified (test_p1.FixtureTests.test_nonrace_unverified) ... ok
+test_notification_independent_axes (test_p1.FixtureTests.test_notification_independent_axes) ... ok
+test_notification_receipt_only (test_p1.FixtureTests.test_notification_receipt_only) ... ok
+test_notification_send_not_arrival (test_p1.FixtureTests.test_notification_send_not_arrival) ... ok
+test_notification_unverified_claim (test_p1.FixtureTests.test_notification_unverified_claim) ... ok
+test_receipt_bad_start_status (test_p1.FixtureTests.test_receipt_bad_start_status) ... ok
+test_receipt_duplicate (test_p1.FixtureTests.test_receipt_duplicate) ... ok
+test_receipt_end_only_failure (test_p1.FixtureTests.test_receipt_end_only_failure) ... ok
+test_receipt_end_only_unknown (test_p1.FixtureTests.test_receipt_end_only_unknown) ... ok
+test_receipt_mixed_scope (test_p1.FixtureTests.test_receipt_mixed_scope) ... ok
+test_receipt_none (test_p1.FixtureTests.test_receipt_none) ... ok
+test_receipt_pair (test_p1.FixtureTests.test_receipt_pair) ... ok
+test_receipt_start_only (test_p1.FixtureTests.test_receipt_start_only) ... ok
+test_receipt_unknown_phase_and_scope (test_p1.FixtureTests.test_receipt_unknown_phase_and_scope) ... ok
+test_scope_bad_race_ref (test_p1.FixtureTests.test_scope_bad_race_ref) ... ok
+test_scope_complete_zero (test_p1.FixtureTests.test_scope_complete_zero) ... ok
+test_scope_incomplete_not_total (test_p1.FixtureTests.test_scope_incomplete_not_total) ... ok
+test_scope_read_failed_not_zero (test_p1.FixtureTests.test_scope_read_failed_not_zero) ... ok
+test_scope_total_and_OBS_subset (test_p1.FixtureTests.test_scope_total_and_OBS_subset) ... ok
+test_scope_unknown_production_flag (test_p1.FixtureTests.test_scope_unknown_production_flag) ... ok
+
+----------------------------------------------------------------------
+Ran 75 tests in 0.162s
+
+OK
+EXIT 0
