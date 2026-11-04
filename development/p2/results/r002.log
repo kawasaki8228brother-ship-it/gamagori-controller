@@ -1,0 +1,63 @@
+ENV {"os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.12.14", "scope": "OFFLINE_SYNTHETIC_ONLY"}
+test_HTTP200_not_parser_success (test_p2.FixtureTests.test_HTTP200_not_parser_success) ... ok
+test_HTTP404_not_SSL (test_p2.FixtureTests.test_HTTP404_not_SSL) ... ok
+test_all_claims_rewritten_not_independent (test_p2.FixtureTests.test_all_claims_rewritten_not_independent) ... ok
+test_archive_ack_rejected (test_p2.FixtureTests.test_archive_ack_rejected) ... ok
+test_archive_all_local_matches (test_p2.FixtureTests.test_archive_all_local_matches) ... ok
+test_archive_hash_kind_missing (test_p2.FixtureTests.test_archive_hash_kind_missing) ... ok
+test_archive_missing_all (test_p2.FixtureTests.test_archive_missing_all) ... ok
+test_archive_original_tamper (test_p2.FixtureTests.test_archive_original_tamper) ... ok
+test_archive_readback_tamper (test_p2.FixtureTests.test_archive_readback_tamper) ... ok
+test_archive_wrong_receipt_binding (test_p2.FixtureTests.test_archive_wrong_receipt_binding) ... ok
+test_cross_A_to_B (test_p2.FixtureTests.test_cross_A_to_B) ... ok
+test_cross_B_to_A (test_p2.FixtureTests.test_cross_B_to_A) ... ok
+test_cross_via_neutral_auditor (test_p2.FixtureTests.test_cross_via_neutral_auditor) ... ok
+test_declared_boundary_clean (test_p2.FixtureTests.test_declared_boundary_clean) ... ok
+test_external_malformed_timestamp (test_p2.FixtureTests.test_external_malformed_timestamp) ... ok
+test_external_naive_timestamp (test_p2.FixtureTests.test_external_naive_timestamp) ... ok
+test_format_drift (test_p2.FixtureTests.test_format_drift) ... ok
+test_missing_parser_inputs (test_p2.FixtureTests.test_missing_parser_inputs) ... ok
+test_network_CONNECTION (test_p2.FixtureTests.test_network_CONNECTION) ... ok
+test_network_DNS (test_p2.FixtureTests.test_network_DNS) ... ok
+test_network_PROXY (test_p2.FixtureTests.test_network_PROXY) ... ok
+test_network_SSL (test_p2.FixtureTests.test_network_SSL) ... ok
+test_network_TIMEOUT (test_p2.FixtureTests.test_network_TIMEOUT) ... ok
+test_network_UNKNOWN (test_p2.FixtureTests.test_network_UNKNOWN) ... ok
+test_neutral_cycle_terminates (test_p2.FixtureTests.test_neutral_cycle_terminates) ... ok
+test_nonrace_pattern_limited (test_p2.FixtureTests.test_nonrace_pattern_limited) ... ok
+test_other_parser_venue_mismatch (test_p2.FixtureTests.test_other_parser_venue_mismatch) ... ok
+test_parser_error_not_nonrace_proof (test_p2.FixtureTests.test_parser_error_not_nonrace_proof) ... ok
+test_pointer_consistent_claims (test_p2.FixtureTests.test_pointer_consistent_claims) ... ok
+test_pointer_duplicate_decision_ID (test_p2.FixtureTests.test_pointer_duplicate_decision_ID) ... ok
+test_pointer_history_incomplete (test_p2.FixtureTests.test_pointer_history_incomplete) ... ok
+test_pointer_history_mismatch (test_p2.FixtureTests.test_pointer_history_mismatch) ... ok
+test_pointer_missing_history (test_p2.FixtureTests.test_pointer_missing_history) ... ok
+test_pointer_missing_version (test_p2.FixtureTests.test_pointer_missing_version) ... ok
+test_pointer_no_raw_proof (test_p2.FixtureTests.test_pointer_no_raw_proof) ... ok
+test_pointer_wrong_ID (test_p2.FixtureTests.test_pointer_wrong_ID) ... ok
+test_pointer_wrong_hash (test_p2.FixtureTests.test_pointer_wrong_hash) ... ok
+test_pointer_wrong_version (test_p2.FixtureTests.test_pointer_wrong_version) ... ok
+test_receipt_ack_no_readback (test_p2.FixtureTests.test_receipt_ack_no_readback) ... ok
+test_scratch_input_change (test_p2.FixtureTests.test_scratch_input_change) ... ok
+test_self_hash_only (test_p2.FixtureTests.test_self_hash_only) ... ok
+test_tamper_rehashed_external_mismatch (test_p2.FixtureTests.test_tamper_rehashed_external_mismatch) ... ok
+test_tamper_without_rehash (test_p2.FixtureTests.test_tamper_without_rehash) ... ok
+test_tracking_missing_independent (test_p2.FixtureTests.test_tracking_missing_independent) ... ok
+test_unknown_owner_not_pass (test_p2.FixtureTests.test_unknown_owner_not_pass) ... ok
+test_wrong_date (test_p2.FixtureTests.test_wrong_date) ... ok
+test_SYS04_open_only_and_toy_slice_not_old_source (test_p2.InvariantTests.test_SYS04_open_only_and_toy_slice_not_old_source) ... ok
+test_SYS17_never_automatically_leaves_lane2 (test_p2.InvariantTests.test_SYS17_never_automatically_leaves_lane2) ... ok
+test_cli_rejects_duplicate_nonfinite_and_invalid_UTF8 (test_p2.InvariantTests.test_cli_rejects_duplicate_nonfinite_and_invalid_UTF8) ... ok
+test_cli_returns_ascii_metadata_without_external_calls (test_p2.InvariantTests.test_cli_returns_ascii_metadata_without_external_calls) ... ok
+test_empty_raw_is_not_absent (test_p2.InvariantTests.test_empty_raw_is_not_absent) ... ok
+test_false_external_verified_flag_cannot_establish_authenticity (test_p2.InvariantTests.test_false_external_verified_flag_cannot_establish_authenticity) ... ok
+test_invalid_requests_do_not_silently_pass (test_p2.InvariantTests.test_invalid_requests_do_not_silently_pass) ... ok
+test_missing_history_ID_flagged (test_p2.InvariantTests.test_missing_history_ID_flagged) ... ok
+test_missing_raw_never_verified_from_claims (test_p2.InvariantTests.test_missing_raw_never_verified_from_claims) ... ok
+test_neutral_health_may_read_both_but_cannot_relay_B_to_A (test_p2.InvariantTests.test_neutral_health_may_read_both_but_cannot_relay_B_to_A) ... ok
+test_unreferenced_duplicate_history_also_flagged (test_p2.InvariantTests.test_unreferenced_duplicate_history_also_flagged) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 0.193s
+
+OK

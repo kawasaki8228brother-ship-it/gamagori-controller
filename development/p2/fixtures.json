@@ -1,0 +1,1338 @@
+{
+  "classification": "SYNTHETIC_ONLY_NO_REAL_SOURCE_BYTES",
+  "cases": [
+    {
+      "id": "archive_all_local_matches",
+      "synthetic": true,
+      "mode": "sys14",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "expected_raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+        "save_receipt": {
+          "acknowledged": true,
+          "raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606"
+        },
+        "readback_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg=="
+      },
+      "expected_subset": {
+        "local_state": "LOCALLY_CONSISTENT",
+        "raw_expected": "MATCH",
+        "readback_bytes": "MATCH",
+        "receipt_and_retrieval_authenticity": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "receipt_ack_no_readback",
+      "synthetic": true,
+      "mode": "sys14",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "expected_raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+        "save_receipt": {
+          "acknowledged": true,
+          "raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606"
+        }
+      },
+      "expected_subset": {
+        "local_state": "UNVERIFIED",
+        "receipt_acknowledged_claim": true,
+        "readback_bytes": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "archive_readback_tamper",
+      "synthetic": true,
+      "mode": "sys14",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "expected_raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+        "save_receipt": {
+          "acknowledged": true,
+          "raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606"
+        },
+        "readback_b64": "U1lOVEhFVElDIE1PRElGSUVECg=="
+      },
+      "expected_subset": {
+        "local_state": "MISMATCH",
+        "raw_expected": "MATCH",
+        "readback_bytes": "MISMATCH"
+      }
+    },
+    {
+      "id": "archive_original_tamper",
+      "synthetic": true,
+      "mode": "sys14",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE1PRElGSUVECg==",
+        "expected_raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+        "save_receipt": {
+          "acknowledged": true,
+          "raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606"
+        },
+        "readback_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg=="
+      },
+      "expected_subset": {
+        "local_state": "MISMATCH",
+        "raw_expected": "MISMATCH"
+      }
+    },
+    {
+      "id": "archive_wrong_receipt_binding",
+      "synthetic": true,
+      "mode": "sys14",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "expected_raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+        "save_receipt": {
+          "acknowledged": true,
+          "raw_sha256": "c26eac6080864a95184f5a0a4fe63be3631470f93bee8c758665dc84164a5a65"
+        },
+        "readback_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg=="
+      },
+      "expected_subset": {
+        "local_state": "MISMATCH",
+        "receipt_hash_claim": "MISMATCH",
+        "readback_bytes": "MATCH"
+      }
+    },
+    {
+      "id": "archive_ack_rejected",
+      "synthetic": true,
+      "mode": "sys14",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "expected_raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+        "save_receipt": {
+          "acknowledged": false,
+          "raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606"
+        },
+        "readback_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg=="
+      },
+      "expected_subset": {
+        "local_state": "MISMATCH",
+        "receipt_acknowledged_claim": false
+      }
+    },
+    {
+      "id": "archive_hash_kind_missing",
+      "synthetic": true,
+      "mode": "sys14",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "save_receipt": {
+          "acknowledged": true,
+          "raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606"
+        },
+        "readback_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg=="
+      },
+      "expected_subset": {
+        "local_state": "UNVERIFIED",
+        "raw_expected": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "archive_missing_all",
+      "synthetic": true,
+      "mode": "sys14",
+      "request": {},
+      "expected_subset": {
+        "local_state": "UNVERIFIED",
+        "receipt_acknowledged_claim": null
+      }
+    },
+    {
+      "id": "pointer_consistent_claims",
+      "synthetic": true,
+      "mode": "sys15",
+      "request": {
+        "canonical": {
+          "id": "SYN_CANON",
+          "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "version": "SYN_V1"
+        },
+        "pointer": {
+          "canonical_id": "SYN_CANON",
+          "canonical_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "canonical_version": "SYN_V1",
+          "decision_id": "SYN_D1"
+        },
+        "canonical_raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "decisions": [
+          {
+            "id": "SYN_D1",
+            "canonical_id": "SYN_CANON",
+            "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+            "version": "SYN_V1",
+            "approval": "SYNTHETIC_CLAIM_NOT_REAL_GO"
+          }
+        ]
+      },
+      "expected_subset": {
+        "local_state": "LOCALLY_CONSISTENT",
+        "decision_reference": "MATCHING_CLAIMS_ONLY",
+        "decision_approval_authenticity": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "pointer_wrong_ID",
+      "synthetic": true,
+      "mode": "sys15",
+      "request": {
+        "canonical": {
+          "id": "SYN_CANON",
+          "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "version": "SYN_V1"
+        },
+        "pointer": {
+          "canonical_id": "SYN_OTHER",
+          "canonical_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "canonical_version": "SYN_V1",
+          "decision_id": "SYN_D1"
+        },
+        "canonical_raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "decisions": [
+          {
+            "id": "SYN_D1",
+            "canonical_id": "SYN_CANON",
+            "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+            "version": "SYN_V1",
+            "approval": "SYNTHETIC_CLAIM_NOT_REAL_GO"
+          }
+        ]
+      },
+      "expected_subset": {
+        "local_state": "INCONSISTENT"
+      }
+    },
+    {
+      "id": "pointer_wrong_version",
+      "synthetic": true,
+      "mode": "sys15",
+      "request": {
+        "canonical": {
+          "id": "SYN_CANON",
+          "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "version": "SYN_V1"
+        },
+        "pointer": {
+          "canonical_id": "SYN_CANON",
+          "canonical_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "canonical_version": "SYN_V2",
+          "decision_id": "SYN_D1"
+        },
+        "canonical_raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "decisions": [
+          {
+            "id": "SYN_D1",
+            "canonical_id": "SYN_CANON",
+            "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+            "version": "SYN_V1",
+            "approval": "SYNTHETIC_CLAIM_NOT_REAL_GO"
+          }
+        ]
+      },
+      "expected_subset": {
+        "local_state": "INCONSISTENT"
+      }
+    },
+    {
+      "id": "pointer_wrong_hash",
+      "synthetic": true,
+      "mode": "sys15",
+      "request": {
+        "canonical": {
+          "id": "SYN_CANON",
+          "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "version": "SYN_V1"
+        },
+        "pointer": {
+          "canonical_id": "SYN_CANON",
+          "canonical_sha256": "c26eac6080864a95184f5a0a4fe63be3631470f93bee8c758665dc84164a5a65",
+          "canonical_version": "SYN_V1",
+          "decision_id": "SYN_D1"
+        },
+        "canonical_raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "decisions": [
+          {
+            "id": "SYN_D1",
+            "canonical_id": "SYN_CANON",
+            "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+            "version": "SYN_V1",
+            "approval": "SYNTHETIC_CLAIM_NOT_REAL_GO"
+          }
+        ]
+      },
+      "expected_subset": {
+        "local_state": "INCONSISTENT"
+      }
+    },
+    {
+      "id": "pointer_no_raw_proof",
+      "synthetic": true,
+      "mode": "sys15",
+      "request": {
+        "canonical": {
+          "id": "SYN_CANON",
+          "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "version": "SYN_V1"
+        },
+        "pointer": {
+          "canonical_id": "SYN_CANON",
+          "canonical_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "canonical_version": "SYN_V1",
+          "decision_id": "SYN_D1"
+        },
+        "decisions": [
+          {
+            "id": "SYN_D1",
+            "canonical_id": "SYN_CANON",
+            "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+            "version": "SYN_V1",
+            "approval": "SYNTHETIC_CLAIM_NOT_REAL_GO"
+          }
+        ]
+      },
+      "expected_subset": {
+        "local_state": "UNVERIFIED",
+        "fields": {
+          "canonical_raw_hash": "UNVERIFIED"
+        }
+      }
+    },
+    {
+      "id": "pointer_duplicate_decision_ID",
+      "synthetic": true,
+      "mode": "sys15",
+      "request": {
+        "canonical": {
+          "id": "SYN_CANON",
+          "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "version": "SYN_V1"
+        },
+        "pointer": {
+          "canonical_id": "SYN_CANON",
+          "canonical_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "canonical_version": "SYN_V1",
+          "decision_id": "SYN_D1"
+        },
+        "canonical_raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "decisions": [
+          {
+            "id": "SYN_D1",
+            "canonical_id": "SYN_CANON",
+            "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+            "version": "SYN_V1",
+            "approval": "SYNTHETIC_CLAIM_NOT_REAL_GO"
+          },
+          {
+            "id": "SYN_D1",
+            "canonical_id": "SYN_CANON",
+            "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+            "version": "SYN_V1",
+            "approval": "SYNTHETIC_CLAIM_NOT_REAL_GO"
+          }
+        ]
+      },
+      "expected_subset": {
+        "local_state": "INCONSISTENT",
+        "decision_reference": "AMBIGUOUS_DUPLICATE_ID"
+      }
+    },
+    {
+      "id": "pointer_missing_history",
+      "synthetic": true,
+      "mode": "sys15",
+      "request": {
+        "canonical": {
+          "id": "SYN_CANON",
+          "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "version": "SYN_V1"
+        },
+        "pointer": {
+          "canonical_id": "SYN_CANON",
+          "canonical_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "canonical_version": "SYN_V1",
+          "decision_id": "SYN_D1"
+        },
+        "canonical_raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "decisions": []
+      },
+      "expected_subset": {
+        "local_state": "UNVERIFIED",
+        "decision_reference": "UNVERIFIED_REFERENCE_NOT_FOUND"
+      }
+    },
+    {
+      "id": "pointer_history_mismatch",
+      "synthetic": true,
+      "mode": "sys15",
+      "request": {
+        "canonical": {
+          "id": "SYN_CANON",
+          "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "version": "SYN_V1"
+        },
+        "pointer": {
+          "canonical_id": "SYN_CANON",
+          "canonical_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "canonical_version": "SYN_V1",
+          "decision_id": "SYN_D1"
+        },
+        "canonical_raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "decisions": [
+          {
+            "id": "SYN_D1",
+            "canonical_id": "SYN_CANON",
+            "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+            "version": "SYN_V2",
+            "approval": "SYNTHETIC_CLAIM_NOT_REAL_GO"
+          }
+        ]
+      },
+      "expected_subset": {
+        "local_state": "INCONSISTENT",
+        "decision_reference": "MISMATCH"
+      }
+    },
+    {
+      "id": "pointer_history_incomplete",
+      "synthetic": true,
+      "mode": "sys15",
+      "request": {
+        "canonical": {
+          "id": "SYN_CANON",
+          "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "version": "SYN_V1"
+        },
+        "pointer": {
+          "canonical_id": "SYN_CANON",
+          "canonical_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "canonical_version": "SYN_V1",
+          "decision_id": "SYN_D1"
+        },
+        "canonical_raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "decisions": [
+          {
+            "id": "SYN_D1",
+            "canonical_id": "SYN_CANON",
+            "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+            "approval": "SYNTHETIC_CLAIM_NOT_REAL_GO"
+          }
+        ]
+      },
+      "expected_subset": {
+        "local_state": "UNVERIFIED",
+        "decision_reference": "UNVERIFIED_INCOMPLETE"
+      }
+    },
+    {
+      "id": "pointer_missing_version",
+      "synthetic": true,
+      "mode": "sys15",
+      "request": {
+        "canonical": {
+          "id": "SYN_CANON",
+          "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606"
+        },
+        "pointer": {
+          "canonical_id": "SYN_CANON",
+          "canonical_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "canonical_version": "SYN_V1",
+          "decision_id": "SYN_D1"
+        },
+        "canonical_raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "decisions": [
+          {
+            "id": "SYN_D1",
+            "canonical_id": "SYN_CANON",
+            "sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+            "version": "SYN_V1",
+            "approval": "SYNTHETIC_CLAIM_NOT_REAL_GO"
+          }
+        ]
+      },
+      "expected_subset": {
+        "local_state": "UNVERIFIED"
+      }
+    },
+    {
+      "id": "nonrace_pattern_limited",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": 200,
+        "network_error": "NONE",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "HTTP200_NOT_CONTENT_PROOF",
+          "NONRACE_PATTERN_COMPATIBLE_NOT_SUCCESS_PROOF"
+        ],
+        "official_fetch_success": "NOT_ASSIGNED",
+        "input_change_lane": "LANE2_HOLD"
+      }
+    },
+    {
+      "id": "parser_error_not_nonrace_proof",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": 200,
+        "network_error": "NONE",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "UNKNOWN",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "HTTP200_NOT_CONTENT_PROOF",
+          "NONRACE_PARSER_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "HTTP200_not_parser_success",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": 200,
+        "network_error": "NONE",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NONE",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "HTTP200_NOT_CONTENT_PROOF"
+        ],
+        "official_fetch_success": "NOT_ASSIGNED"
+      }
+    },
+    {
+      "id": "tracking_missing_independent",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": 200,
+        "network_error": "NONE",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "MISSING",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "HTTP200_NOT_CONTENT_PROOF",
+          "TRACKING_FALLBACK_MISSING",
+          "NONRACE_PATTERN_COMPATIBLE_NOT_SUCCESS_PROOF"
+        ]
+      }
+    },
+    {
+      "id": "scratch_input_change",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": 200,
+        "network_error": "NONE",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 1
+      },
+      "expected_subset": {
+        "flags": [
+          "HTTP200_NOT_CONTENT_PROOF",
+          "SCRATCH_PRESENT_INPUT_CANDIDATE_LANE2",
+          "NONRACE_PATTERN_COMPATIBLE_NOT_SUCCESS_PROOF"
+        ]
+      }
+    },
+    {
+      "id": "wrong_date",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": 200,
+        "network_error": "NONE",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-02",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "HTTP200_NOT_CONTENT_PROOF",
+          "DATE_MISMATCH",
+          "NONRACE_PARSER_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "format_drift",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": 200,
+        "network_error": "NONE",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "CHANGED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "HTTP200_NOT_CONTENT_PROOF",
+          "INPUT_FORMAT_CHANGE_LANE2",
+          "NONRACE_PARSER_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "network_SSL",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": null,
+        "network_error": "SSL",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "NETWORK_FAILURE_SSL",
+          "HTTP_RESPONSE_UNVERIFIED",
+          "NONRACE_PARSER_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "network_DNS",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": null,
+        "network_error": "DNS",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "NETWORK_FAILURE_DNS",
+          "HTTP_RESPONSE_UNVERIFIED",
+          "NONRACE_PARSER_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "network_TIMEOUT",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": null,
+        "network_error": "TIMEOUT",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "NETWORK_FAILURE_TIMEOUT",
+          "HTTP_RESPONSE_UNVERIFIED",
+          "NONRACE_PARSER_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "network_PROXY",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": null,
+        "network_error": "PROXY",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "NETWORK_FAILURE_PROXY",
+          "HTTP_RESPONSE_UNVERIFIED",
+          "NONRACE_PARSER_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "network_CONNECTION",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": null,
+        "network_error": "CONNECTION",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "NETWORK_FAILURE_CONNECTION",
+          "HTTP_RESPONSE_UNVERIFIED",
+          "NONRACE_PARSER_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "network_UNKNOWN",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": null,
+        "network_error": "UNKNOWN",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "NETWORK_FAILURE_UNKNOWN",
+          "HTTP_RESPONSE_UNVERIFIED",
+          "NONRACE_PARSER_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "HTTP404_not_SSL",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": 404,
+        "network_error": "NONE",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYNTHETIC_VENUE",
+        "parser_error": "NO_RACE_ROWS",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "HTTP_STATUS_NOT_200",
+          "NONRACE_PARSER_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "missing_parser_inputs",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {},
+      "expected_subset": {
+        "flags": [
+          "HTTP_RESPONSE_UNVERIFIED",
+          "DATE_UNVERIFIED",
+          "VENUE_UNVERIFIED",
+          "INPUT_FORMAT_UNVERIFIED",
+          "TRACKING_FALLBACK_UNKNOWN",
+          "SCRATCH_COUNT_UNVERIFIED"
+        ]
+      }
+    },
+    {
+      "id": "other_parser_venue_mismatch",
+      "synthetic": true,
+      "mode": "sys16_17",
+      "request": {
+        "http_status": 200,
+        "network_error": "NONE",
+        "expected_date": "2099-01-01",
+        "observed_date": "2099-01-01",
+        "expected_venue": "SYNTHETIC_VENUE",
+        "observed_venue": "SYN_OTHER",
+        "parser_error": "OTHER",
+        "official_calendar": "NO_RACE_VERIFIED",
+        "input_format": "EXPECTED",
+        "tracking_fallback": "PRESENT",
+        "scratch_count": 0
+      },
+      "expected_subset": {
+        "flags": [
+          "HTTP200_NOT_CONTENT_PROOF",
+          "VENUE_MISMATCH",
+          "PARSER_ERROR_OTHER"
+        ]
+      }
+    },
+    {
+      "id": "declared_boundary_clean",
+      "synthetic": true,
+      "mode": "sys23",
+      "request": {
+        "nodes": [
+          {
+            "id": "A_data",
+            "owner": "A"
+          },
+          {
+            "id": "A_pred",
+            "owner": "A"
+          },
+          {
+            "id": "B_data",
+            "owner": "B"
+          },
+          {
+            "id": "B_pred",
+            "owner": "B"
+          },
+          {
+            "id": "Health",
+            "owner": "NEUTRAL"
+          },
+          {
+            "id": "Official",
+            "owner": "PUBLIC"
+          }
+        ],
+        "edges": [
+          {
+            "from": "A_data",
+            "to": "A_pred"
+          },
+          {
+            "from": "B_data",
+            "to": "B_pred"
+          },
+          {
+            "from": "A_data",
+            "to": "Health"
+          },
+          {
+            "from": "B_data",
+            "to": "Health"
+          },
+          {
+            "from": "Official",
+            "to": "A_pred"
+          },
+          {
+            "from": "Official",
+            "to": "B_pred"
+          }
+        ]
+      },
+      "expected_subset": {
+        "declared_graph_state": "NO_CROSS_SOURCE_PATH_FOUND_IN_DECLARATION",
+        "violations": []
+      }
+    },
+    {
+      "id": "cross_B_to_A",
+      "synthetic": true,
+      "mode": "sys23",
+      "request": {
+        "nodes": [
+          {
+            "id": "A_data",
+            "owner": "A"
+          },
+          {
+            "id": "A_pred",
+            "owner": "A"
+          },
+          {
+            "id": "B_data",
+            "owner": "B"
+          },
+          {
+            "id": "B_pred",
+            "owner": "B"
+          },
+          {
+            "id": "Health",
+            "owner": "NEUTRAL"
+          },
+          {
+            "id": "Official",
+            "owner": "PUBLIC"
+          }
+        ],
+        "edges": [
+          {
+            "from": "A_data",
+            "to": "A_pred"
+          },
+          {
+            "from": "B_data",
+            "to": "B_pred"
+          },
+          {
+            "from": "A_data",
+            "to": "Health"
+          },
+          {
+            "from": "B_data",
+            "to": "Health"
+          },
+          {
+            "from": "Official",
+            "to": "A_pred"
+          },
+          {
+            "from": "Official",
+            "to": "B_pred"
+          },
+          {
+            "from": "B_data",
+            "to": "A_pred"
+          }
+        ]
+      },
+      "expected_subset": {
+        "declared_graph_state": "CROSS_SOURCE_PATH_FOUND"
+      }
+    },
+    {
+      "id": "cross_A_to_B",
+      "synthetic": true,
+      "mode": "sys23",
+      "request": {
+        "nodes": [
+          {
+            "id": "A_data",
+            "owner": "A"
+          },
+          {
+            "id": "A_pred",
+            "owner": "A"
+          },
+          {
+            "id": "B_data",
+            "owner": "B"
+          },
+          {
+            "id": "B_pred",
+            "owner": "B"
+          },
+          {
+            "id": "Health",
+            "owner": "NEUTRAL"
+          },
+          {
+            "id": "Official",
+            "owner": "PUBLIC"
+          }
+        ],
+        "edges": [
+          {
+            "from": "A_data",
+            "to": "A_pred"
+          },
+          {
+            "from": "B_data",
+            "to": "B_pred"
+          },
+          {
+            "from": "A_data",
+            "to": "Health"
+          },
+          {
+            "from": "B_data",
+            "to": "Health"
+          },
+          {
+            "from": "Official",
+            "to": "A_pred"
+          },
+          {
+            "from": "Official",
+            "to": "B_pred"
+          },
+          {
+            "from": "A_data",
+            "to": "B_pred"
+          }
+        ]
+      },
+      "expected_subset": {
+        "declared_graph_state": "CROSS_SOURCE_PATH_FOUND"
+      }
+    },
+    {
+      "id": "cross_via_neutral_auditor",
+      "synthetic": true,
+      "mode": "sys23",
+      "request": {
+        "nodes": [
+          {
+            "id": "A_data",
+            "owner": "A"
+          },
+          {
+            "id": "A_pred",
+            "owner": "A"
+          },
+          {
+            "id": "B_data",
+            "owner": "B"
+          },
+          {
+            "id": "B_pred",
+            "owner": "B"
+          },
+          {
+            "id": "Health",
+            "owner": "NEUTRAL"
+          },
+          {
+            "id": "Official",
+            "owner": "PUBLIC"
+          }
+        ],
+        "edges": [
+          {
+            "from": "A_data",
+            "to": "A_pred"
+          },
+          {
+            "from": "B_data",
+            "to": "B_pred"
+          },
+          {
+            "from": "A_data",
+            "to": "Health"
+          },
+          {
+            "from": "B_data",
+            "to": "Health"
+          },
+          {
+            "from": "Official",
+            "to": "A_pred"
+          },
+          {
+            "from": "Official",
+            "to": "B_pred"
+          },
+          {
+            "from": "Health",
+            "to": "A_pred"
+          }
+        ]
+      },
+      "expected_subset": {
+        "declared_graph_state": "CROSS_SOURCE_PATH_FOUND"
+      }
+    },
+    {
+      "id": "unknown_owner_not_pass",
+      "synthetic": true,
+      "mode": "sys23",
+      "request": {
+        "nodes": [
+          {
+            "id": "A_data",
+            "owner": "A"
+          },
+          {
+            "id": "A_pred",
+            "owner": "A"
+          },
+          {
+            "id": "B_data",
+            "owner": "B"
+          },
+          {
+            "id": "B_pred",
+            "owner": "B"
+          },
+          {
+            "id": "Health",
+            "owner": "NEUTRAL"
+          },
+          {
+            "id": "Official",
+            "owner": "PUBLIC"
+          },
+          {
+            "id": "Mystery",
+            "owner": "UNKNOWN"
+          }
+        ],
+        "edges": [
+          {
+            "from": "A_data",
+            "to": "A_pred"
+          },
+          {
+            "from": "B_data",
+            "to": "B_pred"
+          },
+          {
+            "from": "A_data",
+            "to": "Health"
+          },
+          {
+            "from": "B_data",
+            "to": "Health"
+          },
+          {
+            "from": "Official",
+            "to": "A_pred"
+          },
+          {
+            "from": "Official",
+            "to": "B_pred"
+          }
+        ]
+      },
+      "expected_subset": {
+        "declared_graph_state": "UNVERIFIED_UNKNOWN_OWNER"
+      }
+    },
+    {
+      "id": "neutral_cycle_terminates",
+      "synthetic": true,
+      "mode": "sys23",
+      "request": {
+        "nodes": [
+          {
+            "id": "A_data",
+            "owner": "A"
+          },
+          {
+            "id": "A_pred",
+            "owner": "A"
+          },
+          {
+            "id": "B_data",
+            "owner": "B"
+          },
+          {
+            "id": "B_pred",
+            "owner": "B"
+          },
+          {
+            "id": "Health",
+            "owner": "NEUTRAL"
+          },
+          {
+            "id": "Official",
+            "owner": "PUBLIC"
+          }
+        ],
+        "edges": [
+          {
+            "from": "A_data",
+            "to": "A_pred"
+          },
+          {
+            "from": "B_data",
+            "to": "B_pred"
+          },
+          {
+            "from": "A_data",
+            "to": "Health"
+          },
+          {
+            "from": "B_data",
+            "to": "Health"
+          },
+          {
+            "from": "Official",
+            "to": "A_pred"
+          },
+          {
+            "from": "Official",
+            "to": "B_pred"
+          },
+          {
+            "from": "Health",
+            "to": "Health"
+          }
+        ]
+      },
+      "expected_subset": {
+        "declared_graph_state": "NO_CROSS_SOURCE_PATH_FOUND_IN_DECLARATION"
+      }
+    },
+    {
+      "id": "self_hash_only",
+      "synthetic": true,
+      "mode": "sys24",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "self_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606"
+      },
+      "expected_subset": {
+        "self_hash": "MATCH",
+        "external_hash_claim": "UNVERIFIED",
+        "independent_attestation": "UNVERIFIED_NO_EXTERNAL_VERIFIER_OR_TRUST_ANCHOR"
+      }
+    },
+    {
+      "id": "tamper_without_rehash",
+      "synthetic": true,
+      "mode": "sys24",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE1PRElGSUVECg==",
+        "self_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606"
+      },
+      "expected_subset": {
+        "self_hash": "MISMATCH",
+        "tamper_or_claim_inconsistency": true
+      }
+    },
+    {
+      "id": "tamper_rehashed_external_mismatch",
+      "synthetic": true,
+      "mode": "sys24",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE1PRElGSUVECg==",
+        "self_sha256": "c26eac6080864a95184f5a0a4fe63be3631470f93bee8c758665dc84164a5a65",
+        "external_record": {
+          "raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "observed_at": "2099-01-01T00:00:00+09:00"
+        }
+      },
+      "expected_subset": {
+        "self_hash": "MATCH",
+        "external_hash_claim": "MISMATCH",
+        "tamper_or_claim_inconsistency": true
+      }
+    },
+    {
+      "id": "all_claims_rewritten_not_independent",
+      "synthetic": true,
+      "mode": "sys24",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE1PRElGSUVECg==",
+        "self_sha256": "c26eac6080864a95184f5a0a4fe63be3631470f93bee8c758665dc84164a5a65",
+        "external_record": {
+          "raw_sha256": "c26eac6080864a95184f5a0a4fe63be3631470f93bee8c758665dc84164a5a65",
+          "observed_at": "2099-01-01T00:00:00+09:00",
+          "verified": true
+        }
+      },
+      "expected_subset": {
+        "self_hash": "MATCH",
+        "external_hash_claim": "MATCH",
+        "claimed_verified_flag_not_trusted": true,
+        "independent_attestation": "UNVERIFIED_NO_EXTERNAL_VERIFIER_OR_TRUST_ANCHOR"
+      }
+    },
+    {
+      "id": "external_naive_timestamp",
+      "synthetic": true,
+      "mode": "sys24",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "self_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+        "external_record": {
+          "raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "observed_at": "2099-01-01T00:00:00"
+        }
+      },
+      "expected_subset": {
+        "external_timestamp_claim": "INVALID"
+      }
+    },
+    {
+      "id": "external_malformed_timestamp",
+      "synthetic": true,
+      "mode": "sys24",
+      "request": {
+        "raw_b64": "U1lOVEhFVElDIE9SSUdJTkFMCg==",
+        "self_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+        "external_record": {
+          "raw_sha256": "c31e9c990f89798774a437fa7c9525fbd0e5721a0c92e2215625b40ecc176606",
+          "observed_at": "not-a-time"
+        }
+      },
+      "expected_subset": {
+        "external_timestamp_claim": "INVALID"
+      }
+    }
+  ]
+}

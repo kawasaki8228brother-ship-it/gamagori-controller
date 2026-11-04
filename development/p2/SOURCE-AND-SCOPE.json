@@ -1,0 +1,35 @@
+{
+  "user_instruction_date_JST": "2026-11-05",
+  "authorization": "EXPLICIT_USER_OFFLINE_GROUP_DEVELOPMENT_NEW_BRANCHES_ONLY",
+  "base": {
+    "sha": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "tree": "9143c19742b672c93f67228669166a8f86c2f37a",
+    "blob_count": 40
+  },
+  "only_permitted_prefix": "development/p2/",
+  "retained_SYS01_SYS02": {
+    "SYS-01": {
+      "branch": "dev/sys01-20261105-v001",
+      "commit": "0379dcb3287915e9ba9fbe63819a72fbcdb03ce1"
+    },
+    "SYS-02": {
+      "branch": "dev/sys02-20261105-v001",
+      "commit": "db914c95894b892e8dcea4c763d2575991f12d8e"
+    }
+  },
+  "real_Events_or_live_A_B_or_logs_received": false,
+  "excluded_implementations": [
+    "SYS-03",
+    "SYS-20",
+    "SYS-21",
+    "SYS-22",
+    "SYS-18",
+    "SYS-28",
+    "FAST-01",
+    "PRODUCTION_AB_LOGIC",
+    "FORMAL_MODEL11_ADOPTION"
+  ],
+  "all_real_world_attestation_truth": "NOT_ESTABLISHED_BY_SYNTHETIC_TESTS",
+  "new_signing_keys_or_production_storage_used": false,
+  "production_GO": false
+}

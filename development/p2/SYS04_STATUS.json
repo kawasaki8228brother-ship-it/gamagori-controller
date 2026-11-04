@@ -1,0 +1,18 @@
+{
+  "task": "SYS-04",
+  "state": "OPEN",
+  "D1_D2_D3_definitions_received": false,
+  "old_v004_exact_bytes_received": false,
+  "implementation_changed": false,
+  "allowed_scope": "REQUIRED_INPUTS_AND_SYNTHETIC_DIFF_DESIGN_ONLY",
+  "toy_fixture": {
+    "classification": "SYNTHETIC_BYTE_SLICE_NOT_D1_D3_PROOF",
+    "old_b64": "RklYVFVSRV9QUkVGSVh8b2xkfEZJWFRVUkVfU1VGRklY",
+    "candidate_b64": "RklYVFVSRV9QUkVGSVh8bmV3fEZJWFRVUkVfU1VGRklY",
+    "prefix_bytes": 15,
+    "suffix_bytes": 15
+  },
+  "production_GO": false,
+  "input_availability": "USER_HQ14_CONFIRMED_INPUTS_UNAVAILABLE",
+  "status": "UNVERIFIED_OPEN"
+}

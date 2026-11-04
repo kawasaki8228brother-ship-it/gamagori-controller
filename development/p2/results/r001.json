@@ -1,0 +1,20 @@
+{
+  "status": "PASS_DEVELOPMENT_ONLY",
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "scope": "OFFLINE_SYNTHETIC_ONLY"
+  },
+  "tests": 57,
+  "synthetic_cases": 46,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "real_source_bytes_or_records_received": 0,
+  "SYS04": "OPEN_MISSING_OLD_V004_BYTES_AND_D1_D3_DEFINITIONS",
+  "SYS17": "LANE2_HOLD",
+  "SYS23_live_independence": "UNVERIFIED",
+  "SYS24_independent_attestation": "UNVERIFIED",
+  "review": "PENDING_AFTER_CERTIFI",
+  "production_GO": false
+}

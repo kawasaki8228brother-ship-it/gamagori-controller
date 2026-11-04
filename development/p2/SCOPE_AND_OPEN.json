@@ -1,0 +1,23 @@
+{
+  "group": "P2",
+  "state": "OPEN",
+  "development_tests": "PASS_SYNTHETIC_ONLY",
+  "SYS04": "USER_HQ14_CONFIRMED_INPUTS_UNAVAILABLE_UNVERIFIED_OPEN",
+  "SYS14": "LOCAL_HASH_RECEIPT_READBACK_RELATIONS_ONLY",
+  "SYS15": "PROPOSED_SCHEMA_LOCAL_CONSISTENCY_NO_CANONICAL_OR_POINTER_UPDATES",
+  "SYS16": "SYNTHETIC_OBSERVATION_CLASSIFIER_NOT_C_PARSER_REPLACEMENT",
+  "SYS17": "LANE2_HOLD",
+  "SYS23": "DECLARED_GRAPH_CHECK_LIVE_READER_INDEPENDENCE_UNVERIFIED",
+  "SYS24": "INDEPENDENT_ATTESTATION_UNVERIFIED_NO_NEW_KEYS_OR_STORAGE",
+  "real_data_or_live_originals_received": false,
+  "other_case_commits_integrated": [],
+  "SYS01_SYS02_branches_modified": false,
+  "production_connections": false,
+  "production_changes": false,
+  "reviewed": false,
+  "applicable": false,
+  "applied": false,
+  "CLOSE": false,
+  "review_timing": "AFTER_HQ14_CONFIRMS_CERTIFI_FINISHED",
+  "production_GO": false
+}
