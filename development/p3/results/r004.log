@@ -1,0 +1,29 @@
+ENV {"os": "Linux-6.18.57-x86_64-with-glibc2.41", "python": "3.12.14", "scope": "OFFLINE_SYNTHETIC_RESEARCH_ONLY"}
+test_mismatched_snapshot_not_rewritten (test_p3.BoxTests.test_mismatched_snapshot_not_rewritten) ... ok
+test_scope_and_snapshot_arithmetic (test_p3.BoxTests.test_scope_and_snapshot_arithmetic) ... ok
+test_unconfirmed_final_and_duplicate_ids (test_p3.BoxTests.test_unconfirmed_final_and_duplicate_ids) ... ok
+test_unknown_coverage_and_money_do_not_zero_fill (test_p3.BoxTests.test_unknown_coverage_and_money_do_not_zero_fill) ... ok
+test_explicit_separate_stages (test_p3.LifecycleTests.test_explicit_separate_stages) ... ok
+test_history_forgery_or_stage_without_history (test_p3.LifecycleTests.test_history_forgery_or_stage_without_history) ... ok
+test_missing_false_selfclaim_or_identity_evidence (test_p3.LifecycleTests.test_missing_false_selfclaim_or_identity_evidence) ... ok
+test_no_skip_or_automatic_transition (test_p3.LifecycleTests.test_no_skip_or_automatic_transition) ... ok
+test_registry_self_reference_reuse_and_stage_time (test_p3.LifecycleTests.test_registry_self_reference_reuse_and_stage_time) ... ok
+test_review_independence_and_GO_scope (test_p3.LifecycleTests.test_review_independence_and_GO_scope) ... ok
+test_unknown_offset_precision_and_approval_observation_order (test_p3.LifecycleTests.test_unknown_offset_precision_and_approval_observation_order) ... ok
+test_bound_source_candidate_and_day_required (test_p3.ResearchTests.test_bound_source_candidate_and_day_required) ... ok
+test_cluster_configuration_and_reproducibility (test_p3.ResearchTests.test_cluster_configuration_and_reproducibility) ... ok
+test_duplicate_pairs_all_excluded (test_p3.ResearchTests.test_duplicate_pairs_all_excluded) ... ok
+test_extreme_numeric_and_empty_cluster_rejected (test_p3.ResearchTests.test_extreme_numeric_and_empty_cluster_rejected) ... ok
+test_full_120_probability_domain (test_p3.ResearchTests.test_full_120_probability_domain) ... ok
+test_hits_refunds_ROI_and_scores (test_p3.ResearchTests.test_hits_refunds_ROI_and_scores) ... ok
+test_invalid_and_late_not_repaired (test_p3.ResearchTests.test_invalid_and_late_not_repaired) ... ok
+test_market_five_odds_not_full_market (test_p3.ResearchTests.test_market_five_odds_not_full_market) ... ok
+test_missing_calibration_edges_and_invalid_config (test_p3.ResearchTests.test_missing_calibration_edges_and_invalid_config) ... ok
+test_missing_money_never_zero (test_p3.ResearchTests.test_missing_money_never_zero) ... ok
+test_same_race_and_source_required (test_p3.ResearchTests.test_same_race_and_source_required) ... ok
+test_zero_nan_and_non_normalized_probabilities (test_p3.ResearchTests.test_zero_nan_and_non_normalized_probabilities) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.007s
+
+OK

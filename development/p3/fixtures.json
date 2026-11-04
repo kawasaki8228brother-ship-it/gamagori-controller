@@ -1,0 +1,220 @@
+{
+  "classification": "SYNTHETIC_ONLY_NO_REAL_FORECASTS",
+  "pairs": [
+    {
+      "synthetic": true,
+      "race_id": "20990101_GAMAGORI_1R",
+      "race_id_profile": "DATE_PREFIXED_GAMAGORI_V1",
+      "day": "2099-01-01",
+      "comparator_source": "A",
+      "active_boats": [
+        1,
+        2,
+        3
+      ],
+      "result": "1-2-3",
+      "old": {
+        "race_id": "20990101_GAMAGORI_1R",
+        "source": "A",
+        "target_date": "2099-01-01",
+        "existing_predeadline_verdict": "VERIFIED",
+        "tickets": [
+          "1-3-2",
+          "2-1-3",
+          "2-3-1",
+          "3-1-2",
+          "3-2-1"
+        ],
+        "probabilities": {
+          "1-2-3": 0.16666666666666666,
+          "1-3-2": 0.16666666666666666,
+          "2-1-3": 0.16666666666666666,
+          "2-3-1": 0.16666666666666666,
+          "3-1-2": 0.16666666666666666,
+          "3-2-1": 0.16666666666666666
+        },
+        "money": {
+          "stake_yen": 500,
+          "payout_yen": 0,
+          "refund_yen": 100
+        }
+      },
+      "candidate": {
+        "race_id": "20990101_GAMAGORI_1R",
+        "candidate_id": "SYNTHETIC_CANDIDATE",
+        "comparator_source": "A",
+        "target_date": "2099-01-01",
+        "lane": "THIRD_RESEARCH",
+        "existing_predeadline_verdict": "VERIFIED",
+        "tickets": [
+          "1-2-3",
+          "1-3-2",
+          "2-1-3",
+          "2-3-1",
+          "3-1-2"
+        ],
+        "probabilities": {
+          "1-2-3": 0.16666666666666666,
+          "1-3-2": 0.16666666666666666,
+          "2-1-3": 0.16666666666666666,
+          "2-3-1": 0.16666666666666666,
+          "3-1-2": 0.16666666666666666,
+          "3-2-1": 0.16666666666666666
+        },
+        "money": {
+          "stake_yen": 500,
+          "payout_yen": 1000,
+          "refund_yen": 100
+        }
+      },
+      "market_odds": {
+        "1-2-3": 6,
+        "1-3-2": 6,
+        "2-1-3": 6,
+        "2-3-1": 6,
+        "3-1-2": 6,
+        "3-2-1": 6
+      },
+      "market_snapshot_verdict": "VERIFIED"
+    },
+    {
+      "synthetic": true,
+      "race_id": "20990102_GAMAGORI_2R",
+      "race_id_profile": "DATE_PREFIXED_GAMAGORI_V1",
+      "day": "2099-01-02",
+      "comparator_source": "A",
+      "active_boats": [
+        1,
+        2,
+        3
+      ],
+      "result": "1-2-3",
+      "old": {
+        "race_id": "20990102_GAMAGORI_2R",
+        "source": "A",
+        "target_date": "2099-01-02",
+        "existing_predeadline_verdict": "VERIFIED",
+        "tickets": [
+          "1-3-2",
+          "2-1-3",
+          "2-3-1",
+          "3-1-2",
+          "3-2-1"
+        ],
+        "probabilities": {
+          "1-2-3": 0.16666666666666666,
+          "1-3-2": 0.16666666666666666,
+          "2-1-3": 0.16666666666666666,
+          "2-3-1": 0.16666666666666666,
+          "3-1-2": 0.16666666666666666,
+          "3-2-1": 0.16666666666666666
+        },
+        "money": {
+          "stake_yen": 500,
+          "payout_yen": 0,
+          "refund_yen": 100
+        }
+      },
+      "candidate": {
+        "race_id": "20990102_GAMAGORI_2R",
+        "candidate_id": "SYNTHETIC_CANDIDATE",
+        "comparator_source": "A",
+        "target_date": "2099-01-02",
+        "lane": "THIRD_RESEARCH",
+        "existing_predeadline_verdict": "VERIFIED",
+        "tickets": [
+          "1-2-3",
+          "1-3-2",
+          "2-1-3",
+          "2-3-1",
+          "3-1-2"
+        ],
+        "probabilities": {
+          "1-2-3": 0.16666666666666666,
+          "1-3-2": 0.16666666666666666,
+          "2-1-3": 0.16666666666666666,
+          "2-3-1": 0.16666666666666666,
+          "3-1-2": 0.16666666666666666,
+          "3-2-1": 0.16666666666666666
+        },
+        "money": {
+          "stake_yen": 500,
+          "payout_yen": 1000,
+          "refund_yen": 100
+        }
+      },
+      "market_odds": {
+        "1-2-3": 6,
+        "1-3-2": 6,
+        "2-1-3": 6,
+        "2-3-1": 6,
+        "3-1-2": 6,
+        "3-2-1": 6
+      },
+      "market_snapshot_verdict": "VERIFIED"
+    }
+  ],
+  "cluster_plan": {
+    "replicates": 100,
+    "seed": 20261105,
+    "confidence": 0.95,
+    "min_cluster_days": 30,
+    "preregistration_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "exchangeable_days_assumption": true
+  },
+  "box": [
+    {
+      "entry_id": "SYNTHETIC_PRE_1",
+      "phase": "PRE",
+      "period": "SYNTHETIC_MEET",
+      "kind": "FLOW",
+      "stake_yen": 500,
+      "payout_yen": 0,
+      "refund_yen": 0
+    },
+    {
+      "entry_id": "SYNTHETIC_LIVE_1",
+      "phase": "LIVE",
+      "period": "SYNTHETIC_MEET",
+      "kind": "FLOW",
+      "stake_yen": 500,
+      "payout_yen": 1000,
+      "refund_yen": 100
+    },
+    {
+      "entry_id": "SYNTHETIC_FINAL_1",
+      "phase": "FINAL",
+      "period": "SYNTHETIC_MEET",
+      "kind": "FLOW",
+      "confirmed": true,
+      "stake_yen": 500,
+      "payout_yen": 1000,
+      "refund_yen": 100
+    },
+    {
+      "entry_id": "SYNTHETIC_FINAL_TOTAL",
+      "phase": "FINAL",
+      "period": "SYNTHETIC_MEET",
+      "kind": "CUMULATIVE_SNAPSHOT",
+      "confirmed": true,
+      "scope_complete": true,
+      "stake_yen": 500,
+      "payout_yen": 1000,
+      "refund_yen": 100
+    }
+  ],
+  "box_coverage": {
+    "PRE|SYNTHETIC_MEET": {
+      "complete": true,
+      "evidence_reference": "SYNTHETIC_COVERAGE_NOT_REAL_ATTESTATION"
+    },
+    "LIVE|SYNTHETIC_MEET": {
+      "complete": true,
+      "evidence_reference": "SYNTHETIC_COVERAGE_NOT_REAL_ATTESTATION"
+    },
+    "FINAL|SYNTHETIC_MEET": {
+      "complete": true,
+      "evidence_reference": "SYNTHETIC_COVERAGE_NOT_REAL_ATTESTATION"
+    }
+  }
+}

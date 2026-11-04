@@ -1,0 +1,213 @@
+{
+  "status": "PASS_DEVELOPMENT_ONLY",
+  "tests": 23,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "scope": "OFFLINE_SYNTHETIC_RESEARCH_ONLY"
+  },
+  "real_data_received": 0,
+  "actual_model_training_or_prediction": 0,
+  "Production_actions": 0,
+  "independent_review": "PENDING_AFTER_CERTIFI",
+  "production_GO": false,
+  "example_evaluation": {
+    "status": "COMPUTED_ON_SUPPLIED_ELIGIBILITY_NOT_LOCK_VALIDATION",
+    "comparator_source": "A",
+    "candidate_id": "SYNTHETIC_CANDIDATE",
+    "input_rows": 2,
+    "complete_pair_N": 2,
+    "excluded_pair_count": 0,
+    "old_hit_rate": 0.0,
+    "candidate_hit_rate": 1.0,
+    "paired_improvement": 1.0,
+    "gain_count": 2,
+    "loss_count": 0,
+    "proper_score_pair_N": 2,
+    "market_N": 2,
+    "money_complete_pair_N": 2,
+    "issues": [],
+    "production_GO": false,
+    "model_or_weight_change": false,
+    "eligibility_and_timestamp_authenticity": "NOT_VERIFIED",
+    "proper_scores": {
+      "old": {
+        "log_loss": 1.791759469228055,
+        "brier_multiclass_sum": 0.8333333333333334
+      },
+      "candidate": {
+        "log_loss": 1.791759469228055,
+        "brier_multiclass_sum": 0.8333333333333334
+      }
+    },
+    "market_scores": {
+      "log_loss": 1.791759469228055,
+      "brier_multiclass_sum": 0.8333333333333334,
+      "interpretation": "NORMALIZED_INVERSE_ODDS_PROXY_NOT_TRUE_PROBABILITIES"
+    },
+    "paired_market_comparison": {
+      "N": 2,
+      "old_log_loss_minus_market": 0.0,
+      "candidate_log_loss_minus_market": 0.0,
+      "negative_difference_means": "LOWER_LOSS_THAN_MARKET_PROXY_ON_IDENTICAL_ROWS"
+    },
+    "money": {
+      "old": {
+        "stake_yen": "1000",
+        "payout_yen": "0",
+        "refund_yen": "200",
+        "gross_return_rate": "0.2",
+        "net_ROI": "-0.8"
+      },
+      "candidate": {
+        "stake_yen": "1000",
+        "payout_yen": "2000",
+        "refund_yen": "200",
+        "gross_return_rate": "2.2",
+        "net_ROI": "1.2"
+      }
+    },
+    "calibration": {
+      "old": {
+        "status": "EXPLORATORY_ON_SUPPLIED_BINS",
+        "value": 0.8333333333333334,
+        "bins": [
+          {
+            "low": 0.0,
+            "high": 0.5,
+            "n": 2,
+            "confidence": 0.16666666666666666,
+            "accuracy": 1.0
+          },
+          {
+            "low": 0.5,
+            "high": 1.0,
+            "n": 0,
+            "confidence": null,
+            "accuracy": null
+          }
+        ],
+        "definition": "TOP_LABEL_ECE"
+      },
+      "candidate": {
+        "status": "EXPLORATORY_ON_SUPPLIED_BINS",
+        "value": 0.8333333333333334,
+        "bins": [
+          {
+            "low": 0.0,
+            "high": 0.5,
+            "n": 2,
+            "confidence": 0.16666666666666666,
+            "accuracy": 1.0
+          },
+          {
+            "low": 0.5,
+            "high": 1.0,
+            "n": 0,
+            "confidence": null,
+            "accuracy": null
+          }
+        ],
+        "definition": "TOP_LABEL_ECE"
+      },
+      "market": {
+        "status": "EXPLORATORY_ON_SUPPLIED_BINS",
+        "value": 0.8333333333333334,
+        "bins": [
+          {
+            "low": 0.0,
+            "high": 0.5,
+            "n": 2,
+            "confidence": 0.16666666666666666,
+            "accuracy": 1.0
+          },
+          {
+            "low": 0.5,
+            "high": 1.0,
+            "n": 0,
+            "confidence": null,
+            "accuracy": null
+          }
+        ],
+        "definition": "TOP_LABEL_ECE"
+      }
+    },
+    "cluster_CI": {
+      "status": "UNVERIFIED_SMALL_CLUSTER_COUNT",
+      "interval": null,
+      "days": 2,
+      "required_by_supplied_plan": 30
+    }
+  },
+  "example_box": {
+    "groups": [
+      {
+        "phase": "FINAL",
+        "period": "SYNTHETIC_MEET",
+        "status": "COMPUTED_FLOW_ARITHMETIC_ONLY",
+        "complete_flow_count": 1,
+        "known_flow_subtotal": {
+          "stake_yen": "500",
+          "payout_yen": "1000",
+          "refund_yen": "100"
+        },
+        "complete_totals": {
+          "stake_yen": "500",
+          "payout_yen": "1000",
+          "refund_yen": "100"
+        },
+        "gross_return_rate": "2.2",
+        "net_ROI": "1.2",
+        "claimed_cumulative_matches_flows": true,
+        "issues": []
+      },
+      {
+        "phase": "LIVE",
+        "period": "SYNTHETIC_MEET",
+        "status": "COMPUTED_FLOW_ARITHMETIC_ONLY",
+        "complete_flow_count": 1,
+        "known_flow_subtotal": {
+          "stake_yen": "500",
+          "payout_yen": "1000",
+          "refund_yen": "100"
+        },
+        "complete_totals": {
+          "stake_yen": "500",
+          "payout_yen": "1000",
+          "refund_yen": "100"
+        },
+        "gross_return_rate": "2.2",
+        "net_ROI": "1.2",
+        "claimed_cumulative_matches_flows": null,
+        "issues": []
+      },
+      {
+        "phase": "PRE",
+        "period": "SYNTHETIC_MEET",
+        "status": "COMPUTED_FLOW_ARITHMETIC_ONLY",
+        "complete_flow_count": 1,
+        "known_flow_subtotal": {
+          "stake_yen": "500",
+          "payout_yen": "0",
+          "refund_yen": "0"
+        },
+        "complete_totals": {
+          "stake_yen": "500",
+          "payout_yen": "0",
+          "refund_yen": "0"
+        },
+        "gross_return_rate": "0",
+        "net_ROI": "-1",
+        "claimed_cumulative_matches_flows": null,
+        "issues": []
+      }
+    ],
+    "PRE_LIVE_FINAL_combined_total": "NOT_COMPUTED_DIFFERENT_SCOPES",
+    "coverage_evidence_authenticity": "NOT_VERIFIED_BY_ARITHMETIC_CODE",
+    "existing_cumulative_rewritten": false,
+    "production_GO": false
+  }
+}
