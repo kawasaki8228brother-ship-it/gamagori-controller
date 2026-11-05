@@ -1,0 +1,9 @@
+{
+  "bytes": 41547,
+  "encoding": "CANONICAL_JSON_ASCII_NO_TRAILING_LF",
+  "hash_scope": "PAYLOAD_ONLY_RECEIPT_EXTERNAL",
+  "production_go": false,
+  "schema": "MODEL11_SHADOW_RAW_RECEIPT_V001",
+  "sha256": "526070cecd14ea5fc7238997e9139c4b3db1fe84e6a6e48ed5a7feadc571fa8b",
+  "trust": "SELF_HASH_ONLY_EXTERNAL_AUTHENTICITY_UNVERIFIED"
+}

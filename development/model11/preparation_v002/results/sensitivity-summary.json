@@ -1,0 +1,213 @@
+{
+  "config_status": "PROPOSED",
+  "focus_observations": {
+    "box_v11_hit_n": 0,
+    "box_v11_observed_n": 40,
+    "box_v11_zero_hits": true,
+    "cause_of_any_performance_gap": "UNVERIFIED_DESCRIPTIVE_STRESS_ONLY",
+    "market_lower_observed_model_loss": true
+  },
+  "input_n": 40,
+  "legacy_comparison": "OPEN",
+  "methods": {
+    "box_v11_research": {
+      "forecast_n": 40,
+      "input_n": 40,
+      "interpretation": "DESCRIPTIVE_NO_CAUSAL_OR_SUPERIORITY_CLAIM",
+      "observed_settlement": {
+        "hit_n": 0,
+        "n": 40,
+        "net_yen": -24000.0,
+        "refund_yen": 0.0,
+        "return_yen": 0.0,
+        "roi": -1.0,
+        "stake_yen": 24000
+      },
+      "original_bet_subset_settlement": {
+        "hit_n": 0,
+        "n": 39,
+        "net_yen": -23400.0,
+        "refund_yen": 0.0,
+        "return_yen": 0.0,
+        "roi": -1.0,
+        "stake_yen": 23400
+      },
+      "overlay_decision_counts": {
+        "BET": 0,
+        "SKIP": 40,
+        "UNVERIFIED": 0
+      },
+      "predicted_ev_n": 40,
+      "predicted_expected_hit_count": 1.0662399168399765,
+      "predicted_expected_net_yen": 28674.395306245264,
+      "predicted_expected_return_yen": 52674.395306245264,
+      "predicted_stake_yen": 24000,
+      "settlement_unknown_n": 0,
+      "zero_hit_probability_if_conditionally_independent_and_model_correct": 0.3344086620514264,
+      "zero_hit_probability_status": "HYPOTHETICAL_NOT_A_P_VALUE_DAY_DEPENDENCE_UNACCOUNTED"
+    },
+    "five": {
+      "forecast_n": 40,
+      "input_n": 40,
+      "interpretation": "DESCRIPTIVE_NO_CAUSAL_OR_SUPERIORITY_CLAIM",
+      "observed_settlement": {
+        "hit_n": 8,
+        "n": 40,
+        "net_yen": 13092.160000000003,
+        "refund_yen": 0.0,
+        "return_yen": 33092.16,
+        "roi": 0.6546080000000002,
+        "stake_yen": 20000
+      },
+      "original_bet_subset_settlement": {
+        "hit_n": 7,
+        "n": 35,
+        "net_yen": 13140.580000000002,
+        "refund_yen": 0.0,
+        "return_yen": 30640.58,
+        "roi": 0.7508902857142858,
+        "stake_yen": 17500
+      },
+      "overlay_decision_counts": {
+        "BET": 0,
+        "SKIP": 40,
+        "UNVERIFIED": 0
+      },
+      "predicted_ev_n": 40,
+      "predicted_expected_hit_count": 8.800152088088087,
+      "predicted_expected_net_yen": 13353.015613101079,
+      "predicted_expected_return_yen": 33353.01561310108,
+      "predicted_stake_yen": 20000,
+      "settlement_unknown_n": 0,
+      "zero_hit_probability_if_conditionally_independent_and_model_correct": 3.8542126883379825e-05,
+      "zero_hit_probability_status": "HYPOTHETICAL_NOT_A_P_VALUE_DAY_DEPENDENCE_UNACCOUNTED"
+    },
+    "human_research": {
+      "forecast_n": 40,
+      "input_n": 40,
+      "interpretation": "DESCRIPTIVE_NO_CAUSAL_OR_SUPERIORITY_CLAIM",
+      "observed_settlement": {
+        "hit_n": 6,
+        "n": 40,
+        "net_yen": -11835.77,
+        "refund_yen": 0.0,
+        "return_yen": 12164.23,
+        "roi": -0.49315708333333336,
+        "stake_yen": 24000
+      },
+      "original_bet_subset_settlement": {
+        "hit_n": 0,
+        "n": 4,
+        "net_yen": -2400.0,
+        "refund_yen": 0.0,
+        "return_yen": 0.0,
+        "roi": -1.0,
+        "stake_yen": 2400
+      },
+      "overlay_decision_counts": {
+        "BET": 0,
+        "SKIP": 40,
+        "UNVERIFIED": 0
+      },
+      "predicted_ev_n": 40,
+      "predicted_expected_hit_count": 5.112562917491134,
+      "predicted_expected_net_yen": -8142.18006219148,
+      "predicted_expected_return_yen": 15857.81993780852,
+      "predicted_stake_yen": 24000,
+      "settlement_unknown_n": 0,
+      "zero_hit_probability_if_conditionally_independent_and_model_correct": 0.0032751805394163635,
+      "zero_hit_probability_status": "HYPOTHETICAL_NOT_A_P_VALUE_DAY_DEPENDENCE_UNACCOUNTED"
+    },
+    "mechanical_research": {
+      "forecast_n": 40,
+      "input_n": 40,
+      "interpretation": "DESCRIPTIVE_NO_CAUSAL_OR_SUPERIORITY_CLAIM",
+      "observed_settlement": {
+        "hit_n": 7,
+        "n": 40,
+        "net_yen": -4802.580000000002,
+        "refund_yen": 0.0,
+        "return_yen": 19197.42,
+        "roi": -0.20010750000000008,
+        "stake_yen": 24000
+      },
+      "original_bet_subset_settlement": {
+        "hit_n": 0,
+        "n": 5,
+        "net_yen": -3000.0,
+        "refund_yen": 0.0,
+        "return_yen": 0.0,
+        "roi": -1.0,
+        "stake_yen": 3000
+      },
+      "overlay_decision_counts": {
+        "BET": 0,
+        "SKIP": 40,
+        "UNVERIFIED": 0
+      },
+      "predicted_ev_n": 40,
+      "predicted_expected_hit_count": 7.171527073537782,
+      "predicted_expected_net_yen": -5098.729197029267,
+      "predicted_expected_return_yen": 18901.270802970732,
+      "predicted_stake_yen": 24000,
+      "settlement_unknown_n": 0,
+      "zero_hit_probability_if_conditionally_independent_and_model_correct": 0.00031397759614709974,
+      "zero_hit_probability_status": "HYPOTHETICAL_NOT_A_P_VALUE_DAY_DEPENDENCE_UNACCOUNTED"
+    }
+  },
+  "performance_improvement": "UNVERIFIED",
+  "portfolio_policy": "FOUR_METHODS_SEPARATE_NO_OVERLAP_AGGREGATION",
+  "preregistration_authenticity": "UNVERIFIED",
+  "probability_diagnostics": {
+    "paired_model_minus_market": {
+      "market_lower_observed_mean": true,
+      "mean_joint_logloss_delta": 0.4690429898217429,
+      "meaning": "POSITIVE_DELTA_MARKET_LOWER_LOSS_NOT_PROOF_OF_FUTURE_SUPERIORITY",
+      "n": 40,
+      "unknown_n": 0
+    },
+    "stages": {
+      "P_calibrated": {
+        "infinite_n": 0,
+        "mean_joint_logloss": 4.428801767733409,
+        "n": 40,
+        "status": "OBSERVED",
+        "unknown_n": 0
+      },
+      "P_market": {
+        "infinite_n": 0,
+        "mean_joint_logloss": 3.9401141861991085,
+        "n": 40,
+        "status": "OBSERVED",
+        "unknown_n": 0
+      },
+      "P_model": {
+        "infinite_n": 0,
+        "mean_joint_logloss": 4.409157176020851,
+        "n": 40,
+        "status": "OBSERVED",
+        "unknown_n": 0
+      },
+      "P_raw": {
+        "infinite_n": 0,
+        "mean_joint_logloss": 4.405665153287415,
+        "n": 40,
+        "status": "OBSERVED",
+        "unknown_n": 0
+      },
+      "P_shrunk": {
+        "infinite_n": 0,
+        "mean_joint_logloss": 4.173063172537576,
+        "n": 40,
+        "status": "OBSERVED",
+        "unknown_n": 0
+      }
+    }
+  },
+  "production_go": false,
+  "real_data_validation": "OPEN",
+  "reason_codes": [],
+  "status": "DESCRIPTIVE",
+  "threshold_optimization": "NOT_PERFORMED",
+  "tickets_reselected": false
+}

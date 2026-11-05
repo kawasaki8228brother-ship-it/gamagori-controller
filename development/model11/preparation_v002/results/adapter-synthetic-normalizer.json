@@ -1,0 +1,140 @@
+{
+  "external_authenticity": "UNVERIFIED",
+  "feature_specs": {
+    "features": {
+      "ability": {
+        "direction": "HIGHER_IS_BETTER",
+        "normalization": "TRAIN_MINMAX_CLIP_V001",
+        "unit": "rating_points"
+      },
+      "exhibition": {
+        "direction": "LOWER_IS_BETTER",
+        "normalization": "TRAIN_MINMAX_CLIP_V001",
+        "unit": "seconds"
+      },
+      "motor": {
+        "direction": "HIGHER_IS_BETTER",
+        "normalization": "TRAIN_MINMAX_CLIP_V001",
+        "unit": "rate_fraction"
+      },
+      "st": {
+        "direction": "LOWER_IS_BETTER",
+        "normalization": "TRAIN_MINMAX_CLIP_V001",
+        "unit": "seconds"
+      },
+      "turn": {
+        "direction": "HIGHER_IS_BETTER",
+        "normalization": "TRAIN_MINMAX_CLIP_V001",
+        "unit": "score_0_100"
+      }
+    },
+    "mapping_status": "SYNTHETIC_INVENTED_ONLY",
+    "schema_version": "FEATURE_SPECS_V001",
+    "status": "PROPOSED",
+    "version": "synthetic-proposed-v001"
+  },
+  "feature_specs_sha256": "3aae41182716392f2b4c7058a6fb61653b2ac64732b2cb5f784866a4142964bc",
+  "fit_cutoff": "2099-01-13T12:55:00+09:00",
+  "method": "TRAIN_MINMAX_CLIP_V001",
+  "normalizer_sha256": "3281f2f2aaba852c0673c06aa583a1592e77222252eff0330aa8e1d930466ad8",
+  "production_go": false,
+  "schema_version": "NORMALIZER_V001",
+  "statistics": {
+    "ability": {
+      "count": 144,
+      "direction": "HIGHER_IS_BETTER",
+      "max": 59.9458336,
+      "min": 40.1788361,
+      "normalization": "TRAIN_MINMAX_CLIP_V001",
+      "unit": "rating_points"
+    },
+    "exhibition": {
+      "count": 144,
+      "direction": "LOWER_IS_BETTER",
+      "max": 7.597320496,
+      "min": 6.402229174,
+      "normalization": "TRAIN_MINMAX_CLIP_V001",
+      "unit": "seconds"
+    },
+    "motor": {
+      "count": 144,
+      "direction": "HIGHER_IS_BETTER",
+      "max": 0.99652728,
+      "min": 0.0023554749999999958,
+      "normalization": "TRAIN_MINMAX_CLIP_V001",
+      "unit": "rate_fraction"
+    },
+    "st": {
+      "count": 144,
+      "direction": "LOWER_IS_BETTER",
+      "max": 0.44953951400000003,
+      "min": 0.05340414399999999,
+      "normalization": "TRAIN_MINMAX_CLIP_V001",
+      "unit": "seconds"
+    },
+    "turn": {
+      "count": 144,
+      "direction": "HIGHER_IS_BETTER",
+      "max": 99.8514785,
+      "min": 0.6919059999999959,
+      "normalization": "TRAIN_MINMAX_CLIP_V001",
+      "unit": "score_0_100"
+    }
+  },
+  "status": "PROPOSED",
+  "training_input_sha256": "c0280b9e2956d1c60a00c97a5e5802cd75b90a197953ef85748f2bc7999f73b9",
+  "training_max_available_at": "2099-01-12T13:23:30+09:00",
+  "training_max_prediction_at": "2099-01-12T13:25:00+09:00",
+  "training_race_ids": [
+    "20990101_GAMAGORI_1R",
+    "20990101_GAMAGORI_2R",
+    "20990102_GAMAGORI_1R",
+    "20990102_GAMAGORI_2R",
+    "20990103_GAMAGORI_1R",
+    "20990103_GAMAGORI_2R",
+    "20990104_GAMAGORI_1R",
+    "20990104_GAMAGORI_2R",
+    "20990105_GAMAGORI_1R",
+    "20990105_GAMAGORI_2R",
+    "20990106_GAMAGORI_1R",
+    "20990106_GAMAGORI_2R",
+    "20990107_GAMAGORI_1R",
+    "20990107_GAMAGORI_2R",
+    "20990108_GAMAGORI_1R",
+    "20990108_GAMAGORI_2R",
+    "20990109_GAMAGORI_1R",
+    "20990109_GAMAGORI_2R",
+    "20990110_GAMAGORI_1R",
+    "20990110_GAMAGORI_2R",
+    "20990111_GAMAGORI_1R",
+    "20990111_GAMAGORI_2R",
+    "20990112_GAMAGORI_1R",
+    "20990112_GAMAGORI_2R"
+  ],
+  "training_record_sha256s": {
+    "20990101_GAMAGORI_1R": "71fcf935b5f3d502ac62196ee0eb55c8d075ca8e932e557873d8230a43d4b77a",
+    "20990101_GAMAGORI_2R": "a66929db3c1caf12cd2c95e94aa7aa7c66e289d5a2643b4c9e851fbceb9f7a43",
+    "20990102_GAMAGORI_1R": "022aa53f4db590e1166057e8214ba9483163b8c2ff14142499839a5151a84e16",
+    "20990102_GAMAGORI_2R": "ddbae2231bdd058f4bdf883cc74e655b835a1b7e3ba93a7cb26c02b32e89cc9c",
+    "20990103_GAMAGORI_1R": "7499f17784c8524b2f186fed9f755769a6eb9c2f19db5380a810ca71166cc1c4",
+    "20990103_GAMAGORI_2R": "053e4cb374781dcb805effc9f78691fe141c53335f28813ac4b71609c0d6f685",
+    "20990104_GAMAGORI_1R": "0df6ee899e70baacf21faf230fb5963e9733fd0eed265b69863a5761b4836805",
+    "20990104_GAMAGORI_2R": "bf812de38ce716401ec6ef72f4e5905710d2847135aaecb02082a091d9d11c7c",
+    "20990105_GAMAGORI_1R": "c19f8b9a6b38fbff9342eb307f31468794c9c0552e178fc32886744b80d00096",
+    "20990105_GAMAGORI_2R": "46a17c27d83b34e9aee96c8320674579e36d191a1fc937ee9cfd3a3517bf4681",
+    "20990106_GAMAGORI_1R": "c663179bbb93198653d0ed28e8daf9641ef10c077ca100b8bab7307106581f5c",
+    "20990106_GAMAGORI_2R": "a02622682016551cf4a18f276a65a1e19e5eb75461eb9e53d111175cdcade873",
+    "20990107_GAMAGORI_1R": "4b944830da83a343ac94d3c178a7fc2586a953e6e7bef1db52e1294f1d5c0a15",
+    "20990107_GAMAGORI_2R": "fb0a8dbb323e7b1d69f9211ae46ff58a874fa6e8a88953ed2266d182083f113a",
+    "20990108_GAMAGORI_1R": "891fb0f9164928e5b1308f77cbeaefe12964f5478513ce6fa9a642bd06af83e5",
+    "20990108_GAMAGORI_2R": "cbbf2b14d839993d2763cc5c4c32d4de8ede72d8bb230b1b46766a7881f5144f",
+    "20990109_GAMAGORI_1R": "c4162796d11254939c52a63b7f791e90871a89ebb93ca0b0704312c781ccd2f7",
+    "20990109_GAMAGORI_2R": "103744ee4b658b9d87cac573f5130e3f53891c19e4f0bbba3f7ab20f4b5378b5",
+    "20990110_GAMAGORI_1R": "5baccbf9dce5a317818f3ac487b9d0d15816838b923c929a5eb936f5a1d85989",
+    "20990110_GAMAGORI_2R": "8f321c66258de8ea4c297050423ccc74d60dff4cf8994175b207f5ffcac33c5e",
+    "20990111_GAMAGORI_1R": "d3bc01fe4a1bad5d22ff0047419bb65ce37e80492ddded89a9976f3f8b2df763",
+    "20990111_GAMAGORI_2R": "98ec9b03b5b35e6bb77ab379e7161a1737aac6afcb485edb0f60d1bbd0bd8376",
+    "20990112_GAMAGORI_1R": "ba4016ac0aaa18763ef6e37dc2244c3db3b897c3add0aebfe6f60fbbf418d5a1",
+    "20990112_GAMAGORI_2R": "ffe6ea1bab18c17b40e2f26ff48d4566b6c30416167e5ee6c5bb10572c7f967d"
+  }
+}

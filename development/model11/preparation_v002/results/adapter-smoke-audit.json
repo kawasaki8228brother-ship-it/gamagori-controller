@@ -1,0 +1,15 @@
+{
+  "clipped": [],
+  "external_authenticity": "UNVERIFIED",
+  "feature_specs_sha256": "3aae41182716392f2b4c7058a6fb61653b2ac64732b2cb5f784866a4142964bc",
+  "fit_cutoff": "2099-01-13T12:55:00+09:00",
+  "market_status": "AVAILABLE",
+  "normalizer_sha256": "3281f2f2aaba852c0673c06aa583a1592e77222252eff0330aa8e1d930466ad8",
+  "production_go": false,
+  "raw_input_sha256": "a97dcc5170d9a27d9e41c75d5f7e2b44192b050b957c5b42fe7415e3f727ff39",
+  "real_mapping": "OPEN",
+  "status": "TRANSFORMED_PROPOSED",
+  "training_input": false,
+  "usage": "prediction",
+  "warnings": []
+}

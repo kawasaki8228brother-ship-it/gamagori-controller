@@ -1,0 +1,8 @@
+{
+  "base_engine_commit": "71ddd13dd5869aaf892a504ea0553c60e8b8abe2",
+  "full_summary_bytes": 1239489,
+  "full_summary_sha256": "09a2c12c68583cf02e111276380df007027d0d0750a866052365b1e4e366d587",
+  "matches_base71": true,
+  "production_go": false,
+  "synthetic_evaluated_races": 40
+}

@@ -1,0 +1,9 @@
+{
+  "authenticity": "UNVERIFIED",
+  "code_commit_verification": "UNVERIFIED_REFERENCE_ONLY",
+  "predeadline_publication": "UNVERIFIED_NO_INDEPENDENT_RECEIPT",
+  "production_go": false,
+  "shadow_execution_go": false,
+  "status": "SELF_CONSISTENT_ONLY",
+  "valid": true
+}

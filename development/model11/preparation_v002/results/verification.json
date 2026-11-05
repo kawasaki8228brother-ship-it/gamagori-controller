@@ -1,0 +1,73 @@
+{
+  "base_full_summary_sha256": "09a2c12c68583cf02e111276380df007027d0d0750a866052365b1e4e366d587",
+  "external_authenticity": "UNVERIFIED",
+  "formal_legacy_comparison": "OPEN",
+  "network": "BLOCKED_IN_PROCESS_DURING_FULL_TESTS_AND_DEMOS",
+  "new_modules_absolute_imports": [
+    "__future__",
+    "argparse",
+    "base64",
+    "collections",
+    "copy",
+    "datetime",
+    "hashlib",
+    "itertools",
+    "json",
+    "math",
+    "model11",
+    "pathlib",
+    "platform",
+    "re",
+    "ssl",
+    "statistics",
+    "sys"
+  ],
+  "original47_files_unchanged": true,
+  "production_go": false,
+  "real_data_used": false,
+  "tests": {
+    "312": {
+      "bytes": 39178,
+      "result": {
+        "errors": 0,
+        "failures": 0,
+        "real_performance": "UNVERIFIED",
+        "scope": "SYNTHETIC_SOFTWARE_ONLY",
+        "skipped": 0,
+        "status": "PASS",
+        "tests_run": 263
+      },
+      "runtime": {
+        "data": "SYNTHETIC_ONLY",
+        "network": "BLOCKED_IN_PROCESS",
+        "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "production_go": false,
+        "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+      },
+      "sha256": "176625bb571f78b287f3c1d34afd644c72365d489e621700fdd2e72152823aa3"
+    },
+    "314": {
+      "bytes": 39177,
+      "result": {
+        "errors": 0,
+        "failures": 0,
+        "real_performance": "UNVERIFIED",
+        "scope": "SYNTHETIC_SOFTWARE_ONLY",
+        "skipped": 0,
+        "status": "PASS",
+        "tests_run": 263
+      },
+      "runtime": {
+        "data": "SYNTHETIC_ONLY",
+        "network": "BLOCKED_IN_PROCESS",
+        "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "production_go": false,
+        "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"
+      },
+      "sha256": "2d25863594c4fd652a80978f8a6a0192a2396333d87aad2738969c02d9dd6e9a"
+    }
+  },
+  "third_party_dependencies": []
+}

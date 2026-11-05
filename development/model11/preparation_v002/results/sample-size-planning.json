@@ -1,0 +1,314 @@
+{
+  "cases": [
+    {
+      "alpha": 0.025,
+      "comparisons": 1,
+      "effect": 0.02,
+      "formula": "ceil(((z(1-alpha/comparisons)+z(power))*sd_day/effect)^2)",
+      "method": "PROPOSED_NORMAL_APPROXIMATION_NOT_CONFIRMATORY_PROOF",
+      "multiplicity": "BONFERRONI_PLANNING_BOUND_FOR_FIXED_FAMILY",
+      "planning_alpha": 0.025,
+      "power": 0.8,
+      "production_go": false,
+      "reason": null,
+      "required_days": 197,
+      "sd_day": 0.1,
+      "serial_dependence": "UNVERIFIED_INDEPENDENT_DAY_ASSUMPTION",
+      "sidedness": "ONE_SIDED",
+      "status": "PROPOSED_ESTIMATE",
+      "unit": "PAIRED_DAY_CLUSTERS_NOT_RACES",
+      "unrounded_days": 196.22199335872716,
+      "variance_authenticity": "UNVERIFIED_INPUT_NOT_PRIVATE_PILOT_EVIDENCE"
+    },
+    {
+      "alpha": 0.025,
+      "comparisons": 1,
+      "effect": 0.05,
+      "formula": "ceil(((z(1-alpha/comparisons)+z(power))*sd_day/effect)^2)",
+      "method": "PROPOSED_NORMAL_APPROXIMATION_NOT_CONFIRMATORY_PROOF",
+      "multiplicity": "BONFERRONI_PLANNING_BOUND_FOR_FIXED_FAMILY",
+      "planning_alpha": 0.025,
+      "power": 0.8,
+      "production_go": false,
+      "reason": null,
+      "required_days": 32,
+      "sd_day": 0.1,
+      "serial_dependence": "UNVERIFIED_INDEPENDENT_DAY_ASSUMPTION",
+      "sidedness": "ONE_SIDED",
+      "status": "PROPOSED_ESTIMATE",
+      "unit": "PAIRED_DAY_CLUSTERS_NOT_RACES",
+      "unrounded_days": 31.395518937396343,
+      "variance_authenticity": "UNVERIFIED_INPUT_NOT_PRIVATE_PILOT_EVIDENCE"
+    },
+    {
+      "alpha": 0.025,
+      "comparisons": 1,
+      "effect": 0.02,
+      "formula": "ceil(((z(1-alpha/comparisons)+z(power))*sd_day/effect)^2)",
+      "method": "PROPOSED_NORMAL_APPROXIMATION_NOT_CONFIRMATORY_PROOF",
+      "multiplicity": "BONFERRONI_PLANNING_BOUND_FOR_FIXED_FAMILY",
+      "planning_alpha": 0.025,
+      "power": 0.8,
+      "production_go": false,
+      "reason": null,
+      "required_days": 785,
+      "sd_day": 0.2,
+      "serial_dependence": "UNVERIFIED_INDEPENDENT_DAY_ASSUMPTION",
+      "sidedness": "ONE_SIDED",
+      "status": "PROPOSED_ESTIMATE",
+      "unit": "PAIRED_DAY_CLUSTERS_NOT_RACES",
+      "unrounded_days": 784.8879734349086,
+      "variance_authenticity": "UNVERIFIED_INPUT_NOT_PRIVATE_PILOT_EVIDENCE"
+    },
+    {
+      "alpha": 0.025,
+      "comparisons": 1,
+      "effect": 0.05,
+      "formula": "ceil(((z(1-alpha/comparisons)+z(power))*sd_day/effect)^2)",
+      "method": "PROPOSED_NORMAL_APPROXIMATION_NOT_CONFIRMATORY_PROOF",
+      "multiplicity": "BONFERRONI_PLANNING_BOUND_FOR_FIXED_FAMILY",
+      "planning_alpha": 0.025,
+      "power": 0.8,
+      "production_go": false,
+      "reason": null,
+      "required_days": 126,
+      "sd_day": 0.2,
+      "serial_dependence": "UNVERIFIED_INDEPENDENT_DAY_ASSUMPTION",
+      "sidedness": "ONE_SIDED",
+      "status": "PROPOSED_ESTIMATE",
+      "unit": "PAIRED_DAY_CLUSTERS_NOT_RACES",
+      "unrounded_days": 125.58207574958537,
+      "variance_authenticity": "UNVERIFIED_INPUT_NOT_PRIVATE_PILOT_EVIDENCE"
+    },
+    {
+      "alpha": 0.025,
+      "comparisons": 1,
+      "effect": 0.02,
+      "formula": "ceil(((z(1-alpha/comparisons)+z(power))*sd_day/effect)^2)",
+      "method": "PROPOSED_NORMAL_APPROXIMATION_NOT_CONFIRMATORY_PROOF",
+      "multiplicity": "BONFERRONI_PLANNING_BOUND_FOR_FIXED_FAMILY",
+      "planning_alpha": 0.025,
+      "power": 0.8,
+      "production_go": false,
+      "reason": null,
+      "required_days": 1766,
+      "sd_day": 0.3,
+      "serial_dependence": "UNVERIFIED_INDEPENDENT_DAY_ASSUMPTION",
+      "sidedness": "ONE_SIDED",
+      "status": "PROPOSED_ESTIMATE",
+      "unit": "PAIRED_DAY_CLUSTERS_NOT_RACES",
+      "unrounded_days": 1765.9979402285442,
+      "variance_authenticity": "UNVERIFIED_INPUT_NOT_PRIVATE_PILOT_EVIDENCE"
+    },
+    {
+      "alpha": 0.025,
+      "comparisons": 1,
+      "effect": 0.05,
+      "formula": "ceil(((z(1-alpha/comparisons)+z(power))*sd_day/effect)^2)",
+      "method": "PROPOSED_NORMAL_APPROXIMATION_NOT_CONFIRMATORY_PROOF",
+      "multiplicity": "BONFERRONI_PLANNING_BOUND_FOR_FIXED_FAMILY",
+      "planning_alpha": 0.025,
+      "power": 0.8,
+      "production_go": false,
+      "reason": null,
+      "required_days": 283,
+      "sd_day": 0.3,
+      "serial_dependence": "UNVERIFIED_INDEPENDENT_DAY_ASSUMPTION",
+      "sidedness": "ONE_SIDED",
+      "status": "PROPOSED_ESTIMATE",
+      "unit": "PAIRED_DAY_CLUSTERS_NOT_RACES",
+      "unrounded_days": 282.55967043656705,
+      "variance_authenticity": "UNVERIFIED_INPUT_NOT_PRIVATE_PILOT_EVIDENCE"
+    }
+  ],
+  "classification": "PROPOSED_ILLUSTRATIONS_NOT_REAL_VARIANCE_ESTIMATES",
+  "equal_day_synthetic_logloss": {
+    "confirmatory_test": "NOT_PERFORMED",
+    "days": [
+      {
+        "mean_logloss_delta": -0.043932594324904706,
+        "paired_races": 2,
+        "target_date": "2099-01-17"
+      },
+      {
+        "mean_logloss_delta": -1.7089214069043026,
+        "paired_races": 2,
+        "target_date": "2099-01-18"
+      },
+      {
+        "mean_logloss_delta": -1.188423639663257,
+        "paired_races": 2,
+        "target_date": "2099-01-19"
+      },
+      {
+        "mean_logloss_delta": -0.02020740221126771,
+        "paired_races": 2,
+        "target_date": "2099-01-20"
+      },
+      {
+        "mean_logloss_delta": -0.6905680576962918,
+        "paired_races": 2,
+        "target_date": "2099-01-21"
+      },
+      {
+        "mean_logloss_delta": -0.3060372697449516,
+        "paired_races": 2,
+        "target_date": "2099-01-22"
+      },
+      {
+        "mean_logloss_delta": 0.38479309194742584,
+        "paired_races": 2,
+        "target_date": "2099-01-23"
+      },
+      {
+        "mean_logloss_delta": -0.2597052686556096,
+        "paired_races": 2,
+        "target_date": "2099-01-24"
+      },
+      {
+        "mean_logloss_delta": -0.10754441814008464,
+        "paired_races": 2,
+        "target_date": "2099-01-25"
+      },
+      {
+        "mean_logloss_delta": -0.6115241548832053,
+        "paired_races": 2,
+        "target_date": "2099-01-26"
+      },
+      {
+        "mean_logloss_delta": -0.4589641292539832,
+        "paired_races": 2,
+        "target_date": "2099-01-27"
+      },
+      {
+        "mean_logloss_delta": -0.04604722008898521,
+        "paired_races": 2,
+        "target_date": "2099-01-28"
+      },
+      {
+        "mean_logloss_delta": 0.284315741078504,
+        "paired_races": 2,
+        "target_date": "2099-01-29"
+      },
+      {
+        "mean_logloss_delta": 0.08735710393355722,
+        "paired_races": 2,
+        "target_date": "2099-01-30"
+      },
+      {
+        "mean_logloss_delta": -0.12329732424065898,
+        "paired_races": 2,
+        "target_date": "2099-01-31"
+      },
+      {
+        "mean_logloss_delta": 0.17553214471935807,
+        "paired_races": 2,
+        "target_date": "2099-02-01"
+      },
+      {
+        "mean_logloss_delta": -0.16193846419919833,
+        "paired_races": 2,
+        "target_date": "2099-02-02"
+      },
+      {
+        "mean_logloss_delta": 0.16077202219159137,
+        "paired_races": 2,
+        "target_date": "2099-02-03"
+      },
+      {
+        "mean_logloss_delta": 0.013374694180794622,
+        "paired_races": 2,
+        "target_date": "2099-02-04"
+      },
+      {
+        "mean_logloss_delta": -0.03801317481388988,
+        "paired_races": 2,
+        "target_date": "2099-02-05"
+      }
+    ],
+    "equal_day_mean_delta": -0.232948986338468,
+    "estimand_scope": "COMPLETE_SUPPLIED_PAIR_SCOPE",
+    "finite_day_clusters": 20,
+    "finite_observed_equal_day_mean_delta": -0.232948986338468,
+    "finite_paired_races": 40,
+    "frozen_candidate_evidence": "UNVERIFIED_MULTIPLE_MODELS",
+    "input_races": 40,
+    "invalid_or_unpaired_races": 0,
+    "issues": [],
+    "model_hash_count": 5,
+    "nonfinite_pair_races": 0,
+    "positive_delta": "LOWER_CANDIDATE_LOGLOSS",
+    "primary_definition": "EQUAL_DAY_JOINT_120_LOGLOSS_DELTA_MARKET_MINUS_SHRUNK",
+    "production_go": false,
+    "race_weighted_mean_delta_comparison_only": -0.232948986338468,
+    "real_performance": "UNVERIFIED",
+    "sample_sd_day_exploratory": 0.5037921776105437,
+    "status": "DESCRIPTIVE_ONLY",
+    "unavailable_pair_races": 0
+  },
+  "production_go": false,
+  "protocol_readiness": {
+    "evidence_authenticity": "UNVERIFIED_SELF_REPORTED_FIELDS_ONLY",
+    "invalid_fields": [
+      "comparator",
+      "multiplicity",
+      "primary_metric"
+    ],
+    "missing_fields": [
+      "alpha",
+      "approval_raw_sha256",
+      "candidate_sha256",
+      "comparisons",
+      "effect",
+      "holdout_end",
+      "holdout_start",
+      "hypothesis_family_sha256",
+      "input_schema_sha256",
+      "parameters_sha256",
+      "pilot_variance_receipt_sha256",
+      "planned_holdout_days",
+      "power",
+      "protocol_id",
+      "review_authority",
+      "sd_day",
+      "seal_receipt_sha256",
+      "sealed_holdout_ids_sha256",
+      "selection_cutoff",
+      "serial_dependence_review_sha256",
+      "split_plan_sha256",
+      "training_cutoff"
+    ],
+    "model_promotion_go": false,
+    "production_go": false,
+    "real_data_access_go": false,
+    "reason_codes": [
+      "MISSING_REVIEW_INPUTS",
+      "INVALID_OR_INCONSISTENT_REVIEW_INPUTS",
+      "SAMPLE_SIZE_UNVERIFIED_OR_STOP"
+    ],
+    "review_outcome": "NOT_GRANTED",
+    "sample_size_plan": {
+      "formula": "ceil(((z(1-alpha/comparisons)+z(power))*sd_day/effect)^2)",
+      "method": "PROPOSED_NORMAL_APPROXIMATION_NOT_CONFIRMATORY_PROOF",
+      "production_go": false,
+      "reason": "INVALID_PLANNING_CONTROL",
+      "required_days": null,
+      "serial_dependence": "UNVERIFIED_INDEPENDENT_DAY_ASSUMPTION",
+      "sidedness": "ONE_SIDED",
+      "status": "STOP",
+      "unit": "PAIRED_DAY_CLUSTERS_NOT_RACES"
+    },
+    "status": "HOLD"
+  },
+  "variance_unknown": {
+    "formula": "ceil(((z(1-alpha/comparisons)+z(power))*sd_day/effect)^2)",
+    "method": "PROPOSED_NORMAL_APPROXIMATION_NOT_CONFIRMATORY_PROOF",
+    "production_go": false,
+    "reason": "DAY_VARIANCE_UNKNOWN_OR_ZERO",
+    "required_days": null,
+    "serial_dependence": "UNVERIFIED_INDEPENDENT_DAY_ASSUMPTION",
+    "sidedness": "ONE_SIDED",
+    "status": "UNVERIFIED",
+    "unit": "PAIRED_DAY_CLUSTERS_NOT_RACES"
+  }
+}
