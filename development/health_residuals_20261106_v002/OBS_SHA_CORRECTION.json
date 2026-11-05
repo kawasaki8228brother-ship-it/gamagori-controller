@@ -1,0 +1,68 @@
+{
+  "schema": "HEALTH_OBS_RELATED_REFERENCE_CORRECTION_V002",
+  "scope": "DOCUMENTATION_ONLY_NO_RUNTIME_OR_TASK_CHANGE",
+  "source": {
+    "kind": "LATEST_USER_HQ14_INSTRUCTION",
+    "instruction_date": "2026-11-06",
+    "independent_source_comparison": "NOT_PERFORMED"
+  },
+  "historical_reference": {
+    "record_version": "health_residuals_20261105_v001",
+    "received_hash_label": "SHA256",
+    "received_hash_verbatim": "d462767f4448e28fc735df7363fb1a75137c5e7f",
+    "observed_hex_characters": 40,
+    "sha256_length_matches": false,
+    "historical_algorithm": "UNVERIFIED",
+    "preservation": "ORIGINAL_FILES_BYTE_UNCHANGED"
+  },
+  "corrected_reference": {
+    "claimed_reference_kind": "A_PREDICTION_SPECIFICATION_SHA256",
+    "claimed_algorithm": "SHA256",
+    "received_hash_verbatim": "d462767f4448e28fc735df7363fb6f54a577e014607d5ec3b2fb1a75137c5e7f",
+    "observed_hex_characters": 64,
+    "syntax_check": "PASS_FORMAT_ONLY_64_LOWERCASE_HEX",
+    "is_OBS_contract_SHA256": false,
+    "underlying_specification_bytes_received": false,
+    "independent_digest_comparison": "NOT_PERFORMED",
+    "exact_specification_version_binding": "UNVERIFIED_NOT_INDEPENDENTLY_MATCHED",
+    "external_authenticity": "UNVERIFIED"
+  },
+  "correction_relationship": {
+    "type": "CORRECTS_RELATED_A_PREDICTION_SPEC_REFERENCE_WITHOUT_REWRITING_HISTORY",
+    "v001_runtime_related_A_reference": "HISTORICAL_40_HEX_LITERAL_RETAINED_INTENTIONALLY",
+    "v001_runtime_behavior_changed": false,
+    "usage": "CITE_V002_CORRECTION_ALONGSIDE_V001_REPORT_NOT_AS_OBS_CONTRACT_AUTHORITY"
+  },
+  "dedicated_OBS_contract": {
+    "full_contract_independently_matched": false,
+    "contract_SHA256": "UNVERIFIED_NOT_PROVIDED",
+    "payload_event_uuid_mandatory": "UNVERIFIED",
+    "column_event_uuid_only_eligibility": "UNVERIFIED",
+    "RUN_START_empty_source_evidence_allowed": "UNVERIFIED",
+    "missing_source_evidence_formal_violation": "UNVERIFIED"
+  },
+  "preserved_historical_artifacts": [
+    {
+      "path": "development/health_residuals_20261105_v001/obs_qa.py",
+      "bytes": 16027,
+      "sha256": "dc6bdc6b77a3c4ce4f5b718cfd43be7fe1cc0d08d4e0e54057949ce7032e5634"
+    },
+    {
+      "path": "tests/test_health_obs_qa.py",
+      "bytes": 10831,
+      "sha256": "502cfafc7bb907c1aedf0700001a0747b38c7d625b6a0f4e5eedb9fa122a1db2"
+    },
+    {
+      "path": "docs/OBS_QA_SPEC.md",
+      "bytes": 9593,
+      "sha256": "c42cc22f0f1542f0df483c9d6e5eb99a74ebdb745392438a22f111ac83537850"
+    },
+    {
+      "path": "docs/OBS_TASK_CHANGE_PROPOSAL.md",
+      "bytes": 6845,
+      "sha256": "042679d552aff3b5f523cd38c6f24842e74f66e27bb2c4048c4d65bf4c3b04b0"
+    }
+  ],
+  "actual_task_access_or_fetch": "NOT_PERFORMED",
+  "production_go": false
+}

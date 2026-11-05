@@ -1,0 +1,443 @@
+--- a/main.py
++++ b/main.py
+@@ -14,7 +14,7 @@
+ from models import JST, OfficialRaceInfo, RaceStatus
+ from official import OfficialDataFetcher
+ from raceindex_scope import RaceScopeError, filter_current_races, recover_current_states, validate_index_snapshot
+-from raceindex_status import IndexFailure, NoRaceVerified, classify_index_exception
++from raceindex_status import IndexFailure, classify_index_exception
+ from repositories import MockBaselineRepository, SQLiteStateRepository
+ from state_machine import RaceStateMachine
+ 
+@@ -55,6 +55,10 @@
+         )
+         self._stop = asyncio.Event()
+         self._known_races: Dict[str, OfficialRaceInfo] = {}
++        # Process-local latch only. No authenticated calendar route exists in
++        # this candidate; a legacy certification signal must never erase races.
++        # There is deliberately no automatic reset/replay path.
++        self._index_hold_reason: str | None = None
+         self._error_log_limiter = RepeatedErrorRateLimiter(
+             REPEATED_ERROR_LOG_INTERVAL_SECONDS
+         )
+@@ -146,12 +150,22 @@
+             exc=RuntimeError(f"{outcome['kind']}:{outcome['reason']}"))
+         return outcome
+ 
++    def _hold_unverified_schedule(self, *, iteration: int, origin: str) -> None:
++        self._index_hold_reason = "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED"
++        logger.warning(
++            "Poll #%s INDEX_HOLD origin=%s reason=%s retained_races=%s; no automatic replay",
++            iteration, origin, self._index_hold_reason, len(self._known_races))
++
+     async def _refresh_race_universe(self, now_jst: dt.datetime, iteration: int) -> tuple[bool, bool]:
++        if self._stop.is_set():
++            return True, False
+         previous_count = len(self._known_races)
+         self._known_races = filter_current_races(self._known_races, now_jst)
+         if len(self._known_races) != previous_count:
+             logger.warning("Poll #%s STALE_RACE_SCOPE_EXCLUDED count=%s target_day=%s", iteration,
+                            previous_count - len(self._known_races), now_jst.astimezone(JST).strftime("%Y%m%d"))
++        if getattr(self, "_index_hold_reason", None) is not None:
++            return True, False
+         self._last_index_outcome = {"official": "NOT_ATTEMPTED", "tracking": "NOT_ATTEMPTED", "persisted": "NOT_NEEDED"}
+         try:
+             snapshot = await self.fetcher.fetch_race_index(now_jst)
+@@ -163,15 +177,12 @@
+             self._last_index_outcome["official"] = "OFFICIAL_INDEX_PARSED"
+             logger.info("Poll #%s raceindex OK races=%s acquired_at=%s", iteration, len(accepted), snapshot.acquired_at)
+             return False, False
+-        except NoRaceVerified:
+-            self._known_races = {}
+-            self._last_index_outcome["official"] = "NO_RACE_VERIFIED"
+-            logger.info("Poll #%s NO_RACE_VERIFIED basis=INDEPENDENT_OFFICIAL_SCHEDULE target_day=%s",
+-                        iteration, now_jst.astimezone(JST).strftime("%Y%m%d"))
+-            return False, False
+         except Exception as exc:
+             outcome = self._log_index_failure(context="raceindex", iteration=iteration, exc=exc)
+             self._last_index_outcome["official"] = outcome["kind"]
++            if outcome["kind"] == "SCHEDULE_UNVERIFIED":
++                self._hold_unverified_schedule(iteration=iteration, origin="official")
++                return True, False
+ 
+         try:
+             tracking = await self.fetcher.fetch_tracking_race_index(now_jst)
+@@ -184,18 +195,12 @@
+             logger.warning("Poll #%s TRACKING_FALLBACK OK races=%s; NOT VALID FOR OFFICIAL LOCK/TIMING CONFIRMATION",
+                            iteration, len(accepted))
+             return True, True
+-        except NoRaceVerified:
+-            # This exception can also originate from the independent schedule
+-            # provider consulted by the fallback. It is never inferred from a
+-            # missing stadium or an empty tracking payload.
+-            self._known_races = {}
+-            self._last_index_outcome["tracking"] = "NO_RACE_VERIFIED"
+-            logger.info("Poll #%s NO_RACE_VERIFIED basis=INDEPENDENT_OFFICIAL_SCHEDULE target_day=%s",
+-                        iteration, now_jst.astimezone(JST).strftime("%Y%m%d"))
+-            return False, False
+         except Exception as exc:
+             outcome = self._log_index_failure(context="tracking_fallback", iteration=iteration, exc=exc)
+             self._last_index_outcome["tracking"] = outcome["kind"]
++            if outcome["kind"] == "SCHEDULE_UNVERIFIED":
++                self._hold_unverified_schedule(iteration=iteration, origin="tracking")
++                return True, False
+         if not self._known_races:
+             try:
+                 persisted = await self.repo.list_all_states()
+@@ -231,8 +236,13 @@
+                     self._known_races = {}
+                     logger.warning("Poll #%s DAY_ROLLOVER_DURING_INDEX_POLL; processing skipped", iteration)
+ 
+-                race_ids = sorted(self._known_races)
+-                if not race_ids:
++                held = getattr(self, "_index_hold_reason", None) is not None
++                race_ids = [] if held or self._stop.is_set() else sorted(self._known_races)
++                if held:
++                    logger.warning("Poll #%s INDEX_HOLD processing skipped; retained_races=%s", iteration, len(self._known_races))
++                elif self._stop.is_set():
++                    logger.info("Poll #%s STOP_REQUESTED; no new race processing", iteration)
++                elif not race_ids:
+                     logger.info("No verified/tracked Gamagori races currently known for %s", now_jst.date())
+                 else:
+                     tasks = []
+--- a/official.py
++++ b/official.py
+@@ -34,8 +34,8 @@
+         self.max_retries = max_retries
+         self.backoff_seconds = backoff_seconds
+         self.semaphore = asyncio.Semaphore(max_concurrency)
+-        # Optional synchronous, independently reviewed calendar contract only.
+-        # No real adapter, URL fetch, environment flag or default proof exists.
++        # Legacy argument retained only. No calendar-authentication adapter
++        # exists, so this provider is never called or used as authority.
+         self.schedule_evidence_provider = schedule_evidence_provider
+         self.client = httpx.AsyncClient(
+             timeout=self.timeout,
+@@ -100,19 +100,10 @@
+         return now_jst.astimezone(JST)
+ 
+     def _expected_race_numbers(self, now_jst):
+-        if self.schedule_evidence_provider is None:
+-            return FULL_RACE_NUMBERS
+-        try:
+-            evidence = self.schedule_evidence_provider(now_jst)
+-            decision = reviewed_schedule_decision(evidence, now_jst.strftime("%Y%m%d"))
+-        except Exception:
+-            logger.warning("Schedule evidence unavailable; conservative twelve-race expectation retained")
+-            return FULL_RACE_NUMBERS
+-        if decision["accepted"] and decision["event"] == "NO_RACE":
+-            raise NoRaceVerified()
+-        if decision["accepted"] and decision["event"] == "RACING_DAY":
+-            return decision["race_numbers"]
+-        logger.warning("Schedule evidence unverified; conservative twelve-race expectation retained")
++        # Self-hashes/receipt references are not independent authentication.
++        # Do not invoke a callback (including one that raises or performs I/O).
++        if self.schedule_evidence_provider is not None:
++            logger.warning("Schedule authentication not implemented; provider ignored; twelve-race expectation retained")
+         return FULL_RACE_NUMBERS
+ 
+     async def fetch_race_index(self, now_jst: dt.datetime) -> RaceIndexSnapshot:
+--- a/parsers.py
++++ b/parsers.py
+@@ -47,9 +47,69 @@
+     return set(numbers)
+ 
+ 
++def _raceindex_structure_complete(html: str, table):
++    """Reject parser-repaired truncation in the selected table, not page legends."""
++    from html.parser import HTMLParser
++
++    class Structure(HTMLParser):
++        def __init__(self):
++            super().__init__(convert_charrefs=True)
++            self.active = []
++            self.tables = {}
++
++        def handle_starttag(self, tag, attrs):
++            if tag == "table":
++                frame = {"stack": ["table"], "valid": not self.active, "closed": False}
++                self.tables[self.getpos()] = frame
++                if self.active:
++                    self.active[-1]["valid"] = False
++                self.active.append(frame)
++            elif self.active and tag in ("tr", "td", "th"):
++                frame = self.active[-1]
++                required = "table" if tag == "tr" else "tr"
++                if frame["stack"][-1] != required:
++                    frame["valid"] = False
++                frame["stack"].append(tag)
++
++        def handle_endtag(self, tag):
++            if not self.active or tag not in ("table", "tr", "td", "th"):
++                return
++            frame = self.active[-1]
++            if not frame["stack"] or frame["stack"][-1] != tag:
++                frame["valid"] = False
++            elif frame["stack"]:
++                frame["stack"].pop()
++            if tag == "table":
++                frame["closed"] = True
++                self.active.pop()
++
++        def handle_startendtag(self, tag, attrs):
++            if self.active and tag in ("table", "tr", "td", "th"):
++                self.active[-1]["valid"] = False
++
++    parser = Structure()
++    parser.feed(html)
++    parser.close()
++    frame = parser.tables.get((table.sourceline, table.sourcepos))
++    if not frame or not frame["valid"] or not frame["closed"] or frame["stack"]:
++        _raceindex_partial("SELECTED_TABLE_TRUNCATED_OR_UNBALANCED")
++
++
++def _raceindex_clock(text: str):
++    # Count malformed time-shaped spans too. A valid clock must not hide an
++    # additional "25:000", "99:999", short-minute or missing-hour candidate.
++    tokens = re.findall(r"[0-9０-９]+(?:[:：][0-9０-９.]*)+|(?<![0-9０-９])[:：][0-9０-９.]+", text)
++    if len(tokens) != 1:
++        _raceindex_partial("DEADLINE_MISSING_INVALID_OR_AMBIGUOUS")
++    match = re.fullmatch(r"([01]?[0-9]|2[0-3]):([0-5][0-9])(?::([0-5][0-9]))?", tokens[0])
++    if not match:
++        _raceindex_partial("DEADLINE_MISSING_INVALID_OR_AMBIGUOUS")
++    return int(match[1]), int(match[2]), int(match[3]) if match[3] is not None else 0
++
++
+ def parse_race_index(html: str, date_str: str, source_url: str, acquired_at: str,
+                      *, expected_race_numbers=None) -> List[OfficialRaceInfo]:
+-    """Conservative table contract; unsupported/partial structure raises.
++    """Semantically anchored table contract; unsupported/partial structure raises.
+ 
+     Expected numbers must come from caller policy/external schedule evidence.
+     None preserves the legacy small-fixture API; it does not prove completeness,
+@@ -65,71 +125,69 @@
+     soup = BeautifulSoup(html, "html.parser")
+     for hidden in soup.find_all(["script", "style"]):
+         hidden.decompose()
+-    page_labels = _raceindex_labels(" ".join(soup.stripped_strings))
+-    if not page_labels:
+-        raise ParserError("raceindex: no race rows with race number + deadline found")
+-    if any(not re.fullmatch(r"(?:1[0-2]|[1-9])", number) for number in page_labels):
+-        raise ParserError("raceindex: invalid race count/number")
+     rows = list(soup.find_all("tr"))
+-    row_labels = [label for row in rows for label in _raceindex_labels(" ".join(row.stripped_strings))]
+-    if sorted(page_labels) != sorted(row_labels):
+-        _raceindex_partial("LABEL_OUTSIDE_ROWS_OR_NESTED_ROWS")
+-
+     anchors = []
+     for row in rows:
+         cells = row.find_all(["th", "td"], recursive=False)
+-        if not cells or not any(cell.name == "th" for cell in cells):
+-            continue
+-        texts = ["".join(cell.stripped_strings) for cell in cells]
++        if not cells:
++            continue
++        texts = [re.sub(r"\s+", "", "".join(cell.stripped_strings)) for cell in cells]
++        # A race's name may itself be "レース" or "投票締切"; a numeric
++        # race cell makes this a data row, not a semantic-header candidate.
++        if any(re.fullmatch(r"[0-9]+R", text, re.IGNORECASE) for text in texts):
++            continue
+         race_columns = [i for i, text in enumerate(texts) if text in ("レース", "レース番号", "R")]
+         deadline_columns = [i for i, text in enumerate(texts)
+-                            if re.fullmatch(r"締切(?:予定)?(?:時刻|時間)?(?:[/／・]?投票)?", text)]
+-        if race_columns or deadline_columns:
++                            if re.fullmatch(r"(?:投票|発売)?締切(?:予定)?(?:時刻|時間)?(?:[/／・]?投票)?", text)]
++        if race_columns and deadline_columns:
+             if len(race_columns) != 1 or len(deadline_columns) != 1 or race_columns[0] == deadline_columns[0]:
+                 _raceindex_partial("SEMANTIC_HEADER_AMBIGUOUS")
+             if any(cell.get("rowspan", "1") != "1" or cell.get("colspan", "1") != "1" for cell in cells):
+                 _raceindex_partial("MERGED_HEADER_UNSUPPORTED")
+             anchors.append((row, row.find_parent("table"), race_columns[0], deadline_columns[0], len(cells)))
++    if not anchors and not any(_raceindex_labels(" ".join(row.stripped_strings)) for row in rows):
++        raise ParserError("raceindex: no race rows with race number + deadline found")
+     if len(anchors) != 1 or anchors[0][1] is None:
+         _raceindex_partial("SEMANTIC_HEADER_MISSING_OR_MULTIPLE")
+     header, table, race_column, deadline_column, width = anchors[0]
+-    if _raceindex_labels(" ".join(header.stripped_strings)):
+-        _raceindex_partial("RACE_LABEL_IN_HEADER")
++    _raceindex_structure_complete(html, table)
+     races: List[OfficialRaceInfo] = []
+     seen = set()
+     header_seen = False
+     for row in rows:
++        if row.find_parent("table") is not table:
++            continue
+         if row is header:
+             header_seen = True
+             continue
+         text = " ".join(row.stripped_strings)
+-        labels = _raceindex_labels(text)
+-        clock_tokens = re.findall(r"(?<![0-9])([0-9]{1,2}:[0-9]{2}(?::[0-9]{2})?)(?![0-9])", text)
+-        if not labels:
+-            if row.find_parent("table") is table and clock_tokens:
+-                _raceindex_partial("DEADLINE_ROW_WITHOUT_RACE_LABEL")
+-            continue
+-        if row.find_parent("table") is not table or not header_seen:
+-            _raceindex_partial("RACE_LABEL_OUTSIDE_SEMANTIC_TABLE")
+-        if len(labels) != 1:
+-            _raceindex_partial("MULTIPLE_RACE_LABELS_PER_ROW")
+         cells = row.find_all(["th", "td"], recursive=False)
++        if not cells:
++            continue
++        race_cell = re.sub(r"\s+", "", "".join(cells[race_column].stripped_strings)) if race_column < len(cells) else ""
++        canonical = re.fullmatch(r"([0-9]+)R", race_cell, re.IGNORECASE)
++        if not canonical:
++            # Named headings and labels in race-name/annotation columns are not
++            # records. A labelled/missing race cell with a deadline is partial.
++            deadline_text = " ".join(cells[deadline_column].stripped_strings) if deadline_column < len(cells) else ""
++            if _raceindex_labels(race_cell) or re.search(r"[0-9]{1,2}:[0-9]{2}", deadline_text):
++                _raceindex_partial("RACE_CELL_NOT_CANONICAL")
++            continue
++        if not header_seen:
++            _raceindex_partial("RACE_DATA_PRECEDES_HEADER")
+         if len(cells) != width or any(cell.get("rowspan", "1") != "1" or cell.get("colspan", "1") != "1" for cell in cells):
+             _raceindex_partial("ROW_CELL_STRUCTURE_CHANGED")
+-        race_cell = "".join(cells[race_column].stripped_strings)
+-        if not re.fullmatch(r"(?:1[0-2]|[1-9])R", race_cell, re.IGNORECASE):
+-            _raceindex_partial("RACE_CELL_NOT_CANONICAL")
+-        race_no = int(labels[0])
++        number = canonical[1]
++        if not re.fullmatch(r"(?:1[0-2]|[1-9])", number):
++            raise ParserError("raceindex: invalid race count/number")
++        race_no = int(number)
+         if race_no in seen:
+             _raceindex_partial("DUPLICATE_RACE_NUMBER")
+-        if len(clock_tokens) != 1 or not _TIME_RE.fullmatch(clock_tokens[0]):
+-            _raceindex_partial("DEADLINE_MISSING_INVALID_OR_AMBIGUOUS")
+         deadline_text = " ".join(cells[deadline_column].stripped_strings)
+-        matches = list(_TIME_RE.finditer(deadline_text))
+-        if len(matches) != 1 or matches[0].group(0) != clock_tokens[0]:
+-            _raceindex_partial("DEADLINE_NOT_IN_CLOSING_COLUMN")
+-        hh, mm = int(matches[0].group(1)), int(matches[0].group(2))
+-        deadline = dt.datetime(day.year, day.month, day.day, hh, mm, tzinfo=JST)
++        if _raceindex_labels(deadline_text):
++            _raceindex_partial("DEADLINE_CONTAINS_RACE_LABEL")
++        hh, mm, ss = _raceindex_clock(deadline_text)
++        deadline = dt.datetime(day.year, day.month, day.day, hh, mm, ss, tzinfo=JST)
+         status = "UNKNOWN"
+         if "中止" in text or "取りやめ" in text:
+             status = "CANCELLED"
+--- a/raceindex_status.py
++++ b/raceindex_status.py
+@@ -1,17 +1,12 @@
+-"""Typed safe index observations and an opt-in calendar-evidence contract.
++"""Typed index observations; calendar authentication is NOT implemented.
+ 
+-No calendar is fetched or configured here. Hash/receipt consistency cannot
+-authenticate official truth or independent review; that protocol remains OPEN.
++Self-reported bytes, hashes, review booleans and receipt references never verify
++absence or shorten the expected universe. Legacy names are quarantined.
+ """
+ from __future__ import annotations
+ 
+-import datetime as dt
+-import hashlib
+-import re
+-
+-
+ INDEX_KINDS = frozenset({"HTTP_FETCH_FAILED", "HTML_PARSE_FAILED", "TRACKING_MISSING",
+-                         "TRACKING_PARSE_FAILED", "UNKNOWN_FAILURE", "NO_RACE_VERIFIED"})
++                         "TRACKING_PARSE_FAILED", "UNKNOWN_FAILURE", "SCHEDULE_UNVERIFIED"})
+ _REASONS = frozenset({
+     "UNCLASSIFIED_EXCEPTION", "HTTP_RETRIES_EXHAUSTED", "HTTP_REQUEST_FAILED",
+     "RACE_INDEX_HTML_INVALID", "RACE_INDEX_UNKNOWN_FAILURE", "NOW_JST_AWARE_REQUIRED",
+@@ -23,77 +18,49 @@
+     "TRACKING_RACE_KEY_NUMBER_MISMATCH", "TRACKING_RACE_NUMBER_DUPLICATE",
+     "TRACKING_DEADLINE_INVALID", "TRACKING_DEADLINE_TARGET_DATE_MISMATCH",
+     "TRACKING_PAYLOAD_DATE_MISMATCH", "TRACKING_EXPECTED_RACE_SET_MISMATCH",
+-    "INDEPENDENT_OFFICIAL_CALENDAR_NO_RACE",
++    "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED",
+ })
+-_SHA = re.compile(r"[0-9a-f]{64}\Z")
+ FULL_RACE_NUMBERS = frozenset(range(1, 13))
+ 
+ 
+ class IndexFailure(RuntimeError):
+     """Fixed-code diagnostic: never retain a source URL or exception string."""
+     def __init__(self, kind="UNKNOWN_FAILURE", reason="UNCLASSIFIED_EXCEPTION"):
++        if isinstance(kind, str) and kind == "NO_RACE_VERIFIED":
++            # A manually constructed legacy status is not a calendar proof.
++            kind, reason = "SCHEDULE_UNVERIFIED", "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED"
+         self.kind = kind if isinstance(kind, str) and kind in INDEX_KINDS else "UNKNOWN_FAILURE"
+         self.reason = reason if isinstance(reason, str) and reason in _REASONS else "UNCLASSIFIED_EXCEPTION"
+         super().__init__(self.kind + ":" + self.reason)
+ 
+ 
+ class NoRaceVerified(IndexFailure):
+-    """Local validated calendar-proof contract, not HTML-derived absence.
+-
+-    An actual provider must be independently reviewed before it is configured.
+-    The default application has no such provider; this class alone grants none.
+-    """
++    """Legacy import compatibility only; never represents verified absence."""
+     def __init__(self):
+-        super().__init__("NO_RACE_VERIFIED", "INDEPENDENT_OFFICIAL_CALENDAR_NO_RACE")
++        super().__init__("SCHEDULE_UNVERIFIED", "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED")
+ 
+ 
+ def classify_index_exception(exc):
+     """Return safe fields without evaluating an untrusted exception's str/repr."""
+-    if isinstance(exc, IndexFailure):
+-        normalized = IndexFailure(exc.kind, exc.reason)
+-    else:
+-        normalized = IndexFailure()
++    normalized = IndexFailure()
++    try:
++        if isinstance(exc, NoRaceVerified):
++            normalized = NoRaceVerified()
++        elif isinstance(exc, IndexFailure):
++            normalized = IndexFailure(exc.kind, exc.reason)
++    except Exception:
++        pass  # Malicious/unsupported attributes do not become diagnostics.
+     return {"kind": normalized.kind, "reason": normalized.reason}
+ 
+ 
+ def reviewed_schedule_decision(evidence, target_date):
+-    """Validate only submitted binding claims; unaccepted evidence keeps 12 races.
++    """Always hold: no real calendar-authentication adapter exists.
+ 
+-    Review must bind date/venue/event/numbers/raw SHA and have an explicit true
+-    flag plus a separate receipt reference. No raw-calendar parser is invented.
++    Inputs are deliberately not inspected, hashed, stringified or treated as
++    authenticated evidence. Even genuine originals need a reviewed real adapter.
++    The legacy signature is retained, without a bypass flag or test exception.
+     """
+-    base = {"accepted": False, "event": None, "race_numbers": FULL_RACE_NUMBERS,
+-            "reason": "SCHEDULE_EVIDENCE_UNVERIFIED", "external_authenticity": "UNVERIFIED"}
+-    try:
+-        if (not isinstance(target_date, str) or not re.fullmatch(r"[0-9]{8}", target_date)
+-                or dt.datetime.strptime(target_date, "%Y%m%d").strftime("%Y%m%d") != target_date):
+-            return base
+-        fields = {"schema", "date", "venue", "event", "race_numbers", "authority",
+-                  "raw_evidence", "raw_sha256", "independent_review"}
+-        if not isinstance(evidence, dict) or set(evidence) != fields:
+-            return base
+-        if (evidence["schema"] != "OFFICIAL_SCHEDULE_EVIDENCE_V001_PROPOSED"
+-                or evidence["date"] != target_date or evidence["venue"] != "07"
+-                or evidence["authority"] != "OFFICIAL_SCHEDULE"
+-                or evidence["event"] not in ("NO_RACE", "RACING_DAY")):
+-            return base
+-        raw, digest = evidence["raw_evidence"], evidence["raw_sha256"]
+-        if (not isinstance(raw, bytes) or not raw or not isinstance(digest, str)
+-                or not _SHA.fullmatch(digest) or hashlib.sha256(raw).hexdigest() != digest):
+-            return base
+-        numbers = evidence["race_numbers"]
+-        if (not isinstance(numbers, list) or any(type(number) is not int or not 1 <= number <= 12 for number in numbers)
+-                or len(set(numbers)) != len(numbers)):
+-            return base
+-        if evidence["event"] == "NO_RACE" and numbers or evidence["event"] == "RACING_DAY" and not numbers:
+-            return base
+-        review = evidence["independent_review"]
+-        if (not isinstance(review, dict) or set(review) != {"reviewed", "receipt_sha256", "date", "venue", "event", "race_numbers", "raw_sha256"}
+-                or review["reviewed"] is not True or not isinstance(review["receipt_sha256"], str)
+-                or not _SHA.fullmatch(review["receipt_sha256"])
+-                or any(review[key] != evidence[key] for key in ("date", "venue", "event", "race_numbers", "raw_sha256"))):
+-            return base
+-        return {"accepted": True, "event": evidence["event"], "race_numbers": frozenset(numbers),
+-                "reason": "SCHEDULE_REVIEW_BINDINGS_MATCHED", "external_authenticity": "UNVERIFIED"}
+-    except (ValueError, TypeError, KeyError, OverflowError):
+-        return base
++    return {"accepted": False, "event": None, "race_numbers": FULL_RACE_NUMBERS,
++            "status": "HOLD", "kind": "SCHEDULE_UNVERIFIED",
++            "reason": "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED",
++            "authentication_implemented": False, "external_authenticity": "UNVERIFIED"}

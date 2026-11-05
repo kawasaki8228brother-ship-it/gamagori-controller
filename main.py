@@ -14,7 +14,7 @@ from error_rate_limit import RepeatedErrorRateLimiter
 from models import JST, OfficialRaceInfo, RaceStatus
 from official import OfficialDataFetcher
 from raceindex_scope import RaceScopeError, filter_current_races, recover_current_states, validate_index_snapshot
-from raceindex_status import IndexFailure, NoRaceVerified, classify_index_exception
+from raceindex_status import IndexFailure, classify_index_exception
 from repositories import MockBaselineRepository, SQLiteStateRepository
 from state_machine import RaceStateMachine
 
@@ -55,6 +55,10 @@ class GamagoriController:
         )
         self._stop = asyncio.Event()
         self._known_races: Dict[str, OfficialRaceInfo] = {}
+        # Process-local latch only. No authenticated calendar route exists in
+        # this candidate; a legacy certification signal must never erase races.
+        # There is deliberately no automatic reset/replay path.
+        self._index_hold_reason: str | None = None
         self._error_log_limiter = RepeatedErrorRateLimiter(
             REPEATED_ERROR_LOG_INTERVAL_SECONDS
         )
@@ -146,12 +150,22 @@ class GamagoriController:
             exc=RuntimeError(f"{outcome['kind']}:{outcome['reason']}"))
         return outcome
 
+    def _hold_unverified_schedule(self, *, iteration: int, origin: str) -> None:
+        self._index_hold_reason = "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED"
+        logger.warning(
+            "Poll #%s INDEX_HOLD origin=%s reason=%s retained_races=%s; no automatic replay",
+            iteration, origin, self._index_hold_reason, len(self._known_races))
+
     async def _refresh_race_universe(self, now_jst: dt.datetime, iteration: int) -> tuple[bool, bool]:
+        if self._stop.is_set():
+            return True, False
         previous_count = len(self._known_races)
         self._known_races = filter_current_races(self._known_races, now_jst)
         if len(self._known_races) != previous_count:
             logger.warning("Poll #%s STALE_RACE_SCOPE_EXCLUDED count=%s target_day=%s", iteration,
                            previous_count - len(self._known_races), now_jst.astimezone(JST).strftime("%Y%m%d"))
+        if getattr(self, "_index_hold_reason", None) is not None:
+            return True, False
         self._last_index_outcome = {"official": "NOT_ATTEMPTED", "tracking": "NOT_ATTEMPTED", "persisted": "NOT_NEEDED"}
         try:
             snapshot = await self.fetcher.fetch_race_index(now_jst)
@@ -163,15 +177,12 @@ class GamagoriController:
             self._last_index_outcome["official"] = "OFFICIAL_INDEX_PARSED"
             logger.info("Poll #%s raceindex OK races=%s acquired_at=%s", iteration, len(accepted), snapshot.acquired_at)
             return False, False
-        except NoRaceVerified:
-            self._known_races = {}
-            self._last_index_outcome["official"] = "NO_RACE_VERIFIED"
-            logger.info("Poll #%s NO_RACE_VERIFIED basis=INDEPENDENT_OFFICIAL_SCHEDULE target_day=%s",
-                        iteration, now_jst.astimezone(JST).strftime("%Y%m%d"))
-            return False, False
         except Exception as exc:
             outcome = self._log_index_failure(context="raceindex", iteration=iteration, exc=exc)
             self._last_index_outcome["official"] = outcome["kind"]
+            if outcome["kind"] == "SCHEDULE_UNVERIFIED":
+                self._hold_unverified_schedule(iteration=iteration, origin="official")
+                return True, False
 
         try:
             tracking = await self.fetcher.fetch_tracking_race_index(now_jst)
@@ -184,18 +195,12 @@ class GamagoriController:
             logger.warning("Poll #%s TRACKING_FALLBACK OK races=%s; NOT VALID FOR OFFICIAL LOCK/TIMING CONFIRMATION",
                            iteration, len(accepted))
             return True, True
-        except NoRaceVerified:
-            # This exception can also originate from the independent schedule
-            # provider consulted by the fallback. It is never inferred from a
-            # missing stadium or an empty tracking payload.
-            self._known_races = {}
-            self._last_index_outcome["tracking"] = "NO_RACE_VERIFIED"
-            logger.info("Poll #%s NO_RACE_VERIFIED basis=INDEPENDENT_OFFICIAL_SCHEDULE target_day=%s",
-                        iteration, now_jst.astimezone(JST).strftime("%Y%m%d"))
-            return False, False
         except Exception as exc:
             outcome = self._log_index_failure(context="tracking_fallback", iteration=iteration, exc=exc)
             self._last_index_outcome["tracking"] = outcome["kind"]
+            if outcome["kind"] == "SCHEDULE_UNVERIFIED":
+                self._hold_unverified_schedule(iteration=iteration, origin="tracking")
+                return True, False
         if not self._known_races:
             try:
                 persisted = await self.repo.list_all_states()
@@ -231,8 +236,13 @@ class GamagoriController:
                     self._known_races = {}
                     logger.warning("Poll #%s DAY_ROLLOVER_DURING_INDEX_POLL; processing skipped", iteration)
 
-                race_ids = sorted(self._known_races)
-                if not race_ids:
+                held = getattr(self, "_index_hold_reason", None) is not None
+                race_ids = [] if held or self._stop.is_set() else sorted(self._known_races)
+                if held:
+                    logger.warning("Poll #%s INDEX_HOLD processing skipped; retained_races=%s", iteration, len(self._known_races))
+                elif self._stop.is_set():
+                    logger.info("Poll #%s STOP_REQUESTED; no new race processing", iteration)
+                elif not race_ids:
                     logger.info("No verified/tracked Gamagori races currently known for %s", now_jst.date())
                 else:
                     tasks = []

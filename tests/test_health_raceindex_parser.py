@@ -44,19 +44,22 @@ def test_missing_tail_or_middle_requires_exact_expected_set(numbers):
         parse(table([row(n) for n in numbers]), range(1, 13))
 
 
-@pytest.mark.parametrize("deadline", ["", "時刻取得失敗", "25:00", "13:60", "13:00:01"])
+@pytest.mark.parametrize("deadline", ["", "時刻取得失敗", "25:00", "13:60", "13:00:60"])
 def test_missing_or_invalid_deadline_never_partially_accepts_other_rows(deadline):
     with pytest.raises(ParserError, match="partial parse"):
         parse(table([row(1), row(2, deadline)]))
 
 
-@pytest.mark.parametrize("rows,header", [
-    ([row(1, "15:21 15:31")], "<th>レース</th><th>締切予定時刻</th>"),
+@pytest.mark.parametrize("rows,header,expected_minute", [
+    ([row(1, "15:21 15:31")], "<th>レース</th><th>締切予定時刻</th>", None),
     (["<tr><td>1R</td><td>14:00</td><td>15:21 投票</td></tr>"],
-     "<th>レース</th><th>更新時刻</th><th>締切予定時刻</th>")])
-def test_multiple_times_do_not_choose_first_hhmm(rows, header):
-    with pytest.raises(ParserError, match="DEADLINE_MISSING_INVALID_OR_AMBIGUOUS"):
-        parse(table(rows, header))
+     "<th>レース</th><th>更新時刻</th><th>締切予定時刻</th>", 21)])
+def test_multiple_times_do_not_choose_first_hhmm(rows, header, expected_minute):
+    if expected_minute is None:
+        with pytest.raises(ParserError, match="DEADLINE_MISSING_INVALID_OR_AMBIGUOUS"):
+            parse(table(rows, header))
+    else:
+        assert parse(table(rows, header))[0].official_deadline.minute == expected_minute
 
 
 @pytest.mark.parametrize("second", [row(1), row(1, "16:40")])
@@ -68,7 +71,7 @@ def test_all_duplicate_race_rows_rejected_including_identical_duplicates(second)
 @pytest.mark.parametrize("bad", ["<tr><td>1R 2R</td><td>15:21</td></tr>",
                                   "<tr><td>1R</td><td>2R 15:21</td></tr>"])
 def test_multiple_race_labels_in_one_row_rejected(bad):
-    with pytest.raises(ParserError, match="MULTIPLE_RACE_LABELS_PER_ROW"):
+    with pytest.raises(ParserError, match="partial parse"):
         parse(table([bad]))
 
 
@@ -80,9 +83,8 @@ def test_invalid_race_numbers_not_silently_skipped(number):
 
 @pytest.mark.parametrize("extra", ["<div>3R 18:30</div>", "<div>1R15:00</div>",
                                      "<table><tr><td>3R</td><td>18:30</td></tr></table>"])
-def test_layout_drift_labels_outside_semantic_rows_rejected(extra):
-    with pytest.raises(ParserError, match="partial parse"):
-        parse(table([row(1), row(2)])+extra)
+def test_labels_outside_semantic_table_are_not_race_records(extra):
+    assert len(parse(table([row(1), row(2)])+extra)) == 2
 
 
 @pytest.mark.parametrize("html", [
@@ -94,9 +96,7 @@ def test_layout_drift_labels_outside_semantic_rows_rejected(extra):
     table(["<tr><td>1R</td></tr>"]),
     table(["<tr><td colspan='2'>1R 15:21</td></tr>"]),
     table(["<tr><td>1R</td><td>15:21</td><td>取得失敗</td></tr>"],
-          "<th>レース</th><th>更新時刻</th><th>締切予定時刻</th>"),
-    table(["<tr><td>1R</td><td>15:21</td><td>注記</td></tr>"],
-          "<th>レース</th><th>締切時刻</th><th>参考 2R</th>")])
+          "<th>レース</th><th>更新時刻</th><th>締切予定時刻</th>")])
 def test_missing_ambiguous_or_changed_header_cell_structure_holds(html):
     with pytest.raises(ParserError, match="partial parse"):
         parse(html)

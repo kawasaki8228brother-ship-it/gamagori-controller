@@ -47,9 +47,69 @@ def _raceindex_expected(expected_race_numbers):
     return set(numbers)
 
 
+def _raceindex_structure_complete(html: str, table):
+    """Reject parser-repaired truncation in the selected table, not page legends."""
+    from html.parser import HTMLParser
+
+    class Structure(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.active = []
+            self.tables = {}
+
+        def handle_starttag(self, tag, attrs):
+            if tag == "table":
+                frame = {"stack": ["table"], "valid": not self.active, "closed": False}
+                self.tables[self.getpos()] = frame
+                if self.active:
+                    self.active[-1]["valid"] = False
+                self.active.append(frame)
+            elif self.active and tag in ("tr", "td", "th"):
+                frame = self.active[-1]
+                required = "table" if tag == "tr" else "tr"
+                if frame["stack"][-1] != required:
+                    frame["valid"] = False
+                frame["stack"].append(tag)
+
+        def handle_endtag(self, tag):
+            if not self.active or tag not in ("table", "tr", "td", "th"):
+                return
+            frame = self.active[-1]
+            if not frame["stack"] or frame["stack"][-1] != tag:
+                frame["valid"] = False
+            elif frame["stack"]:
+                frame["stack"].pop()
+            if tag == "table":
+                frame["closed"] = True
+                self.active.pop()
+
+        def handle_startendtag(self, tag, attrs):
+            if self.active and tag in ("table", "tr", "td", "th"):
+                self.active[-1]["valid"] = False
+
+    parser = Structure()
+    parser.feed(html)
+    parser.close()
+    frame = parser.tables.get((table.sourceline, table.sourcepos))
+    if not frame or not frame["valid"] or not frame["closed"] or frame["stack"]:
+        _raceindex_partial("SELECTED_TABLE_TRUNCATED_OR_UNBALANCED")
+
+
+def _raceindex_clock(text: str):
+    # Count malformed time-shaped spans too. A valid clock must not hide an
+    # additional "25:000", "99:999", short-minute or missing-hour candidate.
+    tokens = re.findall(r"[0-9０-９]+(?:[:：][0-9０-９.]*)+|(?<![0-9０-９])[:：][0-9０-９.]+", text)
+    if len(tokens) != 1:
+        _raceindex_partial("DEADLINE_MISSING_INVALID_OR_AMBIGUOUS")
+    match = re.fullmatch(r"([01]?[0-9]|2[0-3]):([0-5][0-9])(?::([0-5][0-9]))?", tokens[0])
+    if not match:
+        _raceindex_partial("DEADLINE_MISSING_INVALID_OR_AMBIGUOUS")
+    return int(match[1]), int(match[2]), int(match[3]) if match[3] is not None else 0
+
+
 def parse_race_index(html: str, date_str: str, source_url: str, acquired_at: str,
                      *, expected_race_numbers=None) -> List[OfficialRaceInfo]:
-    """Conservative table contract; unsupported/partial structure raises.
+    """Semantically anchored table contract; unsupported/partial structure raises.
 
     Expected numbers must come from caller policy/external schedule evidence.
     None preserves the legacy small-fixture API; it does not prove completeness,
@@ -65,71 +125,69 @@ def parse_race_index(html: str, date_str: str, source_url: str, acquired_at: str
     soup = BeautifulSoup(html, "html.parser")
     for hidden in soup.find_all(["script", "style"]):
         hidden.decompose()
-    page_labels = _raceindex_labels(" ".join(soup.stripped_strings))
-    if not page_labels:
-        raise ParserError("raceindex: no race rows with race number + deadline found")
-    if any(not re.fullmatch(r"(?:1[0-2]|[1-9])", number) for number in page_labels):
-        raise ParserError("raceindex: invalid race count/number")
     rows = list(soup.find_all("tr"))
-    row_labels = [label for row in rows for label in _raceindex_labels(" ".join(row.stripped_strings))]
-    if sorted(page_labels) != sorted(row_labels):
-        _raceindex_partial("LABEL_OUTSIDE_ROWS_OR_NESTED_ROWS")
-
     anchors = []
     for row in rows:
         cells = row.find_all(["th", "td"], recursive=False)
-        if not cells or not any(cell.name == "th" for cell in cells):
+        if not cells:
             continue
-        texts = ["".join(cell.stripped_strings) for cell in cells]
+        texts = [re.sub(r"\s+", "", "".join(cell.stripped_strings)) for cell in cells]
+        # A race's name may itself be "レース" or "投票締切"; a numeric
+        # race cell makes this a data row, not a semantic-header candidate.
+        if any(re.fullmatch(r"[0-9]+R", text, re.IGNORECASE) for text in texts):
+            continue
         race_columns = [i for i, text in enumerate(texts) if text in ("レース", "レース番号", "R")]
         deadline_columns = [i for i, text in enumerate(texts)
-                            if re.fullmatch(r"締切(?:予定)?(?:時刻|時間)?(?:[/／・]?投票)?", text)]
-        if race_columns or deadline_columns:
+                            if re.fullmatch(r"(?:投票|発売)?締切(?:予定)?(?:時刻|時間)?(?:[/／・]?投票)?", text)]
+        if race_columns and deadline_columns:
             if len(race_columns) != 1 or len(deadline_columns) != 1 or race_columns[0] == deadline_columns[0]:
                 _raceindex_partial("SEMANTIC_HEADER_AMBIGUOUS")
             if any(cell.get("rowspan", "1") != "1" or cell.get("colspan", "1") != "1" for cell in cells):
                 _raceindex_partial("MERGED_HEADER_UNSUPPORTED")
             anchors.append((row, row.find_parent("table"), race_columns[0], deadline_columns[0], len(cells)))
+    if not anchors and not any(_raceindex_labels(" ".join(row.stripped_strings)) for row in rows):
+        raise ParserError("raceindex: no race rows with race number + deadline found")
     if len(anchors) != 1 or anchors[0][1] is None:
         _raceindex_partial("SEMANTIC_HEADER_MISSING_OR_MULTIPLE")
     header, table, race_column, deadline_column, width = anchors[0]
-    if _raceindex_labels(" ".join(header.stripped_strings)):
-        _raceindex_partial("RACE_LABEL_IN_HEADER")
+    _raceindex_structure_complete(html, table)
     races: List[OfficialRaceInfo] = []
     seen = set()
     header_seen = False
     for row in rows:
+        if row.find_parent("table") is not table:
+            continue
         if row is header:
             header_seen = True
             continue
         text = " ".join(row.stripped_strings)
-        labels = _raceindex_labels(text)
-        clock_tokens = re.findall(r"(?<![0-9])([0-9]{1,2}:[0-9]{2}(?::[0-9]{2})?)(?![0-9])", text)
-        if not labels:
-            if row.find_parent("table") is table and clock_tokens:
-                _raceindex_partial("DEADLINE_ROW_WITHOUT_RACE_LABEL")
-            continue
-        if row.find_parent("table") is not table or not header_seen:
-            _raceindex_partial("RACE_LABEL_OUTSIDE_SEMANTIC_TABLE")
-        if len(labels) != 1:
-            _raceindex_partial("MULTIPLE_RACE_LABELS_PER_ROW")
         cells = row.find_all(["th", "td"], recursive=False)
+        if not cells:
+            continue
+        race_cell = re.sub(r"\s+", "", "".join(cells[race_column].stripped_strings)) if race_column < len(cells) else ""
+        canonical = re.fullmatch(r"([0-9]+)R", race_cell, re.IGNORECASE)
+        if not canonical:
+            # Named headings and labels in race-name/annotation columns are not
+            # records. A labelled/missing race cell with a deadline is partial.
+            deadline_text = " ".join(cells[deadline_column].stripped_strings) if deadline_column < len(cells) else ""
+            if _raceindex_labels(race_cell) or re.search(r"[0-9]{1,2}:[0-9]{2}", deadline_text):
+                _raceindex_partial("RACE_CELL_NOT_CANONICAL")
+            continue
+        if not header_seen:
+            _raceindex_partial("RACE_DATA_PRECEDES_HEADER")
         if len(cells) != width or any(cell.get("rowspan", "1") != "1" or cell.get("colspan", "1") != "1" for cell in cells):
             _raceindex_partial("ROW_CELL_STRUCTURE_CHANGED")
-        race_cell = "".join(cells[race_column].stripped_strings)
-        if not re.fullmatch(r"(?:1[0-2]|[1-9])R", race_cell, re.IGNORECASE):
-            _raceindex_partial("RACE_CELL_NOT_CANONICAL")
-        race_no = int(labels[0])
+        number = canonical[1]
+        if not re.fullmatch(r"(?:1[0-2]|[1-9])", number):
+            raise ParserError("raceindex: invalid race count/number")
+        race_no = int(number)
         if race_no in seen:
             _raceindex_partial("DUPLICATE_RACE_NUMBER")
-        if len(clock_tokens) != 1 or not _TIME_RE.fullmatch(clock_tokens[0]):
-            _raceindex_partial("DEADLINE_MISSING_INVALID_OR_AMBIGUOUS")
         deadline_text = " ".join(cells[deadline_column].stripped_strings)
-        matches = list(_TIME_RE.finditer(deadline_text))
-        if len(matches) != 1 or matches[0].group(0) != clock_tokens[0]:
-            _raceindex_partial("DEADLINE_NOT_IN_CLOSING_COLUMN")
-        hh, mm = int(matches[0].group(1)), int(matches[0].group(2))
-        deadline = dt.datetime(day.year, day.month, day.day, hh, mm, tzinfo=JST)
+        if _raceindex_labels(deadline_text):
+            _raceindex_partial("DEADLINE_CONTAINS_RACE_LABEL")
+        hh, mm, ss = _raceindex_clock(deadline_text)
+        deadline = dt.datetime(day.year, day.month, day.day, hh, mm, ss, tzinfo=JST)
         status = "UNKNOWN"
         if "中止" in text or "取りやめ" in text:
             status = "CANCELLED"

@@ -1,0 +1,10 @@
+{
+  "P3_64hex": "PASS_FORMAT_ONLY_NOT_AUTHENTICITY",
+  "P3_preserved_old_artifacts": 4,
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "production_go": false,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "python_files_compiled_without_bytecode": 51,
+  "syntax": "PASS",
+  "v001_artifacts_and_other_parent_files_preserved": 77
+}

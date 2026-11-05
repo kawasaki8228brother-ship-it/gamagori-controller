@@ -34,8 +34,8 @@ class OfficialDataFetcher:
         self.max_retries = max_retries
         self.backoff_seconds = backoff_seconds
         self.semaphore = asyncio.Semaphore(max_concurrency)
-        # Optional synchronous, independently reviewed calendar contract only.
-        # No real adapter, URL fetch, environment flag or default proof exists.
+        # Legacy argument retained only. No calendar-authentication adapter
+        # exists, so this provider is never called or used as authority.
         self.schedule_evidence_provider = schedule_evidence_provider
         self.client = httpx.AsyncClient(
             timeout=self.timeout,
@@ -100,19 +100,10 @@ class OfficialDataFetcher:
         return now_jst.astimezone(JST)
 
     def _expected_race_numbers(self, now_jst):
-        if self.schedule_evidence_provider is None:
-            return FULL_RACE_NUMBERS
-        try:
-            evidence = self.schedule_evidence_provider(now_jst)
-            decision = reviewed_schedule_decision(evidence, now_jst.strftime("%Y%m%d"))
-        except Exception:
-            logger.warning("Schedule evidence unavailable; conservative twelve-race expectation retained")
-            return FULL_RACE_NUMBERS
-        if decision["accepted"] and decision["event"] == "NO_RACE":
-            raise NoRaceVerified()
-        if decision["accepted"] and decision["event"] == "RACING_DAY":
-            return decision["race_numbers"]
-        logger.warning("Schedule evidence unverified; conservative twelve-race expectation retained")
+        # Self-hashes/receipt references are not independent authentication.
+        # Do not invoke a callback (including one that raises or performs I/O).
+        if self.schedule_evidence_provider is not None:
+            logger.warning("Schedule authentication not implemented; provider ignored; twelve-race expectation retained")
         return FULL_RACE_NUMBERS
 
     async def fetch_race_index(self, now_jst: dt.datetime) -> RaceIndexSnapshot:

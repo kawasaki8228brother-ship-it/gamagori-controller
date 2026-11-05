@@ -11,7 +11,8 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import AsyncMock, Mock, patch
 
-import main
+with patch("os.getenv", side_effect=lambda name, default=None: default):
+    import main
 from models import JST, OfficialRaceInfo, RaceIndexSnapshot, RaceState, RaceStatus
 from raceindex_scope import (RaceScopeError, filter_current_races, recover_current_states,
                              validate_index_snapshot)
@@ -50,6 +51,7 @@ class _Limiter:
 def controller(states=(), known=None):
     value = main.GamagoriController.__new__(main.GamagoriController)
     value._known_races = {} if known is None else dict(known)
+    value._index_hold_reason = None
     value._error_log_limiter = _Limiter()
     value._stop = asyncio.Event()
     value.poll_interval = 0
@@ -169,7 +171,7 @@ class ControllerScopeTests(unittest.IsolatedAsyncioTestCase):
         self.assertFalse(active)
         self.assertEqual(value._known_races, {})
 
-    async def test_verified_no_race_day_skips_fallback_recovery_and_state_machine(self):
+    async def test_unverified_no_race_claim_retains_current_cache_and_latches_hold(self):
         for origin in ("official", "tracking"):
             with self.subTest(origin=origin):
                 current, old = race(1), race(2, YESTERDAY)
@@ -185,8 +187,9 @@ class ControllerScopeTests(unittest.IsolatedAsyncioTestCase):
                     value.fetcher.fetch_tracking_race_index = AsyncMock(side_effect=no_race)
                 with patch.object(main, "dt", fixed_clock_namespace()), self.assertLogs("gamagori-controller", level="INFO") as logged:
                     await value.start()
-                self.assertTrue(any("NO_RACE" in line for line in logged.output))
-                self.assertEqual(value._known_races, {})
+                self.assertTrue(any("INDEX_HOLD" in line for line in logged.output))
+                self.assertEqual(value._known_races, {current.race_id: current})
+                self.assertEqual(value._index_hold_reason, "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED")
                 if origin == "official":
                     value.fetcher.fetch_tracking_race_index.assert_not_awaited()
                 else:
@@ -237,10 +240,10 @@ class ControllerScopeTests(unittest.IsolatedAsyncioTestCase):
     async def test_tracking_only_fallback_is_never_passed_as_official_info(self):
         value = controller()
         expected = race(1)
-        async def tracking(_):
+        async def stop_after_processing(*args, **kwargs):
             value.request_stop()
-            return snapshot([expected])
-        value.fetcher.fetch_tracking_race_index = AsyncMock(side_effect=tracking)
+        value.fetcher.fetch_tracking_race_index = AsyncMock(return_value=snapshot([expected]))
+        value.state_machine.process_race = AsyncMock(side_effect=stop_after_processing)
         with patch.object(main, "dt", fixed_clock_namespace()):
             await value.start()
         value.state_machine.process_race.assert_awaited_once()

@@ -1,0 +1,569 @@
+{
+  "Claude_original_fixture_byte_identity": "UNVERIFIED_NOT_RECEIVED",
+  "Claude_reaudit": "PENDING",
+  "HQ14_descriptions_reproduced": 7,
+  "OBS_dedicated_contract": "UNVERIFIED",
+  "Python312_C_suite": "UNVERIFIED_NOT_RUN",
+  "S2_v001": {
+    "actual_official_evidence": "NOT_OBTAINED",
+    "claim_accepted": true,
+    "decision_expected_races": 0,
+    "expected_races_gate": {
+      "race_count": 0,
+      "status": "LEGACY_CERTIFICATION_RAISED"
+    },
+    "external_authenticity": "UNVERIFIED",
+    "label": "V001",
+    "legacy_signal_cases": [
+      {
+        "cached_current_bytes_preserved": false,
+        "count_after_first": 0,
+        "count_after_second": 0,
+        "count_before": 12,
+        "forecast_calls": 0,
+        "held": false,
+        "official_calls": 2,
+        "origin": "official",
+        "repo_read_calls": 0,
+        "repo_write_calls": 0,
+        "scope": "REFRESH_ONLY_NOT_ACTUAL_STATE_MACHINE",
+        "tracking_calls": 0
+      },
+      {
+        "cached_current_bytes_preserved": false,
+        "count_after_first": 0,
+        "count_after_second": 0,
+        "count_before": 12,
+        "forecast_calls": 0,
+        "held": false,
+        "official_calls": 2,
+        "origin": "tracking",
+        "repo_read_calls": 0,
+        "repo_write_calls": 0,
+        "scope": "REFRESH_ONLY_NOT_ACTUAL_STATE_MACHINE",
+        "tracking_calls": 2
+      }
+    ],
+    "production_go": false,
+    "provider_calls": 1
+  },
+  "S2_v002": {
+    "actual_official_evidence": "NOT_OBTAINED",
+    "claim_accepted": false,
+    "decision_expected_races": 12,
+    "expected_races_gate": {
+      "race_count": 12,
+      "status": "FULL_EXPECTATION"
+    },
+    "external_authenticity": "UNVERIFIED",
+    "label": "V002",
+    "legacy_signal_cases": [
+      {
+        "cached_current_bytes_preserved": true,
+        "count_after_first": 12,
+        "count_after_second": 12,
+        "count_before": 12,
+        "forecast_calls": 0,
+        "held": true,
+        "official_calls": 1,
+        "origin": "official",
+        "repo_read_calls": 0,
+        "repo_write_calls": 0,
+        "scope": "REFRESH_ONLY_NOT_ACTUAL_STATE_MACHINE",
+        "tracking_calls": 0
+      },
+      {
+        "cached_current_bytes_preserved": true,
+        "count_after_first": 12,
+        "count_after_second": 12,
+        "count_before": 12,
+        "forecast_calls": 0,
+        "held": true,
+        "official_calls": 1,
+        "origin": "tracking",
+        "repo_read_calls": 0,
+        "repo_write_calls": 0,
+        "scope": "REFRESH_ONLY_NOT_ACTUAL_STATE_MACHINE",
+        "tracking_calls": 1
+      }
+    ],
+    "production_go": false,
+    "provider_calls": 0
+  },
+  "actual_official_HTML_and_11_05_root_cause": "UNVERIFIED_NOT_OBTAINED",
+  "baseline": {
+    "actual_11_05_source": "NOT_OBTAINED",
+    "errors": 0,
+    "exit_code": 0,
+    "failures": 0,
+    "junit_testcase_records_including_subtests": 367,
+    "production_go": false,
+    "pytest_result_categories": {
+      "passed": 353,
+      "subtests passed": 14
+    },
+    "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
+    "skipped": 0,
+    "status": "PASS",
+    "tests": 353
+  },
+  "candidate_accepted_normal_plus_descriptions": 8,
+  "candidate_rejected_danger_cases": 11,
+  "classification": "SYNTHETIC_ONLY",
+  "final_candidate": {
+    "actual_11_05_source": "NOT_OBTAINED",
+    "errors": 0,
+    "exit_code": 0,
+    "failures": 0,
+    "junit_testcase_records_including_subtests": 436,
+    "production_go": false,
+    "pytest_result_categories": {
+      "passed": 418,
+      "subtests passed": 18
+    },
+    "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
+    "skipped": 0,
+    "status": "PASS",
+    "tests": 418
+  },
+  "initial_candidate_before_two_final_boundary_tests": {
+    "actual_11_05_source": "NOT_OBTAINED",
+    "errors": 0,
+    "exit_code": 0,
+    "failures": 0,
+    "junit_testcase_records_including_subtests": 434,
+    "production_go": false,
+    "pytest_result_categories": {
+      "passed": 416,
+      "subtests passed": 18
+    },
+    "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
+    "skipped": 0,
+    "status": "PASS",
+    "tests": 416
+  },
+  "internal_code_review": "NO_MAJOR_OR_MEDIUM_FINDINGS_STATIC_ONLY_NOT_CLAUDE",
+  "modified_parent_files": [
+    "main.py",
+    "official.py",
+    "parsers.py",
+    "raceindex_status.py",
+    "tests/test_health_controller_scope.py",
+    "tests/test_health_official_index.py",
+    "tests/test_health_raceindex_parser.py"
+  ],
+  "normal_twelve_full_fields_equal": true,
+  "process_HOLD_durability": "PROCESS_ONLY_RESTART_OPEN",
+  "production_TLS_SQLite_and_host_compatibility": "UNVERIFIED_NOT_TESTED",
+  "production_go": false,
+  "real_calendar_authentication": "NOT_IMPLEMENTED_DISABLED",
+  "release": "OFFLINE_DEV_READY_DIRECT_DEPLOY_FORBIDDEN_OLD_CERTIFI_BASE",
+  "three_version_parser_summary": {
+    "old-main": [
+      {
+        "category": "BASELINE",
+        "expectation_matches": true,
+        "id": "BASELINE_12R",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F01",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F02",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F03",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F04",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": false,
+        "id": "S1_F05",
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F06",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": false,
+        "id": "S1_F07",
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D01_CONFLICT_DUPLICATE",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D02_MISSING_TAIL",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D03_MISSING_DEADLINE",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D04_AMBIGUOUS_CLOSING_CELL",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D05_TWO_CLOSING_COLUMNS",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D06_INVALID_SECONDS",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D07_MULTIPLE_RACE_CELL",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D08_TRUNCATED_TABLE",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D09_NO_CLOSING_HEADER",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D10_MULTIPLE_TABLES",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D11_MALFORMED_EXTRA_CLOCK",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      }
+    ],
+    "v001": [
+      {
+        "category": "BASELINE",
+        "expectation_matches": true,
+        "id": "BASELINE_12R",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": false,
+        "id": "S1_F01",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": false,
+        "id": "S1_F02",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": false,
+        "id": "S1_F03",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": false,
+        "id": "S1_F04",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": false,
+        "id": "S1_F05",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": false,
+        "id": "S1_F06",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": false,
+        "id": "S1_F07",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D01_CONFLICT_DUPLICATE",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D02_MISSING_TAIL",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D03_MISSING_DEADLINE",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D04_AMBIGUOUS_CLOSING_CELL",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D05_TWO_CLOSING_COLUMNS",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D06_INVALID_SECONDS",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D07_MULTIPLE_RACE_CELL",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D08_TRUNCATED_TABLE",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D09_NO_CLOSING_HEADER",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D10_MULTIPLE_TABLES",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": false,
+        "id": "D11_MALFORMED_EXTRA_CLOCK",
+        "seconds_match": null,
+        "status": "ACCEPT"
+      }
+    ],
+    "v002": [
+      {
+        "category": "BASELINE",
+        "expectation_matches": true,
+        "id": "BASELINE_12R",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F01",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F02",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F03",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F04",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F05",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F06",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "HQ14_DESCRIPTION_REPRODUCTION",
+        "expectation_matches": true,
+        "id": "S1_F07",
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D01_CONFLICT_DUPLICATE",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D02_MISSING_TAIL",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D03_MISSING_DEADLINE",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D04_AMBIGUOUS_CLOSING_CELL",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D05_TWO_CLOSING_COLUMNS",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D06_INVALID_SECONDS",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D07_MULTIPLE_RACE_CELL",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D08_TRUNCATED_TABLE",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D09_NO_CLOSING_HEADER",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D10_MULTIPLE_TABLES",
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "category": "DANGER",
+        "expectation_matches": true,
+        "id": "D11_MALFORMED_EXTRA_CLOCK",
+        "seconds_match": null,
+        "status": "REJECT"
+      }
+    ]
+  },
+  "unchanged_parent_files": 77
+}

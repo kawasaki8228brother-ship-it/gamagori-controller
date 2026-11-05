@@ -1,0 +1,103 @@
+{
+  "logs": [
+    {
+      "note": "FINAL_MEASUREMENT",
+      "original_bytes": 1343,
+      "original_name": "baseline-tests.raw.log",
+      "original_sha256": "c066f9a85e8e1ff279ed8b315116e15ba14eaca8b994482f07a026805a7d1cf9",
+      "production_data": false,
+      "published_bytes": 1343,
+      "published_path": "development/health_residuals_20261106_v002/evidence/baseline-tests.raw.log",
+      "published_sha256": "c066f9a85e8e1ff279ed8b315116e15ba14eaca8b994482f07a026805a7d1cf9",
+      "scope": "OFFLINE_SYNTHETIC_ONLY",
+      "trust": "RAW_UNMODIFIED"
+    },
+    {
+      "note": "INITIAL_BEFORE_FINAL_TWO_BOUNDARY_TESTS",
+      "original_bytes": 1419,
+      "original_name": "candidate-tests.initial-before-final-boundary-cases.raw.log",
+      "original_sha256": "52bcef50e9ae4fd4f98a611aebc1081de6febb92eeaad2f807420488fc5e96f5",
+      "production_data": false,
+      "published_bytes": 1419,
+      "published_path": "development/health_residuals_20261106_v002/evidence/candidate-tests.initial-before-final-boundary-cases.raw.log",
+      "published_sha256": "52bcef50e9ae4fd4f98a611aebc1081de6febb92eeaad2f807420488fc5e96f5",
+      "scope": "OFFLINE_SYNTHETIC_ONLY",
+      "trust": "RAW_UNMODIFIED"
+    },
+    {
+      "note": "FINAL_MEASUREMENT",
+      "original_bytes": 1419,
+      "original_name": "candidate-tests.raw.log",
+      "original_sha256": "43a1454de4b5ae2579e7578d706097b81240330f0a47f7d51d25c6f9a7467b57",
+      "production_data": false,
+      "published_bytes": 1419,
+      "published_path": "development/health_residuals_20261106_v002/evidence/candidate-tests.raw.log",
+      "published_sha256": "43a1454de4b5ae2579e7578d706097b81240330f0a47f7d51d25c6f9a7467b57",
+      "scope": "OFFLINE_SYNTHETIC_ONLY",
+      "trust": "RAW_UNMODIFIED"
+    },
+    {
+      "note": "FINAL_MEASUREMENT",
+      "original_bytes": 54536,
+      "original_name": "parser-old-main-complete.raw.log",
+      "original_sha256": "ee0ff58a8d18900ab0d9202bf04456aa08c44f05e0b3655c6f9ac222d9c46c2d",
+      "production_data": false,
+      "published_bytes": 54536,
+      "published_path": "development/health_residuals_20261106_v002/evidence/parser-old-main-complete.raw.log",
+      "published_sha256": "ee0ff58a8d18900ab0d9202bf04456aa08c44f05e0b3655c6f9ac222d9c46c2d",
+      "scope": "OFFLINE_SYNTHETIC_ONLY",
+      "trust": "RAW_UNMODIFIED"
+    },
+    {
+      "note": "FINAL_MEASUREMENT",
+      "original_bytes": 13801,
+      "original_name": "parser-v001-complete.raw.log",
+      "original_sha256": "443b95d4ea0d5e6757155d1d0b41de2a344b7c3abe823a5f8292a8d6dd00bd9b",
+      "production_data": false,
+      "published_bytes": 13801,
+      "published_path": "development/health_residuals_20261106_v002/evidence/parser-v001-complete.raw.log",
+      "published_sha256": "443b95d4ea0d5e6757155d1d0b41de2a344b7c3abe823a5f8292a8d6dd00bd9b",
+      "scope": "OFFLINE_SYNTHETIC_ONLY",
+      "trust": "RAW_UNMODIFIED"
+    },
+    {
+      "note": "FINAL_MEASUREMENT",
+      "original_bytes": 27548,
+      "original_name": "parser-v002-complete.raw.log",
+      "original_sha256": "5ca049ea00a2d7c6e2b09d5852667d5db3abae47970a1e5bb6fdc16a750b5fb8",
+      "production_data": false,
+      "published_bytes": 27548,
+      "published_path": "development/health_residuals_20261106_v002/evidence/parser-v002-complete.raw.log",
+      "published_sha256": "5ca049ea00a2d7c6e2b09d5852667d5db3abae47970a1e5bb6fdc16a750b5fb8",
+      "scope": "OFFLINE_SYNTHETIC_ONLY",
+      "trust": "RAW_UNMODIFIED"
+    },
+    {
+      "note": "FINAL_MEASUREMENT",
+      "original_bytes": 1711,
+      "original_name": "no-race-v001.raw.log",
+      "original_sha256": "9e2ba799f2450b098afa6999ab1c68b1cdba437d3bbb8903972332bad3a78e31",
+      "production_data": false,
+      "published_bytes": 1711,
+      "published_path": "development/health_residuals_20261106_v002/evidence/no-race-v001.raw.log",
+      "published_sha256": "9e2ba799f2450b098afa6999ab1c68b1cdba437d3bbb8903972332bad3a78e31",
+      "scope": "OFFLINE_SYNTHETIC_ONLY",
+      "trust": "RAW_UNMODIFIED"
+    },
+    {
+      "note": "FINAL_MEASUREMENT",
+      "original_bytes": 1670,
+      "original_name": "no-race-v002.raw.log",
+      "original_sha256": "7e61a760d66b16ca80ecb47fb9b27ba94e945cf983bd14f4e4442d0ddec49c8b",
+      "production_data": false,
+      "published_bytes": 1670,
+      "published_path": "development/health_residuals_20261106_v002/evidence/no-race-v002.raw.log",
+      "published_sha256": "7e61a760d66b16ca80ecb47fb9b27ba94e945cf983bd14f4e4442d0ddec49c8b",
+      "scope": "OFFLINE_SYNTHETIC_ONLY",
+      "trust": "RAW_UNMODIFIED"
+    }
+  ],
+  "original_and_redacted_hashes_separate": true,
+  "private_xml": "OMITTED_POSSIBLE_INTERNAL_PATHS",
+  "production_go": false
+}

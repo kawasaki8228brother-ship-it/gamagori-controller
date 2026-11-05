@@ -1,0 +1,122 @@
+{
+  "added_files_excluding_self_manifests": [
+    "development/health_residuals_20261106_v002/CONTROLLER_REVIEW.md",
+    "development/health_residuals_20261106_v002/C_SOURCE.patch",
+    "development/health_residuals_20261106_v002/INDEX.md",
+    "development/health_residuals_20261106_v002/LOG_PROVENANCE.json",
+    "development/health_residuals_20261106_v002/OBS_SHA_CORRECTION.json",
+    "development/health_residuals_20261106_v002/OBS_SHA_CORRECTION.md",
+    "development/health_residuals_20261106_v002/PARENT_FILES.json",
+    "development/health_residuals_20261106_v002/REPORT.md",
+    "development/health_residuals_20261106_v002/REPRODUCE.md",
+    "development/health_residuals_20261106_v002/S1_PARSER.md",
+    "development/health_residuals_20261106_v002/S2_AUTHENTICATION.md",
+    "development/health_residuals_20261106_v002/TEST_EXPECTATIONS.patch",
+    "development/health_residuals_20261106_v002/compare_no_race.py",
+    "development/health_residuals_20261106_v002/compare_parser.py",
+    "development/health_residuals_20261106_v002/evidence/RESULTS.json",
+    "development/health_residuals_20261106_v002/evidence/STATIC_CHECKS.json",
+    "development/health_residuals_20261106_v002/evidence/baseline-tests.raw.log",
+    "development/health_residuals_20261106_v002/evidence/candidate-tests.initial-before-final-boundary-cases.raw.log",
+    "development/health_residuals_20261106_v002/evidence/candidate-tests.raw.log",
+    "development/health_residuals_20261106_v002/evidence/no-race-v001.raw.log",
+    "development/health_residuals_20261106_v002/evidence/no-race-v002.raw.log",
+    "development/health_residuals_20261106_v002/evidence/parser-old-main-complete.raw.log",
+    "development/health_residuals_20261106_v002/evidence/parser-v001-complete.raw.log",
+    "development/health_residuals_20261106_v002/evidence/parser-v002-complete.raw.log",
+    "development/health_residuals_20261106_v002/parser_fixtures.py",
+    "development/health_residuals_20261106_v002/references/main.py.845cc1c.original.txt",
+    "development/health_residuals_20261106_v002/references/official.py.845cc1c.original.txt",
+    "development/health_residuals_20261106_v002/references/parsers.py.845cc1c.original.txt",
+    "development/health_residuals_20261106_v002/references/raceindex_status.py.845cc1c.original.txt",
+    "development/health_residuals_20261106_v002/references/tests/test_health_controller_scope.py.845cc1c.original.txt",
+    "development/health_residuals_20261106_v002/references/tests/test_health_official_index.py.845cc1c.original.txt",
+    "development/health_residuals_20261106_v002/references/tests/test_health_raceindex_parser.py.845cc1c.original.txt",
+    "development/health_residuals_20261106_v002/verify_artifacts.py",
+    "tests/test_health_v002_controller.py",
+    "tests/test_health_v002_parser.py",
+    "tests/test_health_v002_schedule.py"
+  ],
+  "modified": [
+    {
+      "added_lines": 28,
+      "after_bytes": 13548,
+      "after_sha256": "db03e17bbe904d035028dedb466419f58502971b96ca63e90458e2a1dfdfa2c2",
+      "before_bytes": 12923,
+      "before_sha256": "d5f15b2911c3afd6ea4f5b25a5a1f294ceb7c39afe3dd030966dc275d3461e26",
+      "path": "main.py",
+      "removed_lines": 18
+    },
+    {
+      "added_lines": 6,
+      "after_bytes": 14639,
+      "after_sha256": "64666c31a51aca3c3ffe358b0e57035a62fd7c01f05ddb87310359c061f8d19f",
+      "before_bytes": 15058,
+      "before_sha256": "2c72eb2e832d6117cd91a51bf1ee7a462b43f310d3dd764a2b074845331dc522",
+      "path": "official.py",
+      "removed_lines": 15
+    },
+    {
+      "added_lines": 96,
+      "after_bytes": 15384,
+      "after_sha256": "a7719d22759e933e7dbb0d7a87920dcac22ab5d8f17588fa5d32fa57123943b0",
+      "before_bytes": 12970,
+      "before_sha256": "f0f63d120a6a3ca7864ba8d1c69ef2aa3f9e74a9712dc4711462e3c04612ade6",
+      "path": "parsers.py",
+      "removed_lines": 38
+    },
+    {
+      "added_lines": 26,
+      "after_bytes": 3510,
+      "after_sha256": "09c13544552c40c2ed2761de0df08c999876814d256117b9069135c8391dbdb0",
+      "before_bytes": 5362,
+      "before_sha256": "ea75b5e15779749b1605a3dedbef844e02bc94bcdaf219bd7d60a2cf0e2cb6ec",
+      "path": "raceindex_status.py",
+      "removed_lines": 59
+    },
+    {
+      "added_lines": 10,
+      "after_bytes": 13048,
+      "after_sha256": "35117967a3005e452c8cd3693e22457253b6d24c1904ed155f61d51f6fa8cd4c",
+      "before_bytes": 12717,
+      "before_sha256": "68006b57ecf1bb153433a38a3d3bcc3da4d8d5250c1ab587f34ec1e8d67d3ce0",
+      "path": "tests/test_health_controller_scope.py",
+      "removed_lines": 7
+    },
+    {
+      "added_lines": 16,
+      "after_bytes": 11672,
+      "after_sha256": "c8191a39c2e41edc96d45af7c404fd452e1ec3fe2deffdce8e263546c3f09434",
+      "before_bytes": 11351,
+      "before_sha256": "237bed4da5ca8bc0a82e81d22b9c4d20a4c81d7ace8674a1641526ba58368916",
+      "path": "tests/test_health_official_index.py",
+      "removed_lines": 11
+    },
+    {
+      "added_lines": 14,
+      "after_bytes": 5452,
+      "after_sha256": "c853c03cefb91dc796fee4481355d4da4c29768a6d7631acf8daae4f3e357d87",
+      "before_bytes": 5469,
+      "before_sha256": "d8b816bffbccbd7ecfe8fd711d27b4afefedecaef1fc85fdb7d7deb1bae2d6e5",
+      "path": "tests/test_health_raceindex_parser.py",
+      "removed_lines": 14
+    }
+  ],
+  "parent_commit": "845cc1c9c6667699a21933cb4b9d7c324c79ce44",
+  "self_manifests_additionally_added": [
+    "development/health_residuals_20261106_v002/MANIFEST.json",
+    "development/health_residuals_20261106_v002/SHA256SUMS.txt"
+  ],
+  "source_changes": [
+    "main.py",
+    "official.py",
+    "parsers.py",
+    "raceindex_status.py"
+  ],
+  "test_expectation_changes": [
+    "tests/test_health_controller_scope.py",
+    "tests/test_health_official_index.py",
+    "tests/test_health_raceindex_parser.py"
+  ],
+  "unchanged_parent_files": 77
+}

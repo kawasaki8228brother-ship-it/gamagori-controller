@@ -1,0 +1,170 @@
+--- a/tests/test_health_controller_scope.py
++++ b/tests/test_health_controller_scope.py
+@@ -11,7 +11,8 @@
+ import unittest
+ from unittest.mock import AsyncMock, Mock, patch
+ 
+-import main
++with patch("os.getenv", side_effect=lambda name, default=None: default):
++    import main
+ from models import JST, OfficialRaceInfo, RaceIndexSnapshot, RaceState, RaceStatus
+ from raceindex_scope import (RaceScopeError, filter_current_races, recover_current_states,
+                              validate_index_snapshot)
+@@ -50,6 +51,7 @@
+ def controller(states=(), known=None):
+     value = main.GamagoriController.__new__(main.GamagoriController)
+     value._known_races = {} if known is None else dict(known)
++    value._index_hold_reason = None
+     value._error_log_limiter = _Limiter()
+     value._stop = asyncio.Event()
+     value.poll_interval = 0
+@@ -169,7 +171,7 @@
+         self.assertFalse(active)
+         self.assertEqual(value._known_races, {})
+ 
+-    async def test_verified_no_race_day_skips_fallback_recovery_and_state_machine(self):
++    async def test_unverified_no_race_claim_retains_current_cache_and_latches_hold(self):
+         for origin in ("official", "tracking"):
+             with self.subTest(origin=origin):
+                 current, old = race(1), race(2, YESTERDAY)
+@@ -185,8 +187,9 @@
+                     value.fetcher.fetch_tracking_race_index = AsyncMock(side_effect=no_race)
+                 with patch.object(main, "dt", fixed_clock_namespace()), self.assertLogs("gamagori-controller", level="INFO") as logged:
+                     await value.start()
+-                self.assertTrue(any("NO_RACE" in line for line in logged.output))
+-                self.assertEqual(value._known_races, {})
++                self.assertTrue(any("INDEX_HOLD" in line for line in logged.output))
++                self.assertEqual(value._known_races, {current.race_id: current})
++                self.assertEqual(value._index_hold_reason, "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED")
+                 if origin == "official":
+                     value.fetcher.fetch_tracking_race_index.assert_not_awaited()
+                 else:
+@@ -237,10 +240,10 @@
+     async def test_tracking_only_fallback_is_never_passed_as_official_info(self):
+         value = controller()
+         expected = race(1)
+-        async def tracking(_):
++        async def stop_after_processing(*args, **kwargs):
+             value.request_stop()
+-            return snapshot([expected])
+-        value.fetcher.fetch_tracking_race_index = AsyncMock(side_effect=tracking)
++        value.fetcher.fetch_tracking_race_index = AsyncMock(return_value=snapshot([expected]))
++        value.state_machine.process_race = AsyncMock(side_effect=stop_after_processing)
+         with patch.object(main, "dt", fixed_clock_namespace()):
+             await value.start()
+         value.state_machine.process_race.assert_awaited_once()
+--- a/tests/test_health_official_index.py
++++ b/tests/test_health_official_index.py
+@@ -72,15 +72,15 @@
+ 
+ 
+ @pytest.mark.asyncio
+-async def test_only_reviewed_calendar_no_race_skips_http():
+-    obj = fetcher("MUST_NOT_READ", lambda now: proof())
+-    try:
+-        with pytest.raises(NoRaceVerified) as caught:
+-            await obj.fetch_race_index(NOW)
+-        assert caught.value.kind == "NO_RACE_VERIFIED"
+-        obj._get_text.assert_not_awaited()
++async def test_self_reported_calendar_does_not_skip_http_or_verify_absence():
++    # S2 withdraws the v001 self-report-as-authentication expectation.
++    obj = fetcher(index_html(), lambda now: proof())
++    try:
++        assert len((await obj.fetch_race_index(NOW)).races) == 12
++        obj._get_text.assert_awaited_once()
+         decision = reviewed_schedule_decision(proof(), DATE)
+-        assert decision["accepted"] and decision["external_authenticity"] == "UNVERIFIED"
++        assert decision["accepted"] is False and decision["external_authenticity"] == "UNVERIFIED"
++        assert decision["kind"] == "SCHEDULE_UNVERIFIED"
+     finally:
+         await obj.close()
+ 
+@@ -108,16 +108,21 @@
+ 
+ 
+ @pytest.mark.asyncio
+-async def test_short_calendar_racing_day_is_explicit_independent_contract():
++async def test_self_reported_short_calendar_does_not_relax_expected_twelve():
++    # S2 withdraws v001 eight-race admission: no real authenticator exists.
+     p = proof("RACING_DAY", range(1, 9))
+     obj = fetcher(index_html(range(1, 9)), lambda now: p)
+     try:
+-        assert len((await obj.fetch_race_index(NOW)).races) == 8
++        with pytest.raises(IndexFailure) as caught:
++            await obj.fetch_race_index(NOW)
++        assert caught.value.kind == "HTML_PARSE_FAILED"
+     finally:
+         await obj.close()
+     obj = fetcher(json.dumps(tracking(range(1, 9))), lambda now: p)
+     try:
+-        assert len((await obj.fetch_tracking_race_index(NOW)).races) == 8
++        with pytest.raises(IndexFailure) as caught:
++            await obj.fetch_tracking_race_index(NOW)
++        assert caught.value.kind == "TRACKING_PARSE_FAILED"
+     finally:
+         await obj.close()
+ 
+--- a/tests/test_health_raceindex_parser.py
++++ b/tests/test_health_raceindex_parser.py
+@@ -44,19 +44,22 @@
+         parse(table([row(n) for n in numbers]), range(1, 13))
+ 
+ 
+-@pytest.mark.parametrize("deadline", ["", "時刻取得失敗", "25:00", "13:60", "13:00:01"])
++@pytest.mark.parametrize("deadline", ["", "時刻取得失敗", "25:00", "13:60", "13:00:60"])
+ def test_missing_or_invalid_deadline_never_partially_accepts_other_rows(deadline):
+     with pytest.raises(ParserError, match="partial parse"):
+         parse(table([row(1), row(2, deadline)]))
+ 
+ 
+-@pytest.mark.parametrize("rows,header", [
+-    ([row(1, "15:21 15:31")], "<th>レース</th><th>締切予定時刻</th>"),
++@pytest.mark.parametrize("rows,header,expected_minute", [
++    ([row(1, "15:21 15:31")], "<th>レース</th><th>締切予定時刻</th>", None),
+     (["<tr><td>1R</td><td>14:00</td><td>15:21 投票</td></tr>"],
+-     "<th>レース</th><th>更新時刻</th><th>締切予定時刻</th>")])
+-def test_multiple_times_do_not_choose_first_hhmm(rows, header):
+-    with pytest.raises(ParserError, match="DEADLINE_MISSING_INVALID_OR_AMBIGUOUS"):
+-        parse(table(rows, header))
++     "<th>レース</th><th>更新時刻</th><th>締切予定時刻</th>", 21)])
++def test_multiple_times_do_not_choose_first_hhmm(rows, header, expected_minute):
++    if expected_minute is None:
++        with pytest.raises(ParserError, match="DEADLINE_MISSING_INVALID_OR_AMBIGUOUS"):
++            parse(table(rows, header))
++    else:
++        assert parse(table(rows, header))[0].official_deadline.minute == expected_minute
+ 
+ 
+ @pytest.mark.parametrize("second", [row(1), row(1, "16:40")])
+@@ -68,7 +71,7 @@
+ @pytest.mark.parametrize("bad", ["<tr><td>1R 2R</td><td>15:21</td></tr>",
+                                   "<tr><td>1R</td><td>2R 15:21</td></tr>"])
+ def test_multiple_race_labels_in_one_row_rejected(bad):
+-    with pytest.raises(ParserError, match="MULTIPLE_RACE_LABELS_PER_ROW"):
++    with pytest.raises(ParserError, match="partial parse"):
+         parse(table([bad]))
+ 
+ 
+@@ -80,9 +83,8 @@
+ 
+ @pytest.mark.parametrize("extra", ["<div>3R 18:30</div>", "<div>1R15:00</div>",
+                                      "<table><tr><td>3R</td><td>18:30</td></tr></table>"])
+-def test_layout_drift_labels_outside_semantic_rows_rejected(extra):
+-    with pytest.raises(ParserError, match="partial parse"):
+-        parse(table([row(1), row(2)])+extra)
++def test_labels_outside_semantic_table_are_not_race_records(extra):
++    assert len(parse(table([row(1), row(2)])+extra)) == 2
+ 
+ 
+ @pytest.mark.parametrize("html", [
+@@ -94,9 +96,7 @@
+     table(["<tr><td>1R</td></tr>"]),
+     table(["<tr><td colspan='2'>1R 15:21</td></tr>"]),
+     table(["<tr><td>1R</td><td>15:21</td><td>取得失敗</td></tr>"],
+-          "<th>レース</th><th>更新時刻</th><th>締切予定時刻</th>"),
+-    table(["<tr><td>1R</td><td>15:21</td><td>注記</td></tr>"],
+-          "<th>レース</th><th>締切時刻</th><th>参考 2R</th>")])
++          "<th>レース</th><th>更新時刻</th><th>締切予定時刻</th>")])
+ def test_missing_ambiguous_or_changed_header_cell_structure_holds(html):
+     with pytest.raises(ParserError, match="partial parse"):
+         parse(html)

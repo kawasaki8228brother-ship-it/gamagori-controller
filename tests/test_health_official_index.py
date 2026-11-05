@@ -72,15 +72,15 @@ async def test_http_200_empty_partial_or_wrong_structure_is_not_no_race(html):
 
 
 @pytest.mark.asyncio
-async def test_only_reviewed_calendar_no_race_skips_http():
-    obj = fetcher("MUST_NOT_READ", lambda now: proof())
+async def test_self_reported_calendar_does_not_skip_http_or_verify_absence():
+    # S2 withdraws the v001 self-report-as-authentication expectation.
+    obj = fetcher(index_html(), lambda now: proof())
     try:
-        with pytest.raises(NoRaceVerified) as caught:
-            await obj.fetch_race_index(NOW)
-        assert caught.value.kind == "NO_RACE_VERIFIED"
-        obj._get_text.assert_not_awaited()
+        assert len((await obj.fetch_race_index(NOW)).races) == 12
+        obj._get_text.assert_awaited_once()
         decision = reviewed_schedule_decision(proof(), DATE)
-        assert decision["accepted"] and decision["external_authenticity"] == "UNVERIFIED"
+        assert decision["accepted"] is False and decision["external_authenticity"] == "UNVERIFIED"
+        assert decision["kind"] == "SCHEDULE_UNVERIFIED"
     finally:
         await obj.close()
 
@@ -108,16 +108,21 @@ async def test_invalid_calendar_never_verifies_absence_or_relaxes_count(kind):
 
 
 @pytest.mark.asyncio
-async def test_short_calendar_racing_day_is_explicit_independent_contract():
+async def test_self_reported_short_calendar_does_not_relax_expected_twelve():
+    # S2 withdraws v001 eight-race admission: no real authenticator exists.
     p = proof("RACING_DAY", range(1, 9))
     obj = fetcher(index_html(range(1, 9)), lambda now: p)
     try:
-        assert len((await obj.fetch_race_index(NOW)).races) == 8
+        with pytest.raises(IndexFailure) as caught:
+            await obj.fetch_race_index(NOW)
+        assert caught.value.kind == "HTML_PARSE_FAILED"
     finally:
         await obj.close()
     obj = fetcher(json.dumps(tracking(range(1, 9))), lambda now: p)
     try:
-        assert len((await obj.fetch_tracking_race_index(NOW)).races) == 8
+        with pytest.raises(IndexFailure) as caught:
+            await obj.fetch_tracking_race_index(NOW)
+        assert caught.value.kind == "TRACKING_PARSE_FAILED"
     finally:
         await obj.close()
 
