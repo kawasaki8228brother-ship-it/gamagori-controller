@@ -1,0 +1,38 @@
+{
+  "case": "p0",
+  "completion": "OFFLINE_SCOPE_COMPLETE_CLAUDE_REVIEW_PENDING",
+  "external": [
+    {
+      "id": "official_html",
+      "minimum_resolution_steps": 3,
+      "owner": "HQ14 / Andy capture; Claude compare",
+      "required_evidence": "Private original HTML, capture/transport evidence, reviewed format policy",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "id": "spec_208_bytes",
+      "minimum_resolution_steps": 2,
+      "owner": "HQ14 / Claude",
+      "required_evidence": "Exact approved 208 UTF-8 bytes for independent SHA recomputation; not received",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "id": "deployment_runtime",
+      "minimum_resolution_steps": 3,
+      "owner": "HQ14 / Andy",
+      "required_evidence": "Actual approved runtime/dependency observations and post-certifi base; no service access this turn",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "id": "adoption",
+      "minimum_resolution_steps": 3,
+      "owner": "Claude / HQ14 / Andy",
+      "required_evidence": "Independent review then individually approved port/integration; no production GO",
+      "state": "BLOCKED_EXTERNAL"
+    }
+  ],
+  "failed_open": [],
+  "go": false,
+  "implementation": "IMPLEMENTED",
+  "synthetic_tests": "TESTED"
+}

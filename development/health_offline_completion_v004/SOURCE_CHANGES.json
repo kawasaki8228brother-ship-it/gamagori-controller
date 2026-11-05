@@ -1,0 +1,74 @@
+[
+  {
+    "after_sha256": "ae2c73bee4d2cc8d78522b531949ad5d7bfb9df0657d437b8d9b16ad4671b452",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/health_offline_completion_v004/HTML_RESEARCH.md"
+  },
+  {
+    "after_sha256": "0b0d786d0ce14d6318694ab7070bceeed7c110d9a34083fd32bbc9b5fa16f7e8",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/health_offline_completion_v004/IPHONE_CAPTURE_PROPOSED.md"
+  },
+  {
+    "after_sha256": "bb8ef1580ee7390c6a7bda777cd853ee9cdcdb7436a56029bb2448621510c05c",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/health_offline_completion_v004/REVIEW_GUIDE.md"
+  },
+  {
+    "after_sha256": "be1bea822aa2d58b126c61913cb3007494746d28b61ef5544fc476b42a02def1",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/health_offline_completion_v004/TRANSPORT_DESIGN.md"
+  },
+  {
+    "after_sha256": "dc84153b86811cad8666ee734615c96690b298f112ca99f7f2cbc11f120bec88",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/health_offline_completion_v004/html_research.py"
+  },
+  {
+    "after_sha256": "6783e4cfd4462a6b505676f61702058114cfd59f030e6cc553e9c104d8633c56",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/health_offline_completion_v004/inspect_private_html.py"
+  },
+  {
+    "after_sha256": "656e5b6f2f00ab64925ec1f987927889362a05700098d1d2832d3a7fee24241a",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/health_offline_completion_v004/orphan_reproduction.py"
+  },
+  {
+    "after_sha256": "7863bea4c520cba48bedb719c7f9c635c98dc9b664a73d5be82cc1f6e4ef45c0",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/health_offline_completion_v004/references/html_research_rev1.py.txt"
+  },
+  {
+    "after_sha256": "b02cea0dce59f551abfb50ff064559070fc1c6c1d5ea3bcbc4dd47f2a7c908ea",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "http_transport_observation.py"
+  },
+  {
+    "after_sha256": "723950aff0ff12771e962c930aa204bde3f34f73584f33ed76d8fd3a2c9de54d",
+    "before_sha256": "d8daeb27af5d74de67e0eba0bead7333e877163958a0ddf7ea6ec92b7418cadd",
+    "kind": "MODIFIED",
+    "path": "official.py"
+  },
+  {
+    "after_sha256": "23535dc4e8734a95ca4245d453a24ce6f3e811c195cef2fcbf8435008b7d1690",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "tests/test_offline_html_research.py"
+  },
+  {
+    "after_sha256": "ee3b12a85dd0eac9e4b26b138a4fcca935c91d3a2eb3dcd666a40b2ce59ebdaf",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "tests/test_offline_transport.py"
+  }
+]

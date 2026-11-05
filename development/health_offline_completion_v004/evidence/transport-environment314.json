@@ -1,0 +1,1 @@
+{"httpx": "0.28.1", "openssl": "OpenSSL 3.5.5 27 Jan 2026", "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "production_go": false, "pytest": "9.0.2", "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]", "scope": "OFFLINE_MOCK_TRANSPORT_TESTS"}

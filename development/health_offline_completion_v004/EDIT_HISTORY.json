@@ -1,0 +1,147 @@
+{
+  "history": [
+    {
+      "after_sha256": "b02cea0dce59f551abfb50ff064559070fc1c6c1d5ea3bcbc4dd47f2a7c908ea",
+      "before_sha256": "64f35a64438c46e3952f014fabf0d89b4dbd0abdc73ffbb3fd0f601816ca7025",
+      "bytes": 6431,
+      "path": "http_transport_observation.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "723950aff0ff12771e962c930aa204bde3f34f73584f33ed76d8fd3a2c9de54d",
+      "before_sha256": "d113bd982fa60c42c2faef3f7c59ebb44f1e9a70723ac4d10ad2fe4a4abb7250",
+      "bytes": 17603,
+      "path": "official.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "ee3b12a85dd0eac9e4b26b138a4fcca935c91d3a2eb3dcd666a40b2ce59ebdaf",
+      "before_sha256": "1a7d3c6b66ca0bd0f4e460ce5ede5d201882ca4d991aee5a3a27d8a0b76635e0",
+      "bytes": 14406,
+      "path": "tests/test_offline_transport.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "bf59b0910c2ed5d5ea91795074f3d8939e88a80ed770ca6c07114dca0f7adcc1",
+      "before_sha256": null,
+      "bytes": 4790,
+      "path": "development/health_offline_completion_v004/HTML_RESEARCH.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "4a404f0218ef8858c02ef0b3f762755853b3e7f7573665286e6f84444e941ac4",
+      "before_sha256": null,
+      "bytes": 3764,
+      "path": "development/health_offline_completion_v004/IPHONE_CAPTURE_PROPOSED.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "7863bea4c520cba48bedb719c7f9c635c98dc9b664a73d5be82cc1f6e4ef45c0",
+      "before_sha256": null,
+      "bytes": 11380,
+      "path": "development/health_offline_completion_v004/html_research.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "abf41bd0a49b3b3357774a80f6e8fa48f5d84927ae6810297745abfd6f1c2b5c",
+      "before_sha256": null,
+      "bytes": 6807,
+      "path": "development/health_offline_completion_v004/inspect_private_html.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "9b63dfaab3e93fe088cfa7639515ae36e7e0976d990ce01e0681c75898f4eca7",
+      "before_sha256": null,
+      "bytes": 9355,
+      "path": "tests/test_offline_html_research.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "6783e4cfd4462a6b505676f61702058114cfd59f030e6cc553e9c104d8633c56",
+      "before_sha256": "abf41bd0a49b3b3357774a80f6e8fa48f5d84927ae6810297745abfd6f1c2b5c",
+      "bytes": 7591,
+      "path": "development/health_offline_completion_v004/inspect_private_html.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "23535dc4e8734a95ca4245d453a24ce6f3e811c195cef2fcbf8435008b7d1690",
+      "before_sha256": "9b63dfaab3e93fe088cfa7639515ae36e7e0976d990ce01e0681c75898f4eca7",
+      "bytes": 11241,
+      "path": "tests/test_offline_html_research.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "dc84153b86811cad8666ee734615c96690b298f112ca99f7f2cbc11f120bec88",
+      "before_sha256": "7863bea4c520cba48bedb719c7f9c635c98dc9b664a73d5be82cc1f6e4ef45c0",
+      "bytes": 12145,
+      "path": "development/health_offline_completion_v004/html_research.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "64f35a64438c46e3952f014fabf0d89b4dbd0abdc73ffbb3fd0f601816ca7025",
+      "before_sha256": null,
+      "bytes": 5507,
+      "path": "http_transport_observation.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "d113bd982fa60c42c2faef3f7c59ebb44f1e9a70723ac4d10ad2fe4a4abb7250",
+      "before_sha256": "d8daeb27af5d74de67e0eba0bead7333e877163958a0ddf7ea6ec92b7418cadd",
+      "bytes": 17318,
+      "path": "official.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "1a7d3c6b66ca0bd0f4e460ce5ede5d201882ca4d991aee5a3a27d8a0b76635e0",
+      "before_sha256": null,
+      "bytes": 9570,
+      "path": "tests/test_offline_transport.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "be1bea822aa2d58b126c61913cb3007494746d28b61ef5544fc476b42a02def1",
+      "before_sha256": null,
+      "bytes": 7745,
+      "path": "development/health_offline_completion_v004/TRANSPORT_DESIGN.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "ae2c73bee4d2cc8d78522b531949ad5d7bfb9df0657d437b8d9b16ad4671b452",
+      "before_sha256": "bf59b0910c2ed5d5ea91795074f3d8939e88a80ed770ca6c07114dca0f7adcc1",
+      "bytes": 6793,
+      "path": "development/health_offline_completion_v004/HTML_RESEARCH.md",
+      "revision": 2
+    },
+    {
+      "after_sha256": "0b0d786d0ce14d6318694ab7070bceeed7c110d9a34083fd32bbc9b5fa16f7e8",
+      "before_sha256": "4a404f0218ef8858c02ef0b3f762755853b3e7f7573665286e6f84444e941ac4",
+      "bytes": 4062,
+      "path": "development/health_offline_completion_v004/IPHONE_CAPTURE_PROPOSED.md",
+      "revision": 2
+    },
+    {
+      "after_sha256": "656e5b6f2f00ab64925ec1f987927889362a05700098d1d2832d3a7fee24241a",
+      "before_sha256": null,
+      "bytes": 2092,
+      "path": "development/health_offline_completion_v004/orphan_reproduction.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "7863bea4c520cba48bedb719c7f9c635c98dc9b664a73d5be82cc1f6e4ef45c0",
+      "before_sha256": null,
+      "bytes": 11380,
+      "path": "development/health_offline_completion_v004/references/html_research_rev1.py.txt",
+      "revision": 1
+    },
+    {
+      "after_sha256": "bb8ef1580ee7390c6a7bda777cd853ee9cdcdb7436a56029bb2448621510c05c",
+      "before_sha256": null,
+      "bytes": 10943,
+      "path": "development/health_offline_completion_v004/REVIEW_GUIDE.md",
+      "revision": 1
+    }
+  ],
+  "max_revisions": 2,
+  "scope": "guarded source/test/doc stages before final metadata generation",
+  "stop_events": 0
+}

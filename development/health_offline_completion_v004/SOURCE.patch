@@ -1,0 +1,1742 @@
+--- /dev/null
++++ b/development/health_offline_completion_v004/HTML_RESEARCH.md
+@@ -0,0 +1,44 @@
++# HTML research and private capture preparation
++
++Scope: new offline modules only. Active parsers.py, StateMachine, LOCK, requirements, Render settings and live source acquisition are unchanged. Research results always have go=false, runtime_execution_allowed=false, official_compatibility=UNVERIFIED and POLICY_PENDING_REAL_HTML.
++
++The research normalizer supports a narrow, explicit set of synthetic constructions: omitted td/th/tr closing tags terminated by later structural tokens, one semantically anchored table inside a layout table, identical PC/mobile semantic tables, unrelated header colspan expansion, identical repeated headers and the research alias レースNo. It never invents an EOF table closure. It does not declare omitted closing tags invalid HTML.
++
++The module selects direct rows of each table, does not count nested rows twice, preserves hidden duplicate data for rejection, and compares both semantic records and the complete checked header/cell profile before treating duplicate representations as equivalent. Different race/deadline/status/content profiles, conflicting headers, unsupported semantic spans, orphan race/time rows, missing races and ambiguous clocks HOLD. A timed annotation remains HOLD. No real official source has been used to adopt any format.
++
++Sanitized research markup is passed through the existing v003 parser, retaining its exact-cell state-word rule. Names and annotations do not become CANCELLED. A research-only explicit cancellation observation still cannot drive a terminal action: no StateMachine is called or imported here, and no runtime consumer is integrated.
++
++Private checker:
++    python -B development/health_offline_completion_v004/inspect_private_html.py --private-html LOCAL_APPROVED_PRIVATE_FILE.html --date YYYYMMDD --encoding utf-8
++
++The command performs one bounded regular-file read, refuses non-HTML extensions and symlinks where O_NOFOLLOW is supported, checks input stability, computes raw bytes/SHA, verifies both public parser reference hashes, and prints only status/count/digest/difference summaries. It never outputs source body, URL, headers, local path, race IDs or deadline values. Invalid CLI arguments also use a fixed JSON error instead of argparse value echo; invalid calendar dates and non-byte API input remain UNVERIFIED. No output file or network connection is created. Default no input means BLOCKED_EXTERNAL. Exit0 means local comparison executed; it is not official compatibility PASS. A future real-input use requires the separately approved private capture and review. The supplied date is only the requested comparison day; page date/venue and capture timing are not certified. Current Linux file-opening behavior is tested; other-OS atomic no-follow semantics remain external review work.
++
++An 8MiB tool memory limit is an operational read bound, not a race-data quality threshold. Oversize input is not partially hashed or interpreted as valid. Encoding is explicit and strict; unknown decoding is UNVERIFIED. Capture time, HTTP framing/source authenticity and independent original linkage remain external evidence requirements.
++
++## Claims for the case REVIEW_GUIDE
++
++| Claim | Command/check | Expected | Evidence |
++| --- | --- | --- | --- |
++| Narrow optional ends can be analyzed without promoting to live | target test test_normal_and_legal_optional_end_candidates | same twelve records; research-only flags | tests/test_offline_html_research.py |
++| Truncated/ambiguous/conflicting inputs do not become success | test_no_eof_repair_or_twelve_row_table_authentication and conflict tests | HOLD, no records or action permission | target test log |
++| Duplicate/layout/colspan/repeated-header candidates remain pending | target synthetic tests | research observations only, go=false | module/test source and log |
++| Race-name 中止 cannot authorize cancellation | test_names_never_cancel_and_explicit_state_stays_unapproved | no name-derived cancel; no runtime action | target log |
++| Private checker does not disclose body/URL/path | test_private_summary_has_no_body_url_path_race_ids_or_times | marker and sensitive source strings absent | target log |
++| Private input has not been obtained | run checker without --private-html | BLOCKED_EXTERNAL, exit3 | CLI no-input record |
++
++Reproduction uses only existing Python3.12/3.14 environments, synthetic temporary HTML files and socket blocking. No real capture or Drive operation is performed.
++
++State classification: IMPLEMENTED for the two tools and procedure; TESTED only for executed synthetic cases. BLOCKED_EXTERNAL for actual iPhone behavior, original raw-byte preservation, private Drive upload/readback, source/time/transport evidence and real official HTML policy review. If a synthetic defect remains after two content revisions of a file, FAILED_OPEN/STOP is required; do not rename files to evade the limit.
++
++The shortest external path is operator approval/private capture → private artifact readback and SHA → Claude review of source mapping and parser difference summary. These are preparation artifacts, not approval to access production, introduce a source collector, modify A/B, merge or deploy.
++
++## Executed evidence and revision limit
++
++- Python3.14.3 / OpenSSL3.5.5 / Linux: 16 tests passed, 8 subtests passed, 0 failures (html314-final.raw.log).
++- Python3.12.14 / OpenSSL3.5.8 / Linux: 16 tests passed, 8 subtests passed, 0 failures (html312-final.raw.log).
++- The first 13-test run also passed. It did not cover invalid CLI arguments; do not claim the earlier run proved that privacy property.
++- Review identified argparse's default invalid-value echo. Revision2 replaced it with a fixed JSON reason and added argument/date/type/size negatives. Synthetic before/after proof uses a reconstructed revision1 whose bytes were checked against the guard-recorded prior SHA, explicitly not an original disk archive. The marker was echoed before and was absent after. No actual secret was used.
++- Private checker and its test file have reached revision2 and are FROZEN. Research module remains revision1. Any new content change to a revision2 file must STOP rather than rename or silently rewrite.
++- The normalizer, iPhone procedure and safe-summary tests are IMPLEMENTED and TESTED only within the stated synthetic/local scope. Actual source capture, byte preservation by iPhone, Drive readback, page/time/venue authenticity and official policy adoption are BLOCKED_EXTERNAL.
++
++Evidence locations under the case private directory: html314-final.raw.log, html312-final.raw.log, private-html-not-supplied.raw.log, private-html-privacy-before-after.json. Parent publication must preserve original hashes or mark redaction separately. The before/after source artifact is tagged BYTE_MATCHED_RECONSTRUCTION, not original disk preservation.
+--- /dev/null
++++ b/development/health_offline_completion_v004/IPHONE_CAPTURE_PROPOSED.md
+@@ -0,0 +1,19 @@
++# iPhone private capture procedure — proposed, UNVERIFIED
++
++This is a preparation document. No actual official HTML has been obtained by Codex, no private Drive file was opened, and these iPhone screen steps have not been executed or verified. Perform only while safely parked. A separate approval, a designated operator and an independently checked private account/folder are prerequisites.
++
++1. Open Shortcuts (ショートカット) on the iPhone. Tap the plus button to create a new shortcut and choose a locally identifiable name.
++2. Add a Text (テキスト) action containing the independently approved official raceindex URL. A public URL template is https://www.boatrace.jp/owpc/pc/race/raceindex?hd=YYYYMMDD&jcd=07 . The date must be the intended JST day; do not substitute an unverified day or retain authentication/query secrets.
++3. Add Get Contents of URL (URLの内容を取得). Set the method to GET. Do not add a login, account token, cookie export or credentials.
++4. Preserve the returned file/data output. Do not use Get Text from Input, rich-text conversion, translation, webpage-reader extraction or copy/paste of a rendered page: these can change bytes. Whether Get Contents of URL actually exposes unchanged response bytes on the device is UNVERIFIED.
++5. Add Set Name (名前を設定) for a new .html filename that identifies capture day and local capture time. Do not overwrite an existing file. The name is an operator aid, not proof of server time or original bytes.
++6. Add Save File (ファイルを保存). Keep Ask Where to Save (保存先を尋ねる) enabled; exact localized labels depend on iOS and remain UNVERIFIED. At execution, select Files and the already approved private Drive folder if the Google Drive Files provider is available. Do not choose a public/shared folder. Files-provider availability, data-preserving behavior and upload success are UNVERIFIED. If the approved private Drive provider is unavailable, STOP; do not silently substitute another destination.
++7. Before running, inspect every action and the selected URL/account/folder. Run once only while parked. If the action asks to authenticate unexpectedly or produces a rendered/text-converted item, STOP and retain the uncertainty rather than pretending it is raw capture.
++8. In Files/Drive, verify that a new file exists under the intended private account/folder and is not publicly shared. Do not send screenshots of account lists, environment values, credentials or the document body.
++9. HQ14 records operator, requested JST date, device-observed capture start/end times, timezone, original filename, local byte count if exposed, private Drive ID, upload/readback receipt and any redirect/error observations in a private sidecar. Unknown fields remain null/UNVERIFIED. A filename timestamp is not server timestamp evidence.
++10. After private Drive readback, Claude computes raw-file bytes/SHA and compares the old/v003 parser using the prepared local checker. The SHA identifies the saved artifact; it does not alone prove that Shortcuts preserved original network bytes, that the URL was genuinely official or that transport framing completed.
++11. Share only the safe comparison summary and evidence references approved for disclosure. Do not upload HTML, URLs with credentials, headers, private Drive IDs/account identifiers or original real-race data to the public repository.
++
++Content-Length, wire bytes, decoded bytes, HTTP status, redirects, stream completion and document-end evidence cannot be inferred from this workflow unless separately measured. The current iPhone procedure does not assert that those observations are available. A failed request, unavailable provider, text conversion or uncertain upload/readback is BLOCKED_EXTERNAL.
++
++Shortest completion path: Andy/HQ14 approves operator and private destination → operator performs one capture and private readback → Claude compares bytes/SHA/parser summaries and reviews the unresolved forms. There is no automatic acceptance, replay, task change, source connection or deployment.
+--- /dev/null
++++ b/development/health_offline_completion_v004/REVIEW_GUIDE.md
+@@ -0,0 +1,60 @@
++# P0 Health offline completion — Claude review guide
++
++Status: offline candidate, independent Claude review pending. Nothing in this guide grants production access, a port, Shadow start, merge or deployment. Real official HTML, real transport/source evidence and the formal 208-byte specification remain external requirements.
++
++Use an approved local Python 3.12.14 or 3.14.3 environment. Do not install packages or run the application constructor. Keep -B, disabled pytest plugin autoload, the explicit asyncio plugin and no cache. Run the commands only on synthetic/local artifacts; pause this work if it competes with certifi or SYS-01/02. No GitHub push is allowed during 2026-11-06 05:00–06:30 JST.
++
++Common targeted-test command prefix:
++    PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -B -m pytest -p pytest_asyncio.plugin -p no:cacheprovider -q --tb=short
++
++## Ten claims to independently verify
++
++| # | Claim | Local command or test suffix | Expected result | Evidence file(s) |
++| --- | --- | --- | --- | --- |
++| 1 | All executed P0 regressions pass on both prepared interpreters, with the formal spec explicitly unverified | python -B development/health_residuals_20261106_v003/run_offline_tests.py --repo . --junit-output /tmp/health-offline-review-new.xml ; repeat with the other prepared interpreter and a different new output path | Actual parent-run result per environment: 593 passed, 1 skipped (formal208B original), 35 subtests passed. Skip is not PASS; counts are separate | Parent full-suite raw logs linked by INDEX/manifest; existing runner and tests/test_health_v003_spec_reference.py |
++| 2 | Encoded wire bytes and decoded bytes are separately observed | tests/test_offline_transport.py -k 'encoded_and_decoded or prebuffered or empty_stream' | Gzip and identity retain exact independent counts. Prebuffered unobserved wire count remains null/UNVERIFIED; no decoded-to-wire inference | http_transport_observation.py; tests/test_offline_transport.py; TRANSPORT_DESIGN.md; final transport raw logs |
++| 3 | HTTP status, body completion, document marker and HTML parse result are independent | tests/test_offline_transport.py -k 'http_status or complete_transfer or successful_parse or marker' | 403/404/500 do not become parser success. A missing HTML end marker is not itself proof of failed transport or parsing. Mocked transport does not fabricate measurements | Same test file; official.py diagnostic hooks; TRANSPORT_DESIGN.md |
++| 4 | Partial, inconsistent, cancelled and unknown-decoding responses do not masquerade as a complete valid source | tests/test_offline_transport.py -k 'partial or mismatch or cancelled or invalid_gzip or duplicate_content_length or unknown_charset or timeout' | Safe fixed classification, no parser after known length mismatch, null unknown data, response/token cleanup; existing retry behavior retained | tests/test_offline_transport.py; http_transport_observation.py; official.py source diff |
++| 5 | New diagnostic messages do not echo the supplied synthetic secrets | tests/test_offline_transport.py -k 'safe_logs or namespace or contexts' | No body, credential-bearing URL, header value, proxy value or arbitrary exception string in the new diagnostic namespace. Concurrent requests cannot attach another response to the raceindex parse | tests/test_offline_transport.py; TRANSPORT_DESIGN.md privacy boundary |
++| 6 | Unsupported HTML formats can be studied without activating them | tests/test_offline_html_research.py -k 'optional_end or nested_layout or pc_mobile or colspan or repeated_header' | Only narrow, unambiguous synthetic normalization. Every successful research result still has go=false, runtime_execution_allowed=false, official compatibility UNVERIFIED and POLICY_PENDING_REAL_HTML | html_research.py; tests/test_offline_html_research.py; HTML_RESEARCH.md historical-stage account |
++| 7 | Two orphan-row bugs were measured before the single allowed source correction and are now rejected | python -B development/health_offline_completion_v004/orphan_reproduction.py --stage before ; then repeat with --stage after | Pinned revision1: normal and both conflict cases RESEARCH_PARSED. Pinned revision2: normal remains research-parsed; outside-table tr and layout-parent own race/time conflict both HOLD with no accepted records. All have go=false | orphan_reproduction.py; references/html_research_rev1.py.txt; html_research.py; parent before/after raw logs |
++| 8 | A race name cannot authorize irreversible cancellation; exact-cell policy does not change StateMachine rules | tests/test_offline_html_research.py -k 'names_never_cancel or ambiguous' ; separately tests/test_health_v003_event_equivalence.py | Research name containing 中止 is not cancellation. Existing E5 a/b/e match ordered C-event kind/time/semantic fields; c has no automatic terminal; d records the intentional removal of old false cancellation | tests/test_offline_html_research.py; tests/test_health_v003_event_equivalence.py; pinned8172 references in the v003 directory |
++| 9 | Private-file inspection prints a summary only and refuses unsafe argument/file conditions | tests/test_offline_html_research.py -k 'PrivateCheckerTests' ; python -B development/health_offline_completion_v004/inspect_private_html.py | Synthetic body/URL/path/race IDs/time are absent from output. Bad arguments use a fixed JSON reason. No-input invocation returns BLOCKED_EXTERNAL and exit3, not a compatibility PASS or a capture claim | inspect_private_html.py; tests/test_offline_html_research.py; private-html privacy before/after proof published by parent if included |
++| 10 | Source preservation, artifact identity and deferred trial-merge claims remain separate | sha256sum -c development/health_offline_completion_v004/SHA256SUMS.txt ; review PORT_SCOPE/diff and the final coordination receipt | All listed artifact hashes agree. Active parsers.py, StateMachine, LOCK, requirements and Render/CI settings are unchanged. Exact-final-candidate trial merge onto97640c8c is assessed only from the later coordination-only evidence, not inferred here | Parent manifest/SHA/diff/INDEX; TRANSPORT_DESIGN.md; final handoff coordination proof |
++
++Commands in table rows2–9 that begin with a test path are suffixes to the common targeted-test prefix. Use separate fresh scratch outputs; do not overwrite an earlier receipt or run a live request to complete these checks. The final INDEX and manifest record the actual retained log filenames.
++
++## Current-source addendum: supersedes the earlier revision-count sentence
++
++HTML_RESEARCH.md was frozen before the independent orphan-row finding. Its sentence that the research module remains revision1 is a historical-stage statement, not the current source count. The current html_research.py is revision2, 12,145 bytes, SHA-256:
++dc84153b86811cad8666ee734615c96690b298f112ca99f7f2cbc11f120bec88
++
++The preserved revision1 is 11,380 bytes, SHA-256:
++7863bea4c520cba48bedb719c7f9c635c98dc9b664a73d5be82cc1f6e4ef45c0
++
++The source2 correction inspects own text in direct cells of unanchored/outside rows while excluding descendants belonging to nested tables. It does not discard an entire layout row merely because one cell contains a nested table. The previously valid simple layout construction remains a research candidate.
++
++After that correction, the existing HTML scoped suite passed on both interpreters: 16 tests and 8 subtests. The two new orphan outcomes are checked by the separate pinned before/after reproduction; the already revision2 test file was not edited a third time. CLI, test and both earlier HTML documents also remain at revision2 and are frozen. A third required content change is STOP, not permission to rename files or silently rewrite a frozen artifact.
++
++The private-checker invalid-argument privacy hardening has separate evidence. Its before source was reconstructed and byte-matched to the guard's prior SHA; it is not described as an original disk archive. The initial13-test success did not cover argument reflection. The final16-test suite does. No real secret was supplied.
++
++## Limits that must stay visible
++
++- New logging privacy is scoped to the newly added diagnostics. Existing HTTPX Request INFO logging and unrelated application logs were not globally rewritten or certified secret-free.
++- Semantic event comparison excludes only the physical SQLite created_at metadata field, because separate local writes can cross wall-clock seconds. Observed event times, UUIDs, idempotency keys, raw payload/hash and deadline version remain compared.
++- Formal A/B LOCK writer/events are not in this repository. They remain UNVERIFIED; CLOSING_OBSERVATION must not be relabeled as formal LOCK.
++- A normalized HTML result does not prove legal official structure, page date/venue, transport integrity, source authenticity or that the saved artifact is original network bytes.
++- Real private capture is not performed. iPhone Shortcuts behavior, private Drive byte preservation/readback, actual HTML/source policy and current Render compatibility remain BLOCKED_EXTERNAL.
++- Formal208B spec is not supplied; the remaining skip cannot be cleared by a different208B string or a hash assertion copied from a report.
++- F3 exact final-commit local merge onto97640c8c is not executed or passed by this guide. Root's coordination-only branch/final handoff will supply that separate proof and its test counts. An initial/preliminary merge is not an exact-final-candidate result.
++- Review is after the certifi work window and actual work completion; a clock time alone does not imply certifi success/CLOSE. No automatic integration, promotion, source access or deploy follows a green local test run.
++
++## External block owners and shortest paths
++
++| Block | Owner / needed evidence | Minimum safe steps |
++| --- | --- | --- |
++| Official HTML/source/capture identity | Andy/HQ14: separately approved operator and private destination; raw saved artifact, SHA/time/readback evidence | 1 approve private capture; 2 operator captures/readbacks; 3 Claude compares safe summary and source mapping |
++| iPhone file/Drive behavior | Approved operator: device-specific nonpublic readback evidence, no account/secret screenshots | 1 test approved workflow privately; 2 retain bytes/SHA receipt; 3 independent comparison |
++| Current production/runtime and operational application | HQ14/Andy: separately authorized metadata; Claude review plus individual GO | 1 capture approved read-only evidence after priority work; 2 compare candidate/runtime; 3 decide a distinct port/application request |
++| Formal208B specification | HQ14/Claude: approved private original and independent digest link | 1 supply privately; 2 recalculate bytes/SHA; 3 review whether the UNVERIFIED skip can be removed |
++| Final trial merge / actual adoption | Root prepares local proof; HQ14/Claude/Andy assess it | 1 inspect exact final coordination evidence; 2 independently review; 3 separate explicit adoption GO |
+--- /dev/null
++++ b/development/health_offline_completion_v004/TRANSPORT_DESIGN.md
+@@ -0,0 +1,117 @@
++# C4 transport observation candidate — offline implementation
++
++IMPLEMENTED + TESTED within the synthetic HTTPX scope. Claude independent review,
++real-source behavior, current production compatibility and application GO are
++separate. No official HTML or production service was accessed.
++
++## What changed
++
++`official.py` preserves `_get_text(url) -> (text, acquired_at)`, existing client.get,
++timeouts, headers, total retry count, host alternation, backoff, concurrency and
++HTTPX defaults for TLS/proxy environment behavior. A response hook captures only
++safe scalar metadata. A local request extension token links each response to its
++observation; that token is not an HTTP header and is not logged.
++
++`http_transport_observation.py` stores status, encoded-body byte count, decoded
++body byte count, declared Content-Length, safe encoding categories, body-read
++completion, transport integrity, an ASCII HTML end-marker observation and a
++separate parse result. It never records URL, request/response headers, response
++body, proxy values or exception text. HTTP status403 is recorded numerically;
++HTML parsing is not attempted after status failure.
++
++HTTPX's wire counter is used only when a response hook observed the stream before
++it was consumed. A prebuffered response cannot demonstrate transferred bytes:
++wire_bytes and transport_complete remain null/UNVERIFIED. Gzip tests confirm that
++encoded and decoded byte counts differ. No count is inferred from another count.
++
++Counters cover the final returned response's entity body, excluding headers,
++TLS and earlier redirect bodies. If get never returns a completed response, the
++record is LAST_OBSERVED_RESPONSE_NOT_CONFIRMED_FINAL instead. It must not be used
++as evidence that the final target returned that status. A failed proxy connection
++with no response has http_status=null.
++
++Content-Length is accepted only as one nonnegative integer. Duplicate, malformed
++or unavailable declarations are UNVERIFIED; values are never echoed. A known
++wire-length mismatch is a fixed HTTP protocol failure, follows existing retries
++and cannot enter the parser. Successful read/length agreement is not original
++document completeness, official authenticity, correct schedule or valid LOCK.
++
++HTML parse status is recorded only by fetch_race_index. Its per-task ContextVar
++prevents simultaneous beforeinfo/odds or other requests from attaching a different
++response to the raceindex parse. If _get_text is replaced with an offline mock,
++the transport field remains null rather than fabricating a status/counter.
++
++An ASCII closing-html marker is an observation only. Legal HTML can omit it, and
++a truncated document can contain misleading markers. Parsing success and marker
++presence never authenticate transport/source completeness. HTTPX decoding is not
++an independently verified compression checksum or source-charset assertion.
++Unknown declared charset is recorded by a fixed UNSUPPORTED enum; HTTPX's prior
++text fallback behavior is preserved, with no raw charset/header output.
++
++Cancellation produces a fixed CANCELLED observation and re-raises CancelledError
++without retry. The token registry and any response reference are released in all
++paths, including partial bodies. The original StateMachine, closing rules,
++parsers and Model/BOX/A/B logic are unchanged.
++
++## Privacy boundary
++
++The new gamagori-controller diagnostic messages contain fixed enums, numeric
++counts and booleans only. Successful requests with synthetic credential-bearing
++URLs and sensitive-looking headers/bodies do not echo those values in this
++diagnostic namespace. Existing HTTPX Request INFO logging and other application
++logging policies are a separate scope and were not globally rewritten. This
++candidate does not claim that every logger in the application can never print a
++URL or secret. No real credentials were used to run the tests.
++
++## Executed tests
++
++Both prepared local environments ran the same scoped command:
++
++```sh
++PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -B -m pytest -p pytest_asyncio.plugin -p no:cacheprovider -q --tb=short tests/test_offline_transport.py tests/test_health_official_index.py tests/test_v11_official_header.py tests/test_c_beforeinfo_fetcher.py tests/test_v11_candidate.py
++```
++
++Result: **128 passed** per environment =23 new transport cases plus105 preserved
++compatibility cases. No skip in this scoped run. Python3.14.3/OpenSSL3.5.5 and
++Python3.12.14/OpenSSL3.5.8, HTTPX0.28.1, pytest9.0.2, Linux. The3.12 environment is
++the existing private diagnostic setup using read-only system-site dependencies;
++this is not a claim of a clean production-equivalent install. No new dependency
++was installed. No real network request was made; HTTPX MockTransport supplies all
++responses. Parent full regressions and certifi-head trial merge are distinct
++checks and are not implied by this scoped result.
++
++Private retained logs: transport-initial314.raw.log (16 passed),
++transport-compat-initial314.raw.log (105 passed), transport-final314.raw.log and
++transport-final312.raw.log (128 each). The final environment metadata is retained
++separately as transport-environment314.json and transport-environment312.json.
++The parent evidence manifest records exact bytes/SHA for published copies.
++
++Revision guard receipts record **2 content revisions each** for official.py,
++http_transport_observation.py and tests/test_offline_transport.py. These are now
++frozen. A third required source/test revision is STOP, not permission to rename a
++file or bypass the guard. The second revision combined planned cancellation,
++unknown-charset, invalid-gzip, duplicate-length and privacy boundary cases; the
++initial round had no failing tests.
++
++## Review-guide inputs
++
++| Claim to independently check | Command/test | Expected | Evidence |
++| --- | --- | --- | --- |
++| Wire and decoded bytes are distinct and observed | `tests/test_offline_transport.py -k encoded_and_decoded` | identity/gzip exact counts, no decoded-to-wire inference | final scoped logs; helper/official source diff |
++| HTTP status, completed read, marker and parse are separate | `-k 'http_status or marker or complete_transfer'` |403/404/500 never parser success; marker false can coexist with successful parse | same raw logs and parser diagnostic asserts |
++| Partial, cancel and mismatched bodies cannot masquerade as complete | `-k 'partial or cancelled or mismatch'` | fixed safe failure, no parser on mismatch, tokens/response references cleared | same raw logs; revision2 source |
++| New diagnostics do not echo secrets and keep API compatibility | `-k 'safe_logs or namespace or retry_api or contexts'` | no secret in own namespace, 2 get retries, parse paired with same task | final scoped logs plus preserved105-case run |
++
++All commands in this table are suffixes to the prepared interpreter's offline
++pytest invocation above. They are review instructions, not production Shell GO.
++
++## Remaining external blocks
++
++| Item | State | Owner/evidence | Shortest safe resolution |
++| --- | --- | --- | --- |
++| Actual official response/corpus behavior | BLOCKED_EXTERNAL | Andy/HQ14 private capture + SHA/time/transport metadata |1 approved private capture;2 Claude compares summary;3 individually approve any mapping/port |
++| Current Render runtime and real HTTP behavior | BLOCKED_EXTERNAL | Andy/HQ14 approved read-only observation |1 separately authorized metadata capture;2 compare pinned candidate/runtime/tests |
++| Application/port | BLOCKED_EXTERNAL | Claude review, HQ14 alignment, Andy individual GO |1 independent review after certifi work;2 explicit port/deploy authorization outside this task |
++
++No current FAILED_OPEN defect is known in this assigned scoped implementation.
++This statement does not upgrade external blocks or the rest of the P0 package.
+--- /dev/null
++++ b/development/health_offline_completion_v004/html_research.py
+@@ -0,0 +1,285 @@
++"""Research normalization only: never an official parser or terminal authority."""
++from __future__ import annotations
++
++import datetime as dt
++import hashlib
++from html import escape
++from html.parser import HTMLParser
++import json
++import re
++
++from bs4 import BeautifulSoup
++from parsers import ParserError, parse_race_index
++
++_RACE_HEADERS = {"レース", "レース番号", "R", "レースNo."}
++_CLOSING = re.compile(r"(?:投票|発売)?締切(?:予定)?(?:時刻|時間)?(?:[/／・]?投票)?\Z")
++_STATE_HEADERS = {"状態", "発売状況"}
++
++
++class ResearchHold(ValueError):
++    """Fixed code only; never retains HTML or URLs."""
++
++
++class _OptionalEnds(HTMLParser):
++    """Resolve a narrow optional td/th/tr-end grammar, without inventing EOF."""
++    def __init__(self):
++        super().__init__(convert_charrefs=True)
++        self.frames = []
++        self.output = []
++        self.repairs = {"cell_end": 0, "row_end": 0}
++        self.nesting = False
++
++    @staticmethod
++    def _tag(tag, attrs, ending=False):
++        if ending:
++            return "</" + tag + ">"
++        encoded = "".join(" " + escape(str(k), quote=True) +
++                          ("" if v is None else '="' + escape(str(v), quote=True) + '"')
++                          for k, v in attrs)
++        return "<" + tag + encoded + ">"
++
++    def _close_cell(self):
++        frame = self.frames[-1]
++        if frame["cell"]:
++            self.output.append("</" + frame["cell"] + ">")
++            frame["cell"] = None
++            self.repairs["cell_end"] += 1
++
++    def _close_row(self):
++        frame = self.frames[-1]
++        if frame["row"]:
++            self._close_cell()
++            self.output.append("</tr>")
++            frame["row"] = False
++            self.repairs["row_end"] += 1
++
++    def handle_starttag(self, tag, attrs):
++        if tag == "table":
++            self.nesting |= bool(self.frames)
++            self.frames.append({"row": False, "cell": None})
++        elif tag == "tr" and self.frames:
++            self._close_row()
++            self.frames[-1]["row"] = True
++        elif tag in ("td", "th") and self.frames:
++            if not self.frames[-1]["row"]:
++                raise ResearchHold("CELL_WITHOUT_ROW")
++            self._close_cell()
++            self.frames[-1]["cell"] = tag
++        elif tag in ("tbody", "thead", "tfoot") and self.frames:
++            self._close_row()
++        self.output.append(self._tag(tag, attrs))
++
++    def handle_endtag(self, tag):
++        if tag == "table":
++            if not self.frames:
++                raise ResearchHold("UNMATCHED_TABLE_END")
++            self._close_row()
++            self.frames.pop()
++        elif tag == "tr" and self.frames:
++            if not self.frames[-1]["row"]:
++                raise ResearchHold("UNMATCHED_ROW_END")
++            self._close_cell()
++            self.frames[-1]["row"] = False
++        elif tag in ("td", "th") and self.frames:
++            if self.frames[-1]["cell"] != tag:
++                raise ResearchHold("UNMATCHED_CELL_END")
++            self.frames[-1]["cell"] = None
++        elif tag in ("tbody", "thead", "tfoot") and self.frames:
++            self._close_row()
++        self.output.append(self._tag(tag, (), True))
++
++    def handle_startendtag(self, tag, attrs):
++        if tag in ("table", "tr", "td", "th"):
++            raise ResearchHold("SELF_CLOSING_TABLE_STRUCTURE")
++        self.output.append(self._tag(tag, attrs)[:-1] + "/>")
++
++    def handle_data(self, data):
++        self.output.append(escape(data))
++
++    def handle_comment(self, data):
++        # Comments cannot introduce additional candidate tables.
++        self.output.append("<!-- -->")
++
++    def finish(self, html):
++        self.feed(html)
++        self.close()
++        if self.frames:
++            raise ResearchHold("UNCLOSED_TABLE_NO_EOF_REPAIR")
++        return "".join(self.output)
++
++
++def _text(cell):
++    return " ".join(cell.stripped_strings)
++
++
++def _own_cell_text(cell):
++    # Exclude nested-table descendants, without discarding the parent's own
++    # race/time cells alongside a nested layout table.
++    values = []
++    for node in cell.find_all(string=True):
++        ancestor = node.parent
++        nested = False
++        while ancestor is not None and ancestor is not cell:
++            if getattr(ancestor, "name", None) == "table":
++                nested = True
++                break
++            ancestor = ancestor.parent
++        if not nested:
++            value = str(node).strip()
++            if value:
++                values.append(value)
++    return " ".join(values)
++
++
++def _own_row_has_race_clock(row):
++    values = [_own_cell_text(cell) for cell in row.find_all(["th", "td"], recursive=False)]
++    has_race = any(re.fullmatch(r"[0-9０-９]+\s*[RＲ]", value, re.IGNORECASE) for value in values)
++    has_clock = re.search(r"[0-9０-９]{1,2}[:：][0-9０-９]{2}", " ".join(values))
++    return bool(has_race and has_clock)
++
++
++def _heading(cell):
++    return re.sub(r"\s+", "", _text(cell))
++
++
++def _columns(cells):
++    result = []
++    expanded = False
++    for cell in cells:
++        if cell.get("rowspan", "1") != "1":
++            raise ResearchHold("ROWSPAN_UNREVIEWED")
++        raw = str(cell.get("colspan", "1"))
++        if not re.fullmatch(r"[1-9][0-9]?", raw) or int(raw) > 12:
++            raise ResearchHold("COLSPAN_UNREVIEWED")
++        count = int(raw)
++        text = _heading(cell)
++        if count != 1 and (text in _RACE_HEADERS or _CLOSING.fullmatch(text) or text in _STATE_HEADERS):
++            raise ResearchHold("SEMANTIC_COLUMN_SPAN_AMBIGUOUS")
++        result.extend([text] * count)
++        expanded |= count != 1
++    return result, expanded
++
++
++def _anchor(headings):
++    race = [i for i, text in enumerate(headings) if text in _RACE_HEADERS]
++    closing = [i for i, text in enumerate(headings) if _CLOSING.fullmatch(text)]
++    if not race or not closing:
++        return None
++    if len(race) != 1 or len(closing) != 1 or race[0] == closing[0]:
++        raise ResearchHold("SEMANTIC_HEADER_AMBIGUOUS")
++    return race[0], closing[0]
++
++
++def _canonical_records(races):
++    return [race.model_dump(mode="json") for race in races]
++
++
++def _digest(value):
++    data = json.dumps(value, sort_keys=True, ensure_ascii=True, separators=(",", ":"), allow_nan=False).encode("ascii")
++    return hashlib.sha256(data).hexdigest()
++
++
++def inspect_research_html(html, date_str, acquired_at="UNVERIFIED_CAPTURE_TIME"):
++    result = {"status": "HOLD", "reason": "INPUT_UNVERIFIED", "go": False,
++              "runtime_execution_allowed": False, "official_compatibility": "UNVERIFIED",
++              "policy_status": "POLICY_PENDING_REAL_HTML", "records": None,
++              "normalization": {}, "candidate_table_count": 0}
++    try:
++        if not isinstance(html, str) or not isinstance(date_str, str) or not re.fullmatch(r"[0-9]{8}", date_str):
++            raise ResearchHold("INPUT_UNVERIFIED")
++        dt.datetime.strptime(date_str, "%Y%m%d")
++        normalizer = _OptionalEnds()
++        normalized = normalizer.finish(html)
++        soup = BeautifulSoup(normalized, "html.parser")
++        for hidden in soup.find_all(["script", "style"]):
++            hidden.decompose()
++        candidates = []
++        orphan_race_rows = any(
++            row.find_parent("table") is None and _own_row_has_race_clock(row)
++            for row in soup.find_all("tr"))
++        forms = set()
++        if normalizer.nesting:
++            forms.add("LAYOUT_NESTING")
++        if any(normalizer.repairs.values()):
++            forms.add("OPTIONAL_CELL_ROW_ENDS")
++        for table in soup.find_all("table"):
++            rows = [row for row in table.find_all("tr") if row.find_parent("table") is table]
++            anchors = []
++            for index, row in enumerate(rows):
++                cells = row.find_all(["th", "td"], recursive=False)
++                if not cells or any(cell.find("table") for cell in cells):
++                    continue
++                headings, expanded = _columns(cells)
++                # A numbered data cell is never a header.
++                if any(re.fullmatch(r"[0-9]+\s*R", h, re.IGNORECASE) for h in headings):
++                    continue
++                anchor = _anchor(headings)
++                if anchor:
++                    anchors.append((index, headings, anchor, expanded))
++            if not anchors:
++                for row in rows:
++                    if _own_row_has_race_clock(row):
++                        orphan_race_rows = True
++                continue
++            first_index, headings, (race_col, closing_col), expanded = anchors[0]
++            if any(other[1] != headings or other[2] != (race_col, closing_col) for other in anchors[1:]):
++                raise ResearchHold("CONFLICTING_REPEATED_HEADERS")
++            if len(anchors) > 1:
++                forms.add("IDENTICAL_REPEATED_HEADERS")
++            if expanded:
++                forms.add("NONSEMANTIC_HEADER_COLSPAN")
++            if headings[race_col] == "レースNo.":
++                forms.add("RACE_NO_ALIAS")
++            output_headers = list(headings)
++            output_headers[race_col] = "レース"
++            serialized = ["<table><tr>" + "".join("<th>" + escape(h) + "</th>" for h in output_headers) + "</tr>"]
++            profile_rows = []
++            for index, row in enumerate(rows):
++                if index in {item[0] for item in anchors}:
++                    continue
++                cells = row.find_all(["th", "td"], recursive=False)
++                if not cells:
++                    continue
++                if any(cell.find("table") for cell in cells):
++                    raise ResearchHold("NESTED_DATA_CELL_UNREVIEWED")
++                if any(cell.get("rowspan", "1") != "1" or cell.get("colspan", "1") != "1" for cell in cells):
++                    raise ResearchHold("DATA_CELL_SPAN_UNREVIEWED")
++                values = [_text(cell) for cell in cells]
++                if index < first_index:
++                    if any(re.search(r"[0-9]+\s*R", value, re.IGNORECASE) for value in values):
++                        raise ResearchHold("DATA_BEFORE_HEADER")
++                    continue
++                if len(values) != len(headings):
++                    raise ResearchHold("DATA_WIDTH_MISMATCH")
++                profile_rows.append(values)
++                serialized.append("<tr>" + "".join("<td>" + escape(v) + "</td>" for v in values) + "</tr>")
++            serialized.append("</table>")
++            sanitized = "".join(serialized)
++            races = parse_race_index(sanitized, date_str, "LOCAL_RESEARCH_INPUT", acquired_at,
++                                     expected_race_numbers=range(1, 13))
++            records = _canonical_records(races)
++            candidates.append({"records": records, "profile": [headings, profile_rows],
++                               "sanitized_sha256": hashlib.sha256(sanitized.encode()).hexdigest()})
++        if orphan_race_rows:
++            raise ResearchHold("UNANCHORED_RACE_ROWS")
++        result["candidate_table_count"] = len(candidates)
++        if not candidates:
++            raise ResearchHold("SEMANTIC_TABLE_UNVERIFIED")
++        reference = candidates[0]
++        if any(candidate["records"] != reference["records"] or candidate["profile"] != reference["profile"]
++               for candidate in candidates[1:]):
++            raise ResearchHold("DUPLICATE_TABLE_CONFLICT")
++        if len(candidates) > 1:
++            forms.add("EQUIVALENT_MULTIPLE_TABLES")
++        result.update(status="RESEARCH_PARSED", reason="SYNTHETIC_CANDIDATE_ONLY",
++                      records=reference["records"], semantic_sha256=_digest(reference["records"]),
++                      normalization={"repairs": normalizer.repairs, "forms": sorted(forms),
++                                     "normalized_sha256": hashlib.sha256(normalized.encode()).hexdigest(),
++                                     "sanitized_table_sha256": reference["sanitized_sha256"]})
++    except ResearchHold as exc:
++        result["reason"] = exc.args[0] if len(exc.args) == 1 else "RESEARCH_HOLD"
++    except ParserError:
++        result["reason"] = "STRICT_PARSER_REJECTED"
++    except (ValueError, TypeError, AttributeError, OverflowError):
++        result["reason"] = "INPUT_OR_STRUCTURE_UNVERIFIED"
++    return result
+--- /dev/null
++++ b/development/health_offline_completion_v004/inspect_private_html.py
+@@ -0,0 +1,135 @@
++"""Read one explicitly supplied private HTML file; print only a safe summary."""
++from __future__ import annotations
++import argparse
++import datetime as dt
++import hashlib
++import json
++import os
++from pathlib import Path
++import platform
++import re
++import stat
++import sys
++from types import ModuleType
++
++sys.dont_write_bytecode = True
++ROOT = Path(__file__).resolve().parents[2]
++LEGACY_SHA256 = "db18b989b409479c508c6a24d685c523b011adecef86ae652e57eb343024f479"
++CURRENT_SHA256 = "5bc001879c7df45dfa20086cfdecf8c3794349e391f3458a02bb1b53e64a3cf9"
++MAX_LOCAL_BYTES = 8 * 1024 * 1024
++
++
++def _safe_parse(function, text, day, expected):
++    try:
++        kwargs = {"expected_race_numbers": range(1, 13)} if expected else {}
++        races = function(text, day, "LOCAL_PRIVATE_INPUT", "UNVERIFIED_CAPTURE_TIME", **kwargs)
++        rows = [row.model_dump(mode="json") for row in races]
++        return {"status": "ACCEPT", "records": rows}
++    except Exception:
++        return {"status": "REJECT_OR_UNVERIFIED", "records": None}
++
++
++def compare_raw_bytes(raw, day, encoding="utf-8"):
++    if not isinstance(raw, bytes):
++        return {"status":"UNVERIFIED","reason":"INPUT_BYTES_REQUIRED","go":False,"raw_bytes":None,"raw_sha256":None}
++    summary = {"status": "UNVERIFIED", "go": False, "official_compatibility": "UNVERIFIED",
++               "capture_time": "UNVERIFIED_NOT_PROVIDED", "raw_bytes": len(raw),
++               "raw_sha256": hashlib.sha256(raw).hexdigest()}
++    if not isinstance(day, str) or not re.fullmatch(r"[0-9]{8}", day):
++        return dict(summary, reason="REQUESTED_DAY_UNVERIFIED")
++    try:
++        if dt.datetime.strptime(day, "%Y%m%d").strftime("%Y%m%d") != day:
++            raise ValueError("DATE")
++    except ValueError:
++        return dict(summary, reason="REQUESTED_DAY_UNVERIFIED")
++    if encoding not in ("utf-8", "shift_jis", "cp932", "euc_jp"):
++        return dict(summary, reason="ENCODING_UNVERIFIED")
++    try:
++        text = raw.decode(encoding, errors="strict")
++    except (UnicodeError, LookupError):
++        return dict(summary, reason="ENCODING_UNVERIFIED")
++    current_raw = (ROOT / "parsers.py").read_bytes()
++    legacy_raw = (ROOT / "development/health_residuals_20261106_v003/references/parsers_8172aec.py.txt").read_bytes()
++    if hashlib.sha256(current_raw).hexdigest() != CURRENT_SHA256 or hashlib.sha256(legacy_raw).hexdigest() != LEGACY_SHA256:
++        return dict(summary, reason="REFERENCE_SHA_MISMATCH")
++    sys.path.insert(0, str(ROOT))
++    import parsers
++    from development.health_offline_completion_v004.html_research import inspect_research_html
++    legacy = ModuleType("_private_html_8172_parser")
++    exec(compile(legacy_raw, "SHA_PINNED_PUBLIC_LEGACY_PARSER", "exec"), legacy.__dict__)
++    old, current = _safe_parse(legacy.parse_race_index, text, day, False), _safe_parse(parsers.parse_race_index, text, day, True)
++    def digest(rows):
++        if rows is None:
++            return None
++        return hashlib.sha256(json.dumps(rows, sort_keys=True, ensure_ascii=True, separators=(",", ":"), allow_nan=False).encode("ascii")).hexdigest()
++    def counts(rows):
++        return None if rows is None else {"races": len(rows), "cancelled": sum(r["is_cancelled"] for r in rows),
++                                         "closed": sum(r["is_closed"] for r in rows)}
++    delta = {"same_acceptance": old["status"] == current["status"],
++             "same_semantic_records": None if old["records"] is None or current["records"] is None else old["records"] == current["records"],
++             "deadline_differences": None, "state_flag_differences": None}
++    if old["records"] is not None and current["records"] is not None:
++        a, b = ({r["race_id"]: r for r in result["records"]} for result in (old, current))
++        common = set(a) & set(b)
++        delta["deadline_differences"] = sum(a[k]["official_deadline"] != b[k]["official_deadline"] for k in common)
++        delta["state_flag_differences"] = sum((a[k]["is_closed"], a[k]["is_cancelled"]) != (b[k]["is_closed"], b[k]["is_cancelled"]) for k in common)
++    research = inspect_research_html(text, day)
++    return dict(summary, status="OBSERVED_LOCAL_BYTES_ONLY", reason="COMPARISON_COMPLETED_NOT_COMPATIBILITY_PASS",
++                reference_hashes_verified=True,
++                old={"status": old["status"], "counts": counts(old["records"]), "semantic_sha256": digest(old["records"])},
++                v003={"status": current["status"], "counts": counts(current["records"]), "semantic_sha256": digest(current["records"])},
++                differences=delta,
++                research={"status": research["status"], "reason": research["reason"], "policy_status": research["policy_status"],
++                          "candidate_table_count": research["candidate_table_count"], "normalization": research["normalization"],
++                          "runtime_execution_allowed": False})
++
++
++def inspect_private_file(path, day, encoding="utf-8"):
++    empty = {"status": "BLOCKED_EXTERNAL", "reason": "PRIVATE_HTML_NOT_SUPPLIED", "go": False,
++             "official_compatibility": "UNVERIFIED"}
++    if path is None:
++        return empty
++    selected = Path(path)
++    if selected.suffix.lower() not in (".html", ".htm"):
++        return dict(empty, status="UNVERIFIED", reason="HTML_FILE_EXTENSION_REQUIRED")
++    descriptor = None
++    try:
++        if selected.is_symlink():
++            return dict(empty, status="UNVERIFIED", reason="SYMLINK_INPUT_NOT_ALLOWED")
++        descriptor = os.open(selected, os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0) | getattr(os, "O_NONBLOCK", 0))
++        before = os.fstat(descriptor)
++        if not stat.S_ISREG(before.st_mode):
++            return dict(empty, status="UNVERIFIED", reason="REGULAR_FILE_REQUIRED")
++        if before.st_size > MAX_LOCAL_BYTES:
++            return dict(empty, status="UNVERIFIED", reason="LOCAL_SIZE_LIMIT_NO_READ", raw_bytes=before.st_size)
++        with os.fdopen(descriptor, "rb") as handle:
++            descriptor = None
++            raw = handle.read(MAX_LOCAL_BYTES + 1)
++            after = os.fstat(handle.fileno())
++        if (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns) != (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns) or len(raw) != before.st_size:
++            return dict(empty, status="UNVERIFIED", reason="INPUT_CHANGED_DURING_READ")
++        return compare_raw_bytes(raw, day, encoding)
++    except Exception:
++        return dict(empty, status="UNVERIFIED", reason="PRIVATE_READ_OR_COMPARE_FAILED")
++    finally:
++        if descriptor is not None:
++            os.close(descriptor)
++
++
++class SafeArgumentParser(argparse.ArgumentParser):
++    def error(self, message):
++        # Never echo invalid argument values, URLs or private paths.
++        print(json.dumps({"status":"UNVERIFIED","reason":"ARGUMENTS_INVALID","go":False},sort_keys=True))
++        raise SystemExit(2)
++
++
++if __name__ == "__main__":
++    parser = SafeArgumentParser(description="Private local bytes only; no source collection or output files.")
++    parser.add_argument("--private-html", type=Path)
++    parser.add_argument("--date", default="")
++    parser.add_argument("--encoding", default="utf-8", choices=["utf-8", "shift_jis", "cp932", "euc_jp"])
++    args = parser.parse_args()
++    answer = inspect_private_file(args.private_html, args.date, args.encoding)
++    answer["runtime"] = {"python": platform.python_version(), "os": platform.system()}
++    print(json.dumps(answer, sort_keys=True, ensure_ascii=True))
++    raise SystemExit(3 if answer["status"] == "BLOCKED_EXTERNAL" else 0 if answer["status"] == "OBSERVED_LOCAL_BYTES_ONLY" else 2)
+--- /dev/null
++++ b/development/health_offline_completion_v004/orphan_reproduction.py
+@@ -0,0 +1,33 @@
++import argparse
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++import platform
++import socket
++import ssl
++import sys
++
++def blocked(*a,**k):raise AssertionError('NETWORK_DISABLED')
++socket.socket.connect=socket.socket.connect_ex=socket.create_connection=socket.getaddrinfo=blocked
++sys.dont_write_bytecode=True
++p=argparse.ArgumentParser();p.add_argument('--stage',choices=['before','after'],required=True);a=p.parse_args()
++root=Path(__file__).resolve().parents[2];directory=Path(__file__).resolve().parent;sys.path.insert(0,str(root))
++source=directory/'references/html_research_rev1.py.txt' if a.stage=='before' else directory/'html_research.py'
++expected='7863bea4c520cba48bedb719c7f9c635c98dc9b664a73d5be82cc1f6e4ef45c0' if a.stage=='before' else 'dc84153b86811cad8666ee734615c96690b298f112ca99f7f2cbc11f120bec88'
++raw=source.read_bytes();assert hashlib.sha256(raw).hexdigest()==expected,'ORPHAN_SOURCE_SNAPSHOT_MISMATCH'
++from types import ModuleType
++m=ModuleType('orphan_probe_module');exec(compile(raw,'PINNED_RESEARCH_SNAPSHOT','exec'),m.__dict__)
++table='<table><tr><th>レース</th><th>投票締切</th></tr>'+''.join(f'<tr><td>{n}R</td><td>13:{n:02d} 投票</td></tr>' for n in range(1,13))+'</table>'
++inputs={'normal':table,'outside_tr':table+'<tr><td>1R</td><td>18:59</td></tr>',
++        'layout_own_conflict':'<table><tr><td>1R</td><td>18:59</td><td>'+table+'</td></tr></table>'}
++rows=[]
++for name,html in inputs.items():
++ r=m.inspect_research_html(html,'20990107')
++ rows.append({'case':name,'status':r['status'],'reason':r.get('reason'),'records':len(r.get('records') or []),'go':r['go']})
++if a.stage=='before':assert all(r['status']=='RESEARCH_PARSED' for r in rows)
++else:
++ assert rows[0]['status']=='RESEARCH_PARSED'
++ assert all(r['status']=='HOLD' and r['records']==0 for r in rows[1:])
++print(json.dumps({'stage':a.stage,'python':sys.version,'platform':platform.platform(),'openssl':ssl.OPENSSL_VERSION,
++    'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'classification':'SYNTHETIC_ONLY','cases':rows,'production_go':False},sort_keys=True))
+--- /dev/null
++++ b/development/health_offline_completion_v004/references/html_research_rev1.py.txt
+@@ -0,0 +1,261 @@
++"""Research normalization only: never an official parser or terminal authority."""
++from __future__ import annotations
++
++import datetime as dt
++import hashlib
++from html import escape
++from html.parser import HTMLParser
++import json
++import re
++
++from bs4 import BeautifulSoup
++from parsers import ParserError, parse_race_index
++
++_RACE_HEADERS = {"レース", "レース番号", "R", "レースNo."}
++_CLOSING = re.compile(r"(?:投票|発売)?締切(?:予定)?(?:時刻|時間)?(?:[/／・]?投票)?\Z")
++_STATE_HEADERS = {"状態", "発売状況"}
++
++
++class ResearchHold(ValueError):
++    """Fixed code only; never retains HTML or URLs."""
++
++
++class _OptionalEnds(HTMLParser):
++    """Resolve a narrow optional td/th/tr-end grammar, without inventing EOF."""
++    def __init__(self):
++        super().__init__(convert_charrefs=True)
++        self.frames = []
++        self.output = []
++        self.repairs = {"cell_end": 0, "row_end": 0}
++        self.nesting = False
++
++    @staticmethod
++    def _tag(tag, attrs, ending=False):
++        if ending:
++            return "</" + tag + ">"
++        encoded = "".join(" " + escape(str(k), quote=True) +
++                          ("" if v is None else '="' + escape(str(v), quote=True) + '"')
++                          for k, v in attrs)
++        return "<" + tag + encoded + ">"
++
++    def _close_cell(self):
++        frame = self.frames[-1]
++        if frame["cell"]:
++            self.output.append("</" + frame["cell"] + ">")
++            frame["cell"] = None
++            self.repairs["cell_end"] += 1
++
++    def _close_row(self):
++        frame = self.frames[-1]
++        if frame["row"]:
++            self._close_cell()
++            self.output.append("</tr>")
++            frame["row"] = False
++            self.repairs["row_end"] += 1
++
++    def handle_starttag(self, tag, attrs):
++        if tag == "table":
++            self.nesting |= bool(self.frames)
++            self.frames.append({"row": False, "cell": None})
++        elif tag == "tr" and self.frames:
++            self._close_row()
++            self.frames[-1]["row"] = True
++        elif tag in ("td", "th") and self.frames:
++            if not self.frames[-1]["row"]:
++                raise ResearchHold("CELL_WITHOUT_ROW")
++            self._close_cell()
++            self.frames[-1]["cell"] = tag
++        elif tag in ("tbody", "thead", "tfoot") and self.frames:
++            self._close_row()
++        self.output.append(self._tag(tag, attrs))
++
++    def handle_endtag(self, tag):
++        if tag == "table":
++            if not self.frames:
++                raise ResearchHold("UNMATCHED_TABLE_END")
++            self._close_row()
++            self.frames.pop()
++        elif tag == "tr" and self.frames:
++            if not self.frames[-1]["row"]:
++                raise ResearchHold("UNMATCHED_ROW_END")
++            self._close_cell()
++            self.frames[-1]["row"] = False
++        elif tag in ("td", "th") and self.frames:
++            if self.frames[-1]["cell"] != tag:
++                raise ResearchHold("UNMATCHED_CELL_END")
++            self.frames[-1]["cell"] = None
++        elif tag in ("tbody", "thead", "tfoot") and self.frames:
++            self._close_row()
++        self.output.append(self._tag(tag, (), True))
++
++    def handle_startendtag(self, tag, attrs):
++        if tag in ("table", "tr", "td", "th"):
++            raise ResearchHold("SELF_CLOSING_TABLE_STRUCTURE")
++        self.output.append(self._tag(tag, attrs)[:-1] + "/>")
++
++    def handle_data(self, data):
++        self.output.append(escape(data))
++
++    def handle_comment(self, data):
++        # Comments cannot introduce additional candidate tables.
++        self.output.append("<!-- -->")
++
++    def finish(self, html):
++        self.feed(html)
++        self.close()
++        if self.frames:
++            raise ResearchHold("UNCLOSED_TABLE_NO_EOF_REPAIR")
++        return "".join(self.output)
++
++
++def _text(cell):
++    return " ".join(cell.stripped_strings)
++
++
++def _heading(cell):
++    return re.sub(r"\s+", "", _text(cell))
++
++
++def _columns(cells):
++    result = []
++    expanded = False
++    for cell in cells:
++        if cell.get("rowspan", "1") != "1":
++            raise ResearchHold("ROWSPAN_UNREVIEWED")
++        raw = str(cell.get("colspan", "1"))
++        if not re.fullmatch(r"[1-9][0-9]?", raw) or int(raw) > 12:
++            raise ResearchHold("COLSPAN_UNREVIEWED")
++        count = int(raw)
++        text = _heading(cell)
++        if count != 1 and (text in _RACE_HEADERS or _CLOSING.fullmatch(text) or text in _STATE_HEADERS):
++            raise ResearchHold("SEMANTIC_COLUMN_SPAN_AMBIGUOUS")
++        result.extend([text] * count)
++        expanded |= count != 1
++    return result, expanded
++
++
++def _anchor(headings):
++    race = [i for i, text in enumerate(headings) if text in _RACE_HEADERS]
++    closing = [i for i, text in enumerate(headings) if _CLOSING.fullmatch(text)]
++    if not race or not closing:
++        return None
++    if len(race) != 1 or len(closing) != 1 or race[0] == closing[0]:
++        raise ResearchHold("SEMANTIC_HEADER_AMBIGUOUS")
++    return race[0], closing[0]
++
++
++def _canonical_records(races):
++    return [race.model_dump(mode="json") for race in races]
++
++
++def _digest(value):
++    data = json.dumps(value, sort_keys=True, ensure_ascii=True, separators=(",", ":"), allow_nan=False).encode("ascii")
++    return hashlib.sha256(data).hexdigest()
++
++
++def inspect_research_html(html, date_str, acquired_at="UNVERIFIED_CAPTURE_TIME"):
++    result = {"status": "HOLD", "reason": "INPUT_UNVERIFIED", "go": False,
++              "runtime_execution_allowed": False, "official_compatibility": "UNVERIFIED",
++              "policy_status": "POLICY_PENDING_REAL_HTML", "records": None,
++              "normalization": {}, "candidate_table_count": 0}
++    try:
++        if not isinstance(html, str) or not isinstance(date_str, str) or not re.fullmatch(r"[0-9]{8}", date_str):
++            raise ResearchHold("INPUT_UNVERIFIED")
++        dt.datetime.strptime(date_str, "%Y%m%d")
++        normalizer = _OptionalEnds()
++        normalized = normalizer.finish(html)
++        soup = BeautifulSoup(normalized, "html.parser")
++        for hidden in soup.find_all(["script", "style"]):
++            hidden.decompose()
++        candidates = []
++        orphan_race_rows = False
++        forms = set()
++        if normalizer.nesting:
++            forms.add("LAYOUT_NESTING")
++        if any(normalizer.repairs.values()):
++            forms.add("OPTIONAL_CELL_ROW_ENDS")
++        for table in soup.find_all("table"):
++            rows = [row for row in table.find_all("tr") if row.find_parent("table") is table]
++            anchors = []
++            for index, row in enumerate(rows):
++                cells = row.find_all(["th", "td"], recursive=False)
++                if not cells or any(cell.find("table") for cell in cells):
++                    continue
++                headings, expanded = _columns(cells)
++                # A numbered data cell is never a header.
++                if any(re.fullmatch(r"[0-9]+\s*R", h, re.IGNORECASE) for h in headings):
++                    continue
++                anchor = _anchor(headings)
++                if anchor:
++                    anchors.append((index, headings, anchor, expanded))
++            if not anchors:
++                for row in rows:
++                    cells = row.find_all(["th", "td"], recursive=False)
++                    if any(cell.find("table") for cell in cells):
++                        continue
++                    text = " ".join(_text(cell) for cell in cells)
++                    if any(re.fullmatch(r"(?:[1-9]|1[0-2])\s*R", _heading(cell), re.IGNORECASE) for cell in cells) and re.search(r"[0-9]{1,2}:[0-9]{2}", text):
++                        orphan_race_rows = True
++                continue
++            first_index, headings, (race_col, closing_col), expanded = anchors[0]
++            if any(other[1] != headings or other[2] != (race_col, closing_col) for other in anchors[1:]):
++                raise ResearchHold("CONFLICTING_REPEATED_HEADERS")
++            if len(anchors) > 1:
++                forms.add("IDENTICAL_REPEATED_HEADERS")
++            if expanded:
++                forms.add("NONSEMANTIC_HEADER_COLSPAN")
++            if headings[race_col] == "レースNo.":
++                forms.add("RACE_NO_ALIAS")
++            output_headers = list(headings)
++            output_headers[race_col] = "レース"
++            serialized = ["<table><tr>" + "".join("<th>" + escape(h) + "</th>" for h in output_headers) + "</tr>"]
++            profile_rows = []
++            for index, row in enumerate(rows):
++                if index in {item[0] for item in anchors}:
++                    continue
++                cells = row.find_all(["th", "td"], recursive=False)
++                if not cells:
++                    continue
++                if any(cell.find("table") for cell in cells):
++                    raise ResearchHold("NESTED_DATA_CELL_UNREVIEWED")
++                if any(cell.get("rowspan", "1") != "1" or cell.get("colspan", "1") != "1" for cell in cells):
++                    raise ResearchHold("DATA_CELL_SPAN_UNREVIEWED")
++                values = [_text(cell) for cell in cells]
++                if index < first_index:
++                    if any(re.search(r"[0-9]+\s*R", value, re.IGNORECASE) for value in values):
++                        raise ResearchHold("DATA_BEFORE_HEADER")
++                    continue
++                if len(values) != len(headings):
++                    raise ResearchHold("DATA_WIDTH_MISMATCH")
++                profile_rows.append(values)
++                serialized.append("<tr>" + "".join("<td>" + escape(v) + "</td>" for v in values) + "</tr>")
++            serialized.append("</table>")
++            sanitized = "".join(serialized)
++            races = parse_race_index(sanitized, date_str, "LOCAL_RESEARCH_INPUT", acquired_at,
++                                     expected_race_numbers=range(1, 13))
++            records = _canonical_records(races)
++            candidates.append({"records": records, "profile": [headings, profile_rows],
++                               "sanitized_sha256": hashlib.sha256(sanitized.encode()).hexdigest()})
++        if orphan_race_rows:
++            raise ResearchHold("UNANCHORED_RACE_ROWS")
++        result["candidate_table_count"] = len(candidates)
++        if not candidates:
++            raise ResearchHold("SEMANTIC_TABLE_UNVERIFIED")
++        reference = candidates[0]
++        if any(candidate["records"] != reference["records"] or candidate["profile"] != reference["profile"]
++               for candidate in candidates[1:]):
++            raise ResearchHold("DUPLICATE_TABLE_CONFLICT")
++        if len(candidates) > 1:
++            forms.add("EQUIVALENT_MULTIPLE_TABLES")
++        result.update(status="RESEARCH_PARSED", reason="SYNTHETIC_CANDIDATE_ONLY",
++                      records=reference["records"], semantic_sha256=_digest(reference["records"]),
++                      normalization={"repairs": normalizer.repairs, "forms": sorted(forms),
++                                     "normalized_sha256": hashlib.sha256(normalized.encode()).hexdigest(),
++                                     "sanitized_table_sha256": reference["sanitized_sha256"]})
++    except ResearchHold as exc:
++        result["reason"] = exc.args[0] if len(exc.args) == 1 else "RESEARCH_HOLD"
++    except ParserError:
++        result["reason"] = "STRICT_PARSER_REJECTED"
++    except (ValueError, TypeError, AttributeError, OverflowError):
++        result["reason"] = "INPUT_OR_STRUCTURE_UNVERIFIED"
++    return result
+--- /dev/null
++++ b/http_transport_observation.py
+@@ -0,0 +1,123 @@
++"""Secret-safe observations of an HTTPX final response, not source authenticity.
++
++Counters describe encoded HTTP entity-body bytes only, excluding headers/TLS
++and preceding redirect bodies. Prebuffered responses cannot prove wire bytes.
++"""
++from __future__ import annotations
++import re
++import codecs
++import httpx
++
++
++def safe_error_kind(exc):
++    if isinstance(exc,httpx.TimeoutException): return "TIMEOUT"
++    if isinstance(exc,httpx.HTTPStatusError): return "HTTP_STATUS_ERROR"
++    if isinstance(exc,httpx.TransportError): return "TRANSPORT_ERROR"
++    if isinstance(exc,httpx.HTTPError): return "HTTP_ERROR"
++    return "UNVERIFIED_ERROR"
++
++
++class TransportObservation:
++    def __init__(self):
++        self._response=None
++        self._wire_eligible=False
++        self._hook_count=0
++        self.http_status=None
++        self.content_length=None
++        self.length_declaration="UNOBSERVED"
++        self.content_encoding="UNOBSERVED"
++        self.text_charset_declaration="UNOBSERVED"
++        self.header_observation="UNVERIFIED"
++        self.wire_bytes=None
++        self.decoded_bytes=None
++        self.body_read_complete=False
++        self.transport_complete=None
++        self.content_length_check="UNVERIFIED"
++        self.ascii_html_end_marker_observed=None
++        self.error_kind=None
++
++    def __repr__(self): return "TransportObservation(REDACTED)"
++
++    def headers_received(self,response,*,via_hook=True):
++        if self._response is response: return
++        self._response=response
++        self._hook_count+=int(via_hook)
++        self._wire_eligible=bool(via_hook and not response.is_stream_consumed)
++        try:
++            status=response.status_code
++            self.http_status=status if type(status) is int and 100<=status<=599 else None
++            length=response.headers.get("content-length")
++            if length is None:
++                self.length_declaration="ABSENT"
++                self.content_length=None
++            elif re.fullmatch(r"[0-9]+",length) and len(length)<=20:
++                self.content_length=int(length)
++                self.length_declaration="SINGLE_VALID_NONNEGATIVE_INTEGER"
++            else:
++                self.content_length=None
++                self.length_declaration="INVALID_OR_MULTIPLE_UNVERIFIED"
++            encoding=response.headers.get("content-encoding", "identity").strip().lower()
++            self.content_encoding=encoding if encoding in {"identity","gzip","deflate","br","zstd"} else "OTHER_UNVERIFIED"
++            charset=response.charset_encoding
++            if charset is None:self.text_charset_declaration="ABSENT_DEFAULT_HTTPX_POLICY"
++            else:
++                try:
++                    codecs.lookup(charset)
++                    self.text_charset_declaration="DECLARED_SUPPORTED_BY_LOCAL_CODEC"
++                except (LookupError,TypeError):self.text_charset_declaration="DECLARED_UNSUPPORTED_HTTPX_FALLBACK"
++            self.header_observation="SAFE_SCALARS_ONLY"
++        except Exception:
++            self.header_observation="UNVERIFIED"
++            self.http_status=self.content_length=None
++            self.content_encoding="UNOBSERVED"
++
++    def finish(self,*,response=None,body_read_complete=False,error_kind=None):
++        if response is not None and self._response is not response:
++            self.headers_received(response,via_hook=False)
++        current=self._response
++        self.body_read_complete=bool(body_read_complete)
++        self.error_kind=error_kind
++        if current is not None:
++            if self._wire_eligible:
++                try:
++                    count=current.num_bytes_downloaded
++                    if type(count) is int and count>=0:self.wire_bytes=count
++                except Exception:pass
++            if body_read_complete:
++                try:
++                    data=current.content
++                    self.decoded_bytes=len(data)
++                    self.ascii_html_end_marker_observed=bool(re.search(br"</html\s*>",data,re.I))
++                except Exception:pass
++        if self.content_length is not None and self.wire_bytes is not None:
++            self.content_length_check=("MATCH" if self.content_length==self.wire_bytes else
++                                       "MISMATCH" if body_read_complete else "PARTIAL_NOT_COMPLETE")
++        elif self.length_declaration=="ABSENT":self.content_length_check="ABSENT"
++        else:self.content_length_check="UNVERIFIED"
++        if not body_read_complete:self.transport_complete=False
++        elif self.content_length_check=="MISMATCH":self.transport_complete=False
++        elif self.wire_bytes is None or self.length_declaration=="INVALID_OR_MULTIPLE_UNVERIFIED":self.transport_complete=None
++        else:self.transport_complete=True
++        self._response=None  # Never retain URL/header/body-bearing objects.
++        return self.safe_record()
++
++    def release_private_response(self):
++        self._response=None
++
++    def safe_record(self):
++        return {"schema":"HTTP_TRANSPORT_OBSERVATION_V001_CANDIDATE",
++            "response_scope":("FINAL_RESPONSE_ONLY_ENCODED_BODY_NO_HEADERS_OR_TLS" if self.body_read_complete
++                              else "LAST_OBSERVED_RESPONSE_NOT_CONFIRMED_FINAL"),
++            "response_finality":("RETURNED_RESPONSE" if self.body_read_complete else "UNVERIFIED"),
++            "http_status":self.http_status,"wire_bytes":self.wire_bytes,"decoded_bytes":self.decoded_bytes,
++            "wire_count_status":"OBSERVED_HTTPX_COUNTER" if self.wire_bytes is not None else "UNVERIFIED_NOT_OBSERVED",
++            "wire_count_extent":"COMPLETE_BODY" if self.body_read_complete else "PARTIAL_OR_UNOBSERVED",
++            "body_read_complete":self.body_read_complete,"transport_complete":self.transport_complete,
++            "content_length":self.content_length,"length_declaration":self.length_declaration,
++            "content_encoding":self.content_encoding,"text_charset_declaration":self.text_charset_declaration,
++            "content_decoding_integrity":"NOT_INDEPENDENTLY_VERIFIED_HTTPX_BEHAVIOR_ONLY",
++            "content_length_check":self.content_length_check,
++            "header_observation":self.header_observation,"response_hooks_observed":self._hook_count,
++            "ascii_html_end_marker_observed":self.ascii_html_end_marker_observed,"error_kind":self.error_kind,
++            "document_complete":"UNVERIFIED_MARKER_IS_NOT_COMPLETENESS",
++            "official_authenticity":"UNVERIFIED","production_go":False}
+--- a/official.py
++++ b/official.py
+@@ -4,6 +4,7 @@
+ import datetime as dt
+ import json
+ import logging
++from contextvars import ContextVar
+ import re
+ from typing import Dict, Optional
+ 
+@@ -14,6 +15,7 @@
+ from beforeinfo_bridge import prepare_beforeinfo
+ from odds_bridge import parse_c_odds
+ from raceindex_status import FULL_RACE_NUMBERS, IndexFailure
++from http_transport_observation import TransportObservation, safe_error_kind
+ 
+ logger = logging.getLogger("gamagori-controller")
+ 
+@@ -33,6 +35,11 @@
+         self.max_retries = max_retries
+         self.backoff_seconds = backoff_seconds
+         self.semaphore = asyncio.Semaphore(max_concurrency)
++        self._transport_tokens = {}
++        self._transport_sequence = 0
++        self._transport_context = ContextVar("http_transport_observation", default=None)
++        self.last_transport_observation = None
++        self.last_raceindex_diagnostic = None
+         self.client = httpx.AsyncClient(
+             timeout=self.timeout,
+             headers={
+@@ -47,6 +54,7 @@
+                 "Pragma": "no-cache",
+             },
+             follow_redirects=True,
++            event_hooks={"response": [self._observe_transport_headers]},
+         )
+ 
+     async def close(self) -> None:
+@@ -62,31 +70,67 @@
+             candidates.append(url.replace("https://boatrace.jp/", "https://www.boatrace.jp/", 1))
+         return candidates
+ 
++    async def _observe_transport_headers(self, response):
++        # Extensions are local transport metadata, never request headers.
++        token = response.request.extensions.get("health_observation_token")
++        observation = self._transport_tokens.get(token)
++        if observation is not None:
++            observation.headers_received(response)
++
++    def _publish_transport(self, observation):
++        record = observation.safe_record()
++        self.last_transport_observation = record
++        logger.info("HTTP_TRANSPORT_DIAGNOSTIC %s", json.dumps(record, sort_keys=True, separators=(",", ":")))
++
++    def _publish_raceindex_parse(self, status, race_count=None):
++        context = getattr(self, "_transport_context", None)
++        observation = context.get() if context is not None else None
++        self.last_raceindex_diagnostic = {
++            "transport": observation.safe_record() if observation is not None else None,
++            "html_parse_status": status, "parsed_race_count": race_count,
++            "official_authenticity": "UNVERIFIED", "production_go": False}
++        logger.info("RACEINDEX_PARSE_DIAGNOSTIC %s", json.dumps(self.last_raceindex_diagnostic,
++                    sort_keys=True, separators=(",", ":")))
++
+     async def _get_text(self, url: str) -> tuple[str, str]:
+-        last_error: Optional[Exception] = None
+         candidates = self._candidate_urls(url)
+-
+         for attempt in range(1, self.max_retries + 1):
+             request_url = candidates[(attempt - 1) % len(candidates)]
++            observation = TransportObservation()
++            self._transport_context.set(observation)
++            self._transport_sequence += 1
++            token = self._transport_sequence
++            self._transport_tokens[token] = observation
++            response = None
++            read_complete = False
+             try:
+                 async with self.semaphore:
+-                    response = await self.client.get(request_url)
++                    response = await self.client.get(request_url,
++                        extensions={"health_observation_token": token})
++                read_complete = True
++                observation.finish(response=response, body_read_complete=True)
++                if observation.content_length_check == "MISMATCH":
++                    raise httpx.RemoteProtocolError("HTTP_BODY_LENGTH_MISMATCH")
+                 response.raise_for_status()
+                 acquired_at = dt.datetime.now(JST).isoformat()
++                self._publish_transport(observation)
+                 if request_url != url:
+                     logger.info("HTTP fallback host succeeded")
+                 return response.text, acquired_at
++            except asyncio.CancelledError:
++                observation.finish(response=response, body_read_complete=read_complete, error_kind="CANCELLED")
++                self._publish_transport(observation)
++                raise
+             except (httpx.HTTPError, httpx.TimeoutException) as exc:
+-                last_error = exc
+-                logger.warning(
+-                    "HTTP attempt %s/%s failed type=%s",
+-                    attempt,
+-                    self.max_retries,
+-                    type(exc).__name__,
+-                )
++                observation.finish(response=response, body_read_complete=read_complete,
++                                   error_kind=safe_error_kind(exc))
++                self._publish_transport(observation)
++                logger.warning("HTTP attempt %s/%s failed type=%s", attempt, self.max_retries, safe_error_kind(exc))
+                 if attempt < self.max_retries:
+                     await asyncio.sleep(self.backoff_seconds * (2 ** (attempt - 1)))
+-
++            finally:
++                observation.release_private_response()
++                self._transport_tokens.pop(token, None)
+         raise IndexFailure("HTTP_FETCH_FAILED", "HTTP_RETRIES_EXHAUSTED") from None
+ 
+     @staticmethod
+@@ -99,19 +143,25 @@
+         now_jst = self._local_now(now_jst)
+         date_str = now_jst.strftime("%Y%m%d")
+         url = f"{self.BASE_URL}/raceindex?hd={date_str}&jcd=07"
++        context = getattr(self, "_transport_context", None)
++        if context is not None: context.set(None)
+         try:
+             html, acquired_at = await self._get_text(url)
+         except Exception:
++            self._publish_raceindex_parse("NOT_ATTEMPTED_TRANSPORT_FAILURE")
+             raise IndexFailure("HTTP_FETCH_FAILED", "HTTP_REQUEST_FAILED") from None
+         try:
+             races = parse_race_index(html, date_str, url, acquired_at, expected_race_numbers=FULL_RACE_NUMBERS)
+         except ParserError as exc:
++            self._publish_raceindex_parse("REJECTED")
+             reason = ("RACE_INDEX_NO_RACE_ROWS_UNAUTHENTICATED"
+                       if type(exc) is ParserError and exc.args == ("raceindex: no race rows with race number + deadline found",)
+                       else "RACE_INDEX_HTML_INVALID")
+             raise IndexFailure("HTML_PARSE_FAILED", reason) from None
+         except Exception:
++            self._publish_raceindex_parse("UNVERIFIED_INTERNAL_ERROR")
+             raise IndexFailure("UNKNOWN_FAILURE", "RACE_INDEX_UNKNOWN_FAILURE") from None
++        self._publish_raceindex_parse("SUCCEEDED", len(races))
+         return RaceIndexSnapshot(date=date_str, races=races, source_url=url, acquired_at=acquired_at)
+ 
+     async def fetch_tracking_race_index(self, now_jst: dt.datetime) -> RaceIndexSnapshot:
+--- /dev/null
++++ b/tests/test_offline_html_research.py
+@@ -0,0 +1,195 @@
++"""Invented HTML only; transport, active parser and production remain untouched."""
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++import socket
++import subprocess
++import sys
++import tempfile
++import unittest
++from unittest.mock import patch
++
++from development.health_offline_completion_v004.html_research import inspect_research_html
++from development.health_offline_completion_v004 import inspect_private_html as private_check
++
++DAY = "20990107"
++
++
++def table(*, name=None, other_header="", other_cell="", state=None, clock=lambda n: f"13:{n:02d}"):
++    header = "<tr><th>レース</th><th>投票締切</th>" + ("<th>レース名</th>" if name else "") + ("<th>状態</th>" if state else "") + other_header + "</tr>"
++    rows = []
++    for n in range(1, 13):
++        cells = f"<td>{n}R</td><td>{clock(n)}</td>" + (f"<td>{name(n)}</td>" if name else "") + (f"<td>{state(n)}</td>" if state else "") + other_cell
++        rows.append("<tr>" + cells + "</tr>")
++    return "<table>" + header + "".join(rows) + "</table>"
++
++
++class ResearchTests(unittest.TestCase):
++    def setUp(self):
++        self.block = patch.object(socket.socket, "connect", side_effect=AssertionError("NETWORK_FORBIDDEN"))
++        self.block.start()
++    def tearDown(self):
++        self.block.stop()
++
++    def assert_research(self, value):
++        self.assertEqual(value["status"], "RESEARCH_PARSED", value["reason"])
++        self.assertEqual(len(value["records"]), 12)
++        self.assertFalse(value["go"])
++        self.assertFalse(value["runtime_execution_allowed"])
++        self.assertEqual(value["official_compatibility"], "UNVERIFIED")
++        self.assertEqual(value["policy_status"], "POLICY_PENDING_REAL_HTML")
++
++    def test_normal_and_legal_optional_end_candidates(self):
++        normal = inspect_research_html(table(), DAY)
++        self.assert_research(normal)
++        rows = "".join(f"<tr><td>{n}R<td>13:{n:02d}" for n in range(1, 13))
++        omitted = "<table><tr><th>レース<th>投票締切" + rows + "</table>"
++        answer = inspect_research_html(omitted, DAY)
++        self.assert_research(answer)
++        self.assertEqual(answer["records"], normal["records"])
++        self.assertIn("OPTIONAL_CELL_ROW_ENDS", answer["normalization"]["forms"])
++
++    def test_no_eof_repair_or_twelve_row_table_authentication(self):
++        for html in (table()[:-8], table().replace("</table>", ""), "<table><tr><td>1R</td><td>13:01</td></tr></table>"):
++            with self.subTest(case=len(html)):
++                value = inspect_research_html(html, DAY)
++                self.assertEqual(value["status"], "HOLD")
++                self.assertFalse(value["go"])
++                self.assertIsNone(value["records"])
++        self.assertEqual(inspect_research_html(table(), DAY)["official_compatibility"], "UNVERIFIED")
++
++    def test_nested_layout_candidate_is_research_only(self):
++        nested = "<table><tr><td>layout" + table() + "</td></tr></table>"
++        answer = inspect_research_html(nested, DAY)
++        self.assert_research(answer)
++        self.assertIn("LAYOUT_NESTING", answer["normalization"]["forms"])
++
++    def test_equal_pc_mobile_tables_and_one_conflicting_value(self):
++        same = "<section class='pc'>" + table() + "</section><section class='mobile'>" + table() + "</section>"
++        answer = inspect_research_html(same, DAY)
++        self.assert_research(answer)
++        self.assertEqual(answer["candidate_table_count"], 2)
++        self.assertIn("EQUIVALENT_MULTIPLE_TABLES", answer["normalization"]["forms"])
++        conflict = table() + table(clock=lambda n: "18:59" if n == 3 else f"13:{n:02d}")
++        self.assertEqual(inspect_research_html(conflict, DAY)["reason"], "DUPLICATE_TABLE_CONFLICT")
++
++    def test_colspan_only_unrelated_header_and_semantic_span_rejected(self):
++        answer = inspect_research_html(table(other_header="<th colspan='2'>補足</th>", other_cell="<td>注A</td><td>注B</td>"), DAY)
++        self.assert_research(answer)
++        self.assertIn("NONSEMANTIC_HEADER_COLSPAN", answer["normalization"]["forms"])
++        bad = table().replace("<th>レース</th>", "<th colspan='2'>レース</th>")
++        self.assertEqual(inspect_research_html(bad, DAY)["reason"], "SEMANTIC_COLUMN_SPAN_AMBIGUOUS")
++
++    def test_repeated_header_and_alias_with_conflicting_header_rejected(self):
++        original = table()
++        header = "<tr><th>レース</th><th>投票締切</th></tr>"
++        repeated = original.replace("<tr><td>7R</td>", header + "<tr><td>7R</td>")
++        answer = inspect_research_html(repeated, DAY)
++        self.assert_research(answer)
++        self.assertIn("IDENTICAL_REPEATED_HEADERS", answer["normalization"]["forms"])
++        alias = original.replace("<th>レース</th>", "<th>レースNo.</th>")
++        self.assert_research(inspect_research_html(alias, DAY))
++        bad = repeated.replace("<th>レース</th><th>投票締切</th></tr><tr><td>7R", "<th>投票締切</th><th>レース</th></tr><tr><td>7R")
++        self.assertEqual(inspect_research_html(bad, DAY)["reason"], "CONFLICTING_REPEATED_HEADERS")
++
++    def test_orphan_duplicate_missing_and_ambiguous_time_hold(self):
++        candidates = [
++            table() + "<table><tr><td>3R</td><td>18:00</td></tr></table>",
++            table().replace("</table>", "<tr><td>1R</td><td>00:00</td></tr></table>"),
++            table().replace("<tr><td>12R</td><td>13:12</td></tr>", ""),
++            table(clock=lambda n: "13:03 13:04" if n == 3 else f"13:{n:02d}"),
++            table().replace("</table>", "<tr><td>注記</td><td>18:00更新</td></tr></table>"),
++        ]
++        for html in candidates:
++            with self.subTest(case=len(html)):
++                value = inspect_research_html(html, DAY)
++                self.assertEqual(value["status"], "HOLD")
++                self.assertFalse(value["runtime_execution_allowed"])
++
++    def test_names_never_cancel_and_explicit_state_stays_unapproved(self):
++        answer = inspect_research_html(table(name=lambda n: "雨天中止順延記念"), DAY)
++        self.assert_research(answer)
++        self.assertTrue(all(not row["is_cancelled"] for row in answer["records"]))
++        explicit = inspect_research_html(table(state=lambda n: "中止"), DAY)
++        self.assert_research(explicit)
++        self.assertTrue(all(row["is_cancelled"] for row in explicit["records"]))
++        self.assertFalse(explicit["runtime_execution_allowed"])
++
++    def test_unrelated_weather_and_commented_table_do_not_create_races(self):
++        html = "<!-- " + table(clock=lambda n: "00:00") + " -->" + table() + "<table><tr><th>気温</th></tr><tr><td>18℃</td></tr></table>"
++        self.assert_research(inspect_research_html(html, DAY))
++
++
++class PrivateCheckerTests(unittest.TestCase):
++    def test_no_input_is_external_block_and_invalid_reference_stops(self):
++        self.assertEqual(private_check.inspect_private_file(None, DAY)["status"], "BLOCKED_EXTERNAL")
++        with patch.object(private_check, "LEGACY_SHA256", "0" * 64):
++            answer = private_check.compare_raw_bytes(table().encode(), DAY)
++        self.assertEqual(answer["reason"], "REFERENCE_SHA_MISMATCH")
++
++    def test_private_summary_has_no_body_url_path_race_ids_or_times(self):
++        marker = "PRIVATE_DO_NOT_SHARE_TOKEN_9387"
++        body = ("<div>https://example.invalid/auth?secret=" + marker + "</div>" + table(name=lambda n: marker)).encode()
++        with tempfile.TemporaryDirectory() as directory:
++            path = Path(directory) / "private-only.html"
++            path.write_bytes(body)
++            answer = private_check.inspect_private_file(path, DAY)
++            encoded = json.dumps(answer, sort_keys=True)
++            self.assertEqual(answer["status"], "OBSERVED_LOCAL_BYTES_ONLY")
++            self.assertEqual(answer["raw_bytes"], len(body))
++            self.assertEqual(answer["raw_sha256"], hashlib.sha256(body).hexdigest())
++            for forbidden in (marker, str(path), "https://", "20990107_GAM", "13:01"):
++                self.assertNotIn(forbidden, encoded)
++            self.assertFalse(answer["go"])
++            self.assertEqual(path.read_bytes(), body)
++
++    def test_non_regular_extension_symlink_and_bad_encoding_are_unverified(self):
++        with tempfile.TemporaryDirectory() as directory:
++            root = Path(directory)
++            actual = root / "actual.html"
++            actual.write_bytes(table().encode())
++            link = root / "link.html"
++            link.symlink_to(actual)
++            self.assertEqual(private_check.inspect_private_file(link, DAY)["status"], "UNVERIFIED")
++            with patch.object(private_check.os, "O_NOFOLLOW", 0, create=True):
++                self.assertEqual(private_check.inspect_private_file(link, DAY)["reason"], "SYMLINK_INPUT_NOT_ALLOWED")
++            self.assertEqual(private_check.inspect_private_file(root / ".env", DAY)["reason"], "HTML_FILE_EXTENSION_REQUIRED")
++            bad = private_check.compare_raw_bytes(b"\xff\xfe", DAY)
++            self.assertEqual(bad["reason"], "ENCODING_UNVERIFIED")
++
++    def test_old_vs_v003_difference_is_summary_only(self):
++        body = table(name=lambda n: "雨天中止順延記念").encode()
++        answer = private_check.compare_raw_bytes(body, DAY)
++        self.assertEqual(answer["status"], "OBSERVED_LOCAL_BYTES_ONLY")
++        self.assertEqual(answer["old"]["counts"]["cancelled"], 12)
++        self.assertEqual(answer["v003"]["counts"]["cancelled"], 0)
++        self.assertEqual(answer["differences"]["state_flag_differences"], 12)
++        self.assertEqual(answer["research"]["policy_status"], "POLICY_PENDING_REAL_HTML")
++
++    def test_unknown_or_invalid_day_and_nonbytes_never_become_observed(self):
++        for bad in ("20990231", "00000101", "2099-01-07", None):
++            answer = private_check.compare_raw_bytes(table().encode(), bad)
++            self.assertEqual(answer["status"], "UNVERIFIED")
++            self.assertEqual(answer["reason"], "REQUESTED_DAY_UNVERIFIED")
++        answer = private_check.compare_raw_bytes("PRIVATE_BODY", DAY)
++        self.assertEqual(answer["reason"], "INPUT_BYTES_REQUIRED")
++        self.assertIsNone(answer["raw_bytes"])
++
++    def test_cli_argument_errors_do_not_echo_values(self):
++        marker = "https://private.invalid/SHOULD_NOT_ECHO_9127"
++        command = [sys.executable, "-B", str(Path(private_check.__file__)), "--encoding", marker]
++        result = subprocess.run(command, capture_output=True, text=True, check=False)
++        self.assertEqual(result.returncode, 2)
++        self.assertNotIn(marker, result.stdout + result.stderr)
++        self.assertEqual(json.loads(result.stdout)["reason"], "ARGUMENTS_INVALID")
++        self.assertEqual(result.stderr, "")
++
++    def test_size_limit_does_not_read_or_hash_a_partial_file(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path = Path(directory) / "large.html"
++            path.write_bytes(b"PRIVATE_LARGE_HTML_NOT_READ")
++            with patch.object(private_check, "MAX_LOCAL_BYTES", 2), patch.object(private_check, "compare_raw_bytes", side_effect=AssertionError("NO_PARTIAL_COMPARE")):
++                answer = private_check.inspect_private_file(path, DAY)
++            self.assertEqual(answer["reason"], "LOCAL_SIZE_LIMIT_NO_READ")
++            self.assertNotIn("raw_sha256", answer)
+--- /dev/null
++++ b/tests/test_offline_transport.py
+@@ -0,0 +1,294 @@
++"""Hermetic final-response accounting with invented HTTPX transport streams."""
++import asyncio
++import datetime as dt
++import gzip
++import json
++from unittest.mock import AsyncMock
++import httpx
++import pytest
++from models import JST
++from official import OfficialDataFetcher
++from raceindex_status import IndexFailure
++
++
++class Chunks(httpx.AsyncByteStream):
++    def __init__(self, parts, error=None):self.parts,self.error=parts,error
++    async def __aiter__(self):
++        for part in self.parts:yield part
++        if self.error is not None:raise self.error
++
++
++def index_html():
++    return ('<html><table><tr><th>レース</th><th>投票締切</th></tr>'+
++            ''.join(f'<tr><td>{n}R</td><td>13:{n:02d} 投票</td></tr>' for n in range(1,13))+'</table></html>').encode()
++
++
++async def make(handler, retries=1):
++    obj=OfficialDataFetcher(max_retries=retries,backoff_seconds=0)
++    await obj.client.aclose()
++    obj.client=httpx.AsyncClient(transport=httpx.MockTransport(handler),follow_redirects=True,
++                               event_hooks={'response':[obj._observe_transport_headers]})
++    return obj
++
++
++@pytest.mark.asyncio
++@pytest.mark.parametrize('encoding',['identity','gzip'])
++async def test_encoded_and_decoded_body_bytes_are_distinct_and_exact(encoding):
++    plain=b'<html>synthetic body</html>'
++    wire=gzip.compress(plain) if encoding=='gzip' else plain
++    obj=await make(lambda request:httpx.Response(200,headers={'Content-Length':str(len(wire)),'Content-Encoding':encoding},stream=Chunks([wire[:3],wire[3:]])))
++    try:
++        text,when=await obj._get_text('https://synthetic.invalid/example')
++        record=obj.last_transport_observation
++        assert text==plain.decode() and dt.datetime.fromisoformat(when).tzinfo is not None
++        assert record['http_status']==200 and record['wire_bytes']==len(wire) and record['decoded_bytes']==len(plain)
++        assert record['body_read_complete'] and record['transport_complete'] is True
++        assert record['content_length_check']=='MATCH' and record['ascii_html_end_marker_observed'] is True
++        assert not obj._transport_tokens
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_partial_body_preserves_status_but_never_counts_decoded_as_wire():
++    obj=await make(lambda request:httpx.Response(200,headers={'Content-Length':'99'},stream=Chunks([b'part'],httpx.ReadError('PRIVATE_READ_MESSAGE'))))
++    try:
++        with pytest.raises(IndexFailure):await obj._get_text('https://synthetic.invalid/')
++        record=obj.last_transport_observation
++        assert record['http_status']==200 and record['wire_bytes']==4
++        assert record['decoded_bytes'] is None and record['body_read_complete'] is False and record['transport_complete'] is False
++        assert record['content_length_check']=='PARTIAL_NOT_COMPLETE'
++        assert not obj._transport_tokens
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_content_length_mismatch_cannot_enter_parser():
++    obj=await make(lambda request:httpx.Response(200,headers={'Content-Length':'100'},stream=Chunks([index_html()])))
++    try:
++        with pytest.raises(IndexFailure) as caught:await obj.fetch_race_index(dt.datetime(2099,1,7,12,tzinfo=JST))
++        assert caught.value.kind=='HTTP_FETCH_FAILED'
++        assert obj.last_transport_observation['content_length_check']=='MISMATCH'
++        assert obj.last_raceindex_diagnostic['html_parse_status']=='NOT_ATTEMPTED_TRANSPORT_FAILURE'
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++@pytest.mark.parametrize('status',[403,404,500])
++async def test_http_status_does_not_mean_parse_success(status):
++    obj=await make(lambda request:httpx.Response(status,stream=Chunks([b'PRIVATE_HTTP_BODY'])))
++    try:
++        with pytest.raises(IndexFailure):await obj.fetch_race_index(dt.datetime(2099,1,7,12,tzinfo=JST))
++        record=obj.last_transport_observation
++        assert record['http_status']==status and record['body_read_complete'] is True
++        assert obj.last_raceindex_diagnostic['html_parse_status']=='NOT_ATTEMPTED_TRANSPORT_FAILURE'
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_complete_transfer_with_missing_html_end_is_not_parse_success():
++    obj=await make(lambda request:httpx.Response(200,stream=Chunks([b'<html>PRIVATE_EMPTY_TABLE'])))
++    try:
++        with pytest.raises(IndexFailure):await obj.fetch_race_index(dt.datetime(2099,1,7,12,tzinfo=JST))
++        d=obj.last_raceindex_diagnostic
++        assert d['transport']['transport_complete'] is True and d['transport']['ascii_html_end_marker_observed'] is False
++        assert d['html_parse_status']=='REJECTED' and d['official_authenticity']=='UNVERIFIED'
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_prebuffered_mock_body_has_unknown_wire_counter():
++    obj=await make(lambda request:httpx.Response(200,content=b'example'))
++    try:
++        await obj._get_text('https://synthetic.invalid/')
++        r=obj.last_transport_observation
++        assert r['wire_bytes'] is None and r['decoded_bytes']==7 and r['transport_complete'] is None
++        assert r['wire_count_status']=='UNVERIFIED_NOT_OBSERVED'
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_empty_stream_can_be_complete_without_being_html():
++    obj=await make(lambda request:httpx.Response(200,headers={'Content-Length':'0'},stream=Chunks([])))
++    try:
++        text,_=await obj._get_text('https://synthetic.invalid/')
++        r=obj.last_transport_observation
++        assert text=='' and r['wire_bytes']==r['decoded_bytes']==0 and r['transport_complete'] is True
++        assert r['ascii_html_end_marker_observed'] is False
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_redirect_counter_scope_is_only_final_response():
++    def handler(request):
++        if request.url.path=='/first':return httpx.Response(302,headers={'Location':'/last'},stream=Chunks([b'first']))
++        return httpx.Response(200,headers={'Content-Length':'4'},stream=Chunks([b'last']))
++    obj=await make(handler)
++    try:
++        text,_=await obj._get_text('https://synthetic.invalid/first')
++        r=obj.last_transport_observation
++        assert text=='last' and r['http_status']==200 and r['wire_bytes']==4
++        assert r['response_hooks_observed']==2 and r['response_scope'].startswith('FINAL_RESPONSE_ONLY')
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_invalid_length_and_unknown_encoding_are_unverified_safe_scalars():
++    obj=await make(lambda request:httpx.Response(200,headers={'Content-Length':'PRIVATE_LENGTH','Content-Encoding':'PRIVATE_ENCODING'},stream=Chunks([b'body'])))
++    try:
++        await obj._get_text('https://synthetic.invalid/')
++        r=obj.last_transport_observation
++        assert r['content_length'] is None and r['length_declaration']=='INVALID_OR_MULTIPLE_UNVERIFIED'
++        assert r['content_encoding']=='OTHER_UNVERIFIED' and r['transport_complete'] is None
++        assert 'PRIVATE' not in json.dumps(r)
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_safe_logs_and_retries_never_echo_url_body_proxy_or_header(caplog):
++    obj=await make(lambda request:(_ for _ in ()).throw(httpx.ProxyError('PRIVATE_PROXY_CREDENTIAL')) ,retries=2)
++    try:
++        with caplog.at_level('INFO'),pytest.raises(IndexFailure):
++            await obj._get_text('https://PRIVATE_USER:PRIVATE_PASSWORD@synthetic.invalid/PRIVATE_PATH')
++        assert 'PRIVATE_' not in caplog.text and 'https://' not in caplog.text
++        assert obj.last_transport_observation['http_status'] is None
++        assert obj.last_transport_observation['error_kind']=='TRANSPORT_ERROR'
++        assert not obj._transport_tokens
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_successful_parse_has_separate_transport_and_parse_fields():
++    body=index_html()
++    obj=await make(lambda request:httpx.Response(200,headers={'Content-Length':str(len(body))},stream=Chunks([body])))
++    try:
++        result=await obj.fetch_race_index(dt.datetime(2099,1,7,12,tzinfo=JST))
++        d=obj.last_raceindex_diagnostic
++        assert len(result.races)==12 and d['transport']['http_status']==200
++        assert d['html_parse_status']=='SUCCEEDED' and d['parsed_race_count']==12
++        assert d['official_authenticity']=='UNVERIFIED' and d['production_go'] is False
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_mocked_get_retry_api_is_compatible():
++    obj=OfficialDataFetcher(max_retries=2,backoff_seconds=0)
++    obj.client.get=AsyncMock(side_effect=httpx.ProxyError('PRIVATE_PROXY'))
++    try:
++        with pytest.raises(IndexFailure):await obj._get_text('https://synthetic.invalid/')
++        assert obj.client.get.await_count==2 and obj.last_transport_observation['http_status'] is None
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_contexts_do_not_attach_concurrent_other_body_to_race_parse():
++    body=index_html()
++    async def handler(request):
++        if request.url.path.endswith('raceindex'):await asyncio.sleep(0)
++        data=body if request.url.path.endswith('raceindex') else b'x'
++        return httpx.Response(200,headers={'Content-Length':str(len(data))},stream=Chunks([data]))
++    obj=await make(handler)
++    try:
++        await asyncio.gather(obj.fetch_race_index(dt.datetime(2099,1,7,12,tzinfo=JST)),obj._get_text('https://synthetic.invalid/other'))
++        assert obj.last_raceindex_diagnostic['transport']['decoded_bytes']==len(body)
++        assert obj.last_raceindex_diagnostic['html_parse_status']=='SUCCEEDED'
++        assert not obj._transport_tokens
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_cancelled_body_records_observation_then_cleans_private_objects():
++    started=asyncio.Event()
++    captured=[]
++    class Blocking(httpx.AsyncByteStream):
++        async def __aiter__(self):
++            yield b'part'
++            started.set()
++            await asyncio.Event().wait()
++    obj=await make(lambda request:httpx.Response(200,stream=Blocking()))
++    async def capture(response):
++        captured.append(obj._transport_tokens[response.request.extensions['health_observation_token']])
++    obj.client.event_hooks['response'].append(capture)
++    try:
++        task=asyncio.create_task(obj._get_text('https://synthetic.invalid/'))
++        await asyncio.wait_for(started.wait(),1)
++        task.cancel()
++        with pytest.raises(asyncio.CancelledError):await task
++        r=obj.last_transport_observation
++        assert r['error_kind']=='CANCELLED' and r['http_status']==200 and r['wire_bytes']==4
++        assert r['body_read_complete'] is False and r['response_finality']=='UNVERIFIED'
++        assert captured and captured[0]._response is None and not obj._transport_tokens
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_invalid_gzip_is_failure_not_successful_decoding():
++    raw=b'PRIVATE_INVALID_GZIP'
++    obj=await make(lambda request:httpx.Response(200,headers={'Content-Encoding':'gzip','Content-Length':str(len(raw))},stream=Chunks([raw])))
++    try:
++        with pytest.raises(IndexFailure):await obj._get_text('https://synthetic.invalid/')
++        r=obj.last_transport_observation
++        assert r['http_status']==200 and r['decoded_bytes'] is None
++        assert r['body_read_complete'] is False and r['transport_complete'] is False
++        assert 'PRIVATE' not in json.dumps(r)
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_unknown_charset_is_not_echoed_and_httpx_fallback_remains_explicit():
++    body='合成'.encode()
++    obj=await make(lambda request:httpx.Response(200,headers={'Content-Type':'text/html; charset=PRIVATE_UNKNOWN_CHARSET'},stream=Chunks([body])))
++    try:
++        text,_=await obj._get_text('https://synthetic.invalid/')
++        r=obj.last_transport_observation
++        assert text=='合成' and r['decoded_bytes']==len(body)
++        assert r['text_charset_declaration']=='DECLARED_UNSUPPORTED_HTTPX_FALLBACK'
++        assert 'PRIVATE' not in json.dumps(r)
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_timeout_before_headers_has_no_fabricated_status_or_body():
++    obj=await make(lambda request:(_ for _ in ()).throw(httpx.ReadTimeout('PRIVATE_TIMEOUT')))
++    try:
++        with pytest.raises(IndexFailure):await obj._get_text('https://synthetic.invalid/')
++        r=obj.last_transport_observation
++        assert r['error_kind']=='TIMEOUT' and r['http_status'] is None
++        assert r['wire_bytes'] is None and r['decoded_bytes'] is None
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_success_diagnostic_namespace_has_no_secret_url_header_or_body(caplog):
++    obj=await make(lambda request:httpx.Response(200,headers={'X-Private':'PRIVATE_HEADER'},stream=Chunks([b'PRIVATE_BODY'])))
++    try:
++        with caplog.at_level('INFO'):
++            await obj._get_text('https://PRIVATE_USER:PRIVATE_PASSWORD@synthetic.invalid/PRIVATE_PATH')
++        diagnostics=[r.getMessage() for r in caplog.records if r.name=='gamagori-controller']
++        assert diagnostics and all('PRIVATE_' not in text and 'https://' not in text for text in diagnostics)
++        assert 'PRIVATE_' not in json.dumps(obj.last_transport_observation)
++        # HTTPX's pre-existing Request logger is a separate logging-policy scope.
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_duplicate_content_length_is_unverified_not_silently_normalized():
++    obj=await make(lambda request:httpx.Response(200,headers=[('Content-Length','4'),('Content-Length','4')],stream=Chunks([b'body'])))
++    try:
++        await obj._get_text('https://synthetic.invalid/')
++        r=obj.last_transport_observation
++        assert r['wire_bytes']==4 and r['content_length'] is None
++        assert r['length_declaration']=='INVALID_OR_MULTIPLE_UNVERIFIED' and r['transport_complete'] is None
++    finally:await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_html_end_marker_absence_does_not_assert_parse_failure_or_completeness():
++    body=index_html().replace(b'</html>',b'')
++    obj=await make(lambda request:httpx.Response(200,stream=Chunks([body])))
++    try:
++        await obj.fetch_race_index(dt.datetime(2099,1,7,12,tzinfo=JST))
++        r=obj.last_raceindex_diagnostic
++        assert r['html_parse_status']=='SUCCEEDED'
++        assert r['transport']['ascii_html_end_marker_observed'] is False
++        assert r['transport']['document_complete']=='UNVERIFIED_MARKER_IS_NOT_COMPLETENESS'
++    finally:await obj.close()

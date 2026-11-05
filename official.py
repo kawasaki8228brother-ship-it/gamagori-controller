@@ -4,6 +4,7 @@ import asyncio
 import datetime as dt
 import json
 import logging
+from contextvars import ContextVar
 import re
 from typing import Dict, Optional
 
@@ -14,6 +15,7 @@ from parsers import ParserError, parse_race_index
 from beforeinfo_bridge import prepare_beforeinfo
 from odds_bridge import parse_c_odds
 from raceindex_status import FULL_RACE_NUMBERS, IndexFailure
+from http_transport_observation import TransportObservation, safe_error_kind
 
 logger = logging.getLogger("gamagori-controller")
 
@@ -33,6 +35,11 @@ class OfficialDataFetcher:
         self.max_retries = max_retries
         self.backoff_seconds = backoff_seconds
         self.semaphore = asyncio.Semaphore(max_concurrency)
+        self._transport_tokens = {}
+        self._transport_sequence = 0
+        self._transport_context = ContextVar("http_transport_observation", default=None)
+        self.last_transport_observation = None
+        self.last_raceindex_diagnostic = None
         self.client = httpx.AsyncClient(
             timeout=self.timeout,
             headers={
@@ -47,6 +54,7 @@ class OfficialDataFetcher:
                 "Pragma": "no-cache",
             },
             follow_redirects=True,
+            event_hooks={"response": [self._observe_transport_headers]},
         )
 
     async def close(self) -> None:
@@ -62,31 +70,67 @@ class OfficialDataFetcher:
             candidates.append(url.replace("https://boatrace.jp/", "https://www.boatrace.jp/", 1))
         return candidates
 
-    async def _get_text(self, url: str) -> tuple[str, str]:
-        last_error: Optional[Exception] = None
-        candidates = self._candidate_urls(url)
+    async def _observe_transport_headers(self, response):
+        # Extensions are local transport metadata, never request headers.
+        token = response.request.extensions.get("health_observation_token")
+        observation = self._transport_tokens.get(token)
+        if observation is not None:
+            observation.headers_received(response)
 
+    def _publish_transport(self, observation):
+        record = observation.safe_record()
+        self.last_transport_observation = record
+        logger.info("HTTP_TRANSPORT_DIAGNOSTIC %s", json.dumps(record, sort_keys=True, separators=(",", ":")))
+
+    def _publish_raceindex_parse(self, status, race_count=None):
+        context = getattr(self, "_transport_context", None)
+        observation = context.get() if context is not None else None
+        self.last_raceindex_diagnostic = {
+            "transport": observation.safe_record() if observation is not None else None,
+            "html_parse_status": status, "parsed_race_count": race_count,
+            "official_authenticity": "UNVERIFIED", "production_go": False}
+        logger.info("RACEINDEX_PARSE_DIAGNOSTIC %s", json.dumps(self.last_raceindex_diagnostic,
+                    sort_keys=True, separators=(",", ":")))
+
+    async def _get_text(self, url: str) -> tuple[str, str]:
+        candidates = self._candidate_urls(url)
         for attempt in range(1, self.max_retries + 1):
             request_url = candidates[(attempt - 1) % len(candidates)]
+            observation = TransportObservation()
+            self._transport_context.set(observation)
+            self._transport_sequence += 1
+            token = self._transport_sequence
+            self._transport_tokens[token] = observation
+            response = None
+            read_complete = False
             try:
                 async with self.semaphore:
-                    response = await self.client.get(request_url)
+                    response = await self.client.get(request_url,
+                        extensions={"health_observation_token": token})
+                read_complete = True
+                observation.finish(response=response, body_read_complete=True)
+                if observation.content_length_check == "MISMATCH":
+                    raise httpx.RemoteProtocolError("HTTP_BODY_LENGTH_MISMATCH")
                 response.raise_for_status()
                 acquired_at = dt.datetime.now(JST).isoformat()
+                self._publish_transport(observation)
                 if request_url != url:
                     logger.info("HTTP fallback host succeeded")
                 return response.text, acquired_at
+            except asyncio.CancelledError:
+                observation.finish(response=response, body_read_complete=read_complete, error_kind="CANCELLED")
+                self._publish_transport(observation)
+                raise
             except (httpx.HTTPError, httpx.TimeoutException) as exc:
-                last_error = exc
-                logger.warning(
-                    "HTTP attempt %s/%s failed type=%s",
-                    attempt,
-                    self.max_retries,
-                    type(exc).__name__,
-                )
+                observation.finish(response=response, body_read_complete=read_complete,
+                                   error_kind=safe_error_kind(exc))
+                self._publish_transport(observation)
+                logger.warning("HTTP attempt %s/%s failed type=%s", attempt, self.max_retries, safe_error_kind(exc))
                 if attempt < self.max_retries:
                     await asyncio.sleep(self.backoff_seconds * (2 ** (attempt - 1)))
-
+            finally:
+                observation.release_private_response()
+                self._transport_tokens.pop(token, None)
         raise IndexFailure("HTTP_FETCH_FAILED", "HTTP_RETRIES_EXHAUSTED") from None
 
     @staticmethod
@@ -99,19 +143,25 @@ class OfficialDataFetcher:
         now_jst = self._local_now(now_jst)
         date_str = now_jst.strftime("%Y%m%d")
         url = f"{self.BASE_URL}/raceindex?hd={date_str}&jcd=07"
+        context = getattr(self, "_transport_context", None)
+        if context is not None: context.set(None)
         try:
             html, acquired_at = await self._get_text(url)
         except Exception:
+            self._publish_raceindex_parse("NOT_ATTEMPTED_TRANSPORT_FAILURE")
             raise IndexFailure("HTTP_FETCH_FAILED", "HTTP_REQUEST_FAILED") from None
         try:
             races = parse_race_index(html, date_str, url, acquired_at, expected_race_numbers=FULL_RACE_NUMBERS)
         except ParserError as exc:
+            self._publish_raceindex_parse("REJECTED")
             reason = ("RACE_INDEX_NO_RACE_ROWS_UNAUTHENTICATED"
                       if type(exc) is ParserError and exc.args == ("raceindex: no race rows with race number + deadline found",)
                       else "RACE_INDEX_HTML_INVALID")
             raise IndexFailure("HTML_PARSE_FAILED", reason) from None
         except Exception:
+            self._publish_raceindex_parse("UNVERIFIED_INTERNAL_ERROR")
             raise IndexFailure("UNKNOWN_FAILURE", "RACE_INDEX_UNKNOWN_FAILURE") from None
+        self._publish_raceindex_parse("SUCCEEDED", len(races))
         return RaceIndexSnapshot(date=date_str, races=races, source_url=url, acquired_at=acquired_at)
 
     async def fetch_tracking_race_index(self, now_jst: dt.datetime) -> RaceIndexSnapshot:

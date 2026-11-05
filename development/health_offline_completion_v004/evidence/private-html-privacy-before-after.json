@@ -1,0 +1,12 @@
+{
+  "after_echoed_marker": false,
+  "after_exit": 2,
+  "after_fixed_reason": "ARGUMENTS_INVALID",
+  "after_sha256": "6783e4cfd4462a6b505676f61702058114cfd59f030e6cc553e9c104d8633c56",
+  "before_echoed_marker": true,
+  "before_exit": 2,
+  "before_sha256": "abf41bd0a49b3b3357774a80f6e8fa48f5d84927ae6810297745abfd6f1c2b5c",
+  "before_source": "BYTE_MATCHED_RECONSTRUCTION_FROM_REVISION2_NOT_ORIGINAL_DISK_ARCHIVE",
+  "classification": "SYNTHETIC_CLI_ARGUMENT_ONLY",
+  "go": false
+}

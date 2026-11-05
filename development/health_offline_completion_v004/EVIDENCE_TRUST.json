@@ -1,0 +1,137 @@
+[
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/full312.raw.log",
+    "original_bytes": 1191,
+    "original_sha256": "9e3286ed5fb2ce8ac6d778bbf262b8841ce2df6e98ae750feb12dbd9bb31e06d",
+    "published_bytes": 1191,
+    "published_sha256": "9e3286ed5fb2ce8ac6d778bbf262b8841ce2df6e98ae750feb12dbd9bb31e06d",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/full314.raw.log",
+    "original_bytes": 1190,
+    "original_sha256": "948d6d9d41e79f8e7559502997bd1986fe3e44c4b15a83a5995d9fc6e025d08e",
+    "published_bytes": 1190,
+    "published_sha256": "948d6d9d41e79f8e7559502997bd1986fe3e44c4b15a83a5995d9fc6e025d08e",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/baseline314.raw.log",
+    "original_bytes": 1198,
+    "original_sha256": "f3a1e5ecd1de75e8765e0580bf8bb108123db5ce3aa6c9ac52f00850931c7233",
+    "published_bytes": 1198,
+    "published_sha256": "f3a1e5ecd1de75e8765e0580bf8bb108123db5ce3aa6c9ac52f00850931c7233",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/transport-initial314.raw.log",
+    "original_bytes": 99,
+    "original_sha256": "f56dd4ca05ff45af426ff172d2ad855bb378255cafc58876326c27c4d453b595",
+    "published_bytes": 99,
+    "published_sha256": "f56dd4ca05ff45af426ff172d2ad855bb378255cafc58876326c27c4d453b595",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/transport-compat-initial314.raw.log",
+    "original_bytes": 180,
+    "original_sha256": "277a9627f8fd91a3ced1d4db58bcd89b92e97b55386b9ad7065962473594d936",
+    "published_bytes": 180,
+    "published_sha256": "277a9627f8fd91a3ced1d4db58bcd89b92e97b55386b9ad7065962473594d936",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/transport-final312.raw.log",
+    "original_bytes": 180,
+    "original_sha256": "4399c89d2909b989d321ea90f84e692673a753d9210de7a9e119d1ea2f833e6d",
+    "published_bytes": 180,
+    "published_sha256": "4399c89d2909b989d321ea90f84e692673a753d9210de7a9e119d1ea2f833e6d",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/transport-final314.raw.log",
+    "original_bytes": 180,
+    "original_sha256": "02991a74967e336b957e5315b15a5d7c925beef41bfe6303f0f90d6aa25cbe38",
+    "published_bytes": 180,
+    "published_sha256": "02991a74967e336b957e5315b15a5d7c925beef41bfe6303f0f90d6aa25cbe38",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/transport-environment312.json",
+    "original_bytes": 262,
+    "original_sha256": "e949cba784f1a6877cba08ca501df07f9d97a43f51f90e044b351c6da35f9d25",
+    "published_bytes": 262,
+    "published_sha256": "e949cba784f1a6877cba08ca501df07f9d97a43f51f90e044b351c6da35f9d25",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/transport-environment314.json",
+    "original_bytes": 261,
+    "original_sha256": "54cba5a576d9b2d82d877cbe8737c4cf5dbbc224f429eb0344201911e60f257c",
+    "published_bytes": 261,
+    "published_sha256": "54cba5a576d9b2d82d877cbe8737c4cf5dbbc224f429eb0344201911e60f257c",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/html312-post-orphan.raw.log",
+    "original_bytes": 334,
+    "original_sha256": "1923212b5f325632bae4e90daf3f6bc86597aa01157880b168476b749e549898",
+    "published_bytes": 334,
+    "published_sha256": "1923212b5f325632bae4e90daf3f6bc86597aa01157880b168476b749e549898",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/html314-post-orphan.raw.log",
+    "original_bytes": 333,
+    "original_sha256": "a8c9d41baa86591ccaacaeeabc9dca7752bda0f9cd6a57530d5215a0fd4adb2e",
+    "published_bytes": 333,
+    "published_sha256": "a8c9d41baa86591ccaacaeeabc9dca7752bda0f9cd6a57530d5215a0fd4adb2e",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/orphan-public-before.raw.log",
+    "original_bytes": 695,
+    "original_sha256": "72d296a58e802f426c76977ebe8af8c8edf8e2d1774e25fe5271a80d54d124f8",
+    "published_bytes": 695,
+    "published_sha256": "72d296a58e802f426c76977ebe8af8c8edf8e2d1774e25fe5271a80d54d124f8",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/orphan-public-after.raw.log",
+    "original_bytes": 662,
+    "original_sha256": "5df61ac25a271808d3a013d95d7c764db2222c8aff8ad7d9847221df434ba21f",
+    "published_bytes": 662,
+    "published_sha256": "5df61ac25a271808d3a013d95d7c764db2222c8aff8ad7d9847221df434ba21f",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/private-html-privacy-before-after.json",
+    "original_bytes": 481,
+    "original_sha256": "5fc230ecfb1cebb28c47ed5b8ef4b16a52420ff856ec9abe38f645439a5b9121",
+    "published_bytes": 481,
+    "published_sha256": "5fc230ecfb1cebb28c47ed5b8ef4b16a52420ff856ec9abe38f645439a5b9121",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/health_offline_completion_v004/evidence/private-html-not-supplied.raw.log",
+    "original_bytes": 171,
+    "original_sha256": "f7ef89c829d65dd117a807a015d367d93108342854aee2b82a5b558533b84784",
+    "published_bytes": 171,
+    "published_sha256": "f7ef89c829d65dd117a807a015d367d93108342854aee2b82a5b558533b84784",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  }
+]
