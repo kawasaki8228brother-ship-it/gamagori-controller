@@ -1,0 +1,45 @@
+{
+  "case": "p2",
+  "completion": "OFFLINE_SCOPE_COMPLETE_CLAUDE_REVIEW_PENDING",
+  "external": [
+    {
+      "id": "official_mapping",
+      "minimum_resolution_steps": 3,
+      "owner": "HQ14 / Claude",
+      "required_evidence": "Privately verified official field/source/time mapping; synthetic inventory is not authenticated",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "id": "odds_freshness",
+      "minimum_resolution_steps": 3,
+      "owner": "HQ14 / Claude / Andy",
+      "required_evidence": "Approved freshness/missingness rules; current threshold remains null",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "id": "real_host",
+      "minimum_resolution_steps": 3,
+      "owner": "HQ14 / Andy",
+      "required_evidence": "Dedicated host/storage/clock/process evidence after separate approval",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "id": "settlement_policy",
+      "minimum_resolution_steps": 3,
+      "owner": "HQ14 / Claude / Andy",
+      "required_evidence": "Official cancellation/scratch/refund evidence and adopted settlement policy; unadopted cases HOLD",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "id": "realdata_shadow_go",
+      "minimum_resolution_steps": 3,
+      "owner": "HQ14 / Claude / Andy",
+      "required_evidence": "Independent review, preregistration and explicit real-data/Shadow GO",
+      "state": "BLOCKED_EXTERNAL"
+    }
+  ],
+  "failed_open": [],
+  "go": false,
+  "implementation": "IMPLEMENTED",
+  "synthetic_tests": "TESTED"
+}

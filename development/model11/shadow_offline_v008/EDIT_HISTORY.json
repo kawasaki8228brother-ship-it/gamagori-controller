@@ -1,0 +1,112 @@
+{
+  "history": [
+    {
+      "after_sha256": "abb78992c71632d46174daf134c4382154318c9108e43fc3a59462bac93ce3c2",
+      "before_sha256": null,
+      "bytes": 8872,
+      "path": "development/model11/shadow_offline_v008/contract_matrix.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "10f3d0cdccb326e6aae1518008fb5d21917a3fc7b940087c4194d84253b847c1",
+      "before_sha256": null,
+      "bytes": 5166,
+      "path": "development/model11/shadow_offline_v008/odds_audit.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "e88104a2a79a09fa83603a69c0bcf4627a859b7c89a09e8519c34b91b57898a9",
+      "before_sha256": null,
+      "bytes": 11209,
+      "path": "development/model11/tests/test_shadow_offline_contract.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "805fd4f609cf0bd71c03846198a79ce2358366219a53927f8594d1815e1e9293",
+      "before_sha256": "f5b6ed6c78627920f1fb15ad7ff6c041a5cb7e9cac0224b1a5fb17a617317f6e",
+      "bytes": 12086,
+      "path": "development/model11/shadow_offline_v008/CONTRACT_AND_DATA_REVIEW.md",
+      "revision": 2
+    },
+    {
+      "after_sha256": "2f44a93f1a64f2852f2bede099b32b2b32ec919367eeaefc600c2fc4601bda82",
+      "before_sha256": null,
+      "bytes": 8581,
+      "path": "development/model11/shadow_offline_v008/fault_suite.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "47371e0d26f1c42395e367569f53bb92afb5de72a2c62f9f97a1631c92e68919",
+      "before_sha256": null,
+      "bytes": 6089,
+      "path": "development/model11/shadow_offline_v008/independence.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "0ce6624f171e88624c3d0dfdc3d71a98f388822f365428fc462da8bab447f6e8",
+      "before_sha256": null,
+      "bytes": 3835,
+      "path": "development/model11/tests/test_shadow_offline_faults.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "6845cb12ec6867fd1d03188736477c94257cf631a31985ce38c4180df529f549",
+      "before_sha256": null,
+      "bytes": 10846,
+      "path": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "83c3b0eceebbbb18d2289d129a9b1d55695cb65aef674875f684ee9fa43936b5",
+      "before_sha256": null,
+      "bytes": 9323,
+      "path": "development/model11/shadow_offline_v008/SHADOW_FAULTS_AND_INDEPENDENCE.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "df7b1a82058e8a417d26a41de2409c5dc1706ea8ee085c5d8a84e42104d27871",
+      "before_sha256": "10f3d0cdccb326e6aae1518008fb5d21917a3fc7b940087c4194d84253b847c1",
+      "bytes": 5498,
+      "path": "development/model11/shadow_offline_v008/odds_audit.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "fceaea156aa6db267d876865eded06888221bfa46e731275e1072cf675a5bee3",
+      "before_sha256": "e88104a2a79a09fa83603a69c0bcf4627a859b7c89a09e8519c34b91b57898a9",
+      "bytes": 13553,
+      "path": "development/model11/tests/test_shadow_offline_contract.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "be073e88a173ac530848ae52037b710bbb6f14715b5da08dbf6f09772e1577f8",
+      "before_sha256": "2f44a93f1a64f2852f2bede099b32b2b32ec919367eeaefc600c2fc4601bda82",
+      "bytes": 10662,
+      "path": "development/model11/shadow_offline_v008/fault_suite.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "f1b008c8fc9fa46bbc6b0f1ac1c5e04de2cbe93293cf4d7af2eb10a5208b999d",
+      "before_sha256": "47371e0d26f1c42395e367569f53bb92afb5de72a2c62f9f97a1631c92e68919",
+      "bytes": 6126,
+      "path": "development/model11/shadow_offline_v008/independence.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "dd27b8ba1e36d0c16ae95bd580e1c8200c409fe4e0ca5ea4e505d0ca03ac6e7a",
+      "before_sha256": "0ce6624f171e88624c3d0dfdc3d71a98f388822f365428fc462da8bab447f6e8",
+      "bytes": 4003,
+      "path": "development/model11/tests/test_shadow_offline_faults.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "f5b6ed6c78627920f1fb15ad7ff6c041a5cb7e9cac0224b1a5fb17a617317f6e",
+      "before_sha256": null,
+      "bytes": 12090,
+      "path": "development/model11/shadow_offline_v008/CONTRACT_AND_DATA_REVIEW.md",
+      "revision": 1
+    }
+  ],
+  "max_revisions": 2,
+  "scope": "guarded source/test/doc stages before final metadata generation",
+  "stop_events": 0
+}

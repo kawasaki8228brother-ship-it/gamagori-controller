@@ -1,0 +1,119 @@
+[
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/full312.raw.log",
+    "original_bytes": 95016,
+    "original_sha256": "92fda10e79c7297cfb8f13fca346f317de7d290df044f672a6b41b69e8587934",
+    "published_bytes": 95016,
+    "published_sha256": "92fda10e79c7297cfb8f13fca346f317de7d290df044f672a6b41b69e8587934",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/full314.raw.log",
+    "original_bytes": 95015,
+    "original_sha256": "cbf470f2fe44dd64030aaad3f9449d8f7671d807378ca27472f759cdd5bf3c04",
+    "published_bytes": 95015,
+    "published_sha256": "cbf470f2fe44dd64030aaad3f9449d8f7671d807378ca27472f759cdd5bf3c04",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/contract-tests312-initial.raw.log",
+    "original_bytes": 2898,
+    "original_sha256": "b4843077389d91d7f85074ccd58ecfaf54c83dd7c8cb55c387c9539837d8b202",
+    "published_bytes": 2898,
+    "published_sha256": "b4843077389d91d7f85074ccd58ecfaf54c83dd7c8cb55c387c9539837d8b202",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/contract-tests314.raw.log",
+    "original_bytes": 2898,
+    "original_sha256": "c6b0b67ba7fda508f894e065464e81e46568564220f30cb1cd528b0e2c8354ab",
+    "published_bytes": 2898,
+    "published_sha256": "c6b0b67ba7fda508f894e065464e81e46568564220f30cb1cd528b0e2c8354ab",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/contract-tests312-final.raw.log",
+    "original_bytes": 3482,
+    "original_sha256": "2526aa50d09c9a72355c3cf48c8c0e638949ceba87d5114c56b7fe7550e4e553",
+    "published_bytes": 3482,
+    "published_sha256": "2526aa50d09c9a72355c3cf48c8c0e638949ceba87d5114c56b7fe7550e4e553",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/contract-tests314-final.raw.log",
+    "original_bytes": 3840,
+    "original_sha256": "494b19350c9fa9aeabd0b9711e251b15710d9aded06a46efb4b04d843ebdba18",
+    "published_bytes": 3840,
+    "published_sha256": "494b19350c9fa9aeabd0b9711e251b15710d9aded06a46efb4b04d843ebdba18",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/contract-matrix314.raw.json",
+    "original_bytes": 843659,
+    "original_sha256": "f722994ae3908ecd2384354aea98c86d4068c757779d4d3035a3fed6b72a1dd5",
+    "published_bytes": 843659,
+    "published_sha256": "f722994ae3908ecd2384354aea98c86d4068c757779d4d3035a3fed6b72a1dd5",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/contract-runtime312.raw.json",
+    "original_bytes": 247,
+    "original_sha256": "d356051bbcd9a0f9cc68f41e658f67a3a827822c2e1d87bf02f59f069211962b",
+    "published_bytes": 247,
+    "published_sha256": "d356051bbcd9a0f9cc68f41e658f67a3a827822c2e1d87bf02f59f069211962b",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/faults-first-314.log",
+    "original_bytes": 3030,
+    "original_sha256": "68d05fcd02d5b9486063a93dc5ca63789452656970897989ac88c6ac525ea945",
+    "published_bytes": 2946,
+    "published_sha256": "475c3664a46f8f2f5e3637056dc85f846f0de4dff5a85eaf7b79a3881b7678d9",
+    "trust": "REDACTED"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/faults-final-312.log",
+    "original_bytes": 1749,
+    "original_sha256": "3ff014e95e49696f63753650a3d364d3998440329a62799db9d5f7fcd12aa958",
+    "published_bytes": 1749,
+    "published_sha256": "3ff014e95e49696f63753650a3d364d3998440329a62799db9d5f7fcd12aa958",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/faults-final-314.log",
+    "original_bytes": 1748,
+    "original_sha256": "5dcb323e7d5d4049142d5600bf6aa271c568634b30bfceed897fdbd04832004d",
+    "published_bytes": 1748,
+    "published_sha256": "5dcb323e7d5d4049142d5600bf6aa271c568634b30bfceed897fdbd04832004d",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/fault-vectors-314.json",
+    "original_bytes": 5858,
+    "original_sha256": "7e2109424a388661877707f4064e0926a2b13c6b4e56c4d277499bd09d80f68c",
+    "published_bytes": 5858,
+    "published_sha256": "7e2109424a388661877707f4064e0926a2b13c6b4e56c4d277499bd09d80f68c",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/shadow_offline_v008/evidence/independence-314.json",
+    "original_bytes": 3100,
+    "original_sha256": "b052cf7aae472a07b3c0813f3e1d90f031cb1f22e629963883bb5be039634dab",
+    "published_bytes": 3100,
+    "published_sha256": "b052cf7aae472a07b3c0813f3e1d90f031cb1f22e629963883bb5be039634dab",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  }
+]

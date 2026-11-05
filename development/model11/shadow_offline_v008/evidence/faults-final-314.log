@@ -1,0 +1,15 @@
+Python 3.14.3 OS Linux-6.18.57-x86_64-with-glibc2.41 OpenSSL OpenSSL 3.5.5 27 Jan 2026 SQLite 3.50.4
+test_ab_poison_and_pointer_readspy_do_not_enter_prediction (test_shadow_offline_faults.OfflineFaultTests.test_ab_poison_and_pointer_readspy_do_not_enter_prediction) ... ok
+test_clock_backward_and_forward_are_observation_not_new_policy (test_shadow_offline_faults.OfflineFaultTests.test_clock_backward_and_forward_are_observation_not_new_policy) ... ok
+test_clock_missing_nonfinite_naive_and_boolean_fail_closed (test_shadow_offline_faults.OfflineFaultTests.test_clock_missing_nonfinite_naive_and_boolean_fail_closed) ... ok
+test_correction_refund_cancel_scratch_are_distinct_and_no_money_invented (test_shadow_offline_faults.OfflineFaultTests.test_correction_refund_cancel_scratch_are_distinct_and_no_money_invented) ... ok
+test_frozen_baseline_vectors_reexecute_without_skip (test_shadow_offline_faults.OfflineFaultTests.test_frozen_baseline_vectors_reexecute_without_skip) ... ok
+test_log_exports_do_not_contain_synthetic_exception_sentinel (test_shadow_offline_faults.OfflineFaultTests.test_log_exports_do_not_contain_synthetic_exception_sentinel) ... ok
+test_lost_ack_preserves_all_files_and_stops_across_restart (test_shadow_offline_faults.OfflineFaultTests.test_lost_ack_preserves_all_files_and_stops_across_restart) ... ok
+test_refunds_existing_contract_separate_method_stakes (test_shadow_offline_faults.OfflineFaultTests.test_refunds_existing_contract_separate_method_stakes) ... ok
+test_scoped_ast_has_no_named_production_connectors (test_shadow_offline_faults.OfflineFaultTests.test_scoped_ast_has_no_named_production_connectors) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 41.533s
+
+OK

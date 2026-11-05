@@ -1,0 +1,1223 @@
+--- /dev/null
++++ b/development/model11/shadow_offline_v008/CONTRACT_AND_DATA_REVIEW.md
+@@ -0,0 +1,180 @@
++# P2 contract, pre-deadline odds and point-in-time review
++
++Status: IMPLEMENTED + TESTED for the stated synthetic scope; Claude review pending.
++Application / real-data execution: HOLD. production_go is false throughout.
++
++## Change boundary
++
++Parent: `148c156f472c874075a0b25d4f0b6b7e9fafdcfe` (P1 lineage).
++This component adds a mutation harness and diagnostic only. It reuses the frozen
++`model11.shadow_preparation.capture_review.required_mapping_inventory`,
++`model11.shadow_launch.sources.SourceAdapter`, and
++`model11.offline_refinements.point_in_time.audit_point_in_time` from that parent.
++It does not integrate a new P1 component, replace RAW_V001, implement an official
++source mapping, fit a normalizer, select model/BOX parameters, read A/B outputs,
++create an external reader, or modify any writer/LOCK/StateMachine.
++
++Only invented 2099 fixtures are generated. No real captures, credentials,
++HTTP request, official-site access, production database, or public raw race data
++are used. The imported adapter is invoked on in-memory bytes. Test doubles deny
++source file, socket and database access during direct adapter/diagnostic calls.
++No freshness-policy number or candidate is adopted here.
++
++## What 264 means (measured, not an invented official schema)
++
++The frozen inventory returns 264 local destination requirement PATTERNS:
++
++| Inventory scope | Patterns | Concrete expansion used |
++| --- | ---: | ---: |
++| ONE_CAPTURE | 81 | 81 |
++| EACH_INCLUDED_BOAT | 58 | 348 (six boats) |
++| ONE_FULL_FIELD_TICKET | 120 | 120 |
++| EACH_CAPTURE_HISTORY_ENTRY | 5 | 5 (one recorded history entry) |
++| Total | 264 | 554 |
++
++Inventory JSON SHA-256 (sorted compact ASCII JSON):
++`9e9c4b7fe2e1530753902ef0f0f4bbca92c634feb79a22adceb689946eba8892`.
++This is an integrity identifier of the local contract list, not proof of any
++actual official field, original or approved mapping.
++
++Each of 554 concrete destinations is subjected to missing / null / wrong-type /
++nonfinite mutation on a deepcopy: 2216 attempt records. The unmodified synthetic
++profile converts READY. Actual outcome: 2208 HOLD, eight conditional N/A, zero
++unexpected outcomes, and original input unchanged. RAW/course bytes and current
++history hashes are re-bound after mutation, so a field defect is not hidden by a
++trivial stale envelope checksum. Nonfinite adversarial JSON is intentionally
++invalid; the frozen strict decoder must refuse it.
++
++The eight N/A records are the four mutations for each of the two PRIVATE review
++original hashes. Those originals are not supplied or required for the synthetic
++profile. No dummy approval original is generated. They remain externally blocked
++for private use. This is not a blanket claim that every missing value is invalid:
++under frozen EXHIBITION_ONLY, a separate measured probe with frame observation
++null remains READY, while selected exhibition observation null is HOLD. Leaf
++mutations cover both present, non-null observations in the matrix. Missingness
++requirements for other policies are retained from the frozen contract; this one
++profile does not prove all possible observation combinations.
++
++Further regression checks preserve legitimate zero numeric values, distinguish
++missing/null/bool from zero, require motor identity/version agreement, and reject
++future acquired/available/revision times. F/L=true is preserved as a research
++warning (`FL_PRESENT_RESEARCH_INPUT`), not changed into a universal error.
++A scratched boat conflicting with the six-active list is HOLD
++(`SCRATCH_ACTIVE_MISMATCH`). Neither outcome is production admission.
++
++## 120-odds diagnostic and timing boundary
++
++`audit_odds_snapshot` requires the exact 120 distinct triples of six boats,
++positive finite nonboolean numeric gross payout multiples, strict known aware
++acquired/available/revision timestamps, temporal order and prediction-before-
++deadline. There is no implicit unit conversion, missing value imputation, final
++odds substitution, or guessed snapshot role. Caller must explicitly supply
++`PRE_DEADLINE`; unknown or final/post-result role is HOLD.
++
++`audit_odds_raw` also requires original bytes, exact byte SHA, strict UTF-8 JSON,
++and duplicate-key rejection before dictionary collapse. Empty/oversize bytes,
++malformed/nonfinite JSON and wrong SHA are HOLD. The 4 MiB upper bound is reused
++from the existing capture engineering limit, not a freshness limit. Dictionary-
++only input explicitly cannot prove absence of duplicate keys in the original.
++Self-consistent SHA is not independent source authentication.
++
++Age is observed separately for all three timestamps. The maximum age is null,
++`freshness_status=UNVERIFIED_NO_APPROVED_MAX_AGE`, market execution eligibility
++is false, and application remains HOLD even when all contract claims agree.
++The frozen converter has its existing research age behavior; this diagnostic
++does not promote that behavior to a formally approved Shadow or F5 policy.
++Even very old pre-prediction odds do not receive a FRESH/PASS label.
++
++## Past-data point-in-time checks
++
++The wrapper delegates to the frozen point-in-time checker. Tests include all 30
++feature observations at each of the three timestamp positions, post-preservation
++revision of a supposed immutable capture, unknown/final odds, result/payout as a
++feature, and training labels/features unavailable at fit time. Inconsistency is
++HOLD. Normalizer/model fit cutoff must precede prediction. This verifies declared
++claims on invented snapshots; it does not authenticate history or recover missing
++past pre-deadline snapshots. Market selection/comparison uses only hypothetical
++future-captured pre-deadline odds in this suite.
++
++## Executed test evidence
++
++| Runtime | OS | OpenSSL | SQLite | Final result |
++| --- | --- | --- | --- | --- |
++| Python 3.12.14 | Linux 6.18.57 x86_64, glibc 2.41 | 3.5.8 (25 Aug 2026) | 3.53.1 | 17 PASS, 0 failure/error/skip, 7.600 s |
++| Python 3.14.3 | Linux 6.18.57 x86_64, glibc 2.41 | 3.5.5 (27 Jan 2026) | 3.50.4 | 17 PASS, 0 failure/error/skip, 5.525 s |
++
++These are isolated synthetic checks, not observations of Render or a production
++Python/OpenSSL/SQLite combination. The 3.12 environment references the available
++read-only system-site runtime; it is not represented as a fresh production clone.
++The local modules use the standard library plus the frozen package. Initial
++14-case runs and final expanded 17-case runs were both retained; no failing run
++has been relabelled PASS. The second revision deliberately added F/L/scratch,
++training chronology and original-byte-bound cases after initial checks.
++
++Preserved private raw evidence (to be inventoried by the parent):
++
++- `contract-tests312-initial.raw.log`: original 14-test run.
++- `contract-tests314.raw.log`: original 14-test run.
++- `contract-tests312-final.raw.log`: final 17-test run; unchanged unittest output.
++- `contract-runtime312.raw.json`: separately measured environment, not inserted
++  into or represented as part of that original unittest log.
++- `contract-tests314-final.raw.log`: final 17-test run with environment header.
++- `contract-matrix314.raw.json`: all 2216 case records, environment and conditional
++  null-observation probes. It contains only synthetic local target paths/reason
++  codes, never raw capture values, URLs, secret paths or exception text.
++
++## Reproduction and reviewer claims
++
++Run from the isolated repository root; `PYTHONPATH=development/model11`.
++Use `python -B` and an environment with external networking denied. No package
++installation, test cache, application startup or database is required.
++
++| Claim to check | Command / test | Expected evidence |
++| --- | --- | --- |
++| Exact frozen inventory, no replacement schema | `python -B -m shadow_offline_v008.contract_matrix` | 264 patterns, 554 targets, inventory SHA above |
++| Every applicable target rejects four mutation modes | same module command | attempts 2216, HOLD 2208, N/A 8, failures empty, unchanged true |
++| Conditional requirements are not blanket failures | final raw matrix conditional probe | frame null READY, exhibition null HOLD under EXHIBITION_ONLY |
++| No guessed F/L or scratch behavior | discovery test `test_fl_is_a_research_warning_and_active_scratch_is_a_distinct_hold` | warning retained; scratch conflict HOLD; go false |
++| No file/network/DB source calls | discovery test `test_adapter_and_diagnostic_perform_no_source_network_database_or_file_io` | denied-call doubles remain uncalled |
++| Exact odds domain, no final fallback | `OddsAuditTests` in discovery | each missing ticket, invalid unit/value/time and final role held |
++| SHA consistency is not authenticity | raw/dictionary odds tests | strict duplicate rejection; authenticity UNVERIFIED |
++| No invented freshness threshold | all valid odds report tests | age observed, threshold null, eligibility false |
++| Historical and training chronology enforced | `PastInformationTests` in discovery | future/revised/late-fit inputs held |
++| No existing-source rewrite | parent Git-blob comparison | all 320 parent files byte-identical |
++
++Portable complete command (also covers all claims with valid discovery imports):
++
++```sh
++PYTHONPATH=development/model11 python -B -m unittest discover -s development/model11/tests -p test_shadow_offline_contract.py -v
++PYTHONPATH=development/model11 python -B -m shadow_offline_v008.contract_matrix
++```
++
++The complete discovery command executes the named tests without assuming a test-
++package import layout. Source revision counts at handoff: contract_matrix creation
++1, odds_audit 2, tests 2, this document 2. A documentation-only correction aligned
++the review table with the actual OddsAuditTests class and discovery commands.
++The latter two code files are frozen under the two-edit safety gate.
++
++## External blockers and STOP conditions
++
++| Blocker | Who / needed evidence | Minimum resolution path |
++| --- | --- | --- |
++| Actual official field mapping, units, source identity | HQ14 supplies privately observed structure; Claude independently reviews | 1. Capture privately under separate GO. 2. Bind source fields/units/times and immutable original hashes. 3. Independent contract review. No public raw data. |
++| Private approval originals and receipts | HQ14 / Claude; originals with independently checked SHA | 1. Obtain actual records privately. 2. Independently match their scope and bytes. Never substitute self-reported review hashes. |
++| Approved odds freshness policy | HQ14 / Claude / Andy | 1. Review pilot timing/missingness. 2. Approve policy before evaluation. 3. Add separately audited boundary fixtures. No candidate value is proposed here. |
++| Past pre-deadline snapshot possession | HQ14 private custodian | 1. Inventory actual point-in-time originals. 2. Verify original availability/revision chronology. If absent, keep historical market comparison blocked and use future capture only. |
++| Production-specific runtime / source authentication | approved independent Shadow operator / reviewers | 1. Supply private environment and time evidence under separate GO. 2. Review observations. 3. Run approved preflight; synthetic PASS alone cannot admit private data. |
++| F5 evaluation inputs and independent approval | HQ14 / Claude / Andy | Retain existing OPEN values, holdout separation and go=false until separately approved. |
++
++Software portions above are IMPLEMENTED and TESTED within stated fixture coverage.
++These external items are BLOCKED_EXTERNAL. There is no known FAILED_OPEN item in
++this final 17-test component, but comprehensive JSON fuzzing, actual official
++compatibility, private source authenticity and real-data performance are not
++claimed. A newly discovered uncaught validator exception is EXCEPTION_UNVERIFIED
++and a failed software check, never a rejection PASS. Unexpected mutation
++acceptance, raw mismatch, unknown time, final odds, or source ambiguity is HOLD.
++If a third content revision becomes necessary, stop and report before editing.
++
++No production application, Shadow start, automatic approval, threshold adoption,
++model superiority or profit claim follows from this report. Independent Claude
++review and the user's separate deployment/real-data GO remain outstanding.
+--- /dev/null
++++ b/development/model11/shadow_offline_v008/REVIEW_GUIDE.md
+@@ -0,0 +1,80 @@
++# P2 V008 preparation: Claude independent review guide
++
++This is a new, offline-only synthetic component on parent
++`148c156f472c874075a0b25d4f0b6b7e9fafdcfe`. No existing model, selector, writer,
++LOCK, source mapping or historical evidence is replaced. All 320 parent files
++remain byte-identical. Status: **IMPLEMENTED + TESTED within the stated synthetic
++coverage; complete (Claude review pending)**. All real-data execution, source
++approval and Shadow launch remain HOLD, and all GO flags remain false.
++
++Run commands from the isolated repository root. Set
++`PYTHONPATH=development/model11`, use `python -B` (an existing interpreter), and
++block external networking. The diagnostic commands do not install dependencies,
++contact a site, write an external service or start a host. The fault harness
++creates and cleans only new local synthetic temporary stores. The complete
++regression wrapper and evidence/manifest are supplied by the enclosing package;
++review those exact originals rather than a screenshot transcription.
++
++## Ten claims to independently check
++
++Paths in the evidence column below are relative to this guide's directory.
++
++| # | Claim | Reproducible command / source assertion | Required result and preserved evidence |
++| ---: | --- | --- | --- |
++| 1 | Changes are additions on the declared frozen parent; old evidence is not rewritten | Inspect the enclosing manifest and compare the 320 parent-file byte counts, SHA-256 and Git blobs with the fixed parent; inspect new-file-only Git diff | 320/320 match, no main/PR/formal A/B/requirements/CI changes. The case manifest is the authoritative exact bytes/SHA inventory; self-hash alone is not approval/authentication. |
++| 2 | The measured input contract is 264 local patterns, not an invented official mapping | `PYTHONPATH=development/model11 python -B -m shadow_offline_v008.contract_matrix` | 264 patterns expand to 554 targets; 2216 records, 2208 HOLD and eight conditional N/A, zero unexpected acceptance, original input unchanged. `evidence/contract-matrix314.raw.json` preserves every record. Two private review hashes are N/A for this synthetic profile, not fabricated approvals. |
++| 3 | Odds require a complete pre-deadline 120-domain; unknown/final values are not substituted | `PYTHONPATH=development/model11 python -B -m unittest discover -s development/model11/tests -p test_shadow_offline_contract.py -v` (OddsAuditTests) | Missing each ticket, bad units, bool/nonfinite/nonpositive odds, unknown/future timestamps, final/unknown role, duplicate JSON and byte-SHA mismatch are HOLD. Age is observed separately; freshness threshold is null, freshness UNVERIFIED, market eligibility false. `CONTRACT_AND_DATA_REVIEW.md`, source `odds_audit.py`, and full logs. |
++| 4 | Feature, motor, course and historical timing claims cannot silently admit future data | Same contract discovery command (ContractMatrixTests / PastInformationTests) | All 30 feature observations across three future timestamp positions, post-snapshot revision, missing/final odds, result/payout feature, invalid motor identity/version and late training information are held. Valid zero and F/L warning semantics are preserved; missing is not guessed false. Existing policy permits absent unselected frame under EXHIBITION_ONLY; selected exhibition absent is HOLD. Full matrix and full logs. |
++| 5 | Twelve-race output keeps all probability and portfolio invariants | `PYTHONPATH=development/model11 python -B -m shadow_offline_v008.fault_suite` | `12R_PROBABILITY_BOX_RAW_RECEIPT` TESTED: each P_* has 120 distinct tickets/sum one, no repeated boat; normal five stake 500 and separate BOX stakes 600; raw/SHA/receipt/readback agree. `evidence/fault-vectors-314.json`. No performance/superiority claim follows from invented data. |
++| 6 | Duplicate, restart, partial-save and lost-acknowledgement cases preserve evidence and fail closed | Same fault-suite command; inspect `CONCURRENT_DUPLICATE_RESTART`, `EVERY_PERSIST_STAGE`, `AMBIGUOUS_PERSIST_STOP`, `LOST_ACK_AFTER_COMPLETE_COMMIT` | One committed forecast; ambiguous response leads to durable STOP and restart HOLD. Lost ACK after completed commit retains input.raw/forecast.raw/receipt.json/completion.json, no automatic replay. `evidence/fault-vectors-314.json`; frozen runner/storage source pin checks fail closed. |
++| 7 | Clock/deadline anomalies do not become valid late predictions | `PYTHONPATH=development/model11 python -B -m unittest discover -s development/model11/tests -p test_shadow_offline_faults.py -v`; fault-suite command | Backward/forward clock, deadline crossover and invalid clock observation cases are explicit/HOLD. Wall/monotonic diagnostic remains observation-only: no new freshness, deadline safety-margin or operational clock threshold is adopted. Source `fault_suite.py`, full logs and fault-vector JSON. Actual host/time authenticity is external. |
++| 8 | Result revision, refund, cancellation and scratch are distinguished without rewriting predictions | Fault-suite command; inspect append-only/final-selection/refund/scratch vectors and new status-classification test | Corrections append; final selection is explicit. Independent refund example: five stake500/net600, mechanical BOX stake600/net500 for payout1000 plus refund100. Unknown refund is not zero; winner/refund conflict rejected. Cancel/scratch settlement has null P&L and BLOCKED_EXTERNAL/HOLD pending approved contract. Existing forecast bytes and writer rules unchanged. |
++| 9 | Scoped A/B independence has static and dynamic evidence, with limits disclosed | `PYTHONPATH=development/model11 python -B -m shadow_offline_v008.independence` | Ten pinned selected-source AST/import/call scans clear; exactly17 declared pointer reads, no A/B prediction pointer. Ignored A/B-shaped envelope poison leaves extracted features and all prediction/selection outputs identical; selected feature or source poison is HOLD. `evidence/independence-314.json`. Parsing the complete JSON is not claimed to be zero parsing of ignored keys; this is not universal noninterference. Evaluation-only frozen-output adapters are explicitly excluded from the prediction boundary. |
++| 10 | Software PASS is separate from adoption/approval; counts, failures and limitations are honest | Run the enclosing `run_regressions.py` with each recorded interpreter; inspect environment headers, collection counts, manifest and first-run evidence | Full model suite: 584 PASS on Python3.12 and 584 PASS on Python3.14. New outer methods are17 contract +9 faults =26; 18 embedded baseline replays are not added to method counts. CLI has20 named fault vectors including ACK/refund. Initial QA failure is preserved as `evidence/faults-first-314.log` (REDACTED if necessary, with separately declared original SHA), never relabelled PASS. All GO flags false. |
++
++## Runtime and evidence interpretation
++
++Final full-regression counts above are measured by the enclosing root verifier,
++not inferred from this guide's text. The component's direct final tests are:
++
++| Interpreter | OpenSSL | SQLite | Contract tests | Fault outer tests |
++| --- | --- | --- | ---: | ---: |
++| Python 3.12.14 | 3.5.8 | 3.53.1 | 17 PASS | 9 PASS |
++| Python 3.14.3 | 3.5.5 | 3.50.4 | 17 PASS | 9 PASS |
++
++OS: Linux 6.18.57 x86_64 with glibc2.41. These are observed local runtimes, not
++proof of compatibility with an unobserved real Shadow host or production SQLite.
++The 3.12 environment uses the available read-only system-site runtime; no clean
++production-clone claim is made. Full original runs:
++`evidence/full312.raw.log` and `evidence/full314.raw.log`.
++
++The initial fault QA incorrectly required an unselected envelope key to cause
++rejection. The frozen pointer mapper actually ignores that field; the corrected
++QA checks exact selected-pointer reads, identical complete predictions and HOLD
++for selected-feature contamination. No writer/model was changed to accommodate
++the test. The original failing evidence remains separate from final PASS logs.
++Any REDACTED export has a distinct SHA and trust label; it is not the original
++log. Consult the enclosing manifest for exact filenames, bytes and full hashes.
++
++## External blockers: who supplies what, and shortest resolution
++
++| Remaining gate | Owner / required input | Minimum safe path |
++| --- | --- | --- |
++| Real official input mapping and source/time authenticity | HQ14 private custodian; exact privately captured field structure, original evidence and timestamp history; Claude independent review | Private capture under separate approval -> explicit mapping/units/time correspondence -> independent replay/review. No live collector, fabricated mapping or public raw original here. |
++| Odds freshness policy / F5 OPEN conditions | HQ14 / Claude / Andy; actual pilot timing, approved rule and remaining evaluation inputs | Retain null/unadopted values -> review actual private summary -> separate recorded adoption and audited boundary tests before private evaluation. No candidate numeric threshold is invented in this package. |
++| Private review originals and approval receipts | HQ14 / Claude; actual scoped original bytes/hash/receipt | Obtain originals privately -> independently bind bytes/scope -> explicit GO review. Self-reported hash or OFFICIAL_* spelling is not proof. |
++| Past pre-deadline snapshot availability | HQ14 private custodian | Inventory actual snapshots -> independently verify point-in-time availability/revisions; absent snapshots stay blocked. Final odds are never backfilled as pre-deadline odds. |
++| Cancel/scratch/refund result contracts | HQ14 / Claude; approved official semantics and original evidence | Supply contract -> independent review -> separately approved implementation/testing. No inferred full refund, zero P&L or TERMINAL policy here. |
++| Actual dedicated host/runtime/clock/filesystem/restart evidence | Future separately approved operator, HQ14 / Claude / Andy | Supply isolated host evidence under separate GO -> compatibility and fault review -> independent launch decision. No host/deploy/schedule/Shadow process is created now. |
++
++These are BLOCKED_EXTERNAL, distinct from a failed code test. No current
++unresolved code failure is asserted absent evidence: if a vector fails, a frozen
++source changes, provenance is unknown, save/readback is ambiguous, a deadline is
++crossed or a third file revision is needed, STOP and report. Do not auto-clear
++STOP, replay, fill missing input, approve private execution or merge this branch.
++
++Source/tests/component documents are frozen at the handoff revision counts;
++this guide is a new file, not a route around that freeze. Any further defect
++requires the defined review/STOP process. No actual source mapping, real-data
++validation, model superiority, launch approval or production operation is
++claimed. Model1.0, BOX Ver.1, formal A/B and all approval gates remain unchanged.
+--- /dev/null
++++ b/development/model11/shadow_offline_v008/SHADOW_FAULTS_AND_INDEPENDENCE.md
+@@ -0,0 +1,79 @@
++# P2 Shadow faults and A/B boundary — synthetic V008 component
++
++Status: implemented + synthetic-tested; **complete (Claude review pending)** for this limited component. All reports retain `go=false`. No Shadow process, production connection, real capture, or writer integration is enabled here.
++
++## Scope and frozen baseline
++
++Base commit: `148c156f472c874075a0b25d4f0b6b7e9fafdcfe`. New modules only; existing runner, storage, models, selectors, settlement, settings, source mapping, course policy and A/B remain unchanged. Runtime fixtures are invented 2099 races. Every test store is newly created under `TemporaryDirectory`; no external DB is opened. P1's independently developed raw evaluator is referenced as an evaluation-only exception, never imported or integrated by this component.
++
++The fault harness loads the existing synthetic fixture module only after SHA verification:
++
++| Frozen source | Bytes | SHA-256 |
++| --- | ---: | --- |
++| tests/test_shadow_launch_runner.py | 25065 | 5b70cc75b4a8cf536ebf4bef9a0b33401e0df1d146b82d8438bb0bd656553bf4 |
++| tests/test_shadow_launch_storage.py | 21933 | cfc46ff18ee3af34122fc8c19e8489642b84fca35f381976bdf72ff1917bed60 |
++
++These are **exact baseline test replays**, not 18 newly independent implementations. A newly added ACK-loss probe covers successful on-disk commit followed by lost response. A separate refund probe checks independent arithmetic expectations rather than source-code presence.
++
++## Reproduce
++
++From repository root, with an existing isolated interpreter (no installation/network required):
++
++```sh
++PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=development/model11 nice -n 10 python -B -m unittest discover -s development/model11/tests -p test_shadow_offline_faults.py -v
++PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=development/model11 nice -n 10 python -B -m shadow_offline_v008.fault_suite
++PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=development/model11 nice -n 10 python -B -m shadow_offline_v008.independence
++```
++
++Only synthetic temporary files are written. No HTTP library/collector is called. Importing the new modules does not create storage or start the runner. `fault_suite` explicitly invokes bounded simulations and destroys their new temporary roots afterward.
++
++## Executed results
++
++| Runtime | OS | OpenSSL | SQLite | New outer tests | Embedded baseline vectors |
++| --- | --- | --- | --- | ---: | ---: |
++| Python 3.12.14 | Linux 6.18.57 x86_64, glibc 2.41 | 3.5.8 | 3.53.1 | 9 PASS, 42.131 s | 18 PASS |
++| Python 3.14.3 | Linux 6.18.57 x86_64, glibc 2.41 | 3.5.5 | 3.50.4 | 9 PASS, 41.533 s | 18 PASS |
++
++The 18 embedded vectors are **not** added to unittest collection counts. The CLI additionally reports ACK-loss and refund checks as 20 named vectors. Runtime differences from the eventual host remain `BLOCKED_EXTERNAL`; this is not production compatibility or real-data performance verification.
++
++Raw logs retained privately: `faults-final-312.log`, `faults-final-314.log`, first-run `faults-first-314.log`; CLI evidence `fault-vectors-314.json`, `independence-314.json`. Their bytes/SHA belong in the enclosing case manifest. The first run failed because the new QA expected an **unselected** raw-envelope field to be rejected. The explicit pointer mapper ignores unselected fields: features and full prediction/selection output were unchanged. Revision 2 retains ignored-envelope/readspy equality and tests **selected feature** contamination as HOLD. No frozen model/writer was changed to make the test pass.
++
++## Ten claims for independent review
++
++| # | Claim | Command / assertion | Expected evidence |
++| ---: | --- | --- | --- |
++| 1 | Baseline raw source is pinned before execution | `fault_suite.load_pinned_fixture` and PINS | exact two SHA values above; mismatch raises fixed error |
++| 2 | 12R probability/BOX/raw/receipt integrity | fault CLI `12R_PROBABILITY_BOX_RAW_RECEIPT` | TESTED; every P_* 120 entries/sum 1; five stake 500, separate BOX stakes 600 |
++| 3 | Concurrent duplicates and restart do not publish a second forecast | `CONCURRENT_DUPLICATE_RESTART` | TESTED; one COMMITTED, immutable original bytes |
++| 4 | Partial persist failures preserve evidence and STOP | `EVERY_PERSIST_STAGE`, `AMBIGUOUS_PERSIST_STOP`, `LOST_ACK_AFTER_COMPLETE_COMMIT` | TESTED; ACK case preserves four artifacts, durable stop and restart HOLD |
++| 5 | Deadline delay / backwards clock are fail-closed | `DELAY_CROSSES_DEADLINE`, `CLOCK_FORWARD_DEADLINE`, `CLOCK_BACKWARDS`; clock unit tests | HOLD before valid publish; no safety margin/threshold adopted |
++| 6 | Result correction never overwrites forecast | `RESULT_CORRECTION_APPEND_ONLY`, `NEW_FINAL_REQUIRES_RESELECTION`, `DAILY_EXPLICIT_FINAL_SELECTION` | append-only result, explicit final-version selection required |
++| 7 | Refund arithmetic stays per portfolio | `SEPARATE_STAKES_EXPLICIT_REFUND` | five net 600, BOX net 500 for payout 1000/refund 100; unknown refund => unknown; winner/refund contradiction rejected |
++| 8 | Scratch/cancellation do not invent financial/terminal policy | `SCRATCH_FULL120_HOLD`; status-classification unit test | full-120 impossible input HOLD; distinct event kind, pnl null, no writer integration |
++| 9 | Scoped import and data-flow probes expose no A/B prediction input | independence CLI | ten-file AST clear; exactly 17 declared pointers, no A/B pointer; all outputs equal for ignored A/B envelope poison; selected feature/source poison HOLD |
++| 10 | Defaults, STOP, source errors and secrets are safe in simulation | `DURABLE_OPERATOR_STOP`, source exception vector, new sentinel test | durable STOP/no replay; fixed result codes, synthetic private exception text absent; go=false |
++
++## Boundary interpretation
++
++Static analysis checks imports and selected call names in **ten listed frozen files**, not all executable Python, host files, plugin behavior, dynamic loading, or universal noninterference. It checks named production connectors; absence is bounded evidence. The dynamic probe wraps the existing JSON-pointer resolver and records its declared 17 reads. The entire submitted JSON is parsed, including ignored A/B-looking fields; parsing them is not use as prediction input. Poison assertions compare extracted raw/course inputs **and full predictor/selection outputs**. Schema-level feature/source poison is rejected.
++
++`preparation/legacy.py` and `revision_v003/evaluation.py` remain evaluation-only supplied-frozen-output adapters. They do not reproduce official Model 1.0/Human BOX and are not training/selection inputs. Their existence is not falsely reported as an A/B prediction reader; the prediction probes operate on the adapter-to-predictor boundary. P1's separately hashed-raw comparison evaluator is outside this branch's import graph by construction.
++
++## Four-state record and external handoff
++
++| Item | IMPLEMENTED | TESTED | Remaining state / owner / shortest resolution |
++| --- | --- | --- | --- |
++| Fixed synthetic 12R and fault harness | yes | both runtimes | Claude independent review pending; inspect claims and run above three commands |
++| ACK-loss, refund arithmetic, scoped A/B probes | yes | both runtimes | Claude independent review pending; run new tests and inspect structured probe output |
++| Wall/monotonic observation helper | yes, diagnostic only | synthetic finite/invalid/backward/jump pairs | BLOCKED_EXTERNAL: HQ14 host operator supplies actual clock/runtime evidence, Claude reviews, Andy separately approves use; no threshold/integration here |
++| Actual cancellation/scratch financial settlement | no contract adoption | explicit unknown/HOLD tested | BLOCKED_EXTERNAL: HQ14 supplies approved official result/refund/cancel/scratch contract; Claude independently reviews; then separately approved implementation/testing. No zero-profit/full-refund inference |
++| Real source mapping/time authenticity | not fabricated | synthetic format only | BLOCKED_EXTERNAL: HQ14 supplies private verified mapping/time evidence; private replay; Claude review + Andy individual GO |
++| Actual host/restart/filesystem behavior | no host created | local temp-store simulation only | BLOCKED_EXTERNAL: HQ14 dedicated host evidence → independent compatibility/fault review → separate launch GO |
++
++No unaddressed code failure is represented as PASS. The initial QA expectation defect is fixed with first-failure evidence preserved. Source/test files reached two guarded content revisions and are frozen; a further defect requires STOP/report rather than a third edit or rename.
++
++## STOP / safety / disposal
++
++STOP for frozen source SHA mismatch, failed vector, unknown clock evidence, future/missing source data, uncertain save/readback, duplicate conflict, deadline crossover, unapproved result version, or any attempted real-data/service path. Source exceptions export fixed classifications, never arbitrary exception text. No operator stop is cleared automatically and no replay is scheduled.
++
++Remove only the new offline component and its test to discard this candidate; temporary stores are already cleaned up. Existing production artifacts need no restore because they were not changed. Do not deploy this branch. Formal rule adoption, real-data execution, Shadow activation, and production changes require independent review and Andy's separate GO. Freeze, formal A/B, Model 1.0, BOX Ver.1, LOCK and F2/F5 decisions remain unchanged.
+--- /dev/null
++++ b/development/model11/shadow_offline_v008/contract_matrix.py
+@@ -0,0 +1,177 @@
++"""Exhaustive synthetic mutations over the frozen 264-pattern input inventory.
++
++This is not a new official mapping, model normalizer, writer or input gateway.
++"""
++from __future__ import annotations
++
++from collections import Counter
++from copy import deepcopy
++from datetime import datetime, timedelta
++from hashlib import sha256
++import json
++
++from model11.synthetic import make_dataset
++from model11.shadow_launch.sources import SourceAdapter, make_synthetic_source_fixture
++from model11.shadow_preparation.capture_review import required_mapping_inventory
++from model11.offline_refinements.point_in_time import audit_point_in_time
++
++BASE_COMMIT = '148c156f472c874075a0b25d4f0b6b7e9fafdcfe'
++TIMES = ('acquired_at', 'available_at', 'revision_at')
++PRIVATE_REVIEW = {'/mapping/review_evidence/hq14_review_sha256', '/mapping/review_evidence/claude_review_sha256'}
++MODES = ('missing', 'null', 'wrong_type', 'nonfinite')
++
++
++def make_fixture(seed=735):
++    return make_synthetic_source_fixture(make_dataset(1, 1, seed)['races'][0])
++
++
++def _view(fixture):
++    capture = fixture['capture']
++    if capture.get('data_classification') != 'SYNTHETIC_ONLY' or capture.get('synthetic') is not True:
++        raise ValueError('SYNTHETIC_FIXTURE_REQUIRED')
++    document = json.loads(capture['payload_bytes'].decode('utf-8'))
++    raw, course = document['invented_raw'], document['invented_course']
++    if raw.get('data_classification') != 'SYNTHETIC_ONLY' or not raw.get('target_date', '').startswith('2099-'):
++        raise ValueError('SYNTHETIC_2099_FIXTURE_REQUIRED')
++    return {'raw': raw, 'course': course, 'capture': deepcopy(capture), 'mapping': deepcopy(fixture['mapping'])}
++
++
++def _resign(view):
++    capture = view['capture']
++    payload = json.dumps({'invented_raw': view['raw'], 'invented_course': view['course']},
++                         sort_keys=True, separators=(',', ':'), ensure_ascii=True, allow_nan=True).encode('ascii')
++    digest = sha256(payload).hexdigest()
++    capture['payload_bytes'], capture['payload_sha256'] = payload, digest
++    # Keep envelope/history integrity consistent, so RAW/COURSE mutations probe
++    # the field contract rather than merely failing the outer byte hash.
++    capture['history'][-1]['payload_sha256'] = digest
++    return {'mapping': view['mapping'], 'capture': capture}
++
++
++def expanded_inventory(fixture=None):
++    fixture = make_fixture() if fixture is None else fixture
++    view = _view(fixture)
++    inventory = required_mapping_inventory()
++    targets = []
++    for index, item in enumerate(inventory):
++        path = item['local_target']
++        boat_indices = range(len(view['raw']['boats'])) if '{boat_index}' in path else (None,)
++        history_indices = range(len(view['capture']['history'])) if '{history_index}' in path else (None,)
++        for boat in boat_indices:
++            for history in history_indices:
++                materialized = path.replace('{boat_index}', str(boat)).replace('{history_index}', str(history))
++                targets.append({'pattern_index': index, 'pattern': path, 'path': materialized,
++                    'scope': item['scope'], 'requirement': item['local_requirement'],
++                    'applicability': 'PRIVATE_REVIEW_NOT_APPLICABLE_SYNTHETIC' if path in PRIVATE_REVIEW else 'PRESENT_IN_SYNTHETIC_FIXTURE'})
++    return targets
++
++
++def _leaf(view, path):
++    tokens = path.removeprefix('/').split('/')
++    current = view
++    for token in tokens[:-1]:
++        current = current[int(token)] if isinstance(current, list) else current[token]
++    last = int(tokens[-1]) if isinstance(current, list) else tokens[-1]
++    if isinstance(current, dict) and last not in current:
++        raise KeyError('INVENTORY_TARGET_NOT_PRESENT')
++    return current, last
++
++
++def mutate_fixture(fixture, path, mode, *, replacement=None):
++    view = _view(fixture)
++    container, key = _leaf(view, path)
++    if mode == 'missing':
++        del container[key]
++    elif mode == 'null':
++        container[key] = None
++    elif mode == 'wrong_type':
++        container[key] = {'INVALID_SYNTHETIC_TYPE': True}
++    elif mode == 'nonfinite':
++        container[key] = float('nan')
++    elif mode == 'replace':
++        container[key] = deepcopy(replacement)
++    else:
++        raise ValueError('MUTATION_MODE_NOT_DECLARED')
++    if path.startswith(('/raw/', '/course/')):
++        return _resign(view)
++    return {'mapping': view['mapping'], 'capture': view['capture']}
++
++
++def _converted(fixture):
++    try:
++        report = SourceAdapter(fixture['mapping']).convert(fixture['capture'])
++        return report['status'], list(report.get('reasons', []))
++    except Exception:
++        # An uncaught frozen-validator exception is an OPEN defect, not a PASS.
++        return 'EXCEPTION_UNVERIFIED', ['FROZEN_VALIDATOR_EXCEPTION_NOT_ECHOED']
++
++
++def run_contract_matrix(*, include_rows=False):
++    fixture = make_fixture()
++    untouched = deepcopy(fixture)
++    baseline, _ = _converted(fixture)
++    patterns = required_mapping_inventory()
++    targets = expanded_inventory(fixture)
++    rows, failures, totals = [], [], Counter()
++    for target in targets:
++        for mode in MODES:
++            if target['applicability'] != 'PRESENT_IN_SYNTHETIC_FIXTURE':
++                observed, reasons = 'NOT_APPLICABLE_CONDITIONAL_PROFILE', ['PRIVATE_REVIEW_ORIGINALS_NOT_SUPPLIED']
++                expected = observed
++            else:
++                try:
++                    altered = mutate_fixture(fixture, target['path'], mode)
++                    observed, reasons = _converted(altered)
++                except Exception:
++                    observed, reasons = 'EXCEPTION_UNVERIFIED', ['MATRIX_CONSTRUCTION_EXCEPTION_NOT_ECHOED']
++                expected = 'HOLD'
++            totals[observed] += 1
++            record = {'pattern_index': target['pattern_index'], 'pattern': target['pattern'],
++                      'path': target['path'], 'mode': mode, 'expected': expected, 'observed': observed,
++                      'reasons': reasons, 'matched': observed == expected}
++            if not record['matched']:
++                failures.append(record)
++            if include_rows:
++                rows.append(record)
++    unchanged = fixture == untouched
++    result = {'schema': 'SYNTHETIC_264_PATTERN_MUTATION_MATRIX_V008_PREPARATION',
++              'classification': 'SYNTHETIC_ONLY', 'base_commit': BASE_COMMIT,
++              'inventory_patterns': len(patterns), 'materialized_targets': len(targets),
++              'pattern_scopes': dict(Counter(item['scope'] for item in patterns)),
++              'mutation_modes': list(MODES), 'attempts': sum(totals.values()), 'outcomes': dict(totals),
++              'baseline_converter_status': baseline, 'input_unchanged': unchanged,
++              'failures': failures, 'software_check': 'PASS' if baseline == 'READY' and unchanged and not failures else 'FAILED_OPEN',
++              'inventory_sha256': sha256(json.dumps(patterns, sort_keys=True, ensure_ascii=True, separators=(',', ':')).encode('ascii')).hexdigest(),
++              '264_means': 'LOCAL_REQUIREMENT_PATTERNS_NOT_OFFICIAL_JSON_FIELDS',
++              'application_status': 'HOLD', 'actual_official_mapping': 'BLOCKED_EXTERNAL',
++              'external_authenticity': 'UNVERIFIED', 'production_go': False}
++    if include_rows:
++        result['rows'] = rows
++    return result
++
++
++def make_point_in_time_fixture():
++    race = make_dataset(1, 1, 735)['races'][0]
++    snapshot_id = 'SYNTHETIC_IMMUTABLE_CAPTURE_001'
++    observed = deepcopy(race['odds_snapshot'])
++    provenance = {key: observed[key] for key in TIMES}
++    provenance.update(version='SYNTHETIC_PRELOCK_v001', snapshot_id=snapshot_id,
++                      source_id='SYNTHETIC_LOCAL_PIT', evidence_sha256='a' * 64)
++    as_of = datetime.fromisoformat(race['prediction_at'])
++    return {'data_classification': 'SYNTHETIC_ONLY', 'synthetic': True,
++        'race_id': race['race_id'], 'target_date': race['target_date'], 'as_of': race['prediction_at'], 'deadline': race['deadline'],
++        'snapshot': {'mode': 'IMMUTABLE_SNAPSHOT', 'snapshot_id': snapshot_id, 'version': 'SYNTHETIC_SNAPSHOT_v001',
++                     'preserved_at': (as_of - timedelta(seconds=20)).isoformat(), 'source_id': 'SYNTHETIC_LOCAL_PIT',
++                     'content_sha256': 'b' * 64, 'evidence_sha256': 'c' * 64},
++        'features': [{'boat': boat['boat'], 'name': name, 'value': boat['features'][name],
++                      'unit': 'SYNTHETIC_NORMALIZED_SCORE', 'effective_at': boat['motor_updated_at'], **deepcopy(provenance)}
++                     for boat in race['boats'] for name in ('st', 'turn', 'motor', 'ability', 'exhibition')],
++        'odds': {'kind': 'PRE_DEADLINE', 'values': deepcopy(observed['odds']), **deepcopy(provenance)}}
++
++
++def audit_past_sample(sample):
++    return audit_point_in_time(sample)
++
++
++if __name__ == '__main__':
++    print(json.dumps(run_contract_matrix(), sort_keys=True, ensure_ascii=True))
+--- /dev/null
++++ b/development/model11/shadow_offline_v008/fault_suite.py
+@@ -0,0 +1,178 @@
++"""Offline synthetic fault replay. No launch interface, network, or model changes.
++
++Frozen baseline test vectors are re-executed and identified as such; they are not
++new independent production evidence. Fixtures use new temporary stores only.
++"""
++from __future__ import annotations
++from datetime import datetime
++from hashlib import sha256
++import json
++import math
++from pathlib import Path
++import platform
++import sqlite3
++import ssl
++import tempfile
++import types
++import unittest
++
++BASE_COMMIT = "148c156f472c874075a0b25d4f0b6b7e9fafdcfe"
++PINS = {
++    "runner": ("test_shadow_launch_runner.py", "5b70cc75b4a8cf536ebf4bef9a0b33401e0df1d146b82d8438bb0bd656553bf4"),
++    "storage": ("test_shadow_launch_storage.py", "cfc46ff18ee3af34122fc8c19e8489642b84fca35f381976bdf72ff1917bed60"),
++}
++# Deliberately omit fork/process-kill vectors from this short resource-bounded suite.
++VECTORS = (
++    ("12R_PROBABILITY_BOX_RAW_RECEIPT", "runner", "ShadowRunnerTests", "test_twelve_races_have_immutable_separate_forecasts_and_consistent_boxes"),
++    ("CONCURRENT_DUPLICATE_RESTART", "runner", "ShadowRunnerTests", "test_concurrent_duplicate_and_restart_cannot_publish_second_forecast"),
++    ("NEAR_DEADLINE_MISSING", "runner", "ShadowRunnerTests", "test_missing_input_near_deadline_holds_without_imputation"),
++    ("SOURCE_EXCEPTION_SECRET_SUPPRESSION", "runner", "ShadowRunnerTests", "test_source_exception_is_safe_hold_without_sensitive_exception_text"),
++    ("AMBIGUOUS_PERSIST_STOP", "runner", "ShadowRunnerTests", "test_ambiguous_persist_failure_is_durable_stop_and_preserves_partial_files"),
++    ("DELAY_CROSSES_DEADLINE", "runner", "ShadowRunnerTests", "test_deadline_crossed_during_persist_is_not_a_valid_forecast"),
++    ("FUTURE_COURSE_FL_SCRATCH", "runner", "ShadowRunnerTests", "test_future_course_fl_and_scratch_evidence_are_not_used"),
++    ("KNOWN_FL_NO_RULE_INVENTED", "runner", "ShadowRunnerTests", "test_known_fl_flag_is_preserved_without_inventing_a_new_disqualification_rule"),
++    ("SCRATCH_FULL120_HOLD", "runner", "ShadowRunnerTests", "test_reduced_scratch_domain_holds_instead_of_claiming_full120"),
++    ("DURABLE_OPERATOR_STOP", "runner", "ShadowRunnerTests", "test_operator_stop_is_durable_and_normal_shutdown_does_not_replay"),
++    ("PENDING_SHUTDOWN_NO_REPLAY", "runner", "ShadowRunnerTests", "test_shutdown_with_owned_pending_reservation_requires_hold_not_replay"),
++    ("RESULT_CORRECTION_APPEND_ONLY", "runner", "ShadowRunnerTests", "test_result_revisions_are_append_only_and_do_not_change_forecast_bytes"),
++    ("DAILY_EXPLICIT_FINAL_SELECTION", "runner", "ShadowRunnerTests", "test_daily_settlement_requires_every_explicit_final_result_version"),
++    ("EVERY_PERSIST_STAGE", "storage", "StoreTests", "test_fault_after_each_persist_preserves_and_stops"),
++    ("CLOCK_FORWARD_DEADLINE", "storage", "StoreTests", "test_deadline_during_file_or_ledger_persist_invalidates"),
++    ("CLOCK_BACKWARDS", "storage", "StoreTests", "test_clock_regression_before_ledger_is_hold"),
++    ("TAMPER_READBACK_PRESERVED", "storage", "StoreTests", "test_tampered_forecast_detected_and_preserved"),
++    ("NEW_FINAL_REQUIRES_RESELECTION", "storage", "ResultAndAuditTests", "test_sameclock_new_final_invalidates_selection_and_old_explicit_reselect_allowed"),
++)
++
++
++def load_pinned_fixture(kind):
++    name, expected = PINS[kind]
++    path = Path(__file__).resolve().parents[1] / "tests" / name
++    raw = path.read_bytes()
++    if sha256(raw).hexdigest() != expected:
++        raise ValueError("FROZEN_FIXTURE_HASH_MISMATCH")
++    module = types.ModuleType("pinned_synthetic_" + kind)
++    module.__file__ = str(path)
++    exec(compile(raw, str(path), "exec"), module.__dict__)
++    return module
++
++
++def run_frozen_vectors():
++    loaded = {kind: load_pinned_fixture(kind) for kind in PINS}
++    records = []
++    for vector_id, kind, class_name, method in VECTORS:
++        result = unittest.TestResult()
++        getattr(loaded[kind], class_name)(method).run(result)
++        passed = result.testsRun == 1 and result.wasSuccessful() and not result.skipped
++        records.append({"id": vector_id, "status": "TESTED" if passed else "FAILED_OPEN",
++                        "origin": "EXACT_BASELINE_TEST_REPLAY", "tests_run": result.testsRun,
++                        "failures": len(result.failures), "errors": len(result.errors),
++                        "skips": len(result.skipped), "raw_exception_text_exported": False})
++    return records
++
++
++def diagnose_clock_pair(wall_before, wall_after, monotonic_before, monotonic_after):
++    """Observation only: no buffer threshold, clock setting, or runner integration."""
++    try:
++        first = datetime.fromisoformat(wall_before)
++        last = datetime.fromisoformat(wall_after)
++        if first.tzinfo is None or last.tzinfo is None:
++            raise ValueError
++        values = (monotonic_before, monotonic_after)
++        if any(type(value) not in (float, int) or not math.isfinite(value) for value in values):
++            raise ValueError
++        wall = (last - first).total_seconds()
++        mono = monotonic_after - monotonic_before
++    except (ValueError, TypeError, OverflowError):
++        return {"status": "HOLD", "reason": "CLOCK_EVIDENCE_INVALID", "go": False}
++    reason = "MONOTONIC_REGRESSION" if mono < 0 else "WALL_BACKWARD" if wall < 0 else "WALL_MONOTONIC_DISAGREE" if wall != mono else "CONSISTENT_PAIR"
++    return {"status": "OBSERVED", "reason": reason, "wall_delta_seconds": wall,
++            "monotonic_delta_seconds": mono, "threshold_adopted": False, "go": False}
++
++
++def classify_research_status(event):
++    """New isolated classification only, not financial/terminal writer policy."""
++    allowed = {"RESULT_CORRECTION", "TICKET_REFUND", "RACE_CANCELLED", "BOAT_SCRATCHED"}
++    kind = event.get("kind") if isinstance(event, dict) else None
++    if kind not in allowed or event.get("classification") != "SYNTHETIC_ONLY":
++        return {"status": "HOLD", "reason": "EXPLICIT_SYNTHETIC_EVENT_REQUIRED", "go": False}
++    blocked = kind in {"RACE_CANCELLED", "BOAT_SCRATCHED"}
++    return {"status": "CLASSIFIED", "kind": kind, "settlement": "BLOCKED_EXTERNAL" if blocked else "EXPLICIT_EXISTING_CONTRACT_REQUIRED",
++            "pnl_yen": None, "writer_integrated": False, "go": False}
++
++
++def lost_ack_probe():
++    """Commit bytes exist but acknowledgement is lost: preserve and stop, no replay."""
++    fixture = load_pinned_fixture("runner")
++    with tempfile.TemporaryDirectory(prefix="synthetic-ack-only-") as root:
++        context = fixture.make_simulation_context(root)
++        helper = fixture.ShadowRunnerTests()
++        runner, store = helper.runner(context)
++        original = store.commit
++        def lost_ack(*args, **kwargs):
++            answer = original(*args, **kwargs)
++            if answer["status"] == "COMMITTED":
++                raise OSError("SYNTHETIC_PRIVATE_ACK_ERROR_NOT_FOR_EXPORT")
++            return answer
++        store.commit = lost_ack
++        report = runner.run_race(context["captures"][0])
++        stopped = store.is_stopped()
++        artifacts = sorted(path.name for path in (Path(root) / "third_research" / "artifacts").glob("*/*") if path.is_file())
++        restart, new_store = helper.runner(context)
++        after = restart.run_race(context["captures"][0])
++        passed = report["status"] == "HOLD" and stopped and after["status"] == "HOLD" and set(artifacts) == {"input.raw", "forecast.raw", "receipt.json", "completion.json"}
++        runner.shutdown()
++        restart.shutdown()
++        return {"id": "LOST_ACK_AFTER_COMPLETE_COMMIT", "status": "TESTED" if passed else "FAILED_OPEN",
++                "runner_status": report["status"], "durable_stop": stopped,
++                "restart_status": after["status"], "preserved_files": artifacts, "go": False}
++
++
++def refund_probe():
++    """Independent yen arithmetic expectations for two separate fixed portfolios."""
++    from itertools import permutations
++    from model11.metrics import _method_observation
++    five = ["1-2-3", "1-2-4", "1-3-2", "2-1-3", "3-1-2"]
++    box = ["-".join(map(str, triple)) for triple in permutations([1, 2, 3])]
++    record = {"race_id": "SYNTHETIC-2099-REFUND", "target_date": "2099-01-07",
++              "prediction_at": "2099-01-07T12:00:00+09:00", "source": "MODEL11_RESEARCH",
++              "selection": {"tickets": five, "bet_decision": "BET"},
++              "boxes": {"mechanical_research": {"boats": [1, 2, 3], "tickets": box, "bet_decision": "BET"}}}
++    actual = {"payout_per_100": 1000, "refund_tickets": ["1-3-2"]}
++    rows = {name: _method_observation(record, actual, "1-2-3", name)
++            for name in ("five", "mechanical_research")}
++    # Stake=5*100/6*100; one winning payout=1000, one returned ticket=100.
++    expected = {"five": {"stake": 500, "refund": 100, "return": 1100, "net": 600},
++                "mechanical_research": {"stake": 600, "refund": 100, "return": 1100, "net": 500}}
++    matched = all(all(rows[name][field] == value for field, value in fields.items())
++                  for name, fields in expected.items())
++    unknown = _method_observation(record, {"payout_per_100": 1000}, "1-2-3", "five")
++    contradictory_rejected = False
++    try:
++        _method_observation(record, {"payout_per_100": 1000, "refund_tickets": ["1-2-3"]}, "1-2-3", "five")
++    except ValueError:
++        contradictory_rejected = True
++    passed = matched and unknown["net"] is None and contradictory_rejected
++    return {"id": "SEPARATE_STAKES_EXPLICIT_REFUND", "status": "TESTED" if passed else "FAILED_OPEN",
++            "methods": {name: {key: rows[name][key] for key in ("stake", "refund", "return", "net")} for name in rows},
++            "missing_refund_not_zero": unknown["net"] is None,
++            "winning_ticket_refund_rejected": contradictory_rejected,
++            "combined_portfolio_pnl_created": False, "go": False}
++
++
++def runtime():
++    return {"python": platform.python_version(), "os": platform.platform(),
++            "openssl": ssl.OPENSSL_VERSION, "sqlite": sqlite3.sqlite_version}
++
++
++def run_fault_suite():
++    records = run_frozen_vectors()
++    records.extend((lost_ack_probe(), refund_probe()))
++    return {"schema": "SHADOW_OFFLINE_FAULTS_V008", "base_commit": BASE_COMMIT,
++            "environment": runtime(), "vectors": records,
++            "status": "TESTED" if all(row["status"] == "TESTED" for row in records) else "FAILED_OPEN",
++            "external_gates": ["OFFICIAL_CANCEL_SCRATCH_SETTLEMENT_CONTRACT", "REAL_HOST_CLOCK_AND_FILESYSTEM", "REVIEW_AND_INDIVIDUAL_GO"],
++            "network": False, "shadow_started": False, "go": False}
++
++
++if __name__ == "__main__":
++    print(json.dumps(run_fault_suite(), ensure_ascii=True, sort_keys=True, indent=2, allow_nan=False))
+--- /dev/null
++++ b/development/model11/shadow_offline_v008/independence.py
+@@ -0,0 +1,108 @@
++"""Scoped static boundary and synthetic data-flow probes; not universal proof.
++
++The frozen legacy comparison adapter is evaluation-only. No code is integrated
++from the separately developed P1 independent raw evaluation component.
++"""
++from __future__ import annotations
++import ast
++from copy import deepcopy
++from hashlib import sha256
++import json
++from pathlib import Path
++import tempfile
++from unittest.mock import patch
++
++from shadow_offline_v008.fault_suite import load_pinned_fixture
++
++SELECTED = (
++    "shadow_launch/sources.py", "shadow_launch/runner.py", "preparation/adapter.py",
++    "revision_v003/engine.py", "revision_v003/course.py", "revision_v003/portfolios.py",
++    "revision_v003/pooling.py", "models.py", "selection.py", "validation.py",
++)
++DENIED_ROOTS = {"airtable", "pyairtable", "automations", "requests", "httpx", "urllib", "boto3"}
++DENIED_CALLS = {"read_ab_events", "read_ab_locks", "read_airtable", "fetch_ab_predictions", "read_production_events"}
++
++
++def static_boundary():
++    root = Path(__file__).resolve().parents[1] / "model11"
++    rows, violations = [], []
++    for relative in SELECTED:
++        raw = (root / relative).read_bytes()
++        tree = ast.parse(raw)
++        imports, calls = set(), set()
++        for node in ast.walk(tree):
++            if isinstance(node, ast.Import):
++                imports.update(alias.name.split(".")[0] for alias in node.names)
++            elif isinstance(node, ast.ImportFrom) and node.level == 0 and node.module:
++                imports.add(node.module.split(".")[0])
++            elif isinstance(node, ast.Call):
++                name = node.func.id if isinstance(node.func, ast.Name) else node.func.attr if isinstance(node.func, ast.Attribute) else None
++                if name:
++                    calls.add(name)
++        bad = sorted((imports & DENIED_ROOTS) | (calls & DENIED_CALLS))
++        violations.extend({"path": relative, "symbol": name} for name in bad)
++        rows.append({"path": relative, "bytes": len(raw), "sha256": sha256(raw).hexdigest(),
++                     "denied_symbols": bad})
++    return {"status": "TESTED" if not violations else "FAILED_OPEN", "scope": "TEN_SELECTED_SOURCE_FILES_AST_IMPORT_CALL_SCAN",
++            "files": rows, "violations": violations, "universal_proof": False,
++            "excluded_evaluation": ["preparation/legacy.py", "revision_v003/evaluation.py"], "go": False}
++
++
++def dataflow_probe():
++    """Exact declared-pointer read spy plus ignored/rejected A/B poison cases."""
++    from model11.preparation.adapter import normalize_race
++    from model11.revision_v003.engine import predict_v003
++    import model11.shadow_launch.sources as sources
++    fixture = load_pinned_fixture("runner")
++    with tempfile.TemporaryDirectory(prefix="synthetic-ab-boundary-") as root:
++        context = fixture.make_simulation_context(root)
++        capture = context["captures"][0]
++        adapter = context["source_adapter"]
++        baseline = adapter.convert(capture)
++        poison = fixture.resign_capture(capture, lambda doc: doc.update({
++            "A_Events": {"source": "A", "prediction": "SYNTHETIC_AB_POISON"},
++            "B_LOCK": {"source": "B", "prediction": "SYNTHETIC_AB_POISON"}}))
++        reads = []
++        original = sources._resolve
++        def spy(document, pointer):
++            reads.append(pointer)
++            return original(document, pointer)
++        with patch.object(sources, "_resolve", spy):
++            observed = adapter.convert(poison)
++        expected = list(context["mapping"]["raw_fields"].values()) + list(context["mapping"]["course_fields"].values())
++        same_inputs = baseline.get("raw") == observed.get("raw") and baseline.get("course") == observed.get("course")
++        same_prediction = False
++        if baseline["status"] == observed["status"] == "READY" and same_inputs:
++            def predict(item):
++                race = normalize_race(item["raw"], context["normalizer"], usage="prediction")["race"]
++                race.update(deepcopy(item["course"]))
++                return predict_v003(race, context["model"], context["model_config"])
++            same_prediction = predict(baseline) == predict(observed)
++        nested = fixture.resign_capture(capture, lambda doc: doc["invented_raw"]["boats"][0]["features"].update({"A_Events": {"source": "A"}}))
++        wrong_source = deepcopy(capture)
++        wrong_source["source_id"] = "A"
++        rejected = {"declared_feature_nested_ab": adapter.convert(nested)["status"],
++                    "capture_source_A": adapter.convert(wrong_source)["status"]}
++        pointer_exact = sorted(reads) == sorted(expected) and len(reads) == len(expected)
++        no_ab_reads = all("A_Events" not in pointer and "B_LOCK" not in pointer for pointer in reads)
++        passed = same_inputs and same_prediction and pointer_exact and no_ab_reads and all(status == "HOLD" for status in rejected.values())
++        return {"status": "TESTED" if passed else "FAILED_OPEN", "declared_pointer_count": len(expected),
++                "observed_pointer_count": len(reads), "declared_pointer_set_exact": pointer_exact,
++                "no_ab_pointer_resolved": no_ab_reads, "normalized_feature_inputs_equal": same_inputs,
++                "all_prediction_and_selection_outputs_equal": same_prediction,
++                "rejected_cases": rejected, "poison_origin": "INVENTED_SYNTHETIC_ONLY",
++                "limitations": ["TOP_LEVEL_CAPTURE_JSON_IS_PARSED_BUT_NOT_RESOLVED_TO_FEATURES",
++                                "ONLY_EXERCISED_POINTERS_AND_DECLARED_BOUNDARY_SCANNED", "NOT_REAL_HOST_OR_ALL_PYTHON_PROOF"],
++                "go": False}
++
++
++def run_independence():
++    static, dynamic = static_boundary(), dataflow_probe()
++    return {"schema": "SHADOW_AB_BOUNDARY_V008", "static": static, "dataflow": dynamic,
++            "status": "TESTED" if static["status"] == dynamic["status"] == "TESTED" else "FAILED_OPEN",
++            "ab_prediction_reader_added": False, "p1_evaluator_imported": False,
++            "real_ab_access": False, "go": False}
++
++
++if __name__ == "__main__":
++    print(json.dumps(run_independence(), ensure_ascii=True, sort_keys=True, indent=2))
+--- /dev/null
++++ b/development/model11/shadow_offline_v008/odds_audit.py
+@@ -0,0 +1,106 @@
++"""Pure diagnostic for full pre-deadline odds; no stale/final fallback policy."""
++from __future__ import annotations
++
++from hashlib import sha256
++from itertools import permutations
++import json
++import math
++import re
++
++from model11.shadow_launch.sources import _stamp
++
++TICKETS = frozenset('-'.join(map(str, triple)) for triple in permutations(range(1, 7), 3))
++TIMES = ('acquired_at', 'available_at', 'revision_at')
++FIELDS = {'unit', 'odds', 'evidence_sha256', *TIMES}
++# Reuse the existing SourceAdapter capture byte bound; no freshness threshold.
++MAX_RAW_BYTES = 4 * 1024 * 1024
++
++
++def audit_odds_snapshot(snapshot, *, prediction_at, deadline, snapshot_role=None):
++    result = {'status': 'HOLD', 'structural_pass': False, 'temporal_pass': False,
++              'reasons': [], 'expected_tickets': 120, 'observed_tickets': None,
++              'age_seconds': None, 'freshness_status': 'UNVERIFIED_NO_APPROVED_MAX_AGE',
++              'freshness_max_age_seconds': None, 'raw_duplicate_scope': 'DICT_DOMAIN_ONLY_RAW_BYTES_REQUIRED',
++              'external_authenticity': 'UNVERIFIED', 'application_status': 'HOLD',
++              'market_execution_eligible': False, 'production_go': False}
++    reasons = result['reasons']
++    if snapshot_role != 'PRE_DEADLINE':
++        reasons.append('FINAL_OR_UNKNOWN_SNAPSHOT_ROLE_NO_FALLBACK')
++    predicted, closes = _stamp(prediction_at), _stamp(deadline)
++    if predicted is None or closes is None or predicted >= closes:
++        reasons.append('PREDICTION_NOT_KNOWN_PRE_DEADLINE')
++    if not isinstance(snapshot, dict) or set(snapshot) != FIELDS:
++        reasons.append('ODDS_FIELDS_MISSING_OR_UNKNOWN')
++        return result
++    if snapshot['unit'] != 'gross_payout_multiple':
++        reasons.append('GROSS_PAYOUT_UNIT_REQUIRED_NO_INFERENCE')
++    digest = snapshot['evidence_sha256']
++    if not isinstance(digest, str) or re.fullmatch('[0-9a-f]{64}', digest) is None:
++        reasons.append('EVIDENCE_SHA_FORMAT_UNKNOWN_NOT_AUTHENTICATION')
++    values = snapshot['odds']
++    if isinstance(values, dict):
++        result['observed_tickets'] = len(values)
++    if not isinstance(values, dict) or set(values) != TICKETS:
++        reasons.append('EXACT_DISTINCT_FULL_120_DOMAIN_REQUIRED')
++    if isinstance(values, dict):
++        for value in values.values():
++            try:
++                valid = type(value) in (int, float) and math.isfinite(value) and value > 0
++            except OverflowError:
++                valid = False
++            if not valid:
++                reasons.append('POSITIVE_FINITE_NONBOOLEAN_ODDS_REQUIRED')
++                break
++    stamps = {key: _stamp(snapshot[key]) for key in TIMES}
++    if any(value is None for value in stamps.values()):
++        reasons.append('ODDS_TIME_UNKNOWN_OR_INVALID')
++    else:
++        acquired, available, revised = (stamps[key] for key in TIMES)
++        if acquired > available or acquired > revised:
++            reasons.append('ODDS_TIME_ORDER_INVALID')
++        if predicted and any(value > predicted for value in stamps.values()):
++            reasons.append('FUTURE_OR_POST_LOCK_ODDS_FORBIDDEN')
++        if predicted:
++            result['age_seconds'] = {key: (predicted - stamp).total_seconds() for key, stamp in stamps.items()}
++    structural_codes = {'ODDS_FIELDS_MISSING_OR_UNKNOWN', 'GROSS_PAYOUT_UNIT_REQUIRED_NO_INFERENCE',
++                        'EVIDENCE_SHA_FORMAT_UNKNOWN_NOT_AUTHENTICATION', 'EXACT_DISTINCT_FULL_120_DOMAIN_REQUIRED',
++                        'POSITIVE_FINITE_NONBOOLEAN_ODDS_REQUIRED'}
++    result['structural_pass'] = not any(code in structural_codes for code in reasons)
++    result['temporal_pass'] = not any(code not in structural_codes for code in reasons)
++    if not reasons:
++        result['status'] = 'CONTRACT_CLAIMS_CONSISTENT_FRESHNESS_OPEN'
++    return result
++
++
++def audit_odds_raw(raw, *, expected_sha256, prediction_at, deadline, snapshot_role=None):
++    failure = {'status': 'HOLD', 'reasons': [], 'raw_sha256': None, 'raw_bytes': None,
++               'external_authenticity': 'UNVERIFIED', 'application_status': 'HOLD', 'production_go': False}
++    if type(raw) is not bytes:
++        failure['reasons'] = ['ORIGINAL_BYTES_REQUIRED']
++        return failure
++    failure['raw_bytes'] = len(raw)
++    if not 0 < len(raw) <= MAX_RAW_BYTES:
++        failure['reasons'] = ['ORIGINAL_BYTES_EMPTY_OR_CAPTURE_LIMIT_EXCEEDED']
++        return failure
++    failure['raw_sha256'] = sha256(raw).hexdigest()
++    if (type(expected_sha256) is not str or re.fullmatch('[0-9a-f]{64}', expected_sha256) is None
++            or failure['raw_sha256'] != expected_sha256):
++        failure['reasons'] = ['ORIGINAL_BYTE_SHA_MISMATCH_OR_UNKNOWN']
++        return failure
++    def unique(pairs):
++        obj = {}
++        for key, value in pairs:
++            if key in obj:
++                raise ValueError('DUPLICATE_JSON_KEY')
++            obj[key] = value
++        return obj
++    def constant(value):
++        raise ValueError('NONFINITE_JSON')
++    try:
++        snapshot = json.loads(raw.decode('utf-8', 'strict'), object_pairs_hook=unique, parse_constant=constant)
++    except (ValueError, UnicodeError, RecursionError):
++        failure['reasons'] = ['STRICT_ODDS_JSON_REQUIRED_DUPLICATES_NONFINITE_FORBIDDEN']
++        return failure
++    result = audit_odds_snapshot(snapshot, prediction_at=prediction_at, deadline=deadline, snapshot_role=snapshot_role)
++    result.update(raw_sha256=failure['raw_sha256'], raw_bytes=len(raw), raw_duplicate_scope='STRICT_RAW_JSON_DUPLICATE_KEYS_REJECTED')
++    return result
+--- /dev/null
++++ b/development/model11/tests/test_shadow_offline_contract.py
+@@ -0,0 +1,214 @@
++"""Wholly synthetic contract/odds/PIT checks; no current or historical real data."""
++from copy import deepcopy
++from hashlib import sha256
++import json
++from itertools import permutations
++import unittest
++from unittest.mock import patch
++
++from shadow_offline_v008.contract_matrix import (audit_past_sample, expanded_inventory, make_fixture,
++    make_point_in_time_fixture, mutate_fixture, run_contract_matrix)
++from shadow_offline_v008.odds_audit import MAX_RAW_BYTES, TICKETS, audit_odds_raw, audit_odds_snapshot
++from model11.shadow_launch.sources import SourceAdapter
++from model11.shadow_preparation.capture_review import required_mapping_inventory
++
++
++def convert(fixture):
++    return SourceAdapter(fixture['mapping']).convert(fixture['capture'])
++
++
++class ContractMatrixTests(unittest.TestCase):
++    def test_measured_inventory_is_264_patterns_and_all_boats_are_expanded(self):
++        inventory = required_mapping_inventory()
++        self.assertEqual(len(inventory), 264)
++        self.assertEqual(len({item['local_target'] for item in inventory}), 264)
++        expanded = expanded_inventory()
++        self.assertEqual(len(expanded), 554)
++        self.assertEqual(len({item['path'] for item in expanded}), 554)
++        self.assertEqual(sum(item['applicability'] != 'PRESENT_IN_SYNTHETIC_FIXTURE' for item in expanded), 2)
++        self.assertEqual({item['scope'] for item in inventory},
++            {'ONE_CAPTURE', 'EACH_INCLUDED_BOAT', 'ONE_FULL_FIELD_TICKET', 'EACH_CAPTURE_HISTORY_ENTRY'})
++
++    def test_full_missing_null_wrong_type_nonfinite_matrix_holds_without_imputation(self):
++        report = run_contract_matrix(include_rows=True)
++        self.assertEqual(report['software_check'], 'PASS', report['failures'])
++        self.assertEqual(report['inventory_patterns'], 264)
++        self.assertEqual(report['materialized_targets'], 554)
++        self.assertEqual(report['attempts'], 2216)
++        self.assertEqual(report['outcomes'], {'HOLD': 2208, 'NOT_APPLICABLE_CONDITIONAL_PROFILE': 8})
++        self.assertEqual(len(report['rows']), 2216)
++        self.assertTrue(report['input_unchanged'])
++        self.assertEqual(report['actual_official_mapping'], 'BLOCKED_EXTERNAL')
++        self.assertFalse(report['production_go'])
++
++    def test_synthetic_profile_does_not_invent_private_review_hashes(self):
++        fixture = make_fixture()
++        self.assertNotIn('review_evidence', fixture['mapping'])
++        conditional = [r for r in expanded_inventory(fixture) if r['applicability'].startswith('PRIVATE_REVIEW')]
++        self.assertEqual(len(conditional), 2)
++        self.assertTrue(all(item['path'].startswith('/mapping/review_evidence/') for item in conditional))
++
++    def test_future_feature_times_motor_identity_and_state_absence_are_not_filled(self):
++        fixture = make_fixture()
++        untouched = deepcopy(fixture)
++        for field in ('acquired_at', 'available_at', 'revision_at'):
++            altered = mutate_fixture(fixture, '/raw/boats/0/features/st/'+field, 'replace', replacement='2099-01-01T23:59:00+09:00')
++            self.assertEqual(convert(altered)['status'], 'HOLD')
++        for path, value in [('/raw/boats/0/motor_identity/effective_at', '2099-01-01T23:59:00+09:00'),
++                            ('/raw/boats/0/features/motor/motor_version', 'SYNTHETIC_OTHER_VERSION'),
++                            ('/raw/boats/0/fl/value', 0), ('/raw/boats/0/scratched/value', None)]:
++            self.assertEqual(convert(mutate_fixture(fixture, path, 'replace', replacement=value))['status'], 'HOLD')
++        self.assertEqual(fixture, untouched)
++        self.assertEqual(convert(mutate_fixture(fixture, '/raw/boats/0/features/motor/value', 'replace', replacement=0.0))['status'], 'READY')
++        self.assertEqual(convert(fixture)['status'], 'READY')
++
++    def test_fl_is_a_research_warning_and_active_scratch_is_a_distinct_hold(self):
++        fixture=make_fixture()
++        fl=convert(mutate_fixture(fixture,'/raw/boats/0/fl/value','replace',replacement=True))
++        self.assertEqual(fl['status'],'READY')
++        self.assertIn('FL_PRESENT_RESEARCH_INPUT',fl['source_evidence']['raw_warning_codes'])
++        self.assertFalse(fl['production_go'])
++        scratch=convert(mutate_fixture(fixture,'/raw/boats/0/scratched/value','replace',replacement=True))
++        self.assertEqual(scratch['status'],'HOLD')
++        self.assertIn('SCRATCH_ACTIVE_MISMATCH',scratch['reasons'])
++
++    def test_adapter_and_diagnostic_perform_no_source_network_database_or_file_io(self):
++        fixture = make_fixture()
++        targets = expanded_inventory(fixture)
++        sample = make_point_in_time_fixture()
++        with patch('builtins.open', side_effect=AssertionError('NO_FILE_IO')), \
++             patch('socket.socket', side_effect=AssertionError('NO_NETWORK')), \
++             patch('sqlite3.connect', side_effect=AssertionError('NO_DATABASE')):
++            self.assertEqual(convert(fixture)['status'], 'READY')
++            self.assertEqual(audit_past_sample(sample)['software_check'], 'PASS')
++            self.assertEqual(len(targets), 554)
++
++
++class OddsAuditTests(unittest.TestCase):
++    def setUp(self):
++        self.fixture = make_fixture()
++        self.raw = json.loads(self.fixture['capture']['payload_bytes'])['invented_raw']
++        self.snapshot = self.raw['odds_snapshot']
++    def audit(self, snapshot, **kwargs):
++        return audit_odds_snapshot(snapshot, prediction_at=self.raw['prediction_at'],
++            deadline=self.raw['deadline']['value'], snapshot_role=kwargs.pop('snapshot_role','PRE_DEADLINE'), **kwargs)
++    def test_complete_120_payout_snapshot_observes_age_without_adopting_freshness_threshold(self):
++        before = deepcopy(self.snapshot)
++        result = self.audit(self.snapshot)
++        self.assertEqual(len(TICKETS), 120)
++        self.assertEqual(result['status'], 'CONTRACT_CLAIMS_CONSISTENT_FRESHNESS_OPEN')
++        self.assertTrue(result['structural_pass'])
++        self.assertTrue(result['temporal_pass'])
++        self.assertEqual(result['age_seconds']['acquired_at'], 30.0)
++        self.assertIsNone(result['freshness_max_age_seconds'])
++        self.assertEqual(result['freshness_status'], 'UNVERIFIED_NO_APPROVED_MAX_AGE')
++        self.assertFalse(result['market_execution_eligible'])
++        self.assertFalse(result['production_go'])
++        self.assertEqual(self.snapshot, before)
++    def test_all_120_missing_and_invalid_tickets_fail_and_never_use_final_odds(self):
++        for ticket in TICKETS:
++            missing = deepcopy(self.snapshot);del missing['odds'][ticket]
++            result = self.audit(missing)
++            self.assertEqual(result['status'], 'HOLD')
++            self.assertIn('EXACT_DISTINCT_FULL_120_DOMAIN_REQUIRED', result['reasons'])
++        for value in (None, True, False, 0, -1, float('nan'), float('inf'), '100'):
++            bad = deepcopy(self.snapshot);bad['odds']['1-2-3'] = value
++            self.assertEqual(self.audit(bad)['status'], 'HOLD')
++        for role in (None, 'FINAL', 'POST_RACE'):
++            self.assertEqual(self.audit(self.snapshot, snapshot_role=role)['status'], 'HOLD')
++    def test_wrong_unit_missing_times_future_revision_and_unknown_time_hold(self):
++        for field in ('acquired_at','available_at','revision_at'):
++            future = deepcopy(self.snapshot);future[field] = '2099-01-01T13:01:00+09:00'
++            self.assertIn('FUTURE_OR_POST_LOCK_ODDS_FORBIDDEN', self.audit(future)['reasons'])
++            unknown = deepcopy(self.snapshot);unknown[field] = None
++            self.assertIn('ODDS_TIME_UNKNOWN_OR_INVALID', self.audit(unknown)['reasons'])
++        wrong = deepcopy(self.snapshot);wrong['unit']='probability'
++        self.assertEqual(self.audit(wrong)['status'], 'HOLD')
++        very_old = deepcopy(self.snapshot)
++        for field in ('acquired_at','available_at','revision_at'):very_old[field]='2098-12-01T00:00:00+09:00'
++        result=self.audit(very_old)
++        self.assertEqual(result['freshness_status'],'UNVERIFIED_NO_APPROVED_MAX_AGE')
++        self.assertGreater(result['age_seconds']['acquired_at'], 86400)
++        self.assertFalse(result['market_execution_eligible'])
++    def test_raw_sha_duplicate_keys_and_nonfinite_json_are_rejected_without_echo(self):
++        body=json.dumps(self.snapshot,sort_keys=True,separators=(',',':')).encode()
++        def audit_raw(data, expected=None):
++            return audit_odds_raw(data,expected_sha256=sha256(data).hexdigest() if expected is None else expected,
++                prediction_at=self.raw['prediction_at'],deadline=self.raw['deadline']['value'],snapshot_role='PRE_DEADLINE')
++        self.assertEqual(audit_raw(body)['status'],'CONTRACT_CLAIMS_CONSISTENT_FRESHNESS_OPEN')
++        self.assertEqual(audit_raw(body,'0'*64)['reasons'],['ORIGINAL_BYTE_SHA_MISMATCH_OR_UNKNOWN'])
++        duplicate=body.replace(b'"odds":{',b'"odds":{"1-2-3":99,',1)
++        self.assertEqual(audit_raw(duplicate)['status'],'HOLD')
++        nonfinite=body.replace(b'"1-2-3":',b'"PRIVATE_SECRET":NaN,"1-2-3":',1)
++        report=audit_raw(nonfinite)
++        self.assertEqual(report['status'],'HOLD')
++        self.assertNotIn('PRIVATE_SECRET',json.dumps(report))
++    def test_empty_and_oversized_originals_stop_before_json_or_hash_acceptance(self):
++        for raw in (b'', b'x' * (MAX_RAW_BYTES + 1)):
++            report=audit_odds_raw(raw,expected_sha256='0'*64,prediction_at=self.raw['prediction_at'],
++                deadline=self.raw['deadline']['value'],snapshot_role='PRE_DEADLINE')
++            self.assertEqual(report['status'],'HOLD')
++            self.assertEqual(report['reasons'],['ORIGINAL_BYTES_EMPTY_OR_CAPTURE_LIMIT_EXCEEDED'])
++            self.assertIsNone(report['raw_sha256'])
++
++    def test_dictionary_cannot_claim_raw_duplicate_detection_or_authenticity(self):
++        report=self.audit(self.snapshot)
++        self.assertEqual(report['raw_duplicate_scope'],'DICT_DOMAIN_ONLY_RAW_BYTES_REQUIRED')
++        self.assertEqual(report['external_authenticity'],'UNVERIFIED')
++
++
++class PastInformationTests(unittest.TestCase):
++    def test_snapshot_is_valid_only_invented_candidate_and_original_unchanged(self):
++        sample=make_point_in_time_fixture();before=deepcopy(sample)
++        report=audit_past_sample(sample)
++        self.assertEqual(report['software_check'],'PASS')
++        self.assertTrue(report['feature_eligible'])
++        self.assertTrue(report['market_eligible'])
++        self.assertEqual(report['origin_proof'],'SELF_REPORTED_ONLY')
++        self.assertEqual(report['real_input_status'],'HOLD')
++        self.assertEqual(sample,before)
++    def test_all_boat_feature_late_times_and_post_preservation_revisions_hold(self):
++        original=make_point_in_time_fixture()
++        for index in range(30):
++            for field in ('acquired_at','available_at','revision_at'):
++                sample=deepcopy(original);sample['features'][index][field]='2099-01-01T14:00:00+09:00'
++                report=audit_past_sample(sample)
++                self.assertFalse(report['feature_eligible'])
++                self.assertIn('FEATURE_UPDATED_OR_AVAILABLE_AFTER_AS_OF',report['feature_reasons'])
++        sample=deepcopy(original);sample['features'][0]['revision_at']='2099-01-01T12:54:50+09:00'
++        self.assertIn('FEATURE_SOURCE_TIME_AFTER_SNAPSHOT_PRESERVATION',audit_past_sample(sample)['reasons'])
++    def test_missing_or_final_odds_are_not_substituted_and_result_features_are_rejected(self):
++        for kind in (None,'FINAL','POST_RACE'):
++            sample=make_point_in_time_fixture()
++            if kind is None:sample['odds']=None
++            else:sample['odds']['kind']=kind
++            report=audit_past_sample(sample)
++            self.assertFalse(report['market_eligible'])
++            self.assertFalse(report['expected_value_eligible'])
++        sample=make_point_in_time_fixture();sample['features'][0]['payout_per_100']=100
++        self.assertFalse(audit_past_sample(sample)['feature_eligible'])
++    def test_training_labels_and_feature_times_must_be_available_before_fit(self):
++        source=make_point_in_time_fixture()
++        source['training_context']={'normalizer_fit_cutoff':'2098-12-31T20:00:00+09:00',
++            'model_fit_cutoff':'2098-12-31T21:00:00+09:00',
++            'training_rows':[{'prediction_at':'2098-12-30T12:55:00+09:00',
++                'feature_available_at':'2098-12-30T12:54:00+09:00','label_available_at':'2098-12-30T13:10:00+09:00'}]}
++        self.assertEqual(audit_past_sample(source)['training_context_status'],'CLAIMS_CONSISTENT')
++        for kind in ('late_feature','late_label','fit_at_prediction'):
++            sample=deepcopy(source);context=sample['training_context']
++            if kind=='late_feature':context['training_rows'][0]['feature_available_at']='2098-12-30T13:01:00+09:00'
++            elif kind=='late_label':context['training_rows'][0]['label_available_at']='2099-01-01T11:00:00+09:00'
++            else:context['model_fit_cutoff']=sample['as_of']
++            report=audit_past_sample(sample)
++            self.assertEqual(report['status'],'HOLD')
++            self.assertEqual(report['training_context_status'],'HOLD')
++
++    def test_actual_or_inconsistent_classification_is_held_without_relabel(self):
++        for classification,flag in [('PRIVATE_REAL',False),('SYNTHETIC_ONLY',False),('HQ14_PRIVATE_OFFLINE',False)]:
++            sample=make_point_in_time_fixture();sample['data_classification']=classification;sample['synthetic']=flag
++            report=audit_past_sample(sample)
++            self.assertEqual(report['status'],'HOLD')
++            self.assertFalse(report['production_go'])
++
++
++if __name__ == '__main__':unittest.main()
+--- /dev/null
++++ b/development/model11/tests/test_shadow_offline_faults.py
+@@ -0,0 +1,74 @@
++"""New offline fault harness tests; embedded frozen vectors are separately counted."""
++from datetime import datetime, timedelta, timezone
++import json
++import unittest
++from shadow_offline_v008.fault_suite import (
++    classify_research_status, diagnose_clock_pair, load_pinned_fixture, lost_ack_probe,
++    run_frozen_vectors, refund_probe, VECTORS,
++)
++from shadow_offline_v008.independence import static_boundary, dataflow_probe
++
++
++class OfflineFaultTests(unittest.TestCase):
++    def test_frozen_baseline_vectors_reexecute_without_skip(self):
++        rows = run_frozen_vectors()
++        self.assertEqual(len(rows), len(VECTORS))
++        self.assertEqual(len({row["id"] for row in rows}), len(rows))
++        self.assertTrue(all(row["status"] == "TESTED" and row["tests_run"] == 1 for row in rows), rows)
++
++    def test_lost_ack_preserves_all_files_and_stops_across_restart(self):
++        self.assertEqual(lost_ack_probe()["status"], "TESTED")
++
++    def test_clock_backward_and_forward_are_observation_not_new_policy(self):
++        start = datetime(2099, 1, 7, tzinfo=timezone.utc)
++        for delta, reason in ((-5, "WALL_BACKWARD"), (500, "WALL_MONOTONIC_DISAGREE"), (1, "CONSISTENT_PAIR")):
++            row = diagnose_clock_pair(start.isoformat(), (start+timedelta(seconds=delta)).isoformat(), 100, 101)
++            self.assertEqual(row["reason"], reason)
++            self.assertFalse(row["threshold_adopted"])
++            self.assertFalse(row["go"])
++        self.assertEqual(diagnose_clock_pair(start.isoformat(), start.isoformat(), 2, 1)["reason"], "MONOTONIC_REGRESSION")
++
++    def test_clock_missing_nonfinite_naive_and_boolean_fail_closed(self):
++        start = "2099-01-07T00:00:00+00:00"
++        for first,last,a,b in ((None,start,0,1), (start,start,float("nan"),1), (start,start,True,1), ("2099-01-07T00:00:00",start,0,1)):
++            self.assertEqual(diagnose_clock_pair(first,last,a,b)["status"], "HOLD")
++
++    def test_correction_refund_cancel_scratch_are_distinct_and_no_money_invented(self):
++        rows = [classify_research_status({"kind":kind, "classification":"SYNTHETIC_ONLY"})
++                for kind in ("RESULT_CORRECTION", "TICKET_REFUND", "RACE_CANCELLED", "BOAT_SCRATCHED")]
++        self.assertEqual(len({row["kind"] for row in rows}), 4)
++        self.assertTrue(all(row["pnl_yen"] is None and not row["writer_integrated"] and not row["go"] for row in rows))
++        for row in rows[2:]:
++            self.assertEqual(row["settlement"], "BLOCKED_EXTERNAL")
++        self.assertEqual(classify_research_status({"kind":"RACE_CANCELLED", "classification":"PRIVATE_REAL"})["status"], "HOLD")
++
++    def test_refunds_existing_contract_separate_method_stakes(self):
++        row = refund_probe()
++        self.assertEqual(row["status"], "TESTED")
++        self.assertEqual(row["methods"]["five"], {"stake":500,"refund":100,"return":1100,"net":600})
++        self.assertEqual(row["methods"]["mechanical_research"], {"stake":600,"refund":100,"return":1100,"net":500})
++        self.assertTrue(row["missing_refund_not_zero"])
++        self.assertTrue(row["winning_ticket_refund_rejected"])
++        self.assertFalse(row["combined_portfolio_pnl_created"])
++
++    def test_scoped_ast_has_no_named_production_connectors(self):
++        row = static_boundary()
++        self.assertEqual(row["status"], "TESTED")
++        self.assertEqual(len(row["files"]), 10)
++        self.assertFalse(row["universal_proof"])
++
++    def test_ab_poison_and_pointer_readspy_do_not_enter_prediction(self):
++        row = dataflow_probe()
++        self.assertEqual(row["status"], "TESTED", row)
++        self.assertTrue(row["all_prediction_and_selection_outputs_equal"])
++        self.assertFalse(row["go"])
++
++    def test_log_exports_do_not_contain_synthetic_exception_sentinel(self):
++        row = lost_ack_probe()
++        output = json.dumps(row, sort_keys=True)
++        self.assertNotIn("SYNTHETIC_PRIVATE_ACK_ERROR_NOT_FOR_EXPORT", output)
++        self.assertFalse(row["go"])
++
++
++if __name__ == "__main__":
++    unittest.main(verbosity=2)

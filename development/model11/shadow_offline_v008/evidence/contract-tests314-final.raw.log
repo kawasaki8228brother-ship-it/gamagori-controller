@@ -1,0 +1,24 @@
+{"python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]", "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "openssl": "OpenSSL 3.5.5 27 Jan 2026", "sqlite": "3.50.4", "classification": "SYNTHETIC_ONLY", "network": "BLOCKED", "production_go": false}
+test_adapter_and_diagnostic_perform_no_source_network_database_or_file_io (test_shadow_offline_contract.ContractMatrixTests.test_adapter_and_diagnostic_perform_no_source_network_database_or_file_io) ... ok
+test_fl_is_a_research_warning_and_active_scratch_is_a_distinct_hold (test_shadow_offline_contract.ContractMatrixTests.test_fl_is_a_research_warning_and_active_scratch_is_a_distinct_hold) ... ok
+test_full_missing_null_wrong_type_nonfinite_matrix_holds_without_imputation (test_shadow_offline_contract.ContractMatrixTests.test_full_missing_null_wrong_type_nonfinite_matrix_holds_without_imputation) ... ok
+test_future_feature_times_motor_identity_and_state_absence_are_not_filled (test_shadow_offline_contract.ContractMatrixTests.test_future_feature_times_motor_identity_and_state_absence_are_not_filled) ... ok
+test_measured_inventory_is_264_patterns_and_all_boats_are_expanded (test_shadow_offline_contract.ContractMatrixTests.test_measured_inventory_is_264_patterns_and_all_boats_are_expanded) ... ok
+test_synthetic_profile_does_not_invent_private_review_hashes (test_shadow_offline_contract.ContractMatrixTests.test_synthetic_profile_does_not_invent_private_review_hashes) ... ok
+test_all_120_missing_and_invalid_tickets_fail_and_never_use_final_odds (test_shadow_offline_contract.OddsAuditTests.test_all_120_missing_and_invalid_tickets_fail_and_never_use_final_odds) ... ok
+test_complete_120_payout_snapshot_observes_age_without_adopting_freshness_threshold (test_shadow_offline_contract.OddsAuditTests.test_complete_120_payout_snapshot_observes_age_without_adopting_freshness_threshold) ... ok
+test_dictionary_cannot_claim_raw_duplicate_detection_or_authenticity (test_shadow_offline_contract.OddsAuditTests.test_dictionary_cannot_claim_raw_duplicate_detection_or_authenticity) ... ok
+test_empty_and_oversized_originals_stop_before_json_or_hash_acceptance (test_shadow_offline_contract.OddsAuditTests.test_empty_and_oversized_originals_stop_before_json_or_hash_acceptance) ... ok
+test_raw_sha_duplicate_keys_and_nonfinite_json_are_rejected_without_echo (test_shadow_offline_contract.OddsAuditTests.test_raw_sha_duplicate_keys_and_nonfinite_json_are_rejected_without_echo) ... ok
+test_wrong_unit_missing_times_future_revision_and_unknown_time_hold (test_shadow_offline_contract.OddsAuditTests.test_wrong_unit_missing_times_future_revision_and_unknown_time_hold) ... ok
+test_actual_or_inconsistent_classification_is_held_without_relabel (test_shadow_offline_contract.PastInformationTests.test_actual_or_inconsistent_classification_is_held_without_relabel) ... ok
+test_all_boat_feature_late_times_and_post_preservation_revisions_hold (test_shadow_offline_contract.PastInformationTests.test_all_boat_feature_late_times_and_post_preservation_revisions_hold) ... ok
+test_missing_or_final_odds_are_not_substituted_and_result_features_are_rejected (test_shadow_offline_contract.PastInformationTests.test_missing_or_final_odds_are_not_substituted_and_result_features_are_rejected) ... ok
+test_snapshot_is_valid_only_invented_candidate_and_original_unchanged (test_shadow_offline_contract.PastInformationTests.test_snapshot_is_valid_only_invented_candidate_and_original_unchanged) ... ok
+test_training_labels_and_feature_times_must_be_available_before_fit (test_shadow_offline_contract.PastInformationTests.test_training_labels_and_feature_times_must_be_available_before_fit) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 5.525s
+
+OK
+{"status": "PASS", "tests": 17, "failures": 0, "errors": 0, "skipped": 0, "production_go": false}

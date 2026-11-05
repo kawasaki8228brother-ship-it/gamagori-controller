@@ -1,0 +1,101 @@
+{
+  "ab_prediction_reader_added": false,
+  "dataflow": {
+    "all_prediction_and_selection_outputs_equal": true,
+    "declared_pointer_count": 17,
+    "declared_pointer_set_exact": true,
+    "go": false,
+    "limitations": [
+      "TOP_LEVEL_CAPTURE_JSON_IS_PARSED_BUT_NOT_RESOLVED_TO_FEATURES",
+      "ONLY_EXERCISED_POINTERS_AND_DECLARED_BOUNDARY_SCANNED",
+      "NOT_REAL_HOST_OR_ALL_PYTHON_PROOF"
+    ],
+    "no_ab_pointer_resolved": true,
+    "normalized_feature_inputs_equal": true,
+    "observed_pointer_count": 17,
+    "poison_origin": "INVENTED_SYNTHETIC_ONLY",
+    "rejected_cases": {
+      "capture_source_A": "HOLD",
+      "declared_feature_nested_ab": "HOLD"
+    },
+    "status": "TESTED"
+  },
+  "go": false,
+  "p1_evaluator_imported": false,
+  "real_ab_access": false,
+  "schema": "SHADOW_AB_BOUNDARY_V008",
+  "static": {
+    "excluded_evaluation": [
+      "preparation/legacy.py",
+      "revision_v003/evaluation.py"
+    ],
+    "files": [
+      {
+        "bytes": 18232,
+        "denied_symbols": [],
+        "path": "shadow_launch/sources.py",
+        "sha256": "f4fca634a896a483f94d18cf58a7c6618c9548522604abb6f02a2a2dafe19c86"
+      },
+      {
+        "bytes": 15075,
+        "denied_symbols": [],
+        "path": "shadow_launch/runner.py",
+        "sha256": "0d3e19f1d015a9600489c5f853d645dced9f05b16c538484038d94c7cfd2c648"
+      },
+      {
+        "bytes": 28485,
+        "denied_symbols": [],
+        "path": "preparation/adapter.py",
+        "sha256": "fe1859cd0aa321f5fa0de4d34f96b25e5ad94ed6229d087553c5f1b8196ec557"
+      },
+      {
+        "bytes": 6756,
+        "denied_symbols": [],
+        "path": "revision_v003/engine.py",
+        "sha256": "33b70ce2ac99c3c61c2fad43b8b3ea798537571846245e0c25d703f0642f5de6"
+      },
+      {
+        "bytes": 20110,
+        "denied_symbols": [],
+        "path": "revision_v003/course.py",
+        "sha256": "ca28937aa1784fc37fa9a9539e0219d27570390ced01b3a0a2f77268238ed264"
+      },
+      {
+        "bytes": 8328,
+        "denied_symbols": [],
+        "path": "revision_v003/portfolios.py",
+        "sha256": "9183d8fda55a945f768830da5a761f44176fae6656b63397184c282f72b5ff2c"
+      },
+      {
+        "bytes": 2785,
+        "denied_symbols": [],
+        "path": "revision_v003/pooling.py",
+        "sha256": "e1c0962a117978d1caf6685f76a0289dca703a274090a0a67d898dbca68c7704"
+      },
+      {
+        "bytes": 16730,
+        "denied_symbols": [],
+        "path": "models.py",
+        "sha256": "c4ed50f5123e4b35d8710dea3dcb0ce27dd1eb7433cc7769d97ab33e8bc1566f"
+      },
+      {
+        "bytes": 13969,
+        "denied_symbols": [],
+        "path": "selection.py",
+        "sha256": "4a9a30ce262741024c9de18f516f6ecd7c07a639147b56ae80a0d5c2e0a9100a"
+      },
+      {
+        "bytes": 20159,
+        "denied_symbols": [],
+        "path": "validation.py",
+        "sha256": "ed7e541178593ee1ec716f3fbeb68bbf53c318c2cdb9917f7dd87018568b2d9d"
+      }
+    ],
+    "go": false,
+    "scope": "TEN_SELECTED_SOURCE_FILES_AST_IMPORT_CALL_SCAN",
+    "status": "TESTED",
+    "universal_proof": false,
+    "violations": []
+  },
+  "status": "TESTED"
+}

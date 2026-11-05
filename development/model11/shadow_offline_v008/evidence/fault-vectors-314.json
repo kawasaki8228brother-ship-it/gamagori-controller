@@ -1,0 +1,237 @@
+{
+  "base_commit": "148c156f472c874075a0b25d4f0b6b7e9fafdcfe",
+  "environment": {
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.14.3",
+    "sqlite": "3.50.4"
+  },
+  "external_gates": [
+    "OFFICIAL_CANCEL_SCRATCH_SETTLEMENT_CONTRACT",
+    "REAL_HOST_CLOCK_AND_FILESYSTEM",
+    "REVIEW_AND_INDIVIDUAL_GO"
+  ],
+  "go": false,
+  "network": false,
+  "schema": "SHADOW_OFFLINE_FAULTS_V008",
+  "shadow_started": false,
+  "status": "TESTED",
+  "vectors": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "12R_PROBABILITY_BOX_RAW_RECEIPT",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "CONCURRENT_DUPLICATE_RESTART",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "NEAR_DEADLINE_MISSING",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "SOURCE_EXCEPTION_SECRET_SUPPRESSION",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "AMBIGUOUS_PERSIST_STOP",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "DELAY_CROSSES_DEADLINE",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "FUTURE_COURSE_FL_SCRATCH",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "KNOWN_FL_NO_RULE_INVENTED",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "SCRATCH_FULL120_HOLD",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "DURABLE_OPERATOR_STOP",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "PENDING_SHUTDOWN_NO_REPLAY",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "RESULT_CORRECTION_APPEND_ONLY",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "DAILY_EXPLICIT_FINAL_SELECTION",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "EVERY_PERSIST_STAGE",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "CLOCK_FORWARD_DEADLINE",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "CLOCK_BACKWARDS",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "TAMPER_READBACK_PRESERVED",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "id": "NEW_FINAL_REQUIRES_RESELECTION",
+      "origin": "EXACT_BASELINE_TEST_REPLAY",
+      "raw_exception_text_exported": false,
+      "skips": 0,
+      "status": "TESTED",
+      "tests_run": 1
+    },
+    {
+      "durable_stop": true,
+      "go": false,
+      "id": "LOST_ACK_AFTER_COMPLETE_COMMIT",
+      "preserved_files": [
+        "completion.json",
+        "forecast.raw",
+        "input.raw",
+        "receipt.json"
+      ],
+      "restart_status": "HOLD",
+      "runner_status": "HOLD",
+      "status": "TESTED"
+    },
+    {
+      "combined_portfolio_pnl_created": false,
+      "go": false,
+      "id": "SEPARATE_STAKES_EXPLICIT_REFUND",
+      "methods": {
+        "five": {
+          "net": 600.0,
+          "refund": 100,
+          "return": 1100.0,
+          "stake": 500
+        },
+        "mechanical_research": {
+          "net": 500.0,
+          "refund": 100,
+          "return": 1100.0,
+          "stake": 600
+        }
+      },
+      "missing_refund_not_zero": true,
+      "status": "TESTED",
+      "winning_ticket_refund_rejected": true
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "after_sha256": "805fd4f609cf0bd71c03846198a79ce2358366219a53927f8594d1815e1e9293",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/model11/shadow_offline_v008/CONTRACT_AND_DATA_REVIEW.md"
+  },
+  {
+    "after_sha256": "6845cb12ec6867fd1d03188736477c94257cf631a31985ce38c4180df529f549",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md"
+  },
+  {
+    "after_sha256": "83c3b0eceebbbb18d2289d129a9b1d55695cb65aef674875f684ee9fa43936b5",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/model11/shadow_offline_v008/SHADOW_FAULTS_AND_INDEPENDENCE.md"
+  },
+  {
+    "after_sha256": "abb78992c71632d46174daf134c4382154318c9108e43fc3a59462bac93ce3c2",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/model11/shadow_offline_v008/contract_matrix.py"
+  },
+  {
+    "after_sha256": "be073e88a173ac530848ae52037b710bbb6f14715b5da08dbf6f09772e1577f8",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/model11/shadow_offline_v008/fault_suite.py"
+  },
+  {
+    "after_sha256": "f1b008c8fc9fa46bbc6b0f1ac1c5e04de2cbe93293cf4d7af2eb10a5208b999d",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/model11/shadow_offline_v008/independence.py"
+  },
+  {
+    "after_sha256": "df7b1a82058e8a417d26a41de2409c5dc1706ea8ee085c5d8a84e42104d27871",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/model11/shadow_offline_v008/odds_audit.py"
+  },
+  {
+    "after_sha256": "fceaea156aa6db267d876865eded06888221bfa46e731275e1072cf675a5bee3",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/model11/tests/test_shadow_offline_contract.py"
+  },
+  {
+    "after_sha256": "dd27b8ba1e36d0c16ae95bd580e1c8200c409fe4e0ca5ea4e505d0ca03ac6e7a",
+    "before_sha256": null,
+    "kind": "ADDED",
+    "path": "development/model11/tests/test_shadow_offline_faults.py"
+  }
+]

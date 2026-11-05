@@ -1,0 +1,34 @@
+{
+  "branch": "dev/model11-shadow-offline-20261106-v008",
+  "case": "p2",
+  "claude_review": "PENDING",
+  "conditional_not_applicable": 8,
+  "contract_patterns": 264,
+  "counting_note": "Outer tests and nested vector executions are separate counts; not summed as independent unittest methods.",
+  "expanded_targets": 554,
+  "fault_cli_vectors": 20,
+  "hold": 2208,
+  "mutations": 2216,
+  "nested_existing_fault_vectors": 18,
+  "new_outer_tests": 26,
+  "no_real_data_received": true,
+  "old_files_modified": [],
+  "old_files_preserved": 320,
+  "parent_commit": "148c156f472c874075a0b25d4f0b6b7e9fafdcfe",
+  "production_go": false,
+  "runtime_warning": "3.12 uses existing system-site environment, not a new hermetic install. No dependency environment changed. Neither OpenSSL/SQLite pair proves production runtime equivalence.",
+  "suites": {
+    "python312": {
+      "passed": 584,
+      "skipped_unverified": 0
+    },
+    "python314": {
+      "passed": 584,
+      "skipped_unverified": 0
+    }
+  },
+  "synthetic_only": true,
+  "test_scope": "P0 root suite; P1/P2 complete Model suite. Model branches share byte-identical baseline root code; P1 root 248 tests passed both versions and cover that unchanged shared root.",
+  "unexpected": 0,
+  "unverified_skips": []
+}
