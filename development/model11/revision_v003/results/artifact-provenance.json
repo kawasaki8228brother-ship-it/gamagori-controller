@@ -1,0 +1,111 @@
+{
+  "classification": "SYNTHETIC_ONLY",
+  "derived": [
+    {
+      "cross_runtime_source_byte_equal": true,
+      "name": "walk-forward-summary.full.min.json",
+      "output": {
+        "bytes": 645367,
+        "sha256": "503b0b04303522e20d4d20b9d5cc874ec4c11cb5714c68727c81e83fbfe197bc"
+      },
+      "raw_reconstruction_byte_equal": true,
+      "source_raw": {
+        "bytes": 1225982,
+        "sha256": "8e26fe7ffba6b749932c98b388382e1c65c45d0466a3af00311336134e37190a"
+      },
+      "trust_class": "DERIVED_LOSSLESS_MINIFIED_JSON"
+    }
+  ],
+  "production_go": false,
+  "raw_copies": [
+    {
+      "bytes": 1210,
+      "cross_runtime_byte_equal": true,
+      "name": "F1-market-only-evidence.json",
+      "sha256": "3fdb5baf08392e10c3a8550a3e5da1b27770549ef386ef967dfec993a3d3d156",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 537,
+      "cross_runtime_byte_equal": true,
+      "name": "F4-manual-input-SYNTHETIC-ONLY.json",
+      "sha256": "7ff13595607e8a925f4d0ed9309f5a2d38835d71d01e6d6118a9bf039f08c44d",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 876,
+      "cross_runtime_byte_equal": true,
+      "name": "F4-old-artifact-migration.json",
+      "sha256": "0206494739497607d25e61bb239b5f67f4658d393937edd803fe84c8e7c6c9d7",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 50344,
+      "cross_runtime_byte_equal": true,
+      "name": "F4-separate-manual-and-automatic.json",
+      "sha256": "e51c4edb3266673437815119fc8b388f8a79df69d3ce6e9406afb698992dd670",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 47758,
+      "cross_runtime_byte_equal": true,
+      "name": "prediction-v003.json",
+      "sha256": "864b9011465615f828ed34e792b8c66efb73f5c50fdb41172ed1f37d6185fc55",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 184,
+      "cross_runtime_byte_equal": true,
+      "name": "preservation.json",
+      "sha256": "db3ee51f121c08b058fd57fb8009fcdba7ba7fd0d5e9d09cf70812e48694c9a1",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 2666,
+      "cross_runtime_byte_equal": true,
+      "name": "selected-model-v003.json",
+      "sha256": "8b3fc58d8ad6c44f6c6cde8f9aa52aa0c1955b433fef92bf19f5615e288902cd",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 97,
+      "cross_runtime_byte_equal": true,
+      "name": "selected-pipeline-v003.json",
+      "sha256": "3d0e338c63bd4d7eaa0c09aeb2ccfd407bd4770cdf5619c6f8b0da21b6599216",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 292,
+      "cross_runtime_byte_equal": true,
+      "name": "synthetic-outcome-separate.json",
+      "sha256": "3852b14e646a39324ecf8cbe1ba869913de909314f5153acc1fc7f592107ab52",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    },
+    {
+      "bytes": 17369,
+      "cross_runtime_byte_equal": true,
+      "name": "synthetic-race-v003.json",
+      "sha256": "f5f9655b0002d7939efab19649246e685965263772e8841d176bf4990959944c",
+      "trust_class": "RAW_SYNTHETIC_NO_REDACTION"
+    }
+  ],
+  "runtime_312": {
+    "executed_at": "2026-11-05T07:07:20.687940+00:00",
+    "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "production_go": false,
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+  },
+  "runtime_314": {
+    "executed_at": "2026-11-05T07:07:20.826061+00:00",
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "production_go": false,
+    "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"
+  },
+  "runtime_exclusions": [
+    "runtime.json",
+    "FILES.json"
+  ],
+  "schema": "V003_ARTIFACT_PROVENANCE"
+}

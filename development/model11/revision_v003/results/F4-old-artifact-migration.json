@@ -1,0 +1,21 @@
+{
+  "candidate": null,
+  "external_authenticity": "UNVERIFIED",
+  "live_eligible": false,
+  "old_ambiguous_component_sha256": "4b27fa192380e4cf88797db5f83f977faeeb2fa0a634bf1045ac9467ad49e529",
+  "old_ambiguous_origin": "UNVERIFIED_PREVIOUS_MANUAL_OR_UNKNOWN",
+  "old_object_mutated": false,
+  "original_object_sha256": "8dc188f3ce8f3ae1cc8ffe7062ac7cd02e2d77252325ba88db0ffdc08d7ac272",
+  "original_prediction_sha256": "f8afa21870c8115d7304267a088cf98758f9fbc98d018f68254a00369df99754",
+  "original_raw_bytes": "NOT_RECEIVED_OBJECT_HASH_ONLY",
+  "production_go": false,
+  "reason_codes": [
+    "OLD_MODEL_NOT_COURSE_POLICY_BOUND",
+    "OLD_MANUAL_ORIGIN_EVIDENCE_NOT_ACCEPTED",
+    "CANONICAL_RACE_REQUIRED_FOR_PREVIEW",
+    "COURSE_PROVENANCE_UNVERIFIED"
+  ],
+  "requires_new_course_bound_prediction": true,
+  "schema": "MODEL11_MIGRATION_REVIEW_V003",
+  "status": "HOLD"
+}

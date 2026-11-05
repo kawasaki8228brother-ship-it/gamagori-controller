@@ -1,0 +1,418 @@
+--- FROZEN_V001/model11/selection.py
++++ NEW_V003/model11/revision_v003/portfolios.py
+@@ -1,294 +1,138 @@
+-"""Offline research selections. No implementation of formal BOX Ver.1 rules."""
++"""V003 portfolio names distinguish automation from asserted human input.
+ 
++Old selection arithmetic is reused on detached objects. Formal BOX V1 rules are
++neither reproduced nor inferred from these research candidates.
++"""
++from __future__ import annotations
++
++from copy import deepcopy
+ from datetime import datetime
+-from itertools import combinations, permutations
+-import math
++from itertools import combinations
+ import re
+ 
+-
+-_STAKE = 100
+-_DEFAULTS = {
+-    "main_count": 4,
+-    "min_value_edge": 0.05,
+-    "min_expected_roi": 0.0,
+-    "min_coverage": 0.0,
+-}
++from ..engine import canonical_hash
++from ..selection import build_boxes as _old_build_boxes
+ 
+ 
+-def _number(value, name, lower=None, upper=None):
+-    if isinstance(value, bool) or not isinstance(value, (int, float)):
+-        raise ValueError(name + " must be a finite number")
+-    try:
+-        value = float(value)
+-    except (OverflowError, ValueError) as exc:
+-        raise ValueError(name + " must be finite") from exc
+-    if not math.isfinite(value):
+-        raise ValueError(name + " must be finite")
+-    if ((lower is not None and value < lower)
+-            or (upper is not None and value > upper)):
+-        raise ValueError(name + " outside allowed range")
+-    return value
++BOX_METHODS = ("five_appearance_research", "human_input_research", "mechanical_research", "box_v11_research")
++_TIMES = ("observed_at", "acquired_at", "available_at", "revision_at", "evidence_recorded_at")
++HUMAN_INPUT_FIELDS = frozenset({"race_id", "target_date", "core", "insertion", "origin", "source_id",
++                               "evidence_sha256", *_TIMES})
+ 
+ 
+-def _configuration(config):
+-    if config is None:
+-        config = {}
+-    if not isinstance(config, dict) or set(config) - set(_DEFAULTS):
+-        raise ValueError("unknown or invalid research selection configuration")
+-    result = dict(_DEFAULTS, **config)
+-    if type(result["main_count"]) is not int or result["main_count"] not in (3, 4):
+-        raise ValueError("main_count must be 3 or 4")
+-    result["min_value_edge"] = _number(result["min_value_edge"], "min_value_edge", 0)
+-    result["min_expected_roi"] = _number(result["min_expected_roi"], "min_expected_roi", 0)
+-    result["min_coverage"] = _number(result["min_coverage"], "min_coverage", 0, 1)
+-    return result
++def _stamp(value):
++    if (not isinstance(value, str) or value.endswith("-00:00")
++            or not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|[+-]\d{2}:\d{2})", value)):
++        raise ValueError("HUMAN_TIMESTAMP_INVALID")
++    if value[-6:-5] in ("+", "-") and (int(value[-5:-3]) > 23 or int(value[-2:]) > 59):
++        raise ValueError("HUMAN_TIMESTAMP_INVALID")
++    try:
++        return datetime.fromisoformat(value.replace("Z", "+00:00"))
++    except ValueError:
++        raise ValueError("HUMAN_TIMESTAMP_INVALID") from None
+ 
+ 
+-def _domain(dist):
+-    if not isinstance(dist, dict) or not dist:
+-        raise ValueError("distribution must be a nonempty dictionary")
+-    boats = set()
+-    values = {}
+-    for ticket, value in dist.items():
+-        if not isinstance(ticket, str) or not re.fullmatch(r"[1-6]-[1-6]-[1-6]", ticket):
+-            raise ValueError("invalid ordered ticket")
+-        triple = tuple(map(int, ticket.split("-")))
+-        if len(set(triple)) != 3:
+-            raise ValueError("ticket contains repeated boat")
+-        boats.update(triple)
+-        values[ticket] = _number(value, "probability", 0, 1)
+-    if not 3 <= len(boats) <= 6:
+-        raise ValueError("active domain requires three to six boats")
+-    expected = {_ticket(triple) for triple in permutations(sorted(boats), 3)}
+-    if set(values) != expected:
+-        raise ValueError("incomplete probability domain")
+-    if not math.isclose(math.fsum(values.values()), 1.0, abs_tol=1e-10, rel_tol=0):
+-        raise ValueError("probabilities must sum to one")
+-    return values, sorted(boats)
++def validate_human_input(race, human_input):
++    """Validate an assertion, not external proof that a person supplied it."""
++    base = {"eligible": False, "status": "ABSENT", "errors": [],
++            "external_origin_authenticity": "UNVERIFIED", "production_go": False}
++    if human_input is None:
++        return base
++    errors = []
++    if not isinstance(race, dict):
++        return dict(base, status="HOLD", errors=["HUMAN_RACE_REQUIRED"])
++    if not isinstance(human_input, dict) or set(human_input) != HUMAN_INPUT_FIELDS:
++        errors.append("HUMAN_INPUT_FIELDS_INVALID")
++    else:
++        if human_input["origin"] != "HUMAN_MANUAL":
++            errors.append("HUMAN_ORIGIN_ASSERTION_REQUIRED")
++        if (not isinstance(human_input["source_id"], str)
++                or not re.fullmatch(r"[A-Za-z0-9_.:-]{1,100}", human_input["source_id"])):
++            errors.append("HUMAN_SOURCE_REFERENCE_INVALID")
++        if (not isinstance(human_input["evidence_sha256"], str)
++                or not re.fullmatch(r"[0-9a-f]{64}", human_input["evidence_sha256"])):
++            errors.append("HUMAN_PREDEADLINE_EVIDENCE_HASH_REQUIRED")
++        if any(human_input[key] != race.get(key) for key in ("race_id", "target_date")):
++            errors.append("HUMAN_RACE_IDENTITY_MISMATCH")
++        core, insertion, active = human_input["core"], human_input["insertion"], race.get("active_boats")
++        if (not isinstance(core, list) or len(core) != 2 or any(type(b) is not int for b in core)
++                or type(insertion) is not int or not isinstance(active, list)
++                or not 3 <= len(active) <= 6 or any(type(b) is not int or not 1 <= b <= 6 for b in active)
++                or len(set(active)) != len(active)
++                or len(set(core + [insertion])) != 3 or not set(core + [insertion]) <= set(active)):
++            errors.append("HUMAN_BOAT_COMPOSITION_INVALID")
++        try:
++            prediction, deadline = _stamp(race.get("prediction_at")), _stamp(race.get("deadline"))
++            times = {name: _stamp(human_input[name]) for name in _TIMES}
++            if prediction >= deadline or any(value > prediction or value >= deadline for value in times.values()):
++                errors.append("HUMAN_INPUT_NOT_PREDEADLINE_AVAILABLE")
++            if times["acquired_at"] > times["available_at"]:
++                errors.append("HUMAN_AVAILABILITY_BEFORE_ACQUISITION")
++            if times["observed_at"] > times["acquired_at"]:
++                errors.append("HUMAN_ACQUISITION_BEFORE_SELECTION")
++            if times["available_at"] > times["evidence_recorded_at"]:
++                errors.append("HUMAN_EVIDENCE_BEFORE_AVAILABILITY")
++            if times["revision_at"] < times["acquired_at"]:
++                errors.append("HUMAN_REVISION_BEFORE_ACQUISITION")
++            if times["revision_at"] > times["evidence_recorded_at"]:
++                errors.append("HUMAN_REVISION_AFTER_EVIDENCE")
++            if times["evidence_recorded_at"] < times["observed_at"]:
++                errors.append("HUMAN_EVIDENCE_BEFORE_SELECTION")
++        except (ValueError, TypeError, KeyError):
++            errors.append("HUMAN_TIMESTAMP_INVALID")
++    if errors:
++        return dict(base, status="HOLD", errors=list(dict.fromkeys(errors)))
++    return dict(base, eligible=True, status="LOCAL_ASSERTION_ACCEPTED",
++                input_sha256=canonical_hash(human_input), evidence_sha256=human_input["evidence_sha256"])
+ 
+ 
+-def _ticket(triple):
+-    return "-".join(map(str, triple))
++def build_portfolios(race, dist, five, odds=None, human_input=None, config=None):
++    """Always build automatic five-appearance BOX; manual BOX is a separate lane.
+ 
+-
+-def _odds(odds, dist):
+-    if odds is None:
+-        return None, "ODDS_MISSING"
+-    if not isinstance(odds, dict):
+-        raise ValueError("odds must be a dictionary or null")
+-    if set(odds) != set(dist):
+-        return None, "ODDS_DOMAIN_INCOMPLETE_OR_UNEXPECTED"
+-    clean = {ticket: _number(value, "odds") for ticket, value in odds.items()}
+-    if any(value <= 0 for value in clean.values()):
+-        raise ValueError("odds must be positive gross payout multiples")
+-    # Bound all possible monetary products before choosing a particular method.
+-    if any(not math.isfinite(_STAKE * dist[ticket] * value)
+-           for ticket, value in clean.items()):
+-        raise ValueError("expected monetary amount overflow")
+-    return clean, "ODDS_COMPLETE"
+-
+-
+-def _expected_return(tickets, dist, odds):
+-    try:
+-        result = math.fsum(_STAKE * dist[ticket] * odds[ticket] for ticket in tickets)
+-    except OverflowError as exc:
+-        raise ValueError("expected monetary amount overflow") from exc
+-    if not math.isfinite(result):
+-        raise ValueError("expected monetary amount overflow")
+-    return result
+-
+-
+-def _economics(tickets, dist, odds, odds_status, config):
+-    coverage = math.fsum(dist[ticket] for ticket in tickets)
+-    stake = _STAKE * len(tickets)
+-    reasons = []
+-    gross = net = roi = None
+-    decision = "SKIP"
+-    if odds is None:
+-        reasons.append(odds_status)
+-    else:
+-        gross = _expected_return(tickets, dist, odds)
+-        net = gross - stake
+-        roi = net / stake
+-        if roi <= config["min_expected_roi"]:
+-            reasons.append("RESEARCH_ROI_THRESHOLD_NOT_EXCEEDED")
+-        if coverage < config["min_coverage"]:
+-            reasons.append("RESEARCH_COVERAGE_THRESHOLD_NOT_MET")
+-        if not reasons:
+-            decision = "BET"
+-            reasons.append("PROPOSED_RESEARCH_RISK_GATES_MET")
+-    return {
+-        "coverage": coverage,
+-        "stake_yen": stake,
+-        "expected_return_yen": gross,
+-        "expected_net_yen": net,
+-        "expected_roi": roi,
+-        "bet_decision": decision,
+-        "reasons": reasons,
+-        "odds_status": odds_status,
+-        "risk_policy_status": "PROPOSED_NOT_ADOPTED",
+-        "simulation_only": True,
+-    }
+-
+-
+-def select_five(dist, odds=None, config=None):
+-    """Select five unique tickets; a value 'hole' requires complete observed odds.
+-
+-    Odds freshness/as-of checks belong to the input validator. This function accepts
+-    only the already admitted numeric snapshot and never fills absent odds.
+-    """
+-    dist, _ = _domain(dist)
+-    config = _configuration(config)
+-    odds, odds_status = _odds(odds, dist)
+-    ranked = sorted(dist, key=lambda ticket: (-dist[ticket], ticket))
+-    main = ranked[:config["main_count"]]
+-    remaining = [ticket for ticket in ranked if ticket not in main]
+-    value = []
+-    if odds is not None:
+-        supported = [ticket for ticket in remaining
+-                     if dist[ticket] * odds[ticket] > 1 + config["min_value_edge"]]
+-        supported.sort(key=lambda ticket: (-dist[ticket] * odds[ticket], -dist[ticket], ticket))
+-        value = supported[:5 - len(main)]
+-    fallback = [ticket for ticket in remaining if ticket not in value][:5 - len(main) - len(value)]
+-    selection_order = main + value + fallback
+-    tickets = sorted(selection_order, key=lambda ticket: tuple(map(int, ticket.split("-"))))
+-    output = {
+-        "tickets": tickets,
+-        "selection_order": selection_order,
+-        "main_tickets": main,
+-        "value_tickets": value,
+-        "fallback_tickets": fallback,
+-        "selection_labels": {**{ticket: "MAIN_PROBABILITY" for ticket in main},
+-                             **{ticket: "VALUE_SUPPORTED" for ticket in value},
+-                             **{ticket: "PROBABILITY_FALLBACK_NOT_HOLE" for ticket in fallback}},
+-        "supported_hole_status": "SUPPORTED" if len(value) == 5 - len(main) else "INSUFFICIENT_SUPPORTED_HOLES",
+-        "configuration": config,
+-        "configuration_status": "PROPOSED_NOT_ADOPTED",
+-        "probability_stage": "SUPPLIED_RESEARCH_DISTRIBUTION",
+-        "method": "MAIN_PLUS_SUPPORTED_VALUE_RESEARCH",
+-    }
+-    output.update(_economics(tickets, dist, odds, odds_status, config))
+-    return output
+-
+-
+-def _aware(value):
+-    if not isinstance(value, str) or value.endswith("-00:00") or re.search(r"[.,]\d{7,}", value):
+-        raise ValueError("invalid timestamp")
+-    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|[+-]\d{2}:\d{2})", value):
+-        raise ValueError("timestamp must be timezone aware ISO seconds")
+-    try:
+-        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+-    except ValueError as exc:
+-        raise ValueError("invalid timestamp") from exc
+-    if parsed.utcoffset() is None:
+-        raise ValueError("timestamp must be timezone aware")
+-    return parsed
+-
+-
+-def _box(boats, dist, odds, odds_status, config, method):
+-    tickets = [_ticket(triple) for triple in permutations(sorted(boats), 3)]
+-    output = {
+-        "boats": sorted(boats),
+-        "tickets": tickets,
+-        "method": method,
+-        "formal_box_v1_reproduction": False,
+-        "status": "NOT_FORMAL_BOXV1_RESEARCH_ONLY",
+-    }
+-    output.update(_economics(tickets, dist, odds, odds_status, config))
+-    return output
+-
+-
+-def build_boxes(race, dist, five, odds=None, config=None):
+-    """Build separate Human-style, Mechanical, and EV BOX research candidates.
+-
+-    These names denote research comparison lanes, never proof of frozen BOX V1.
++    Invalid present manual input returns HOLD/null. The V003 engine must propagate
++    that HOLD. Absent input is not silently replaced by any automatic candidate.
+     """
+     if not isinstance(race, dict):
+-        raise ValueError("race must be a dictionary")
+-    dist, active = _domain(dist)
+-    supplied_active = race.get("active_boats")
+-    if (not isinstance(supplied_active, list) or any(type(b) is not int for b in supplied_active)
+-            or len(set(supplied_active)) != len(supplied_active) or sorted(supplied_active) != active):
+-        raise ValueError("race and probability active boat domains differ")
+-    prediction_at, deadline = _aware(race.get("prediction_at")), _aware(race.get("deadline"))
+-    if prediction_at >= deadline:
+-        raise ValueError("prediction must precede deadline")
+-    if not isinstance(five, dict) or not isinstance(five.get("tickets"), list):
+-        raise ValueError("five selection must contain tickets list")
+-    five_tickets = five["tickets"]
+-    if (len(five_tickets) != 5 or any(not isinstance(ticket, str) or ticket not in dist for ticket in five_tickets)
+-            or len(set(five_tickets)) != 5):
+-        raise ValueError("five tickets must be unique and in probability domain")
+-    config = _configuration(config)
+-    odds, odds_status = _odds(odds, dist)
+-    counts = {boat: sum(str(boat) in ticket.split("-") for ticket in five_tickets) for boat in active}
+-    first_counts = {boat: sum(ticket.startswith(str(boat) + "-") for ticket in five_tickets) for boat in active}
+-    frequency_rank = sorted(active, key=lambda boat: (-counts[boat], -first_counts[boat], boat))
+-    manual = race.get("human_box_input")
+-    if manual is not None:
+-        time_fields = {"observed_at", "acquired_at", "available_at", "revision_at"}
+-        if not isinstance(manual, dict) or set(manual) != {"core", "insertion"} | time_fields:
+-            raise ValueError("human research input has missing or unexpected availability metadata")
+-        core, insertion = manual["core"], manual["insertion"]
+-        if (not isinstance(core, list) or len(core) != 2 or any(type(boat) is not int for boat in core)
+-                or type(insertion) is not int or len(set(core + [insertion])) != 3
+-                or not set(core + [insertion]) <= set(active)):
+-            raise ValueError("human research input needs three distinct active boats")
+-        times = {field: _aware(manual[field]) for field in time_fields}
+-        if any(moment > prediction_at or moment >= deadline for moment in times.values()):
+-            raise ValueError("human research input not available before prediction")
+-        if times["acquired_at"] > times["available_at"]:
+-            raise ValueError("human research input available before acquisition")
+-        human_boats = core + [insertion]
+-        method = "MANUAL_CORE_INSERTION_RESEARCH"
+-        manual_status = "AS_OF_GATE_PASSED_NOT_LEGACY_PROOF"
+-    else:
+-        core, insertion = frequency_rank[:2], frequency_rank[2]
+-        human_boats = core + [insertion]
+-        method = "FIVE_APPEARANCE_CORE_INSERTION_RESEARCH"
+-        manual_status = "NO_MANUAL_INPUT_AUTOMATIC_RESEARCH_HEURISTIC"
+-    human = _box(human_boats, dist, odds, odds_status, config, method)
+-    human.update({"core": list(core), "insertion": insertion,
+-                  "five_appearance_counts": {str(boat): counts[boat] for boat in active},
+-                  "manual_status": manual_status})
+-
+-    # Mechanical evaluates all 20 sets at six active boats, independently of Human.
+-    candidates = list(combinations(active, 3))
+-    coverage = {boats: math.fsum(dist[_ticket(triple)] for triple in permutations(boats, 3))
+-                for boats in candidates}
+-    mechanical_boats = min(candidates, key=lambda boats: (-coverage[boats], boats))
+-    mechanical = _box(mechanical_boats, dist, odds, odds_status, config,
+-                      "EXHAUSTIVE_SIX_PERMUTATION_PROBABILITY_MASS_RESEARCH")
+-    if odds is not None:
+-        candidate_ev = {boats: _expected_return([_ticket(triple) for triple in permutations(boats, 3)],
+-                                               dist, odds) for boats in candidates}
+-        value_boats = min(candidates, key=lambda boats: (-candidate_ev[boats], -coverage[boats], boats))
+-        value_method = "EXHAUSTIVE_EXPECTED_RETURN_BOX_V11_RESEARCH"
+-        objective_status = "EXPECTED_RETURN_AVAILABLE_PROPOSED"
+-    else:
+-        value_boats = min(candidates, key=lambda boats: (-coverage[boats], boats))
+-        value_method = "BOX_V11_PROBABILITY_FALLBACK_UNKNOWN_EV"
+-        objective_status = "EV_UNKNOWN_PROBABILITY_FALLBACK"
+-    value_box = _box(value_boats, dist, odds, odds_status, config, value_method)
+-    value_box["objective_status"] = objective_status
+-    boxes = {"human_research": human, "mechanical_research": mechanical, "box_v11_research": value_box}
+-    overlaps = {"five_vs_" + name: sorted(set(five_tickets) & set(box["tickets"]))
+-                for name, box in boxes.items()}
+-    for first, second in combinations(boxes, 2):
+-        overlaps[first + "_vs_" + second] = sorted(set(boxes[first]["tickets"]) & set(boxes[second]["tickets"]))
+-    ticket_sets = [set(five_tickets)] + [set(box["tickets"]) for box in boxes.values()]
+-    overlaps["unique_ticket_union"] = sorted(set.union(*ticket_sets))
+-    overlaps["aggregation_policy"] = "REPORT_METHODS_SEPARATELY_DO_NOT_SUM_OVERLAPPING_PORTFOLIOS"
+-    boxes.update({
+-        "composition_difference": "YES" if set(human["boats"]) != set(mechanical["boats"]) else "NO",
++        raise ValueError("PORTFOLIO_RACE_REQUIRED")
++    automatic_race = deepcopy(race)
++    automatic_race["human_box_input"] = None  # Never consume the ambiguous old field.
++    old = _old_build_boxes(automatic_race, dist, five, odds, config)
++    automatic = deepcopy(old["human_research"])
++    automatic.pop("manual_status", None)
++    automatic.update(method="FIVE_APPEARANCE_CORE_INSERTION_RESEARCH", origin="AUTOMATED_FIVE_APPEARANCES",
++                     display_name="Five-appearance research BOX", human_origin=False,
++                     status="AUTOMATED_RESEARCH_NOT_FORMAL_HUMAN_BOX")
++    mechanical, value_box = deepcopy(old["mechanical_research"]), deepcopy(old["box_v11_research"])
++    gate = validate_human_input(race, human_input)
++    manual = None
++    if gate["eligible"]:
++        manual_race = deepcopy(automatic_race)
++        manual_race["human_box_input"] = {key: deepcopy(human_input[key])
++                                         for key in ("core", "insertion", "observed_at", "acquired_at", "available_at", "revision_at")}
++        manual = deepcopy(_old_build_boxes(manual_race, dist, five, odds, config)["human_research"])
++        manual.pop("manual_status", None)
++        manual.update(method="HUMAN_INPUT_RESEARCH_PREDEADLINE_ASSERTED", origin="HUMAN_MANUAL",
++                      display_name="Human-input research BOX", status="ASSERTED_HUMAN_INPUT_NOT_FORMAL_BOX_V1",
++                      human_input_sha256=gate["input_sha256"], input_provenance=deepcopy(human_input),
++                      external_origin_authenticity="UNVERIFIED")
++    outputs = {"five_appearance_research": automatic, "human_input_research": manual,
++               "mechanical_research": mechanical, "box_v11_research": value_box}
++    available = {name: box for name, box in outputs.items() if box is not None}
++    overlaps = {"five_vs_" + name: sorted(set(five["tickets"]) & set(box["tickets"])) for name, box in available.items()}
++    for first, second in combinations(available, 2):
++        overlaps[first + "_vs_" + second] = sorted(set(available[first]["tickets"]) & set(available[second]["tickets"]))
++    all_sets = [set(five["tickets"])] + [set(box["tickets"]) for box in available.values()]
++    overlaps["unique_ticket_union"] = sorted(set.union(*all_sets))
++    overlaps["aggregation_policy"] = "SEPARATE_METHODS_NO_CROSS_PORTFOLIO_PNL_AGGREGATION"
++    outputs.update({
++        "composition_difference": {
++            "five_appearance_vs_mechanical": "YES" if set(automatic["boats"]) != set(mechanical["boats"]) else "NO",
++            "human_input_vs_mechanical": ("YES" if set(manual["boats"]) != set(mechanical["boats"]) else "NO") if manual is not None else None},
+         "composition_meaning": "BOAT_SET_EQUALITY_ONLY_NOT_QUALITY_OR_SUPERIORITY",
+-        "overlap": overlaps,
+-        "legacy_box_v1": {
+-            "status": "UNVERIFIED_ORIGINAL_BYTES_SHA_NOT_PROVIDED",
+-            "human": None, "mechanical": None,
+-            "reason": "FORMAL_FROZEN_RULES_NOT_RECONSTRUCTED",
+-        },
+-        "configuration": config,
+-        "configuration_status": "PROPOSED_NOT_ADOPTED",
++        "human_input_gate": gate, "canonical_human_box_input_consumed": False,
++        "overlap": overlaps, "configuration": deepcopy(old["configuration"]),
++        "configuration_status": "PROPOSED_NOT_ADOPTED", "schema": "MODEL11_PORTFOLIOS_V003",
++        "formal_box_v1_status": "UNVERIFIED_NOT_REIMPLEMENTED",
++        "live_eligible": False, "production_go": False,
+     })
+-    return boxes
++    return outputs

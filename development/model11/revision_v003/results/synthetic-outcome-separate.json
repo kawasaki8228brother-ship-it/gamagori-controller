@@ -1,0 +1,15 @@
+{
+  "available_at": "2099-01-17T13:10:00+09:00",
+  "data_classification": "SYNTHETIC_ONLY",
+  "final": true,
+  "payout_per_100": 714584.9,
+  "race_id": "20990117_GAMAGORI_1R",
+  "refund_tickets": [],
+  "result": [
+    2,
+    3,
+    5
+  ],
+  "synthetic": true,
+  "target_date": "2099-01-17"
+}
