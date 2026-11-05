@@ -1,0 +1,79 @@
+{
+  "Claude_independent_review": "NOT_PERFORMED_BY_THIS_DELIVERY",
+  "OBS_contract": "UNVERIFIED",
+  "actual_11_05_OBS": "NOT_QUERIED",
+  "actual_11_05_root_cause": "UNVERIFIED_SOURCE_NOT_OBTAINED",
+  "actual_settings_db_notification_scheduler_B24": "UNVERIFIED_NOT_QUERIED",
+  "baseline": {
+    "actual_11_05_source": "NOT_OBTAINED",
+    "errors": 0,
+    "exit_code": 0,
+    "failures": 0,
+    "junit_testcase_records_including_subtests": 248,
+    "production_go": false,
+    "pytest_result_categories": {
+      "passed": 248
+    },
+    "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
+    "skipped": 0,
+    "status": "PASS",
+    "tests": 248
+  },
+  "baseline_accepted_candidate_rejected_parser_cases": [
+    "conflicting_duplicate",
+    "multiple_times",
+    "row_outside_table"
+  ],
+  "baseline_prior_day_dispatch_cases": 3,
+  "candidate": {
+    "actual_11_05_source": "NOT_OBTAINED",
+    "errors": 0,
+    "exit_code": 0,
+    "failures": 0,
+    "junit_testcase_records_including_subtests": 367,
+    "production_go": false,
+    "pytest_result_categories": {
+      "passed": 353,
+      "subtests passed": 14
+    },
+    "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
+    "skipped": 0,
+    "status": "PASS",
+    "tests": 353
+  },
+  "candidate_current_day_dispatch_by_case": [
+    false,
+    true,
+    true
+  ],
+  "candidate_prior_day_dispatch_cases": 0,
+  "classification": "SYNTHETIC_ONLY",
+  "internal_agent_review": "CODE_AND_DOCUMENT_REVIEW_COMPLETED_NOT_CLAUDE_REVIEW",
+  "modified_original_files": [
+    "main.py",
+    "official.py",
+    "parsers.py"
+  ],
+  "normal_twelve_fields_equal": true,
+  "obs_cross_runtime_fixture_and_report_byte_equal": true,
+  "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+  "original_files": 40,
+  "production_go": false,
+  "production_sqlite": "UNVERIFIED_NOT_QUERIED",
+  "python312_full_C": "UNVERIFIED_NOT_RUN",
+  "python312_obs_only": {
+    "errors": 0,
+    "failures": 0,
+    "production_go": false,
+    "scope": "STDLIB_SYNTHETIC_OBS_QA_ONLY",
+    "skipped": 0,
+    "status": "PASS",
+    "tests": 14
+  },
+  "python314_full_C": "PASS_WITHIN_OFFLINE_SCOPE",
+  "python314_local_sqlite": "3.50.4",
+  "real_network_or_TLS_test": false,
+  "release_state": "OFFLINE_DEV_READY_ONLY_DO_NOT_DEPLOY_OLD_BASE",
+  "requirements_render_CI_dependencies_changed": false,
+  "unchanged_original_files": 37
+}

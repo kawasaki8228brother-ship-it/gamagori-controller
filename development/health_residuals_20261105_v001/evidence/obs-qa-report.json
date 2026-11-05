@@ -1,0 +1,785 @@
+{
+  "A_operational_rows": 20,
+  "actual_A_canonicalization": "UNVERIFIED",
+  "actual_OBS_contract": "UNVERIFIED_NOT_INDEPENDENTLY_MATCHED",
+  "hash_counts": {
+    "local_canonical_matches": 20,
+    "pre_post_equal": 20,
+    "raw_matches": 20
+  },
+  "idempotency_counts": {
+    "duplicate_key_groups": 0,
+    "evaluated_A_rows": 20,
+    "matching_A_rows": 20,
+    "unique_A_provided_keys": 20
+  },
+  "input_rows": 20,
+  "local_canonical_profile": "LOCAL_PROPOSED_SORTED_COMPACT_ASCII_JSON_V001_NOT_CONFIRMED_A_PROFILE",
+  "lock_eligibility": "NOT_ASSESSED_UNCHANGED",
+  "normalized_input_contract": "PROPOSED_NOT_ACTUAL_A_FIELD_MAPPING",
+  "payload_uuid_missing_rows": 12,
+  "production_go": false,
+  "query_completeness": "UNVERIFIED_NO_SOURCE_QUERY_PERFORMED",
+  "related_A_reference": {
+    "algorithm": "UNVERIFIED",
+    "execution_patch": "2026-09-18.1",
+    "is_independently_matched_OBS_contract": false,
+    "main_version": "v3",
+    "model": "Model 1.0 FROZEN",
+    "observed_hex_characters": 40,
+    "received_hash_label": "SHA256",
+    "received_hash_verbatim": "d462767f4448e28fc735df7363fb1a75137c5e7f",
+    "sha256_length_matches": false
+  },
+  "rows": [
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_START",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "MISSING",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED",
+        "SOURCE_EVIDENCE_REQUIREMENT_OR_FORMAT_UNVERIFIED"
+      ],
+      "row_index": 0,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "MISSING_FIELD",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_END",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "PROVIDED",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED"
+      ],
+      "row_index": 1,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_START",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "MISSING",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED",
+        "SOURCE_EVIDENCE_REQUIREMENT_OR_FORMAT_UNVERIFIED"
+      ],
+      "row_index": 2,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "EMPTY_ARRAY",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_END",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "PROVIDED",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED"
+      ],
+      "row_index": 3,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_START",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "MISSING",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED",
+        "SOURCE_EVIDENCE_REQUIREMENT_OR_FORMAT_UNVERIFIED"
+      ],
+      "row_index": 4,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "EMPTY_ARRAY",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_END",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "PROVIDED",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED"
+      ],
+      "row_index": 5,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_START",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "MISSING",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED",
+        "SOURCE_EVIDENCE_REQUIREMENT_OR_FORMAT_UNVERIFIED"
+      ],
+      "row_index": 6,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "EMPTY_ARRAY",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_END",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "PROVIDED",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED"
+      ],
+      "row_index": 7,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_START",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "MISSING",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED"
+      ],
+      "row_index": 8,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_END",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "PROVIDED",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED"
+      ],
+      "row_index": 9,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_START",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "MISSING",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED"
+      ],
+      "row_index": 10,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_END",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MISSING_PAYLOAD",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "PROVIDED",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [
+        "PAYLOAD_UUID_REQUIREMENT_UNVERIFIED"
+      ],
+      "row_index": 11,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "CONTRACT_UNVERIFIED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_START",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MATCH",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "MISSING",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [],
+      "row_index": 12,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "OBSERVED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_END",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MATCH",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "PROVIDED",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [],
+      "row_index": 13,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "OBSERVED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_START",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MATCH",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "MISSING",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [],
+      "row_index": 14,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "OBSERVED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_END",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MATCH",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "PROVIDED",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [],
+      "row_index": 15,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "OBSERVED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_START",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MATCH",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "MISSING",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [],
+      "row_index": 16,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "OBSERVED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_END",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MATCH",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "PROVIDED",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [],
+      "row_index": 17,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "OBSERVED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_START",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MATCH",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "MISSING",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [],
+      "row_index": 18,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "OBSERVED"
+    },
+    {
+      "a_idempotency": {
+        "all_provided_keys_match": true,
+        "column_match": true,
+        "evaluated": true,
+        "payload_match": true
+      },
+      "error_count": 0,
+      "event_kind": "RUN_END",
+      "field_comparisons": {
+        "event_kind": "MATCH",
+        "event_uuid": "MATCH",
+        "idempotency_key": "MATCH",
+        "producer_run_id": "MATCH",
+        "source": "MATCH"
+      },
+      "hashes": {
+        "local_canonical_match": true,
+        "pre_post_equal": true,
+        "raw_match": true
+      },
+      "operational_presence": {
+        "ended_at": "PROVIDED",
+        "errors": "PROVIDED",
+        "stages": "PROVIDED",
+        "started_at": "PROVIDED"
+      },
+      "reasons": [],
+      "row_index": 19,
+      "scope": "A_OPERATIONAL_OBS",
+      "source_claim_authenticity": "UNVERIFIED",
+      "source_evidence": "DECLARED_NORMAL",
+      "stage_count": 1,
+      "status": "OBSERVED"
+    }
+  ],
+  "source_claim_authenticity": "UNVERIFIED",
+  "source_evidence_counts": {
+    "DECLARED_NORMAL": 16,
+    "EMPTY_ARRAY": 3,
+    "MISSING_FIELD": 1
+  },
+  "status": "READ_ONLY_OBSERVATIONAL_QA_NOT_ELIGIBILITY",
+  "status_counts": {
+    "CONTRACT_UNVERIFIED": 12,
+    "OBSERVED": 8
+  },
+  "unverified_questions": {
+    "column_uuid_only_eligibility": "UNVERIFIED",
+    "missing_source_evidence_formal_violation": "UNVERIFIED",
+    "payload_uuid_mandatory": "UNVERIFIED",
+    "run_start_empty_source_evidence_allowed": "UNVERIFIED"
+  },
+  "uuid_comparison_counts": {
+    "MATCH": 8,
+    "MISSING_PAYLOAD": 12
+  }
+}

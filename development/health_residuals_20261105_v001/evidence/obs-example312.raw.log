@@ -1,0 +1,2 @@
+{"classification": "SYNTHETIC_ONLY", "network": "BLOCKED", "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "production_go": false, "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"}
+{"OBS_contract": "UNVERIFIED", "actual_11_05_rows_obtained": false, "input_bytes_unchanged": true, "input_rows": 20, "production_go": false, "status": "SYNTHETIC_OBS_QA_COMPLETE"}

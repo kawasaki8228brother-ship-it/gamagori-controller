@@ -1,0 +1,21 @@
+{"classification": "SYNTHETIC_ONLY", "network": "BLOCKED", "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "production_go": false, "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"}
+test_b_and_lock_metadata_excluded_without_a_formula_or_eligibility (test_health_obs_qa.ObsQaTests.test_b_and_lock_metadata_excluded_without_a_formula_or_eligibility) ... ok
+test_confirmed_start_end_idempotency_known_vectors_not_merged (test_health_obs_qa.ObsQaTests.test_confirmed_start_end_idempotency_known_vectors_not_merged) ... ok
+test_consistent_other_canonical_profile_stays_unverified_not_a_violation (test_health_obs_qa.ObsQaTests.test_consistent_other_canonical_profile_stays_unverified_not_a_violation) ... ok
+test_duplicate_key_same_and_different_raw_are_observations_not_repairs (test_health_obs_qa.ObsQaTests.test_duplicate_key_same_and_different_raw_are_observations_not_repairs) ... ok
+test_missing_payload_uuid_and_column_only_never_formal_violation (test_health_obs_qa.ObsQaTests.test_missing_payload_uuid_and_column_only_never_formal_violation) ... ok
+test_null_uuid_and_missing_uuid_are_not_collapsed (test_health_obs_qa.ObsQaTests.test_null_uuid_and_missing_uuid_are_not_collapsed) ... ok
+test_provided_uuid_mismatch_is_observed_inconsistency_without_value_echo (test_health_obs_qa.ObsQaTests.test_provided_uuid_mismatch_is_observed_inconsistency_without_value_echo) ... ok
+test_pure_no_io_no_mutation_and_no_raw_identifiers_or_error_echo (test_health_obs_qa.ObsQaTests.test_pure_no_io_no_mutation_and_no_raw_identifiers_or_error_echo) ... ok
+test_raw_hash_and_pre_post_differences_are_not_hidden (test_health_obs_qa.ObsQaTests.test_raw_hash_and_pre_post_differences_are_not_hidden) ... ok
+test_source_evidence_states_all_separate_without_uniform_empty_failure (test_health_obs_qa.ObsQaTests.test_source_evidence_states_all_separate_without_uniform_empty_failure) ... ok
+test_source_mismatch_is_not_processed_under_a_or_b_contract (test_health_obs_qa.ObsQaTests.test_source_mismatch_is_not_processed_under_a_or_b_contract) ... ok
+test_synthetic_twenty_counts_exact_and_not_actual_reconstruction (test_health_obs_qa.ObsQaTests.test_synthetic_twenty_counts_exact_and_not_actual_reconstruction) ... ok
+test_unreadable_payload_and_related_40hex_reference_never_relabelled (test_health_obs_qa.ObsQaTests.test_unreadable_payload_and_related_40hex_reference_never_relabelled) ... ok
+test_wrong_confirmed_key_and_conflicting_producer_not_chosen_arbitrarily (test_health_obs_qa.ObsQaTests.test_wrong_confirmed_key_and_conflicting_producer_not_chosen_arbitrarily) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.009s
+
+OK
+{"errors": 0, "failures": 0, "production_go": false, "scope": "STDLIB_SYNTHETIC_OBS_QA_ONLY", "skipped": 0, "status": "PASS", "tests": 14}

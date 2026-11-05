@@ -22,30 +22,114 @@ def make_race_id(date_str: str, race_no: int) -> str:
     return f"{date_str}_GAM_{race_no:02d}R"
 
 
-def parse_race_index(html: str, date_str: str, source_url: str, acquired_at: str) -> List[OfficialRaceInfo]:
-    """Fail-closed parser: only rows that clearly contain '<n>R' + HH:MM are accepted."""
+def _raceindex_labels(text: str) -> List[str]:
+    # Scan broadly enough to reject invalid numbers instead of skipping them.
+    return re.findall(r"(?<![A-Za-z0-9])([0-9]+)\s*R(?![A-Za-z])", text, re.IGNORECASE)
+
+
+def _raceindex_partial(code: str):
+    # Fixed codes preserve the legacy error category without echoing HTML/URLs.
+    raise ParserError("raceindex: partial parse " + code)
+
+
+def _raceindex_expected(expected_race_numbers):
+    if expected_race_numbers is None:
+        return None
+    if isinstance(expected_race_numbers, (str, bytes)):
+        raise ParserError("raceindex: invalid expected race count/number")
+    try:
+        numbers = tuple(expected_race_numbers)
+    except TypeError:
+        raise ParserError("raceindex: invalid expected race count/number") from None
+    if (not 1 <= len(numbers) <= 12 or any(type(n) is not int or not 1 <= n <= 12 for n in numbers)
+            or len(set(numbers)) != len(numbers)):
+        raise ParserError("raceindex: invalid expected race count/number")
+    return set(numbers)
+
+
+def parse_race_index(html: str, date_str: str, source_url: str, acquired_at: str,
+                     *, expected_race_numbers=None) -> List[OfficialRaceInfo]:
+    """Conservative table contract; unsupported/partial structure raises.
+
+    Expected numbers must come from caller policy/external schedule evidence.
+    None preserves the legacy small-fixture API; it does not prove completeness,
+    page date, official origin, or non-race-day status. HTTP 200 is not proof.
+    """
+    expected = _raceindex_expected(expected_race_numbers)
+    if not isinstance(html, str) or not isinstance(date_str, str) or not re.fullmatch(r"[0-9]{8}", date_str):
+        raise ParserError("raceindex: invalid HTML/date input")
+    try:
+        day = dt.datetime.strptime(date_str, "%Y%m%d").date()
+    except ValueError:
+        raise ParserError("raceindex: invalid date input") from None
     soup = BeautifulSoup(html, "html.parser")
+    for hidden in soup.find_all(["script", "style"]):
+        hidden.decompose()
+    page_labels = _raceindex_labels(" ".join(soup.stripped_strings))
+    if not page_labels:
+        raise ParserError("raceindex: no race rows with race number + deadline found")
+    if any(not re.fullmatch(r"(?:1[0-2]|[1-9])", number) for number in page_labels):
+        raise ParserError("raceindex: invalid race count/number")
+    rows = list(soup.find_all("tr"))
+    row_labels = [label for row in rows for label in _raceindex_labels(" ".join(row.stripped_strings))]
+    if sorted(page_labels) != sorted(row_labels):
+        _raceindex_partial("LABEL_OUTSIDE_ROWS_OR_NESTED_ROWS")
+
+    anchors = []
+    for row in rows:
+        cells = row.find_all(["th", "td"], recursive=False)
+        if not cells or not any(cell.name == "th" for cell in cells):
+            continue
+        texts = ["".join(cell.stripped_strings) for cell in cells]
+        race_columns = [i for i, text in enumerate(texts) if text in ("レース", "レース番号", "R")]
+        deadline_columns = [i for i, text in enumerate(texts)
+                            if re.fullmatch(r"締切(?:予定)?(?:時刻|時間)?(?:[/／・]?投票)?", text)]
+        if race_columns or deadline_columns:
+            if len(race_columns) != 1 or len(deadline_columns) != 1 or race_columns[0] == deadline_columns[0]:
+                _raceindex_partial("SEMANTIC_HEADER_AMBIGUOUS")
+            if any(cell.get("rowspan", "1") != "1" or cell.get("colspan", "1") != "1" for cell in cells):
+                _raceindex_partial("MERGED_HEADER_UNSUPPORTED")
+            anchors.append((row, row.find_parent("table"), race_columns[0], deadline_columns[0], len(cells)))
+    if len(anchors) != 1 or anchors[0][1] is None:
+        _raceindex_partial("SEMANTIC_HEADER_MISSING_OR_MULTIPLE")
+    header, table, race_column, deadline_column, width = anchors[0]
+    if _raceindex_labels(" ".join(header.stripped_strings)):
+        _raceindex_partial("RACE_LABEL_IN_HEADER")
     races: List[OfficialRaceInfo] = []
     seen = set()
-    labelled_races = set()
-
-    rows = list(soup.find_all("tr"))
-    for tr in rows:
-        text = " ".join(tr.stripped_strings)
-        race_match = re.search(r"(?:^|\s)(1[0-2]|[1-9])R(?:\s|$)", text)
-        if race_match:
-            labelled_races.add(int(race_match.group(1)))
-        time_match = _TIME_RE.search(text)
-        if not race_match or not time_match:
+    header_seen = False
+    for row in rows:
+        if row is header:
+            header_seen = True
             continue
-
-        race_no = int(race_match.group(1))
+        text = " ".join(row.stripped_strings)
+        labels = _raceindex_labels(text)
+        clock_tokens = re.findall(r"(?<![0-9])([0-9]{1,2}:[0-9]{2}(?::[0-9]{2})?)(?![0-9])", text)
+        if not labels:
+            if row.find_parent("table") is table and clock_tokens:
+                _raceindex_partial("DEADLINE_ROW_WITHOUT_RACE_LABEL")
+            continue
+        if row.find_parent("table") is not table or not header_seen:
+            _raceindex_partial("RACE_LABEL_OUTSIDE_SEMANTIC_TABLE")
+        if len(labels) != 1:
+            _raceindex_partial("MULTIPLE_RACE_LABELS_PER_ROW")
+        cells = row.find_all(["th", "td"], recursive=False)
+        if len(cells) != width or any(cell.get("rowspan", "1") != "1" or cell.get("colspan", "1") != "1" for cell in cells):
+            _raceindex_partial("ROW_CELL_STRUCTURE_CHANGED")
+        race_cell = "".join(cells[race_column].stripped_strings)
+        if not re.fullmatch(r"(?:1[0-2]|[1-9])R", race_cell, re.IGNORECASE):
+            _raceindex_partial("RACE_CELL_NOT_CANONICAL")
+        race_no = int(labels[0])
         if race_no in seen:
-            continue
-        hh, mm = int(time_match.group(1)), int(time_match.group(2))
-        day = dt.datetime.strptime(date_str, "%Y%m%d").date()
+            _raceindex_partial("DUPLICATE_RACE_NUMBER")
+        if len(clock_tokens) != 1 or not _TIME_RE.fullmatch(clock_tokens[0]):
+            _raceindex_partial("DEADLINE_MISSING_INVALID_OR_AMBIGUOUS")
+        deadline_text = " ".join(cells[deadline_column].stripped_strings)
+        matches = list(_TIME_RE.finditer(deadline_text))
+        if len(matches) != 1 or matches[0].group(0) != clock_tokens[0]:
+            _raceindex_partial("DEADLINE_NOT_IN_CLOSING_COLUMN")
+        hh, mm = int(matches[0].group(1)), int(matches[0].group(2))
         deadline = dt.datetime(day.year, day.month, day.day, hh, mm, tzinfo=JST)
-
         status = "UNKNOWN"
         if "中止" in text or "取りやめ" in text:
             status = "CANCELLED"
@@ -53,31 +137,19 @@ def parse_race_index(html: str, date_str: str, source_url: str, acquired_at: str
             status = "CLOSED"
         elif "投票" in text or "発売中" in text:
             status = "OPEN"
-
-        races.append(
-            OfficialRaceInfo(
-                race_id=make_race_id(date_str, race_no),
-                official_deadline=deadline,
-                is_closed=(status == "CLOSED"),
-                is_cancelled=(status == "CANCELLED"),
-                sales_status=status,
-                source_url=source_url,
-                acquired_at=acquired_at,
-            )
-        )
+        races.append(OfficialRaceInfo(
+            race_id=make_race_id(date_str, race_no), official_deadline=deadline,
+            is_closed=(status == "CLOSED"), is_cancelled=(status == "CANCELLED"),
+            sales_status=status, source_url=source_url, acquired_at=acquired_at,
+        ))
         seen.add(race_no)
-
-    # BOAT RACE normally runs 12 races; allow fewer only when the page explicitly contains race rows.
     if not races:
         raise ParserError("raceindex: no race rows with race number + deadline found")
-    parsed_races = {int(r.race_id[-3:-1]) for r in races}
-    if labelled_races and labelled_races != parsed_races:
-        raise ParserError(
-            f"raceindex: partial parse labelled={sorted(labelled_races)} parsed={sorted(parsed_races)}"
-        )
-    if len(races) > 12 or any(not 1 <= int(r.race_id[-3:-1]) <= 12 for r in races):
+    if expected is not None and seen != expected:
+        _raceindex_partial("EXPECTED_RACE_SET_MISMATCH")
+    if len(races) > 12:
         raise ParserError("raceindex: invalid race count/number")
-    return sorted(races, key=lambda x: x.race_id)
+    return sorted(races, key=lambda race: race.race_id)
 
 
 def _find_section_table(soup: BeautifulSoup, keywords: Tuple[str, ...]):

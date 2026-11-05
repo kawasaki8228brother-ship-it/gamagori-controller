@@ -13,6 +13,8 @@ from airtable import DryRunAirtableAdapter
 from error_rate_limit import RepeatedErrorRateLimiter
 from models import JST, OfficialRaceInfo, RaceStatus
 from official import OfficialDataFetcher
+from raceindex_scope import RaceScopeError, filter_current_races, recover_current_states, validate_index_snapshot
+from raceindex_status import IndexFailure, NoRaceVerified, classify_index_exception
 from repositories import MockBaselineRepository, SQLiteStateRepository
 from state_machine import RaceStateMachine
 
@@ -134,6 +136,77 @@ class GamagoriController:
             len(race_ids),
         )
 
+    def _log_index_failure(self, *, context: str, iteration: int, exc: Exception) -> dict:
+        outcome = classify_index_exception(exc)
+        # Do not feed source URLs, proxy values or arbitrary exception text into
+        # the repeated-error logger. The diagnostic is a fixed classification.
+        self._error_log_limiter.emit(
+            logger, context=context,
+            prefix=f"Poll #{iteration} {context} FAILED status={outcome['kind']}",
+            exc=RuntimeError(f"{outcome['kind']}:{outcome['reason']}"))
+        return outcome
+
+    async def _refresh_race_universe(self, now_jst: dt.datetime, iteration: int) -> tuple[bool, bool]:
+        previous_count = len(self._known_races)
+        self._known_races = filter_current_races(self._known_races, now_jst)
+        if len(self._known_races) != previous_count:
+            logger.warning("Poll #%s STALE_RACE_SCOPE_EXCLUDED count=%s target_day=%s", iteration,
+                           previous_count - len(self._known_races), now_jst.astimezone(JST).strftime("%Y%m%d"))
+        self._last_index_outcome = {"official": "NOT_ATTEMPTED", "tracking": "NOT_ATTEMPTED", "persisted": "NOT_NEEDED"}
+        try:
+            snapshot = await self.fetcher.fetch_race_index(now_jst)
+            try:
+                accepted = validate_index_snapshot(snapshot, now_jst)
+            except RaceScopeError:
+                raise IndexFailure("HTML_PARSE_FAILED", "OFFICIAL_SNAPSHOT_SCOPE_INVALID") from None
+            self._known_races = accepted
+            self._last_index_outcome["official"] = "OFFICIAL_INDEX_PARSED"
+            logger.info("Poll #%s raceindex OK races=%s acquired_at=%s", iteration, len(accepted), snapshot.acquired_at)
+            return False, False
+        except NoRaceVerified:
+            self._known_races = {}
+            self._last_index_outcome["official"] = "NO_RACE_VERIFIED"
+            logger.info("Poll #%s NO_RACE_VERIFIED basis=INDEPENDENT_OFFICIAL_SCHEDULE target_day=%s",
+                        iteration, now_jst.astimezone(JST).strftime("%Y%m%d"))
+            return False, False
+        except Exception as exc:
+            outcome = self._log_index_failure(context="raceindex", iteration=iteration, exc=exc)
+            self._last_index_outcome["official"] = outcome["kind"]
+
+        try:
+            tracking = await self.fetcher.fetch_tracking_race_index(now_jst)
+            try:
+                accepted = validate_index_snapshot(tracking, now_jst)
+            except RaceScopeError:
+                raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_SNAPSHOT_SCOPE_INVALID") from None
+            self._known_races = accepted
+            self._last_index_outcome["tracking"] = "TRACKING_ONLY"
+            logger.warning("Poll #%s TRACKING_FALLBACK OK races=%s; NOT VALID FOR OFFICIAL LOCK/TIMING CONFIRMATION",
+                           iteration, len(accepted))
+            return True, True
+        except NoRaceVerified:
+            # This exception can also originate from the independent schedule
+            # provider consulted by the fallback. It is never inferred from a
+            # missing stadium or an empty tracking payload.
+            self._known_races = {}
+            self._last_index_outcome["tracking"] = "NO_RACE_VERIFIED"
+            logger.info("Poll #%s NO_RACE_VERIFIED basis=INDEPENDENT_OFFICIAL_SCHEDULE target_day=%s",
+                        iteration, now_jst.astimezone(JST).strftime("%Y%m%d"))
+            return False, False
+        except Exception as exc:
+            outcome = self._log_index_failure(context="tracking_fallback", iteration=iteration, exc=exc)
+            self._last_index_outcome["tracking"] = outcome["kind"]
+        if not self._known_races:
+            try:
+                persisted = await self.repo.list_all_states()
+                self._known_races = recover_current_states(persisted, now_jst)
+                self._last_index_outcome["persisted"] = "CURRENT_DAY_UNCONFIRMED_PROJECTION"
+            except Exception:
+                self._known_races = {}
+                self._last_index_outcome["persisted"] = "READ_FAILED_OR_SCOPE_INVALID"
+                logger.warning("Poll #%s PERSISTED_RACE_RECOVERY_UNVERIFIED; no processing universe established", iteration)
+        return True, False
+
     async def start(self) -> None:
         logger.info(
             "Starting gamagori-controller v0.4.1 LIVE TRANSPORT SHADOW dry_run=%s db=%s",
@@ -148,64 +221,15 @@ class GamagoriController:
                 self._maybe_log_sqlite_audit(
                     now_jst, reason="startup" if iteration == 1 else "hourly"
                 )
-                index_failed = False
-                tracking_fallback_active = False
-                try:
-                    snapshot = await self.fetcher.fetch_race_index(now_jst)
-                    self._known_races = {r.race_id: r for r in snapshot.races}
-                    logger.info(
-                        "Poll #%s raceindex OK races=%s acquired_at=%s",
-                        iteration,
-                        len(self._known_races),
-                        snapshot.acquired_at,
-                    )
-                except Exception as exc:
-                    index_failed = True
-                    self._error_log_limiter.emit(
-                        logger,
-                        context="raceindex",
-                        prefix=f"Poll #{iteration} raceindex FAILED",
-                        exc=exc,
-                    )
+                index_failed, tracking_fallback_active = await self._refresh_race_universe(now_jst, iteration)
 
-                    # Tracking-only fallback: discovers the expected Gamagori race universe and
-                    # approximate published deadlines without promoting them to official evidence.
-                    try:
-                        tracking_snapshot = await self.fetcher.fetch_tracking_race_index(now_jst)
-                        self._known_races = {r.race_id: r for r in tracking_snapshot.races}
-                        tracking_fallback_active = True
-                        logger.warning(
-                            "Poll #%s TRACKING_FALLBACK OK races=%s source=%s acquired_at=%s; "
-                            "NOT VALID FOR OFFICIAL LOCK/TIMING CONFIRMATION",
-                            iteration,
-                            len(self._known_races),
-                            tracking_snapshot.source_url,
-                            tracking_snapshot.acquired_at,
-                        )
-                    except Exception as fallback_exc:
-                        self._error_log_limiter.emit(
-                            logger,
-                            context="tracking_fallback",
-                            prefix=f"Poll #{iteration} tracking fallback FAILED",
-                            exc=fallback_exc,
-                        )
-                        if not self._known_races:
-                            # Recover known races from persistent states if this is a restart during an outage.
-                            persisted = await self.repo.list_all_states()
-                            self._known_races = {
-                                s.race_id: OfficialRaceInfo(
-                                    race_id=s.race_id,
-                                    official_deadline=s.tracking_deadline or s.official_deadline,
-                                    is_closed=False,
-                                    is_cancelled=False,
-                                    sales_status="PERSISTED_LAST_KNOWN",
-                                    source_url=s.tracking_source_url or "PERSISTED_LAST_KNOWN",
-                                    acquired_at=(s.last_successful_official_fetch_at or now_jst).isoformat(),
-                                )
-                                for s in persisted
-                                if (s.tracking_deadline or s.official_deadline) is not None
-                                and s.status != RaceStatus.TERMINAL
-                            }
+                # A fetch/retry crossing midnight must not dispatch the previous
+                # day's universe under the new civil date. No terminal/replay
+                # action is inferred; the next poll obtains a fresh target day.
+                dispatch_day = dt.datetime.now(JST).date()
+                if dispatch_day != now_jst.date():
+                    self._known_races = {}
+                    logger.warning("Poll #%s DAY_ROLLOVER_DURING_INDEX_POLL; processing skipped", iteration)
 
                 race_ids = sorted(self._known_races)
                 if not race_ids:

@@ -1,0 +1,8 @@
+HEALTH_OFFLINE_SYNTHETIC_TESTS
+{"dependencies_installed_or_changed": false, "http_transport": "MOCKED_ONLY_NO_REAL_SOURCE_OR_TLS_TEST", "network": "BLOCKED_IN_PROCESS", "openssl": "OpenSSL 3.5.5 27 Jan 2026", "packages": {"beautifulsoup4": "4.14.3", "certifi": "2026.10.23", "httpx": "0.28.1", "pydantic": "2.13.4", "pytest": "9.0.2", "pytest-asyncio": "1.3.0"}, "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "production_go": false, "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"}
+........................................................................ [ 29%]
+........................................................................ [ 58%]
+........................................................................ [ 87%]
+................................                                         [100%]
+248 passed in 2.25s
+{"actual_11_05_source": "NOT_OBTAINED", "errors": 0, "exit_code": 0, "failures": 0, "junit_testcase_records_including_subtests": 248, "production_go": false, "pytest_result_categories": {"passed": 248}, "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY", "skipped": 0, "status": "PASS", "tests": 248}

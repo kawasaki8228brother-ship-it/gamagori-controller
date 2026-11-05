@@ -1,0 +1,16 @@
+{"classification": "SYNTHETIC_ONLY", "label": "CANDIDATE", "network": "BLOCKED", "openssl": "OpenSSL 3.5.5 27 Jan 2026", "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "production_go": false, "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"}
+2026-11-05 15:06:42,747 [INFO] gamagori-controller: Starting gamagori-controller v0.4.1 LIVE TRANSPORT SHADOW dry_run=True db=SYNTHETIC_NOT_OPENED
+2026-11-05 15:06:42,747 [ERROR] gamagori-controller: Poll #1 raceindex FAILED status=UNKNOWN_FAILURE: UNKNOWN_FAILURE:UNCLASSIFIED_EXCEPTION
+2026-11-05 15:06:42,747 [ERROR] gamagori-controller: Poll #1 tracking_fallback FAILED status=UNKNOWN_FAILURE: UNKNOWN_FAILURE:UNCLASSIFIED_EXCEPTION
+2026-11-05 15:06:42,747 [INFO] gamagori-controller: No verified/tracked Gamagori races currently known for 2099-01-07
+2026-11-05 15:06:42,748 [INFO] gamagori-controller: Controller stopped cleanly.
+2026-11-05 15:06:42,748 [INFO] gamagori-controller: Starting gamagori-controller v0.4.1 LIVE TRANSPORT SHADOW dry_run=True db=SYNTHETIC_NOT_OPENED
+2026-11-05 15:06:42,748 [ERROR] gamagori-controller: Poll #1 raceindex FAILED status=UNKNOWN_FAILURE: UNKNOWN_FAILURE:UNCLASSIFIED_EXCEPTION
+2026-11-05 15:06:42,748 [ERROR] gamagori-controller: Poll #1 tracking_fallback FAILED status=UNKNOWN_FAILURE: UNKNOWN_FAILURE:UNCLASSIFIED_EXCEPTION
+2026-11-05 15:06:42,749 [INFO] gamagori-controller: Controller stopped cleanly.
+2026-11-05 15:06:42,749 [INFO] gamagori-controller: Starting gamagori-controller v0.4.1 LIVE TRANSPORT SHADOW dry_run=True db=SYNTHETIC_NOT_OPENED
+2026-11-05 15:06:42,749 [WARNING] gamagori-controller: Poll #1 STALE_RACE_SCOPE_EXCLUDED count=1 target_day=20990107
+2026-11-05 15:06:42,749 [ERROR] gamagori-controller: Poll #1 raceindex FAILED status=UNKNOWN_FAILURE: UNKNOWN_FAILURE:UNCLASSIFIED_EXCEPTION
+2026-11-05 15:06:42,749 [ERROR] gamagori-controller: Poll #1 tracking_fallback FAILED status=UNKNOWN_FAILURE: UNKNOWN_FAILURE:UNCLASSIFIED_EXCEPTION
+2026-11-05 15:06:42,749 [INFO] gamagori-controller: Controller stopped cleanly.
+{"actual_11_05_occurrence": "UNVERIFIED_NOT_REPRODUCED_FROM_REAL_SOURCE", "cases": [{"actual_state_machine_executed": false, "case": "persisted_old_only", "current_day_dispatched": false, "database_opened": false, "dispatched": [], "http_used": false, "input_states_byte_equivalent": true, "prior_day_dispatched": false, "production_go": false}, {"actual_state_machine_executed": false, "case": "persisted_old_and_current", "current_day_dispatched": true, "database_opened": false, "dispatched": [{"official_fetch_failed": true, "official_info_is_none": true, "race_id": "20990107_GAM_02R", "tracking_info_is_none": true}], "http_used": false, "input_states_byte_equivalent": true, "prior_day_dispatched": false, "production_go": false}, {"actual_state_machine_executed": false, "case": "cached_old_with_current_persisted", "current_day_dispatched": true, "database_opened": false, "dispatched": [{"official_fetch_failed": true, "official_info_is_none": true, "race_id": "20990107_GAM_02R", "tracking_info_is_none": true}], "http_used": false, "input_states_byte_equivalent": true, "prior_day_dispatched": false, "production_go": false}], "classification": "SYNTHETIC_ONLY", "label": "CANDIDATE", "production_go": false}

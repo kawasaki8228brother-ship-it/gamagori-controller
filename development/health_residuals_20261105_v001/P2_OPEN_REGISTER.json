@@ -1,0 +1,72 @@
+{
+  "schema": "HEALTH_RESIDUALS_P2_OPEN_V001",
+  "base_commit": "8172aec010894a52f36f48b7091476d26494e4ee",
+  "scope": "DESIGN_ONLY_NO_LIVE_EXECUTION",
+  "local_auditor": {
+    "file": "sqlite_readonly_audit.py",
+    "bytes": 6348,
+    "sha256": "354940e9a77d2eaf86feaa1c50089db4a0e410cc5f2fdafd6598d66367566b94",
+    "hash_scope": "LOCAL_BASE_COPY_NOT_DEPLOYED_READBACK",
+    "mode": "mode=ro",
+    "live_immutable_1_permitted": false,
+    "physical_write_zero_claim": false
+  },
+  "actual_context": {
+    "service_id": null,
+    "service_name": null,
+    "approved_live_app_sha": null,
+    "disk_mount": null,
+    "effective_db_path": null,
+    "matching_startup_log_receipt": null,
+    "effective_DRY_RUN": null,
+    "C_ACTIVE_definition": null,
+    "C_ACTIVE_value": null,
+    "status": "UNVERIFIED"
+  },
+  "delivery": {
+    "repository_adapter": "LOCAL_DRY_RUN_ONLY",
+    "external_send_attempt_receipt": null,
+    "transport_ack_receipt": null,
+    "destination_delivery_receipt": null,
+    "human_read_receipt": null,
+    "actual_arrival": "UNVERIFIED"
+  },
+  "run_identity": {
+    "scheduler_internal_id_evidence": null,
+    "producer_run_id_mapping_evidence": null,
+    "AuditRuns_UUID_mapping_evidence": null,
+    "mapping_status": "UNVERIFIED_NO_INFERENCE"
+  },
+  "A_OBS": {
+    "dedicated_original_contract": null,
+    "contract_match_status": "UNVERIFIED",
+    "received_confirmed_scope": "A_RUN_START_END_PRODUCER_RUN_ID_AND_IDEMPOTENCY_PATTERN_ONLY",
+    "full_hash_material_test_vector": null,
+    "payload_UUID_required": null,
+    "column_only_eligibility": null,
+    "empty_RUN_START_semantics": null,
+    "missing_property_violation_rule": null,
+    "related_predictive_spec_reference": "d462767f4448e28fc735df7363fb1a75137c5e7f",
+    "reference_label_as_received": "SHA256",
+    "reference_hex_length": 40,
+    "reference_algorithm": "UNVERIFIED",
+    "reference_is_OBS_contract": false
+  },
+  "B_duplicates": {
+    "reported_count": 24,
+    "basis": "USER_REPORTED_PAST_NOT_LIVE_OBSERVATION",
+    "formal_hash_canonical_key_contract": null,
+    "SYS07_contract_review": "OPEN_NO_INTEGRATION",
+    "correction_or_replay_authorized": false
+  },
+  "P0_compatibility": {
+    "actual_11_5_HTML": null,
+    "actual_incident_cause": "UNVERIFIED",
+    "strict_parser_real_compatibility": "OPEN",
+    "official_no_race_actual_adapter": null,
+    "automatic_non_racing_inference_permitted": false
+  },
+  "G1_G6_definitions": null,
+  "operational_go": {"live_read": false, "live_write": false, "notification_send": false, "merge": false, "deploy": false, "suspend_resume": false, "legacy_certifi_rollback": false},
+  "production_go": false
+}
