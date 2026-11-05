@@ -1,0 +1,76 @@
+{
+  "allocated_bytes": 983040,
+  "classification": "SYNTHETIC_ONLY_INVENTED_2099",
+  "excluding": "SOURCE_SPOOL_OUTSIDE_STORE_PROCESS_LOGS_MODEL_ARTIFACTS_AND_BACKUPS",
+  "file_count": 64,
+  "forecast_count": 12,
+  "groups": {
+    "OWNER.json": {
+      "allocated_bytes": 4096,
+      "bytes": 131,
+      "files": 1,
+      "max_bytes": 131,
+      "min_bytes": 131
+    },
+    "artifacts/completion.json": {
+      "allocated_bytes": 49152,
+      "bytes": 1632,
+      "files": 12,
+      "max_bytes": 136,
+      "min_bytes": 136
+    },
+    "artifacts/forecast.raw": {
+      "allocated_bytes": 491520,
+      "bytes": 464916,
+      "files": 12,
+      "max_bytes": 38812,
+      "min_bytes": 38695
+    },
+    "artifacts/input.raw": {
+      "allocated_bytes": 245760,
+      "bytes": 236028,
+      "files": 12,
+      "max_bytes": 19703,
+      "min_bytes": 19625
+    },
+    "artifacts/receipt.json": {
+      "allocated_bytes": 49152,
+      "bytes": 9975,
+      "files": 12,
+      "max_bytes": 832,
+      "min_bytes": 831
+    },
+    "audits/.json": {
+      "allocated_bytes": 4096,
+      "bytes": 1569,
+      "files": 1,
+      "max_bytes": 1569,
+      "min_bytes": 1569
+    },
+    "audits/.raw": {
+      "allocated_bytes": 24576,
+      "bytes": 24329,
+      "files": 1,
+      "max_bytes": 24329,
+      "min_bytes": 24329
+    },
+    "ledger.sqlite3": {
+      "allocated_bytes": 65536,
+      "bytes": 65536,
+      "files": 1,
+      "max_bytes": 65536,
+      "min_bytes": 65536
+    },
+    "results/raw_result": {
+      "allocated_bytes": 49152,
+      "bytes": 2842,
+      "files": 12,
+      "max_bytes": 237,
+      "min_bytes": 236
+    }
+  },
+  "logical_bytes": 806958,
+  "production_go": false,
+  "real_capacity_requirement": "UNVERIFIED",
+  "result_count": 12
+}

@@ -1,0 +1,842 @@
+{
+  "commits": {
+    "v003": "62721c20676177bac171f97b0488412b07b63594",
+    "v004": "df807089f5fd27517109f9bd38b6c55f9415600e",
+    "v005": "f3c3a3eb17073bd0a127bb943f4eda21e407cf2d"
+  },
+  "course_lineage": {
+    "current": {
+      "bytes": 20110,
+      "git_blob": "59d9e564d9370655b5deb84cfb61bd26ac1c2760",
+      "path": "model11/revision_v003/course.py",
+      "sha256": "ca28937aa1784fc37fa9a9539e0219d27570390ced01b3a0a2f77268238ed264",
+      "v004_manifest_record": {
+        "bytes": 20110,
+        "characters": 20110,
+        "git_blob": "59d9e564d9370655b5deb84cfb61bd26ac1c2760",
+        "path": "development/model11/model11/revision_v003/course.py",
+        "sha256": "ca28937aa1784fc37fa9a9539e0219d27570390ced01b3a0a2f77268238ed264",
+        "status": "modified"
+      },
+      "v004_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/df807089f5fd27517109f9bd38b6c55f9415600e/development/model11/model11/revision_v003/course.py",
+      "v005_manifest_record": {
+        "bytes": 20110,
+        "git_blob": "59d9e564d9370655b5deb84cfb61bd26ac1c2760",
+        "path": "development/model11/model11/revision_v003/course.py",
+        "relation_to_parent": "UNCHANGED",
+        "sha256": "ca28937aa1784fc37fa9a9539e0219d27570390ced01b3a0a2f77268238ed264"
+      },
+      "v005_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/course.py"
+    },
+    "diff": {
+      "bytes": 2776,
+      "git_blob": "88cb559f2a58cf8869b4a9872767b9e497629d10",
+      "path": "revision_v004/N1.diff",
+      "raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/df807089f5fd27517109f9bd38b6c55f9415600e/development/model11/revision_v004/N1.diff",
+      "regenerated_exact": true,
+      "sha256": "e4c279b65a08d044bf6931885679435da8750261e74ba57dd47c2ea8f2d9248e"
+    },
+    "original": {
+      "archive_v004_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/df807089f5fd27517109f9bd38b6c55f9415600e/development/model11/revision_v004/references/course_v003_original.py.txt",
+      "archive_v005_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v004/references/course_v003_original.py.txt",
+      "bytes": 17860,
+      "git_blob": "e4853916e7d8b0f335a7c49d6e4855c40f51cff1",
+      "original_target_path": "model11/revision_v003/course.py",
+      "path": "revision_v004/references/course_v003_original.py.txt",
+      "sha256": "48b53e1b372c9c8b63027567d920514ac4e23668f0373d9f4f9a559789f0f66b",
+      "v003_declared_git_blob": "e4853916e7d8b0f335a7c49d6e4855c40f51cff1",
+      "v003_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/course.py",
+      "v004_archive_manifest_record": {
+        "bytes": 17860,
+        "characters": 17860,
+        "git_blob": "e4853916e7d8b0f335a7c49d6e4855c40f51cff1",
+        "path": "development/model11/revision_v004/references/course_v003_original.py.txt",
+        "sha256": "48b53e1b372c9c8b63027567d920514ac4e23668f0373d9f4f9a559789f0f66b",
+        "status": "added"
+      },
+      "v004_changed_source_parent": {
+        "bytes": 17860,
+        "git_blob": "e4853916e7d8b0f335a7c49d6e4855c40f51cff1",
+        "path": "development/model11/model11/revision_v003/course.py",
+        "sha256": "48b53e1b372c9c8b63027567d920514ac4e23668f0373d9f4f9a559789f0f66b"
+      }
+    },
+    "resolution": "OLD_V003_SNAPSHOT_PRESERVED; CURRENT_PATH_INTENTIONALLY_SUPERSEDED_BY_N1_V004; NO_OLD_SUM_REWRITE",
+    "target_path": "model11/revision_v003/course.py"
+  },
+  "entry_checks": [
+    {
+      "bytes": 171,
+      "direct_v003_match": true,
+      "entry": 1,
+      "expected_v003_sha256": "0c6a02c0be6315d7fff14c72d66c8a3ea4066d49c3bd350625b09c2bb2ea3ca1",
+      "git_blob": "4446887fb684a4657a0ee2b6a1b120a149263520",
+      "path": "model11/revision_v003/__init__.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "0c6a02c0be6315d7fff14c72d66c8a3ea4066d49c3bd350625b09c2bb2ea3ca1",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/__init__.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/__init__.py"
+    },
+    {
+      "bytes": 7400,
+      "direct_v003_match": true,
+      "entry": 2,
+      "expected_v003_sha256": "0b1cbc3752c201f3f8fc019b6bbe80cd665da06daacb6533b0d12978974fe9ef",
+      "git_blob": "e827dfe43e170691fdd0737d60d321ca93064e06",
+      "path": "model11/revision_v003/cli.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "0b1cbc3752c201f3f8fc019b6bbe80cd665da06daacb6533b0d12978974fe9ef",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/cli.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/cli.py"
+    },
+    {
+      "bytes": 20110,
+      "direct_v003_match": false,
+      "entry": 3,
+      "expected_v003_sha256": "48b53e1b372c9c8b63027567d920514ac4e23668f0373d9f4f9a559789f0f66b",
+      "git_blob": "59d9e564d9370655b5deb84cfb61bd26ac1c2760",
+      "path": "model11/revision_v003/course.py",
+      "resolution": "EXPECTED_DECLARED_N1_SUPERSESSION",
+      "sha256": "ca28937aa1784fc37fa9a9539e0219d27570390ced01b3a0a2f77268238ed264",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/course.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/course.py"
+    },
+    {
+      "bytes": 6756,
+      "direct_v003_match": true,
+      "entry": 4,
+      "expected_v003_sha256": "33b70ce2ac99c3c61c2fad43b8b3ea798537571846245e0c25d703f0642f5de6",
+      "git_blob": "773512fd36560264831d16403f75abf01f6caad9",
+      "path": "model11/revision_v003/engine.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "33b70ce2ac99c3c61c2fad43b8b3ea798537571846245e0c25d703f0642f5de6",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/engine.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/engine.py"
+    },
+    {
+      "bytes": 7842,
+      "direct_v003_match": true,
+      "entry": 5,
+      "expected_v003_sha256": "0ba27af735db616d6a1c992b5f1f5aebc1272f15c51640520dcd55d59c40ea24",
+      "git_blob": "8f18b8fd22e23676574b240b4e8ba6bfe108270c",
+      "path": "model11/revision_v003/evaluation.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "0ba27af735db616d6a1c992b5f1f5aebc1272f15c51640520dcd55d59c40ea24",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/evaluation.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/evaluation.py"
+    },
+    {
+      "bytes": 1705,
+      "direct_v003_match": true,
+      "entry": 6,
+      "expected_v003_sha256": "89eedc81eee04fea193bfb000fd5c1c1e4202be2f88de5ed54bf1f0eed613a67",
+      "git_blob": "b512607e0b0ac56fdea67d7fbaa6a22d4acd1edb",
+      "path": "model11/revision_v003/fixtures.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "89eedc81eee04fea193bfb000fd5c1c1e4202be2f88de5ed54bf1f0eed613a67",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/fixtures.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/fixtures.py"
+    },
+    {
+      "bytes": 6337,
+      "direct_v003_match": true,
+      "entry": 7,
+      "expected_v003_sha256": "c85c390f26cebe2d7c4d581fdc9445d1b05586ad41102108c49c16e8b9b1ec52",
+      "git_blob": "796901fa443eeaf2238023285be6f063c8935469",
+      "path": "model11/revision_v003/migration.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "c85c390f26cebe2d7c4d581fdc9445d1b05586ad41102108c49c16e8b9b1ec52",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/migration.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/migration.py"
+    },
+    {
+      "bytes": 2785,
+      "direct_v003_match": true,
+      "entry": 8,
+      "expected_v003_sha256": "e1c0962a117978d1caf6685f76a0289dca703a274090a0a67d898dbca68c7704",
+      "git_blob": "d636ca619510931b65b833be4f0d76fa1d108e72",
+      "path": "model11/revision_v003/pooling.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "e1c0962a117978d1caf6685f76a0289dca703a274090a0a67d898dbca68c7704",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/pooling.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/pooling.py"
+    },
+    {
+      "bytes": 8328,
+      "direct_v003_match": true,
+      "entry": 9,
+      "expected_v003_sha256": "9183d8fda55a945f768830da5a761f44176fae6656b63397184c282f72b5ff2c",
+      "git_blob": "163d9bad8f28990278b4ce01bd7d38be6ce575f1",
+      "path": "model11/revision_v003/portfolios.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "9183d8fda55a945f768830da5a761f44176fae6656b63397184c282f72b5ff2c",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/portfolios.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/portfolios.py"
+    },
+    {
+      "bytes": 13998,
+      "direct_v003_match": true,
+      "entry": 10,
+      "expected_v003_sha256": "8719f9117968b379c72a37cd34e8e14cebab3284db5e35fcfe6fd831509db96b",
+      "git_blob": "818b00d3303405c8c594b024ffe4ea12cdee5989",
+      "path": "model11/revision_v003/walkforward.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "8719f9117968b379c72a37cd34e8e14cebab3284db5e35fcfe6fd831509db96b",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/model11/revision_v003/walkforward.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/model11/revision_v003/walkforward.py"
+    },
+    {
+      "bytes": 2174,
+      "direct_v003_match": true,
+      "entry": 11,
+      "expected_v003_sha256": "7f4b15b082bf524f2d03821ba709e3f8a49b2fe857dbd9011fe8ea19b0b3877d",
+      "git_blob": "291953e154977fcb4eff3ad67a64c5c79566d818",
+      "path": "revision_v003/AUDIT_RESPONSE.md",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "7f4b15b082bf524f2d03821ba709e3f8a49b2fe857dbd9011fe8ea19b0b3877d",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/AUDIT_RESPONSE.md",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/AUDIT_RESPONSE.md"
+    },
+    {
+      "bytes": 7163,
+      "direct_v003_match": true,
+      "entry": 12,
+      "expected_v003_sha256": "5892611492c54d932cbec15332b025fae8a0ab007fdd7168649f31afa950f902",
+      "git_blob": "f2443e3b7b56bac6fa2d3c1167eb0d01da45b9fe",
+      "path": "revision_v003/F1_MARKET_WEIGHT.md",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "5892611492c54d932cbec15332b025fae8a0ab007fdd7168649f31afa950f902",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/F1_MARKET_WEIGHT.md",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/F1_MARKET_WEIGHT.md"
+    },
+    {
+      "bytes": 9923,
+      "direct_v003_match": true,
+      "entry": 13,
+      "expected_v003_sha256": "fcbb0bfa5bb967ef18a008817fb7fe55f300ff5b20c7423d6a41a25c21617f19",
+      "git_blob": "e53a16df70ffe3ddbb6331da24f740adc13ad06d",
+      "path": "revision_v003/F2_BOX_DESIGN_PROPOSED.md",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "fcbb0bfa5bb967ef18a008817fb7fe55f300ff5b20c7423d6a41a25c21617f19",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/F2_BOX_DESIGN_PROPOSED.md",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/F2_BOX_DESIGN_PROPOSED.md"
+    },
+    {
+      "bytes": 8113,
+      "direct_v003_match": true,
+      "entry": 14,
+      "expected_v003_sha256": "bd4ca256ec4395aa00f2780be864d239a79c3a25118347b92260280b4ea51838",
+      "git_blob": "a107ddeb99f875ed149cd540cd285ed6a378d35c",
+      "path": "revision_v003/F3_COURSE_CONTRACT.md",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "bd4ca256ec4395aa00f2780be864d239a79c3a25118347b92260280b4ea51838",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/F3_COURSE_CONTRACT.md",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/F3_COURSE_CONTRACT.md"
+    },
+    {
+      "bytes": 10826,
+      "direct_v003_match": true,
+      "entry": 15,
+      "expected_v003_sha256": "4f79b05652a5e7a7619c94ca531cba0108d7ec1a5098b13e78efcd9d17d929c5",
+      "git_blob": "46f4fe1902b26b6361873e746c554e0ac49bf2d0",
+      "path": "revision_v003/F4_SCHEMA_MIGRATION.md",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "4f79b05652a5e7a7619c94ca531cba0108d7ec1a5098b13e78efcd9d17d929c5",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/F4_SCHEMA_MIGRATION.md",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/F4_SCHEMA_MIGRATION.md"
+    },
+    {
+      "bytes": 12757,
+      "direct_v003_match": true,
+      "entry": 16,
+      "expected_v003_sha256": "e3612741bacd16606e0246c2cafe49988b6d8d3535a652bf2be1c7e9db44e77c",
+      "git_blob": "5a08984dedc5a892a56944331fc41e08ea7c2056",
+      "path": "revision_v003/F5_SELECTION_PREREG_PROPOSED.md",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "e3612741bacd16606e0246c2cafe49988b6d8d3535a652bf2be1c7e9db44e77c",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/F5_SELECTION_PREREG_PROPOSED.md",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/F5_SELECTION_PREREG_PROPOSED.md"
+    },
+    {
+      "bytes": 3063,
+      "direct_v003_match": true,
+      "entry": 17,
+      "expected_v003_sha256": "b7f1f4893b4cb1027837b75019d6a3be571889c0631cec9cb94480a94527d15e",
+      "git_blob": "4c419b1f462fadc6630cd1c6f357fcb917d20179",
+      "path": "revision_v003/INDEX.md",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "b7f1f4893b4cb1027837b75019d6a3be571889c0631cec9cb94480a94527d15e",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/INDEX.md",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/INDEX.md"
+    },
+    {
+      "bytes": 35095,
+      "direct_v003_match": true,
+      "entry": 18,
+      "expected_v003_sha256": "5f826c0797ffe44ed0d35300d99bcafbc835521ab23b315509b966158b297499",
+      "git_blob": "8a0108010d7f74e2db5bf98180d8b31848d26776",
+      "path": "revision_v003/MANIFEST_V003.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "5f826c0797ffe44ed0d35300d99bcafbc835521ab23b315509b966158b297499",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/MANIFEST_V003.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/MANIFEST_V003.json"
+    },
+    {
+      "bytes": 5971,
+      "direct_v003_match": true,
+      "entry": 19,
+      "expected_v003_sha256": "7d74289c5e70e3af9a2181e6f5f4a993a6c241ab1cfe7659d70fbe80e8abf801",
+      "git_blob": "78873995acad27a7185f5d13f1c23381e4c7c5d3",
+      "path": "revision_v003/README.md",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "7d74289c5e70e3af9a2181e6f5f4a993a6c241ab1cfe7659d70fbe80e8abf801",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/README.md",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/README.md"
+    },
+    {
+      "bytes": 5229,
+      "direct_v003_match": true,
+      "entry": 20,
+      "expected_v003_sha256": "1fc76adfa4c7991be1a0a454403d5337ccfc62733f7dfe01db17e4d1facd7506",
+      "git_blob": "189b0defdb5185fb38f4cbcfdd2e6a2f4cdab4c5",
+      "path": "revision_v003/REPORT.md",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "1fc76adfa4c7991be1a0a454403d5337ccfc62733f7dfe01db17e4d1facd7506",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/REPORT.md",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/REPORT.md"
+    },
+    {
+      "bytes": 3533,
+      "direct_v003_match": true,
+      "entry": 21,
+      "expected_v003_sha256": "9b7e7f22c35614791ce0a73fefcbcab9c5c1a47e67b69895bc334f5bfdc592ce",
+      "git_blob": "60c5a6095fc3b409cba8094e1f369fa2c9dff10b",
+      "path": "revision_v003/REVIEW_FINDINGS.md",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "9b7e7f22c35614791ce0a73fefcbcab9c5c1a47e67b69895bc334f5bfdc592ce",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/REVIEW_FINDINGS.md",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/REVIEW_FINDINGS.md"
+    },
+    {
+      "bytes": 21113,
+      "direct_v003_match": true,
+      "entry": 22,
+      "expected_v003_sha256": "5885162d266f47ed641ab5650bc4baf13f06604e33b715fca931951db14b251a",
+      "git_blob": "7647eebab43563ba9b11304a551e08eab3e922e0",
+      "path": "revision_v003/SOURCE_DIFFS/F1_walkforward.comparison.diff",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "5885162d266f47ed641ab5650bc4baf13f06604e33b715fca931951db14b251a",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/SOURCE_DIFFS/F1_walkforward.comparison.diff",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/SOURCE_DIFFS/F1_walkforward.comparison.diff"
+    },
+    {
+      "bytes": 22633,
+      "direct_v003_match": true,
+      "entry": 23,
+      "expected_v003_sha256": "9e3ab68b7882ea7d3242fb794d0fd04c38009e051d661ecde98441ef476a65ec",
+      "git_blob": "526ac85e1591b4b0884237b19037323f0428e0f3",
+      "path": "revision_v003/SOURCE_DIFFS/F4_portfolios.comparison.diff",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "9e3ab68b7882ea7d3242fb794d0fd04c38009e051d661ecde98441ef476a65ec",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/SOURCE_DIFFS/F4_portfolios.comparison.diff",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/SOURCE_DIFFS/F4_portfolios.comparison.diff"
+    },
+    {
+      "bytes": 1210,
+      "direct_v003_match": true,
+      "entry": 24,
+      "expected_v003_sha256": "3fdb5baf08392e10c3a8550a3e5da1b27770549ef386ef967dfec993a3d3d156",
+      "git_blob": "0f250da2528b7287f62a552138ede3e68c0f260a",
+      "path": "revision_v003/results/F1-market-only-evidence.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "3fdb5baf08392e10c3a8550a3e5da1b27770549ef386ef967dfec993a3d3d156",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/F1-market-only-evidence.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/F1-market-only-evidence.json"
+    },
+    {
+      "bytes": 537,
+      "direct_v003_match": true,
+      "entry": 25,
+      "expected_v003_sha256": "7ff13595607e8a925f4d0ed9309f5a2d38835d71d01e6d6118a9bf039f08c44d",
+      "git_blob": "ef1dcc53c7ef61ebe3c1fbb8cfe0ff3a264d2a86",
+      "path": "revision_v003/results/F4-manual-input-SYNTHETIC-ONLY.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "7ff13595607e8a925f4d0ed9309f5a2d38835d71d01e6d6118a9bf039f08c44d",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/F4-manual-input-SYNTHETIC-ONLY.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/F4-manual-input-SYNTHETIC-ONLY.json"
+    },
+    {
+      "bytes": 876,
+      "direct_v003_match": true,
+      "entry": 26,
+      "expected_v003_sha256": "0206494739497607d25e61bb239b5f67f4658d393937edd803fe84c8e7c6c9d7",
+      "git_blob": "d283da046513f9536014bf071fd3cfb1ee8b3f99",
+      "path": "revision_v003/results/F4-old-artifact-migration.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "0206494739497607d25e61bb239b5f67f4658d393937edd803fe84c8e7c6c9d7",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/F4-old-artifact-migration.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/F4-old-artifact-migration.json"
+    },
+    {
+      "bytes": 50344,
+      "direct_v003_match": true,
+      "entry": 27,
+      "expected_v003_sha256": "e51c4edb3266673437815119fc8b388f8a79df69d3ce6e9406afb698992dd670",
+      "git_blob": "a8c2884d2956d914d35593ba0d381fefecc89493",
+      "path": "revision_v003/results/F4-separate-manual-and-automatic.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "e51c4edb3266673437815119fc8b388f8a79df69d3ce6e9406afb698992dd670",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/F4-separate-manual-and-automatic.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/F4-separate-manual-and-automatic.json"
+    },
+    {
+      "bytes": 3787,
+      "direct_v003_match": true,
+      "entry": 28,
+      "expected_v003_sha256": "97becf022887dddfac7c34cd47acf720e36d63934f3fe863d55a467bbbe6857a",
+      "git_blob": "061cc014969fd59c14093f4d68c303fc1dfa87af",
+      "path": "revision_v003/results/artifact-provenance.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "97becf022887dddfac7c34cd47acf720e36d63934f3fe863d55a467bbbe6857a",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/artifact-provenance.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/artifact-provenance.json"
+    },
+    {
+      "bytes": 334,
+      "direct_v003_match": true,
+      "entry": 29,
+      "expected_v003_sha256": "52e9418128c497db04f69249eddc876edce1dcbb36c3be539d1e740100d2d38a",
+      "git_blob": "378ee5b34dd0656f81b1b816e7b047ec5656fa99",
+      "path": "revision_v003/results/demo-python312.raw.log",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "52e9418128c497db04f69249eddc876edce1dcbb36c3be539d1e740100d2d38a",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/demo-python312.raw.log",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/demo-python312.raw.log"
+    },
+    {
+      "bytes": 333,
+      "direct_v003_match": true,
+      "entry": 30,
+      "expected_v003_sha256": "7ba4e1eb866c7a914907cee89fc9acc4cb372de144ad4499997c39c17bf9e839",
+      "git_blob": "08ef279df69335eaebaa70217ad5ad4f7a7b6082",
+      "path": "revision_v003/results/demo-python314.raw.log",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "7ba4e1eb866c7a914907cee89fc9acc4cb372de144ad4499997c39c17bf9e839",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/demo-python314.raw.log",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/demo-python314.raw.log"
+    },
+    {
+      "bytes": 47359,
+      "direct_v003_match": true,
+      "entry": 31,
+      "expected_v003_sha256": "ad65b891c44ec8838eefb1b74d3f76d9922d50277629c41088de6c8b1f084888",
+      "git_blob": "89868b2cfe901135847156e81636f0579650a109",
+      "path": "revision_v003/results/evaluation-summary.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "ad65b891c44ec8838eefb1b74d3f76d9922d50277629c41088de6c8b1f084888",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/evaluation-summary.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/evaluation-summary.json"
+    },
+    {
+      "bytes": 23473,
+      "direct_v003_match": true,
+      "entry": 32,
+      "expected_v003_sha256": "1068b26fbcaad615e2f3dbbd7c2c8026396f71480aaa54cc6d85104257c77e37",
+      "git_blob": "5509a22a602d1b6dada9facc046f842dde787d1e",
+      "path": "revision_v003/results/fold-selection-audit.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "1068b26fbcaad615e2f3dbbd7c2c8026396f71480aaa54cc6d85104257c77e37",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/fold-selection-audit.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/fold-selection-audit.json"
+    },
+    {
+      "bytes": 47758,
+      "direct_v003_match": true,
+      "entry": 33,
+      "expected_v003_sha256": "864b9011465615f828ed34e792b8c66efb73f5c50fdb41172ed1f37d6185fc55",
+      "git_blob": "5994c3133a25cb823eef1c9deb28b3be9ee392f5",
+      "path": "revision_v003/results/prediction-v003.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "864b9011465615f828ed34e792b8c66efb73f5c50fdb41172ed1f37d6185fc55",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/prediction-v003.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/prediction-v003.json"
+    },
+    {
+      "bytes": 184,
+      "direct_v003_match": true,
+      "entry": 34,
+      "expected_v003_sha256": "db3ee51f121c08b058fd57fb8009fcdba7ba7fd0d5e9d09cf70812e48694c9a1",
+      "git_blob": "df48032577b989f96d1caf85b9387d03533a11af",
+      "path": "revision_v003/results/preservation.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "db3ee51f121c08b058fd57fb8009fcdba7ba7fd0d5e9d09cf70812e48694c9a1",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/preservation.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/preservation.json"
+    },
+    {
+      "bytes": 2666,
+      "direct_v003_match": true,
+      "entry": 35,
+      "expected_v003_sha256": "8b3fc58d8ad6c44f6c6cde8f9aa52aa0c1955b433fef92bf19f5615e288902cd",
+      "git_blob": "e1d708b8dfc4448e993661738f13a58fca79e613",
+      "path": "revision_v003/results/selected-model-v003.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "8b3fc58d8ad6c44f6c6cde8f9aa52aa0c1955b433fef92bf19f5615e288902cd",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/selected-model-v003.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/selected-model-v003.json"
+    },
+    {
+      "bytes": 97,
+      "direct_v003_match": true,
+      "entry": 36,
+      "expected_v003_sha256": "3d0e338c63bd4d7eaa0c09aeb2ccfd407bd4770cdf5619c6f8b0da21b6599216",
+      "git_blob": "b7fad9896f252a58e317fa902207e4e35c9c5e44",
+      "path": "revision_v003/results/selected-pipeline-v003.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "3d0e338c63bd4d7eaa0c09aeb2ccfd407bd4770cdf5619c6f8b0da21b6599216",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/selected-pipeline-v003.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/selected-pipeline-v003.json"
+    },
+    {
+      "bytes": 292,
+      "direct_v003_match": true,
+      "entry": 37,
+      "expected_v003_sha256": "3852b14e646a39324ecf8cbe1ba869913de909314f5153acc1fc7f592107ab52",
+      "git_blob": "204f4cac8366c27435721ac3a80280066991420d",
+      "path": "revision_v003/results/synthetic-outcome-separate.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "3852b14e646a39324ecf8cbe1ba869913de909314f5153acc1fc7f592107ab52",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/synthetic-outcome-separate.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/synthetic-outcome-separate.json"
+    },
+    {
+      "bytes": 17369,
+      "direct_v003_match": true,
+      "entry": 38,
+      "expected_v003_sha256": "f5f9655b0002d7939efab19649246e685965263772e8841d176bf4990959944c",
+      "git_blob": "e4742725439fa344b90146a2de54a15f2d3717e1",
+      "path": "revision_v003/results/synthetic-race-v003.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "f5f9655b0002d7939efab19649246e685965263772e8841d176bf4990959944c",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/synthetic-race-v003.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/synthetic-race-v003.json"
+    },
+    {
+      "bytes": 51858,
+      "direct_v003_match": true,
+      "entry": 39,
+      "expected_v003_sha256": "5d161110d6a58ac587cd1ee748f8bf7f6c72bcc64e135f9d476c41272ea8e7d1",
+      "git_blob": "02c6138d9be2f2ae2bc14ef896b15d511be5a228",
+      "path": "revision_v003/results/tests-python312.raw.log",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "5d161110d6a58ac587cd1ee748f8bf7f6c72bcc64e135f9d476c41272ea8e7d1",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/tests-python312.raw.log",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/tests-python312.raw.log"
+    },
+    {
+      "bytes": 51857,
+      "direct_v003_match": true,
+      "entry": 40,
+      "expected_v003_sha256": "83c68fa171e1ea0ae803fa463ec283669bef92eb0fadfe783ed11228c40691be",
+      "git_blob": "f7f1bc8facaa7aa669718ff56751aee661b3bdd0",
+      "path": "revision_v003/results/tests-python314.raw.log",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "83c68fa171e1ea0ae803fa463ec283669bef92eb0fadfe783ed11228c40691be",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/tests-python314.raw.log",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/tests-python314.raw.log"
+    },
+    {
+      "bytes": 1856,
+      "direct_v003_match": true,
+      "entry": 41,
+      "expected_v003_sha256": "ed5689cd1715ce4279e55d4d2de18ea4bd2d60106e7b94d1ffd0ab4d8a78b168",
+      "git_blob": "5887ceda51eb840c7f62fdd768d3086899b99560",
+      "path": "revision_v003/results/verification.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "ed5689cd1715ce4279e55d4d2de18ea4bd2d60106e7b94d1ffd0ab4d8a78b168",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/verification.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/verification.json"
+    },
+    {
+      "bytes": 645367,
+      "direct_v003_match": true,
+      "entry": 42,
+      "expected_v003_sha256": "503b0b04303522e20d4d20b9d5cc874ec4c11cb5714c68727c81e83fbfe197bc",
+      "git_blob": "3e479565ac97709e535e4f52348eabd699867008",
+      "path": "revision_v003/results/walk-forward-summary.full.min.json",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "503b0b04303522e20d4d20b9d5cc874ec4c11cb5714c68727c81e83fbfe197bc",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/results/walk-forward-summary.full.min.json",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/revision_v003/results/walk-forward-summary.full.min.json"
+    },
+    {
+      "bytes": 13748,
+      "direct_v003_match": true,
+      "entry": 43,
+      "expected_v003_sha256": "7829c0efe85cfb3d0da81dab67776ea4f4d2f2d04ff2d6f997eff44dbe4819a3",
+      "git_blob": "f7826358450ed1579b4851fcc0f5e18bb183e83a",
+      "path": "tests/test_revision_v003_course.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "7829c0efe85cfb3d0da81dab67776ea4f4d2f2d04ff2d6f997eff44dbe4819a3",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/tests/test_revision_v003_course.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/tests/test_revision_v003_course.py"
+    },
+    {
+      "bytes": 26569,
+      "direct_v003_match": true,
+      "entry": 44,
+      "expected_v003_sha256": "3a1c860fc5dbd1da98e47e480d67a58f406ac12d4cfa0ebacd6a437e792672ec",
+      "git_blob": "3b2d172364527ae5ffaa06e372280bfd3a55d321",
+      "path": "tests/test_revision_v003_integration.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "3a1c860fc5dbd1da98e47e480d67a58f406ac12d4cfa0ebacd6a437e792672ec",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/tests/test_revision_v003_integration.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/tests/test_revision_v003_integration.py"
+    },
+    {
+      "bytes": 16011,
+      "direct_v003_match": true,
+      "entry": 45,
+      "expected_v003_sha256": "85438d8c876799225a324e059b38af36eb5e3bd4f43d06e1662e90f011e2896b",
+      "git_blob": "697314f4646eda31002c368f739471e01ef73edb",
+      "path": "tests/test_revision_v003_portfolios.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "85438d8c876799225a324e059b38af36eb5e3bd4f43d06e1662e90f011e2896b",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/tests/test_revision_v003_portfolios.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/tests/test_revision_v003_portfolios.py"
+    },
+    {
+      "bytes": 10106,
+      "direct_v003_match": true,
+      "entry": 46,
+      "expected_v003_sha256": "7db848cea8302d099305c1c1ac887a91f8a63473a5d2d126132384266c3e2436",
+      "git_blob": "a05f79bd4affb8b68abd3915e4d3554cfc476c27",
+      "path": "tests/test_revision_v003_walkforward.py",
+      "resolution": "DIRECT_V003_SHA_MATCH",
+      "sha256": "7db848cea8302d099305c1c1ac887a91f8a63473a5d2d126132384266c3e2436",
+      "v003_original_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/tests/test_revision_v003_walkforward.py",
+      "v005_current_raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/f3c3a3eb17073bd0a127bb943f4eda21e407cf2d/development/model11/tests/test_revision_v003_walkforward.py"
+    }
+  ],
+  "environment": {
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.12.14"
+  },
+  "forty_five_vs_forty_six": {
+    "additional_sumlist_item": "revision_v003/MANIFEST_V003.json",
+    "sumlist_excludes_own_file": true,
+    "sumlist_excludes_own_manifest": false,
+    "v003_manifest_added_payload_count": 45,
+    "v003_manifest_added_payload_rows": 45,
+    "v003_sumlist_entries": 46
+  },
+  "local_policy_recomputation": {
+    "EXHIBITION_ELSE_FRAME_V001": {
+      "archive_sha256": "97ed0546cdf6831000a90a42532fbb1f6f95740545935d2d2fa0d03b9e2a8997",
+      "current_sha256": "97ed0546cdf6831000a90a42532fbb1f6f95740545935d2d2fa0d03b9e2a8997",
+      "published_after_sha256": "97ed0546cdf6831000a90a42532fbb1f6f95740545935d2d2fa0d03b9e2a8997",
+      "published_before_sha256": "97ed0546cdf6831000a90a42532fbb1f6f95740545935d2d2fa0d03b9e2a8997",
+      "unchanged": true
+    },
+    "EXHIBITION_ONLY_V001": {
+      "archive_sha256": "cdd3bb6b1e660445d428d31757447c4d7b93a8b23b436b22cc1c2a65e2b77aef",
+      "current_sha256": "cdd3bb6b1e660445d428d31757447c4d7b93a8b23b436b22cc1c2a65e2b77aef",
+      "published_after_sha256": "cdd3bb6b1e660445d428d31757447c4d7b93a8b23b436b22cc1c2a65e2b77aef",
+      "published_before_sha256": "cdd3bb6b1e660445d428d31757447c4d7b93a8b23b436b22cc1c2a65e2b77aef",
+      "unchanged": true
+    },
+    "FRAME_ONLY_V001": {
+      "archive_sha256": "1d7561a7ee56622f0b3eb8af88b8ca472255d8f8da5620d9693794133d4870b0",
+      "current_sha256": "1d7561a7ee56622f0b3eb8af88b8ca472255d8f8da5620d9693794133d4870b0",
+      "published_after_sha256": "1d7561a7ee56622f0b3eb8af88b8ca472255d8f8da5620d9693794133d4870b0",
+      "published_before_sha256": "1d7561a7ee56622f0b3eb8af88b8ca472255d8f8da5620d9693794133d4870b0",
+      "unchanged": true
+    }
+  },
+  "local_test_observation": {
+    "command": "python -B -m unittest discover -s tests -p test_shadow_preparation_lineage.py -v",
+    "python": "3.12.14",
+    "real_data_or_network_used": false,
+    "runtime_seconds_observed": 0.022,
+    "status": "PASS_LOCAL_SOFTWARE_CHECKS",
+    "test_methods": 8
+  },
+  "policy_hashes": {
+    "EXHIBITION_ELSE_FRAME_V001": {
+      "after": "97ed0546cdf6831000a90a42532fbb1f6f95740545935d2d2fa0d03b9e2a8997",
+      "before": "97ed0546cdf6831000a90a42532fbb1f6f95740545935d2d2fa0d03b9e2a8997"
+    },
+    "EXHIBITION_ONLY_V001": {
+      "after": "cdd3bb6b1e660445d428d31757447c4d7b93a8b23b436b22cc1c2a65e2b77aef",
+      "before": "cdd3bb6b1e660445d428d31757447c4d7b93a8b23b436b22cc1c2a65e2b77aef"
+    },
+    "FRAME_ONLY_V001": {
+      "after": "1d7561a7ee56622f0b3eb8af88b8ca472255d8f8da5620d9693794133d4870b0",
+      "before": "1d7561a7ee56622f0b3eb8af88b8ca472255d8f8da5620d9693794133d4870b0"
+    }
+  },
+  "production_go": false,
+  "proof_scope": {
+    "development_authorization": "PRIOR_N1_ONLY_USER_SCOPE; NO_PRODUCTION_GO",
+    "independent_authenticity": "NOT_ESTABLISHED_BY_SELF_HASH_OR_MANIFEST_ALONE",
+    "remote_fetch_in_this_subtask": false,
+    "verified": "LOCAL_RAW_SHA256_GIT_BLOB_RECOMPUTATION_AND_PUBLISHED_MANIFEST_BINDINGS"
+  },
+  "schema": "MODEL11_N1_SHA_LINEAGE_V006",
+  "status": "VERIFIED_LOCAL_BYTES_EXPECTED_N1_SUPERSESSION",
+  "v003_sumlist": {
+    "bytes": 4928,
+    "declared_n1_supersessions": 1,
+    "direct_matches": 45,
+    "entries": 46,
+    "git_blob": "2a0fd879dff7eb0d87b17ff5785e41b6a2916a05",
+    "historical_snapshot_reconstructed_matches": 46,
+    "historical_snapshot_resolution": "CURRENT_BYTES_FOR_UNCHANGED45_PLUS_ORIGINAL_ARCHIVE_FOR_COURSE_ONLY",
+    "mismatches": 1,
+    "path": "revision_v003/SHA256SUMS_V003.txt",
+    "raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/62721c20676177bac171f97b0488412b07b63594/development/model11/revision_v003/SHA256SUMS_V003.txt",
+    "sha256": "4e0bbddde7ab29596b1185fbdf3edb186e67d07544d636ebd66a29af42ba1b9b",
+    "unchanged_original_sumlist": true,
+    "unexplained_mismatches": 0
+  },
+  "v004_sumlist": {
+    "bytes": 1634,
+    "entries": 16,
+    "entry_checks": [
+      {
+        "bytes": 20110,
+        "expected_sha256": "ca28937aa1784fc37fa9a9539e0219d27570390ced01b3a0a2f77268238ed264",
+        "git_blob": "59d9e564d9370655b5deb84cfb61bd26ac1c2760",
+        "match": true,
+        "path": "model11/revision_v003/course.py",
+        "sha256": "ca28937aa1784fc37fa9a9539e0219d27570390ced01b3a0a2f77268238ed264"
+      },
+      {
+        "bytes": 5094,
+        "expected_sha256": "c58422cd85f4ed959387b2ecfbc61889121d76514796f7d14f10a4e2e70c0c57",
+        "git_blob": "b8f9337eb8d1396f630991bc39bc2e4891a52c2c",
+        "match": true,
+        "path": "revision_v004/INDEPENDENT_REVIEW.md",
+        "sha256": "c58422cd85f4ed959387b2ecfbc61889121d76514796f7d14f10a4e2e70c0c57"
+      },
+      {
+        "bytes": 963,
+        "expected_sha256": "00939a6235a62f7434245620ac5e12c919b270d4fcd7cd44faf186da7b595065",
+        "git_blob": "d2000783636a483fb02cd141e8074d75aaf0ef54",
+        "match": true,
+        "path": "revision_v004/INDEX.md",
+        "sha256": "00939a6235a62f7434245620ac5e12c919b270d4fcd7cd44faf186da7b595065"
+      },
+      {
+        "bytes": 39475,
+        "expected_sha256": "b4bd0a0b3066e210244a740c5d3619919061dbb98eac2e0097088bef4e2bdb9b",
+        "git_blob": "bcfe9038304f53a8c35e76cab2fb5bafa4ad2f2c",
+        "match": true,
+        "path": "revision_v004/MANIFEST_V004.json",
+        "sha256": "b4bd0a0b3066e210244a740c5d3619919061dbb98eac2e0097088bef4e2bdb9b"
+      },
+      {
+        "bytes": 2776,
+        "expected_sha256": "e4c279b65a08d044bf6931885679435da8750261e74ba57dd47c2ea8f2d9248e",
+        "git_blob": "88cb559f2a58cf8869b4a9872767b9e497629d10",
+        "match": true,
+        "path": "revision_v004/N1.diff",
+        "sha256": "e4c279b65a08d044bf6931885679435da8750261e74ba57dd47c2ea8f2d9248e"
+      },
+      {
+        "bytes": 1952,
+        "expected_sha256": "e527426478a2dba1e653eed60f67ba531f953c4abb3e68f2c8413eb6bbc4673c",
+        "git_blob": "51324a675c88b329c68c0d38a35ef3b96d1cbc21",
+        "match": true,
+        "path": "revision_v004/README.md",
+        "sha256": "e527426478a2dba1e653eed60f67ba531f953c4abb3e68f2c8413eb6bbc4673c"
+      },
+      {
+        "bytes": 1197,
+        "expected_sha256": "c9bcb7d2f974c6a3f06cc6a201ed6b09865a75bc898b55e9268c06281219ea21",
+        "git_blob": "3a1dff2cb1845a2b78705fc2c7a7cc82beaff079",
+        "match": true,
+        "path": "revision_v004/REPORT.md",
+        "sha256": "c9bcb7d2f974c6a3f06cc6a201ed6b09865a75bc898b55e9268c06281219ea21"
+      },
+      {
+        "bytes": 17860,
+        "expected_sha256": "48b53e1b372c9c8b63027567d920514ac4e23668f0373d9f4f9a559789f0f66b",
+        "git_blob": "e4853916e7d8b0f335a7c49d6e4855c40f51cff1",
+        "match": true,
+        "path": "revision_v004/references/course_v003_original.py.txt",
+        "sha256": "48b53e1b372c9c8b63027567d920514ac4e23668f0373d9f4f9a559789f0f66b"
+      },
+      {
+        "bytes": 13213,
+        "expected_sha256": "64eb8f7f0bf45fea78192cb236c82b0021aecfac8694c987b29aacd803910fc1",
+        "git_blob": "0f73aaf2c79ad689067e169fd0df08c24a6b6593",
+        "match": true,
+        "path": "revision_v004/results/N1-matrix.json",
+        "sha256": "64eb8f7f0bf45fea78192cb236c82b0021aecfac8694c987b29aacd803910fc1"
+      },
+      {
+        "bytes": 334,
+        "expected_sha256": "52e9418128c497db04f69249eddc876edce1dcbb36c3be539d1e740100d2d38a",
+        "git_blob": "378ee5b34dd0656f81b1b816e7b047ec5656fa99",
+        "match": true,
+        "path": "revision_v004/results/demo-python312.raw.log",
+        "sha256": "52e9418128c497db04f69249eddc876edce1dcbb36c3be539d1e740100d2d38a"
+      },
+      {
+        "bytes": 333,
+        "expected_sha256": "7ba4e1eb866c7a914907cee89fc9acc4cb372de144ad4499997c39c17bf9e839",
+        "git_blob": "08ef279df69335eaebaa70217ad5ad4f7a7b6082",
+        "match": true,
+        "path": "revision_v004/results/demo-python314.raw.log",
+        "sha256": "7ba4e1eb866c7a914907cee89fc9acc4cb372de144ad4499997c39c17bf9e839"
+      },
+      {
+        "bytes": 589,
+        "expected_sha256": "0147d9ff4f7e4a1f1804b59f9391264736088d876f1aad4cae8c9323e4799336",
+        "git_blob": "b72f1b838ac2afa4f8a4b23b9d36cc4bd6acef35",
+        "match": true,
+        "path": "revision_v004/results/policy-hashes.json",
+        "sha256": "0147d9ff4f7e4a1f1804b59f9391264736088d876f1aad4cae8c9323e4799336"
+      },
+      {
+        "bytes": 53219,
+        "expected_sha256": "784099cae37b2ce39e566b230fffc70ec9d5d8c0a4f1456129905a922e047d68",
+        "git_blob": "fecd82ba9a8d29ace141cbb1e2ecba82fb7b0bcf",
+        "match": true,
+        "path": "revision_v004/results/tests-python312.raw.log",
+        "sha256": "784099cae37b2ce39e566b230fffc70ec9d5d8c0a4f1456129905a922e047d68"
+      },
+      {
+        "bytes": 53218,
+        "expected_sha256": "0f1df2b130ec408b80509cac6d0e1f177bd9143a9c537053eba05247bd7d1006",
+        "git_blob": "d18a22bd4d81e64f45d50b090025a25ee14439d7",
+        "match": true,
+        "path": "revision_v004/results/tests-python314.raw.log",
+        "sha256": "0f1df2b130ec408b80509cac6d0e1f177bd9143a9c537053eba05247bd7d1006"
+      },
+      {
+        "bytes": 2400,
+        "expected_sha256": "39389af0e05e745e40a3bd330f5f9a63a24bb9c00c85803458120527191fcc08",
+        "git_blob": "b50b0ecaf13e62d9c184ddd0051db3f331b3e4ad",
+        "match": true,
+        "path": "revision_v004/results/verification.json",
+        "sha256": "39389af0e05e745e40a3bd330f5f9a63a24bb9c00c85803458120527191fcc08"
+      },
+      {
+        "bytes": 31902,
+        "expected_sha256": "0b280c41a8741c743b0b3391cc5ae5eca81821875c300d18de8c066d63fbda9d",
+        "git_blob": "83375053804c9e272847c5649013380e1be7344f",
+        "match": true,
+        "path": "tests/test_revision_v004_n1.py",
+        "sha256": "0b280c41a8741c743b0b3391cc5ae5eca81821875c300d18de8c066d63fbda9d"
+      }
+    ],
+    "git_blob": "bf8555814afbe9775ca5e7e3d9e7312ca7168f56",
+    "matches": 16,
+    "mismatches": 0,
+    "path": "revision_v004/SHA256SUMS_V004.txt",
+    "raw_url": "https://raw.githubusercontent.com/kawasaki8228brother-ship-it/gamagori-controller/df807089f5fd27517109f9bd38b6c55f9415600e/development/model11/revision_v004/SHA256SUMS_V004.txt",
+    "sha256": "56286d3e9689a163c490ef752afc619d87a7c1bca3c2f6c564c3317b7ca50781"
+  }
+}

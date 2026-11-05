@@ -1,0 +1,211 @@
+{
+  "application_status": "HOLD",
+  "classification": "SYNTHETIC_ONLY_NO_ACTUAL_RACE_OR_SECRET",
+  "claude_review_of_v006": "NOT_RECEIVED",
+  "coverage_checks": [
+    "12_SCHEDULED_12_STORED_ACTUAL_V005_SYNTHETIC_PIPELINE",
+    "MISSING_DUPLICATE_ABSENT_UNSAVED_READ_FAILED_UNCERTAIN_LATE",
+    "NO_CHECKER_IO_OR_WRITES",
+    "STORE_FILES_BYTE_UNCHANGED",
+    "AUTHENTICITY_AND_FINAL_RUNTIME_READBACK_TIME_STILL_UNVERIFIED"
+  ],
+  "cross_runtime_scenarios_equal": true,
+  "initial_scoped_test_evidence": {
+    "cause": "FIXTURE_ASSUMED_1500_NESTING_EXCEEDS_ENVIRONMENT_RECURSION_LIMIT",
+    "first_full_312": {
+      "bytes": 82635,
+      "public": false,
+      "result": "517_TESTS_PASS_BEFORE_TEST_PORTABILITY_CORRECTION",
+      "sha256": "4c67953939ccf1c8055fee3ff3fe6c57360e962743b3fe724e160432f92bc7f7"
+    },
+    "first_full_314": {
+      "cause": "CPYTHON_314_DECODER_CAN_PARSE_10000_DEPTH_RECEIPT_HASH_STILL_REJECTED",
+      "original": {
+        "bytes": 83537,
+        "public": false,
+        "sha256": "e64db0c4ef61b8224a6ca202f9d6a1b32f64071823f7cd283c2ee00e553ec3be"
+      },
+      "result": "517_TESTS_1_FAILURE_SAME_DIAGNOSTIC_EXPECTATION",
+      "submitted": {
+        "bytes": 83442,
+        "file": "first-full-python314.REDACTED.log",
+        "sha256": "9471a703628f4a02b0b000eee41ef15cb6170e356690ea5503fc7150c17703c4",
+        "trust": "REDACTED"
+      },
+      "unsafe_acceptance_observed": false
+    },
+    "initial_result": "58_TESTS_1_FAILURE",
+    "observed": "HOLD_WITH_RECEIPT_HASH_MISMATCH_NOT_EXPECTED_RAW_JSON_INVALID",
+    "original": {
+      "bytes": 11454,
+      "public": false,
+      "sha256": "2da91d5d5dcdd3ed7dffdf61ad9735869f22964bec5d82ce201a71a4a599fe63",
+      "trust": "LOCAL_ORIGINAL_LOG"
+    },
+    "resolution": "REAL_DEEP_OBJECT_HOLD_CHECK_PLUS_DETERMINISTIC_DECODER_EXCEPTION_INJECTION_NO_GLOBAL_LIMIT_MUTATION",
+    "runtime_embedded_in_initial_log": false,
+    "second_attempt": {
+      "cause": "PYTHON_RECURSION_LIMIT_SETTING_DOES_NOT_CONTROL_C_DECODER_LIMIT",
+      "original": {
+        "bytes": 11454,
+        "public": false,
+        "sha256": "4d78cea1ebf4293371faf7206646915ab2a808512d1a44bb294389a9ff5a2127"
+      },
+      "result": "58_TESTS_1_FAILURE_SAME_DIAGNOSTIC_EXPECTATION",
+      "submitted": {
+        "bytes": 11359,
+        "file": "initial-scoped-attempt2.REDACTED.log",
+        "sha256": "0881387a0a294a9e48aced3dbe219bf0d94be867d7c39b4adc262518ccfbe6d2",
+        "trust": "REDACTED"
+      }
+    },
+    "submitted": {
+      "bytes": 11359,
+      "file": "initial-scoped.REDACTED.log",
+      "sha256": "427891a0b8e959a2effb9a3e665bc0994f25665f707e65171461f02bffc9593f",
+      "trust": "REDACTED"
+    },
+    "unsafe_acceptance_observed": false
+  },
+  "new_test_methods_by_file": {
+    "test_shadow_preparation_capture.py": 14,
+    "test_shadow_preparation_cli.py": 8,
+    "test_shadow_preparation_coverage.py": 13,
+    "test_shadow_preparation_evaluation.py": 8,
+    "test_shadow_preparation_lineage.py": 8,
+    "test_shadow_preparation_runtime.py": 7
+  },
+  "not_tested": [
+    "ACTUAL_OFFICIAL_MAPPING_AND_SOURCE_AUTHENTICITY",
+    "REAL_DATA_FIT_OR_EVALUATION",
+    "ACTUAL_SHADOW_HOST_OR_CLOCK_ACCURACY",
+    "APPROVED_SELECTION_SAMPLE_SIZE",
+    "PRODUCTION_OR_SHADOW_START"
+  ],
+  "parent_commit": "f3c3a3eb17073bd0a127bb943f4eda21e407cf2d",
+  "parent_package_files_byte_unchanged": 196,
+  "parent_test_methods": 459,
+  "production_go": false,
+  "runs": {
+    "312": {
+      "coverage": {
+        "bytes": 439,
+        "file": "coverage-python312.raw.log",
+        "result": {
+          "application_status": "HOLD",
+          "coverage_scenarios": 8,
+          "forecasts": 12,
+          "production_go": false,
+          "status": "SYNTHETIC_PREPARATION_COMPLETE",
+          "store_files_byte_unchanged": true
+        },
+        "runtime": {
+          "data": "SYNTHETIC_ONLY",
+          "network": "BLOCKED_IN_PROCESS",
+          "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "production_go": false,
+          "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+          "sqlite": "3.53.1"
+        },
+        "sha256": "62d3a45b70b03c6176ef67e00865f49cde31dfef41ea764aaed564143eba7b14",
+        "trust": "RAW_UNMODIFIED"
+      },
+      "encoded_prediction_fixture": {
+        "bytes": 384869,
+        "classification": "SYNTHETIC_ONLY_INVENTED_2099_NOT_A_REAL_BACKUP",
+        "decoded_original": {
+          "bytes": 967013,
+          "sha256": "f9039ed32e9e0990d018dcf174ff7e90d5fb24a1838687613fe7d8359caf03cb"
+        },
+        "encoding": "BASE64_GZIP_JSON",
+        "file": "SYNTHETIC_ONLY.prediction-evidence-python312.json.gz.b64.txt",
+        "roundtrip_byte_verified": true,
+        "sha256": "c2f8a77af4c96055bd722fb8b4484ccbd83b2efdb4e8ca9568e8cf64cfac4732"
+      },
+      "tests": {
+        "bytes": 82635,
+        "file": "tests-python312.raw.log",
+        "result": {
+          "errors": 0,
+          "failures": 0,
+          "real_performance": "UNVERIFIED",
+          "scope": "SYNTHETIC_SOFTWARE_ONLY",
+          "skipped": 0,
+          "status": "PASS",
+          "tests_run": 517
+        },
+        "runtime": {
+          "data": "SYNTHETIC_ONLY",
+          "network": "BLOCKED_IN_PROCESS",
+          "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "production_go": false,
+          "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+        },
+        "sha256": "790203670919493d3bccedfe68431fb248bb8caca22a3f4b79e4e6eb9f9d7294",
+        "trust": "RAW_UNMODIFIED"
+      }
+    },
+    "314": {
+      "coverage": {
+        "bytes": 438,
+        "file": "coverage-python314.raw.log",
+        "result": {
+          "application_status": "HOLD",
+          "coverage_scenarios": 8,
+          "forecasts": 12,
+          "production_go": false,
+          "status": "SYNTHETIC_PREPARATION_COMPLETE",
+          "store_files_byte_unchanged": true
+        },
+        "runtime": {
+          "data": "SYNTHETIC_ONLY",
+          "network": "BLOCKED_IN_PROCESS",
+          "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "production_go": false,
+          "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]",
+          "sqlite": "3.50.4"
+        },
+        "sha256": "2f1860f268de06639e5157f766a180f9597761902f64c186ffd0397f91f10eb5",
+        "trust": "RAW_UNMODIFIED"
+      },
+      "encoded_prediction_fixture": {
+        "bytes": 384873,
+        "classification": "SYNTHETIC_ONLY_INVENTED_2099_NOT_A_REAL_BACKUP",
+        "decoded_original": {
+          "bytes": 967013,
+          "sha256": "6969c49f5649fa7cf6eca2d4f199575cbfaa93e796215ed8d026dc8b3517ce3f"
+        },
+        "encoding": "BASE64_GZIP_JSON",
+        "file": "SYNTHETIC_ONLY.prediction-evidence-python314.json.gz.b64.txt",
+        "roundtrip_byte_verified": true,
+        "sha256": "e401fa8330f1ec10a9203c20a393b3a6e308229dadf2f019d0dac6d9a76c6329"
+      },
+      "tests": {
+        "bytes": 82634,
+        "file": "tests-python314.raw.log",
+        "result": {
+          "errors": 0,
+          "failures": 0,
+          "real_performance": "UNVERIFIED",
+          "scope": "SYNTHETIC_SOFTWARE_ONLY",
+          "skipped": 0,
+          "status": "PASS",
+          "tests_run": 517
+        },
+        "runtime": {
+          "data": "SYNTHETIC_ONLY",
+          "network": "BLOCKED_IN_PROCESS",
+          "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "production_go": false,
+          "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"
+        },
+        "sha256": "4a6f95c8802f9f39d373489198666fa056dea6c45067ce5b3aa55fc12705ba3c",
+        "trust": "RAW_UNMODIFIED"
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "actual_grid_unchanged": true,
+  "adopted": false,
+  "alternatives": [
+    {
+      "accounting": {
+        "adopted": false,
+        "equivalence_caveat": "OTHER_EQUAL_VECTORS_MAY_EXIST_NOT_INDEPENDENT_TEST_COUNTS",
+        "independent_hypothesis_count": null,
+        "market_only_nominal_members": 1,
+        "market_only_structural_classes": 1,
+        "nominal_grid_members": 6,
+        "production_go": false,
+        "status": "PROPOSED_ARITHMETIC_ONLY",
+        "structural_probability_upper_bound": 6
+      },
+      "adopted": false,
+      "confirmatory_family_proposal": "SINGLE_FROZEN_CHAMPION_VS_MARKET_M1",
+      "default_execution_grid_changed": false,
+      "formal_holdout_required_days": "UNVERIFIED_PRIVATE_PILOT_AND_REVIEW_REQUIRED",
+      "formal_selection_minimum": "UNVERIFIED_NOT_SET",
+      "grid": {
+        "alphas": [
+          0.5
+        ],
+        "candidates": [
+          "hierarchical"
+        ],
+        "market_weights": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.9,
+          1.0
+        ],
+        "temperatures": [
+          1.0
+        ]
+      },
+      "holdout_target_days_illustrative": 60,
+      "justification": "FEWER_RESEARCH_CHOICES_PRESERVE_ALL_SIX_MARKET_WEIGHTS",
+      "nonbaseline_structural_comparison_upper_bound": 5,
+      "option_id": "A_REDUCED_FIXED_CALIBRATION",
+      "production_go": false,
+      "selection_target_days": 24,
+      "status": "PROPOSED_NOT_ADOPTED"
+    },
+    {
+      "accounting": {
+        "adopted": false,
+        "equivalence_caveat": "OTHER_EQUAL_VECTORS_MAY_EXIST_NOT_INDEPENDENT_TEST_COUNTS",
+        "independent_hypothesis_count": null,
+        "market_only_nominal_members": 2,
+        "market_only_structural_classes": 1,
+        "nominal_grid_members": 12,
+        "production_go": false,
+        "status": "PROPOSED_ARITHMETIC_ONLY",
+        "structural_probability_upper_bound": 11
+      },
+      "adopted": false,
+      "confirmatory_family_proposal": "SINGLE_FROZEN_CHAMPION_VS_MARKET_M1",
+      "default_execution_grid_changed": false,
+      "formal_holdout_required_days": "UNVERIFIED_PRIVATE_PILOT_AND_REVIEW_REQUIRED",
+      "formal_selection_minimum": "UNVERIFIED_NOT_SET",
+      "grid": {
+        "alphas": [
+          0.5
+        ],
+        "candidates": [
+          "hierarchical",
+          "contextual"
+        ],
+        "market_weights": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.9,
+          1.0
+        ],
+        "temperatures": [
+          1.0
+        ]
+      },
+      "holdout_target_days_illustrative": 90,
+      "justification": "COMPARE_TWO_CONDITIONAL_STRUCTURES_WITHOUT_ALPHA_TEMPERATURE_SEARCH",
+      "nonbaseline_structural_comparison_upper_bound": 10,
+      "option_id": "B_TWO_MODELS_FIXED_CALIBRATION",
+      "production_go": false,
+      "selection_target_days": 36,
+      "status": "PROPOSED_NOT_ADOPTED"
+    },
+    {
+      "accounting": {
+        "adopted": false,
+        "equivalence_caveat": "OTHER_EQUAL_VECTORS_MAY_EXIST_NOT_INDEPENDENT_TEST_COUNTS",
+        "independent_hypothesis_count": null,
+        "market_only_nominal_members": 12,
+        "market_only_structural_classes": 1,
+        "nominal_grid_members": 72,
+        "production_go": false,
+        "status": "PROPOSED_ARITHMETIC_ONLY",
+        "structural_probability_upper_bound": 61
+      },
+      "adopted": false,
+      "confirmatory_family_proposal": "SINGLE_FROZEN_CHAMPION_VS_MARKET_M1",
+      "default_execution_grid_changed": false,
+      "formal_holdout_required_days": "UNVERIFIED_PRIVATE_PILOT_AND_REVIEW_REQUIRED",
+      "formal_selection_minimum": "UNVERIFIED_NOT_SET",
+      "grid": {
+        "alphas": [
+          0.0,
+          0.5
+        ],
+        "candidates": [
+          "hierarchical",
+          "contextual"
+        ],
+        "market_weights": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.9,
+          1.0
+        ],
+        "temperatures": [
+          0.8,
+          1.0,
+          1.2
+        ]
+      },
+      "holdout_target_days_illustrative": 120,
+      "justification": "LARGER_EXPLORATORY_BUDGET_NOT_PROOF_OF_SELECTION_ADEQUACY",
+      "nonbaseline_structural_comparison_upper_bound": 60,
+      "option_id": "C_CURRENT_FULL_GRID",
+      "production_go": false,
+      "selection_target_days": 60,
+      "status": "PROPOSED_NOT_ADOPTED"
+    }
+  ],
+  "decision_authorities": [
+    "HQ14",
+    "CLAUDE",
+    "ANDY"
+  ],
+  "production_go": false,
+  "status": "REVIEW_ALTERNATIVES_ONLY"
+}

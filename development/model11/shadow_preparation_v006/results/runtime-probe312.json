@@ -1,0 +1,42 @@
+{
+  "application_status": "HOLD",
+  "classification": "SYNTHETIC_ONLY",
+  "clock": {
+    "clock_offset_threshold": "NOT_ADOPTED",
+    "external_utc_accuracy": "UNVERIFIED",
+    "local_order_observed": true,
+    "monotonic_after_ns": 45234909127090,
+    "monotonic_before_ns": 45234908758013,
+    "synchronization_evidence": null,
+    "wall_after_utc": "2026-11-05T10:12:40.660953+00:00",
+    "wall_before_utc": "2026-11-05T10:12:40.660581+00:00"
+  },
+  "database_opened": false,
+  "disk": {
+    "capacity_requirement": "UNADOPTED_REAL_PAYLOAD_AND_RETENTION_UNKNOWN",
+    "free_bytes": 31283458048,
+    "path_disclosed": false,
+    "total_bytes": 33770192896,
+    "used_bytes": 751972352
+  },
+  "files_written": false,
+  "host_creation": false,
+  "launch_allowed": false,
+  "network_used": false,
+  "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "process": {
+    "identity_available": true,
+    "identity_sha256": "041949d9bfb441f0ca15bbe540ba82c2edf6eb53301888f4ae4bef75e5e2cf0b",
+    "meaning": "LOCAL_LINUX_BOOT_ID_AND_PID_START_TICKS_NOT_EXTERNAL_AUTHENTICATION",
+    "pid": 37240
+  },
+  "production_go": false,
+  "python": "3.12.14",
+  "python_full": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "schema": "MODEL11_LOCAL_RUNTIME_OBSERVATION_V006",
+  "sqlite": "3.53.1",
+  "sqlite_threadsafety": 3,
+  "status": "LOCAL_OBSERVATION_ONLY",
+  "task_registered": false
+}

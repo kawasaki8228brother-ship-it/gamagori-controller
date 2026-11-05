@@ -1,0 +1,2704 @@
+{
+  "schema_version": "CAPTURE_INPUT_PREPARATION_V006",
+  "status": "OPEN",
+  "enabled": false,
+  "application_status": "HOLD",
+  "production_go": false,
+  "actual_official_format": null,
+  "actual_official_source": null,
+  "independent_review_originals": {
+    "hq14_sha256": null,
+    "claude_sha256": null
+  },
+  "source_mapping_candidate": {
+    "schema_version": "SOURCE_MAPPING_V001",
+    "version": null,
+    "format_id": null,
+    "data_classification": null,
+    "synthetic": null,
+    "source_id": null,
+    "raw_fields": {
+      "schema_version": null,
+      "data_classification": null,
+      "race_id": null,
+      "target_date": null,
+      "venue": null,
+      "prediction_at": null,
+      "race_provenance": null,
+      "deadline": null,
+      "active_boats": null,
+      "active_boats_provenance": null,
+      "boats": null,
+      "odds_snapshot": null
+    },
+    "course_fields": {
+      "course_inputs": null,
+      "course_policy_id": null,
+      "course_policy_sha256": null,
+      "data_classification": null,
+      "synthetic": null
+    },
+    "feature_units": {
+      "st": null,
+      "turn": null,
+      "motor": null,
+      "ability": null,
+      "exhibition": null
+    },
+    "feature_specs": null,
+    "course_source_ids": {
+      "frame": null,
+      "exhibition": null
+    },
+    "review_evidence": null
+  },
+  "required_field_inventory": [
+    {
+      "local_target": "/raw/schema_version",
+      "local_requirement": "exact RAW_V001",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/data_classification",
+      "local_requirement": "RAW enum SYNTHETIC_ONLY or HQ14_PRIVATE_OFFLINE; never real-to-synthetic relabel",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/race_id",
+      "local_requirement": "explicit opaque race identity; external official identity mapping OPEN",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/target_date",
+      "local_requirement": "valid YYYY-MM-DD; source date identity must be independently checked",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/venue",
+      "local_requirement": "exact GAMAGORI",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/prediction_at",
+      "local_requirement": "strict aware pre-deadline snapshot time",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/active_boats",
+      "local_requirement": "distinct integer IDs 1..6; launch requires six active boats",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/race_provenance/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/race_provenance/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/race_provenance/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/race_provenance/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/active_boats_provenance/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/active_boats_provenance/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/active_boats_provenance/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/active_boats_provenance/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/deadline/value",
+      "local_requirement": "strict aware deadline, prediction < deadline, JST target_date identity",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/deadline/unit",
+      "local_requirement": "local schema literal timestamp; actual official representation OPEN",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/deadline/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/deadline/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/deadline/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/deadline/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/boat",
+      "local_requirement": "distinct integer boat ID 1..6, active-domain binding",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/course/value",
+      "local_requirement": "explicit integer course or actual boolean F/L/scratch; no missing-as-false",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/course/unit",
+      "local_requirement": "course_number for course; boolean for F/L/scratch",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/course/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/course/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/course/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/course/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/fl/value",
+      "local_requirement": "explicit integer course or actual boolean F/L/scratch; no missing-as-false",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/fl/unit",
+      "local_requirement": "course_number for course; boolean for F/L/scratch",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/fl/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/fl/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/fl/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/fl/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/scratched/value",
+      "local_requirement": "explicit integer course or actual boolean F/L/scratch; no missing-as-false",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/scratched/unit",
+      "local_requirement": "course_number for course; boolean for F/L/scratch",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/scratched/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/scratched/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/scratched/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/scratched/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/motor_identity/motor_id",
+      "local_requirement": "nonempty physical/statistical motor identity",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/motor_identity/version",
+      "local_requirement": "nonempty motor identity/statistics version",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/motor_identity/effective_at",
+      "local_requirement": "aware effective time <= identity acquisition and prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/motor_identity/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/motor_identity/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/motor_identity/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/motor_identity/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/st/value",
+      "local_requirement": "observed finite numeric; missing/bool/null disallowed; no imputation",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/st/unit",
+      "local_requirement": "must equal separately frozen feature_specs unit; actual raw unit OPEN",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/st/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/st/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/st/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/st/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/turn/value",
+      "local_requirement": "observed finite numeric; missing/bool/null disallowed; no imputation",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/turn/unit",
+      "local_requirement": "must equal separately frozen feature_specs unit; actual raw unit OPEN",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/turn/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/turn/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/turn/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/turn/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/motor/value",
+      "local_requirement": "observed finite numeric; missing/bool/null disallowed; no imputation",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/motor/unit",
+      "local_requirement": "must equal separately frozen feature_specs unit; actual raw unit OPEN",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/motor/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/motor/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/motor/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/motor/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/motor/motor_id",
+      "local_requirement": "must match motor_identity.motor_id",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/motor/motor_version",
+      "local_requirement": "must match motor_identity.version; all three motor-feature times >= effective_at",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/ability/value",
+      "local_requirement": "observed finite numeric; missing/bool/null disallowed; no imputation",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/ability/unit",
+      "local_requirement": "must equal separately frozen feature_specs unit; actual raw unit OPEN",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/ability/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/ability/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/ability/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/ability/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/exhibition/value",
+      "local_requirement": "observed finite numeric; missing/bool/null disallowed; no imputation",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/exhibition/unit",
+      "local_requirement": "must equal separately frozen feature_specs unit; actual raw unit OPEN",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/exhibition/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/exhibition/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/exhibition/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/boats/{boat_index}/features/exhibition/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "EACH_INCLUDED_BOAT",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/unit",
+      "local_requirement": "exact gross_payout_multiple; no implicit inverse or payout conversion",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-2-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-2-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-2-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-2-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-3-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-3-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-3-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-3-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-4-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-4-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-4-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-4-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-5-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-5-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-5-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-5-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-6-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-6-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-6-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/1-6-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-1-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-1-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-1-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-1-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-3-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-3-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-3-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-3-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-4-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-4-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-4-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-4-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-5-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-5-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-5-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-5-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-6-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-6-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-6-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/2-6-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-1-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-1-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-1-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-1-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-2-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-2-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-2-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-2-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-4-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-4-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-4-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-4-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-5-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-5-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-5-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-5-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-6-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-6-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-6-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/3-6-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-1-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-1-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-1-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-1-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-2-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-2-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-2-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-2-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-3-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-3-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-3-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-3-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-5-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-5-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-5-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-5-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-6-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-6-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-6-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/4-6-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-1-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-1-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-1-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-1-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-2-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-2-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-2-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-2-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-3-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-3-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-3-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-3-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-4-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-4-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-4-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-4-6",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-6-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-6-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-6-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/5-6-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-1-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-1-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-1-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-1-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-2-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-2-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-2-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-2-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-3-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-3-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-3-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-3-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-4-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-4-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-4-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-4-5",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-5-1",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-5-2",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-5-3",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/raw/odds_snapshot/odds/6-5-4",
+      "local_requirement": "positive finite gross payout multiple; complete pre-LOCK 120-domain",
+      "scope": "ONE_FULL_FIELD_TICKET",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs",
+      "local_requirement": "N1 course context and frozen policy/classification binding; actual source mapping OPEN",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_policy_id",
+      "local_requirement": "N1 course context and frozen policy/classification binding; actual source mapping OPEN",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_policy_sha256",
+      "local_requirement": "N1 course context and frozen policy/classification binding; actual source mapping OPEN",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/data_classification",
+      "local_requirement": "N1 course context and frozen policy/classification binding; actual source mapping OPEN",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/synthetic",
+      "local_requirement": "N1 course context and frozen policy/classification binding; actual source mapping OPEN",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/definition",
+      "local_requirement": "exact FRAME_NUMBER; null only if frozen policy permits missing observation",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/source_id",
+      "local_requirement": "exact N1 predeclared source for class and definition; OFFICIAL prefix is not proof",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/courses/1",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/courses/2",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/courses/3",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/courses/4",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/courses/5",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/frame/courses/6",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/definition",
+      "local_requirement": "exact EXHIBITION_ENTRY; null only if frozen policy permits missing observation",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/source_id",
+      "local_requirement": "exact N1 predeclared source for class and definition; OFFICIAL prefix is not proof",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/acquired_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/available_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/revision_at",
+      "local_requirement": "strict aware timestamp; no inference; <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/evidence_sha256",
+      "local_requirement": "64 lowercase hex; independent original required, not authentication",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/courses/1",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/courses/2",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/courses/3",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/courses/4",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/courses/5",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/course/course_inputs/exhibition/courses/6",
+      "local_requirement": "distinct integer course; selected value and exact state timestamps bind to RAW boat",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/format_id",
+      "local_requirement": "exact v005 envelope contract; original UTF-8 JSON bytes and full SHA, no secret output",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/data_classification",
+      "local_requirement": "exact v005 envelope contract; original UTF-8 JSON bytes and full SHA, no secret output",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/synthetic",
+      "local_requirement": "exact v005 envelope contract; original UTF-8 JSON bytes and full SHA, no secret output",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/source_id",
+      "local_requirement": "exact v005 envelope contract; original UTF-8 JSON bytes and full SHA, no secret output",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/payload_bytes",
+      "local_requirement": "exact v005 envelope contract; original UTF-8 JSON bytes and full SHA, no secret output",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/payload_sha256",
+      "local_requirement": "exact v005 envelope contract; original UTF-8 JSON bytes and full SHA, no secret output",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/acquired_at",
+      "local_requirement": "materialized capture time >= respective known component maximum and <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/available_at",
+      "local_requirement": "materialized capture time >= respective known component maximum and <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/revision_at",
+      "local_requirement": "materialized capture time >= respective known component maximum and <= prediction",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/history/{history_index}/payload_sha256",
+      "local_requirement": "required ordered version evidence; final entry binds exact current bytes/times",
+      "scope": "EACH_CAPTURE_HISTORY_ENTRY",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/history/{history_index}/evidence_sha256",
+      "local_requirement": "required ordered version evidence; final entry binds exact current bytes/times",
+      "scope": "EACH_CAPTURE_HISTORY_ENTRY",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/history/{history_index}/acquired_at",
+      "local_requirement": "required ordered version evidence; final entry binds exact current bytes/times",
+      "scope": "EACH_CAPTURE_HISTORY_ENTRY",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/history/{history_index}/available_at",
+      "local_requirement": "required ordered version evidence; final entry binds exact current bytes/times",
+      "scope": "EACH_CAPTURE_HISTORY_ENTRY",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/capture/history/{history_index}/revision_at",
+      "local_requirement": "required ordered version evidence; final entry binds exact current bytes/times",
+      "scope": "EACH_CAPTURE_HISTORY_ENTRY",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/st/unit",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/st/direction",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/st/normalization",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/turn/unit",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/turn/direction",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/turn/normalization",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/motor/unit",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/motor/direction",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/motor/normalization",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/ability/unit",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/ability/direction",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/ability/normalization",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/exhibition/unit",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/exhibition/direction",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/feature_specs/features/exhibition/normalization",
+      "local_requirement": "explicit frozen PROPOSED spec; no automatic unit/direction/normalization guessing",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/review_evidence/hq14_review_sha256",
+      "local_requirement": "private conditional review original hash; presence is SELF_REPORTED_HASHES_ONLY",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    },
+    {
+      "local_target": "/mapping/review_evidence/claude_review_sha256",
+      "local_requirement": "private conditional review original hash; presence is SELF_REPORTED_HASHES_ONLY",
+      "scope": "ONE_CAPTURE",
+      "actual_official_pointer": null,
+      "actual_official_unit": null,
+      "actual_official_format": null,
+      "actual_official_source": null,
+      "review_status": "OPEN"
+    }
+  ],
+  "official_mapping_authenticity": "UNVERIFIED",
+  "actual_source_mapping": "OPEN",
+  "notes": [
+    "Local destinations are known; actual official pointers, units and formats are not supplied.",
+    "This preparation template is not accepted as an executable SOURCE_MAPPING_V001.",
+    "Independent approval and application GO are separate from this offline inventory."
+  ]
+}
