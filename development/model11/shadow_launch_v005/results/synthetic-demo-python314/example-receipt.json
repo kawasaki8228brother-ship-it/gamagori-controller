@@ -1,0 +1,18 @@
+{
+  "deadline": "2099-01-07T13:00:00+09:00",
+  "external_authenticity": "UNVERIFIED",
+  "forecast_bytes": 38719,
+  "forecast_sha256": "f9182c5703c9127bc0efa4a4df39a1122aef8b3be4153ee57ccae7d7258ef37b",
+  "generated_at": "2099-01-07T12:55:01+09:00",
+  "input_bytes": 19662,
+  "input_sha256": "673f21267ccef45057058f87aecfc29fb995d1b0b8a0aa6df7b9a5cd67058344",
+  "key": "6b63491d02f65a87f8c92290c26cb3d0b8dda3fac7d1a0dd267bfaafa3192d87",
+  "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+  "metadata_sha256": "1d361f6c03b40f91954428efde6e13ca67777b88cebfb6ae9570cc3e55408e4a",
+  "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+  "namespace": "MODEL11_THIRD_RESEARCH",
+  "persist_observed_at": "2099-01-07T12:55:01+09:00",
+  "race_id": "20990107_GAMAGORI_1R",
+  "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+  "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+}

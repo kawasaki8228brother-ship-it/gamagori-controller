@@ -1,0 +1,343 @@
+{
+  "classification": "SYNTHETIC_ONLY",
+  "default_disabled": {
+    "actual_execution_go": "NOT_ESTABLISHED_BY_PREFLIGHT",
+    "allowed": false,
+    "auto_start": false,
+    "filesystem_initialized": false,
+    "independent_approval_authenticity": "UNVERIFIED_NOT_AUTHENTICATED_BY_CODE",
+    "production_go": false,
+    "reasons": [
+      "SHADOW_DISABLED"
+    ],
+    "status": "DISABLED"
+  },
+  "duplicate": {
+    "key": "1dbe929d18a3e03bb124e27de463ff55ea9c389020a7bf5dd692ac2134eece5e",
+    "production_go": false,
+    "reason": "RACE_ALREADY_COMMITTED_NO_REPLAY",
+    "receipt": {
+      "deadline": "2099-01-07T18:30:00+09:00",
+      "external_authenticity": "UNVERIFIED",
+      "forecast_bytes": 38780,
+      "forecast_sha256": "dd7d7eaa50ddf938712293d9cd03c0465bbcb294107247d3e0aff21e914e4f14",
+      "generated_at": "2099-01-07T18:25:01+09:00",
+      "input_bytes": 19675,
+      "input_sha256": "057a65e210dc5927f4a3cd8838cdb2f0cf34b9fb78dbe3d025ed03ad0311b520",
+      "key": "1dbe929d18a3e03bb124e27de463ff55ea9c389020a7bf5dd692ac2134eece5e",
+      "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+      "metadata_sha256": "a1cb6a8a118d2d6c7167259394c17ce652438b1466a874303d3e207a992a689f",
+      "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+      "namespace": "MODEL11_THIRD_RESEARCH",
+      "persist_observed_at": "2099-01-07T18:25:01+09:00",
+      "race_id": "20990107_GAMAGORI_12R",
+      "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+      "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+    },
+    "status": "DUPLICATE"
+  },
+  "forecast_hashes": {
+    "20990107_GAMAGORI_10R": "945cc383ff547cec6b33882d557259e91311f3b296d8a8ec78801d64e3b93c3a",
+    "20990107_GAMAGORI_11R": "e95c0e6220425b024d0ee1e5c32b313c14981709b4e0b95114ac208447d6c361",
+    "20990107_GAMAGORI_12R": "dd7d7eaa50ddf938712293d9cd03c0465bbcb294107247d3e0aff21e914e4f14",
+    "20990107_GAMAGORI_1R": "f9182c5703c9127bc0efa4a4df39a1122aef8b3be4153ee57ccae7d7258ef37b",
+    "20990107_GAMAGORI_2R": "5fcf70e19000c789519e3c2c50938ad0a45cb19047d1836eccfac9ea3d1f2487",
+    "20990107_GAMAGORI_3R": "90408c8f0489daf3c529827107225ed3e18a50a25ae8d0f106fc5f405ea84b89",
+    "20990107_GAMAGORI_4R": "20a77847ef334dc6fba0745292f9cfd1c6f7db935b94b81307f3d88d57162dc0",
+    "20990107_GAMAGORI_5R": "7a5e67a39d6d4dd2012adfdda111d086c23f88bd1ed758285c6fe95399cd4c79",
+    "20990107_GAMAGORI_6R": "7b0445401a34c247ca91d91cf5f6559932dcbe5bd3d6ab128864343cae2704d6",
+    "20990107_GAMAGORI_7R": "71925aada551249510732cb2f4fc900373aa493cea61eecf869f75f28981c0bb",
+    "20990107_GAMAGORI_8R": "c8707854d423146ca53e5b92a745ff1e4d83043abc405c94137cff91fc450dbb",
+    "20990107_GAMAGORI_9R": "b9acb851dad4274794a673f9bdc0095ed3781684c5df7ed11566dd3163c95d9e"
+  },
+  "forecasts": [
+    {
+      "race_id": "20990107_GAMAGORI_1R",
+      "receipt": {
+        "deadline": "2099-01-07T13:00:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38719,
+        "forecast_sha256": "f9182c5703c9127bc0efa4a4df39a1122aef8b3be4153ee57ccae7d7258ef37b",
+        "generated_at": "2099-01-07T12:55:01+09:00",
+        "input_bytes": 19662,
+        "input_sha256": "673f21267ccef45057058f87aecfc29fb995d1b0b8a0aa6df7b9a5cd67058344",
+        "key": "6b63491d02f65a87f8c92290c26cb3d0b8dda3fac7d1a0dd267bfaafa3192d87",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "1d361f6c03b40f91954428efde6e13ca67777b88cebfb6ae9570cc3e55408e4a",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T12:55:01+09:00",
+        "race_id": "20990107_GAMAGORI_1R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_2R",
+      "receipt": {
+        "deadline": "2099-01-07T13:30:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38722,
+        "forecast_sha256": "5fcf70e19000c789519e3c2c50938ad0a45cb19047d1836eccfac9ea3d1f2487",
+        "generated_at": "2099-01-07T13:25:01+09:00",
+        "input_bytes": 19691,
+        "input_sha256": "c8972e32f0c15cff3f986bd707e168b0cc24d2e6051fd9ce558fb91ab975d6e7",
+        "key": "aca36c797f66e6e8ca44f253a016dc2111cf08c4b1d6390de7ab0a4161cba9fa",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "c183da07d84dc429203edd47f7dda47ceced83b4b909aa26bd6d63dd996f7517",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T13:25:01+09:00",
+        "race_id": "20990107_GAMAGORI_2R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_3R",
+      "receipt": {
+        "deadline": "2099-01-07T14:00:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38720,
+        "forecast_sha256": "90408c8f0489daf3c529827107225ed3e18a50a25ae8d0f106fc5f405ea84b89",
+        "generated_at": "2099-01-07T13:55:01+09:00",
+        "input_bytes": 19631,
+        "input_sha256": "03807f1a5dc8fc16535d21b2dfbfebce8f055adbfe88e33a48f3264dca8d8e08",
+        "key": "e8dea9609db4780ade5dfa3b449032b0e953480c5e151236cd17a34b335473ad",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "ece5b78526589b554324013d3a4c475460abb4dc6deba9166cebc1490e841643",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T13:55:01+09:00",
+        "race_id": "20990107_GAMAGORI_3R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_4R",
+      "receipt": {
+        "deadline": "2099-01-07T14:30:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38734,
+        "forecast_sha256": "20a77847ef334dc6fba0745292f9cfd1c6f7db935b94b81307f3d88d57162dc0",
+        "generated_at": "2099-01-07T14:25:01+09:00",
+        "input_bytes": 19690,
+        "input_sha256": "a373c4aca17021af90fd931c639d861dfec3c750bfd1e94b2a775919475099ed",
+        "key": "92ce4071588865498561e1bdd650df4fa4ee7b35627973ba18292d6e1399e0d8",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "3d95f6b9a98b468d8bc8b552f93a6e5c5bcd07eab8887756f432d0baa3f75378",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T14:25:01+09:00",
+        "race_id": "20990107_GAMAGORI_4R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_5R",
+      "receipt": {
+        "deadline": "2099-01-07T15:00:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38739,
+        "forecast_sha256": "7a5e67a39d6d4dd2012adfdda111d086c23f88bd1ed758285c6fe95399cd4c79",
+        "generated_at": "2099-01-07T14:55:01+09:00",
+        "input_bytes": 19661,
+        "input_sha256": "d40675610b504ae88d468c8b9df0fad145f65e257295f8c068390c7776c1df45",
+        "key": "26b648aa1abb6b1f6dee1f21b6960fd0408200039e64970dd7f0178d6705f765",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "331303053de876e58566fc82dd347e23f8155efcac9c012121c51f9f5176a0a6",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T14:55:01+09:00",
+        "race_id": "20990107_GAMAGORI_5R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_6R",
+      "receipt": {
+        "deadline": "2099-01-07T15:30:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38781,
+        "forecast_sha256": "7b0445401a34c247ca91d91cf5f6559932dcbe5bd3d6ab128864343cae2704d6",
+        "generated_at": "2099-01-07T15:25:01+09:00",
+        "input_bytes": 19674,
+        "input_sha256": "08906c4de46778203450c7fcec2e12b106a742c81f710bceeeea41e8f42bf504",
+        "key": "d43fdbc941ce9bd77db3f035d659aa8966c12a1a257072e3cb2d533d68f1bb39",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "0c023d272712d91db4ec54ce6fa8ad9887e747d407547e5a97a5ceb6b0148476",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T15:25:01+09:00",
+        "race_id": "20990107_GAMAGORI_6R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_7R",
+      "receipt": {
+        "deadline": "2099-01-07T16:00:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38695,
+        "forecast_sha256": "71925aada551249510732cb2f4fc900373aa493cea61eecf869f75f28981c0bb",
+        "generated_at": "2099-01-07T15:55:01+09:00",
+        "input_bytes": 19651,
+        "input_sha256": "1af9ac873406d97d8bb5fcc3285ce798cebdc645ddfb0d22d3b2b9c70b068391",
+        "key": "893bf445f688facf7adf87b4fea0fd6071586c322d19b1023309cd9fd496e4c5",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "7e707e41d884f75fba9bb084f41083851f1c0562c5730b73478bc10059d96e85",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T15:55:01+09:00",
+        "race_id": "20990107_GAMAGORI_7R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_8R",
+      "receipt": {
+        "deadline": "2099-01-07T16:30:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38756,
+        "forecast_sha256": "c8707854d423146ca53e5b92a745ff1e4d83043abc405c94137cff91fc450dbb",
+        "generated_at": "2099-01-07T16:25:01+09:00",
+        "input_bytes": 19703,
+        "input_sha256": "0d64f82afb03ec6c32e997bf685e94f8eff1ebc7e142d6855102bb2c2c4f037d",
+        "key": "9f2f86a016d2cdfcef6aaa54e26117c98d892ce2ac7ba7d7fb5a00c16a89a010",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "276f71ce85b9b8f66a24b2d41cfe57b2df2cc77efe6578e1c9858e46ad661a0b",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T16:25:01+09:00",
+        "race_id": "20990107_GAMAGORI_8R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_9R",
+      "receipt": {
+        "deadline": "2099-01-07T17:00:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38812,
+        "forecast_sha256": "b9acb851dad4274794a673f9bdc0095ed3781684c5df7ed11566dd3163c95d9e",
+        "generated_at": "2099-01-07T16:55:01+09:00",
+        "input_bytes": 19700,
+        "input_sha256": "2671d0ec66d77164789a1678b23dcb1b5ccf96b9a0da688b886962a9f6857410",
+        "key": "b9e98fb7e6d562864f0eed2534c36fd67170dffeb1ae03c913c7da7cff840ad2",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "0247d0b2de8613f0bf538e911058dfb086f2e7748e7dccec54a97b324fd71ae2",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T16:55:01+09:00",
+        "race_id": "20990107_GAMAGORI_9R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_10R",
+      "receipt": {
+        "deadline": "2099-01-07T17:30:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38700,
+        "forecast_sha256": "945cc383ff547cec6b33882d557259e91311f3b296d8a8ec78801d64e3b93c3a",
+        "generated_at": "2099-01-07T17:25:01+09:00",
+        "input_bytes": 19625,
+        "input_sha256": "31aa98187ae0364059f5a95c7bc77f158ba825911e5eded3fd0bb60fe3ec094c",
+        "key": "02122ef30c5ed78a7e4459a1fdfd9a15a8cf9a601da2fd91ff2f29edf213063e",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "3f91b9d367a7c7b92f79195f1cce1b61b465eb0ec65a73d73633952a24a44b32",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T17:25:01+09:00",
+        "race_id": "20990107_GAMAGORI_10R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_11R",
+      "receipt": {
+        "deadline": "2099-01-07T18:00:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38758,
+        "forecast_sha256": "e95c0e6220425b024d0ee1e5c32b313c14981709b4e0b95114ac208447d6c361",
+        "generated_at": "2099-01-07T17:55:01+09:00",
+        "input_bytes": 19665,
+        "input_sha256": "e552df13b97515161c6890657eac380fcacabe22fb934498e9f00d3525f534b2",
+        "key": "400e71f76d697135d18cda85d4aa17ac424a18fc6838db0bcff182ab4ce3756b",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "56f498583e2d8a5826eb1df7d80aa24306bff0487c41fa13646514b8f42d89b4",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T17:55:01+09:00",
+        "race_id": "20990107_GAMAGORI_11R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    },
+    {
+      "race_id": "20990107_GAMAGORI_12R",
+      "receipt": {
+        "deadline": "2099-01-07T18:30:00+09:00",
+        "external_authenticity": "UNVERIFIED",
+        "forecast_bytes": 38780,
+        "forecast_sha256": "dd7d7eaa50ddf938712293d9cd03c0465bbcb294107247d3e0aff21e914e4f14",
+        "generated_at": "2099-01-07T18:25:01+09:00",
+        "input_bytes": 19675,
+        "input_sha256": "057a65e210dc5927f4a3cd8838cdb2f0cf34b9fb78dbe3d025ed03ad0311b520",
+        "key": "1dbe929d18a3e03bb124e27de463ff55ea9c389020a7bf5dd692ac2134eece5e",
+        "kind": "IMMUTABLE_FORECAST_RECEIPT_V005",
+        "metadata_sha256": "a1cb6a8a118d2d6c7167259394c17ce652438b1466a874303d3e207a992a689f",
+        "model_sha256": "e17f75871fad4c231a2753ad0662717e3c5b84570dd33f5ff60e0cd9f2d51d95",
+        "namespace": "MODEL11_THIRD_RESEARCH",
+        "persist_observed_at": "2099-01-07T18:25:01+09:00",
+        "race_id": "20990107_GAMAGORI_12R",
+        "storage_id": "b0694c2739464b5cac62f2a8e9c1cbc0",
+        "validity": "REQUIRES_COMMITTED_LEDGER_AND_READBACK"
+      },
+      "status": "COMMITTED"
+    }
+  ],
+  "production_go": false,
+  "result_versions": {
+    "20990107_GAMAGORI_10R": "1f7ec179faa831e6a6eecd5c8f9eab8fccc7df7a793cb9289300a17e3b7e3132",
+    "20990107_GAMAGORI_11R": "edc3a2ff3c76d4b4a370815beb1fb223bb540921a0e552002c500e64238e0e1a",
+    "20990107_GAMAGORI_12R": "e5230e7b7a175e90c033e2038cb1d1051108a729347c39f0c792ec730c5bfc77",
+    "20990107_GAMAGORI_1R": "d2f4524e089283aac57993c316b45902339a3ea96d1392ac8564882e569ca47c",
+    "20990107_GAMAGORI_2R": "418c41c3b4c93bf336fee26426187aa1471217aa6e921ec37f255c8818787015",
+    "20990107_GAMAGORI_3R": "a757e681580c9f910dbcc05b3dabf4706c6d98671560e0eb8fe768953d117bfe",
+    "20990107_GAMAGORI_4R": "00840889114487e71c37d206bcbfe3c7d67d8b51a232e82120f5a46073f0686a",
+    "20990107_GAMAGORI_5R": "ae42aec27a8b65d1ca379a446b146458accedab9163eaf63feed37408c43a467",
+    "20990107_GAMAGORI_6R": "dc707b811e723ce0291698d9dc5cbd61f4c952bff77ce1eb60a7805688e17b3c",
+    "20990107_GAMAGORI_7R": "1908f6126f3dd1d5ec692205ba1af4d3f746a5ef43c1910023a5f891fc7eaf1d",
+    "20990107_GAMAGORI_8R": "c9898173ad66ec63314a7400c36fa56003616835cf834d3ffd35792753fb93cc",
+    "20990107_GAMAGORI_9R": "2c6b64dc7269d1b6d00ffe769281c5a3db75a9282544427b21b6a5b1c0f763e3"
+  },
+  "shutdown": {
+    "production_go": false,
+    "reservations_replayed": false,
+    "status": "SHUTDOWN",
+    "store_close": {
+      "pending_n": 0,
+      "status": "CLOSED"
+    }
+  }
+}

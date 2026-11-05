@@ -1,0 +1,11 @@
+{
+  "enabled": false,
+  "mode": "PRIVATE_SHADOW",
+  "namespace": "MODEL11_THIRD_RESEARCH",
+  "storage_root": null,
+  "code_commit": null,
+  "input_classification": "HQ14_PRIVATE_OFFLINE",
+  "storage_identity": null,
+  "pinned_config_sha256": null,
+  "pinned_storage_sha256": null
+}

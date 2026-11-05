@@ -1,0 +1,1482 @@
+{
+  "production_go": false,
+  "receipt": {
+    "bytes": 24329,
+    "kind": "DAILY_SETTLEMENT",
+    "production_go": false,
+    "receipt_sha256": "496a7c528e4bf971c013662b232c3540d9d0838652b0865a0f5bfaa5273d3f0d",
+    "report_sha256": "c9ad858bf9f2ec58d1b6aeaf81e17e19511c36107f7f3fadad9194951a1ebd1e",
+    "status": "AUDIT_SAVED"
+  },
+  "report": {
+    "evaluation": {
+      "config_status": "PROPOSED",
+      "distributions": {
+        "P_market": {
+          "calibration": {
+            "bins": [
+              {
+                "accuracy": 0.0,
+                "lower": 0.0,
+                "mean_confidence": 0.06401207646932246,
+                "n": 10,
+                "upper": 0.1
+              },
+              {
+                "accuracy": 0.0,
+                "lower": 0.1,
+                "mean_confidence": 0.13161018366649224,
+                "n": 2,
+                "upper": 0.2
+              },
+              {
+                "accuracy": null,
+                "lower": 0.2,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.3
+              },
+              {
+                "accuracy": null,
+                "lower": 0.3,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.4
+              },
+              {
+                "accuracy": null,
+                "lower": 0.4,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.5
+              },
+              {
+                "accuracy": null,
+                "lower": 0.5,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.6
+              },
+              {
+                "accuracy": null,
+                "lower": 0.6,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.7
+              },
+              {
+                "accuracy": null,
+                "lower": 0.7,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.8
+              },
+              {
+                "accuracy": null,
+                "lower": 0.8,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.9
+              },
+              {
+                "accuracy": null,
+                "lower": 0.9,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 1.0
+              }
+            ],
+            "definition": "TOP_LABEL_EQUAL_WIDTH",
+            "ece": 0.07527842766885075,
+            "n": 12,
+            "status": "DESCRIPTIVE_PROPOSED"
+          },
+          "conditional_definition": "ACTUAL_PREFIX_CONDITIONALS_DERIVED_FROM_JOINT",
+          "conditional_first_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.348399793195003
+          },
+          "conditional_second_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.428684073776121
+          },
+          "conditional_third_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.7197704643748748
+          },
+          "input_n": 12,
+          "joint_brier": {
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "value": 0.992718158383645
+          },
+          "joint_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 4.4968543313459985
+          },
+          "n": 12
+        },
+        "P_model": {
+          "calibration": {
+            "bins": [
+              {
+                "accuracy": 0.0,
+                "lower": 0.0,
+                "mean_confidence": 0.019546168415571618,
+                "n": 12,
+                "upper": 0.1
+              },
+              {
+                "accuracy": null,
+                "lower": 0.1,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.2
+              },
+              {
+                "accuracy": null,
+                "lower": 0.2,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.3
+              },
+              {
+                "accuracy": null,
+                "lower": 0.3,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.4
+              },
+              {
+                "accuracy": null,
+                "lower": 0.4,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.5
+              },
+              {
+                "accuracy": null,
+                "lower": 0.5,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.6
+              },
+              {
+                "accuracy": null,
+                "lower": 0.6,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.7
+              },
+              {
+                "accuracy": null,
+                "lower": 0.7,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.8
+              },
+              {
+                "accuracy": null,
+                "lower": 0.8,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.9
+              },
+              {
+                "accuracy": null,
+                "lower": 0.9,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 1.0
+              }
+            ],
+            "definition": "TOP_LABEL_EQUAL_WIDTH",
+            "ece": 0.019546168415571618,
+            "n": 12,
+            "status": "DESCRIPTIVE_PROPOSED"
+          },
+          "conditional_definition": "ACTUAL_PREFIX_CONDITIONALS_DERIVED_FROM_JOINT",
+          "conditional_first_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.4980808150875031
+          },
+          "conditional_second_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.531713445796276
+          },
+          "conditional_third_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.4302315485684811
+          },
+          "input_n": 12,
+          "joint_brier": {
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "value": 0.9862852428013372
+          },
+          "joint_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 4.46002580945226
+          },
+          "n": 12
+        },
+        "P_raw": {
+          "calibration": {
+            "bins": [
+              {
+                "accuracy": 0.0,
+                "lower": 0.0,
+                "mean_confidence": 0.015215133725519955,
+                "n": 12,
+                "upper": 0.1
+              },
+              {
+                "accuracy": null,
+                "lower": 0.1,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.2
+              },
+              {
+                "accuracy": null,
+                "lower": 0.2,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.3
+              },
+              {
+                "accuracy": null,
+                "lower": 0.3,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.4
+              },
+              {
+                "accuracy": null,
+                "lower": 0.4,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.5
+              },
+              {
+                "accuracy": null,
+                "lower": 0.5,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.6
+              },
+              {
+                "accuracy": null,
+                "lower": 0.6,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.7
+              },
+              {
+                "accuracy": null,
+                "lower": 0.7,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.8
+              },
+              {
+                "accuracy": null,
+                "lower": 0.8,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.9
+              },
+              {
+                "accuracy": null,
+                "lower": 0.9,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 1.0
+              }
+            ],
+            "definition": "TOP_LABEL_EQUAL_WIDTH",
+            "ece": 0.015215133725519955,
+            "n": 12,
+            "status": "DESCRIPTIVE_PROPOSED"
+          },
+          "conditional_definition": "ACTUAL_PREFIX_CONDITIONALS_DERIVED_FROM_JOINT",
+          "conditional_first_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.703210920245206
+          },
+          "conditional_second_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.5276133013230104
+          },
+          "conditional_third_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.4050586872967334
+          },
+          "input_n": 12,
+          "joint_brier": {
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "value": 0.9891886331518164
+          },
+          "joint_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 4.635882908864949
+          },
+          "n": 12
+        },
+        "P_shrunk": {
+          "calibration": {
+            "bins": [
+              {
+                "accuracy": 0.0,
+                "lower": 0.0,
+                "mean_confidence": 0.027824212508019735,
+                "n": 12,
+                "upper": 0.1
+              },
+              {
+                "accuracy": null,
+                "lower": 0.1,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.2
+              },
+              {
+                "accuracy": null,
+                "lower": 0.2,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.3
+              },
+              {
+                "accuracy": null,
+                "lower": 0.3,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.4
+              },
+              {
+                "accuracy": null,
+                "lower": 0.4,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.5
+              },
+              {
+                "accuracy": null,
+                "lower": 0.5,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.6
+              },
+              {
+                "accuracy": null,
+                "lower": 0.6,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.7
+              },
+              {
+                "accuracy": null,
+                "lower": 0.7,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.8
+              },
+              {
+                "accuracy": null,
+                "lower": 0.8,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 0.9
+              },
+              {
+                "accuracy": null,
+                "lower": 0.9,
+                "mean_confidence": null,
+                "n": 0,
+                "upper": 1.0
+              }
+            ],
+            "definition": "TOP_LABEL_EQUAL_WIDTH",
+            "ece": 0.027824212508019735,
+            "n": 12,
+            "status": "DESCRIPTIVE_PROPOSED"
+          },
+          "conditional_definition": "ACTUAL_PREFIX_CONDITIONALS_DERIVED_FROM_JOINT",
+          "conditional_first_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.427059421508341
+          },
+          "conditional_second_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.47362146160771
+          },
+          "conditional_third_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 1.4726428598755208
+          },
+          "input_n": 12,
+          "joint_brier": {
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "value": 0.9851673250092547
+          },
+          "joint_logloss": {
+            "coverage": 1.0,
+            "infinite_count": 0,
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "status": "FINITE",
+            "value": 4.373323742991572
+          },
+          "n": 12
+        }
+      },
+      "input_n": 12,
+      "invalid_record_n": 0,
+      "legacy_comparison": {
+        "formal_box_v1_reproduction": "UNVERIFIED_NOT_IMPLEMENTED",
+        "performance_superiority": "UNVERIFIED",
+        "status": "OPEN"
+      },
+      "market_comparisons": {
+        "P_model": {
+          "brier_difference": {
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "value": 0.006432915582307713
+          },
+          "day_block_brier_interval": {
+            "interval": null,
+            "status": "UNVERIFIED_NOT_CONFIGURED"
+          },
+          "difference_definition": "MARKET_LOSS_MINUS_CANDIDATE_LOSS",
+          "logloss_difference": {
+            "finite_pairs": 12,
+            "nonfinite_pairs": 0,
+            "status": "FINITE",
+            "value": 0.036828521893738864
+          },
+          "paired_n": 12,
+          "superiority": "UNVERIFIED",
+          "unpaired_n": 0
+        },
+        "P_raw": {
+          "brier_difference": {
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "value": 0.003529525231828599
+          },
+          "day_block_brier_interval": {
+            "interval": null,
+            "status": "UNVERIFIED_NOT_CONFIGURED"
+          },
+          "difference_definition": "MARKET_LOSS_MINUS_CANDIDATE_LOSS",
+          "logloss_difference": {
+            "finite_pairs": 12,
+            "nonfinite_pairs": 0,
+            "status": "FINITE",
+            "value": -0.139028577518951
+          },
+          "paired_n": 12,
+          "superiority": "UNVERIFIED",
+          "unpaired_n": 0
+        },
+        "P_shrunk": {
+          "brier_difference": {
+            "missing": 0,
+            "observed": 12,
+            "scope": "COMPLETE_INPUT_SCOPE",
+            "value": 0.007550833374390285
+          },
+          "day_block_brier_interval": {
+            "interval": null,
+            "status": "UNVERIFIED_NOT_CONFIGURED"
+          },
+          "difference_definition": "MARKET_LOSS_MINUS_CANDIDATE_LOSS",
+          "logloss_difference": {
+            "finite_pairs": 12,
+            "nonfinite_pairs": 0,
+            "status": "FINITE",
+            "value": 0.1235305883544265
+          },
+          "paired_n": 12,
+          "superiority": "UNVERIFIED",
+          "unpaired_n": 0
+        }
+      },
+      "matched_final_outcome_n": 12,
+      "methods": {
+        "box_v11_research": {
+          "action": {
+            "gross_payout_yen": 0.0,
+            "hit_n": 0,
+            "hit_rate": 0.0,
+            "max_drawdown": {
+              "initial_cumulative_net_yen": 0,
+              "n": 12,
+              "status": "OBSERVED",
+              "value_yen": 7200.0
+            },
+            "money_n": 12,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 12,
+            "net_yen": -7200.0,
+            "refund_yen": 0.0,
+            "return_rate": 0.0,
+            "return_yen": 0.0,
+            "roi": -1.0,
+            "skipped_n": 0,
+            "stake_yen": 7200,
+            "status": "OBSERVED"
+          },
+          "bet": {
+            "gross_payout_yen": 0.0,
+            "hit_n": 0,
+            "hit_rate": 0.0,
+            "money_n": 12,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 12,
+            "net_yen": -7200.0,
+            "refund_yen": 0.0,
+            "return_rate": 0.0,
+            "return_yen": 0.0,
+            "roi": -1.0,
+            "stake_yen": 7200
+          },
+          "course_buckets": {
+            "1": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 7,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 7,
+              "net_yen": -4200.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 4200
+            },
+            "2": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 3,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 3,
+              "net_yen": -1800.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1800
+            },
+            "3": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 1,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 1,
+              "net_yen": -600.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 600
+            },
+            "5": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 1,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 1,
+              "net_yen": -600.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 600
+            }
+          },
+          "day_block_hit_rate_interval": {
+            "interval": null,
+            "metric": "HIT_RATE_STANDALONE_METHOD",
+            "status": "UNVERIFIED_NOT_CONFIGURED"
+          },
+          "gross_payout_yen": 0.0,
+          "hit_n": 0,
+          "hit_rate": 0.0,
+          "input_n": 12,
+          "max_drawdown": {
+            "initial_cumulative_net_yen": 0,
+            "n": 12,
+            "status": "OBSERVED",
+            "value_yen": 7200.0
+          },
+          "method_unavailable_n": 0,
+          "money_n": 12,
+          "money_scope": "COMPLETE_INPUT_SCOPE",
+          "money_unknown_n": 0,
+          "n": 12,
+          "net_yen": -7200.0,
+          "popularity_buckets": {
+            "11-30": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 2,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 2,
+              "net_yen": -1200.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1200
+            },
+            "31+": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 8,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 8,
+              "net_yen": -4800.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 4800
+            },
+            "4-10": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 2,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 2,
+              "net_yen": -1200.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1200
+            }
+          },
+          "popularity_definition": "ACTUAL_OUTCOME_MARKET_COMPETITION_RANK_EX_POST",
+          "refund_yen": 0.0,
+          "return_rate": 0.0,
+          "return_yen": 0.0,
+          "roi": -1.0,
+          "skip_counterfactual": {
+            "gross_payout_yen": null,
+            "hit_n": 0,
+            "hit_rate": null,
+            "money_n": 0,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 0,
+            "net_yen": null,
+            "refund_yen": null,
+            "return_rate": null,
+            "return_yen": null,
+            "roi": null,
+            "stake_yen": null
+          },
+          "stake_scope": "STANDALONE_METHOD_NEVER_POOLED_WITH_OTHER_METHODS",
+          "stake_yen": 7200,
+          "unknown_decision_n": 0
+        },
+        "five": {
+          "action": {
+            "gross_payout_yen": 0.0,
+            "hit_n": 0,
+            "hit_rate": 0.0,
+            "max_drawdown": {
+              "initial_cumulative_net_yen": 0,
+              "n": 12,
+              "status": "OBSERVED",
+              "value_yen": 6000.0
+            },
+            "money_n": 12,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 12,
+            "net_yen": -6000.0,
+            "refund_yen": 0.0,
+            "return_rate": 0.0,
+            "return_yen": 0.0,
+            "roi": -1.0,
+            "skipped_n": 0,
+            "stake_yen": 6000,
+            "status": "OBSERVED"
+          },
+          "bet": {
+            "gross_payout_yen": 0.0,
+            "hit_n": 0,
+            "hit_rate": 0.0,
+            "money_n": 12,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 12,
+            "net_yen": -6000.0,
+            "refund_yen": 0.0,
+            "return_rate": 0.0,
+            "return_yen": 0.0,
+            "roi": -1.0,
+            "stake_yen": 6000
+          },
+          "course_buckets": {
+            "1": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 7,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 7,
+              "net_yen": -3500.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 3500
+            },
+            "2": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 3,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 3,
+              "net_yen": -1500.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1500
+            },
+            "3": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 1,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 1,
+              "net_yen": -500.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 500
+            },
+            "5": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 1,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 1,
+              "net_yen": -500.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 500
+            }
+          },
+          "day_block_hit_rate_interval": {
+            "interval": null,
+            "metric": "HIT_RATE_STANDALONE_METHOD",
+            "status": "UNVERIFIED_NOT_CONFIGURED"
+          },
+          "gross_payout_yen": 0.0,
+          "hit_n": 0,
+          "hit_rate": 0.0,
+          "input_n": 12,
+          "max_drawdown": {
+            "initial_cumulative_net_yen": 0,
+            "n": 12,
+            "status": "OBSERVED",
+            "value_yen": 6000.0
+          },
+          "method_unavailable_n": 0,
+          "money_n": 12,
+          "money_scope": "COMPLETE_INPUT_SCOPE",
+          "money_unknown_n": 0,
+          "n": 12,
+          "net_yen": -6000.0,
+          "popularity_buckets": {
+            "11-30": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 2,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 2,
+              "net_yen": -1000.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1000
+            },
+            "31+": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 8,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 8,
+              "net_yen": -4000.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 4000
+            },
+            "4-10": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 2,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 2,
+              "net_yen": -1000.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1000
+            }
+          },
+          "popularity_definition": "ACTUAL_OUTCOME_MARKET_COMPETITION_RANK_EX_POST",
+          "refund_yen": 0.0,
+          "return_rate": 0.0,
+          "return_yen": 0.0,
+          "roi": -1.0,
+          "skip_counterfactual": {
+            "gross_payout_yen": null,
+            "hit_n": 0,
+            "hit_rate": null,
+            "money_n": 0,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 0,
+            "net_yen": null,
+            "refund_yen": null,
+            "return_rate": null,
+            "return_yen": null,
+            "roi": null,
+            "stake_yen": null
+          },
+          "stake_scope": "STANDALONE_METHOD_NEVER_POOLED_WITH_OTHER_METHODS",
+          "stake_yen": 6000,
+          "unknown_decision_n": 0
+        },
+        "five_appearance_research": {
+          "action": {
+            "gross_payout_yen": 0.0,
+            "hit_n": 0,
+            "hit_rate": 0.0,
+            "max_drawdown": {
+              "initial_cumulative_net_yen": 0,
+              "n": 2,
+              "status": "OBSERVED",
+              "value_yen": 1200.0
+            },
+            "money_n": 2,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 2,
+            "net_yen": -1200.0,
+            "refund_yen": 0.0,
+            "return_rate": 0.0,
+            "return_yen": 0.0,
+            "roi": -1.0,
+            "skipped_n": 10,
+            "stake_yen": 1200,
+            "status": "OBSERVED"
+          },
+          "bet": {
+            "gross_payout_yen": 0.0,
+            "hit_n": 0,
+            "hit_rate": 0.0,
+            "money_n": 2,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 2,
+            "net_yen": -1200.0,
+            "refund_yen": 0.0,
+            "return_rate": 0.0,
+            "return_yen": 0.0,
+            "roi": -1.0,
+            "stake_yen": 1200
+          },
+          "course_buckets": {
+            "1": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 7,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 7,
+              "net_yen": -4200.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 4200
+            },
+            "2": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 3,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 3,
+              "net_yen": -1800.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1800
+            },
+            "3": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 1,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 1,
+              "net_yen": -600.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 600
+            },
+            "5": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 1,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 1,
+              "net_yen": -600.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 600
+            }
+          },
+          "day_block_hit_rate_interval": {
+            "interval": null,
+            "metric": "HIT_RATE_STANDALONE_METHOD",
+            "status": "UNVERIFIED_NOT_CONFIGURED"
+          },
+          "gross_payout_yen": 0.0,
+          "hit_n": 0,
+          "hit_rate": 0.0,
+          "input_n": 12,
+          "max_drawdown": {
+            "initial_cumulative_net_yen": 0,
+            "n": 12,
+            "status": "OBSERVED",
+            "value_yen": 7200.0
+          },
+          "method_unavailable_n": 0,
+          "money_n": 12,
+          "money_scope": "COMPLETE_INPUT_SCOPE",
+          "money_unknown_n": 0,
+          "n": 12,
+          "net_yen": -7200.0,
+          "popularity_buckets": {
+            "11-30": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 2,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 2,
+              "net_yen": -1200.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1200
+            },
+            "31+": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 8,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 8,
+              "net_yen": -4800.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 4800
+            },
+            "4-10": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 2,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 2,
+              "net_yen": -1200.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1200
+            }
+          },
+          "popularity_definition": "ACTUAL_OUTCOME_MARKET_COMPETITION_RANK_EX_POST",
+          "refund_yen": 0.0,
+          "return_rate": 0.0,
+          "return_yen": 0.0,
+          "roi": -1.0,
+          "skip_counterfactual": {
+            "gross_payout_yen": 0.0,
+            "hit_n": 0,
+            "hit_rate": 0.0,
+            "money_n": 10,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 10,
+            "net_yen": -6000.0,
+            "refund_yen": 0.0,
+            "return_rate": 0.0,
+            "return_yen": 0.0,
+            "roi": -1.0,
+            "stake_yen": 6000
+          },
+          "stake_scope": "STANDALONE_METHOD_NEVER_POOLED_WITH_OTHER_METHODS",
+          "stake_yen": 7200,
+          "unknown_decision_n": 0
+        },
+        "human_input_research": {
+          "absent_input_n": 12,
+          "action": {
+            "gross_payout_yen": null,
+            "hit_n": null,
+            "hit_rate": null,
+            "max_drawdown": {
+              "status": "UNVERIFIED_NO_OBSERVATIONS",
+              "value_yen": null
+            },
+            "money_n": 0,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 0,
+            "net_yen": null,
+            "refund_yen": null,
+            "return_rate": null,
+            "return_yen": null,
+            "roi": null,
+            "skipped_n": 0,
+            "stake_yen": null,
+            "status": "UNVERIFIED_NO_HUMAN_INPUT_OBSERVATIONS"
+          },
+          "bet": {
+            "gross_payout_yen": null,
+            "hit_n": null,
+            "hit_rate": null,
+            "money_n": 0,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 0,
+            "net_yen": null,
+            "refund_yen": null,
+            "return_rate": null,
+            "return_yen": null,
+            "roi": null,
+            "stake_yen": null,
+            "status": "UNVERIFIED_NO_HUMAN_INPUT_OBSERVATIONS"
+          },
+          "course_buckets": {},
+          "day_block_hit_rate_interval": {
+            "interval": null,
+            "metric": "HIT_RATE_STANDALONE_METHOD",
+            "status": "UNVERIFIED_NOT_CONFIGURED"
+          },
+          "external_origin_authenticity": "UNVERIFIED",
+          "formal_box_v1_reproduction": false,
+          "gross_payout_yen": null,
+          "hit_n": null,
+          "hit_rate": null,
+          "input_n": 12,
+          "invalid_or_unmatched_input_n": 0,
+          "max_drawdown": {
+            "status": "UNVERIFIED_NO_OBSERVATIONS",
+            "value_yen": null
+          },
+          "method_unavailable_n": 12,
+          "money_n": 0,
+          "money_scope": "COMPLETE_INPUT_SCOPE",
+          "money_unknown_n": 0,
+          "n": 0,
+          "net_yen": null,
+          "popularity_buckets": {},
+          "popularity_definition": "ACTUAL_OUTCOME_MARKET_COMPETITION_RANK_EX_POST",
+          "refund_yen": null,
+          "return_rate": null,
+          "return_yen": null,
+          "roi": null,
+          "skip_counterfactual": {
+            "gross_payout_yen": null,
+            "hit_n": null,
+            "hit_rate": null,
+            "money_n": 0,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 0,
+            "net_yen": null,
+            "refund_yen": null,
+            "return_rate": null,
+            "return_yen": null,
+            "roi": null,
+            "stake_yen": null,
+            "status": "UNVERIFIED_NO_HUMAN_INPUT_OBSERVATIONS"
+          },
+          "stake_scope": "STANDALONE_METHOD_NEVER_POOLED_WITH_OTHER_METHODS",
+          "stake_yen": null,
+          "status": "UNVERIFIED_NO_HUMAN_INPUT_OBSERVATIONS",
+          "unknown_decision_n": 0
+        },
+        "mechanical_research": {
+          "action": {
+            "gross_payout_yen": 0,
+            "hit_n": 0,
+            "hit_rate": null,
+            "max_drawdown": {
+              "initial_cumulative_net_yen": 0,
+              "n": 0,
+              "status": "OBSERVED",
+              "value_yen": 0.0
+            },
+            "money_n": 0,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 0,
+            "net_yen": 0,
+            "refund_yen": 0,
+            "return_rate": null,
+            "return_yen": 0,
+            "roi": null,
+            "skipped_n": 12,
+            "stake_yen": 0,
+            "status": "OBSERVED"
+          },
+          "bet": {
+            "gross_payout_yen": null,
+            "hit_n": 0,
+            "hit_rate": null,
+            "money_n": 0,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 0,
+            "net_yen": null,
+            "refund_yen": null,
+            "return_rate": null,
+            "return_yen": null,
+            "roi": null,
+            "stake_yen": null
+          },
+          "course_buckets": {
+            "1": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 7,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 7,
+              "net_yen": -4200.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 4200
+            },
+            "2": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 3,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 3,
+              "net_yen": -1800.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1800
+            },
+            "3": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 1,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 1,
+              "net_yen": -600.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 600
+            },
+            "5": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 1,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 1,
+              "net_yen": -600.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 600
+            }
+          },
+          "day_block_hit_rate_interval": {
+            "interval": null,
+            "metric": "HIT_RATE_STANDALONE_METHOD",
+            "status": "UNVERIFIED_NOT_CONFIGURED"
+          },
+          "gross_payout_yen": 0.0,
+          "hit_n": 0,
+          "hit_rate": 0.0,
+          "input_n": 12,
+          "max_drawdown": {
+            "initial_cumulative_net_yen": 0,
+            "n": 12,
+            "status": "OBSERVED",
+            "value_yen": 7200.0
+          },
+          "method_unavailable_n": 0,
+          "money_n": 12,
+          "money_scope": "COMPLETE_INPUT_SCOPE",
+          "money_unknown_n": 0,
+          "n": 12,
+          "net_yen": -7200.0,
+          "popularity_buckets": {
+            "11-30": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 2,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 2,
+              "net_yen": -1200.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1200
+            },
+            "31+": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 8,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 8,
+              "net_yen": -4800.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 4800
+            },
+            "4-10": {
+              "gross_payout_yen": 0.0,
+              "hit_n": 0,
+              "hit_rate": 0.0,
+              "money_n": 2,
+              "money_scope": "COMPLETE_INPUT_SCOPE",
+              "money_unknown_n": 0,
+              "n": 2,
+              "net_yen": -1200.0,
+              "refund_yen": 0.0,
+              "return_rate": 0.0,
+              "return_yen": 0.0,
+              "roi": -1.0,
+              "stake_yen": 1200
+            }
+          },
+          "popularity_definition": "ACTUAL_OUTCOME_MARKET_COMPETITION_RANK_EX_POST",
+          "refund_yen": 0.0,
+          "return_rate": 0.0,
+          "return_yen": 0.0,
+          "roi": -1.0,
+          "skip_counterfactual": {
+            "gross_payout_yen": 0.0,
+            "hit_n": 0,
+            "hit_rate": 0.0,
+            "money_n": 12,
+            "money_scope": "COMPLETE_INPUT_SCOPE",
+            "money_unknown_n": 0,
+            "n": 12,
+            "net_yen": -7200.0,
+            "refund_yen": 0.0,
+            "return_rate": 0.0,
+            "return_yen": 0.0,
+            "roi": -1.0,
+            "stake_yen": 7200
+          },
+          "stake_scope": "STANDALONE_METHOD_NEVER_POOLED_WITH_OTHER_METHODS",
+          "stake_yen": 7200,
+          "unknown_decision_n": 0
+        }
+      },
+      "performance_improvement": "UNVERIFIED_REQUIRES_UNUSED_REAL_FUTURE_DATA",
+      "portfolio_policy": "FIVE_AND_FOUR_BOX_METHODS_SEPARATE_NO_OVERLAP_AGGREGATION",
+      "production_go": false,
+      "record_issues": [],
+      "schema": "MODEL11_EVALUATION_V003",
+      "status": "OFFLINE_DESCRIPTIVE_RESEARCH_ONLY"
+    },
+    "production_go": false,
+    "schema": "MODEL11_SHADOW_DAILY_SETTLEMENT_V005",
+    "scope": "ALL_COMMITTED_STORE_FORECASTS_FOR_DATE_OFFICIAL_SCHEDULE_COMPLETENESS_UNVERIFIED",
+    "selected_results": {
+      "20990107_GAMAGORI_10R": "1f7ec179faa831e6a6eecd5c8f9eab8fccc7df7a793cb9289300a17e3b7e3132",
+      "20990107_GAMAGORI_11R": "edc3a2ff3c76d4b4a370815beb1fb223bb540921a0e552002c500e64238e0e1a",
+      "20990107_GAMAGORI_12R": "e5230e7b7a175e90c033e2038cb1d1051108a729347c39f0c792ec730c5bfc77",
+      "20990107_GAMAGORI_1R": "d2f4524e089283aac57993c316b45902339a3ea96d1392ac8564882e569ca47c",
+      "20990107_GAMAGORI_2R": "418c41c3b4c93bf336fee26426187aa1471217aa6e921ec37f255c8818787015",
+      "20990107_GAMAGORI_3R": "a757e681580c9f910dbcc05b3dabf4706c6d98671560e0eb8fe768953d117bfe",
+      "20990107_GAMAGORI_4R": "00840889114487e71c37d206bcbfe3c7d67d8b51a232e82120f5a46073f0686a",
+      "20990107_GAMAGORI_5R": "ae42aec27a8b65d1ca379a446b146458accedab9163eaf63feed37408c43a467",
+      "20990107_GAMAGORI_6R": "dc707b811e723ce0291698d9dc5cbd61f4c952bff77ce1eb60a7805688e17b3c",
+      "20990107_GAMAGORI_7R": "1908f6126f3dd1d5ec692205ba1af4d3f746a5ef43c1910023a5f891fc7eaf1d",
+      "20990107_GAMAGORI_8R": "c9898173ad66ec63314a7400c36fa56003616835cf834d3ffd35792753fb93cc",
+      "20990107_GAMAGORI_9R": "2c6b64dc7269d1b6d00ffe769281c5a3db75a9282544427b21b6a5b1c0f763e3"
+    },
+    "target_date": "2099-01-07"
+  },
+  "status": "SETTLED"
+}

@@ -1,0 +1,639 @@
+{
+  "bet_decision": "BET",
+  "classification": "SYNTHETIC_ONLY_INVENTED_2099",
+  "hypothetical_12R_results": {
+    "box_v11_research": {
+      "hit_n": 0,
+      "max_drawdown": {
+        "initial_cumulative_net_yen": 0,
+        "n": 12,
+        "status": "OBSERVED",
+        "value_yen": 7200.0
+      },
+      "n": 12,
+      "net_yen": -7200.0,
+      "return_rate": 0.0,
+      "return_yen": 0.0,
+      "roi": -1.0,
+      "stake_yen": 7200
+    },
+    "five": {
+      "hit_n": 0,
+      "max_drawdown": {
+        "initial_cumulative_net_yen": 0,
+        "n": 12,
+        "status": "OBSERVED",
+        "value_yen": 6000.0
+      },
+      "n": 12,
+      "net_yen": -6000.0,
+      "return_rate": 0.0,
+      "return_yen": 0.0,
+      "roi": -1.0,
+      "stake_yen": 6000
+    },
+    "five_appearance_research": {
+      "hit_n": 0,
+      "max_drawdown": {
+        "initial_cumulative_net_yen": 0,
+        "n": 12,
+        "status": "OBSERVED",
+        "value_yen": 7200.0
+      },
+      "n": 12,
+      "net_yen": -7200.0,
+      "return_rate": 0.0,
+      "return_yen": 0.0,
+      "roi": -1.0,
+      "stake_yen": 7200
+    },
+    "human_input_research": {
+      "hit_n": null,
+      "max_drawdown": {
+        "status": "UNVERIFIED_NO_OBSERVATIONS",
+        "value_yen": null
+      },
+      "n": 0,
+      "net_yen": null,
+      "return_rate": null,
+      "return_yen": null,
+      "roi": null,
+      "stake_yen": null
+    },
+    "mechanical_research": {
+      "hit_n": 0,
+      "max_drawdown": {
+        "initial_cumulative_net_yen": 0,
+        "n": 12,
+        "status": "OBSERVED",
+        "value_yen": 7200.0
+      },
+      "n": 12,
+      "net_yen": -7200.0,
+      "return_rate": 0.0,
+      "return_yen": 0.0,
+      "roi": -1.0,
+      "stake_yen": 7200
+    }
+  },
+  "information": {
+    "feature_times": {
+      "1": {
+        "ability": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "exhibition": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "motor": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "st": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "turn": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      },
+      "2": {
+        "ability": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "exhibition": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "motor": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "st": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "turn": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      },
+      "3": {
+        "ability": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "exhibition": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "motor": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "st": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "turn": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      },
+      "4": {
+        "ability": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "exhibition": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "motor": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "st": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "turn": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      },
+      "5": {
+        "ability": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "exhibition": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "motor": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "st": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "turn": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      },
+      "6": {
+        "ability": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "exhibition": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "motor": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "st": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "turn": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      }
+    },
+    "human_input_status": {
+      "eligible": false,
+      "errors": [],
+      "external_origin_authenticity": "UNVERIFIED",
+      "production_go": false,
+      "status": "ABSENT"
+    },
+    "missing_or_warning_codes": [],
+    "normalization_provenance": {
+      "feature_specs_sha256": "3aae41182716392f2b4c7058a6fb61653b2ac64732b2cb5f784866a4142964bc",
+      "fit_cutoff": "2099-01-07T00:00:00+09:00",
+      "normalizer_sha256": "ab53ebce164b2a03c93affcb4765144647736133a0564cebadfea4b0c41e9b19",
+      "timestamp_authenticity": "UNVERIFIED_SELF_REPORTED_INPUT",
+      "training_input_sha256": "7376017878b517979cb00d1c916660e0d34bdcf463f406cb219b7874385201c1",
+      "training_max_available_at": "2099-01-06T18:23:30+09:00",
+      "usage": "prediction"
+    },
+    "odds_times": {
+      "acquired_at": "2099-01-07T12:54:30+09:00",
+      "available_at": "2099-01-07T12:54:31+09:00",
+      "revision_at": "2099-01-07T12:54:30+09:00"
+    },
+    "state_times": {
+      "1": {
+        "course": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "fl": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "scratched": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      },
+      "2": {
+        "course": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "fl": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "scratched": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      },
+      "3": {
+        "course": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "fl": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "scratched": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      },
+      "4": {
+        "course": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "fl": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "scratched": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      },
+      "5": {
+        "course": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "fl": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "scratched": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      },
+      "6": {
+        "course": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "fl": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        },
+        "scratched": {
+          "acquired_at": "2099-01-07T12:53:00+09:00",
+          "available_at": "2099-01-07T12:53:30+09:00",
+          "revision_at": "2099-01-07T12:54:00+09:00"
+        }
+      }
+    },
+    "timestamp_authenticity": "UNVERIFIED_SELF_REPORTED_INPUT"
+  },
+  "normal_five": {
+    "bet_decision": "BET",
+    "configuration": {
+      "main_count": 4,
+      "min_coverage": 0.0,
+      "min_expected_roi": 0.0,
+      "min_value_edge": 0.05
+    },
+    "configuration_status": "PROPOSED_NOT_ADOPTED",
+    "coverage": 0.08903216433901094,
+    "expected_net_yen": 143.8301005306796,
+    "expected_return_yen": 643.8301005306796,
+    "expected_roi": 0.2876602010613592,
+    "fallback_tickets": [],
+    "main_tickets": [
+      "6-5-2",
+      "6-5-3",
+      "4-5-2",
+      "6-5-4"
+    ],
+    "method": "MAIN_PLUS_SUPPORTED_VALUE_RESEARCH",
+    "odds_status": "ODDS_COMPLETE",
+    "probability_stage": "SUPPLIED_RESEARCH_DISTRIBUTION",
+    "reasons": [
+      "PROPOSED_RESEARCH_RISK_GATES_MET"
+    ],
+    "risk_policy_status": "PROPOSED_NOT_ADOPTED",
+    "selection_labels": {
+      "3-4-1": "VALUE_SUPPORTED",
+      "4-5-2": "MAIN_PROBABILITY",
+      "6-5-2": "MAIN_PROBABILITY",
+      "6-5-3": "MAIN_PROBABILITY",
+      "6-5-4": "MAIN_PROBABILITY"
+    },
+    "selection_order": [
+      "6-5-2",
+      "6-5-3",
+      "4-5-2",
+      "6-5-4",
+      "3-4-1"
+    ],
+    "simulation_only": true,
+    "stake_yen": 500,
+    "supported_hole_status": "SUPPORTED",
+    "tickets": [
+      "3-4-1",
+      "4-5-2",
+      "6-5-2",
+      "6-5-3",
+      "6-5-4"
+    ],
+    "value_tickets": [
+      "3-4-1"
+    ]
+  },
+  "performance_improvement": "UNVERIFIED",
+  "probability_integrity": {
+    "P_calibrated": {
+      "count": 120,
+      "invalid_probability_count": 0,
+      "repeated_boat_count": 0,
+      "status": "PASS",
+      "sum": 1.0
+    },
+    "P_market": {
+      "count": 120,
+      "invalid_probability_count": 0,
+      "repeated_boat_count": 0,
+      "status": "PASS",
+      "sum": 1.0
+    },
+    "P_model": {
+      "count": 120,
+      "invalid_probability_count": 0,
+      "repeated_boat_count": 0,
+      "status": "PASS",
+      "sum": 1.0
+    },
+    "P_raw": {
+      "count": 120,
+      "invalid_probability_count": 0,
+      "repeated_boat_count": 0,
+      "status": "PASS",
+      "sum": 1.0
+    },
+    "P_shrunk": {
+      "count": 120,
+      "invalid_probability_count": 0,
+      "repeated_boat_count": 0,
+      "status": "PASS",
+      "sum": 1.0
+    }
+  },
+  "production_go": false,
+  "race_id": "20990107_GAMAGORI_1R",
+  "research_boxes": {
+    "box_v11_research": {
+      "bet_decision": "BET",
+      "boats": [
+        1,
+        3,
+        4
+      ],
+      "coverage": 0.02958351318233433,
+      "expected_net_yen": 1268.857327623336,
+      "expected_return_yen": 1868.857327623336,
+      "expected_roi": 2.11476221270556,
+      "formal_box_v1_reproduction": false,
+      "method": "EXHAUSTIVE_EXPECTED_RETURN_BOX_V11_RESEARCH",
+      "objective_status": "EXPECTED_RETURN_AVAILABLE_PROPOSED",
+      "odds_status": "ODDS_COMPLETE",
+      "reasons": [
+        "PROPOSED_RESEARCH_RISK_GATES_MET"
+      ],
+      "risk_policy_status": "PROPOSED_NOT_ADOPTED",
+      "simulation_only": true,
+      "stake_yen": 600,
+      "status": "NOT_FORMAL_BOXV1_RESEARCH_ONLY",
+      "tickets": [
+        "1-3-4",
+        "1-4-3",
+        "3-1-4",
+        "3-4-1",
+        "4-1-3",
+        "4-3-1"
+      ]
+    },
+    "canonical_human_box_input_consumed": false,
+    "composition_difference": {
+      "five_appearance_vs_mechanical": "YES",
+      "human_input_vs_mechanical": null
+    },
+    "composition_meaning": "BOAT_SET_EQUALITY_ONLY_NOT_QUALITY_OR_SUPERIORITY",
+    "configuration": {
+      "main_count": 4,
+      "min_coverage": 0.0,
+      "min_expected_roi": 0.0,
+      "min_value_edge": 0.05
+    },
+    "configuration_status": "PROPOSED_NOT_ADOPTED",
+    "five_appearance_research": {
+      "bet_decision": "SKIP",
+      "boats": [
+        4,
+        5,
+        6
+      ],
+      "core": [
+        5,
+        6
+      ],
+      "coverage": 0.0781075158122809,
+      "display_name": "Five-appearance research BOX",
+      "expected_net_yen": -299.4943032842606,
+      "expected_return_yen": 300.5056967157394,
+      "expected_roi": -0.4991571721404343,
+      "five_appearance_counts": {
+        "1": 1,
+        "2": 2,
+        "3": 2,
+        "4": 3,
+        "5": 4,
+        "6": 3
+      },
+      "formal_box_v1_reproduction": false,
+      "human_origin": false,
+      "insertion": 4,
+      "method": "FIVE_APPEARANCE_CORE_INSERTION_RESEARCH",
+      "odds_status": "ODDS_COMPLETE",
+      "origin": "AUTOMATED_FIVE_APPEARANCES",
+      "reasons": [
+        "RESEARCH_ROI_THRESHOLD_NOT_EXCEEDED"
+      ],
+      "risk_policy_status": "PROPOSED_NOT_ADOPTED",
+      "simulation_only": true,
+      "stake_yen": 600,
+      "status": "AUTOMATED_RESEARCH_NOT_FORMAL_HUMAN_BOX",
+      "tickets": [
+        "4-5-6",
+        "4-6-5",
+        "5-4-6",
+        "5-6-4",
+        "6-4-5",
+        "6-5-4"
+      ]
+    },
+    "formal_box_v1_status": "UNVERIFIED_NOT_REIMPLEMENTED",
+    "human_input_gate": {
+      "eligible": false,
+      "errors": [],
+      "external_origin_authenticity": "UNVERIFIED",
+      "production_go": false,
+      "status": "ABSENT"
+    },
+    "human_input_research": null,
+    "live_eligible": false,
+    "mechanical_research": {
+      "bet_decision": "SKIP",
+      "boats": [
+        3,
+        5,
+        6
+      ],
+      "coverage": 0.08965516811116463,
+      "expected_net_yen": -362.21077516651417,
+      "expected_return_yen": 237.78922483348583,
+      "expected_roi": -0.6036846252775236,
+      "formal_box_v1_reproduction": false,
+      "method": "EXHAUSTIVE_SIX_PERMUTATION_PROBABILITY_MASS_RESEARCH",
+      "odds_status": "ODDS_COMPLETE",
+      "reasons": [
+        "RESEARCH_ROI_THRESHOLD_NOT_EXCEEDED"
+      ],
+      "risk_policy_status": "PROPOSED_NOT_ADOPTED",
+      "simulation_only": true,
+      "stake_yen": 600,
+      "status": "NOT_FORMAL_BOXV1_RESEARCH_ONLY",
+      "tickets": [
+        "3-5-6",
+        "3-6-5",
+        "5-3-6",
+        "5-6-3",
+        "6-3-5",
+        "6-5-3"
+      ]
+    },
+    "overlap": {
+      "aggregation_policy": "SEPARATE_METHODS_NO_CROSS_PORTFOLIO_PNL_AGGREGATION",
+      "five_appearance_research_vs_box_v11_research": [],
+      "five_appearance_research_vs_mechanical_research": [],
+      "five_vs_box_v11_research": [
+        "3-4-1"
+      ],
+      "five_vs_five_appearance_research": [
+        "6-5-4"
+      ],
+      "five_vs_mechanical_research": [
+        "6-5-3"
+      ],
+      "mechanical_research_vs_box_v11_research": [],
+      "unique_ticket_union": [
+        "1-3-4",
+        "1-4-3",
+        "3-1-4",
+        "3-4-1",
+        "3-5-6",
+        "3-6-5",
+        "4-1-3",
+        "4-3-1",
+        "4-5-2",
+        "4-5-6",
+        "4-6-5",
+        "5-3-6",
+        "5-4-6",
+        "5-6-3",
+        "5-6-4",
+        "6-3-5",
+        "6-4-5",
+        "6-5-2",
+        "6-5-3",
+        "6-5-4"
+      ]
+    },
+    "production_go": false,
+    "schema": "MODEL11_PORTFOLIOS_V003"
+  },
+  "scope": "FIRST_FORECAST_PLUS_SEPARATELY_LABELLED_12R_SETTLEMENT_NOT_REAL_PERFORMANCE"
+}

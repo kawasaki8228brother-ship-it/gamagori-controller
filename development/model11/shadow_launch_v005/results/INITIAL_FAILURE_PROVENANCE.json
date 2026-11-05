@@ -1,0 +1,23 @@
+{
+  "original": {
+    "bytes": 9664,
+    "public": false,
+    "sha256": "119dc430f769172bb6427041afd8e1f90121c47823ccf7cd29999e5717a33aa5",
+    "trust": "LOCAL_ORIGINAL_LOG"
+  },
+  "path_substitutions": 15,
+  "purpose": "INITIAL_INTEGRATION_FAILURES_PRESERVED_SEPARATELY_FROM_FINAL_PASS",
+  "resolved": [
+    "REPEATED_INITIALIZE_SESSION_RESET",
+    "DISABLED_DEEPCOPY_DEPENDENCY_ACCESS",
+    "INCOMPLETE_DAY_SELECTION",
+    "SHUTDOWN_STATUS_AND_PENDING_CLOSE"
+  ],
+  "runtime_in_original_log": "NOT_RECORDED",
+  "submitted": {
+    "bytes": 8413,
+    "file": "runner-initial.REDACTED.log",
+    "sha256": "b113f6fee6b89fce04f36fb13b33b74e1d8117d053807fd0e7b6587a04e565f1",
+    "trust": "REDACTED"
+  }
+}

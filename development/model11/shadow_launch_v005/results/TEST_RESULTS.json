@@ -1,0 +1,155 @@
+{
+  "actual_shadow": "NOT_STARTED",
+  "classification": "SYNTHETIC_ONLY_NO_REAL_RACES_OR_CREDENTIALS",
+  "cross_runtime": {
+    "daily_settlement_report_equal": true,
+    "inner_forecast_equal": true,
+    "input_raw_byte_equal": true,
+    "outer_record_and_receipt_full_byte_equality_required": false,
+    "reason": "RUN_SPECIFIC_CONFIG_ROOT_HASH_AND_RANDOM_STORAGE_OWNER_ID",
+    "source_evidence_equal": true
+  },
+  "formal_claude_review": "NOT_RECEIVED",
+  "initial_failure_evidence": {
+    "original": {
+      "bytes": 9664,
+      "public": false,
+      "sha256": "119dc430f769172bb6427041afd8e1f90121c47823ccf7cd29999e5717a33aa5",
+      "trust": "LOCAL_ORIGINAL_LOG"
+    },
+    "path_substitutions": 15,
+    "purpose": "INITIAL_INTEGRATION_FAILURES_PRESERVED_SEPARATELY_FROM_FINAL_PASS",
+    "resolved": [
+      "REPEATED_INITIALIZE_SESSION_RESET",
+      "DISABLED_DEEPCOPY_DEPENDENCY_ACCESS",
+      "INCOMPLETE_DAY_SELECTION",
+      "SHUTDOWN_STATUS_AND_PENDING_CLOSE"
+    ],
+    "runtime_in_original_log": "NOT_RECORDED",
+    "submitted": {
+      "bytes": 8413,
+      "file": "runner-initial.REDACTED.log",
+      "sha256": "b113f6fee6b89fce04f36fb13b33b74e1d8117d053807fd0e7b6587a04e565f1",
+      "trust": "REDACTED"
+    }
+  },
+  "new_test_methods_by_file": {
+    "test_shadow_launch_candidate.py": 12,
+    "test_shadow_launch_cli.py": 13,
+    "test_shadow_launch_policy.py": 18,
+    "test_shadow_launch_runner.py": 15,
+    "test_shadow_launch_sources.py": 21,
+    "test_shadow_launch_storage.py": 34
+  },
+  "old_test_methods": 346,
+  "parent_commit": "df807089f5fd27517109f9bd38b6c55f9415600e",
+  "production_go": false,
+  "real_data_validation": "UNVERIFIED",
+  "runs": {
+    "312": {
+      "demo": {
+        "bytes": 392,
+        "evidence_directory": "synthetic-demo-python312",
+        "file": "demo-python312.raw.log",
+        "result": {
+          "command": "demo",
+          "forecast_count": 12,
+          "production_go": false,
+          "result_count": 12,
+          "status": "SYNTHETIC_SHADOW_DEMO_COMPLETE"
+        },
+        "runtime": {
+          "data": "SYNTHETIC_ONLY",
+          "network": "BLOCKED_IN_PROCESS",
+          "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "production_go": false,
+          "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+          "sqlite": "3.53.1"
+        },
+        "sha256": "d479acf33ff00bcdd1cf53a21c72853f0800b3f817d459931c596ea52b681cab",
+        "trust": "RAW_UNMODIFIED"
+      },
+      "tests": {
+        "bytes": 72110,
+        "file": "tests-python312.raw.log",
+        "result": {
+          "errors": 0,
+          "failures": 0,
+          "real_performance": "UNVERIFIED",
+          "scope": "SYNTHETIC_SOFTWARE_ONLY",
+          "skipped": 0,
+          "status": "PASS",
+          "tests_run": 459
+        },
+        "runtime": {
+          "data": "SYNTHETIC_ONLY",
+          "network": "BLOCKED_IN_PROCESS",
+          "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "production_go": false,
+          "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+        },
+        "sha256": "4eb64f62a6a667fdcf2d7d530751c28345c2efa248a0ea58f247b704a8963c34",
+        "trust": "RAW_UNMODIFIED"
+      }
+    },
+    "314": {
+      "demo": {
+        "bytes": 391,
+        "evidence_directory": "synthetic-demo-python314",
+        "file": "demo-python314.raw.log",
+        "result": {
+          "command": "demo",
+          "forecast_count": 12,
+          "production_go": false,
+          "result_count": 12,
+          "status": "SYNTHETIC_SHADOW_DEMO_COMPLETE"
+        },
+        "runtime": {
+          "data": "SYNTHETIC_ONLY",
+          "network": "BLOCKED_IN_PROCESS",
+          "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "production_go": false,
+          "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]",
+          "sqlite": "3.50.4"
+        },
+        "sha256": "5e352adce592c3b6d344485bed6932c5d618cd940c8ac4edfbb9f54d29096557",
+        "trust": "RAW_UNMODIFIED"
+      },
+      "tests": {
+        "bytes": 72109,
+        "file": "tests-python314.raw.log",
+        "result": {
+          "errors": 0,
+          "failures": 0,
+          "real_performance": "UNVERIFIED",
+          "scope": "SYNTHETIC_SOFTWARE_ONLY",
+          "skipped": 0,
+          "status": "PASS",
+          "tests_run": 459
+        },
+        "runtime": {
+          "data": "SYNTHETIC_ONLY",
+          "network": "BLOCKED_IN_PROCESS",
+          "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "production_go": false,
+          "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"
+        },
+        "sha256": "7c61e826d3202401382a0e2731586af254de5c51d2cc60c7d0583c4c4f1883c4",
+        "trust": "RAW_UNMODIFIED"
+      }
+    }
+  },
+  "scope_notes": [
+    "CLI_TESTS_USE_MOCK_RUNNER_FOR_INTERFACE_BOUNDARIES",
+    "RUNNER_TESTS_AND_DEMOS_USE_ACTUAL_MODEL_ADAPTER_NORMALIZER_AND_SQLITE",
+    "STORAGE_CRASH_SUBPROCESSES_USE_ONLY_LOCAL_SYNTHETIC_SQLITE",
+    "NO_ACTUAL_OFFICIAL_CAPTURE_OR_PRIVATE_APPROVAL_USED",
+    "NO_POWER_LOSS_OR_PRODUCTION_HOST_OR_REAL_CLOCK_AUTHENTICITY_TEST"
+  ],
+  "shadow_start_go": "NOT_APPROVED",
+  "unchanged_parent_package_files": 151
+}
