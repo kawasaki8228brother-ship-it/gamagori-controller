@@ -1,0 +1,159 @@
+{
+  "actual_DB_read": false,
+  "classification": "DERIVED_FROM_EXECUTED_SYNTHETIC_C_STATES",
+  "production_go": false,
+  "results": {
+    "candidate": {
+      "count_scope": "PROVIDED_UNIQUE_VALID_ROWS_NOT_SOURCE_COMPLETENESS",
+      "duplicate_identity_rows": 0,
+      "invalid_date_rows": 0,
+      "missing_field_rows": 0,
+      "observed_valid_previous_nonterminal_count": 12,
+      "official_success": "NOT_ASSESSED",
+      "older_nonterminal_count": 0,
+      "port_scope": "OFFLINE_ONLY_RUNTIME_INTEGRATION_OPEN",
+      "previous_day_nonterminal_count": 12,
+      "production_go": false,
+      "provided_rows": 12,
+      "query_completeness": "UNVERIFIED_NO_DB_READ",
+      "reasons": [],
+      "rows": [
+        {
+          "reasons": [],
+          "row_index": 0
+        },
+        {
+          "reasons": [],
+          "row_index": 1
+        },
+        {
+          "reasons": [],
+          "row_index": 2
+        },
+        {
+          "reasons": [],
+          "row_index": 3
+        },
+        {
+          "reasons": [],
+          "row_index": 4
+        },
+        {
+          "reasons": [],
+          "row_index": 5
+        },
+        {
+          "reasons": [],
+          "row_index": 6
+        },
+        {
+          "reasons": [],
+          "row_index": 7
+        },
+        {
+          "reasons": [],
+          "row_index": 8
+        },
+        {
+          "reasons": [],
+          "row_index": 9
+        },
+        {
+          "reasons": [],
+          "row_index": 10
+        },
+        {
+          "reasons": [],
+          "row_index": 11
+        }
+      ],
+      "runtime_integrated": false,
+      "source_authenticity": "UNVERIFIED",
+      "state_contract_reference": {
+        "commit": "48333a2315628ae17e1fa3ce4f8ef12c70e2662f",
+        "enum": "RaceStatus",
+        "path": "models.py"
+      },
+      "status": "OBSERVED_PROVIDED_COLLECTION_ONLY",
+      "unknown_field_rows": 0,
+      "unknown_status_rows": 0
+    },
+    "old": {
+      "count_scope": "PROVIDED_UNIQUE_VALID_ROWS_NOT_SOURCE_COMPLETENESS",
+      "duplicate_identity_rows": 0,
+      "invalid_date_rows": 0,
+      "missing_field_rows": 0,
+      "observed_valid_previous_nonterminal_count": 12,
+      "official_success": "NOT_ASSESSED",
+      "older_nonterminal_count": 0,
+      "port_scope": "OFFLINE_ONLY_RUNTIME_INTEGRATION_OPEN",
+      "previous_day_nonterminal_count": 12,
+      "production_go": false,
+      "provided_rows": 12,
+      "query_completeness": "UNVERIFIED_NO_DB_READ",
+      "reasons": [],
+      "rows": [
+        {
+          "reasons": [],
+          "row_index": 0
+        },
+        {
+          "reasons": [],
+          "row_index": 1
+        },
+        {
+          "reasons": [],
+          "row_index": 2
+        },
+        {
+          "reasons": [],
+          "row_index": 3
+        },
+        {
+          "reasons": [],
+          "row_index": 4
+        },
+        {
+          "reasons": [],
+          "row_index": 5
+        },
+        {
+          "reasons": [],
+          "row_index": 6
+        },
+        {
+          "reasons": [],
+          "row_index": 7
+        },
+        {
+          "reasons": [],
+          "row_index": 8
+        },
+        {
+          "reasons": [],
+          "row_index": 9
+        },
+        {
+          "reasons": [],
+          "row_index": 10
+        },
+        {
+          "reasons": [],
+          "row_index": 11
+        }
+      ],
+      "runtime_integrated": false,
+      "source_authenticity": "UNVERIFIED",
+      "state_contract_reference": {
+        "commit": "48333a2315628ae17e1fa3ce4f8ef12c70e2662f",
+        "enum": "RaceStatus",
+        "path": "models.py"
+      },
+      "status": "OBSERVED_PROVIDED_COLLECTION_ONLY",
+      "unknown_field_rows": 0,
+      "unknown_status_rows": 0
+    }
+  },
+  "source_semantic_trace_sha256": "8c42a42bb2d0f4495ff80422a787193c8c916fa77e7c734bd61937b3015e0cf7",
+  "target_date": "20990108"
+}

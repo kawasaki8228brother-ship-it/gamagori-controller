@@ -1,4 +1,4 @@
-"""S2 controller safety on invented 2099 inputs; no constructor or real I/O."""
+"""Revised S2 regressions: v003 withdraws the former NoRace/HOLD design."""
 import asyncio
 from copy import deepcopy
 import datetime as dt
@@ -10,12 +10,9 @@ from unittest.mock import AsyncMock, Mock, patch
 with patch("os.getenv", side_effect=lambda name, default=None: default):
     import main
 from official import OfficialDataFetcher
-from raceindex_status import IndexFailure, NoRaceVerified
+from raceindex_status import IndexFailure
 from test_health_controller_scope import (NOW, YESTERDAY, controller, fixed_clock_namespace,
-                                          race, snapshot, state)
-
-
-HOLD_REASON = "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED"
+                                          race, snapshot, state, NoRaceVerified)
 
 
 def twelve():
@@ -51,7 +48,7 @@ class V002ControllerSafetyTests(unittest.IsolatedAsyncioTestCase):
         with patch.object(main, "dt", fixed_clock_namespace()):
             await value.start()
         self.assertEqual(processed, [f"20990107_GAM_{number:02}R" for number in range(1, 13)])
-        self.assertIsNone(value._index_hold_reason)
+        self.assertFalse(hasattr(value, "_index_hold_reason"))
         value.fetcher.fetch_tracking_race_index.assert_not_awaited()
         for awaited in value.state_machine.process_race.await_args_list:
             self.assertIsNotNone(awaited.kwargs["official_info"])
@@ -80,13 +77,13 @@ class V002ControllerSafetyTests(unittest.IsolatedAsyncioTestCase):
         value.fetcher = fetcher
         self.assertEqual(await value._refresh_race_universe(afternoon, 1), (False, False))
         self.assertEqual(len(value._known_races), 12)
-        self.assertIsNone(value._index_hold_reason)
+        self.assertFalse(hasattr(value, "_index_hold_reason"))
         fetcher.schedule_evidence_provider.assert_not_called()
         fetcher._get_text.assert_awaited_once()
         value.state_machine.process_race.assert_not_awaited()
         assert_no_writes(self, value)
 
-    async def test_legacy_no_race_claim_from_either_fetch_preserves_current_states_and_holds(self):
+    async def test_legacy_named_failure_from_either_fetch_uses_normal_fallback(self):
         for origin in ("official", "tracking"):
             with self.subTest(origin=origin):
                 current, old = race(1), race(2, YESTERDAY)
@@ -96,19 +93,20 @@ class V002ControllerSafetyTests(unittest.IsolatedAsyncioTestCase):
                 failure = AsyncMock(side_effect=NoRaceVerified())
                 if origin == "official":
                     value.fetcher.fetch_race_index = failure
+                    value.fetcher.fetch_tracking_race_index = AsyncMock(return_value=twelve())
                 else:
                     value.fetcher.fetch_tracking_race_index = failure
-                self.assertEqual(await value._refresh_race_universe(NOW, 1), (True, False))
-                self.assertEqual(value._index_hold_reason, HOLD_REASON)
-                self.assertEqual(value._known_races, {current.race_id: current})
+                self.assertEqual(await value._refresh_race_universe(NOW, 1), (True, origin == "official"))
+                self.assertFalse(hasattr(value, "_index_hold_reason"))
+                self.assertEqual(len(value._known_races), 12 if origin == "official" else 1)
                 value.repo.list_all_states.assert_not_awaited()
                 value.state_machine.process_race.assert_not_awaited()
                 if origin == "official":
-                    value.fetcher.fetch_tracking_race_index.assert_not_awaited()
+                    value.fetcher.fetch_tracking_race_index.assert_awaited_once()
                 self.assertEqual(records, before)
                 assert_no_writes(self, value)
 
-    async def test_hostile_no_race_exception_is_not_stringified_or_accepted(self):
+    async def test_hostile_legacy_exception_is_unknown_without_stringification_or_latching(self):
         class HostileNoRace(NoRaceVerified):
             def __str__(self):
                 raise AssertionError("UNTRUSTED_EXCEPTION_MUST_NOT_BE_STRINGIFIED")
@@ -118,7 +116,8 @@ class V002ControllerSafetyTests(unittest.IsolatedAsyncioTestCase):
             value = attach_forbidden_writer(controller(known={race(1).race_id: race(1)}))
             value.fetcher.fetch_race_index = AsyncMock(side_effect=failure)
             self.assertEqual(await value._refresh_race_universe(NOW, 1), (True, False))
-            self.assertEqual(value._index_hold_reason, HOLD_REASON)
+            self.assertFalse(hasattr(value, "_index_hold_reason"))
+            self.assertEqual(value._last_index_outcome["official"], "UNKNOWN_FAILURE")
             self.assertEqual(len(value._known_races), 1)
             self.assertNotIn("PRIVATE_VALUE", json.dumps(value._last_index_outcome))
             value.state_machine.process_race.assert_not_awaited()
@@ -131,7 +130,7 @@ class V002ControllerSafetyTests(unittest.IsolatedAsyncioTestCase):
         value = attach_forbidden_writer(controller(records, {current.race_id: current, old.race_id: old}))
         self.assertEqual(await value._refresh_race_universe(NOW, 1), (True, False))
         self.assertEqual(value._known_races, {current.race_id: current})
-        self.assertIsNone(value._index_hold_reason)
+        self.assertFalse(hasattr(value, "_index_hold_reason"))
         self.assertEqual(records, before)
         assert_no_writes(self, value)
 
@@ -163,39 +162,42 @@ class V002ControllerSafetyTests(unittest.IsolatedAsyncioTestCase):
                 value.state_machine.process_race.assert_not_awaited()
                 assert_no_writes(self, value)
 
-    async def test_hold_latch_survives_next_refresh_and_same_instance_start_without_replay(self):
+    async def test_unknown_failure_does_not_latch_and_later_poll_dispatches_normally(self):
         value = attach_forbidden_writer(controller(known={race(1).race_id: race(1)}))
         value.fetcher.fetch_race_index = AsyncMock(side_effect=NoRaceVerified())
         await value._refresh_race_universe(NOW, 1)
         value.fetcher.fetch_race_index = AsyncMock(return_value=twelve())
         value.fetcher.fetch_tracking_race_index = AsyncMock(return_value=twelve())
-        self.assertEqual(await value._refresh_race_universe(NOW, 2), (True, False))
-        polls = []
-        def stop_after_two_held_polls(*args, **kwargs):
-            polls.append(True)
-            if len(polls) >= 2:
+        self.assertEqual(await value._refresh_race_universe(NOW, 2), (False, False))
+        processed = []
+        async def stop_after_twelve(race_id, *args, **kwargs):
+            processed.append(race_id)
+            if len(processed) == 12:
                 value.request_stop()
-        value._maybe_log_sqlite_audit = Mock(side_effect=stop_after_two_held_polls)
+        value.state_machine.process_race = AsyncMock(side_effect=stop_after_twelve)
         with patch.object(main, "dt", fixed_clock_namespace()):
             await value.start()
-        self.assertEqual(len(polls), 2)
-        self.assertEqual(value._index_hold_reason, HOLD_REASON)
-        self.assertEqual(set(value._known_races), {race(1).race_id})
-        value.fetcher.fetch_race_index.assert_not_awaited()
+        self.assertEqual(len(processed), 12)
+        self.assertFalse(hasattr(value, "_index_hold_reason"))
+        self.assertEqual(len(value._known_races), 12)
+        self.assertEqual(value.fetcher.fetch_race_index.await_count, 2)
         value.fetcher.fetch_tracking_race_index.assert_not_awaited()
         value.repo.list_all_states.assert_not_awaited()
-        value.state_machine.process_race.assert_not_awaited()
         assert_no_writes(self, value)
 
-    async def test_held_next_day_prunes_now_stale_cache_without_clearing_latch_or_refetching(self):
+    async def test_unknown_failure_does_not_prevent_a_fresh_next_day_index(self):
         value = attach_forbidden_writer(controller(known={race(1).race_id: race(1)}))
         value.fetcher.fetch_race_index = AsyncMock(side_effect=NoRaceVerified())
         await value._refresh_race_universe(NOW, 1)
-        value.fetcher.fetch_race_index.reset_mock()
-        self.assertEqual(await value._refresh_race_universe(NOW + dt.timedelta(days=1), 2), (True, False))
-        self.assertEqual(value._known_races, {})
-        self.assertEqual(value._index_hold_reason, HOLD_REASON)
-        value.fetcher.fetch_race_index.assert_not_awaited()
+        tomorrow = NOW + dt.timedelta(days=1)
+        fresh = snapshot([race(number, tomorrow) for number in range(1, 13)],
+                         date=tomorrow.strftime("%Y%m%d"), acquired_at=tomorrow.isoformat())
+        value.fetcher.fetch_race_index = AsyncMock(return_value=fresh)
+        self.assertEqual(await value._refresh_race_universe(tomorrow, 2), (False, False))
+        self.assertEqual(len(value._known_races), 12)
+        self.assertTrue(all(key.startswith("20990108_") for key in value._known_races))
+        self.assertFalse(hasattr(value, "_index_hold_reason"))
+        value.fetcher.fetch_race_index.assert_awaited_once()
         value.repo.list_all_states.assert_not_awaited()
         value.state_machine.process_race.assert_not_awaited()
         assert_no_writes(self, value)

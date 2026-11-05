@@ -1,0 +1,2926 @@
+{
+  "C4_runtime_transport_integration": "OPEN_NOT_IMPLEMENTED",
+  "C5_unknown_prior_nonterminal_provided_rows": 12,
+  "Claude_reaudit": "PENDING",
+  "P11_P13": "POLICY_PENDING_REAL_HTML_REJECTED",
+  "R1_R3_R4_R5_R6_R13_R20": "POLICY_PENDING_REAL_HTML_REJECTED",
+  "candidate_matrix": {
+    "312": {
+      "actual_11_05_source": "NOT_OBTAINED",
+      "errors": 0,
+      "exit_code": 0,
+      "failures": 0,
+      "junit_testcase_records_including_subtests": 577,
+      "production_go": false,
+      "pytest_result_categories": {
+        "passed": 549,
+        "skipped": 1,
+        "subtests passed": 27
+      },
+      "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
+      "skipped": 1,
+      "status": "PASS_WITH_UNVERIFIED_SKIPS",
+      "tests": 550,
+      "unexecuted_tests": "UNVERIFIED_NOT_PASS"
+    },
+    "314": {
+      "actual_11_05_source": "NOT_OBTAINED",
+      "errors": 0,
+      "exit_code": 0,
+      "failures": 0,
+      "junit_testcase_records_including_subtests": 577,
+      "production_go": false,
+      "pytest_result_categories": {
+        "passed": 549,
+        "skipped": 1,
+        "subtests passed": 27
+      },
+      "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
+      "skipped": 1,
+      "status": "PASS_WITH_UNVERIFIED_SKIPS",
+      "tests": 550,
+      "unexecuted_tests": "UNVERIFIED_NOT_PASS"
+    }
+  },
+  "candidate_parser_expectations_matched": 67,
+  "classification": "OFFLINE_SYNTHETIC_ONLY",
+  "current_production_runtime_and_official_HTML": "UNVERIFIED_NOT_READ",
+  "five_event_cases": {
+    "a": {
+      "all_compared_semantic_fields_match": true,
+      "candidate_terminal_events": 12,
+      "description": "DEADLINE_CELL_EXACT_CLOSED",
+      "event_kinds_times_match": true,
+      "expected_relation": "MATCH",
+      "layout": "deadline_only",
+      "old_terminal_events": 12
+    },
+    "b": {
+      "all_compared_semantic_fields_match": true,
+      "candidate_terminal_events": 12,
+      "description": "EXPLICIT_STATE_CELL_CLOSED",
+      "event_kinds_times_match": true,
+      "expected_relation": "MATCH",
+      "layout": "explicit",
+      "old_terminal_events": 12
+    },
+    "c": {
+      "all_compared_semantic_fields_match": true,
+      "candidate_terminal_events": 0,
+      "description": "STATUS_INFORMATION_ABSENT",
+      "event_kinds_times_match": true,
+      "expected_relation": "MATCH_UNKNOWN_WITHOUT_AUTOMATIC_TERMINAL",
+      "layout": "unknown",
+      "old_terminal_events": 0
+    },
+    "d": {
+      "all_compared_semantic_fields_match": false,
+      "candidate_terminal_events": 12,
+      "description": "R7_NAME_CONTAINS_CANCEL_WORD",
+      "event_kinds_times_match": false,
+      "expected_relation": "INTENTIONAL_NAME_FALSE_CANCEL_REMOVAL",
+      "layout": "name_cancel",
+      "old_terminal_events": 12
+    },
+    "e": {
+      "all_compared_semantic_fields_match": true,
+      "candidate_terminal_events": 12,
+      "description": "R7_EXPLICIT_STATE_CELL_CANCELLED",
+      "event_kinds_times_match": true,
+      "expected_relation": "MATCH",
+      "layout": "state_cancel",
+      "old_terminal_events": 12
+    }
+  },
+  "fixture_original_identity": "UNVERIFIED",
+  "formal_208B_original": "SKIP_UNVERIFIED_NOT_SUPPLIED",
+  "formal_AB_LOCK": "UNVERIFIED_AB_WRITER_NOT_PRESENT",
+  "four_version_parser": {
+    "old-main": [
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "NORMAL_12R",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R1",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R2",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R3",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R4",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R5",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R6",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": false,
+        "id": "R7",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R8",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R9",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R10",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R11",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R12",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R13",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R14",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R15",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R16",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R17",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R18",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R19",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R20",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_CANCELLED",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_CLOSED",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_OPEN",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_UNKNOWN",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": false,
+        "id": "STATUS_CONTRADICTORY",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": false,
+        "id": "STATUS_MULTIPLE_COLUMNS",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_ENGLISH_UNREVIEWED",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": false,
+        "id": "STATUS_NOTE_AND_NAME",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P1",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P2",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P3",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P4",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P5",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P6",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P7",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P8",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P9",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P10",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P11",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P12",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P13",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P14",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_a",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_b",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_c",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": false,
+        "id": "E5_d",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_e",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "BASELINE_12R",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F01",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F02",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F03",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F04",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F05",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F06",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F07",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D01_CONFLICT_DUPLICATE",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D02_MISSING_TAIL",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D03_MISSING_DEADLINE",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D04_AMBIGUOUS_CLOSING_CELL",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D05_TWO_CLOSING_COLUMNS",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D06_INVALID_SECONDS",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D07_MULTIPLE_RACE_CELL",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D08_TRUNCATED_TABLE",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D09_NO_CLOSING_HEADER",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D10_MULTIPLE_TABLES",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D11_MALFORMED_EXTRA_CLOCK",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      }
+    ],
+    "v001": [
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "NORMAL_12R",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R1",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R2",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R3",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R4",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R5",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R6",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R7",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R8",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R9",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R10",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R11",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R12",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R13",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R14",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R15",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R16",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R17",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R18",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R19",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R20",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "STATUS_CANCELLED",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "STATUS_CLOSED",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "STATUS_OPEN",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "STATUS_UNKNOWN",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "STATUS_CONTRADICTORY",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "STATUS_MULTIPLE_COLUMNS",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "STATUS_ENGLISH_UNREVIEWED",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "STATUS_NOTE_AND_NAME",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P1",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P2",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P3",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P4",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P5",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P6",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P7",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P8",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P9",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P10",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P11",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P12",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P13",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P14",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_a",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_b",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_c",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": false,
+        "id": "E5_d",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_e",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "BASELINE_12R",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F01",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F02",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F03",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F04",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F05",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F06",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F07",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D01_CONFLICT_DUPLICATE",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D02_MISSING_TAIL",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D03_MISSING_DEADLINE",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D04_AMBIGUOUS_CLOSING_CELL",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D05_TWO_CLOSING_COLUMNS",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D06_INVALID_SECONDS",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D07_MULTIPLE_RACE_CELL",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D08_TRUNCATED_TABLE",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D09_NO_CLOSING_HEADER",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D10_MULTIPLE_TABLES",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D11_MALFORMED_EXTRA_CLOCK",
+        "reason_matches": null,
+        "seconds_match": false,
+        "status": "ACCEPT"
+      }
+    ],
+    "v002": [
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "NORMAL_12R",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R1",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R2",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R3",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R4",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R5",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R6",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": false,
+        "id": "R7",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R8",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R9",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R10",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R11",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R12",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R13",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R14",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R15",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R16",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R17",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R18",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R19",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R20",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_CANCELLED",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_CLOSED",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_OPEN",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_UNKNOWN",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": false,
+        "id": "STATUS_CONTRADICTORY",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": false,
+        "id": "STATUS_MULTIPLE_COLUMNS",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_ENGLISH_UNREVIEWED",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": false,
+        "id": "STATUS_NOTE_AND_NAME",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P1",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P2",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P3",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P4",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P5",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P6",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P7",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P8",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P9",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P10",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P11",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P12",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": false,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P13",
+        "reason_matches": false,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P14",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_a",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_b",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_c",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": false,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": false,
+        "id": "E5_d",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_e",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "BASELINE_12R",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F01",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F02",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F03",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F04",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F05",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F06",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F07",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D01_CONFLICT_DUPLICATE",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D02_MISSING_TAIL",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D03_MISSING_DEADLINE",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D04_AMBIGUOUS_CLOSING_CELL",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D05_TWO_CLOSING_COLUMNS",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D06_INVALID_SECONDS",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D07_MULTIPLE_RACE_CELL",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D08_TRUNCATED_TABLE",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D09_NO_CLOSING_HEADER",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D10_MULTIPLE_TABLES",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D11_MALFORMED_EXTRA_CLOCK",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      }
+    ],
+    "v003": [
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "NORMAL_12R",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R1",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R2",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R3",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R4",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R5",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R6",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R7",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R8",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R9",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R10",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R11",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R12",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R13",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R14",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R15",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R16",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R17",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R18",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "R19",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": null,
+        "id": "R20",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_CANCELLED",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_CLOSED",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_OPEN",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_UNKNOWN",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_CONTRADICTORY",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_MULTIPLE_COLUMNS",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_ENGLISH_UNREVIEWED",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "R_AND_STATE_POLICY",
+        "flags_match": true,
+        "id": "STATUS_NOTE_AND_NAME",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P1",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P2",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P3",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P4",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P5",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P6",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P7",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P8",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P9",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P10",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P11",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P12",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": null,
+        "id": "P13",
+        "reason_matches": true,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "HQ14_CLAUDE_P_GENERATOR",
+        "flags_match": true,
+        "id": "P14",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_a",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_b",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_c",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_d",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "E5_STATIC_STATUS",
+        "flags_match": true,
+        "id": "E5_e",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "BASELINE_12R",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F01",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F02",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F03",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F04",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F05",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F06",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "ACCEPT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "S1_F07",
+        "reason_matches": null,
+        "seconds_match": true,
+        "status": "ACCEPT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D01_CONFLICT_DUPLICATE",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D02_MISSING_TAIL",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D03_MISSING_DEADLINE",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D04_AMBIGUOUS_CLOSING_CELL",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D05_TWO_CLOSING_COLUMNS",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D06_INVALID_SECONDS",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D07_MULTIPLE_RACE_CELL",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D08_TRUNCATED_TABLE",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D09_NO_CLOSING_HEADER",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "POLICY_PENDING_REAL_HTML",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D10_MULTIPLE_TABLES",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      },
+      {
+        "classification": "REJECT",
+        "expectation_matches": true,
+        "family": "PRESERVED_S1_DESCRIPTION",
+        "flags_match": null,
+        "id": "D11_MALFORMED_EXTRA_CLOCK",
+        "reason_matches": null,
+        "seconds_match": null,
+        "status": "REJECT"
+      }
+    ]
+  },
+  "internal_review": "ONE_TRACKING_DATE_ORDER_FINDING_FIXED_WITH_REGRESSION_NOT_CLAUDE_REAUDIT",
+  "legacy_provider_exception_and_latch": "REMOVED_FROM_ACTIVE_SOURCE",
+  "modified_parent_files": [
+    "main.py",
+    "official.py",
+    "parsers.py",
+    "raceindex_status.py",
+    "tests/test_health_controller_scope.py",
+    "tests/test_health_official_index.py",
+    "tests/test_health_raceindex_parser.py",
+    "tests/test_health_v002_controller.py",
+    "tests/test_health_v002_schedule.py"
+  ],
+  "parent_files": 123,
+  "parent_matrix": {
+    "312": {
+      "actual_11_05_source": "NOT_OBTAINED",
+      "errors": 0,
+      "exit_code": 0,
+      "failures": 0,
+      "junit_testcase_records_including_subtests": 436,
+      "production_go": false,
+      "pytest_result_categories": {
+        "passed": 418,
+        "subtests passed": 18
+      },
+      "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
+      "skipped": 0,
+      "status": "PASS",
+      "tests": 418,
+      "unexecuted_tests": "UNVERIFIED_NOT_PASS"
+    },
+    "314": {
+      "actual_11_05_source": "NOT_OBTAINED",
+      "errors": 0,
+      "exit_code": 0,
+      "failures": 0,
+      "junit_testcase_records_including_subtests": 436,
+      "production_go": false,
+      "pytest_result_categories": {
+        "passed": 418,
+        "subtests passed": 18
+      },
+      "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
+      "skipped": 0,
+      "status": "PASS",
+      "tests": 418
+    }
+  },
+  "physical_SQLite_created_at": "EXCLUDED_FROM_SEMANTIC_COMPARISON_NOT_EVENT_TIME",
+  "production_go": false,
+  "release": "OFFLINE_REVIEW_CANDIDATE_PRODUCTION_PORT_HOLD",
+  "runtime_metadata": {
+    "312": {
+      "current_production_runtime": "UNVERIFIED_NOT_READ",
+      "direct_mismatches": {},
+      "direct_pins": {
+        "beautifulsoup4": "4.14.3",
+        "httpx": "0.28.1",
+        "pydantic": "2.13.4",
+        "pytest": "9.0.2",
+        "pytest-asyncio": "1.3.0"
+      },
+      "direct_requirements_match": true,
+      "distribution_scope": "SELECTED_19_NOT_ALL_INSTALLED",
+      "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "production_go": false,
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "requirements_bytes": 90,
+      "requirements_sha256": "125749db489c1885b54524b46ce4ed032896e2cf12d72021a69590e72220febd",
+      "selected_versions": {
+        "Pygments": "2.21.0",
+        "annotated-types": "0.8.0",
+        "anyio": "4.15.1",
+        "beautifulsoup4": "4.14.3",
+        "certifi": "2026.10.23",
+        "h11": "0.16.0",
+        "httpcore": "1.0.9",
+        "httpx": "0.28.1",
+        "idna": "3.20",
+        "iniconfig": "2.3.0",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "2.13.4",
+        "pydantic_core": "2.46.4",
+        "pytest": "9.0.2",
+        "pytest-asyncio": "1.3.0",
+        "soupsieve": "2.9.2",
+        "typing-inspection": "0.4.4",
+        "typing_extensions": "4.16.0"
+      },
+      "sqlite": "3.53.1"
+    },
+    "314": {
+      "current_production_runtime": "UNVERIFIED_NOT_READ",
+      "direct_mismatches": {},
+      "direct_pins": {
+        "beautifulsoup4": "4.14.3",
+        "httpx": "0.28.1",
+        "pydantic": "2.13.4",
+        "pytest": "9.0.2",
+        "pytest-asyncio": "1.3.0"
+      },
+      "direct_requirements_match": true,
+      "distribution_scope": "SELECTED_19_NOT_ALL_INSTALLED",
+      "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "production_go": false,
+      "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]",
+      "requirements_bytes": 90,
+      "requirements_sha256": "125749db489c1885b54524b46ce4ed032896e2cf12d72021a69590e72220febd",
+      "selected_versions": {
+        "Pygments": "2.21.0",
+        "annotated-types": "0.8.0",
+        "anyio": "4.15.1",
+        "beautifulsoup4": "4.14.3",
+        "certifi": "2026.10.23",
+        "h11": "0.16.0",
+        "httpcore": "1.0.9",
+        "httpx": "0.28.1",
+        "idna": "3.20",
+        "iniconfig": "2.3.0",
+        "packaging": "26.3",
+        "pluggy": "1.6.0",
+        "pydantic": "2.13.4",
+        "pydantic_core": "2.46.4",
+        "pytest": "9.0.2",
+        "pytest-asyncio": "1.3.0",
+        "soupsieve": "2.9.2",
+        "typing-inspection": "0.4.4",
+        "typing_extensions": "4.16.0"
+      },
+      "sqlite": "3.50.4"
+    }
+  },
+  "state_words": "POLICY_PENDING_REAL_HTML_NOT_FORMALLY_ADOPTED",
+  "unchanged_parent_files": 114
+}

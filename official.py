@@ -13,7 +13,7 @@ from models import JST, LiveDataCompleteness, OfficialRaceInfo, RaceIndexSnapsho
 from parsers import ParserError, parse_race_index
 from beforeinfo_bridge import prepare_beforeinfo
 from odds_bridge import parse_c_odds
-from raceindex_status import FULL_RACE_NUMBERS, IndexFailure, NoRaceVerified, reviewed_schedule_decision
+from raceindex_status import FULL_RACE_NUMBERS, IndexFailure
 
 logger = logging.getLogger("gamagori-controller")
 
@@ -28,15 +28,11 @@ class OfficialDataFetcher:
         max_retries: int = 3,
         backoff_seconds: float = 0.5,
         max_concurrency: int = 4,
-        schedule_evidence_provider=None,
     ):
         self.timeout = httpx.Timeout(timeout_seconds)
         self.max_retries = max_retries
         self.backoff_seconds = backoff_seconds
         self.semaphore = asyncio.Semaphore(max_concurrency)
-        # Legacy argument retained only. No calendar-authentication adapter
-        # exists, so this provider is never called or used as authority.
-        self.schedule_evidence_provider = schedule_evidence_provider
         self.client = httpx.AsyncClient(
             timeout=self.timeout,
             headers={
@@ -99,16 +95,8 @@ class OfficialDataFetcher:
             raise IndexFailure("UNKNOWN_FAILURE", "NOW_JST_AWARE_REQUIRED")
         return now_jst.astimezone(JST)
 
-    def _expected_race_numbers(self, now_jst):
-        # Self-hashes/receipt references are not independent authentication.
-        # Do not invoke a callback (including one that raises or performs I/O).
-        if self.schedule_evidence_provider is not None:
-            logger.warning("Schedule authentication not implemented; provider ignored; twelve-race expectation retained")
-        return FULL_RACE_NUMBERS
-
     async def fetch_race_index(self, now_jst: dt.datetime) -> RaceIndexSnapshot:
         now_jst = self._local_now(now_jst)
-        expected = self._expected_race_numbers(now_jst)
         date_str = now_jst.strftime("%Y%m%d")
         url = f"{self.BASE_URL}/raceindex?hd={date_str}&jcd=07"
         try:
@@ -116,9 +104,12 @@ class OfficialDataFetcher:
         except Exception:
             raise IndexFailure("HTTP_FETCH_FAILED", "HTTP_REQUEST_FAILED") from None
         try:
-            races = parse_race_index(html, date_str, url, acquired_at, expected_race_numbers=expected)
-        except ParserError:
-            raise IndexFailure("HTML_PARSE_FAILED", "RACE_INDEX_HTML_INVALID") from None
+            races = parse_race_index(html, date_str, url, acquired_at, expected_race_numbers=FULL_RACE_NUMBERS)
+        except ParserError as exc:
+            reason = ("RACE_INDEX_NO_RACE_ROWS_UNAUTHENTICATED"
+                      if type(exc) is ParserError and exc.args == ("raceindex: no race rows with race number + deadline found",)
+                      else "RACE_INDEX_HTML_INVALID")
+            raise IndexFailure("HTML_PARSE_FAILED", reason) from None
         except Exception:
             raise IndexFailure("UNKNOWN_FAILURE", "RACE_INDEX_UNKNOWN_FAILURE") from None
         return RaceIndexSnapshot(date=date_str, races=races, source_url=url, acquired_at=acquired_at)
@@ -130,7 +121,6 @@ class OfficialDataFetcher:
         closure, cancellation, or formal scoring.
         """
         now_jst = self._local_now(now_jst)
-        expected = self._expected_race_numbers(now_jst)
         date_str = now_jst.strftime("%Y%m%d")
         year = now_jst.strftime("%Y")
         url = f"{self.TRACKING_FALLBACK_BASE}/{year}/{date_str}.json"
@@ -160,6 +150,10 @@ class OfficialDataFetcher:
         stadiums = programs.get("stadiums")
         if not isinstance(stadiums, dict):
             raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_STADIUMS_NOT_OBJECT")
+        # A missing venue in a stale document is not current-day absence.
+        for container in (payload, programs):
+            if "date" in container and container["date"] not in (date_str, now_jst.date().isoformat()):
+                raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_PAYLOAD_DATE_MISMATCH")
         keys = [key for key in ("7", "07") if key in stadiums]
         if not keys:
             raise IndexFailure("TRACKING_MISSING", "TRACKING_STADIUM_7_MISSING")
@@ -168,9 +162,8 @@ class OfficialDataFetcher:
         stadium = stadiums[keys[0]]
         if not isinstance(stadium, dict):
             raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_STADIUM_NOT_OBJECT")
-        for container in (payload, programs, stadium):
-            if "date" in container and container["date"] not in (date_str, now_jst.date().isoformat()):
-                raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_PAYLOAD_DATE_MISMATCH")
+        if "date" in stadium and stadium["date"] not in (date_str, now_jst.date().isoformat()):
+            raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_PAYLOAD_DATE_MISMATCH")
         if "stadium_number" in stadium and (type(stadium["stadium_number"]) not in (int, str)
                                              or stadium["stadium_number"] not in (7, "7", "07")):
             raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_STADIUM_ID_MISMATCH")
@@ -233,7 +226,7 @@ class OfficialDataFetcher:
                 )
             )
 
-        if seen != expected:
+        if seen != FULL_RACE_NUMBERS:
             raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_EXPECTED_RACE_SET_MISMATCH")
         return RaceIndexSnapshot(
             date=date_str,

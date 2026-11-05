@@ -5,6 +5,7 @@ import datetime as dt
 import json
 import logging
 import os
+import re
 import signal
 import sys
 from typing import Dict
@@ -55,10 +56,10 @@ class GamagoriController:
         )
         self._stop = asyncio.Event()
         self._known_races: Dict[str, OfficialRaceInfo] = {}
-        # Process-local latch only. No authenticated calendar route exists in
-        # this candidate; a legacy certification signal must never erase races.
-        # There is deliberately no automatic reset/replay path.
-        self._index_hold_reason: str | None = None
+        # Diagnostic evidence is day-scoped. It never certifies non-racing,
+        # suppresses monitoring, edits state or grants a replay permission.
+        self._day_evidence_date: str | None = None
+        self._day_evidence_sources: set[str] = set()
         self._error_log_limiter = RepeatedErrorRateLimiter(
             REPEATED_ERROR_LOG_INTERVAL_SECONDS
         )
@@ -150,12 +151,6 @@ class GamagoriController:
             exc=RuntimeError(f"{outcome['kind']}:{outcome['reason']}"))
         return outcome
 
-    def _hold_unverified_schedule(self, *, iteration: int, origin: str) -> None:
-        self._index_hold_reason = "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED"
-        logger.warning(
-            "Poll #%s INDEX_HOLD origin=%s reason=%s retained_races=%s; no automatic replay",
-            iteration, origin, self._index_hold_reason, len(self._known_races))
-
     async def _refresh_race_universe(self, now_jst: dt.datetime, iteration: int) -> tuple[bool, bool]:
         if self._stop.is_set():
             return True, False
@@ -164,9 +159,15 @@ class GamagoriController:
         if len(self._known_races) != previous_count:
             logger.warning("Poll #%s STALE_RACE_SCOPE_EXCLUDED count=%s target_day=%s", iteration,
                            previous_count - len(self._known_races), now_jst.astimezone(JST).strftime("%Y%m%d"))
-        if getattr(self, "_index_hold_reason", None) is not None:
-            return True, False
-        self._last_index_outcome = {"official": "NOT_ATTEMPTED", "tracking": "NOT_ATTEMPTED", "persisted": "NOT_NEEDED"}
+        target_day = now_jst.astimezone(JST).strftime("%Y%m%d")
+        if getattr(self, "_day_evidence_date", None) != target_day:
+            self._day_evidence_date = target_day
+            self._day_evidence_sources = set()
+        if self._known_races:
+            self._day_evidence_sources.add("CURRENT_DAY_CACHE")
+        self._last_index_outcome = {"official": "NOT_ATTEMPTED", "official_reason": None,
+            "tracking": "NOT_ATTEMPTED", "tracking_reason": None, "persisted": "NOT_NEEDED",
+            "diagnostic": "NORMAL_SOURCE_FAILURE", "calendar_status": "UNVERIFIED"}
         try:
             snapshot = await self.fetcher.fetch_race_index(now_jst)
             try:
@@ -174,15 +175,15 @@ class GamagoriController:
             except RaceScopeError:
                 raise IndexFailure("HTML_PARSE_FAILED", "OFFICIAL_SNAPSHOT_SCOPE_INVALID") from None
             self._known_races = accepted
+            self._day_evidence_sources.add("OFFICIAL_INDEX_PARSED")
             self._last_index_outcome["official"] = "OFFICIAL_INDEX_PARSED"
+            self._last_index_outcome["diagnostic"] = "OFFICIAL_INDEX_PARSED"
             logger.info("Poll #%s raceindex OK races=%s acquired_at=%s", iteration, len(accepted), snapshot.acquired_at)
             return False, False
         except Exception as exc:
             outcome = self._log_index_failure(context="raceindex", iteration=iteration, exc=exc)
             self._last_index_outcome["official"] = outcome["kind"]
-            if outcome["kind"] == "SCHEDULE_UNVERIFIED":
-                self._hold_unverified_schedule(iteration=iteration, origin="official")
-                return True, False
+            self._last_index_outcome["official_reason"] = outcome["reason"]
 
         try:
             tracking = await self.fetcher.fetch_tracking_race_index(now_jst)
@@ -191,25 +192,43 @@ class GamagoriController:
             except RaceScopeError:
                 raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_SNAPSHOT_SCOPE_INVALID") from None
             self._known_races = accepted
+            self._day_evidence_sources.add("TRACKING_RACES_PRESENT")
             self._last_index_outcome["tracking"] = "TRACKING_ONLY"
+            self._last_index_outcome["diagnostic"] = "TRACKING_ONLY_UNOFFICIAL"
             logger.warning("Poll #%s TRACKING_FALLBACK OK races=%s; NOT VALID FOR OFFICIAL LOCK/TIMING CONFIRMATION",
                            iteration, len(accepted))
             return True, True
         except Exception as exc:
             outcome = self._log_index_failure(context="tracking_fallback", iteration=iteration, exc=exc)
             self._last_index_outcome["tracking"] = outcome["kind"]
-            if outcome["kind"] == "SCHEDULE_UNVERIFIED":
-                self._hold_unverified_schedule(iteration=iteration, origin="tracking")
-                return True, False
+            self._last_index_outcome["tracking_reason"] = outcome["reason"]
         if not self._known_races:
             try:
                 persisted = await self.repo.list_all_states()
+                # Even a terminal record is a same-day racing indication for
+                # this diagnostic. It is not reopened or promoted to official.
+                if any(re.fullmatch(target_day + r"_GAM_(?:0[1-9]|1[0-2])R", state.race_id)
+                       for state in persisted):
+                    self._day_evidence_sources.add("CURRENT_DAY_PERSISTED")
                 self._known_races = recover_current_states(persisted, now_jst)
                 self._last_index_outcome["persisted"] = "CURRENT_DAY_UNCONFIRMED_PROJECTION"
             except Exception:
                 self._known_races = {}
                 self._last_index_outcome["persisted"] = "READ_FAILED_OR_SCOPE_INVALID"
                 logger.warning("Poll #%s PERSISTED_RACE_RECOVERY_UNVERIFIED; no processing universe established", iteration)
+        missing_both = (
+            self._last_index_outcome["official_reason"] == "RACE_INDEX_NO_RACE_ROWS_UNAUTHENTICATED"
+            and self._last_index_outcome["tracking_reason"] == "TRACKING_STADIUM_7_MISSING")
+        if missing_both:
+            if self._day_evidence_sources:
+                diagnostic = "SOURCE_FAILURE_DAY_EVIDENCE_CONFLICT"
+            elif self._last_index_outcome["persisted"] == "READ_FAILED_OR_SCOPE_INVALID":
+                diagnostic = "READ_FAILED"
+            else:
+                diagnostic = "NON_RACE_CANDIDATE_UNAUTHENTICATED"
+            self._last_index_outcome["diagnostic"] = diagnostic
+            logger.warning("Poll #%s %s calendar=UNVERIFIED day_evidence=%s; no race deletion or status change",
+                           iteration, diagnostic, ",".join(sorted(self._day_evidence_sources)) or "NONE")
         return True, False
 
     async def start(self) -> None:
@@ -236,11 +255,8 @@ class GamagoriController:
                     self._known_races = {}
                     logger.warning("Poll #%s DAY_ROLLOVER_DURING_INDEX_POLL; processing skipped", iteration)
 
-                held = getattr(self, "_index_hold_reason", None) is not None
-                race_ids = [] if held or self._stop.is_set() else sorted(self._known_races)
-                if held:
-                    logger.warning("Poll #%s INDEX_HOLD processing skipped; retained_races=%s", iteration, len(self._known_races))
-                elif self._stop.is_set():
+                race_ids = [] if self._stop.is_set() else sorted(self._known_races)
+                if self._stop.is_set():
                     logger.info("Poll #%s STOP_REQUESTED; no new race processing", iteration)
                 elif not race_ids:
                     logger.info("No verified/tracked Gamagori races currently known for %s", now_jst.date())
@@ -264,8 +280,13 @@ class GamagoriController:
                         )
                     await asyncio.gather(*tasks)
 
-                    if iteration % 5 == 0:
+                # Observation continues on empty/outage polls too. Failure to
+                # read the watchdog is recorded, never silently latched away.
+                if iteration % 5 == 0:
+                    try:
                         await self.run_watchdog_check(race_ids)
+                    except Exception:
+                        logger.warning("WATCHDOG_READ_FAILED status=UNVERIFIED")
 
                 try:
                     await asyncio.wait_for(self._stop.wait(), timeout=self.poll_interval)

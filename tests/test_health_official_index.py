@@ -9,7 +9,7 @@ import pytest
 
 from models import JST
 from official import OfficialDataFetcher
-from raceindex_status import IndexFailure, NoRaceVerified, classify_index_exception, reviewed_schedule_decision
+from raceindex_status import IndexFailure, classify_index_exception
 
 
 NOW = dt.datetime(2099, 1, 7, 12, tzinfo=JST)
@@ -39,8 +39,8 @@ def proof(event="NO_RACE", numbers=None):
                 **{key: body[key] for key in ("date", "venue", "event", "race_numbers")}, "raw_sha256": digest}}
 
 
-def fetcher(text, provider=None):
-    obj = OfficialDataFetcher(max_retries=1, schedule_evidence_provider=provider)
+def fetcher(text):
+    obj = OfficialDataFetcher(max_retries=1)
     obj._get_text = AsyncMock(return_value=(text, ACQUIRED))
     return obj
 
@@ -58,29 +58,30 @@ async def test_complete_official_12_is_success_with_conservative_default():
 
 
 @pytest.mark.asyncio
-@pytest.mark.parametrize("html", ["<html>No races shown</html>", index_html(range(1, 12)),
-                                  "<table><tr><td>1R</td><td>13:01</td></tr></table>"])
-async def test_http_200_empty_partial_or_wrong_structure_is_not_no_race(html):
+@pytest.mark.parametrize("html,reason", [
+    ("<html>No races shown</html>", "RACE_INDEX_NO_RACE_ROWS_UNAUTHENTICATED"),
+    (index_html(range(1, 12)), "RACE_INDEX_HTML_INVALID"),
+    ("<table><tr><td>1R</td><td>13:01</td></tr></table>", "RACE_INDEX_HTML_INVALID")])
+async def test_http_200_empty_partial_or_wrong_structure_is_not_no_race(html, reason):
     obj = fetcher(html)
     try:
         with pytest.raises(IndexFailure) as caught:
             await obj.fetch_race_index(NOW)
         assert type(caught.value) is IndexFailure
-        assert classify_index_exception(caught.value) == {"kind": "HTML_PARSE_FAILED", "reason": "RACE_INDEX_HTML_INVALID"}
+        assert classify_index_exception(caught.value) == {"kind": "HTML_PARSE_FAILED", "reason": reason}
     finally:
         await obj.close()
 
 
 @pytest.mark.asyncio
-async def test_self_reported_calendar_does_not_skip_http_or_verify_absence():
-    # S2 withdraws the v001 self-report-as-authentication expectation.
-    obj = fetcher(index_html(), lambda now: proof())
+async def test_removed_calendar_provider_is_not_an_admission_api():
+    # D3 removes the S2 inert argument rather than retaining an authority hook.
+    with pytest.raises(TypeError):
+        OfficialDataFetcher(schedule_evidence_provider=lambda now: proof())
+    obj = fetcher(index_html())
     try:
         assert len((await obj.fetch_race_index(NOW)).races) == 12
         obj._get_text.assert_awaited_once()
-        decision = reviewed_schedule_decision(proof(), DATE)
-        assert decision["accepted"] is False and decision["external_authenticity"] == "UNVERIFIED"
-        assert decision["kind"] == "SCHEDULE_UNVERIFIED"
     finally:
         await obj.close()
 
@@ -97,28 +98,21 @@ async def test_invalid_calendar_never_verifies_absence_or_relaxes_count(kind):
     elif kind == "receipt": p["independent_review"]["receipt_sha256"] = None
     elif kind == "review_binding": p["independent_review"]["event"] = "RACING_DAY"
     else: p["raw_evidence"] = b""
-    obj = fetcher(index_html(range(1, 9)), lambda now: p)
-    try:
-        with pytest.raises(IndexFailure) as caught:
-            await obj.fetch_race_index(NOW)
-        assert type(caught.value) is IndexFailure and caught.value.kind == "HTML_PARSE_FAILED"
-        obj._get_text.assert_awaited_once()
-    finally:
-        await obj.close()
+    with pytest.raises(TypeError):
+        OfficialDataFetcher(schedule_evidence_provider=lambda now: p)
 
 
 @pytest.mark.asyncio
-async def test_self_reported_short_calendar_does_not_relax_expected_twelve():
-    # S2 withdraws v001 eight-race admission: no real authenticator exists.
-    p = proof("RACING_DAY", range(1, 9))
-    obj = fetcher(index_html(range(1, 9)), lambda now: p)
+async def test_partial_day_cannot_change_fixed_expected_twelve():
+    # D3 has no calendar argument; expected twelve is a direct constant.
+    obj = fetcher(index_html(range(1, 9)))
     try:
         with pytest.raises(IndexFailure) as caught:
             await obj.fetch_race_index(NOW)
         assert caught.value.kind == "HTML_PARSE_FAILED"
     finally:
         await obj.close()
-    obj = fetcher(json.dumps(tracking(range(1, 9))), lambda now: p)
+    obj = fetcher(json.dumps(tracking(range(1, 9))))
     try:
         with pytest.raises(IndexFailure) as caught:
             await obj.fetch_tracking_race_index(NOW)
@@ -128,15 +122,12 @@ async def test_self_reported_short_calendar_does_not_relax_expected_twelve():
 
 
 @pytest.mark.asyncio
-async def test_calendar_provider_exception_retains_twelve_and_does_not_echo(caplog):
+async def test_removed_provider_argument_never_executes_or_echoes_callback(caplog):
     def bad_provider(now):
         raise RuntimeError("PRIVATE_PROVIDER_SECRET")
-    obj = fetcher(index_html(), bad_provider)
-    try:
-        assert len((await obj.fetch_race_index(NOW)).races) == 12
-        assert "PRIVATE_PROVIDER_SECRET" not in caplog.text
-    finally:
-        await obj.close()
+    with pytest.raises(TypeError):
+        OfficialDataFetcher(schedule_evidence_provider=bad_provider)
+    assert "PRIVATE_PROVIDER_SECRET" not in caplog.text
 
 
 @pytest.mark.asyncio

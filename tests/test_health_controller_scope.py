@@ -16,7 +16,10 @@ with patch("os.getenv", side_effect=lambda name, default=None: default):
 from models import JST, OfficialRaceInfo, RaceIndexSnapshot, RaceState, RaceStatus
 from raceindex_scope import (RaceScopeError, filter_current_races, recover_current_states,
                              validate_index_snapshot)
-from raceindex_status import NoRaceVerified
+
+
+class NoRaceVerified(RuntimeError):
+    """Invented legacy-spelling exception; never a production authority/API."""
 
 
 NOW = datetime_module.datetime(2099, 1, 7, 12, 0, tzinfo=JST)
@@ -51,7 +54,8 @@ class _Limiter:
 def controller(states=(), known=None):
     value = main.GamagoriController.__new__(main.GamagoriController)
     value._known_races = {} if known is None else dict(known)
-    value._index_hold_reason = None
+    value._day_evidence_date = None
+    value._day_evidence_sources = set()
     value._error_log_limiter = _Limiter()
     value._stop = asyncio.Event()
     value.poll_interval = 0
@@ -171,7 +175,7 @@ class ControllerScopeTests(unittest.IsolatedAsyncioTestCase):
         self.assertFalse(active)
         self.assertEqual(value._known_races, {})
 
-    async def test_unverified_no_race_claim_retains_current_cache_and_latches_hold(self):
+    async def test_legacy_named_failure_retains_current_cache_without_a_latch(self):
         for origin in ("official", "tracking"):
             with self.subTest(origin=origin):
                 current, old = race(1), race(2, YESTERDAY)
@@ -187,11 +191,11 @@ class ControllerScopeTests(unittest.IsolatedAsyncioTestCase):
                     value.fetcher.fetch_tracking_race_index = AsyncMock(side_effect=no_race)
                 with patch.object(main, "dt", fixed_clock_namespace()), self.assertLogs("gamagori-controller", level="INFO") as logged:
                     await value.start()
-                self.assertTrue(any("INDEX_HOLD" in line for line in logged.output))
+                self.assertFalse(any("INDEX_HOLD" in line for line in logged.output))
                 self.assertEqual(value._known_races, {current.race_id: current})
-                self.assertEqual(value._index_hold_reason, "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED")
+                self.assertFalse(hasattr(value, "_index_hold_reason"))
                 if origin == "official":
-                    value.fetcher.fetch_tracking_race_index.assert_not_awaited()
+                    value.fetcher.fetch_tracking_race_index.assert_awaited_once()
                 else:
                     value.fetcher.fetch_tracking_race_index.assert_awaited_once()
                 value.repo.list_all_states.assert_not_awaited()

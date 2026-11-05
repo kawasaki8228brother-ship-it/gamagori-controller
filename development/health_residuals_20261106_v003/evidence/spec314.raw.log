@@ -1,0 +1,5 @@
+{"python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]", "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "openssl": "OpenSSL 3.5.5 27 Jan 2026", "classification": "SYNTHETIC_TESTS_AND_UNVERIFIED_PRIVATE_SPEC", "production_go": false}
+....s.                                                                   [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_health_v003_spec_reference.py:86: UNVERIFIED_PROMPT_TEMPLATE_SPEC_ORIGINAL_NOT_SUPPLIED
+5 passed, 1 skipped in 0.04s

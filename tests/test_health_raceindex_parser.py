@@ -18,9 +18,10 @@ def parse(html, expected=None, date="20990101"):
 
 
 def test_synthetic_normal_twelve_and_status_semantics():
-    html = table([row(number, f"{14+number//6:02}:{number:02}",
-                      "発売終了" if number == 2 else "中止" if number == 3 else "投票")
-                  for number in range(1, 13)])
+    html = table([f"<tr><td>{number}R</td><td>{14+number//6:02}:{number:02}</td>"
+                  f"<td>{'発売終了' if number == 2 else '中止' if number == 3 else '発売中'}</td></tr>"
+                  for number in range(1, 13)],
+                 "<th>レース</th><th>締切予定時刻</th><th>発売状況</th>")
     races = parse(html, range(1, 13))
     assert len(races) == 12
     assert races[0].race_id == "20990101_GAM_01R"

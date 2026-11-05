@@ -1,0 +1,39 @@
+{
+  "schema": "HEALTH_V003_PORT_SCOPE_CANDIDATE",
+  "base_commit": "48333a2315628ae17e1fa3ce4f8ef12c70e2662f",
+  "actual_post_certifi_port_base": "OPEN_NOT_SELECTED_OR_MODIFIED",
+  "approval": "OFFLINE_DEVELOPMENT_ONLY_NOT_PORT_OR_PRODUCTION_GO",
+  "candidate_source_groups": [
+    {"path": "parsers.py", "hunks": ["exact_state_after_time_removal_from_semantic_closing_and_unique_state_cells", "POLICY_PENDING_REAL_HTML_rejection_reasons", "missing_clock_status_policy"], "gate": "REAL_HTML_AND_STATE_VOCABULARY_REVIEW_REQUIRED_BEFORE_PORT"},
+    {"path": "official.py", "hunks": ["remove_provider_constructor_and_schedule_shortcut", "fixed_full_twelve_expectation", "exact_no_rows_reason"], "gate": "OFFICIAL_SOURCE_AND_HTML_COMPATIBILITY_UNVERIFIED"},
+    {"path": "raceindex_status.py", "hunks": ["remove_unverified_no_race_APIs_and_special_exception", "safe_generic_failure_classification", "dedicated_unauthenticated_no_rows_reason"], "gate": "NO_AUTHENTICATION_OR_NONRACE_CERTIFICATION_IMPLEMENTED"},
+    {"path": "main.py", "hunks": ["remove_process_HOLD_latch", "day_scoped_diagnostic_material", "NON_RACE_CANDIDATE_diagnostic_only", "watchdog_on_empty_polls_and_read_error_observation"], "gate": "CONTROLLER_BEHAVIOR_REAUDIT_AND_EVENT_COMPARISON_REQUIRED"}
+  ],
+  "unchanged_source_dependency": [
+    {"path": "raceindex_scope.py", "reason": "main_imports_existing_v001_day_scope_helpers", "status": "SEPARATE_REVIEW_OF_PRIOR_FIX_DEPENDENCY_REQUIRED_NOT_AUTOMATICALLY_APPROVED"},
+    {"path": "error_rate_limit.py", "reason": "existing_safe_diagnostic_logger_dependency", "status": "PRESERVE_APPROVED_TARGET_VERSION_AND_RECHECK_COMPATIBILITY"}
+  ],
+  "excluded_from_port": [
+    "NoRaceVerified", "reviewed_schedule_decision", "schedule_evidence_provider",
+    "_expected_race_numbers", "_index_hold_reason", "_hold_unverified_schedule",
+    "historical_v001_v002_evidence_and_archived_sources_as_runtime_code",
+    "development/health_residuals_20261106_v003/audit_quality.py",
+    "offline_comparison_fixture_test_and_evidence_tools",
+    "private_runtime312_diagnostic_environment"
+  ],
+  "frozen_unmodified": [
+    "state_machine.py", "models.py", "closing.py", "repositories.py", "airtable.py",
+    "requirements.txt", "render.yaml", ".github/workflows/c-minimal-review.yml",
+    "Model_1.0", "BOX_Ver.1", "formal_A_B", "LOCK_rules", "Production", "POINTER"
+  ],
+  "future_port_gates": [
+    "certifi_and_SYS01_SYS02_priority_no_interference",
+    "approved_actual_base_SHA_and_exact_limited_patch",
+    "real_source_mapping_and_state_vocabulary_approval",
+    "requirements_and_runtime_compatibility_checks",
+    "full_regression_with_actual_ordered_event_evidence",
+    "Claude_independent_reaudit_HQ14_alignment_Andy_individual_GO"
+  ],
+  "direct_deploy_forbidden": true,
+  "production_go": false
+}

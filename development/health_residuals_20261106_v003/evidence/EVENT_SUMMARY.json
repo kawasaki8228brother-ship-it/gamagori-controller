@@ -1,0 +1,2011 @@
+{
+  "cases": {
+    "a": {
+      "all_compared_semantic_fields_match": true,
+      "candidate": {
+        "event_timing": [
+          [
+            "20990107_GAM_01R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ]
+        ],
+        "final_state_counts": {
+          "TERMINAL": 12
+        },
+        "semantic_trace_sha256": "4a59935d2ceac788376b27d4ecdf9df63a8577ced2f765a6380cf3a4070eee92",
+        "terminal_reasons": {
+          "20990107_GAM_01R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_02R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_03R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_04R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_05R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_06R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_07R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_08R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_09R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_10R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_11R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_12R": "OFFICIALLY_CLOSED"
+        },
+        "timeline": [
+          {
+            "at": "2099-01-07T12:40:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:45:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:53:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:54:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:55:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T13:01:00+09:00",
+            "events": 24,
+            "state_counts": {
+              "TERMINAL": 12
+            }
+          }
+        ]
+      },
+      "candidate_terminal_events": 12,
+      "description": "DEADLINE_CELL_EXACT_CLOSED",
+      "event_kinds_times_match": true,
+      "expected_relation": "MATCH",
+      "layout": "deadline_only",
+      "old": {
+        "event_timing": [
+          [
+            "20990107_GAM_01R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ]
+        ],
+        "final_state_counts": {
+          "TERMINAL": 12
+        },
+        "semantic_trace_sha256": "4a59935d2ceac788376b27d4ecdf9df63a8577ced2f765a6380cf3a4070eee92",
+        "terminal_reasons": {
+          "20990107_GAM_01R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_02R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_03R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_04R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_05R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_06R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_07R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_08R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_09R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_10R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_11R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_12R": "OFFICIALLY_CLOSED"
+        },
+        "timeline": [
+          {
+            "at": "2099-01-07T12:40:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:45:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:53:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:54:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:55:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T13:01:00+09:00",
+            "events": 24,
+            "state_counts": {
+              "TERMINAL": 12
+            }
+          }
+        ]
+      },
+      "old_terminal_events": 12
+    },
+    "b": {
+      "all_compared_semantic_fields_match": true,
+      "candidate": {
+        "event_timing": [
+          [
+            "20990107_GAM_01R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ]
+        ],
+        "final_state_counts": {
+          "TERMINAL": 12
+        },
+        "semantic_trace_sha256": "a49913acb96f725e8f3482436850455bc6e7046474e659a9e81f99ca28e2b33b",
+        "terminal_reasons": {
+          "20990107_GAM_01R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_02R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_03R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_04R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_05R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_06R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_07R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_08R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_09R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_10R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_11R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_12R": "OFFICIALLY_CLOSED"
+        },
+        "timeline": [
+          {
+            "at": "2099-01-07T12:40:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:45:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:53:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:54:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:55:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T13:01:00+09:00",
+            "events": 24,
+            "state_counts": {
+              "TERMINAL": 12
+            }
+          }
+        ]
+      },
+      "candidate_terminal_events": 12,
+      "description": "EXPLICIT_STATE_CELL_CLOSED",
+      "event_kinds_times_match": true,
+      "expected_relation": "MATCH",
+      "layout": "explicit",
+      "old": {
+        "event_timing": [
+          [
+            "20990107_GAM_01R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ]
+        ],
+        "final_state_counts": {
+          "TERMINAL": 12
+        },
+        "semantic_trace_sha256": "a49913acb96f725e8f3482436850455bc6e7046474e659a9e81f99ca28e2b33b",
+        "terminal_reasons": {
+          "20990107_GAM_01R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_02R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_03R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_04R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_05R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_06R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_07R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_08R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_09R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_10R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_11R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_12R": "OFFICIALLY_CLOSED"
+        },
+        "timeline": [
+          {
+            "at": "2099-01-07T12:40:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:45:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:53:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:54:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:55:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T13:01:00+09:00",
+            "events": 24,
+            "state_counts": {
+              "TERMINAL": 12
+            }
+          }
+        ]
+      },
+      "old_terminal_events": 12
+    },
+    "c": {
+      "all_compared_semantic_fields_match": true,
+      "candidate": {
+        "event_timing": [
+          [
+            "20990107_GAM_01R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ]
+        ],
+        "final_state_counts": {
+          "C_EVENT_DONE": 12
+        },
+        "semantic_trace_sha256": "7864f1479f5048ea38e109a324d9f0cb3b8ea93e33e5a395f3675cd77d861867",
+        "terminal_reasons": {
+          "20990107_GAM_01R": null,
+          "20990107_GAM_02R": null,
+          "20990107_GAM_03R": null,
+          "20990107_GAM_04R": null,
+          "20990107_GAM_05R": null,
+          "20990107_GAM_06R": null,
+          "20990107_GAM_07R": null,
+          "20990107_GAM_08R": null,
+          "20990107_GAM_09R": null,
+          "20990107_GAM_10R": null,
+          "20990107_GAM_11R": null,
+          "20990107_GAM_12R": null
+        },
+        "timeline": [
+          {
+            "at": "2099-01-07T12:40:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:45:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:53:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:54:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:55:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T13:01:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          }
+        ]
+      },
+      "candidate_terminal_events": 0,
+      "description": "STATUS_INFORMATION_ABSENT",
+      "event_kinds_times_match": true,
+      "expected_relation": "MATCH_UNKNOWN_WITHOUT_AUTOMATIC_TERMINAL",
+      "layout": "unknown",
+      "old": {
+        "event_timing": [
+          [
+            "20990107_GAM_01R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ]
+        ],
+        "final_state_counts": {
+          "C_EVENT_DONE": 12
+        },
+        "semantic_trace_sha256": "7864f1479f5048ea38e109a324d9f0cb3b8ea93e33e5a395f3675cd77d861867",
+        "terminal_reasons": {
+          "20990107_GAM_01R": null,
+          "20990107_GAM_02R": null,
+          "20990107_GAM_03R": null,
+          "20990107_GAM_04R": null,
+          "20990107_GAM_05R": null,
+          "20990107_GAM_06R": null,
+          "20990107_GAM_07R": null,
+          "20990107_GAM_08R": null,
+          "20990107_GAM_09R": null,
+          "20990107_GAM_10R": null,
+          "20990107_GAM_11R": null,
+          "20990107_GAM_12R": null
+        },
+        "timeline": [
+          {
+            "at": "2099-01-07T12:40:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:45:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:53:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:54:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:55:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T13:01:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          }
+        ]
+      },
+      "old_terminal_events": 0
+    },
+    "d": {
+      "all_compared_semantic_fields_match": false,
+      "candidate": {
+        "event_timing": [
+          [
+            "20990107_GAM_01R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_07R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ]
+        ],
+        "final_state_counts": {
+          "TERMINAL": 12
+        },
+        "semantic_trace_sha256": "9707bc913f95efd14c56e9dfc1fa32cb97f4e0085b87c39e0626c69adcf90a19",
+        "terminal_reasons": {
+          "20990107_GAM_01R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_02R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_03R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_04R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_05R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_06R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_07R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_08R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_09R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_10R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_11R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_12R": "OFFICIALLY_CLOSED"
+        },
+        "timeline": [
+          {
+            "at": "2099-01-07T12:40:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:45:00+09:00",
+            "events": 0,
+            "state_counts": {
+              "PENDING": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:53:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:54:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T12:55:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 12
+            }
+          },
+          {
+            "at": "2099-01-07T13:01:00+09:00",
+            "events": 24,
+            "state_counts": {
+              "TERMINAL": 12
+            }
+          }
+        ]
+      },
+      "candidate_terminal_events": 12,
+      "description": "R7_NAME_CONTAINS_CANCEL_WORD",
+      "event_kinds_times_match": false,
+      "expected_relation": "INTENTIONAL_NAME_FALSE_CANCEL_REMOVAL",
+      "layout": "name_cancel",
+      "old": {
+        "event_timing": [
+          [
+            "20990107_GAM_07R",
+            "RACE_TERMINAL",
+            "2099-01-07T12:40:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ]
+        ],
+        "final_state_counts": {
+          "TERMINAL": 12
+        },
+        "semantic_trace_sha256": "e514644814b2a0ee52d8ebcd3e406df7feddfcb948ed2a9ab68ab7fe378bc523",
+        "terminal_reasons": {
+          "20990107_GAM_01R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_02R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_03R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_04R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_05R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_06R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_07R": "CANCELLED",
+          "20990107_GAM_08R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_09R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_10R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_11R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_12R": "OFFICIALLY_CLOSED"
+        },
+        "timeline": [
+          {
+            "at": "2099-01-07T12:40:00+09:00",
+            "events": 1,
+            "state_counts": {
+              "PENDING": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:45:00+09:00",
+            "events": 1,
+            "state_counts": {
+              "PENDING": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:53:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:54:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:55:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T13:01:00+09:00",
+            "events": 23,
+            "state_counts": {
+              "TERMINAL": 12
+            }
+          }
+        ]
+      },
+      "old_terminal_events": 12
+    },
+    "e": {
+      "all_compared_semantic_fields_match": true,
+      "candidate": {
+        "event_timing": [
+          [
+            "20990107_GAM_07R",
+            "RACE_TERMINAL",
+            "2099-01-07T12:40:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ]
+        ],
+        "final_state_counts": {
+          "TERMINAL": 12
+        },
+        "semantic_trace_sha256": "e3299048451377f5733e36d4e91ad4c1c5c05cb5af92cd7ad6ad6804f5000ba6",
+        "terminal_reasons": {
+          "20990107_GAM_01R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_02R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_03R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_04R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_05R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_06R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_07R": "CANCELLED",
+          "20990107_GAM_08R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_09R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_10R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_11R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_12R": "OFFICIALLY_CLOSED"
+        },
+        "timeline": [
+          {
+            "at": "2099-01-07T12:40:00+09:00",
+            "events": 1,
+            "state_counts": {
+              "PENDING": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:45:00+09:00",
+            "events": 1,
+            "state_counts": {
+              "PENDING": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:53:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:54:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:55:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T13:01:00+09:00",
+            "events": 23,
+            "state_counts": {
+              "TERMINAL": 12
+            }
+          }
+        ]
+      },
+      "candidate_terminal_events": 12,
+      "description": "R7_EXPLICIT_STATE_CELL_CANCELLED",
+      "event_kinds_times_match": true,
+      "expected_relation": "MATCH",
+      "layout": "state_cancel",
+      "old": {
+        "event_timing": [
+          [
+            "20990107_GAM_07R",
+            "RACE_TERMINAL",
+            "2099-01-07T12:40:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "CLOSING_OBSERVATION",
+            "2099-01-07T12:53:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_01R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_02R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_03R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_04R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_05R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_06R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_08R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_09R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_10R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_11R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ],
+          [
+            "20990107_GAM_12R",
+            "RACE_TERMINAL",
+            "2099-01-07T13:01:00+09:00",
+            1
+          ]
+        ],
+        "final_state_counts": {
+          "TERMINAL": 12
+        },
+        "semantic_trace_sha256": "e3299048451377f5733e36d4e91ad4c1c5c05cb5af92cd7ad6ad6804f5000ba6",
+        "terminal_reasons": {
+          "20990107_GAM_01R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_02R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_03R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_04R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_05R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_06R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_07R": "CANCELLED",
+          "20990107_GAM_08R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_09R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_10R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_11R": "OFFICIALLY_CLOSED",
+          "20990107_GAM_12R": "OFFICIALLY_CLOSED"
+        },
+        "timeline": [
+          {
+            "at": "2099-01-07T12:40:00+09:00",
+            "events": 1,
+            "state_counts": {
+              "PENDING": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:45:00+09:00",
+            "events": 1,
+            "state_counts": {
+              "PENDING": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:53:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:54:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T12:55:00+09:00",
+            "events": 12,
+            "state_counts": {
+              "C_EVENT_DONE": 11,
+              "TERMINAL": 1
+            }
+          },
+          {
+            "at": "2099-01-07T13:01:00+09:00",
+            "events": 23,
+            "state_counts": {
+              "TERMINAL": 12
+            }
+          }
+        ]
+      },
+      "old_terminal_events": 12
+    }
+  },
+  "classification": "SYNTHETIC_ONLY",
+  "comparison_scope": "ALL_EVENT_FIELDS_EXCEPT_PHYSICAL_SQLITE_CREATED_AT",
+  "formal_AB_LOCK_comparison": "UNVERIFIED_NOT_IMPLEMENTED_IN_REPOSITORY",
+  "full_semantic_trace_bytes": 3063127,
+  "full_semantic_trace_sha256": "8c42a42bb2d0f4495ff80422a787193c8c916fa77e7c734bd61937b3015e0cf7",
+  "full_trace_scope": "HELPER_TRACE_SQLITE_PHYSICAL_CREATED_AT_EXCLUDED",
+  "policy_stage": "CLAUDE_0155_SYNTHETIC_STATUS_MAPPING_PENDING_OFFICIAL_CONFIRMATION",
+  "production_go": false,
+  "status": "SYNTHETIC_FIVE_CASE_EXPECTATIONS_MATCHED"
+}

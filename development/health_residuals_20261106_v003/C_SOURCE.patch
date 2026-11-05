@@ -1,0 +1,455 @@
+--- a/main.py
++++ b/main.py
+@@ -5,6 +5,7 @@
+ import json
+ import logging
+ import os
++import re
+ import signal
+ import sys
+ from typing import Dict
+@@ -55,10 +56,10 @@
+         )
+         self._stop = asyncio.Event()
+         self._known_races: Dict[str, OfficialRaceInfo] = {}
+-        # Process-local latch only. No authenticated calendar route exists in
+-        # this candidate; a legacy certification signal must never erase races.
+-        # There is deliberately no automatic reset/replay path.
+-        self._index_hold_reason: str | None = None
++        # Diagnostic evidence is day-scoped. It never certifies non-racing,
++        # suppresses monitoring, edits state or grants a replay permission.
++        self._day_evidence_date: str | None = None
++        self._day_evidence_sources: set[str] = set()
+         self._error_log_limiter = RepeatedErrorRateLimiter(
+             REPEATED_ERROR_LOG_INTERVAL_SECONDS
+         )
+@@ -150,12 +151,6 @@
+             exc=RuntimeError(f"{outcome['kind']}:{outcome['reason']}"))
+         return outcome
+ 
+-    def _hold_unverified_schedule(self, *, iteration: int, origin: str) -> None:
+-        self._index_hold_reason = "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED"
+-        logger.warning(
+-            "Poll #%s INDEX_HOLD origin=%s reason=%s retained_races=%s; no automatic replay",
+-            iteration, origin, self._index_hold_reason, len(self._known_races))
+-
+     async def _refresh_race_universe(self, now_jst: dt.datetime, iteration: int) -> tuple[bool, bool]:
+         if self._stop.is_set():
+             return True, False
+@@ -164,9 +159,15 @@
+         if len(self._known_races) != previous_count:
+             logger.warning("Poll #%s STALE_RACE_SCOPE_EXCLUDED count=%s target_day=%s", iteration,
+                            previous_count - len(self._known_races), now_jst.astimezone(JST).strftime("%Y%m%d"))
+-        if getattr(self, "_index_hold_reason", None) is not None:
+-            return True, False
+-        self._last_index_outcome = {"official": "NOT_ATTEMPTED", "tracking": "NOT_ATTEMPTED", "persisted": "NOT_NEEDED"}
++        target_day = now_jst.astimezone(JST).strftime("%Y%m%d")
++        if getattr(self, "_day_evidence_date", None) != target_day:
++            self._day_evidence_date = target_day
++            self._day_evidence_sources = set()
++        if self._known_races:
++            self._day_evidence_sources.add("CURRENT_DAY_CACHE")
++        self._last_index_outcome = {"official": "NOT_ATTEMPTED", "official_reason": None,
++            "tracking": "NOT_ATTEMPTED", "tracking_reason": None, "persisted": "NOT_NEEDED",
++            "diagnostic": "NORMAL_SOURCE_FAILURE", "calendar_status": "UNVERIFIED"}
+         try:
+             snapshot = await self.fetcher.fetch_race_index(now_jst)
+             try:
+@@ -174,15 +175,15 @@
+             except RaceScopeError:
+                 raise IndexFailure("HTML_PARSE_FAILED", "OFFICIAL_SNAPSHOT_SCOPE_INVALID") from None
+             self._known_races = accepted
++            self._day_evidence_sources.add("OFFICIAL_INDEX_PARSED")
+             self._last_index_outcome["official"] = "OFFICIAL_INDEX_PARSED"
++            self._last_index_outcome["diagnostic"] = "OFFICIAL_INDEX_PARSED"
+             logger.info("Poll #%s raceindex OK races=%s acquired_at=%s", iteration, len(accepted), snapshot.acquired_at)
+             return False, False
+         except Exception as exc:
+             outcome = self._log_index_failure(context="raceindex", iteration=iteration, exc=exc)
+             self._last_index_outcome["official"] = outcome["kind"]
+-            if outcome["kind"] == "SCHEDULE_UNVERIFIED":
+-                self._hold_unverified_schedule(iteration=iteration, origin="official")
+-                return True, False
++            self._last_index_outcome["official_reason"] = outcome["reason"]
+ 
+         try:
+             tracking = await self.fetcher.fetch_tracking_race_index(now_jst)
+@@ -191,25 +192,43 @@
+             except RaceScopeError:
+                 raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_SNAPSHOT_SCOPE_INVALID") from None
+             self._known_races = accepted
++            self._day_evidence_sources.add("TRACKING_RACES_PRESENT")
+             self._last_index_outcome["tracking"] = "TRACKING_ONLY"
++            self._last_index_outcome["diagnostic"] = "TRACKING_ONLY_UNOFFICIAL"
+             logger.warning("Poll #%s TRACKING_FALLBACK OK races=%s; NOT VALID FOR OFFICIAL LOCK/TIMING CONFIRMATION",
+                            iteration, len(accepted))
+             return True, True
+         except Exception as exc:
+             outcome = self._log_index_failure(context="tracking_fallback", iteration=iteration, exc=exc)
+             self._last_index_outcome["tracking"] = outcome["kind"]
+-            if outcome["kind"] == "SCHEDULE_UNVERIFIED":
+-                self._hold_unverified_schedule(iteration=iteration, origin="tracking")
+-                return True, False
++            self._last_index_outcome["tracking_reason"] = outcome["reason"]
+         if not self._known_races:
+             try:
+                 persisted = await self.repo.list_all_states()
++                # Even a terminal record is a same-day racing indication for
++                # this diagnostic. It is not reopened or promoted to official.
++                if any(re.fullmatch(target_day + r"_GAM_(?:0[1-9]|1[0-2])R", state.race_id)
++                       for state in persisted):
++                    self._day_evidence_sources.add("CURRENT_DAY_PERSISTED")
+                 self._known_races = recover_current_states(persisted, now_jst)
+                 self._last_index_outcome["persisted"] = "CURRENT_DAY_UNCONFIRMED_PROJECTION"
+             except Exception:
+                 self._known_races = {}
+                 self._last_index_outcome["persisted"] = "READ_FAILED_OR_SCOPE_INVALID"
+                 logger.warning("Poll #%s PERSISTED_RACE_RECOVERY_UNVERIFIED; no processing universe established", iteration)
++        missing_both = (
++            self._last_index_outcome["official_reason"] == "RACE_INDEX_NO_RACE_ROWS_UNAUTHENTICATED"
++            and self._last_index_outcome["tracking_reason"] == "TRACKING_STADIUM_7_MISSING")
++        if missing_both:
++            if self._day_evidence_sources:
++                diagnostic = "SOURCE_FAILURE_DAY_EVIDENCE_CONFLICT"
++            elif self._last_index_outcome["persisted"] == "READ_FAILED_OR_SCOPE_INVALID":
++                diagnostic = "READ_FAILED"
++            else:
++                diagnostic = "NON_RACE_CANDIDATE_UNAUTHENTICATED"
++            self._last_index_outcome["diagnostic"] = diagnostic
++            logger.warning("Poll #%s %s calendar=UNVERIFIED day_evidence=%s; no race deletion or status change",
++                           iteration, diagnostic, ",".join(sorted(self._day_evidence_sources)) or "NONE")
+         return True, False
+ 
+     async def start(self) -> None:
+@@ -236,11 +255,8 @@
+                     self._known_races = {}
+                     logger.warning("Poll #%s DAY_ROLLOVER_DURING_INDEX_POLL; processing skipped", iteration)
+ 
+-                held = getattr(self, "_index_hold_reason", None) is not None
+-                race_ids = [] if held or self._stop.is_set() else sorted(self._known_races)
+-                if held:
+-                    logger.warning("Poll #%s INDEX_HOLD processing skipped; retained_races=%s", iteration, len(self._known_races))
+-                elif self._stop.is_set():
++                race_ids = [] if self._stop.is_set() else sorted(self._known_races)
++                if self._stop.is_set():
+                     logger.info("Poll #%s STOP_REQUESTED; no new race processing", iteration)
+                 elif not race_ids:
+                     logger.info("No verified/tracked Gamagori races currently known for %s", now_jst.date())
+@@ -264,8 +280,13 @@
+                         )
+                     await asyncio.gather(*tasks)
+ 
+-                    if iteration % 5 == 0:
++                # Observation continues on empty/outage polls too. Failure to
++                # read the watchdog is recorded, never silently latched away.
++                if iteration % 5 == 0:
++                    try:
+                         await self.run_watchdog_check(race_ids)
++                    except Exception:
++                        logger.warning("WATCHDOG_READ_FAILED status=UNVERIFIED")
+ 
+                 try:
+                     await asyncio.wait_for(self._stop.wait(), timeout=self.poll_interval)
+--- a/official.py
++++ b/official.py
+@@ -13,7 +13,7 @@
+ from parsers import ParserError, parse_race_index
+ from beforeinfo_bridge import prepare_beforeinfo
+ from odds_bridge import parse_c_odds
+-from raceindex_status import FULL_RACE_NUMBERS, IndexFailure, NoRaceVerified, reviewed_schedule_decision
++from raceindex_status import FULL_RACE_NUMBERS, IndexFailure
+ 
+ logger = logging.getLogger("gamagori-controller")
+ 
+@@ -28,15 +28,11 @@
+         max_retries: int = 3,
+         backoff_seconds: float = 0.5,
+         max_concurrency: int = 4,
+-        schedule_evidence_provider=None,
+     ):
+         self.timeout = httpx.Timeout(timeout_seconds)
+         self.max_retries = max_retries
+         self.backoff_seconds = backoff_seconds
+         self.semaphore = asyncio.Semaphore(max_concurrency)
+-        # Legacy argument retained only. No calendar-authentication adapter
+-        # exists, so this provider is never called or used as authority.
+-        self.schedule_evidence_provider = schedule_evidence_provider
+         self.client = httpx.AsyncClient(
+             timeout=self.timeout,
+             headers={
+@@ -99,16 +95,8 @@
+             raise IndexFailure("UNKNOWN_FAILURE", "NOW_JST_AWARE_REQUIRED")
+         return now_jst.astimezone(JST)
+ 
+-    def _expected_race_numbers(self, now_jst):
+-        # Self-hashes/receipt references are not independent authentication.
+-        # Do not invoke a callback (including one that raises or performs I/O).
+-        if self.schedule_evidence_provider is not None:
+-            logger.warning("Schedule authentication not implemented; provider ignored; twelve-race expectation retained")
+-        return FULL_RACE_NUMBERS
+-
+     async def fetch_race_index(self, now_jst: dt.datetime) -> RaceIndexSnapshot:
+         now_jst = self._local_now(now_jst)
+-        expected = self._expected_race_numbers(now_jst)
+         date_str = now_jst.strftime("%Y%m%d")
+         url = f"{self.BASE_URL}/raceindex?hd={date_str}&jcd=07"
+         try:
+@@ -116,9 +104,12 @@
+         except Exception:
+             raise IndexFailure("HTTP_FETCH_FAILED", "HTTP_REQUEST_FAILED") from None
+         try:
+-            races = parse_race_index(html, date_str, url, acquired_at, expected_race_numbers=expected)
+-        except ParserError:
+-            raise IndexFailure("HTML_PARSE_FAILED", "RACE_INDEX_HTML_INVALID") from None
++            races = parse_race_index(html, date_str, url, acquired_at, expected_race_numbers=FULL_RACE_NUMBERS)
++        except ParserError as exc:
++            reason = ("RACE_INDEX_NO_RACE_ROWS_UNAUTHENTICATED"
++                      if type(exc) is ParserError and exc.args == ("raceindex: no race rows with race number + deadline found",)
++                      else "RACE_INDEX_HTML_INVALID")
++            raise IndexFailure("HTML_PARSE_FAILED", reason) from None
+         except Exception:
+             raise IndexFailure("UNKNOWN_FAILURE", "RACE_INDEX_UNKNOWN_FAILURE") from None
+         return RaceIndexSnapshot(date=date_str, races=races, source_url=url, acquired_at=acquired_at)
+@@ -130,7 +121,6 @@
+         closure, cancellation, or formal scoring.
+         """
+         now_jst = self._local_now(now_jst)
+-        expected = self._expected_race_numbers(now_jst)
+         date_str = now_jst.strftime("%Y%m%d")
+         year = now_jst.strftime("%Y")
+         url = f"{self.TRACKING_FALLBACK_BASE}/{year}/{date_str}.json"
+@@ -160,6 +150,10 @@
+         stadiums = programs.get("stadiums")
+         if not isinstance(stadiums, dict):
+             raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_STADIUMS_NOT_OBJECT")
++        # A missing venue in a stale document is not current-day absence.
++        for container in (payload, programs):
++            if "date" in container and container["date"] not in (date_str, now_jst.date().isoformat()):
++                raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_PAYLOAD_DATE_MISMATCH")
+         keys = [key for key in ("7", "07") if key in stadiums]
+         if not keys:
+             raise IndexFailure("TRACKING_MISSING", "TRACKING_STADIUM_7_MISSING")
+@@ -168,9 +162,8 @@
+         stadium = stadiums[keys[0]]
+         if not isinstance(stadium, dict):
+             raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_STADIUM_NOT_OBJECT")
+-        for container in (payload, programs, stadium):
+-            if "date" in container and container["date"] not in (date_str, now_jst.date().isoformat()):
+-                raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_PAYLOAD_DATE_MISMATCH")
++        if "date" in stadium and stadium["date"] not in (date_str, now_jst.date().isoformat()):
++            raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_PAYLOAD_DATE_MISMATCH")
+         if "stadium_number" in stadium and (type(stadium["stadium_number"]) not in (int, str)
+                                              or stadium["stadium_number"] not in (7, "7", "07")):
+             raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_STADIUM_ID_MISMATCH")
+@@ -233,7 +226,7 @@
+                 )
+             )
+ 
+-        if seen != expected:
++        if seen != FULL_RACE_NUMBERS:
+             raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_EXPECTED_RACE_SET_MISMATCH")
+         return RaceIndexSnapshot(
+             date=date_str,
+--- a/parsers.py
++++ b/parsers.py
+@@ -30,6 +30,43 @@
+ def _raceindex_partial(code: str):
+     # Fixed codes preserve the legacy error category without echoing HTML/URLs.
+     raise ParserError("raceindex: partial parse " + code)
++
++
++def race_index_status_policy():
++    """Candidate vocabulary only; no assertion of real official-page support."""
++    return {"status": "PROPOSED_POLICY_PENDING", "official_state_confirmation": "UNVERIFIED",
++            "vocabulary_policy_status": "POLICY_PENDING_REAL_HTML",
++            "headers": ["発売状況", "状態"],
++            "exact_words": {"投票": "OPEN", "発売中": "OPEN", "発売終了": "CLOSED", "締切": "CLOSED",
++                            "中止": "CANCELLED", "レース中止": "CANCELLED", "発売中止": "CANCELLED", "取りやめ": "CANCELLED"},
++            "scope": "UNIQUE_DEADLINE_AND_OPTIONAL_UNIQUE_STATE_CELL", "fallback": "UNKNOWN",
++            "name_note_header_inference": False, "deadline_cell_exact_signal": True,
++            "official_source_authentication": "NOT_IMPLEMENTED"}
++
++
++def _raceindex_status_signal(cell):
++    # Preserve token boundaries: split words and contradictory phrases must not
++    # become an allowed word after joining. Only complete valid clocks vanish.
++    text = " ".join(cell.stripped_strings)
++    clock = r"(?<![0-9A-Za-z:.])(?:[01]?[0-9]|2[0-3]):[0-5][0-9](?::[0-5][0-9])?(?![0-9A-Za-z:.])"
++    rest = " ".join(re.sub(clock, " ", text).split())
++    if not rest:
++        return None, False
++    signal = race_index_status_policy()["exact_words"].get(rest)
++    return signal, signal is None
++
++
++def _raceindex_sales_status(cells, deadline_column, state_columns):
++    if len(state_columns) > 1:
++        return "UNKNOWN"
++    signals = []
++    for index in [deadline_column, *state_columns]:
++        signal, unknown_rest = _raceindex_status_signal(cells[index])
++        if unknown_rest:
++            return "UNKNOWN"
++        if signal is not None:
++            signals.append(signal)
++    return signals[0] if signals and len(set(signals)) == 1 else "UNKNOWN"
+ 
+ 
+ def _raceindex_expected(expected_race_numbers):
+@@ -48,7 +85,7 @@
+ 
+ 
+ def _raceindex_structure_complete(html: str, table):
+-    """Reject parser-repaired truncation in the selected table, not page legends."""
++    """Gate unreviewed nesting/end tags; this is not an HTML validity verdict."""
+     from html.parser import HTMLParser
+ 
+     class Structure(HTMLParser):
+@@ -92,10 +129,16 @@
+     parser.close()
+     frame = parser.tables.get((table.sourceline, table.sourcepos))
+     if not frame or not frame["valid"] or not frame["closed"] or frame["stack"]:
+-        _raceindex_partial("SELECTED_TABLE_TRUNCATED_OR_UNBALANCED")
++        # HTML5 permits some omitted closing tags. Without the real page and a
++        # reviewed policy, rejection is a policy boundary, not a validity claim.
++        _raceindex_partial("POLICY_PENDING_REAL_HTML_TABLE_END_TAG_STRUCTURE")
+ 
+ 
+ def _raceindex_clock(text: str):
++    if text.strip() == "中止":
++        _raceindex_partial("POLICY_PENDING_REAL_HTML_DEADLINE_CANCEL_LABEL_WITHOUT_TIME")
++    if text.strip() == "締切":
++        _raceindex_partial("POLICY_PENDING_REAL_HTML_DEADLINE_CLOSING_LABEL_WITHOUT_TIME")
+     # Count malformed time-shaped spans too. A valid clock must not hide an
+     # additional "25:000", "99:999", short-minute or missing-hour candidate.
+     tokens = re.findall(r"[0-9０-９]+(?:[:：][0-9０-９.]*)+|(?<![0-9０-９])[:：][0-9０-９.]+", text)
+@@ -143,14 +186,19 @@
+             if len(race_columns) != 1 or len(deadline_columns) != 1 or race_columns[0] == deadline_columns[0]:
+                 _raceindex_partial("SEMANTIC_HEADER_AMBIGUOUS")
+             if any(cell.get("rowspan", "1") != "1" or cell.get("colspan", "1") != "1" for cell in cells):
+-                _raceindex_partial("MERGED_HEADER_UNSUPPORTED")
++                _raceindex_partial("POLICY_PENDING_REAL_HTML_MERGED_HEADER")
+             anchors.append((row, row.find_parent("table"), race_columns[0], deadline_columns[0], len(cells)))
+     if not anchors and not any(_raceindex_labels(" ".join(row.stripped_strings)) for row in rows):
+         raise ParserError("raceindex: no race rows with race number + deadline found")
++    if not anchors:
++        _raceindex_partial("POLICY_PENDING_REAL_HTML_HEADER_UNSUPPORTED")
+     if len(anchors) != 1 or anchors[0][1] is None:
+-        _raceindex_partial("SEMANTIC_HEADER_MISSING_OR_MULTIPLE")
++        _raceindex_partial("POLICY_PENDING_REAL_HTML_MULTIPLE_SEMANTIC_HEADERS")
+     header, table, race_column, deadline_column, width = anchors[0]
+     _raceindex_structure_complete(html, table)
++    header_cells = header.find_all(["th", "td"], recursive=False)
++    state_columns = [index for index, cell in enumerate(header_cells)
++                     if re.sub(r"\s+", "", "".join(cell.stripped_strings)) in race_index_status_policy()["headers"]]
+     races: List[OfficialRaceInfo] = []
+     seen = set()
+     header_seen = False
+@@ -160,7 +208,6 @@
+         if row is header:
+             header_seen = True
+             continue
+-        text = " ".join(row.stripped_strings)
+         cells = row.find_all(["th", "td"], recursive=False)
+         if not cells:
+             continue
+@@ -170,8 +217,10 @@
+             # Named headings and labels in race-name/annotation columns are not
+             # records. A labelled/missing race cell with a deadline is partial.
+             deadline_text = " ".join(cells[deadline_column].stripped_strings) if deadline_column < len(cells) else ""
+-            if _raceindex_labels(race_cell) or re.search(r"[0-9]{1,2}:[0-9]{2}", deadline_text):
++            if _raceindex_labels(race_cell):
+                 _raceindex_partial("RACE_CELL_NOT_CANONICAL")
++            if re.search(r"[0-9]{1,2}:[0-9]{2}", deadline_text):
++                _raceindex_partial("POLICY_PENDING_REAL_HTML_TIMED_NONRACE_ROW")
+             continue
+         if not header_seen:
+             _raceindex_partial("RACE_DATA_PRECEDES_HEADER")
+@@ -188,13 +237,7 @@
+             _raceindex_partial("DEADLINE_CONTAINS_RACE_LABEL")
+         hh, mm, ss = _raceindex_clock(deadline_text)
+         deadline = dt.datetime(day.year, day.month, day.day, hh, mm, ss, tzinfo=JST)
+-        status = "UNKNOWN"
+-        if "中止" in text or "取りやめ" in text:
+-            status = "CANCELLED"
+-        elif "発売終了" in text:
+-            status = "CLOSED"
+-        elif "投票" in text or "発売中" in text:
+-            status = "OPEN"
++        status = _raceindex_sales_status(cells, deadline_column, state_columns)
+         races.append(OfficialRaceInfo(
+             race_id=make_race_id(date_str, race_no), official_deadline=deadline,
+             is_closed=(status == "CLOSED"), is_cancelled=(status == "CANCELLED"),
+--- a/raceindex_status.py
++++ b/raceindex_status.py
+@@ -1,15 +1,12 @@
+-"""Typed index observations; calendar authentication is NOT implemented.
+-
+-Self-reported bytes, hashes, review booleans and receipt references never verify
+-absence or shorten the expected universe. Legacy names are quarantined.
+-"""
++"""Fixed-code index observations; no calendar authority or schedule adapter."""
+ from __future__ import annotations
+ 
+ INDEX_KINDS = frozenset({"HTTP_FETCH_FAILED", "HTML_PARSE_FAILED", "TRACKING_MISSING",
+-                         "TRACKING_PARSE_FAILED", "UNKNOWN_FAILURE", "SCHEDULE_UNVERIFIED"})
++                         "TRACKING_PARSE_FAILED", "UNKNOWN_FAILURE"})
+ _REASONS = frozenset({
+     "UNCLASSIFIED_EXCEPTION", "HTTP_RETRIES_EXHAUSTED", "HTTP_REQUEST_FAILED",
+-    "RACE_INDEX_HTML_INVALID", "RACE_INDEX_UNKNOWN_FAILURE", "NOW_JST_AWARE_REQUIRED",
++    "RACE_INDEX_HTML_INVALID", "RACE_INDEX_NO_RACE_ROWS_UNAUTHENTICATED",
++    "RACE_INDEX_UNKNOWN_FAILURE", "NOW_JST_AWARE_REQUIRED",
+     "OFFICIAL_SNAPSHOT_SCOPE_INVALID", "TRACKING_SNAPSHOT_SCOPE_INVALID",
+     "TRACKING_JSON_INVALID", "TRACKING_PAYLOAD_NOT_OBJECT", "TRACKING_PROGRAMS_NOT_OBJECT",
+     "TRACKING_STADIUMS_NOT_OBJECT", "TRACKING_STADIUM_7_MISSING", "TRACKING_STADIUM_AMBIGUOUS",
+@@ -18,7 +15,6 @@
+     "TRACKING_RACE_KEY_NUMBER_MISMATCH", "TRACKING_RACE_NUMBER_DUPLICATE",
+     "TRACKING_DEADLINE_INVALID", "TRACKING_DEADLINE_TARGET_DATE_MISMATCH",
+     "TRACKING_PAYLOAD_DATE_MISMATCH", "TRACKING_EXPECTED_RACE_SET_MISMATCH",
+-    "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED",
+ })
+ FULL_RACE_NUMBERS = frozenset(range(1, 13))
+ 
+@@ -26,41 +22,17 @@
+ class IndexFailure(RuntimeError):
+     """Fixed-code diagnostic: never retain a source URL or exception string."""
+     def __init__(self, kind="UNKNOWN_FAILURE", reason="UNCLASSIFIED_EXCEPTION"):
+-        if isinstance(kind, str) and kind == "NO_RACE_VERIFIED":
+-            # A manually constructed legacy status is not a calendar proof.
+-            kind, reason = "SCHEDULE_UNVERIFIED", "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED"
+         self.kind = kind if isinstance(kind, str) and kind in INDEX_KINDS else "UNKNOWN_FAILURE"
+         self.reason = reason if isinstance(reason, str) and reason in _REASONS else "UNCLASSIFIED_EXCEPTION"
+         super().__init__(self.kind + ":" + self.reason)
+-
+-
+-class NoRaceVerified(IndexFailure):
+-    """Legacy import compatibility only; never represents verified absence."""
+-    def __init__(self):
+-        super().__init__("SCHEDULE_UNVERIFIED", "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED")
+ 
+ 
+ def classify_index_exception(exc):
+     """Return safe fields without evaluating an untrusted exception's str/repr."""
+     normalized = IndexFailure()
+     try:
+-        if isinstance(exc, NoRaceVerified):
+-            normalized = NoRaceVerified()
+-        elif isinstance(exc, IndexFailure):
++        if isinstance(exc, IndexFailure):
+             normalized = IndexFailure(exc.kind, exc.reason)
+     except Exception:
+         pass  # Malicious/unsupported attributes do not become diagnostics.
+     return {"kind": normalized.kind, "reason": normalized.reason}
+-
+-
+-def reviewed_schedule_decision(evidence, target_date):
+-    """Always hold: no real calendar-authentication adapter exists.
+-
+-    Inputs are deliberately not inspected, hashed, stringified or treated as
+-    authenticated evidence. Even genuine originals need a reviewed real adapter.
+-    The legacy signature is retained, without a bypass flag or test exception.
+-    """
+-    return {"accepted": False, "event": None, "race_numbers": FULL_RACE_NUMBERS,
+-            "status": "HOLD", "kind": "SCHEDULE_UNVERIFIED",
+-            "reason": "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED",
+-            "authentication_implemented": False, "external_authenticity": "UNVERIFIED"}

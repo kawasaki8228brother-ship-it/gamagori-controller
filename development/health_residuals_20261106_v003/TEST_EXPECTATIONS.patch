@@ -1,0 +1,531 @@
+--- a/tests/test_health_controller_scope.py
++++ b/tests/test_health_controller_scope.py
+@@ -16,7 +16,10 @@
+ from models import JST, OfficialRaceInfo, RaceIndexSnapshot, RaceState, RaceStatus
+ from raceindex_scope import (RaceScopeError, filter_current_races, recover_current_states,
+                              validate_index_snapshot)
+-from raceindex_status import NoRaceVerified
++
++
++class NoRaceVerified(RuntimeError):
++    """Invented legacy-spelling exception; never a production authority/API."""
+ 
+ 
+ NOW = datetime_module.datetime(2099, 1, 7, 12, 0, tzinfo=JST)
+@@ -51,7 +54,8 @@
+ def controller(states=(), known=None):
+     value = main.GamagoriController.__new__(main.GamagoriController)
+     value._known_races = {} if known is None else dict(known)
+-    value._index_hold_reason = None
++    value._day_evidence_date = None
++    value._day_evidence_sources = set()
+     value._error_log_limiter = _Limiter()
+     value._stop = asyncio.Event()
+     value.poll_interval = 0
+@@ -171,7 +175,7 @@
+         self.assertFalse(active)
+         self.assertEqual(value._known_races, {})
+ 
+-    async def test_unverified_no_race_claim_retains_current_cache_and_latches_hold(self):
++    async def test_legacy_named_failure_retains_current_cache_without_a_latch(self):
+         for origin in ("official", "tracking"):
+             with self.subTest(origin=origin):
+                 current, old = race(1), race(2, YESTERDAY)
+@@ -187,11 +191,11 @@
+                     value.fetcher.fetch_tracking_race_index = AsyncMock(side_effect=no_race)
+                 with patch.object(main, "dt", fixed_clock_namespace()), self.assertLogs("gamagori-controller", level="INFO") as logged:
+                     await value.start()
+-                self.assertTrue(any("INDEX_HOLD" in line for line in logged.output))
++                self.assertFalse(any("INDEX_HOLD" in line for line in logged.output))
+                 self.assertEqual(value._known_races, {current.race_id: current})
+-                self.assertEqual(value._index_hold_reason, "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED")
++                self.assertFalse(hasattr(value, "_index_hold_reason"))
+                 if origin == "official":
+-                    value.fetcher.fetch_tracking_race_index.assert_not_awaited()
++                    value.fetcher.fetch_tracking_race_index.assert_awaited_once()
+                 else:
+                     value.fetcher.fetch_tracking_race_index.assert_awaited_once()
+                 value.repo.list_all_states.assert_not_awaited()
+--- a/tests/test_health_official_index.py
++++ b/tests/test_health_official_index.py
+@@ -9,7 +9,7 @@
+ 
+ from models import JST
+ from official import OfficialDataFetcher
+-from raceindex_status import IndexFailure, NoRaceVerified, classify_index_exception, reviewed_schedule_decision
++from raceindex_status import IndexFailure, classify_index_exception
+ 
+ 
+ NOW = dt.datetime(2099, 1, 7, 12, tzinfo=JST)
+@@ -39,8 +39,8 @@
+                 **{key: body[key] for key in ("date", "venue", "event", "race_numbers")}, "raw_sha256": digest}}
+ 
+ 
+-def fetcher(text, provider=None):
+-    obj = OfficialDataFetcher(max_retries=1, schedule_evidence_provider=provider)
++def fetcher(text):
++    obj = OfficialDataFetcher(max_retries=1)
+     obj._get_text = AsyncMock(return_value=(text, ACQUIRED))
+     return obj
+ 
+@@ -58,29 +58,30 @@
+ 
+ 
+ @pytest.mark.asyncio
+-@pytest.mark.parametrize("html", ["<html>No races shown</html>", index_html(range(1, 12)),
+-                                  "<table><tr><td>1R</td><td>13:01</td></tr></table>"])
+-async def test_http_200_empty_partial_or_wrong_structure_is_not_no_race(html):
++@pytest.mark.parametrize("html,reason", [
++    ("<html>No races shown</html>", "RACE_INDEX_NO_RACE_ROWS_UNAUTHENTICATED"),
++    (index_html(range(1, 12)), "RACE_INDEX_HTML_INVALID"),
++    ("<table><tr><td>1R</td><td>13:01</td></tr></table>", "RACE_INDEX_HTML_INVALID")])
++async def test_http_200_empty_partial_or_wrong_structure_is_not_no_race(html, reason):
+     obj = fetcher(html)
+     try:
+         with pytest.raises(IndexFailure) as caught:
+             await obj.fetch_race_index(NOW)
+         assert type(caught.value) is IndexFailure
+-        assert classify_index_exception(caught.value) == {"kind": "HTML_PARSE_FAILED", "reason": "RACE_INDEX_HTML_INVALID"}
+-    finally:
+-        await obj.close()
+-
+-
+-@pytest.mark.asyncio
+-async def test_self_reported_calendar_does_not_skip_http_or_verify_absence():
+-    # S2 withdraws the v001 self-report-as-authentication expectation.
+-    obj = fetcher(index_html(), lambda now: proof())
++        assert classify_index_exception(caught.value) == {"kind": "HTML_PARSE_FAILED", "reason": reason}
++    finally:
++        await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_removed_calendar_provider_is_not_an_admission_api():
++    # D3 removes the S2 inert argument rather than retaining an authority hook.
++    with pytest.raises(TypeError):
++        OfficialDataFetcher(schedule_evidence_provider=lambda now: proof())
++    obj = fetcher(index_html())
+     try:
+         assert len((await obj.fetch_race_index(NOW)).races) == 12
+         obj._get_text.assert_awaited_once()
+-        decision = reviewed_schedule_decision(proof(), DATE)
+-        assert decision["accepted"] is False and decision["external_authenticity"] == "UNVERIFIED"
+-        assert decision["kind"] == "SCHEDULE_UNVERIFIED"
+     finally:
+         await obj.close()
+ 
+@@ -97,46 +98,36 @@
+     elif kind == "receipt": p["independent_review"]["receipt_sha256"] = None
+     elif kind == "review_binding": p["independent_review"]["event"] = "RACING_DAY"
+     else: p["raw_evidence"] = b""
+-    obj = fetcher(index_html(range(1, 9)), lambda now: p)
+-    try:
+-        with pytest.raises(IndexFailure) as caught:
+-            await obj.fetch_race_index(NOW)
+-        assert type(caught.value) is IndexFailure and caught.value.kind == "HTML_PARSE_FAILED"
+-        obj._get_text.assert_awaited_once()
+-    finally:
+-        await obj.close()
+-
+-
+-@pytest.mark.asyncio
+-async def test_self_reported_short_calendar_does_not_relax_expected_twelve():
+-    # S2 withdraws v001 eight-race admission: no real authenticator exists.
+-    p = proof("RACING_DAY", range(1, 9))
+-    obj = fetcher(index_html(range(1, 9)), lambda now: p)
++    with pytest.raises(TypeError):
++        OfficialDataFetcher(schedule_evidence_provider=lambda now: p)
++
++
++@pytest.mark.asyncio
++async def test_partial_day_cannot_change_fixed_expected_twelve():
++    # D3 has no calendar argument; expected twelve is a direct constant.
++    obj = fetcher(index_html(range(1, 9)))
+     try:
+         with pytest.raises(IndexFailure) as caught:
+             await obj.fetch_race_index(NOW)
+         assert caught.value.kind == "HTML_PARSE_FAILED"
+     finally:
+         await obj.close()
+-    obj = fetcher(json.dumps(tracking(range(1, 9))), lambda now: p)
+-    try:
+-        with pytest.raises(IndexFailure) as caught:
+-            await obj.fetch_tracking_race_index(NOW)
+-        assert caught.value.kind == "TRACKING_PARSE_FAILED"
+-    finally:
+-        await obj.close()
+-
+-
+-@pytest.mark.asyncio
+-async def test_calendar_provider_exception_retains_twelve_and_does_not_echo(caplog):
++    obj = fetcher(json.dumps(tracking(range(1, 9))))
++    try:
++        with pytest.raises(IndexFailure) as caught:
++            await obj.fetch_tracking_race_index(NOW)
++        assert caught.value.kind == "TRACKING_PARSE_FAILED"
++    finally:
++        await obj.close()
++
++
++@pytest.mark.asyncio
++async def test_removed_provider_argument_never_executes_or_echoes_callback(caplog):
+     def bad_provider(now):
+         raise RuntimeError("PRIVATE_PROVIDER_SECRET")
+-    obj = fetcher(index_html(), bad_provider)
+-    try:
+-        assert len((await obj.fetch_race_index(NOW)).races) == 12
+-        assert "PRIVATE_PROVIDER_SECRET" not in caplog.text
+-    finally:
+-        await obj.close()
++    with pytest.raises(TypeError):
++        OfficialDataFetcher(schedule_evidence_provider=bad_provider)
++    assert "PRIVATE_PROVIDER_SECRET" not in caplog.text
+ 
+ 
+ @pytest.mark.asyncio
+--- a/tests/test_health_raceindex_parser.py
++++ b/tests/test_health_raceindex_parser.py
+@@ -18,9 +18,10 @@
+ 
+ 
+ def test_synthetic_normal_twelve_and_status_semantics():
+-    html = table([row(number, f"{14+number//6:02}:{number:02}",
+-                      "発売終了" if number == 2 else "中止" if number == 3 else "投票")
+-                  for number in range(1, 13)])
++    html = table([f"<tr><td>{number}R</td><td>{14+number//6:02}:{number:02}</td>"
++                  f"<td>{'発売終了' if number == 2 else '中止' if number == 3 else '発売中'}</td></tr>"
++                  for number in range(1, 13)],
++                 "<th>レース</th><th>締切予定時刻</th><th>発売状況</th>")
+     races = parse(html, range(1, 13))
+     assert len(races) == 12
+     assert races[0].race_id == "20990101_GAM_01R"
+--- a/tests/test_health_v002_controller.py
++++ b/tests/test_health_v002_controller.py
+@@ -1,4 +1,4 @@
+-"""S2 controller safety on invented 2099 inputs; no constructor or real I/O."""
++"""Revised S2 regressions: v003 withdraws the former NoRace/HOLD design."""
+ import asyncio
+ from copy import deepcopy
+ import datetime as dt
+@@ -10,12 +10,9 @@
+ with patch("os.getenv", side_effect=lambda name, default=None: default):
+     import main
+ from official import OfficialDataFetcher
+-from raceindex_status import IndexFailure, NoRaceVerified
++from raceindex_status import IndexFailure
+ from test_health_controller_scope import (NOW, YESTERDAY, controller, fixed_clock_namespace,
+-                                          race, snapshot, state)
+-
+-
+-HOLD_REASON = "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED"
++                                          race, snapshot, state, NoRaceVerified)
+ 
+ 
+ def twelve():
+@@ -51,7 +48,7 @@
+         with patch.object(main, "dt", fixed_clock_namespace()):
+             await value.start()
+         self.assertEqual(processed, [f"20990107_GAM_{number:02}R" for number in range(1, 13)])
+-        self.assertIsNone(value._index_hold_reason)
++        self.assertFalse(hasattr(value, "_index_hold_reason"))
+         value.fetcher.fetch_tracking_race_index.assert_not_awaited()
+         for awaited in value.state_machine.process_race.await_args_list:
+             self.assertIsNotNone(awaited.kwargs["official_info"])
+@@ -80,13 +77,13 @@
+         value.fetcher = fetcher
+         self.assertEqual(await value._refresh_race_universe(afternoon, 1), (False, False))
+         self.assertEqual(len(value._known_races), 12)
+-        self.assertIsNone(value._index_hold_reason)
++        self.assertFalse(hasattr(value, "_index_hold_reason"))
+         fetcher.schedule_evidence_provider.assert_not_called()
+         fetcher._get_text.assert_awaited_once()
+         value.state_machine.process_race.assert_not_awaited()
+         assert_no_writes(self, value)
+ 
+-    async def test_legacy_no_race_claim_from_either_fetch_preserves_current_states_and_holds(self):
++    async def test_legacy_named_failure_from_either_fetch_uses_normal_fallback(self):
+         for origin in ("official", "tracking"):
+             with self.subTest(origin=origin):
+                 current, old = race(1), race(2, YESTERDAY)
+@@ -96,19 +93,20 @@
+                 failure = AsyncMock(side_effect=NoRaceVerified())
+                 if origin == "official":
+                     value.fetcher.fetch_race_index = failure
++                    value.fetcher.fetch_tracking_race_index = AsyncMock(return_value=twelve())
+                 else:
+                     value.fetcher.fetch_tracking_race_index = failure
+-                self.assertEqual(await value._refresh_race_universe(NOW, 1), (True, False))
+-                self.assertEqual(value._index_hold_reason, HOLD_REASON)
+-                self.assertEqual(value._known_races, {current.race_id: current})
++                self.assertEqual(await value._refresh_race_universe(NOW, 1), (True, origin == "official"))
++                self.assertFalse(hasattr(value, "_index_hold_reason"))
++                self.assertEqual(len(value._known_races), 12 if origin == "official" else 1)
+                 value.repo.list_all_states.assert_not_awaited()
+                 value.state_machine.process_race.assert_not_awaited()
+                 if origin == "official":
+-                    value.fetcher.fetch_tracking_race_index.assert_not_awaited()
++                    value.fetcher.fetch_tracking_race_index.assert_awaited_once()
+                 self.assertEqual(records, before)
+                 assert_no_writes(self, value)
+ 
+-    async def test_hostile_no_race_exception_is_not_stringified_or_accepted(self):
++    async def test_hostile_legacy_exception_is_unknown_without_stringification_or_latching(self):
+         class HostileNoRace(NoRaceVerified):
+             def __str__(self):
+                 raise AssertionError("UNTRUSTED_EXCEPTION_MUST_NOT_BE_STRINGIFIED")
+@@ -118,7 +116,8 @@
+             value = attach_forbidden_writer(controller(known={race(1).race_id: race(1)}))
+             value.fetcher.fetch_race_index = AsyncMock(side_effect=failure)
+             self.assertEqual(await value._refresh_race_universe(NOW, 1), (True, False))
+-            self.assertEqual(value._index_hold_reason, HOLD_REASON)
++            self.assertFalse(hasattr(value, "_index_hold_reason"))
++            self.assertEqual(value._last_index_outcome["official"], "UNKNOWN_FAILURE")
+             self.assertEqual(len(value._known_races), 1)
+             self.assertNotIn("PRIVATE_VALUE", json.dumps(value._last_index_outcome))
+             value.state_machine.process_race.assert_not_awaited()
+@@ -131,7 +130,7 @@
+         value = attach_forbidden_writer(controller(records, {current.race_id: current, old.race_id: old}))
+         self.assertEqual(await value._refresh_race_universe(NOW, 1), (True, False))
+         self.assertEqual(value._known_races, {current.race_id: current})
+-        self.assertIsNone(value._index_hold_reason)
++        self.assertFalse(hasattr(value, "_index_hold_reason"))
+         self.assertEqual(records, before)
+         assert_no_writes(self, value)
+ 
+@@ -163,39 +162,42 @@
+                 value.state_machine.process_race.assert_not_awaited()
+                 assert_no_writes(self, value)
+ 
+-    async def test_hold_latch_survives_next_refresh_and_same_instance_start_without_replay(self):
++    async def test_unknown_failure_does_not_latch_and_later_poll_dispatches_normally(self):
+         value = attach_forbidden_writer(controller(known={race(1).race_id: race(1)}))
+         value.fetcher.fetch_race_index = AsyncMock(side_effect=NoRaceVerified())
+         await value._refresh_race_universe(NOW, 1)
+         value.fetcher.fetch_race_index = AsyncMock(return_value=twelve())
+         value.fetcher.fetch_tracking_race_index = AsyncMock(return_value=twelve())
+-        self.assertEqual(await value._refresh_race_universe(NOW, 2), (True, False))
+-        polls = []
+-        def stop_after_two_held_polls(*args, **kwargs):
+-            polls.append(True)
+-            if len(polls) >= 2:
++        self.assertEqual(await value._refresh_race_universe(NOW, 2), (False, False))
++        processed = []
++        async def stop_after_twelve(race_id, *args, **kwargs):
++            processed.append(race_id)
++            if len(processed) == 12:
+                 value.request_stop()
+-        value._maybe_log_sqlite_audit = Mock(side_effect=stop_after_two_held_polls)
++        value.state_machine.process_race = AsyncMock(side_effect=stop_after_twelve)
+         with patch.object(main, "dt", fixed_clock_namespace()):
+             await value.start()
+-        self.assertEqual(len(polls), 2)
+-        self.assertEqual(value._index_hold_reason, HOLD_REASON)
+-        self.assertEqual(set(value._known_races), {race(1).race_id})
+-        value.fetcher.fetch_race_index.assert_not_awaited()
++        self.assertEqual(len(processed), 12)
++        self.assertFalse(hasattr(value, "_index_hold_reason"))
++        self.assertEqual(len(value._known_races), 12)
++        self.assertEqual(value.fetcher.fetch_race_index.await_count, 2)
+         value.fetcher.fetch_tracking_race_index.assert_not_awaited()
+         value.repo.list_all_states.assert_not_awaited()
+-        value.state_machine.process_race.assert_not_awaited()
+-        assert_no_writes(self, value)
+-
+-    async def test_held_next_day_prunes_now_stale_cache_without_clearing_latch_or_refetching(self):
++        assert_no_writes(self, value)
++
++    async def test_unknown_failure_does_not_prevent_a_fresh_next_day_index(self):
+         value = attach_forbidden_writer(controller(known={race(1).race_id: race(1)}))
+         value.fetcher.fetch_race_index = AsyncMock(side_effect=NoRaceVerified())
+         await value._refresh_race_universe(NOW, 1)
+-        value.fetcher.fetch_race_index.reset_mock()
+-        self.assertEqual(await value._refresh_race_universe(NOW + dt.timedelta(days=1), 2), (True, False))
+-        self.assertEqual(value._known_races, {})
+-        self.assertEqual(value._index_hold_reason, HOLD_REASON)
+-        value.fetcher.fetch_race_index.assert_not_awaited()
++        tomorrow = NOW + dt.timedelta(days=1)
++        fresh = snapshot([race(number, tomorrow) for number in range(1, 13)],
++                         date=tomorrow.strftime("%Y%m%d"), acquired_at=tomorrow.isoformat())
++        value.fetcher.fetch_race_index = AsyncMock(return_value=fresh)
++        self.assertEqual(await value._refresh_race_universe(tomorrow, 2), (False, False))
++        self.assertEqual(len(value._known_races), 12)
++        self.assertTrue(all(key.startswith("20990108_") for key in value._known_races))
++        self.assertFalse(hasattr(value, "_index_hold_reason"))
++        value.fetcher.fetch_race_index.assert_awaited_once()
+         value.repo.list_all_states.assert_not_awaited()
+         value.state_machine.process_race.assert_not_awaited()
+         assert_no_writes(self, value)
+--- a/tests/test_health_v002_schedule.py
++++ b/tests/test_health_v002_schedule.py
+@@ -1,120 +1,81 @@
+-"""S2: invented calendar claims cannot authenticate absence or a short day."""
+-from copy import deepcopy
++"""D3 replaces S2 inert-hook tests with explicit active-API removal regressions.
++
++The exact v002 original is preserved by root. No old calendar assertion remains
++an admission interface; all examples below are invented local claims only.
++"""
++import inspect
++import json
+ from unittest.mock import Mock
+ 
+ import pytest
+ 
+-from raceindex_status import (
+-    FULL_RACE_NUMBERS, IndexFailure, NoRaceVerified,
+-    classify_index_exception, reviewed_schedule_decision,
+-)
+-from test_health_official_index import DATE, NOW, fetcher, index_html, proof, tracking
+-import json
++import official
++import raceindex_status
++from official import OfficialDataFetcher
++from raceindex_status import FULL_RACE_NUMBERS, IndexFailure, classify_index_exception
++from test_health_official_index import NOW, fetcher, index_html, proof, tracking
+ 
+ 
+-def assert_unverified(decision):
+-    assert decision["accepted"] is False
+-    assert decision["event"] is None
+-    assert decision["race_numbers"] == FULL_RACE_NUMBERS
+-    assert decision["kind"] == "SCHEDULE_UNVERIFIED" and decision["status"] == "HOLD"
+-    assert decision["reason"] == "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED"
+-    assert decision["authentication_implemented"] is False
+-    assert decision["external_authenticity"] == "UNVERIFIED"
++def test_schedule_authority_names_and_constructor_hook_are_absent():
++    assert "schedule_evidence_provider" not in inspect.signature(OfficialDataFetcher).parameters
++    assert not hasattr(OfficialDataFetcher, "_expected_race_numbers")
++    for module in (official, raceindex_status):
++        assert not hasattr(module, "NoRaceVerified")
++        assert not hasattr(module, "reviewed_schedule_decision")
++    assert "SCHEDULE_UNVERIFIED" not in raceindex_status.INDEX_KINDS
+ 
+ 
+ @pytest.mark.parametrize("event,numbers", [("NO_RACE", []), ("RACING_DAY", range(1, 9)), ("RACING_DAY", range(1, 13))])
+-def test_perfectly_self_consistent_claim_still_has_no_authentication(event, numbers):
+-    claimed = proof(event, numbers)
+-    before = deepcopy(claimed)
+-    assert_unverified(reviewed_schedule_decision(claimed, DATE))
+-    assert claimed == before
++def test_matching_calendar_claim_cannot_be_injected_as_an_argument(event, numbers):
++    provider = Mock(return_value=proof(event, numbers))
++    with pytest.raises(TypeError):
++        OfficialDataFetcher(schedule_evidence_provider=provider)
++    provider.assert_not_called()
+ 
+ 
+-@pytest.mark.parametrize("receipt", ["0" * 64, "f" * 64, "a" * 64, None, True, "https://PRIVATE_SECRET.invalid"])
+-def test_receipt_shape_zero_hash_true_or_matching_raw_never_grants_authority(receipt):
++@pytest.mark.parametrize("receipt", ["0" * 64, "f" * 64, None, True, "https://PRIVATE_SECRET.invalid"])
++def test_arbitrary_self_asserted_receipt_cannot_reopen_removed_api(receipt):
+     claimed = proof()
+     claimed["independent_review"]["receipt_sha256"] = receipt
+-    result = reviewed_schedule_decision(claimed, DATE)
+-    assert_unverified(result)
+-    assert "PRIVATE_SECRET" not in str(result)
+-    claimed["independent_review"]["receipt_sha256"] = claimed["raw_sha256"]
+-    assert_unverified(reviewed_schedule_decision(claimed, DATE))
+-
+-
+-def test_evidence_and_target_are_not_inspected_or_stringified():
+-    class Forbidden:
+-        def __getattribute__(self, name):
+-            raise AssertionError("UNAUTHENTICATED_INPUT_MUST_NOT_BE_INSPECTED")
+-    assert_unverified(reviewed_schedule_decision(Forbidden(), Forbidden()))
+-    for value in (None, {}, [], True, b"SYNTHETIC_NOT_A_CALENDAR"):
+-        assert_unverified(reviewed_schedule_decision(value, value))
++    provider = Mock(return_value=claimed)
++    with pytest.raises(TypeError):
++        OfficialDataFetcher(schedule_evidence_provider=provider)
++    provider.assert_not_called()
+ 
+ 
+ @pytest.mark.asyncio
+ @pytest.mark.parametrize("path", ["official", "tracking"])
+-async def test_provider_is_not_called_even_when_claiming_no_race_or_raising(path, caplog):
+-    provider = Mock(side_effect=AssertionError("PRIVATE_PROVIDER_SECRET"))
+-    obj = fetcher(index_html() if path == "official" else json.dumps(tracking()), provider)
++async def test_fixed_twelve_remains_without_provider_attribute(path):
++    obj = fetcher(index_html() if path == "official" else json.dumps(tracking()))
+     try:
+-        snapshot = await (obj.fetch_race_index(NOW) if path == "official" else obj.fetch_tracking_race_index(NOW))
+-        assert len(snapshot.races) == 12
+-        provider.assert_not_called()
+-        assert "PRIVATE_PROVIDER_SECRET" not in caplog.text
+-        assert "NO_RACE_VERIFIED" not in caplog.text
++        assert not hasattr(obj, "schedule_evidence_provider")
++        result = await (obj.fetch_race_index(NOW) if path == "official" else obj.fetch_tracking_race_index(NOW))
++        assert len(result.races) == len(FULL_RACE_NUMBERS) == 12
+         if path == "tracking":
+-            assert all(not race.is_closed and not race.is_cancelled and race.sales_status == "FALLBACK_TRACKING_ONLY"
+-                       for race in snapshot.races)
++            assert all(not r.is_closed and not r.is_cancelled and r.sales_status == "FALLBACK_TRACKING_ONLY" for r in result.races)
+     finally:
+         await obj.close()
+ 
+ 
+-@pytest.mark.asyncio
+-async def test_async_provider_is_also_not_invoked():
+-    calls = []
+-    async def provider(now):
+-        calls.append(now)
+-        return proof()
+-    obj = fetcher(index_html(), provider)
+-    try:
+-        assert len((await obj.fetch_race_index(NOW)).races) == 12
+-        assert calls == []
+-    finally:
+-        await obj.close()
++@pytest.mark.parametrize("kind,reason", [("NO_RACE_VERIFIED", "INDEPENDENT_OFFICIAL_CALENDAR_NO_RACE"),
++                                        ("SCHEDULE_UNVERIFIED", "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED")])
++def test_removed_exception_kind_strings_are_ordinary_unknown_failures(kind, reason):
++    forged = IndexFailure(kind, reason)
++    expected = {"kind": "UNKNOWN_FAILURE", "reason": "UNCLASSIFIED_EXCEPTION"}
++    assert classify_index_exception(forged) == expected
++    forged.kind, forged.reason = kind, "PRIVATE_SECRET"
++    assert classify_index_exception(forged) == expected
+ 
+ 
+-@pytest.mark.asyncio
+-@pytest.mark.parametrize("path", ["official", "tracking"])
+-async def test_legacy_decision_function_cannot_reopen_short_count_bypass(path, monkeypatch):
+-    decision = Mock(return_value={"accepted": True, "event": "RACING_DAY", "race_numbers": frozenset(range(1, 9))})
+-    monkeypatch.setattr("official.reviewed_schedule_decision", decision)
+-    provider = Mock(return_value=proof("RACING_DAY", range(1, 9)))
+-    obj = fetcher(index_html(range(1, 9)) if path == "official" else json.dumps(tracking(range(1, 9))), provider)
+-    try:
+-        with pytest.raises(IndexFailure) as caught:
+-            await (obj.fetch_race_index(NOW) if path == "official" else obj.fetch_tracking_race_index(NOW))
+-        assert caught.value.kind == ("HTML_PARSE_FAILED" if path == "official" else "TRACKING_PARSE_FAILED")
+-        provider.assert_not_called()
+-        decision.assert_not_called()
+-    finally:
+-        await obj.close()
++def test_unknown_exception_name_cannot_certify_absence_or_stop_monitor():
++    class NoRaceVerified(Exception):
++        def __str__(self):
++            raise AssertionError("MUST_NOT_STRINGIFY_UNTRUSTED_EXCEPTION")
++    result = classify_index_exception(NoRaceVerified())
++    assert result == {"kind": "UNKNOWN_FAILURE", "reason": "UNCLASSIFIED_EXCEPTION"}
+ 
+ 
+-def test_legacy_no_race_name_and_forged_kind_are_quarantined():
+-    legacy = NoRaceVerified()
+-    assert legacy.kind == "SCHEDULE_UNVERIFIED"
+-    assert "NO_RACE_VERIFIED" not in str(legacy)
+-    expected = {"kind": "SCHEDULE_UNVERIFIED", "reason": "SCHEDULE_AUTHENTICATION_NOT_IMPLEMENTED"}
+-    assert classify_index_exception(legacy) == expected
+-    forged = IndexFailure("NO_RACE_VERIFIED", "INDEPENDENT_OFFICIAL_CALENDAR_NO_RACE")
+-    assert classify_index_exception(forged) == expected
+-    forged.kind = "NO_RACE_VERIFIED"
+-    forged.reason = "PRIVATE_SECRET"
+-    assert classify_index_exception(forged) == expected
+-    legacy.kind, legacy.reason = "NO_RACE_VERIFIED", "PRIVATE_SECRET"
+-    assert classify_index_exception(legacy) == expected
+-
+-
+-def test_classifier_holds_malicious_attributes_without_echoing_or_promoting():
++def test_classifier_handles_malicious_attributes_as_unknown():
+     class Malicious(IndexFailure):
+         def __getattribute__(self, name):
+             if name in ("kind", "reason"):

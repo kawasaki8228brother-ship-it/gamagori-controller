@@ -32,6 +32,43 @@ def _raceindex_partial(code: str):
     raise ParserError("raceindex: partial parse " + code)
 
 
+def race_index_status_policy():
+    """Candidate vocabulary only; no assertion of real official-page support."""
+    return {"status": "PROPOSED_POLICY_PENDING", "official_state_confirmation": "UNVERIFIED",
+            "vocabulary_policy_status": "POLICY_PENDING_REAL_HTML",
+            "headers": ["発売状況", "状態"],
+            "exact_words": {"投票": "OPEN", "発売中": "OPEN", "発売終了": "CLOSED", "締切": "CLOSED",
+                            "中止": "CANCELLED", "レース中止": "CANCELLED", "発売中止": "CANCELLED", "取りやめ": "CANCELLED"},
+            "scope": "UNIQUE_DEADLINE_AND_OPTIONAL_UNIQUE_STATE_CELL", "fallback": "UNKNOWN",
+            "name_note_header_inference": False, "deadline_cell_exact_signal": True,
+            "official_source_authentication": "NOT_IMPLEMENTED"}
+
+
+def _raceindex_status_signal(cell):
+    # Preserve token boundaries: split words and contradictory phrases must not
+    # become an allowed word after joining. Only complete valid clocks vanish.
+    text = " ".join(cell.stripped_strings)
+    clock = r"(?<![0-9A-Za-z:.])(?:[01]?[0-9]|2[0-3]):[0-5][0-9](?::[0-5][0-9])?(?![0-9A-Za-z:.])"
+    rest = " ".join(re.sub(clock, " ", text).split())
+    if not rest:
+        return None, False
+    signal = race_index_status_policy()["exact_words"].get(rest)
+    return signal, signal is None
+
+
+def _raceindex_sales_status(cells, deadline_column, state_columns):
+    if len(state_columns) > 1:
+        return "UNKNOWN"
+    signals = []
+    for index in [deadline_column, *state_columns]:
+        signal, unknown_rest = _raceindex_status_signal(cells[index])
+        if unknown_rest:
+            return "UNKNOWN"
+        if signal is not None:
+            signals.append(signal)
+    return signals[0] if signals and len(set(signals)) == 1 else "UNKNOWN"
+
+
 def _raceindex_expected(expected_race_numbers):
     if expected_race_numbers is None:
         return None
@@ -48,7 +85,7 @@ def _raceindex_expected(expected_race_numbers):
 
 
 def _raceindex_structure_complete(html: str, table):
-    """Reject parser-repaired truncation in the selected table, not page legends."""
+    """Gate unreviewed nesting/end tags; this is not an HTML validity verdict."""
     from html.parser import HTMLParser
 
     class Structure(HTMLParser):
@@ -92,10 +129,16 @@ def _raceindex_structure_complete(html: str, table):
     parser.close()
     frame = parser.tables.get((table.sourceline, table.sourcepos))
     if not frame or not frame["valid"] or not frame["closed"] or frame["stack"]:
-        _raceindex_partial("SELECTED_TABLE_TRUNCATED_OR_UNBALANCED")
+        # HTML5 permits some omitted closing tags. Without the real page and a
+        # reviewed policy, rejection is a policy boundary, not a validity claim.
+        _raceindex_partial("POLICY_PENDING_REAL_HTML_TABLE_END_TAG_STRUCTURE")
 
 
 def _raceindex_clock(text: str):
+    if text.strip() == "中止":
+        _raceindex_partial("POLICY_PENDING_REAL_HTML_DEADLINE_CANCEL_LABEL_WITHOUT_TIME")
+    if text.strip() == "締切":
+        _raceindex_partial("POLICY_PENDING_REAL_HTML_DEADLINE_CLOSING_LABEL_WITHOUT_TIME")
     # Count malformed time-shaped spans too. A valid clock must not hide an
     # additional "25:000", "99:999", short-minute or missing-hour candidate.
     tokens = re.findall(r"[0-9０-９]+(?:[:：][0-9０-９.]*)+|(?<![0-9０-９])[:：][0-9０-９.]+", text)
@@ -143,14 +186,19 @@ def parse_race_index(html: str, date_str: str, source_url: str, acquired_at: str
             if len(race_columns) != 1 or len(deadline_columns) != 1 or race_columns[0] == deadline_columns[0]:
                 _raceindex_partial("SEMANTIC_HEADER_AMBIGUOUS")
             if any(cell.get("rowspan", "1") != "1" or cell.get("colspan", "1") != "1" for cell in cells):
-                _raceindex_partial("MERGED_HEADER_UNSUPPORTED")
+                _raceindex_partial("POLICY_PENDING_REAL_HTML_MERGED_HEADER")
             anchors.append((row, row.find_parent("table"), race_columns[0], deadline_columns[0], len(cells)))
     if not anchors and not any(_raceindex_labels(" ".join(row.stripped_strings)) for row in rows):
         raise ParserError("raceindex: no race rows with race number + deadline found")
+    if not anchors:
+        _raceindex_partial("POLICY_PENDING_REAL_HTML_HEADER_UNSUPPORTED")
     if len(anchors) != 1 or anchors[0][1] is None:
-        _raceindex_partial("SEMANTIC_HEADER_MISSING_OR_MULTIPLE")
+        _raceindex_partial("POLICY_PENDING_REAL_HTML_MULTIPLE_SEMANTIC_HEADERS")
     header, table, race_column, deadline_column, width = anchors[0]
     _raceindex_structure_complete(html, table)
+    header_cells = header.find_all(["th", "td"], recursive=False)
+    state_columns = [index for index, cell in enumerate(header_cells)
+                     if re.sub(r"\s+", "", "".join(cell.stripped_strings)) in race_index_status_policy()["headers"]]
     races: List[OfficialRaceInfo] = []
     seen = set()
     header_seen = False
@@ -160,7 +208,6 @@ def parse_race_index(html: str, date_str: str, source_url: str, acquired_at: str
         if row is header:
             header_seen = True
             continue
-        text = " ".join(row.stripped_strings)
         cells = row.find_all(["th", "td"], recursive=False)
         if not cells:
             continue
@@ -170,8 +217,10 @@ def parse_race_index(html: str, date_str: str, source_url: str, acquired_at: str
             # Named headings and labels in race-name/annotation columns are not
             # records. A labelled/missing race cell with a deadline is partial.
             deadline_text = " ".join(cells[deadline_column].stripped_strings) if deadline_column < len(cells) else ""
-            if _raceindex_labels(race_cell) or re.search(r"[0-9]{1,2}:[0-9]{2}", deadline_text):
+            if _raceindex_labels(race_cell):
                 _raceindex_partial("RACE_CELL_NOT_CANONICAL")
+            if re.search(r"[0-9]{1,2}:[0-9]{2}", deadline_text):
+                _raceindex_partial("POLICY_PENDING_REAL_HTML_TIMED_NONRACE_ROW")
             continue
         if not header_seen:
             _raceindex_partial("RACE_DATA_PRECEDES_HEADER")
@@ -188,13 +237,7 @@ def parse_race_index(html: str, date_str: str, source_url: str, acquired_at: str
             _raceindex_partial("DEADLINE_CONTAINS_RACE_LABEL")
         hh, mm, ss = _raceindex_clock(deadline_text)
         deadline = dt.datetime(day.year, day.month, day.day, hh, mm, ss, tzinfo=JST)
-        status = "UNKNOWN"
-        if "中止" in text or "取りやめ" in text:
-            status = "CANCELLED"
-        elif "発売終了" in text:
-            status = "CLOSED"
-        elif "投票" in text or "発売中" in text:
-            status = "OPEN"
+        status = _raceindex_sales_status(cells, deadline_column, state_columns)
         races.append(OfficialRaceInfo(
             race_id=make_race_id(date_str, race_no), official_deadline=deadline,
             is_closed=(status == "CLOSED"), is_cancelled=(status == "CANCELLED"),

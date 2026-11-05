@@ -1,0 +1,83 @@
+{
+  "observations": {
+    "P1": [
+      "ACCEPT",
+      "ACCEPT",
+      "ACCEPT"
+    ],
+    "P10": [
+      "ACCEPT",
+      "REJECT",
+      "ACCEPT_VARIANT_NAME_ON_RACE3"
+    ],
+    "P11": [
+      "REJECT",
+      "REJECT",
+      "UNVERIFIED_NOT_RUN"
+    ],
+    "P12": [
+      "REJECT",
+      "REJECT",
+      "UNVERIFIED_NOT_RUN"
+    ],
+    "P13": [
+      "REJECT",
+      "REJECT",
+      "UNVERIFIED_NOT_RUN"
+    ],
+    "P14": [
+      "ACCEPT",
+      "REJECT",
+      "ACCEPT_SECONDS_KEPT"
+    ],
+    "P2": [
+      "ACCEPT",
+      "REJECT",
+      "ACCEPT"
+    ],
+    "P3": [
+      "ACCEPT",
+      "REJECT",
+      "ACCEPT"
+    ],
+    "P4": [
+      "ACCEPT",
+      "REJECT",
+      "ACCEPT"
+    ],
+    "P5": [
+      "ACCEPT",
+      "REJECT",
+      "ACCEPT"
+    ],
+    "P6": [
+      "ACCEPT",
+      "ACCEPT",
+      "UNVERIFIED_NOT_RUN"
+    ],
+    "P7": [
+      "ACCEPT",
+      "REJECT",
+      "ACCEPT"
+    ],
+    "P8": [
+      "ACCEPT_7_ROWS",
+      "REJECT",
+      "REJECT"
+    ],
+    "P9": [
+      "ACCEPT",
+      "ACCEPT",
+      "UNVERIFIED_NOT_RUN"
+    ]
+  },
+  "original_bytes": "UNVERIFIED_NOT_RECEIVED",
+  "production_go": false,
+  "source": "USER_HQ14_CLAUDE_P1_P14_REPLY_20261106",
+  "trust": "RECEIVED_FORWARD_NOT_CODEX_MEASUREMENT",
+  "version_order": [
+    "8172aec",
+    "v001",
+    "v002"
+  ]
+}

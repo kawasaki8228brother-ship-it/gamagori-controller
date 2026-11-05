@@ -1,0 +1,1123 @@
+{
+  "base_commit": "48333a2315628ae17e1fa3ce4f8ef12c70e2662f",
+  "branch": "dev/health-residuals-20261106-v003",
+  "files": [
+    {
+      "bytes": 208,
+      "git_blob": "a63ec6849b9e17b6a69b411464edc270fc6103f4",
+      "path": ".env.example",
+      "sha256": "1af656ba22adffdf1167b0ed7de075929722e6b083ef8fab25875ff5e9118da8"
+    },
+    {
+      "bytes": 837,
+      "git_blob": "d576f35d05fa06f108ad0f1bec99f07589a31326",
+      "path": ".github/workflows/c-minimal-review.yml",
+      "sha256": "1ff1aa75136db226e0965c4896406a65437f77039fd13b7e1b42cd4403f3f1d9"
+    },
+    {
+      "bytes": 76,
+      "git_blob": "a6affb14ed8cfb49d689e1141e8a0b36b1dcffe0",
+      "path": ".gitignore",
+      "sha256": "3f54d767b7a4aea5a93932d512bf68aa55087b1acc56f1f8c4e2369d9dfbb890"
+    },
+    {
+      "bytes": 737,
+      "git_blob": "95851630cbb813b1c1cdd26ca5b8ff7d48940599",
+      "path": "README.md",
+      "sha256": "25df45e4b76242270303dfcbf2bd93c49d81a28f43c18c67357ceb187e5c1f4c"
+    },
+    {
+      "bytes": 1747,
+      "git_blob": "7dd123255471a09ac70314336dd644f67bab8f08",
+      "path": "airtable.py",
+      "sha256": "f4f3d3efc898697db75a99455341b97290daf8b1164bd17a8f3040643e9433d5"
+    },
+    {
+      "bytes": 1954,
+      "git_blob": "8fe88354d3dd86a1a35c81d96475893497a94412",
+      "path": "beforeinfo_bridge.py",
+      "sha256": "e81eb3160d7d3eebb618310fc44fd61f2ff11ea2d385cda30a2e9d5033ae8379"
+    },
+    {
+      "bytes": 3991,
+      "git_blob": "697f7000b506f4aa03d42b468fee071b65591991",
+      "path": "c_payload_schema.py",
+      "sha256": "d8453cb675fb1ff8fe33c2b47c4e842cf57ed6b46883082ee7ba6c26cefc2a19"
+    },
+    {
+      "bytes": 2603,
+      "git_blob": "92dca50457fcda1809b366d2c79ff7e78839a1f5",
+      "path": "closing.py",
+      "sha256": "c46b6ada4be9b981f9a110a4d2eec7c34381e9b5583725e465722f88ace9bace"
+    },
+    {
+      "bytes": 30108,
+      "git_blob": "e7e4e061044c45fa203269015d6d258ae2fb6b91",
+      "path": "development/health_residuals_20261105_v001/C_SOURCE.patch",
+      "sha256": "6d4b621c532a8f9c059fda4f6628b470467ab8ddb1d78a236d7796e9d1e01480"
+    },
+    {
+      "bytes": 4281,
+      "git_blob": "f0461ed30f2f67336e996e039922bf93bd325213",
+      "path": "development/health_residuals_20261105_v001/DIFF_STAT.json",
+      "sha256": "0215f635b2e12e448aa6c8eea85015c99f13513ce81499d5bb82a8aa85b1bbff"
+    },
+    {
+      "bytes": 7815,
+      "git_blob": "3bac5807aa562bbb7921165958f011c5b2b7cb4f",
+      "path": "development/health_residuals_20261105_v001/INDEPENDENT_REVIEW.md",
+      "sha256": "1d03c3d44506bfe43cdfe2d4e2db32c9f3f1348a57b6973b2774b54cb97cb78e"
+    },
+    {
+      "bytes": 1867,
+      "git_blob": "b9d8538e825bcb1af2e2e4a3224115467eb227ff",
+      "path": "development/health_residuals_20261105_v001/INDEX.md",
+      "sha256": "1b0ca86a7c83787e0ba65142ae1c53a4c6a25a0f1c32a315673ea1cb24277cd3"
+    },
+    {
+      "bytes": 5027,
+      "git_blob": "bf2d1e4a118641418f144d87575425f62eb06c7b",
+      "path": "development/health_residuals_20261105_v001/LOG_PROVENANCE.json",
+      "sha256": "06961b6fdaa8d4ffcb71b0a56c6b316bc53091de943ed2ce304e93d6ea3a6b0f"
+    },
+    {
+      "bytes": 19961,
+      "git_blob": "5e647a8ee820ab684b9ba9d6742cd59f2f0dc32a",
+      "path": "development/health_residuals_20261105_v001/MANIFEST.json",
+      "sha256": "63053d5681dc255a144d0bc57aa757890a7749fdf567191427916de8727a72f4"
+    },
+    {
+      "bytes": 7121,
+      "git_blob": "634078df7f34b2e1afd9db584b91670353660fe5",
+      "path": "development/health_residuals_20261105_v001/OFFICIAL_CLASSIFICATION.md",
+      "sha256": "6f8662f95176c425827d474d42eb5da2c0752ded0162718a0045ce36b4258bc3"
+    },
+    {
+      "bytes": 2653,
+      "git_blob": "57931105dfbcd89c9af92526e8d56f60a6bd3a34",
+      "path": "development/health_residuals_20261105_v001/P2_OPEN_REGISTER.json",
+      "sha256": "eea6bed15f69dc696ac01b899da53590bef4b761642a154a5ea57ee49d889622"
+    },
+    {
+      "bytes": 4403,
+      "git_blob": "3c927d88da1564471f03b7efd917d2d2356e174c",
+      "path": "development/health_residuals_20261105_v001/P2_READONLY_AUDIT_PLAN.md",
+      "sha256": "ca0055d5fbde86180568d98ad1912416cd0e73aba9dc3f2e5b8fcb594943602d"
+    },
+    {
+      "bytes": 8239,
+      "git_blob": "39574e5661bc0eac596c3c454dc8ad344451c07c",
+      "path": "development/health_residuals_20261105_v001/PARENT_FILES.json",
+      "sha256": "53482131549b726989bf501a5c4a73cdd38a8a5ab82b95dd3dc1ed077d976709"
+    },
+    {
+      "bytes": 5894,
+      "git_blob": "b6b1bfeccf4f1d4c7df8723434fc2b085abaa10a",
+      "path": "development/health_residuals_20261105_v001/PARSER_ANALYSIS.md",
+      "sha256": "df58e920a0fce531395880d0565e1ddc0c7086953be04be5aefdcc6d73934764"
+    },
+    {
+      "bytes": 10103,
+      "git_blob": "103e01af27dc59ebc731f40dfd9915983a93682c",
+      "path": "development/health_residuals_20261105_v001/REPORT.md",
+      "sha256": "8af9696d530733ca33321a29d3436ab3ef453bf76776053369676138550e1899"
+    },
+    {
+      "bytes": 4436,
+      "git_blob": "27b04aac61e68147e03f9632bd7dda7da43af225",
+      "path": "development/health_residuals_20261105_v001/REPRODUCE.md",
+      "sha256": "ceefb9875395d8863a40b2c7889f0069bc53c6c1dc88badbb26006ffe828a262"
+    },
+    {
+      "bytes": 2869,
+      "git_blob": "5fb371538fb0eb492284e98ca3567e01cf6e5cad",
+      "path": "development/health_residuals_20261105_v001/ROLLOUT_AND_STOP.md",
+      "sha256": "be0bda7237aef380c80f19e9f4f9f441f3bdd7b82d9da3dd2765d7f7ab900040"
+    },
+    {
+      "bytes": 8870,
+      "git_blob": "9463451688e4ae918eff5e559b8acbc7fb3634e7",
+      "path": "development/health_residuals_20261105_v001/SHA256SUMS.txt",
+      "sha256": "0ad29ab705b272939894ab5b6e335ce43d1852d0473e645bb40f87c8035d8233"
+    },
+    {
+      "bytes": 2350,
+      "git_blob": "430b51571d1bd79f5deff3711751e4c840818f1f",
+      "path": "development/health_residuals_20261105_v001/evidence/RESULTS.json",
+      "sha256": "6bd7c2d631d67c518a955fc53b3e3b76dcd5372458d33cf9dc70a01eb06a77f9"
+    },
+    {
+      "bytes": 21636,
+      "git_blob": "6fb9c4a5928b6b1651205bc89661dc345d7affe6",
+      "path": "development/health_residuals_20261105_v001/evidence/SYNTHETIC_ONLY.obs-rows.json",
+      "sha256": "00f3bb1949dbb2694803e12df3228dbab213afb431ddae172c781d80ff3d809a"
+    },
+    {
+      "bytes": 1154,
+      "git_blob": "70d4ed0e367a0338f7a808b93e37a30b4cce1e06",
+      "path": "development/health_residuals_20261105_v001/evidence/baseline-tests.raw.log",
+      "sha256": "21ff353a0df44b591fcf2d7c6b348f01db7af2119239fc94c3ebe9193ee4b1de"
+    },
+    {
+      "bytes": 1343,
+      "git_blob": "754251ec94e31ee8027237505cf6cd3c16f68fdd",
+      "path": "development/health_residuals_20261105_v001/evidence/candidate-tests.raw.log",
+      "sha256": "76984e8b9d289c8a1af3667c9dfd166ecb2823dc2e21a2e73f91d70feaead985"
+    },
+    {
+      "bytes": 381,
+      "git_blob": "387d1ea1cf1960fe2bf3b4e98366471947be0942",
+      "path": "development/health_residuals_20261105_v001/evidence/obs-example312.raw.log",
+      "sha256": "225a7eafe60f4b822822861bc44c410d2bca6e411d2dac8dd731eb5e18a640aa"
+    },
+    {
+      "bytes": 380,
+      "git_blob": "5da7f044cd1f871b136b538246312c099fd8ca33",
+      "path": "development/health_residuals_20261105_v001/evidence/obs-example314.raw.log",
+      "sha256": "33c7d5422bf81b7a002261ba14512ad48b8b69ee08afc2a1e55a1fc6ee4f1f4f"
+    },
+    {
+      "bytes": 21738,
+      "git_blob": "f321a3c8b0e443b63d4e5800c387eec4902b330a",
+      "path": "development/health_residuals_20261105_v001/evidence/obs-qa-report.json",
+      "sha256": "4561bfe7203381bfa3a41ab4550f6bac7d4d996c13282dbc108d91197590b226"
+    },
+    {
+      "bytes": 2821,
+      "git_blob": "209a6b21fd806873527881254c89748868f5d75b",
+      "path": "development/health_residuals_20261105_v001/evidence/obs-tests312-final.raw.log",
+      "sha256": "9ff878a90783971685405e56cf743dc9f695bad11787cfd59860be287a6f0c6c"
+    },
+    {
+      "bytes": 4090,
+      "git_blob": "a28eeadf3a0b78f1d12441bd531a761b3c891ae6",
+      "path": "development/health_residuals_20261105_v001/evidence/parser-baseline.raw.log",
+      "sha256": "fe24866b61ed04335be7e851a53acb746fc6a885c8a76954db62623f90f37f7c"
+    },
+    {
+      "bytes": 3426,
+      "git_blob": "40a39687d3f59b085a503890426a5001691ae348",
+      "path": "development/health_residuals_20261105_v001/evidence/parser-candidate.raw.log",
+      "sha256": "28428d8084a4e4dc13cf450057358ade0bcdd76cb8f006be56ec0626079dd5dd"
+    },
+    {
+      "bytes": 3160,
+      "git_blob": "7f26670962766443323eb2b1b306ed2f166d5688",
+      "path": "development/health_residuals_20261105_v001/evidence/stale-baseline.raw.log",
+      "sha256": "823cb275d2e1b009b554cd85e55164d77d47673bd7c887ac9c938857b5b83078"
+    },
+    {
+      "bytes": 3269,
+      "git_blob": "c316b0a6b570da6e1ad19f0e90e02274b929d2c7",
+      "path": "development/health_residuals_20261105_v001/evidence/stale-candidate.raw.log",
+      "sha256": "624bf10e01a9650ed4f785dd77a174d9d5eeb98c31e1289c48f5663b15fe1d46"
+    },
+    {
+      "bytes": 16027,
+      "git_blob": "9dbcd24c91a2780b67bed64c4b46f314dc11d525",
+      "path": "development/health_residuals_20261105_v001/obs_qa.py",
+      "sha256": "dc6bdc6b77a3c4ce4f5b718cfd43be7fe1cc0d08d4e0e54057949ce7032e5634"
+    },
+    {
+      "bytes": 11120,
+      "git_blob": "090f74ce5a2bdf6eb6a97241d31e0ec8a19b9996",
+      "path": "development/health_residuals_20261105_v001/references/main.py.8172aec.original.txt",
+      "sha256": "8ba77c9371e999df08c012978cbb8d0a20654686fbd35846190e565b985a4447"
+    },
+    {
+      "bytes": 9950,
+      "git_blob": "832c868223b3f72196d7cc3d3de7e40c6c762678",
+      "path": "development/health_residuals_20261105_v001/references/official.py.8172aec.original.txt",
+      "sha256": "8598ef5937c5b944d87b6cfa8c29dea10dc6f09781cb73a0c55521c5f6a29373"
+    },
+    {
+      "bytes": 8505,
+      "git_blob": "c87b22a0b7d1824451861935df513ae2212daa7a",
+      "path": "development/health_residuals_20261105_v001/references/parsers.py.8172aec.original.txt",
+      "sha256": "db18b989b409479c508c6a24d685c523b011adecef86ae652e57eb343024f479"
+    },
+    {
+      "bytes": 2377,
+      "git_blob": "1845442455de3a4e93f8b4c6d4bc09491760da44",
+      "path": "development/health_residuals_20261105_v001/reproduce_parser_boundaries.py",
+      "sha256": "ef27396638d4058af863c02c7c35e03f0e690ec7b4ef9f243305aa5df4dd11c8"
+    },
+    {
+      "bytes": 4582,
+      "git_blob": "9fbc70eab389035c20b063671134f60e6513bc75",
+      "path": "development/health_residuals_20261105_v001/reproduce_stale_dispatch.py",
+      "sha256": "7344472a2e5182096a0f21f119ecdc706e9f21cea15de51532f23bf1f3bac444"
+    },
+    {
+      "bytes": 3023,
+      "git_blob": "3d12ceede8fc5293d9ea5e09ba17d6fbe7900cdc",
+      "path": "development/health_residuals_20261105_v001/run_obs_synthetic.py",
+      "sha256": "8e6b9b1b4a64a71e6b008845514c74bf31db8da051716ff7c823f68be2015a62"
+    },
+    {
+      "bytes": 3094,
+      "git_blob": "67df2021ec9d395e466772ec946af26824068bde",
+      "path": "development/health_residuals_20261105_v001/run_offline_tests.py",
+      "sha256": "d91865da249fb5380dfa979b26c79a597f3e570422769a6d5840f978e79a8fbc"
+    },
+    {
+      "bytes": 4083,
+      "git_blob": "748c82ab187e1fad1141803b181f57ac14a81dc5",
+      "path": "development/health_residuals_20261105_v001/verify_artifacts.py",
+      "sha256": "87be3d6cb874d5cfc1ca3e8c29d0139583896b16291aadf85dfadaf95e962d81"
+    },
+    {
+      "bytes": 7050,
+      "git_blob": "781943456479e21ec8f0fcad8401b695e96e2797",
+      "path": "development/health_residuals_20261106_v002/CONTROLLER_REVIEW.md",
+      "sha256": "ef5969ae361b21418b964cbecf66944cee381f1890cff71bb9391781cd42fcf5"
+    },
+    {
+      "bytes": 24022,
+      "git_blob": "c8a441b14e1cda4f28594e066ec2218b97548d79",
+      "path": "development/health_residuals_20261106_v002/C_SOURCE.patch",
+      "sha256": "81711a880ed19a0b589b78bbc0bf089277c4cc51da5bb5becbc72701624aa448"
+    },
+    {
+      "bytes": 5815,
+      "git_blob": "4550f0f617f289847bb77803680e09f082a62e8c",
+      "path": "development/health_residuals_20261106_v002/DIFF_STAT.json",
+      "sha256": "5a4ce523c9fba134fd2644a6272bcbfe72baa585925300c022f6fe5e4829c031"
+    },
+    {
+      "bytes": 1697,
+      "git_blob": "d999f4c7cd6a4cce23933960140cba27e5903177",
+      "path": "development/health_residuals_20261106_v002/INDEX.md",
+      "sha256": "8df4e451b0cda68dfe745fa0c36faed42517f0af2013e9b01d7a35b782eb74e8"
+    },
+    {
+      "bytes": 4702,
+      "git_blob": "4fbecbe90fb7608dbf7d951f4dbfaa9f45f0ba0f",
+      "path": "development/health_residuals_20261106_v002/LOG_PROVENANCE.json",
+      "sha256": "bfc8069e20247661acb8bc25c661677916fdb87966dba5ec488383fa0a602e42"
+    },
+    {
+      "bytes": 30340,
+      "git_blob": "f72886c6be9108833984c3ff8c9e8178954d09a1",
+      "path": "development/health_residuals_20261106_v002/MANIFEST.json",
+      "sha256": "17d4919d43f17c1383f717616b2fa70eb89aff2ec8d6b982428efdcfda6eb9be"
+    },
+    {
+      "bytes": 2734,
+      "git_blob": "13c954327bf4e0dd554d0c98131cda5860ba3a75",
+      "path": "development/health_residuals_20261106_v002/OBS_SHA_CORRECTION.json",
+      "sha256": "b3872abda3fda4365817d612dd0c56a88f0739f8612fc3c9a117ffb52b5e2424"
+    },
+    {
+      "bytes": 3111,
+      "git_blob": "05eb61b32d780989ecc1ab9b6ab0d1974cc1ecff",
+      "path": "development/health_residuals_20261106_v002/OBS_SHA_CORRECTION.md",
+      "sha256": "6599404b2816748ce712c07a659c6ce7f908f55705e503c48b1ef391c2a48733"
+    },
+    {
+      "bytes": 19033,
+      "git_blob": "aa629f26ffb1ea81d8e6df6e3cb4202f534508ac",
+      "path": "development/health_residuals_20261106_v002/PARENT_FILES.json",
+      "sha256": "a15ff975cd8d81f49dbc7c12ce30bf0fb5f43b1968328c6f0bd5c4b5f2fa73c2"
+    },
+    {
+      "bytes": 9028,
+      "git_blob": "6da4e6a9e7229d0c56c09adedcd42afc884c3e62",
+      "path": "development/health_residuals_20261106_v002/REPORT.md",
+      "sha256": "f0be036ddabae971c650d813664707045a6e70c516f0d8320d9358dbd14134ff"
+    },
+    {
+      "bytes": 4042,
+      "git_blob": "841c886872c3098a461ede0dc17d3830d99e3f9e",
+      "path": "development/health_residuals_20261106_v002/REPRODUCE.md",
+      "sha256": "e6c469c811d915f222910c247be977e33078bf30902258c8d92243bf2bac931a"
+    },
+    {
+      "bytes": 7786,
+      "git_blob": "b2be3aaf32a832500b7e73fe9be1a0a937f09e3c",
+      "path": "development/health_residuals_20261106_v002/S1_PARSER.md",
+      "sha256": "4fc121e71dc801a02cdfd5b3c6a21066d8c3aa28c682c9a47be39ed445353d2a"
+    },
+    {
+      "bytes": 6058,
+      "git_blob": "0f25e57899579d99ea5a90f05f7e187cb8694d66",
+      "path": "development/health_residuals_20261106_v002/S2_AUTHENTICATION.md",
+      "sha256": "933e9321b849482c8e1107268f26c21838e5f5a30dfe599bcc24233839479a53"
+    },
+    {
+      "bytes": 14176,
+      "git_blob": "d959643e58b07b6e90a60ac1a69c9243996fc2be",
+      "path": "development/health_residuals_20261106_v002/SHA256SUMS.txt",
+      "sha256": "5888493824a5ef83bcf40a9f38fcda2519cc1935aa14bf9f5feddea10afc7264"
+    },
+    {
+      "bytes": 8297,
+      "git_blob": "00ce4047ba28de7c8cde6e18cf47ddedc821fae6",
+      "path": "development/health_residuals_20261106_v002/TEST_EXPECTATIONS.patch",
+      "sha256": "88533827f8ac409cc2909bccd6b93f49aafb57bc740febb70a5152de6631363e"
+    },
+    {
+      "bytes": 4991,
+      "git_blob": "86c900b2010b270db3545ebcb410d154a803b629",
+      "path": "development/health_residuals_20261106_v002/compare_no_race.py",
+      "sha256": "608aabd8d161bfbc727e8a427140dcad60ed6c5f816d4c7fc6af7011c1664192"
+    },
+    {
+      "bytes": 3358,
+      "git_blob": "7ffefe04d97722bfcce6a2b3ae4798e3e4271dd8",
+      "path": "development/health_residuals_20261106_v002/compare_parser.py",
+      "sha256": "5a6d048865d45bc924428407568e85e9b7e762c3b59ced37d322165c434bc6eb"
+    },
+    {
+      "bytes": 15445,
+      "git_blob": "34c5b8a6cbc64585365989147806128c08e55b87",
+      "path": "development/health_residuals_20261106_v002/evidence/RESULTS.json",
+      "sha256": "03e58ae6d349b06e4c4bc3c7452a33b100f01e64f69dda35499e1540e17f5b6c"
+    },
+    {
+      "bytes": 362,
+      "git_blob": "5953c4a1bb64a34bfd629b813f0bf363b4b90f96",
+      "path": "development/health_residuals_20261106_v002/evidence/STATIC_CHECKS.json",
+      "sha256": "3b03b96ddc58591c92f3afaeeaf5a680b019b235736b09f69ffa5834b27dff6d"
+    },
+    {
+      "bytes": 1343,
+      "git_blob": "9a1655ace706a4c3a947a94ebae741b54fee05a9",
+      "path": "development/health_residuals_20261106_v002/evidence/baseline-tests.raw.log",
+      "sha256": "c066f9a85e8e1ff279ed8b315116e15ba14eaca8b994482f07a026805a7d1cf9"
+    },
+    {
+      "bytes": 1419,
+      "git_blob": "89adc8d711f3b42919a78363c2cf85fa6942e5da",
+      "path": "development/health_residuals_20261106_v002/evidence/candidate-tests.initial-before-final-boundary-cases.raw.log",
+      "sha256": "52bcef50e9ae4fd4f98a611aebc1081de6febb92eeaad2f807420488fc5e96f5"
+    },
+    {
+      "bytes": 1419,
+      "git_blob": "dd2a370aaa7967de1b3b17696fead0b8ca186984",
+      "path": "development/health_residuals_20261106_v002/evidence/candidate-tests.raw.log",
+      "sha256": "43a1454de4b5ae2579e7578d706097b81240330f0a47f7d51d25c6f9a7467b57"
+    },
+    {
+      "bytes": 1711,
+      "git_blob": "c32d4804f5c19042fae65c039bdd16aed8ab1a18",
+      "path": "development/health_residuals_20261106_v002/evidence/no-race-v001.raw.log",
+      "sha256": "9e2ba799f2450b098afa6999ab1c68b1cdba437d3bbb8903972332bad3a78e31"
+    },
+    {
+      "bytes": 1670,
+      "git_blob": "3bb28d19528cdb640b88d6767cf4425e5cc1a65b",
+      "path": "development/health_residuals_20261106_v002/evidence/no-race-v002.raw.log",
+      "sha256": "7e61a760d66b16ca80ecb47fb9b27ba94e945cf983bd14f4e4442d0ddec49c8b"
+    },
+    {
+      "bytes": 54536,
+      "git_blob": "7cb4bc4e639f17febbcf40c5efda13e7e44a1c23",
+      "path": "development/health_residuals_20261106_v002/evidence/parser-old-main-complete.raw.log",
+      "sha256": "ee0ff58a8d18900ab0d9202bf04456aa08c44f05e0b3655c6f9ac222d9c46c2d"
+    },
+    {
+      "bytes": 13801,
+      "git_blob": "9a6068bac5a3fa6042d33aab26b345cd7e1346eb",
+      "path": "development/health_residuals_20261106_v002/evidence/parser-v001-complete.raw.log",
+      "sha256": "443b95d4ea0d5e6757155d1d0b41de2a344b7c3abe823a5f8292a8d6dd00bd9b"
+    },
+    {
+      "bytes": 27548,
+      "git_blob": "a8cb9bbac465f408595f53355dd7fd928f9cd03c",
+      "path": "development/health_residuals_20261106_v002/evidence/parser-v002-complete.raw.log",
+      "sha256": "5ca049ea00a2d7c6e2b09d5852667d5db3abae47970a1e5bb6fdc16a750b5fb8"
+    },
+    {
+      "bytes": 5135,
+      "git_blob": "27437b737e0593838f9d872ee78f8c6173a85293",
+      "path": "development/health_residuals_20261106_v002/parser_fixtures.py",
+      "sha256": "db3658527ef29ad9781d4f67fe6ef4b964ec03def31821e4527159155ec0d3a6"
+    },
+    {
+      "bytes": 12923,
+      "git_blob": "3dc3d4518451ab4c40bf265e67b97ae3831ce0e2",
+      "path": "development/health_residuals_20261106_v002/references/main.py.845cc1c.original.txt",
+      "sha256": "d5f15b2911c3afd6ea4f5b25a5a1f294ceb7c39afe3dd030966dc275d3461e26"
+    },
+    {
+      "bytes": 15058,
+      "git_blob": "ae5637079988daf5a2fb1a5396d8a10bc79cd22e",
+      "path": "development/health_residuals_20261106_v002/references/official.py.845cc1c.original.txt",
+      "sha256": "2c72eb2e832d6117cd91a51bf1ee7a462b43f310d3dd764a2b074845331dc522"
+    },
+    {
+      "bytes": 12970,
+      "git_blob": "1987e8f9341ab38a2d45dc890e53cabf3ab3ff87",
+      "path": "development/health_residuals_20261106_v002/references/parsers.py.845cc1c.original.txt",
+      "sha256": "f0f63d120a6a3ca7864ba8d1c69ef2aa3f9e74a9712dc4711462e3c04612ade6"
+    },
+    {
+      "bytes": 5362,
+      "git_blob": "224ba5d88ffffe0b8b0015502bf8a7f93a7a50b1",
+      "path": "development/health_residuals_20261106_v002/references/raceindex_status.py.845cc1c.original.txt",
+      "sha256": "ea75b5e15779749b1605a3dedbef844e02bc94bcdaf219bd7d60a2cf0e2cb6ec"
+    },
+    {
+      "bytes": 12717,
+      "git_blob": "b878c9cd890f816dd600995e98afab26c677a149",
+      "path": "development/health_residuals_20261106_v002/references/tests/test_health_controller_scope.py.845cc1c.original.txt",
+      "sha256": "68006b57ecf1bb153433a38a3d3bcc3da4d8d5250c1ab587f34ec1e8d67d3ce0"
+    },
+    {
+      "bytes": 11351,
+      "git_blob": "5f97c80878ec6e7a950a9058af8e790ce6664ae3",
+      "path": "development/health_residuals_20261106_v002/references/tests/test_health_official_index.py.845cc1c.original.txt",
+      "sha256": "237bed4da5ca8bc0a82e81d22b9c4d20a4c81d7ace8674a1641526ba58368916"
+    },
+    {
+      "bytes": 5469,
+      "git_blob": "bf113b4eaad6604b6d6693f85ef4b27d5ac46c5b",
+      "path": "development/health_residuals_20261106_v002/references/tests/test_health_raceindex_parser.py.845cc1c.original.txt",
+      "sha256": "d8b816bffbccbd7ecfe8fd711d27b4afefedecaef1fc85fdb7d7deb1bae2d6e5"
+    },
+    {
+      "bytes": 4232,
+      "git_blob": "f641ed539690ad464a68f633e1cddb703ea669a2",
+      "path": "development/health_residuals_20261106_v002/verify_artifacts.py",
+      "sha256": "1bf9df48a60d25efe8cd2a1790bae5d5ae8e1b64ba8be2dc12ee2af6743f0512"
+    },
+    {
+      "bytes": 7295,
+      "git_blob": "cca7c78ab20ec35c9fb4ae4e59f9008b656b42df",
+      "path": "development/health_residuals_20261106_v003/AUDIT_QUALITY_DESIGN.md",
+      "sha256": "59bb634ddaf667ba534fa0fc20018693e2390d9e73492429758b98b007d3d4b1"
+    },
+    {
+      "bytes": 9601,
+      "git_blob": "4bb333f1ebe544119a4de7f7bca29fb946c551d7",
+      "path": "development/health_residuals_20261106_v003/CONTROLLER_AND_EVENT_REVIEW.md",
+      "sha256": "49ff2f13d20b4f1809e73bc5c971ec6d836f253c893486f572a4e03a175041b1"
+    },
+    {
+      "bytes": 24425,
+      "git_blob": "613b50529296f588e7a45052a519c0cdb6a6b999",
+      "path": "development/health_residuals_20261106_v003/C_SOURCE.patch",
+      "sha256": "a52fc7f1d368fd0e543ec60cf8f33ce98afffa8168b233048964c682b984b1a8"
+    },
+    {
+      "bytes": 8096,
+      "git_blob": "ed83529958904183ab293ed79daf2cc8c5e7309d",
+      "path": "development/health_residuals_20261106_v003/DIFF_STAT.json",
+      "sha256": "e185a6b1740390a8284a8852b479cb9bab7ed00f01a2a92ee0402a5b68568704"
+    },
+    {
+      "bytes": 1682,
+      "git_blob": "8a246e661e11214a0bda6ca17fac79257e96985f",
+      "path": "development/health_residuals_20261106_v003/INDEX.md",
+      "sha256": "08873b9afa9792c9f30da0ea173da1569cebf8cc1001c258f98f71a12590548f"
+    },
+    {
+      "bytes": 7759,
+      "git_blob": "87e03516c44a35de5524a8b172d5941dcb8e820d",
+      "path": "development/health_residuals_20261106_v003/LOG_PROVENANCE.json",
+      "sha256": "35f46f0da13258199c64ffa6908482e877b69652b3d2dde8fa9fc330dbfb56de"
+    },
+    {
+      "bytes": 7845,
+      "git_blob": "7f53efa6ba5bb78a15d0ee2b5e43030559cc9c8b",
+      "path": "development/health_residuals_20261106_v003/NO_RACE_REMOVAL.md",
+      "sha256": "fea65d1ad4f81028ba86dabd6fa91c5d5cd18237e2911c4c0ab51bdc7b544c64"
+    },
+    {
+      "bytes": 28954,
+      "git_blob": "c9107ce33091bf6092a7fcddbca7db2631adf0ad",
+      "path": "development/health_residuals_20261106_v003/PARENT_FILES.json",
+      "sha256": "a12e1bc590ab80776784da6ed86da95c53e4494864926ecb4d14189caa70523b"
+    },
+    {
+      "bytes": 2816,
+      "git_blob": "38bc3d68047d23418ec89e0fb53424e603686115",
+      "path": "development/health_residuals_20261106_v003/PORT_SCOPE.json",
+      "sha256": "fc2cc343beda44cb1805e3f84b58c5f9cb49abefeac569653e2378702b0ef5b2"
+    },
+    {
+      "bytes": 10281,
+      "git_blob": "58455077aead23f9d6ed5a3409451fe5c010ba21",
+      "path": "development/health_residuals_20261106_v003/REPORT.md",
+      "sha256": "d0bd1d5b25db2ddeac9c22ee8f4ed8a5f330e210bb0ec93a4bb7a4b74b4eda62"
+    },
+    {
+      "bytes": 5266,
+      "git_blob": "1fc5a496039cd729c10510d84b532d131251dd4f",
+      "path": "development/health_residuals_20261106_v003/REPRODUCE.md",
+      "sha256": "0c8aeeca409d991dbb3425c2fe4b7bd829d5469abde63090a36fe986170bc1e4"
+    },
+    {
+      "bytes": 6300,
+      "git_blob": "51056481d2154d6b75d5966b72e98dab55ebec7c",
+      "path": "development/health_residuals_20261106_v003/RUNTIME_MATRIX.md",
+      "sha256": "26199af4f64c5129d10dab900b66fc81b1e3056d33850cea9f3f329a87cf16b8"
+    },
+    {
+      "bytes": 12173,
+      "git_blob": "2f4738623d892445007f72a9158b10002f9e6564",
+      "path": "development/health_residuals_20261106_v003/S1_STATUS_POLICY.md",
+      "sha256": "a3ff08a58c021ef3d09dcbb840e3faad3023ae3e0f7295d34ca1f13bb6e35bd8"
+    },
+    {
+      "bytes": 4695,
+      "git_blob": "0094ab40f82fb5b1e489b7441b082df8158401fb",
+      "path": "development/health_residuals_20261106_v003/SPEC_SHA_REGRESSION.md",
+      "sha256": "172f99021b4774eed5f1c0db3943b59e75fb470ab47b320fb41343cd8ecdeacc"
+    },
+    {
+      "bytes": 26670,
+      "git_blob": "ab05f53e8527bec5686b57035a5f69424d8b8b95",
+      "path": "development/health_residuals_20261106_v003/TEST_EXPECTATIONS.patch",
+      "sha256": "fba6ee3e4227a238fdeb49f827f0436be70f9aa22144534168296d440fdabff5"
+    },
+    {
+      "bytes": 13873,
+      "git_blob": "588bd7eab3c1ba836e294715cb3318f3524ca3d7",
+      "path": "development/health_residuals_20261106_v003/audit_quality.py",
+      "sha256": "ab4593ad562032102cf7aafb29a1cac5dcca27cdc0756712d7b6b7c3199a2f67"
+    },
+    {
+      "bytes": 4899,
+      "git_blob": "19f69217da0e1241a95aa33e5097e599cb924c8a",
+      "path": "development/health_residuals_20261106_v003/compare_parser.py",
+      "sha256": "76a247891a9d272b29bbd38ee13f57fce3be4d3aa251d6d603ba5ddf4c48b8dd"
+    },
+    {
+      "bytes": 2251,
+      "git_blob": "24b3439f782bbce9aef2d67a0328b73facde2bad",
+      "path": "development/health_residuals_20261106_v003/e5_fixtures.py",
+      "sha256": "ebcf306f822040786610628abc3d611d9d81d42a12ec19ff37d65f7729a66b80"
+    },
+    {
+      "bytes": 3870,
+      "git_blob": "6442e526c60f4ab7ebe4284c0010e7640fc69119",
+      "path": "development/health_residuals_20261106_v003/evidence/C5_UNKNOWN_NEXT_DAY.json",
+      "sha256": "41d24f42085db81cf0a399c85aa5bef447d70ecdcd136b1f279874aebe50cf61"
+    },
+    {
+      "bytes": 1302,
+      "git_blob": "e87c6de8d18ae4d4d594e9182c9e0089641b2abe",
+      "path": "development/health_residuals_20261106_v003/evidence/CLAUDE_RECEIVED_P_OBSERVATIONS.json",
+      "sha256": "e4916e59758853de0f9969b8f590bf5bd1e9cbf8003e111de278f75c3e938bfd"
+    },
+    {
+      "bytes": 52435,
+      "git_blob": "16523efc845b6606eea5d4e665422810718e15f9",
+      "path": "development/health_residuals_20261106_v003/evidence/EVENT_SUMMARY.json",
+      "sha256": "0bd07c0926e69d79f9ceddb7e57b275b191fbc8c8d5db35c48481bd426036840"
+    },
+    {
+      "bytes": 25783,
+      "git_blob": "7edcc98472e17fc236d33a51fe7e9d5cfb532222",
+      "path": "development/health_residuals_20261106_v003/evidence/FIXTURE_INVENTORY.json",
+      "sha256": "504ed01aa528e50780e1ade65c9d62e0d25e7fc9541eeed85aa6d8e9e84f098c"
+    },
+    {
+      "bytes": 82737,
+      "git_blob": "526f2adf4b88946145071cc98967655726876c75",
+      "path": "development/health_residuals_20261106_v003/evidence/RESULTS.json",
+      "sha256": "2611471f020b1d3efcae74849975d05b08c8710a4fa84db4060eb73bfa8b23e0"
+    },
+    {
+      "bytes": 311,
+      "git_blob": "4b191fd8d78aed3faa913dc9185bf5ee2a6581d5",
+      "path": "development/health_residuals_20261106_v003/evidence/STATIC_CHECKS.json",
+      "sha256": "0089a10f8af3cecc47a6ee4b9e5ded47bd3227f9c4bc0fc82d66e316ce545b53"
+    },
+    {
+      "bytes": 1483,
+      "git_blob": "812e8a554b6b1d247c6e9aee888b90fd1999672c",
+      "path": "development/health_residuals_20261106_v003/evidence/baseline312.raw.log",
+      "sha256": "800e41499f417df53ad4c4096b1aa3d99cea70d7d1a58655b1a0971712b539b8"
+    },
+    {
+      "bytes": 1419,
+      "git_blob": "91c342dd8ac00be3cfc6317977b3d04b01c5f61b",
+      "path": "development/health_residuals_20261106_v003/evidence/baseline314.raw.log",
+      "sha256": "f377e1ce97505a6e929994439cfb3509f355cdd773dd152a1f0192ea83323977"
+    },
+    {
+      "bytes": 1681,
+      "git_blob": "55fd86f64c687411119b90859c8e95a9f4c9e9dd",
+      "path": "development/health_residuals_20261106_v003/evidence/candidate312.raw.log",
+      "sha256": "ef2cdf07876f23a67ce1ad4939a532ddde7688b15c2f1ddac476757d3bd00ada"
+    },
+    {
+      "bytes": 1680,
+      "git_blob": "ef63e69c86b2bbdb14a34d6b42a340e5c6a96a0d",
+      "path": "development/health_residuals_20261106_v003/evidence/candidate314.raw.log",
+      "sha256": "e5a781d7977dc483e924288252c62439c2ed79367a1644cb29d60405aa9a9aaa"
+    },
+    {
+      "bytes": 115133,
+      "git_blob": "f4cdd42cdb5cf7c0cdbf9070db2c6b3ae813ebe8",
+      "path": "development/health_residuals_20261106_v003/evidence/events314.raw.log",
+      "sha256": "cc8e092dea63e1c78d0ce19485a40d71fbbd0178edf61a40973770867e1bb453"
+    },
+    {
+      "bytes": 194094,
+      "git_blob": "7bcddedd89428d2285566861f87bdcf6e01e8cc8",
+      "path": "development/health_residuals_20261106_v003/evidence/parser-old-main-final.raw.log",
+      "sha256": "86f174735efbfc9ffb52aa17276b024bb765af2ae3832e4d709df11e93e4d91e"
+    },
+    {
+      "bytes": 57991,
+      "git_blob": "c2ec70dc0cc743ce41fb976c1941bb3efb73202e",
+      "path": "development/health_residuals_20261106_v003/evidence/parser-v001-final.raw.log",
+      "sha256": "9d481521894afbf02169c4b16acf8b1a65a466b55e6f885f730b79ea4d1088f7"
+    },
+    {
+      "bytes": 141174,
+      "git_blob": "95067446b276caa82775846b17c35f2efb3d46f8",
+      "path": "development/health_residuals_20261106_v003/evidence/parser-v002-final.raw.log",
+      "sha256": "900cd9abd4e1d959c4fbf5b6f50d34ce7302723e5d2cc35288fecc15a9aee367"
+    },
+    {
+      "bytes": 141699,
+      "git_blob": "f09bb13e16769353c49ce9f1a1eb032c707b323c",
+      "path": "development/health_residuals_20261106_v003/evidence/parser-v003-final.raw.log",
+      "sha256": "89a71735b1b62a57caba47c9ec773614b322899daa09f74cd736c4661e726007"
+    },
+    {
+      "bytes": 1078,
+      "git_blob": "ed98a95d0dc236a022b10620e92561c759ba9ce0",
+      "path": "development/health_residuals_20261106_v003/evidence/runtime312.raw.log",
+      "sha256": "5701d73d808b82afbe4e23041d9d09f088a6653bddfe99311d6bdad1158e7916"
+    },
+    {
+      "bytes": 1077,
+      "git_blob": "a2d7840cde533915b7c8cf137c6aa3fb8cafe07e",
+      "path": "development/health_residuals_20261106_v003/evidence/runtime314.raw.log",
+      "sha256": "ae70279fc969756a7379088c43073db61017f310e5bcb69202cffbf1acfe410a"
+    },
+    {
+      "bytes": 549,
+      "git_blob": "4a8cc8b4802d1cbef2f778da86f523054819dd97",
+      "path": "development/health_residuals_20261106_v003/evidence/spec312.raw.log",
+      "sha256": "8b2af4deafbae0b4626c799228c2767fe4be3723507dad6f0a24751783167a51"
+    },
+    {
+      "bytes": 548,
+      "git_blob": "f5875669d95179482079a569dff2652476c0f033",
+      "path": "development/health_residuals_20261106_v003/evidence/spec314.raw.log",
+      "sha256": "0ef1ef069e59fabcaafb62584e6142c3cb58cfb71946eef902e8c67229c04e08"
+    },
+    {
+      "bytes": 1628,
+      "git_blob": "c07c510e2f2ee8f8edde269fee318ee0c4056154",
+      "path": "development/health_residuals_20261106_v003/inspect_runtime.py",
+      "sha256": "863211409f68f587f5b9955529328696503074b74bbee36ad9526e0bb3943de3"
+    },
+    {
+      "bytes": 3733,
+      "git_blob": "1a642c6d5dd1743fd6da69c76c1f2bb51fbda58d",
+      "path": "development/health_residuals_20261106_v003/p_fixtures.py",
+      "sha256": "44983debabcd7b637aeadb365da54f8e031830c0035c9ef923920575269c883a"
+    },
+    {
+      "bytes": 7823,
+      "git_blob": "3f7cc6880d4745d76f27a4bf89ed6f5b60bc1eb4",
+      "path": "development/health_residuals_20261106_v003/parser_fixtures.py",
+      "sha256": "acde6395831f788d36a9dc085eb3c542d688a0967184180c490952ff993687ea"
+    },
+    {
+      "bytes": 13548,
+      "git_blob": "881234dcbf0556584e6dc42866fc0000d46c2805",
+      "path": "development/health_residuals_20261106_v003/references/main.py.48333a2.original.txt",
+      "sha256": "db03e17bbe904d035028dedb466419f58502971b96ca63e90458e2a1dfdfa2c2"
+    },
+    {
+      "bytes": 11120,
+      "git_blob": "090f74ce5a2bdf6eb6a97241d31e0ec8a19b9996",
+      "path": "development/health_residuals_20261106_v003/references/main_8172aec.py.txt",
+      "sha256": "8ba77c9371e999df08c012978cbb8d0a20654686fbd35846190e565b985a4447"
+    },
+    {
+      "bytes": 14639,
+      "git_blob": "9b64ded1c38d857367b5f5fabec929067629c53e",
+      "path": "development/health_residuals_20261106_v003/references/official.py.48333a2.original.txt",
+      "sha256": "64666c31a51aca3c3ffe358b0e57035a62fd7c01f05ddb87310359c061f8d19f"
+    },
+    {
+      "bytes": 15384,
+      "git_blob": "6d8e725b1cd1d3d8518406634449732c19c4fab9",
+      "path": "development/health_residuals_20261106_v003/references/parsers.py.48333a2.original.txt",
+      "sha256": "a7719d22759e933e7dbb0d7a87920dcac22ab5d8f17588fa5d32fa57123943b0"
+    },
+    {
+      "bytes": 8505,
+      "git_blob": "c87b22a0b7d1824451861935df513ae2212daa7a",
+      "path": "development/health_residuals_20261106_v003/references/parsers_8172aec.py.txt",
+      "sha256": "db18b989b409479c508c6a24d685c523b011adecef86ae652e57eb343024f479"
+    },
+    {
+      "bytes": 3510,
+      "git_blob": "92e9f5e6f34997abf16cbbda99e784688eabfe09",
+      "path": "development/health_residuals_20261106_v003/references/raceindex_status.py.48333a2.original.txt",
+      "sha256": "09c13544552c40c2ed2761de0df08c999876814d256117b9069135c8391dbdb0"
+    },
+    {
+      "bytes": 15012,
+      "git_blob": "60b06789285a812d3c6314d3e398e0f10126be2a",
+      "path": "development/health_residuals_20261106_v003/references/state_machine_8172aec.py.txt",
+      "sha256": "596fb1a4c1e81d694204bca6968372a2eee86933939046e85a81ea68864a6471"
+    },
+    {
+      "bytes": 13048,
+      "git_blob": "2b9abfff16b2a0b04fd6545174668c120c1219a8",
+      "path": "development/health_residuals_20261106_v003/references/tests/test_health_controller_scope.py.48333a2.original.txt",
+      "sha256": "35117967a3005e452c8cd3693e22457253b6d24c1904ed155f61d51f6fa8cd4c"
+    },
+    {
+      "bytes": 11672,
+      "git_blob": "a14ae789d20ca7215e280b9e9dfcbe9514cafaac",
+      "path": "development/health_residuals_20261106_v003/references/tests/test_health_official_index.py.48333a2.original.txt",
+      "sha256": "c8191a39c2e41edc96d45af7c404fd452e1ec3fe2deffdce8e263546c3f09434"
+    },
+    {
+      "bytes": 5452,
+      "git_blob": "e94d004143d73144492bac97020740cb04eb2375",
+      "path": "development/health_residuals_20261106_v003/references/tests/test_health_raceindex_parser.py.48333a2.original.txt",
+      "sha256": "c853c03cefb91dc796fee4481355d4da4c29768a6d7631acf8daae4f3e357d87"
+    },
+    {
+      "bytes": 11098,
+      "git_blob": "697d0fa1ef7b21b31fea96cf64bab3db0e517d05",
+      "path": "development/health_residuals_20261106_v003/references/tests/test_health_v002_controller.py.48333a2.original.txt",
+      "sha256": "1bae48ee959ecbcce6264e0094e5b91ccd054273da5853343646903ff869325a"
+    },
+    {
+      "bytes": 5727,
+      "git_blob": "a78cbbc7fe69b8ae114a9cd27a4b908e01d85d07",
+      "path": "development/health_residuals_20261106_v003/references/tests/test_health_v002_schedule.py.48333a2.original.txt",
+      "sha256": "0f71151ee6e2c50f358ea0075c5f2035dc40df5cf06d8fe5dd9d1c5ceec37070"
+    },
+    {
+      "bytes": 3436,
+      "git_blob": "0e75efa262da56d8dfc15036e4d5c5805eb0fa36",
+      "path": "development/health_residuals_20261106_v003/run_event_comparison.py",
+      "sha256": "c23dbaa742df212030aee4714b249b5ef982a311749a9a58dab0fee28ac39072"
+    },
+    {
+      "bytes": 3243,
+      "git_blob": "19229ad12ac26dff3914fb9d9e0270b028b6de2e",
+      "path": "development/health_residuals_20261106_v003/run_offline_tests.py",
+      "sha256": "919c39ad6e29781a0db1e9b464ba0afae33fbb6c4705012a528fd8ad572f8b4c"
+    },
+    {
+      "bytes": 2702,
+      "git_blob": "bfff6854f40e8a7e7822f5765ef870ea0baffae7",
+      "path": "development/health_residuals_20261106_v003/spec_sha_check.py",
+      "sha256": "bf4cff517e5b600af0b832c02ff637d35bb46b386fb2a7081a13524f8c595669"
+    },
+    {
+      "bytes": 4704,
+      "git_blob": "b57d35bb1407da00f6f88bde8b10dddaf57bb521",
+      "path": "development/health_residuals_20261106_v003/verify_artifacts.py",
+      "sha256": "bb647e6762b0c847c561546dd282a346e541bcc866647e6cee3d1c5677382da4"
+    },
+    {
+      "bytes": 1985,
+      "git_blob": "1c8639fda3bfdb156292aa9e35b7919ea5112adc",
+      "path": "docs/C_MINIMAL_RELEASE_HOLD.md",
+      "sha256": "8655b3a2192ed0c118d4e3672987e39eae85625e99a623c3a4de070eb925e0b1"
+    },
+    {
+      "bytes": 9593,
+      "git_blob": "7d34dc7e8356fd59c0102ad5a0bd08aca4e36a43",
+      "path": "docs/OBS_QA_SPEC.md",
+      "sha256": "c42cc22f0f1542f0df483c9d6e5eb99a74ebdb745392438a22f111ac83537850"
+    },
+    {
+      "bytes": 6845,
+      "git_blob": "5d0fddcfbbb2ef9846061d1430e72f5ad6003b95",
+      "path": "docs/OBS_TASK_CHANGE_PROPOSAL.md",
+      "sha256": "042679d552aff3b5f523cd38c6f24842e74f66e27bb2c4048c4d65bf4c3b04b0"
+    },
+    {
+      "bytes": 2641,
+      "git_blob": "4342838ead5ae608a6cd0cbcf84888e385eb63cb",
+      "path": "error_rate_limit.py",
+      "sha256": "180cb4251d4daf780fb0e2c56f2887d91103cd12e16a0998917802a74ed930bb"
+    },
+    {
+      "bytes": 14924,
+      "git_blob": "bbfdce709bdbdd801a03d64814e882600d1dc832",
+      "path": "main.py",
+      "sha256": "e3fdd3da84be822e7faed8b4382144dc5da3dd4c2f85e8b4dc05ecbeb7901267"
+    },
+    {
+      "bytes": 4922,
+      "git_blob": "bed94a7933800074fb5e04730352ad66ccd1ac8e",
+      "path": "models.py",
+      "sha256": "2a1dfefe8b5bc1ebac40b7b1ddff042f0967532c36c032b74e9a74f508f0271b"
+    },
+    {
+      "bytes": 1554,
+      "git_blob": "d9e8128ce1aa77de93256532b34a677cadb4c71d",
+      "path": "odds_bridge.py",
+      "sha256": "bbdcfd0146b2d6b95f3649f9a029f04200e92df22c8fb89373ace84f67a6fab5"
+    },
+    {
+      "bytes": 14312,
+      "git_blob": "64c6a98a9d1b2eefc45f4471c510628b778a1d01",
+      "path": "official.py",
+      "sha256": "923ce076c47b5a27445c6ed3339f78405237a966117470490df331a44065fd53"
+    },
+    {
+      "bytes": 17860,
+      "git_blob": "f293c5c12394913718c43b2b894064249b8dddcc",
+      "path": "parsers.py",
+      "sha256": "5bc001879c7df45dfa20086cfdecf8c3794349e391f3458a02bb1b53e64a3cf9"
+    },
+    {
+      "bytes": 44,
+      "git_blob": "bdfc0ebb11734154fd790a689fdf253bca87149a",
+      "path": "pytest.ini",
+      "sha256": "84bd7749dd89382ca22e501795a5c66f86cbd34ecc9b7968b7329884022a3a17"
+    },
+    {
+      "bytes": 3336,
+      "git_blob": "0fc583f7b977f0dab1415b061a56f58e3336e373",
+      "path": "raceindex_scope.py",
+      "sha256": "f9c46fd77eb4981a48cd73d1cc0ee7472da46a80b36c4f1bef708dc1bdb4b9f9"
+    },
+    {
+      "bytes": 2117,
+      "git_blob": "8902281987a7da91c4ee3789c90a34ff6a3a1a16",
+      "path": "raceindex_status.py",
+      "sha256": "c955a34e3c196375a0230ae05acfe1d33cb22acfd244cde53e0fd219a27e0e4e"
+    },
+    {
+      "bytes": 788,
+      "git_blob": "c46f1318c756183beca46ef2f2f6019916f5ab72",
+      "path": "render.yaml",
+      "sha256": "fcf15ee197791532d1bca3ce65f49fe074e443dbac62adff2e864651be8ec79d"
+    },
+    {
+      "bytes": 6385,
+      "git_blob": "13d301fb19653c18a9107477f39ee7b7baae10f6",
+      "path": "repositories.py",
+      "sha256": "05ffbbdaad5cc8a2e4806d90cb0913d250089e2347207e96a9e9c9c2630b7aad"
+    },
+    {
+      "bytes": 90,
+      "git_blob": "56897db8cedd2e78618e4984f64c586252ce45d1",
+      "path": "requirements.txt",
+      "sha256": "125749db489c1885b54524b46ce4ed032896e2cf12d72021a69590e72220febd"
+    },
+    {
+      "bytes": 6348,
+      "git_blob": "703e402aa1e7b1f57780f470b24f10851c4dd40d",
+      "path": "sqlite_readonly_audit.py",
+      "sha256": "354940e9a77d2eaf86feaa1c50089db4a0e410cc5f2fdafd6598d66367566b94"
+    },
+    {
+      "bytes": 1787,
+      "git_blob": "21def07860033882e618099e853f3f000c7a3f26",
+      "path": "start_reading.py",
+      "sha256": "0ef87f66df7d99e4b3bad522e25f12437d559392c04b866c204b496ca68f7028"
+    },
+    {
+      "bytes": 15012,
+      "git_blob": "60b06789285a812d3c6314d3e398e0f10126be2a",
+      "path": "state_machine.py",
+      "sha256": "596fb1a4c1e81d694204bca6968372a2eee86933939046e85a81ea68864a6471"
+    },
+    {
+      "bytes": 3185,
+      "git_blob": "99e3b26b98186cc6a3df646bb5d3b92b24ef6738",
+      "path": "tests/test_c_beforeinfo_fetcher.py",
+      "sha256": "09e1749352c33ff566f28028716330502fa8cc59df6881dfc007472df0e9f6ce"
+    },
+    {
+      "bytes": 5902,
+      "git_blob": "0c003a51346d81e8dc09675d6779c513f6bdca3e",
+      "path": "tests/test_c_odds_bridge.py",
+      "sha256": "0a5f93eb7a09350a3644131a2fdbac8f041c5669e6728ba3159cc10af36ca9f2"
+    },
+    {
+      "bytes": 4055,
+      "git_blob": "3a7d339ffb04e5e59f3729444dc4ebb6fba17184",
+      "path": "tests/test_c_payload_schema.py",
+      "sha256": "d00d9abaf4a56ee77fde4bd804f0adb86f7b8babf105821a187344af4f894a20"
+    },
+    {
+      "bytes": 4639,
+      "git_blob": "69d952d8ae0b3046059c1192c4d1cc28a432a827",
+      "path": "tests/test_error_rate_limit.py",
+      "sha256": "e940b41163ba47576029a8525da61e47161b8ddb536de1aacaaf116acd5bb888"
+    },
+    {
+      "bytes": 13128,
+      "git_blob": "0455003637de235927a61ec64c5d14bec96e7c64",
+      "path": "tests/test_health_controller_scope.py",
+      "sha256": "139c42436293f1fc2f43042325c60aac57e987cba46c90c08f5e2707af539b1e"
+    },
+    {
+      "bytes": 10831,
+      "git_blob": "c45e4d553e53f479d7f65687ecfbe2a7fe74d43d",
+      "path": "tests/test_health_obs_qa.py",
+      "sha256": "502cfafc7bb907c1aedf0700001a0747b38c7d625b6a0f4e5eedb9fa122a1db2"
+    },
+    {
+      "bytes": 11143,
+      "git_blob": "d308382d4abc26671c1351f5d35d9cfd82ea22f5",
+      "path": "tests/test_health_official_index.py",
+      "sha256": "481ef28fd8837df5402f78f8d7a5e7c581b73b277daf980df10cb77a80438c8a"
+    },
+    {
+      "bytes": 5574,
+      "git_blob": "358699e6e2c168240479fac14a5f9e6f0f007318",
+      "path": "tests/test_health_raceindex_parser.py",
+      "sha256": "c62fe8de5d8974a9be5324d971b921ce7182b78081721a306c5dfde143aeb161"
+    },
+    {
+      "bytes": 11529,
+      "git_blob": "ef4e8239ea43c045a164e519462a496c2481cd0f",
+      "path": "tests/test_health_v002_controller.py",
+      "sha256": "8e178dbe221699f615e411894f168ad493d9044b32b450e2c5d84836933ac2ca"
+    },
+    {
+      "bytes": 3779,
+      "git_blob": "d2177fa3dd8fc1df3b3dee659023dcd7d5411aac",
+      "path": "tests/test_health_v002_parser.py",
+      "sha256": "1920f14f950b7c087dcf655d281027976dbaecf6d419a7e45167395e11326f2e"
+    },
+    {
+      "bytes": 4086,
+      "git_blob": "2fd74a0e9455b42b19f859f2544b370b67d70bbe",
+      "path": "tests/test_health_v002_schedule.py",
+      "sha256": "88102d477b619301ce05662c9542fba33e5b90dfb68617cc29c708a47bac7c96"
+    },
+    {
+      "bytes": 12174,
+      "git_blob": "44f0dfe6a5c77c8470c8c9241afdff6820ff1a9b",
+      "path": "tests/test_health_v003_audit_quality.py",
+      "sha256": "bd96fad0c11c95dc6bb43a2115ae2ab9f59e6150a464542b19311f7ecf3c81cf"
+    },
+    {
+      "bytes": 8030,
+      "git_blob": "9bc8d65b0acb193c4bb6a903e4df75d581ecd430",
+      "path": "tests/test_health_v003_controller.py",
+      "sha256": "436f91e94031621d6783584243679b99535b6de24fa65f65ad85f461241049f6"
+    },
+    {
+      "bytes": 20619,
+      "git_blob": "a8bbbc64e6b6f6472249c2a160938e3ee2f96a99",
+      "path": "tests/test_health_v003_event_equivalence.py",
+      "sha256": "aba3007224bf8b978c6b53eaf187d86742cde5184f3fd5ff0790b3deb9f8e75e"
+    },
+    {
+      "bytes": 6766,
+      "git_blob": "079f5e56b8b08f06dce30cf4195c49d1dec45096",
+      "path": "tests/test_health_v003_no_race.py",
+      "sha256": "da5db14b9cb5cd726621186be31258726a0c26a5f781c0938c7972ebd5e744cc"
+    },
+    {
+      "bytes": 7645,
+      "git_blob": "19ad3dcd7d1cf77a6f4befb4348415ddf93a60f6",
+      "path": "tests/test_health_v003_parser.py",
+      "sha256": "f7b5013963b0088d9f92f998288e764422a66993ab6719f47ae8aa4e763a6ce7"
+    },
+    {
+      "bytes": 4976,
+      "git_blob": "7af1e3f37808b25ac66bfedf73e86449c6215a9d",
+      "path": "tests/test_health_v003_spec_reference.py",
+      "sha256": "f98434e3eec72f1920067d1e97668b059532c8e5afaa715a871c8d5dedf988df"
+    },
+    {
+      "bytes": 2825,
+      "git_blob": "63e351683a7aa85687224168228db41785afbd9e",
+      "path": "tests/test_parsers.py",
+      "sha256": "0fe98bc329f82aa3c1d278c70b8cf9ae2b80d50b9cc7df72feccc5d3f104b3e1"
+    },
+    {
+      "bytes": 8591,
+      "git_blob": "0d60e9b2c696d2f838322206bba12f9d4bbbb8b4",
+      "path": "tests/test_sqlite_readonly_audit.py",
+      "sha256": "7599657f1ab7a882084d3d81d4de11566a778ed34adf8e5de4d6a922e6cb22c9"
+    },
+    {
+      "bytes": 3967,
+      "git_blob": "68f4af4423ae5cad06ba7d716ad2c67f10d2a7e9",
+      "path": "tests/test_start_reading_bridge.py",
+      "sha256": "bad063629abc593b8375aabc598b375fd3ace37a522b6ba076fdd3e70e927537"
+    },
+    {
+      "bytes": 7570,
+      "git_blob": "f8b43a635d876a9fff53bb05e07b25efc51cee2b",
+      "path": "tests/test_state_machine.py",
+      "sha256": "dfcc33edd342219c6427af3c054bee3f8aba0d42c950826ab6103e29bb9e08b0"
+    },
+    {
+      "bytes": 6369,
+      "git_blob": "3ed5c14a245ea6ec59a236046146ef7b5975dc5f",
+      "path": "tests/test_v11_beforeinfo.py",
+      "sha256": "94cdd850104686d08b2fd161363bf09583995342de99a5a61ad078697f6397e4"
+    },
+    {
+      "bytes": 8074,
+      "git_blob": "a4e011964ef30e066368377eecc13a1556d877b9",
+      "path": "tests/test_v11_candidate.py",
+      "sha256": "459167040d2f33735a999464308f5e57aefcf1e0d7996223e217ac1c2be676ef"
+    },
+    {
+      "bytes": 4948,
+      "git_blob": "fe11a4ba8c501131810b9a8afc8a6125c314072a",
+      "path": "tests/test_v11_clock.py",
+      "sha256": "8567431cfd75c61bdf54559a878f9926a475ce6323511d173bf4e92e0b6c1359"
+    },
+    {
+      "bytes": 1050,
+      "git_blob": "43adbb9beb34786b30d1a80ba6d6f1d06ec8f457",
+      "path": "tests/test_v11_official_header.py",
+      "sha256": "565e17d5e41195af0e648b8caf41721bab73a3e25b64704ca17ef77e69cd2f9a"
+    },
+    {
+      "bytes": 84,
+      "git_blob": "84dc12f14a6c11b060b056a619f661e112da00c9",
+      "path": "v11_candidate/__init__.py",
+      "sha256": "59cf9cfcf54625a9b5a9e3417b88ad83d2564e505ba609ab5b08e31d845ad94b"
+    },
+    {
+      "bytes": 11652,
+      "git_blob": "23df22b118e9b06968a8b3bd361636044c21027f",
+      "path": "v11_candidate/beforeinfo.py",
+      "sha256": "6a55e5317a2a0e2a69f987187d9401ba1f85ca8912bb5cf758679c635a763e0e"
+    },
+    {
+      "bytes": 7431,
+      "git_blob": "334c11ca4530001025820165f51b4d727aae40ed",
+      "path": "v11_candidate/contracts.py",
+      "sha256": "500f97e0cb3587fad60fe373a862e4b0d6e44b1cbdfb4ee63ebcb11b0f07d8ae"
+    },
+    {
+      "bytes": 7465,
+      "git_blob": "4dfac920f67adec683ebd308779da4d9814d4ee3",
+      "path": "v11_candidate/observation.py",
+      "sha256": "fe85c801980cd8d9099d225f024ad3a980a97f52ee820c081469b2c1cf132612"
+    },
+    {
+      "bytes": 8191,
+      "git_blob": "9a0606df3a6320d3fa1cb26b7773d12c89b53844",
+      "path": "v11_candidate/odds.py",
+      "sha256": "d78d46d952eaac75ae5ae6d8f42f0a3a905cfcf1b580237824920ca540c5dab7"
+    },
+    {
+      "bytes": 1784,
+      "git_blob": "bbcd86383c53b9d88ce3cc451ce42c854827ccb8",
+      "path": "v11_candidate/table_selection.py",
+      "sha256": "144aaebb6a34b14745d201105c39d07bc5240100a1e158cf3d8cf1edd647ffc2"
+    }
+  ],
+  "production_go": false,
+  "repository": "kawasaki8228brother-ship-it/gamagori-controller",
+  "scope": "OFFLINE_HEALTH_V003",
+  "self_excluded_paths": [
+    "development/health_residuals_20261106_v003/MANIFEST.json",
+    "development/health_residuals_20261106_v003/SHA256SUMS.txt"
+  ]
+}
