@@ -1,0 +1,1272 @@
+--- /dev/null
++++ b/development/model11/preintegration_v008/AUTHORITY_AND_SIGN.md
+@@ -0,0 +1,40 @@
++# P1: F5 authority and sign preintegration components
++
++Scope: new isolated components only; existing v007A, model/selection/Shadow code and the separate F5 document branch are unchanged. These components are not imported by the existing model runner. No branch integration, real-data evaluation, promotion or execution GO is implemented.
++
++## Sole policy authority and additive clarification
++
++The packaged reference is the byte-pinned public `DECISION_LEDGER.json` at commit `1778d2e4080dad8b5f1e80b7cc22ea0f5ce7df67`: 6,541 bytes, SHA-256 `1eda58d7b8aaa221314b02c2be90ae2b5f9640873a33d192aa5b59411e9a222d`. This is an **artifact hash**, not the unavailable original decision-record SHA. Original decision SHA and approval receipt remain null. `project_authority` derives the M0/M2/M1 values from those exact bytes; arbitrary self-asserted documents, supplied original hashes and mutated OPEN values cannot replace the pin.
++
++The eight OPEN values remain null; no new sample-day, effect, missingness, spending, cancellation, dependence or post-pass scope candidates are generated. Historical numerical examples in the original ledger are excluded from the executable-facing projection and are not adopted. The selected six market weights are selection candidates for one frozen champion, not six confirmatory hypotheses. A selected w=1.0 remains pure market and never grants MODEL superiority. Other weights also do not grant superiority without untouched evaluation evidence.
++
++`DECISION_PROVENANCE_OVERRIDE.json` is an additive record. It leaves v007A's `RECOMMENDATION_ONLY_NOT_ADOPTED` body unchanged and records that the policy interpretation is superseded by the decided M0→M2→M1 sequence in the pinned ledger. It does not duplicate or override numerical policy values. It separates Claude's direct-witness statement **「先生のおすすめを採用で！」** (confirmed per the forwarded Claude report; Codex received only) from HQ14's forwarded **20:36** timestamp (Claude UNVERIFIED). No source record or receipt is invented.
++
++## Sign convention
++
++`delta_pilot = champion_joint_logloss - market_joint_logloss`; `d_M0 = -delta_pilot = market_joint_logloss - champion_joint_logloss`. Positive d_M0 and negative delta_pilot favor lower champion loss. The conversion is involutive and preserves sample SD. Inputs are equally weighted paired **day means**, never race reweighting. Fewer than two paired days retain unknown sample SD; zero observed SD does not prove adequate sample size or zero future variance.
++
++The standard-normal lower-tail/upper-tail function is a mathematical identity diagnostic only. It does not implement or validate a confirmatory z-test, daily independence, critical-value choice, optional stopping, pass decision or performance claim. No unresolved F5 threshold is filled by this function.
++
++## Reproduction and claims for root REVIEW_GUIDE
++
++Run from the isolated repository with a prepared Python 3.12 or 3.14 interpreter:
++
++```sh
++PYTHONPATH=development/model11 python -B -m unittest discover -s development/model11/tests -p test_preintegration_authority.py -v
++```
++
++1. **Pinned sole authority** — `AuthorityTests.test_projection_uses_pinned_decisions_and_keeps_eight_open_values_null` and tampering tests. Expect decided values, exactly eight null OPEN values, and HOLD for altered bytes. Evidence: target test log, pinned reference, authority.py and final artifact inventory.
++2. **No history rewrite or fabricated approval** — provenance and frozen-v007A test. Expect original A hash unchanged, two distinct routes, original SHA/receipt null, all GO flags false. Evidence: override JSON and test log.
++3. **Sign/SD correctness** — `SignTests` known vectors and inverse conversion. Expect opposite means, equal SD, negative-pilot ↔ positive-M0 favorable direction, unknown/zero dispersion kept distinct. Evidence: signs.py and test log.
++4. **Correct one-sided orientation** — tail identity tests. Expect lower pilot tail equals upper M0 tail under the stated reference identity, actual_test_performed=false and test_pass=null. Evidence: test log. This is not evidence that actual holdout inference assumptions hold.
++
++## External gates and shortest resolution steps
++
++| Gate | Owner / required evidence | Minimal resolution steps |
++| --- | --- | --- |
++| Eight M1 OPEN decisions | HQ14, Claude, Andy; future approved policy decisions after separately approved pilot evidence | 1. Obtain approved private pilot summary. 2. Review uncertainty/dependence. 3. Decide eight items without reusing holdout. 4. Issue a new reviewable ledger and separate integration approval. No values are proposed here. |
++| Original source linkage | HQ14/Claude; actual available witness/provenance evidence | 1. Compare the two stated routes. 2. Record supported linkage, or leave unavailable source SHA/receipt null. Do not manufacture a missing original. |
++| Integration and execution | Andy with HQ14/Claude review; fixed commits, source mapping, sealed evaluation plan and explicit individual GO | 1. Review these separate components. 2. Approve exact integration scope. 3. Run approved combined regression. 4. Obtain separate data/Shadow/holdout GO. No current operation follows automatically. |
++
++Implementation and synthetic test completion are separate from Claude independent review and every execution gate. Final measured counts/runtime/bytes/SHA belong to the root's retained logs and manifest. This document does not predict those counts or claim actual data validation.
+--- /dev/null
++++ b/development/model11/preintegration_v008/DECISION_PROVENANCE_OVERRIDE.json
+@@ -0,0 +1,90 @@
++{
++  "branch_integration_authorized": false,
++  "execution_go": false,
++  "existing_v007A_body_unchanged": true,
++  "instruction_source": "HQ14_OFFLINE_DEVELOPMENT_AND_FORWARDED_CLAUDE_F5_20261106",
++  "new_numeric_candidates_created": false,
++  "open_items": [
++    {
++      "id": "SESOI",
++      "status": "OPEN",
++      "value": null
++    },
++    {
++      "id": "MIN_SELECTION_DAYS",
++      "status": "OPEN",
++      "value": null
++    },
++    {
++      "id": "HOLDOUT_START_AND_DAYS",
++      "status": "OPEN",
++      "value": null
++    },
++    {
++      "id": "ALPHA_SPENDING_NEED",
++      "status": "OPEN",
++      "value": null
++    },
++    {
++      "id": "SCRATCH_REFUND_CANCELLATION_RULES",
++      "status": "OPEN",
++      "value": null
++    },
++    {
++      "id": "ODDS_MISSING_AND_MAX_RATE",
++      "status": "OPEN",
++      "value": null
++    },
++    {
++      "id": "DAY_MEETING_DEPENDENCE",
++      "status": "OPEN",
++      "value": null
++    },
++    {
++      "id": "POST_PASS_ALLOWED_SCOPE",
++      "status": "OPEN",
++      "value": null
++    }
++  ],
++  "production_go": false,
++  "provenance_routes": [
++    {
++      "Codex_observation": "RECEIVED_FORWARD_ONLY_NOT_DIRECT_WITNESS",
++      "approval_receipt": null,
++      "confirmation": "CLAUDE_CONFIRMED_PER_FORWARDED_REPORT",
++      "route": "CLAUDE_DIRECT_WITNESS",
++      "source_original_sha256": null,
++      "statement": "\u5148\u751f\u306e\u304a\u3059\u3059\u3081\u3092\u63a1\u7528\u3067\uff01",
++      "witness": "Claude"
++    },
++    {
++      "Claude_confirmation": "UNVERIFIED",
++      "Codex_observation": "RECEIVED_FORWARD_ONLY",
++      "approval_receipt": null,
++      "reported_time": "2026-11-05T20:36:00+09:00",
++      "route": "HQ14_FORWARDED_TIME",
++      "source_original_sha256": null
++    }
++  ],
++  "record_type": "ADDITIVE_SUPERSESSION_NOT_REWRITE_OF_V007A",
++  "replacement_interpretation": "M0_THEN_M2_THEN_M1_DECISION_RECORDED_IN_PINNED_F5_LEDGER",
++  "schema_version": "F5_ADDITIVE_PROVENANCE_OVERRIDE_PREINTEGRATION_V008",
++  "sole_policy_authority": {
++    "approval_receipt": null,
++    "artifact_bytes": 6541,
++    "artifact_hash_is_original_decision_hash": false,
++    "artifact_sha256": "1eda58d7b8aaa221314b02c2be90ae2b5f9640873a33d192aa5b59411e9a222d",
++    "commit": "1778d2e4080dad8b5f1e80b7cc22ea0f5ce7df67",
++    "original_decision_record_sha256": null,
++    "path": "development/model11/f5_preregistration_v007/DECISION_LEDGER.json"
++  },
++  "source_connection_authorized": false,
++  "statistical_pass_granted": false,
++  "superseded_artifact": {
++    "bytes_modified": false,
++    "historical_field": "M0_M2_M1_ORDER",
++    "historical_value": "RECOMMENDATION_ONLY_NOT_ADOPTED",
++    "path": "development/model11/offline_refinements_v007/results/TEST_RESULTS.json",
++    "sha256": "255f559f186cbdd351f03a876855fcea2c83cb7023764fa96bbce7421b7edfb2"
++  }
++}
+--- /dev/null
++++ b/development/model11/preintegration_v008/INDEPENDENT_VERIFICATION.md
+@@ -0,0 +1,65 @@
++# P1 independent saved-byte score and cohort preparation
++
++Status: IMPLEMENTED + TESTED in synthetic offline scope. No integration GO, private-data GO, statistical acceptance or promotion follows. Existing v001–v007 engine, metrics, walk-forward, writers and frozen outputs are unchanged.
++
++## Implemented boundary
++
++`raw_logloss.py` accepts exact bytes plus caller-provided SHA-256 for a saved prediction and a separate result. Hash checks occur before strict UTF-8 JSON parsing. Duplicate keys, NaN/Infinity, booleans used as probabilities, incomplete/duplicate-boat domains, negative/out-of-range values, wrong stage sets and non-unit sums are rejected. A floating-point sum tolerance of 1e-12 is an engineering consistency check, **not** SESOI, a missing-rate limit or any F5 design value. The four stages remain distinct and the requested stage is explicit. No renormalization or likelihood floor is applied.
++
++The current saved research schema `MODEL11_INDEPENDENT_SHADOW_RECORD_V005` / nested `MODEL11_FORECAST_V003` is supported as an audit projection, including its frozen synthetic example. A narrow `INDEPENDENT_PROBABILITY_INPUT_V001_PROPOSED` envelope is provided for fixtures and future approved adapters. Unknown formal A/B or production schema is HOLD. Five selected tickets alone do not define a 120-way distribution and are never expanded into invented probabilities.
++
++The result uses a separate proposed `INDEPENDENT_RESULT_INPUT_V001_PROPOSED` envelope. It must bind the same race, give a valid 3-of-6 outcome, be FINAL, and have post-deadline publication/availability/revision times. Prediction source and all recorded feature/state/odds/training timestamps must be available no later than prediction time; prediction generation/publication/revision must precede LOCK and LOCK must precede the deadline. Unknown times and timezone-less/unknown-offset times do not become inferred values.
++
++A proposed `SAVED_RAW_LOGLOSS_BINDING_V001_PROPOSED` sidecar binds prediction/result raw hashes, LOCK, publication times and matching model/market odds snapshot hashes/times. These are **self-reported bindings**, not independent proof of real capture, external authenticity or timely publication. No real receipts or original approval SHA are fabricated. The function only reports arithmetic recomputation and internally consistent supplied timing claims. A zero outcome probability is returned as UNVERIFIED positive-infinite log-loss with no finite clipping. Private-real inputs are not admitted by this synthetic-only preparation.
++
++A/B source labels can appear only in the explicitly synthetic full-probability evaluation envelope and are reported as `INDEPENDENT_RAW_EVALUATION_ONLY`. This is the permitted third evaluator exception; there is no feature, prediction, selection, writer, network or saved-event reader connection. The module imports only stdlib. Actual A/B frozen-output mapping and full probability availability remain external prerequisites.
++
++## Cohort and champion checks
++
++`cohort_guards.py` audits exact roster/seal/model bytes. It rejects shared race IDs, raw digests and day clusters across training, selection, pilot and holdout, duplicate identities within a role, chronological misuse and unavailable training/selection/pilot records. The pilot cannot be reused as formal holdout. A single nonempty opaque model-byte artifact is bound by SHA; this is not a model-fit validator.
++
++The seal binds one champion, a derived sorted selection-identity projection, selection time and freeze time before first holdout prediction. That projection hash is explicitly distinguished from original raw roster SHA. Empty roles are structurally incomplete audit inputs, **not** adoption of a minimum selection-day threshold. Sample adequacy, holdout size/start and all eight open F5 design values remain unfilled and outside this module.
++
++These pure functions return no inferential PASS, model-superiority claim, power guarantee, execution authorization or automatic promotion. F5 decision interpretation is owned by the separate pinned-ledger authority component. No code here duplicates its alpha, power, option-selection or adoption decision.
++
++## Executed evidence and revision record
++
++- Python 3.14.3: 22 unittest methods PASS, zero failures/errors/skips.
++- Python 3.12.14: the same 22 methods PASS, zero failures/errors/skips.
++- Both runs independently check that an empty model artifact with its matching empty hash is rejected.
++- Initial 20-method run had one **test fixture helper** KeyError when creating a sidecar after intentionally removing odds-time evidence; the auditor had not yet been reached. The helper was corrected, and all missing-time cases now reach HOLD.
++- Second revision also checks V005 full-forecast nested outcomes and future training timestamps outside the minimal score projection.
++- Source `raw_logloss.py`, `cohort_guards.py` and the test file have reached revision2 through the shared guard. No third edit is authorized by the current instruction. Any further defect requiring these files to change must STOP and be reported.
++- Raw local logs are in `p1/private/raw-verifier-initial314.log`, `raw-verifier-final314-with-runtime.log` and `raw-verifier-final312-with-runtime.log`. Root may publish safe copies with recorded provenance. The initial log contains workspace paths and must not be silently relabelled as a redacted original.
++
++## Top ten review claims
++
++Run the supplied unit file from `development/model11` with the prepared interpreter:
++
++```sh
++python -B -m unittest discover -s tests -p test_preintegration_raw_verifier.py -v
++```
++
++| Claim for Claude | Test / inspection | Expected | Evidence |
++| --- | --- | --- | --- |
++| Exact raw hashing precedes parsing | raw-layout/hash tests | whitespace changes need a different expected raw hash | test source + runtime logs |
++| Duplicate/nonfinite/boolean values fail closed | duplicate/value tests | HOLD, no submitted secret echoed | test source + logs |
++| All120 distinct tickets and four stages stay separate | domain/stage tests | full domain; stage-specific known loss | test source + logs |
++| Natural log-loss is recomputed independently | uniform/binary/frozenV005 tests | ln120, ln2/ln4, stored probability loss | test source + logs |
++| Zero probability is not hidden by epsilon | zero-probability test | positive-infinite UNVERIFIED, no finite floor | test source + logs |
++| Feature/odds/training future information is refused | future/sidecar/V005 tests | HOLD | test source + logs |
++| Results stay separate and post-deadline | outcome/finality tests | HOLD for predeadline/result-in-forecast | test source + logs |
++| Pilot, holdout and day clusters do not mix | cohort overlap/time tests | HOLD for shared day/race/raw digest | test source + logs |
++| One champion is bound before holdout | seal/raw-model tests | HOLD on changed model, late freeze or changed selection set | test source + logs |
++| No production or feature connection exists | AST imports + source inspection | stdlib + sibling audit helper only; go=false | both modules + tests |
++
++## External blocks and shortest resolution
++
++| Blocked item | Owner | Needed evidence | Minimum sequence |
++| --- | --- | --- | --- |
++| Real saved prediction/result adapter | HQ14 + Claude | approved private schema and hash/timing/source mapping, including any formal A/B120 probability availability | 1) map privately; 2) review mapping; 3) rerun this checker privately |
++| Real predeadline/odds authenticity | HQ14 + operator | independent saved originals, capture/LOCK/readback receipts and matching snapshot lineage | 1) preserve privately; 2) independently bind hashes/times; 3) review eligibility |
++| F5 eight open design values / formal inference | HQ14 + Claude + Andy | actual adopted decisions and original/receipt linkage when available; no values invented here | 1) decide externally before holdout; 2) record authority; 3) individual GO |
++| Integration with v007/F5 and any live use | Andy after independent review | approved exact commits, dependency/integration plan, full regression and separate deployment/execution authorization | 1) review candidates; 2) authorize a concrete integration; 3) run approved migration |
++
++The 2099 dates, singleton role examples and probability vectors are synthetic unit inputs, not adopted sample-size/day proposals. Current claim is completion of these offline audit components pending Claude review, not completion of all P1 work or formal adoption.
+--- /dev/null
++++ b/development/model11/preintegration_v008/REVIEW_GUIDE.md
+@@ -0,0 +1,47 @@
++# P1 preintegration v008 — Claude REVIEW_GUIDE
++
++Status: offline components implemented and synthetically tested; **Claude independent review pending**. This is not a v008 branch integration, real-data admission, statistical PASS, Shadow start or production GO. The base is `148c156f472c874075a0b25d4f0b6b7e9fafdcfe` on the `7aec4fd` lineage. The F5 ledger branch is referenced by immutable artifact bytes; it has not been merged into the engine.
++
++## Start here
++
++Read [AUTHORITY_AND_SIGN.md](AUTHORITY_AND_SIGN.md), [INDEPENDENT_VERIFICATION.md](INDEPENDENT_VERIFICATION.md), the additive [provenance record](DECISION_PROVENANCE_OVERRIDE.json), and the final root manifest/log provenance. No command below fetches source data or starts a model/Shadow writer.
++
++Use an already prepared offline interpreter and a fresh local checkout. From the repository root:
++
++```sh
++cd development/model11
++python -B -m unittest discover -s tests -p test_preintegration_authority.py -v
++python -B -m unittest discover -s tests -p test_preintegration_raw_verifier.py -v
++python -B -m unittest discover -s tests -v
++```
++
++Call the first command **A**, the second **B**, and the last **FULL** below. A has 11 methods; B has 22 methods. Root's executed full-model result is **591 PASS in Python 3.12 and 591 PASS in Python 3.14**. Confirm that claim against [full312.raw.log](evidence/full312.raw.log) and [full314.raw.log](evidence/full314.raw.log), including their actual environment headers; counts do not by themselves prove a claim. Root-level controller regression is separate and is not silently included in the591.
++
++The root-supplied `run_regressions.py` records the final command interface and network/cache guards. Its actual `--help` and retained run logs govern its options; this guide does not invent runtime flags. All tests here use synthetic inputs. Do not install into or alter existing certifi/SYS environments to reproduce them.
++
++## Top ten claims to verify
++
++| # | Claim for Claude | Reproduction command / focused test | Required observation | Evidence |
++| --- | --- | --- | --- | --- |
++| 1 | F5 values come from one pinned policy artifact, not arbitrary caller configuration | A; `test_projection_uses_pinned_decisions_and_keeps_eight_open_values_null`, `test_changed_self_asserted_document_never_becomes_an_authority` | Exact ledger6541B/SHA match projects M0/M2/M1. Altered, appended, self-asserted receipt or unknown bytes HOLD. `artifact_sha256` is not Andy's missing original-record SHA. | `authority.py`; `references/F5_DECISION_LEDGER_1778d2e.json`; A/full logs |
++| 2 | Decision provenance, history and all eight OPEN values remain honest | A; provenance and projection tests | Claude's witnessed “先生のおすすめを採用で！” is confirmed per the forwarded report; HQ14's20:36 time is Claude UNVERIFIED. Original SHA/receipt stay null, eight values stay null, prior examples are excluded, and v007A's RECOMMENDATION_ONLY body hash is unchanged. | `DECISION_PROVENANCE_OVERRIDE.json`; `AUTHORITY_AND_SIGN.md`; A/full logs |
++| 3 | Pilot/M0 sign and SD conversion are consistent | A; `test_roundtrip_and_favorable_direction`, `test_day_mean_sign_changes_sd_does_not_and_input_remains_unchanged`, dispersion tests | `d_M0=-delta_pilot`; roundtrip restores values. Negative pilot favors the model, positive M0 favors the model. Sample SD is unchanged; fewer than two days remain unknown and observed zero is not future-variance certainty. | `signs.py`; A/full logs |
++| 4 | One-sided direction and pure-market interpretation cannot grant an unsupported superiority claim | A; tail-identity and market-weight tests | Pilot lower tail equals M0 upper tail under the stated normal identity only. Actual test flag is false and no pass is granted. Selected w=1.0 returns NO_MODEL_SUPERIORITY; m=1 refers to one frozen champion, not six tests. | `authority.py`; `signs.py`; pinned M0/M1; A/full logs |
++| 5 | Independent score verification hashes original saved bytes before interpreting them | B; raw-layout/hash, duplicate-JSON and nonfinite tests | Different whitespace/layout needs its own SHA; no canonical re-encoding silently replaces an expected raw digest. Duplicate keys, malformed UTF-8/JSON and nonfinite tokens HOLD without echoing supplied secrets. | `raw_logloss.py`; B/full logs |
++| 6 | Exactly120 outcomes and the four probability stages remain distinct | B; domain/value/sum and stage-selection tests | All six-boat permutations occur exactly once; no repeated boat, boolean, negative or nonfinite probability. Raw/model/market/shrunk are explicit stages. Incomplete five-ticket forecasts are not expanded into invented distributions. | `raw_logloss.py`; `test_preintegration_raw_verifier.py`; B/full logs |
++| 7 | Natural log-loss is recomputed without a hidden normalization or zero floor | B; uniform, stage-specific, frozenV005 and zero-probability tests | Known uniform loss equals ln120, chosen known probabilities produce their expected natural losses, and existing frozen syntheticV005 is read as an audit projection. Outcome p=0 stays positive-infinite UNVERIFIED; no epsilon creates a finite performance score. | `raw_logloss.py`; B/full logs |
++| 8 | Prediction, result and point-in-time evidence stay separate | B; future-feature/state/training, all-time-evidence, result-finality and snapshot-binding tests | Unknown/future/naive times, premature outcomes, mismatched raw hashes or model/market odds snapshots HOLD. Internally matching sidecar claims never become independent proof of real capture, publication or authenticity. | `raw_logloss.py`; `INDEPENDENT_VERIFICATION.md`; B/full logs |
++| 9 | Pilot/holdout contamination and post-hoc champion replacement are refused | B; all `CohortGuardTests` | Race IDs, day clusters and raw digests cannot cross roles. Pilot is not formal holdout. One nonempty model-byte artifact and the selection projection/seal must bind before first holdout prediction; late freeze or changed identities/model HOLD. No minimum selection-day or holdout-size value is invented. | `cohort_guards.py`; B/full logs |
++| 10 | This remains audit-only preparation with old code preserved | A+B+FULL; `test_modules_have_no_model_engine_or_io_import_connections`; read-only `git diff --name-only 148c156f472c874075a0b25d4f0b6b7e9fafdcfe HEAD` in a real checkout | Audit modules import only stdlib/sibling audit helpers, do not route A/B bytes into features or selection, and all GO flags remain false. Existing320 base files are preserved; additions are new preparation components/tests/evidence. Actual A/B input mapping and real receipts remain external. | full312/full314 logs; root baseline-preservation metadata/manifest; source diff; `AUTHORITY_AND_SIGN.md` |
++
++A read-only Git comparison needs an actual checkout. A downloaded archive has no Git history: use its final manifest and parent-byte inventory instead, and do not report an unexecuted command as PASS. The two proposed score/result envelopes and the sidecar are input contracts for this independent checker, not claims that a formal A/B schema is already mapped. A/B labels are admitted only inside explicitly synthetic full-probability evaluation inputs, as the third-evaluator exception; they are never model features.
++
++## What this guide does not close
++
++- Formal decision original SHA and receipt **do not exist in the supplied evidence**. Keep them null; do not create a substitute record and label it original. The pinned ledger hash is a different artifact identity.
++- Eight unresolved F5 values remain empty. No new values, sample-day suggestions or adoption thresholds are proposed. M0→M2→M1 interpretation does not start pilot, holdout or live execution.
++- Real saved-output schemas, original timing/source/odds evidence and actual A/B120 probabilities require HQ14/Claude private review. The current code admits only synthetic preparation; no real originals were provided to Codex.
++- A matched self-reported sidecar is not timely-publication proof. Zero sample SD, normal-tail identities and synthetic log-loss correctness are not evidence of model superiority, adequate N, profit or real inference validity.
++- Integration of the148c156 and1778d2e lines requires a separate concrete approval, followed by combined regression. This branch deliberately does not perform that integration or alter existing engine, market weights, predictions, BOX, A/B, writers or tasks.
++
++External owners, required evidence and shortest resolution sequences are listed in the two component documents. The complete delivery's DEVELOPMENT_STATUS.json separates IMPLEMENTED/TESTED from BLOCKED_EXTERNAL and FAILED_OPEN. Passing this guide's tests means offline evidence is ready for Claude review, not that Claude has already reviewed it.
+--- /dev/null
++++ b/development/model11/preintegration_v008/authority.py
+@@ -0,0 +1,118 @@
++"""Pinned F5 policy projection only; no model/Shadow integration or execution GO.
++
++The ledger artifact hash authenticates this selected public artifact, not Andy's
++spoken decision, original approval record, source data or a production action.
++"""
++from __future__ import annotations
++from copy import deepcopy
++import hashlib
++import json
++import math
++from pathlib import Path
++
++LEDGER_COMMIT = "1778d2e4080dad8b5f1e80b7cc22ea0f5ce7df67"
++LEDGER_PATH = "development/model11/f5_preregistration_v007/DECISION_LEDGER.json"
++LEDGER_BYTES = 6541
++LEDGER_SHA256 = "1eda58d7b8aaa221314b02c2be90ae2b5f9640873a33d192aa5b59411e9a222d"
++OVERRIDE_SHA256 = "3ac9eb6f3ad22475785e50bb60cc829c4930c6b66c7d8662d3e1f9cc92755d73"
++OPEN_IDS = ("SESOI", "MIN_SELECTION_DAYS", "HOLDOUT_START_AND_DAYS", "ALPHA_SPENDING_NEED",
++            "SCRATCH_REFUND_CANCELLATION_RULES", "ODDS_MISSING_AND_MAX_RATE",
++            "DAY_MEETING_DEPENDENCE", "POST_PASS_ALLOWED_SCOPE")
++
++
++class AuthorityHold(ValueError):
++    """Only internally authored codes, never input contents or local paths."""
++
++
++def _ledger(raw):
++    if type(raw) is not bytes:
++        raise AuthorityHold("LEDGER_RAW_BYTES_REQUIRED")
++    if len(raw) != LEDGER_BYTES or hashlib.sha256(raw).hexdigest() != LEDGER_SHA256:
++        raise AuthorityHold("PINNED_LEDGER_ARTIFACT_MISMATCH")
++    try:
++        value = json.loads(raw)
++        if value["schema_version"] != "F5_DECISION_LEDGER_V007":
++            raise AuthorityHold("LEDGER_SCHEMA_MISMATCH")
++        if (value["source"]["original_sha256"] is not None
++                or value["source"]["approval_receipt"] is not None):
++            raise AuthorityHold("UNAVAILABLE_APPROVAL_EVIDENCE_MUST_REMAIN_NULL")
++        items = value["open_items"]
++        if (type(items) is not list or tuple(item["id"] for item in items) != OPEN_IDS
++                or any(item["status"] != "OPEN" or item["value"] is not None for item in items)):
++            raise AuthorityHold("EIGHT_OPEN_VALUES_MUST_REMAIN_NULL")
++        if (value["M0"]["status"] != "DECIDED" or value["M2"]["status"] != "DECIDED"
++                or value["M1"]["status"] != "FUTURE_DESIGN_DECIDED"):
++            raise AuthorityHold("LEDGER_DECISION_STATUS_MISMATCH")
++        if any(permission is not False for permission in value["operational_permissions"].values()):
++            raise AuthorityHold("NO_OPERATIONAL_PERMISSION_GRANTED")
++        return value
++    except AuthorityHold:
++        raise
++    except (KeyError, TypeError, ValueError, UnicodeError):
++        raise AuthorityHold("LEDGER_STRUCTURE_UNVERIFIED") from None
++
++
++def project_authority(raw):
++    """Derive decided values solely from pinned bytes; omit historical examples."""
++    ledger = _ledger(raw)
++    return {
++        "status": "PINNED_DECISIONS_PROJECTED_NOT_EXECUTABLE",
++        "policy_authority": {"commit": LEDGER_COMMIT, "path": LEDGER_PATH,
++            "artifact_bytes": LEDGER_BYTES, "artifact_sha256": LEDGER_SHA256,
++            "original_decision_record_sha256": None, "approval_receipt": None,
++            "artifact_hash_is_original_decision_hash": False},
++        "decision_order": ["M0", "M2", "M1"],
++        "M0": deepcopy(ledger["M0"]), "M2": deepcopy(ledger["M2"]), "M1": deepcopy(ledger["M1"]),
++        "open_items": [{"id": item["id"], "status": "OPEN", "value": None} for item in ledger["open_items"]],
++        "historical_examples": "EXCLUDED_NOT_NEW_ADOPTED_VALUES",
++        "provenance_record": "DECISION_PROVENANCE_OVERRIDE.json",
++        "original_decision_linkage": "NOT_ESTABLISHED_BY_THIS_ARTIFACT_HASH",
++        "actual_statistical_test_performed": False, "model_superiority": "UNVERIFIED",
++        "branch_integration_authorized": False, "execution_go": False, "production_go": False,
++    }
++
++
++def authority_report(raw):
++    try:
++        return project_authority(raw)
++    except AuthorityHold as exc:
++        return {"status": "HOLD", "reason": exc.args[0], "execution_go": False, "production_go": False}
++
++
++def load_authority():
++    """Read only this packaged public ledger reference; no arbitrary path API."""
++    try:
++        raw = (Path(__file__).resolve().parent / "references/F5_DECISION_LEDGER_1778d2e.json").read_bytes()
++    except OSError:
++        return {"status": "HOLD", "reason": "PINNED_LEDGER_ARTIFACT_UNAVAILABLE",
++                "execution_go": False, "production_go": False}
++    return authority_report(raw)
++
++
++def load_provenance_override():
++    """Additive historical clarification, never another source of policy values."""
++    try:
++        raw = (Path(__file__).resolve().parent / "DECISION_PROVENANCE_OVERRIDE.json").read_bytes()
++    except OSError:
++        raise AuthorityHold("PROVENANCE_OVERRIDE_UNAVAILABLE") from None
++    if hashlib.sha256(raw).hexdigest() != OVERRIDE_SHA256:
++        raise AuthorityHold("PROVENANCE_OVERRIDE_ARTIFACT_MISMATCH")
++    return json.loads(raw)
++
++
++def model_claim_status(market_weight, *, ledger_raw):
++    """Structural w=1 safeguard; never issue a performance claim for other w."""
++    policy = project_authority(ledger_raw)
++    if type(market_weight) not in (int, float):
++        raise AuthorityHold("MARKET_WEIGHT_INVALID")
++    try:
++        finite = math.isfinite(market_weight)
++    except OverflowError:
++        finite = False
++    if not finite or market_weight not in policy["M1"]["market_weights"]:
++        raise AuthorityHold("MARKET_WEIGHT_OUTSIDE_DECIDED_GRID")
++    return {"status": "NO_MODEL_SUPERIORITY" if market_weight == 1.0 else "UNVERIFIED_UNTOUCHED_HOLDOUT_REQUIRED",
++            "weight_definition": policy["M1"]["market_weight_definition"],
++            "confirmatory_family_size": policy["M0"]["confirmatory_family_size"],
++            "model_superiority_allowed": False, "actual_test_performed": False,
++            "execution_go": False, "production_go": False}
+--- /dev/null
++++ b/development/model11/preintegration_v008/cohort_guards.py
+@@ -0,0 +1,69 @@
++"""Sealed cohort leakage checks; no F5 thresholds, model fitting or data I/O."""
++from __future__ import annotations
++from datetime import datetime, timedelta, timezone
++import hashlib
++import json
++import re
++from .raw_logloss import AuditHold, _need, aware_time, parse_raw, sha256
++
++ROLES = frozenset({"training", "selection", "pilot", "holdout"})
++_SHA = re.compile(r"[0-9a-f]{64}\Z")
++_ID = re.compile(r"[A-Za-z0-9_.:-]{1,128}\Z")
++
++def selection_projection_sha256(rows):
++    """Hash a named derived identity projection, not original roster raw bytes."""
++    value = sorted([{k: r[k] for k in ("race_id","target_date","raw_sha256","prediction_at","deadline","record_available_at")} for r in rows], key=lambda r:r["race_id"])
++    return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(",",":"),ensure_ascii=True,allow_nan=False).encode("ascii")).hexdigest()
++
++def audit_cohorts(roster_raw, roster_sha256, seal_raw, seal_sha256, model_raw, model_raw_sha256):
++    base = {"status":"HOLD", "reason_codes":[], "production_go":False, "formal_eligibility":"UNVERIFIED",
++            "source_authenticity":"UNVERIFIED_SELF_REPORTED", "minimum_selection_days":None,
++            "sample_adequacy":"UNVERIFIED_NO_F5_THRESHOLD_ADOPTED", "holdout_start_and_days":None,
++            "champion_count_requirement":1, "data_use":"AUDIT_ONLY_NO_FIT_OR_EVALUATION_START"}
++    try:
++        roster=parse_raw(roster_raw,roster_sha256);seal=parse_raw(seal_raw,seal_sha256)
++        _need(type(model_raw) is bytes and bool(model_raw) and isinstance(model_raw_sha256,str) and _SHA.fullmatch(model_raw_sha256) is not None and sha256(model_raw)==model_raw_sha256,"FROZEN_MODEL_RAW_SHA_MISMATCH")
++        _need(isinstance(roster,dict) and set(roster)=={"schema","data_classification","synthetic","partitions"} and roster["schema"]=="COHORT_AUDIT_ROSTER_V001_PROPOSED","COHORT_SCHEMA_INVALID")
++        _need(roster["data_classification"]=="SYNTHETIC_ONLY" and roster["synthetic"] is True,"PRIVATE_DATA_EXECUTION_NOT_APPROVED")
++        groups=roster["partitions"]
++        _need(isinstance(groups,dict) and set(groups)==ROLES,"FOUR_EXPLICIT_ROLES_REQUIRED")
++        seen_races,seen_hashes,day_roles={}, {}, {}
++        normalized={}
++        expected={"race_id","target_date","raw_sha256","prediction_at","deadline","record_available_at"}
++        for role,rows in groups.items():
++            _need(isinstance(rows,list) and bool(rows),"COHORT_INPUTS_INCOMPLETE_NOT_SAMPLE_ADEQUACY_VERDICT")
++            normalized[role]=[]
++            for row in rows:
++                _need(isinstance(row,dict) and set(row)==expected,"COHORT_ROW_FIELDS_INVALID")
++                race,day,digest=row["race_id"],row["target_date"],row["raw_sha256"]
++                _need(isinstance(race,str) and _ID.fullmatch(race) is not None and isinstance(digest,str) and _SHA.fullmatch(digest) is not None,"COHORT_ID_OR_RAW_SHA_INVALID")
++                _need(isinstance(day,str) and re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}",day) is not None,"COHORT_DAY_INVALID")
++                try: parsed_day=datetime.strptime(day,"%Y-%m-%d").date()
++                except ValueError: raise AuditHold("COHORT_DAY_INVALID") from None
++                predicted,deadline,available=(aware_time(row[k]) for k in ("prediction_at","deadline","record_available_at"))
++                _need(predicted<deadline and deadline.astimezone(timezone(timedelta(hours=9))).date()==parsed_day,"COHORT_TIMING_OR_TARGET_DAY_INVALID")
++                _need(available>=predicted,"RECORD_AVAILABLE_BEFORE_PREDICTION")
++                _need(race not in seen_races,"DUPLICATE_OR_CROSS_ROLE_RACE")
++                _need(digest not in seen_hashes,"DUPLICATE_OR_CROSS_ROLE_RAW_BYTES")
++                _need(day not in day_roles or day_roles[day]==role,"CROSS_ROLE_DAY_CLUSTER_CONTAMINATION")
++                seen_races[race]=role;seen_hashes[digest]=role;day_roles[day]=role
++                normalized[role].append({**row,"_prediction":predicted,"_available":available,"_day":parsed_day})
++        _need(max(r["_day"] for r in normalized["training"])<min(r["_day"] for r in normalized["selection"]),"TRAIN_SELECTION_CHRONOLOGY_INVALID")
++        _need(max(r["_day"] for r in normalized["selection"])<min(r["_day"] for r in normalized["holdout"]),"SELECTION_HOLDOUT_CHRONOLOGY_INVALID")
++        _need(max(r["_day"] for r in normalized["pilot"])<min(r["_day"] for r in normalized["holdout"]),"PILOT_NOT_BEFORE_HOLDOUT")
++        _need(max(r["_available"] for r in normalized["training"])<min(r["_prediction"] for r in normalized["selection"]),"FUTURE_TRAINING_INFORMATION_IN_SELECTION")
++        expected_seal={"schema","model_raw_sha256","selection_projection_sha256","selected_at","frozen_at","champion_count"}
++        _need(isinstance(seal,dict) and set(seal)==expected_seal and seal["schema"]=="SINGLE_CHAMPION_SEAL_V001_PROPOSED","CHAMPION_SEAL_SCHEMA_INVALID")
++        _need(type(seal["champion_count"]) is int and seal["champion_count"]==1,"EXACTLY_ONE_FROZEN_CHAMPION_REQUIRED")
++        _need(seal["model_raw_sha256"]==model_raw_sha256,"CHAMPION_MODEL_RAW_BINDING_MISMATCH")
++        _need(seal["selection_projection_sha256"]==selection_projection_sha256(groups["selection"]),"SELECTION_ROSTER_SEAL_MISMATCH")
++        selected,frozen=aware_time(seal["selected_at"]),aware_time(seal["frozen_at"])
++        _need(max(r["_available"] for r in normalized["selection"])<=selected<=frozen<min(r["_prediction"] for r in normalized["holdout"]),"SELECTION_FREEZE_HOLDOUT_TIME_INVALID")
++        _need(max(r["_available"] for r in normalized["pilot"])<=frozen,"PILOT_NOT_AVAILABLE_BEFORE_CONFIRMATORY_FREEZE")
++        return {**base,"status":"COHORT_INVARIANTS_MATCHED_AUDIT_ONLY","role_rows":{r:len(v) for r,v in groups.items()},
++                "role_days":{r:len({row["target_date"] for row in v}) for r,v in groups.items()},
++                "roster_raw_sha256":roster_sha256,"seal_raw_sha256":seal_sha256,"model_raw_sha256":model_raw_sha256,
++                "selection_projection_scope":"DERIVED_SORTED_IDENTITY_SET_NOT_RAW_SOURCE_HASH",
++                "pilot_reused_as_holdout":False,"automatic_evaluation_or_promotion":False}
++    except AuditHold as exc:return {**base,"reason_codes":[exc.args[0]]}
++    except (ValueError,TypeError,KeyError,OverflowError,RecursionError):return {**base,"reason_codes":["COHORT_INPUT_INVALID"]}
+--- /dev/null
++++ b/development/model11/preintegration_v008/raw_logloss.py
+@@ -0,0 +1,171 @@
++"""Independent stdlib audit of saved raw probability bytes; no model/writer import.
++
++This verifies arithmetic and self-reported bindings, never external authenticity,
++F5 adequacy or permission to use private data. No source, sink or file I/O exists.
++"""
++from __future__ import annotations
++from datetime import datetime, timezone, timedelta
++import hashlib
++from itertools import permutations
++import json
++import math
++import re
++
++STAGES = frozenset({"P_raw", "P_model", "P_market", "P_shrunk"})
++TICKETS = frozenset("-".join(map(str, p)) for p in permutations(range(1, 7), 3))
++NUMERICAL_SUM_TOLERANCE = 1e-12  # Floating-point consistency only, not an F5 threshold.
++_SHA = re.compile(r"[0-9a-f]{64}\Z")
++_ID = re.compile(r"[A-Za-z0-9_.:-]{1,128}\Z")
++_TIME = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\.[0-9]{1,6})?(?:Z|[+-][0-9]{2}:[0-9]{2})\Z")
++_TIMES = {"acquired_at", "available_at", "revision_at"}
++_FORBIDDEN = {"actual", "outcome", "outcomes", "result", "results", "label", "labels", "payout", "payout_per_100", "refund_tickets"}
++_FEATURES = {"st", "turn", "motor", "ability", "exhibition"}
++_INNER_KEYS = set("F2_BOX_DESIGN F5_SELECTION_ADEQUACY P_calibrated bet_decision boxes classification config config_status course_evidence deadline distributions explanation first_course information input_sha256 legacy_comparison live_eligible market model_sha256 model_spec model_version performance_improvement pool_definition prediction_at prediction_sha256 probability_integrity production_go race_id real_data_execution_go schema selection selection_stage source target_date version".split())
++_OUTER_KEYS = set("ModelVersion deadline external_authenticity forecast generated_at mode namespace production_go race_id reproduction schema source_evidence target_date validity".split())
++_BINDING_KEYS = set("schema forecast_sha256 result_sha256 race_id lock_at prediction_available_at prediction_revision_at model_odds_snapshot_sha256 market_odds_snapshot_sha256 odds_acquired_at odds_available_at odds_revision_at evaluation_purpose".split())
++
++class AuditHold(ValueError):
++    """Only internally authored fixed reason codes are emitted."""
++
++def _need(ok, reason):
++    if not ok: raise AuditHold(reason)
++
++def sha256(raw):
++    _need(type(raw) is bytes, "RAW_BYTES_REQUIRED")
++    return hashlib.sha256(raw).hexdigest()
++
++def parse_raw(raw, expected_sha256):
++    _need(type(raw) is bytes and len(raw) > 0, "RAW_BYTES_REQUIRED")
++    _need(isinstance(expected_sha256, str) and _SHA.fullmatch(expected_sha256) is not None, "EXPECTED_RAW_SHA_INVALID")
++    _need(sha256(raw) == expected_sha256, "RAW_SHA256_MISMATCH")
++    def pairs(items):
++        result = {}
++        for key, value in items:
++            _need(key not in result, "DUPLICATE_JSON_KEY")
++            result[key] = value
++        return result
++    def constant(_): raise AuditHold("NONFINITE_JSON_TOKEN")
++    try: return json.loads(raw.decode("utf-8"), object_pairs_hook=pairs, parse_constant=constant)
++    except AuditHold: raise
++    except (UnicodeError, ValueError, TypeError, RecursionError): raise AuditHold("RAW_JSON_INVALID") from None
++
++def aware_time(value):
++    _need(type(value) is str and _TIME.fullmatch(value) is not None and not value.endswith("-00:00"), "AWARE_TIME_INVALID")
++    if value[-1] != "Z":
++        _need(int(value[-5:-3]) <= 23 and int(value[-2:]) <= 59, "AWARE_TIME_INVALID")
++    try: result = datetime.fromisoformat(value.replace("Z", "+00:00"))
++    except ValueError: raise AuditHold("AWARE_TIME_INVALID") from None
++    _need(result.tzinfo is not None and result.utcoffset() is not None, "AWARE_TIME_INVALID")
++    return result
++
++def _safe_tree(value):
++    if isinstance(value, dict):
++        _need(not any(not isinstance(key, str) or key.lower() in _FORBIDDEN for key in value), "OUTCOME_OR_PAYOUT_IN_PREDICTION")
++        for child in value.values(): _safe_tree(child)
++    elif isinstance(value, list):
++        for child in value: _safe_tree(child)
++
++def _time_tree(value, cutoff):
++    if isinstance(value, dict):
++        for key, child in value.items():
++            if key in _TIMES | {"effective_at", "fit_cutoff", "training_max_available_at", "training_max_prediction_at", "motor_updated_at"}:
++                _need(aware_time(child) <= cutoff, "FUTURE_INFORMATION_IN_SAVED_FORECAST")
++            else: _time_tree(child, cutoff)
++    elif isinstance(value, list):
++        for child in value: _time_tree(child, cutoff)
++
++def _information(info, cutoff):
++    _need(isinstance(info, dict) and {"feature_times", "state_times", "odds_times"} <= set(info), "INPUT_TIME_EVIDENCE_MISSING")
++    for group, fields in (("feature_times", _FEATURES), ("state_times", {"course", "fl", "scratched"})):
++        values = info[group]
++        _need(isinstance(values, dict) and set(values) == set(map(str, range(1, 7))), "BOAT_TIME_DOMAIN_INCOMPLETE")
++        for per_boat in values.values():
++            _need(isinstance(per_boat, dict) and set(per_boat) == fields, "FEATURE_TIME_DOMAIN_INCOMPLETE")
++            for times in per_boat.values():
++                _need(isinstance(times, dict) and set(times) == _TIMES, "FEATURE_TIMES_MISSING")
++    _need(isinstance(info["odds_times"], dict) and set(info["odds_times"]) == _TIMES, "ODDS_TIMES_MISSING")
++    _time_tree(info, cutoff)
++
++def _prediction(record):
++    _need(isinstance(record, dict), "PREDICTION_NOT_OBJECT")
++    if record.get("schema") == "MODEL11_INDEPENDENT_SHADOW_RECORD_V005":
++        _need(set(record) == _OUTER_KEYS and record.get("mode") == "SIMULATION" and record.get("production_go") is False, "SAVED_V005_SCHEMA_OR_MODE_INVALID")
++        evidence = record.get("source_evidence")
++        _need(isinstance(evidence, dict) and evidence.get("data_classification") == "SYNTHETIC_ONLY" and evidence.get("synthetic") is True, "PRIVATE_DATA_EXECUTION_NOT_APPROVED")
++        forecast = record.get("forecast")
++        _need(isinstance(forecast, dict) and set(forecast) == _INNER_KEYS and forecast.get("schema") == "MODEL11_FORECAST_V003", "SAVED_FORECAST_SCHEMA_UNSUPPORTED")
++        _need(forecast.get("production_go") is False and forecast.get("real_data_execution_go") is False and forecast.get("live_eligible") is False, "LIVE_FORECAST_NOT_SUPPORTED")
++        for key in ("race_id", "target_date", "deadline"):
++            _need(record.get(key) == forecast.get(key), "SAVED_HEADER_IDENTITY_MISMATCH")
++        projection = {key: forecast.get(key) for key in ("race_id", "target_date", "prediction_at", "deadline", "source", "information", "distributions")}
++        projection["generated_at"] = record.get("generated_at")
++        return projection, evidence
++    expected = set("schema data_classification synthetic source race_id target_date generated_at prediction_at deadline information distributions production_go".split())
++    _need(record.get("schema") == "INDEPENDENT_PROBABILITY_INPUT_V001_PROPOSED" and set(record) == expected, "PREDICTION_SCHEMA_UNSUPPORTED")
++    _need(record.get("data_classification") == "SYNTHETIC_ONLY" and record.get("synthetic") is True and record.get("production_go") is False, "PRIVATE_DATA_EXECUTION_NOT_APPROVED")
++    return record, None
++
++def audit_saved_prediction(prediction_raw, prediction_sha256, result_raw, result_sha256, binding, *, stage):
++    """Recompute one loss from exact supplied bytes. No likelihood floor/fitting.
++
++    The binding is a proposed audit sidecar, not an authenticated LOCK receipt.
++    Unknown production/A/B schemas need a separately approved private adapter.
++    """
++    base = {"status": "HOLD", "reason_codes": [], "production_go": False, "formal_eligibility": "UNVERIFIED",
++            "source_authenticity": "UNVERIFIED_SELF_REPORTED_INPUT", "logarithm": "NATURAL", "logloss": None,
++            "normalization_applied": False, "probability_floor_applied": False, "raw_hash_scope": "EXACT_INPUT_BYTES_NOT_REENCODED",
++            "integration": "EVALUATION_ONLY_NO_MODEL_FEATURE_SELECTION_OR_WRITER_CONNECTION"}
++    try:
++        _need(type(stage) is str and stage in STAGES, "PROBABILITY_STAGE_MUST_BE_EXPLICIT")
++        record = parse_raw(prediction_raw, prediction_sha256)
++        result = parse_raw(result_raw, result_sha256)
++        _need(type(binding) is dict and set(binding) == _BINDING_KEYS and binding.get("schema") == "SAVED_RAW_LOGLOSS_BINDING_V001_PROPOSED", "AUDIT_BINDING_SCHEMA_INVALID")
++        _need(binding.get("forecast_sha256") == prediction_sha256 and binding.get("result_sha256") == result_sha256, "AUDIT_BINDING_RAW_SHA_MISMATCH")
++        _need(binding.get("evaluation_purpose") == "HASHED_RAW_EVALUATION_ONLY", "EVALUATION_BOUNDARY_REQUIRED")
++        projected, evidence = _prediction(record)
++        _safe_tree(projected)
++        race = projected.get("race_id")
++        _need(isinstance(race, str) and _ID.fullmatch(race) is not None and binding.get("race_id") == race, "RACE_IDENTITY_INVALID_OR_MISMATCH")
++        _need(isinstance(projected.get("source"), str) and _ID.fullmatch(projected["source"]) is not None, "SOURCE_ID_INVALID")
++        deadline = aware_time(projected.get("deadline"));predicted = aware_time(projected.get("prediction_at"));generated = aware_time(projected.get("generated_at"));locked = aware_time(binding.get("lock_at"))
++        _need(predicted <= generated <= locked < deadline, "PREDICTION_NOT_PREDEADLINE_OR_TIME_ORDER_INVALID")
++        _need(projected.get("target_date") == deadline.astimezone(timezone(timedelta(hours=9))).date().isoformat(), "TARGET_DATE_DEADLINE_MISMATCH")
++        for key in ("prediction_available_at", "prediction_revision_at"):
++            _need(generated <= aware_time(binding[key]) <= locked, "PREDICTION_PUBLICATION_TIME_INVALID")
++        _information(projected.get("information"), predicted)
++        _time_tree(projected, predicted)
++        if evidence is not None:
++            _safe_tree(record["forecast"])
++            _time_tree(record["forecast"], predicted)
++            _time_tree(evidence, predicted)
++        for key in ("model_odds_snapshot_sha256", "market_odds_snapshot_sha256"):
++            _need(isinstance(binding[key], str) and _SHA.fullmatch(binding[key]) is not None, "ODDS_SNAPSHOT_SHA_INVALID")
++        _need(binding["model_odds_snapshot_sha256"] == binding["market_odds_snapshot_sha256"], "MODEL_MARKET_SNAPSHOT_MISMATCH")
++        for key, inner in (("odds_acquired_at", "acquired_at"), ("odds_available_at", "available_at"), ("odds_revision_at", "revision_at")):
++            value = aware_time(binding[key]);_need(value <= predicted and value == aware_time(projected["information"]["odds_times"][inner]), "ODDS_SNAPSHOT_TIME_MISMATCH_OR_FUTURE")
++        distributions = projected.get("distributions")
++        _need(isinstance(distributions, dict) and set(distributions) == STAGES, "FOUR_DISTINCT_PROBABILITY_STAGES_REQUIRED")
++        for values in distributions.values():
++            _need(isinstance(values, dict) and set(values) == TICKETS, "PROBABILITY_120_DOMAIN_INVALID")
++            _need(all(type(p) in (int,float) and math.isfinite(p) and 0 <= p <= 1 for p in values.values()), "PROBABILITY_VALUE_INVALID")
++            _need(abs(math.fsum(values.values()) - 1.0) <= NUMERICAL_SUM_TOLERANCE, "PROBABILITY_SUM_INVALID")
++        expected_result = set("schema race_id outcome published_at available_at revision_at status".split())
++        _need(isinstance(result, dict) and set(result) == expected_result and result.get("schema") == "INDEPENDENT_RESULT_INPUT_V001_PROPOSED", "RESULT_SCHEMA_UNSUPPORTED")
++        _need(result.get("race_id") == race and result.get("status") == "FINAL", "RESULT_IDENTITY_OR_FINALITY_INVALID")
++        published = aware_time(result.get("published_at"))
++        _need(published >= deadline and aware_time(result.get("available_at")) >= published and aware_time(result.get("revision_at")) >= published, "RESULT_PREDEADLINE_OR_TIME_INVALID")
++        outcome = result.get("outcome")
++        _need(isinstance(outcome, list) and len(outcome) == 3 and all(type(n) is int and 1 <= n <= 6 for n in outcome) and len(set(outcome)) == 3, "RESULT_TRIFECTA_INVALID")
++        probability = distributions[stage]["-".join(map(str, outcome))]
++        output = {**base, "reason_codes": [], "prediction_raw_sha256": prediction_sha256, "result_raw_sha256": result_sha256,
++                  "stage": stage, "probability_sum_observed": math.fsum(distributions[stage].values()),
++                  "same_snapshot_claim": "MATCHED_SELF_REPORTED_SHA_AND_TIMES_NOT_AUTHENTICATED",
++                  "timing_claim": "MATCHED_SELF_REPORTED_NOT_AUTHENTICATED", "AB_input_role": "INDEPENDENT_RAW_EVALUATION_ONLY" if projected["source"] in ("A","B") else "RESEARCH_RAW_EVALUATION_ONLY"}
++        if probability == 0:
++            return {**output, "status": "UNVERIFIED_INFINITE_LOGLOSS", "reason_codes": ["OBSERVED_OUTCOME_HAS_ZERO_PROBABILITY"], "nonfinite_logloss": "POSITIVE_INFINITY", "loss_is_finite": False}
++        loss = -math.log(probability)
++        return {**output, "status": "RECOMPUTED_AUDIT_ONLY", "logloss": 0.0 if loss == 0 else loss, "loss_is_finite": True}
++    except AuditHold as exc:
++        return {**base, "reason_codes": [exc.args[0]]}
++    except (ValueError, TypeError, KeyError, OverflowError, RecursionError):
++        return {**base, "reason_codes": ["AUDIT_INPUT_INVALID"]}
+--- /dev/null
++++ b/development/model11/preintegration_v008/references/F5_DECISION_LEDGER_1778d2e.json
+@@ -0,0 +1,192 @@
++{
++  "schema_version": "F5_DECISION_LEDGER_V007",
++  "parent_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
++  "document_version": "v007",
++  "executable_configuration": false,
++  "source": {
++    "decision_time": "2026-11-05T20:36:00+09:00",
++    "source_description": "Andy formal decision forwarded by HQ14 in the current user instruction",
++    "decision_recording_status": "RECEIVED_AND_RECORDED",
++    "original_sha256": null,
++    "approval_receipt": null,
++    "evidence_status": "UNVERIFIED_ORIGINAL_BYTES_AND_INDEPENDENT_LINKAGE_PENDING",
++    "hq14_claude_independent_linkage": "PENDING",
++    "execution_approval_status": "NOT_GRANTED_BY_THIS_DOCUMENT"
++  },
++  "M0": {
++    "status": "DECIDED",
++    "subject": "CONFIRMATORY_COMPARISON_FRAMEWORK",
++    "candidate": "SINGLE_FROZEN_CHAMPION",
++    "comparator": "P_market",
++    "endpoint": "JOINT_120_LOGLOSS",
++    "market_snapshot_requirement": "THE_SAME_PREDEADLINE_FULL_120_ODDS_SNAPSHOT",
++    "weighting": "PAIRED_DAY_EQUAL_WEIGHT",
++    "within_day": "MEAN_OVER_IDENTICAL_PAIRED_ELIGIBLE_RACES",
++    "comparison_direction": "LOWER_CHAMPION_LOGLOSS",
++    "test_sidedness": "ONE_SIDED",
++    "significance_alpha": 0.025,
++    "power_target": 0.8,
++    "confirmatory_family_size": 1,
++    "six_market_weights_are_six_confirmatory_tests": false,
++    "optional_stopping_allowed": false,
++    "posthoc_changes_allowed": false,
++    "market_only_w1_interpretation": "NO_MODEL_SUPERIORITY",
++    "statistical_pass_implemented_or_granted": false
++  },
++  "M2": {
++    "status": "DECIDED",
++    "subject": "FIRST_THIRD_RESEARCH_SHADOW_OPERATING_DAY_PILOT",
++    "role": "PILOT_ONLY",
++    "entry_rule": "FIRST_THIRD_RESEARCH_SHADOW_OPERATING_DAY_IS_PILOT_ENTRY",
++    "first_operating_day": null,
++    "actual_pilot_duration_days": null,
++    "pilot_duration_status": "UNSPECIFIED_NOT_FIXED_TO_ONE_DAY_OR_CANDIDATE_WINDOW",
++    "sd_day_constraint": "UNVERIFIED_WHEN_FEWER_THAN_TWO_PAIRED_DAYS_NO_AUTOMATIC_EXTENSION",
++    "candidate_window": {
++      "start": "2026-11-21",
++      "end": "2026-11-24",
++      "timezone": "Asia/Tokyo",
++      "or_later": true,
++      "status": "CANDIDATE_ONLY_NOT_SCHEDULED"
++    },
++    "separate_execution_go_required": true,
++    "measurements": [
++      "FULL_120_PREDEADLINE_ODDS_CAPTURE_RATE",
++      "MISSING_RATE_AND_MISSING_CAUSES",
++      "PAIRED_DAILY_LOGLOSS_DIFFERENCES",
++      "SD_DAY_IF_ESTIMABLE",
++      "TIMING_EVIDENCE_AND_SOURCE_MAPPING_PRACTICAL_CHECK",
++      "PREDICTION_SAVE_AND_RESULT_RECONCILIATION_OPERATIONS"
++    ],
++    "pilot_is_holdout": false,
++    "improvement_claim_allowed": false,
++    "profit_claim_allowed": false,
++    "promotion_claim_allowed": false,
++    "scheduled_or_execution_authorized": false
++  },
++  "M1": {
++    "status": "FUTURE_DESIGN_DECIDED",
++    "subject": "FUTURE_CONFIRMATORY_CANDIDATE_FAMILY",
++    "option": "A_REDUCED_FIXED_CALIBRATION",
++    "model": "hierarchical",
++    "course_alpha": 0.5,
++    "temperature": 1.0,
++    "market_weights": [0, 0.25, 0.5, 0.75, 0.9, 1.0],
++    "market_weight_definition": "w_MARKET_AND_1_MINUS_w_MODEL",
++    "selection_action": "CHOOSE_w_ON_SELECTION_THEN_FREEZE_ONE_CHAMPION_BEFORE_HOLDOUT",
++    "confirmatory_option": "A_ONLY",
++    "B_role": "EXPLORATORY_ONLY",
++    "C_role": "EXPLORATORY_ONLY",
++    "source_model_name_check": {
++      "status": "CHECKED_LOCAL_SOURCE",
++      "source": "model11/shadow_preparation/evaluation_design.py:proposed_options",
++      "option_id": "A_REDUCED_FIXED_CALIBRATION",
++      "candidate_name": "hierarchical"
++    },
++    "existing_model_or_grid_changed": false,
++    "executable_application_authorized": false
++  },
++  "open_items": [
++    {
++      "id": "SESOI",
++      "status": "OPEN",
++      "value": null,
++      "subject": "Smallest effect of interest and its decision interpretation"
++    },
++    {
++      "id": "MIN_SELECTION_DAYS",
++      "status": "OPEN",
++      "value": null,
++      "subject": "Minimum selection-day requirement and evidence for adequacy"
++    },
++    {
++      "id": "HOLDOUT_START_AND_DAYS",
++      "status": "OPEN",
++      "value": null,
++      "subject": "Untouched holdout start, required days, and sealed identities"
++    },
++    {
++      "id": "ALPHA_SPENDING_NEED",
++      "status": "OPEN",
++      "value": null,
++      "subject": "Whether an alpha-spending plan is required; optional stopping remains prohibited"
++    },
++    {
++      "id": "SCRATCH_REFUND_CANCELLATION_RULES",
++      "status": "OPEN",
++      "value": null,
++      "subject": "Preregistered scratch, refund, cancellation and denominator rules"
++    },
++    {
++      "id": "ODDS_MISSING_AND_MAX_RATE",
++      "status": "OPEN",
++      "value": null,
++      "subject": "Odds-missing treatment, reporting and maximum allowed rate"
++    },
++    {
++      "id": "DAY_MEETING_DEPENDENCE",
++      "status": "OPEN",
++      "value": null,
++      "subject": "Day and meeting dependence, inference and variance handling"
++    },
++    {
++      "id": "POST_PASS_ALLOWED_SCOPE",
++      "status": "OPEN",
++      "value": null,
++      "subject": "Actions allowed after a future statistical pass; no automatic promotion"
++    }
++  ],
++  "prior_examples": [
++    {
++      "option": "A",
++      "selection_days_example": 24,
++      "holdout_days_example": 60,
++      "status": "ILLUSTRATIVE_NOT_ADOPTED"
++    },
++    {
++      "option": "B",
++      "selection_days_example": 36,
++      "holdout_days_example": 90,
++      "status": "ILLUSTRATIVE_NOT_ADOPTED"
++    },
++    {
++      "option": "C",
++      "selection_days_example": 60,
++      "holdout_days_example": 120,
++      "status": "ILLUSTRATIVE_NOT_ADOPTED"
++    }
++  ],
++  "operational_permissions": {
++    "private_data_ingestion": false,
++    "source_connection": false,
++    "shadow_start": false,
++    "pilot_execution": false,
++    "confirmatory_holdout_execution": false,
++    "production_change": false,
++    "model_or_box_change": false,
++    "configuration_change": false,
++    "task_or_schedule_change": false,
++    "canonical_or_pointer_change": false,
++    "render_operation": false,
++    "pr_ready_merge_or_deploy": false,
++    "formal_promotion": false,
++    "automatic_post_pass_action": false
++  },
++  "F2": {
++    "status": "PROPOSED_NOT_ADOPTED",
++    "existing_thresholds_or_logic_changed": false,
++    "new_thresholds_adopted": false
++  },
++  "freeze_and_gates": {
++    "Model_1_0": "PRESERVED_NO_CHANGE",
++    "BOX_Ver_1": "PRESERVED_NO_CHANGE",
++    "formal_A_B": "PRESERVED_NO_CHANGE",
++    "existing_freeze": "PRESERVED_NO_CHANGE",
++    "G1_G6": {
++      "status": "PRESERVED_NO_CHANGE",
++      "definitions_status": "UNVERIFIED_NOT_PROVIDED",
++      "definitions": null,
++      "redefinition_allowed": false
++    }
++  }
++}
+--- /dev/null
++++ b/development/model11/preintegration_v008/signs.py
+@@ -0,0 +1,106 @@
++"""Sign conventions for preintegration diagnostics; no adopted test or GO.
++
++delta_pilot = champion logloss - market logloss.
++d_M0 = market logloss - champion logloss = -delta_pilot.
++Positive d_M0 and negative delta_pilot point toward lower champion loss.
++"""
++from __future__ import annotations
++import math
++from statistics import stdev
++
++
++class SignInputError(ValueError):
++    pass
++
++
++def _finite(value):
++    if type(value) not in (int, float):
++        raise SignInputError("FINITE_REAL_NUMBER_REQUIRED")
++    try:
++        number = float(value)
++    except (ValueError, OverflowError):
++        raise SignInputError("FINITE_REAL_NUMBER_REQUIRED") from None
++    if not math.isfinite(number):
++        raise SignInputError("FINITE_REAL_NUMBER_REQUIRED")
++    if type(value) is int and int(number) != value:
++        raise SignInputError("INTEGER_NOT_EXACTLY_REPRESENTABLE")
++    return number
++
++
++def pilot_to_m0(delta_pilot):
++    return -_finite(delta_pilot)
++
++
++def m0_to_pilot(d_m0):
++    return -_finite(d_m0)
++
++
++def convert_paired_day_means(pilot_day_means):
++    """Input units are equally weighted paired DAY means, never race reweighting.
++
++    Return summary only. At fewer than two days the sample SD stays None.
++    Zero observed sample SD is not proof of zero future variance or adequacy.
++    """
++    if type(pilot_day_means) not in (list, tuple):
++        raise SignInputError("PAIRED_DAY_SEQUENCE_REQUIRED")
++    values = [_finite(value) for value in pilot_day_means]
++    converted = [-value for value in values]
++    try:
++        pilot_mean = math.fsum(values) / len(values) if values else None
++        d_mean = math.fsum(converted) / len(values) if values else None
++        pilot_sd = stdev(values) if len(values) >= 2 else None
++        d_sd = stdev(converted) if len(values) >= 2 else None
++    except (OverflowError, ValueError):
++        raise SignInputError("NUMERICAL_SUMMARY_LIMIT") from None
++    if any(value is not None and not math.isfinite(value) for value in (pilot_mean, d_mean, pilot_sd, d_sd)):
++        raise SignInputError("NUMERICAL_SUMMARY_LIMIT")
++    if pilot_sd != d_sd:
++        raise SignInputError("SD_SIGN_INVARIANCE_BROKEN")
++    return {"status": "SIGN_TRANSFORM_DIAGNOSTIC_ONLY", "paired_day_clusters": len(values),
++        "pilot_mean_model_minus_market": pilot_mean, "d_M0_mean_market_minus_model": d_mean,
++        "pilot_sd_day": pilot_sd, "d_M0_sd_day": d_sd, "sd_unchanged": True,
++        "sd_status": "UNVERIFIED_FEWER_THAN_TWO_DAYS" if pilot_sd is None else
++                     "OBSERVED_ZERO_NOT_ZERO_FUTURE_VARIANCE" if pilot_sd == 0 else "SAMPLE_SD_ASSUMPTIONS_UNVERIFIED",
++        "sample_variance_denominator": "K_MINUS_1", "unit": "PAIRED_DAY_MEANS_EQUAL_WEIGHT",
++        "pilot_favorable_direction": "NEGATIVE", "M0_favorable_direction": "POSITIVE",
++        "actual_test_performed": False, "performance_verdict": "NOT_PROVIDED", "production_go": False}
++
++
++def convert_pilot_statistics(mean_delta, sd_day, paired_day_count):
++    """Transform a supplied numeric summary; do not authenticate or fill it."""
++    if type(paired_day_count) is not int or paired_day_count < 0:
++        raise SignInputError("PAIRED_DAY_COUNT_INVALID")
++    if paired_day_count == 0:
++        if mean_delta is not None or sd_day is not None:
++            raise SignInputError("EMPTY_SUMMARY_CONTRADICTION")
++        return {"pilot_mean": None, "d_M0_mean": None, "pilot_sd_day": None, "d_M0_sd_day": None,
++                "paired_day_clusters": 0, "status": "UNVERIFIED_EMPTY_SUMMARY", "production_go": False}
++    mean = _finite(mean_delta)
++    if paired_day_count < 2:
++        if sd_day is not None:
++            raise SignInputError("SAMPLE_SD_UNDEFINED_FOR_SINGLE_DAY")
++        sd = None
++    else:
++        sd = _finite(sd_day)
++        if sd < 0:
++            raise SignInputError("NEGATIVE_SAMPLE_SD")
++    return {"pilot_mean": mean, "d_M0_mean": -mean, "pilot_sd_day": sd, "d_M0_sd_day": sd,
++            "paired_day_clusters": paired_day_count, "status": "TRANSFORMED_SUMMARY_NOT_INFERENCE",
++            "source_summary_authenticity": "UNVERIFIED", "actual_test_performed": False, "production_go": False}
++
++
++def one_sided_normal_tail_diagnostic(pilot_z):
++    """Mathematical tail identity only; no actual holdout z-test or decision.
++
++    Lower-tail P(Z <= z_pilot) equals upper-tail P(Z >= -z_pilot).
++    No critical value, effect, sample size, alpha spending or adoption is set.
++    """
++    pilot = _finite(pilot_z)
++    m0 = -pilot
++    pilot_lower = 0.5 * math.erfc(-pilot / math.sqrt(2.0))
++    m0_upper = 0.5 * math.erfc(m0 / math.sqrt(2.0))
++    return {"status": "NORMAL_TAIL_SIGN_IDENTITY_ONLY", "pilot_z": pilot, "d_M0_z": m0,
++        "pilot_tail": "LOWER", "M0_tail": "UPPER", "pilot_lower_tail": pilot_lower,
++        "M0_upper_tail": m0_upper, "tail_values_equal": pilot_lower == m0_upper,
++        "reference_distribution": "STANDARD_NORMAL_IDENTITY_NOT_DAY_CLUSTER_INFERENCE",
++        "actual_test_performed": False, "test_pass": None, "production_go": False}
+--- /dev/null
++++ b/development/model11/tests/test_preintegration_authority.py
+@@ -0,0 +1,172 @@
++"""Synthetic-only preintegration tests; no engine, real data, service or GO."""
++from copy import deepcopy
++import hashlib
++import json
++import math
++from pathlib import Path
++import unittest
++from unittest.mock import patch
++
++from preintegration_v008.authority import (AuthorityHold, LEDGER_SHA256, OPEN_IDS, authority_report,
++    load_authority, load_provenance_override, model_claim_status, project_authority)
++from preintegration_v008.signs import (SignInputError, convert_paired_day_means, convert_pilot_statistics,
++    m0_to_pilot, one_sided_normal_tail_diagnostic, pilot_to_m0)
++
++MODEL_ROOT = Path(__file__).resolve().parents[1]
++REFERENCE = MODEL_ROOT / "preintegration_v008/references/F5_DECISION_LEDGER_1778d2e.json"
++OLD = MODEL_ROOT / "offline_refinements_v007/results/TEST_RESULTS.json"
++OLD_SHA = "255f559f186cbdd351f03a876855fcea2c83cb7023764fa96bbce7421b7edfb2"
++
++
++class AuthorityTests(unittest.TestCase):
++    def setUp(self):
++        self.raw = REFERENCE.read_bytes()
++
++    def test_projection_uses_pinned_decisions_and_keeps_eight_open_values_null(self):
++        self.assertEqual(hashlib.sha256(self.raw).hexdigest(), LEDGER_SHA256)
++        projection = project_authority(self.raw)
++        self.assertEqual(projection["decision_order"], ["M0", "M2", "M1"])
++        self.assertEqual(projection["M0"]["significance_alpha"], .025)
++        self.assertEqual(projection["M0"]["power_target"], .8)
++        self.assertEqual(projection["M0"]["confirmatory_family_size"], 1)
++        self.assertEqual(projection["M0"]["weighting"], "PAIRED_DAY_EQUAL_WEIGHT")
++        self.assertFalse(projection["M0"]["six_market_weights_are_six_confirmatory_tests"])
++        self.assertEqual(projection["M1"]["market_weights"], [0,.25,.5,.75,.9,1.0])
++        self.assertEqual(projection["M1"]["course_alpha"], .5)
++        self.assertEqual(projection["M1"]["temperature"], 1.0)
++        self.assertEqual(tuple(row["id"] for row in projection["open_items"]), OPEN_IDS)
++        self.assertTrue(all(row["value"] is None and row["status"] == "OPEN" for row in projection["open_items"]))
++        self.assertNotIn("prior_examples", projection)
++        self.assertFalse(projection["execution_go"])
++        self.assertFalse(projection["production_go"])
++        self.assertIsNone(projection["policy_authority"]["original_decision_record_sha256"])
++        self.assertIsNone(projection["policy_authority"]["approval_receipt"])
++        self.assertEqual(load_authority(), projection)
++
++    def test_changed_self_asserted_document_never_becomes_an_authority(self):
++        original = json.loads(self.raw)
++        attacks = []
++        for field in ("SESOI", "MIN_SELECTION_DAYS"):
++            changed = deepcopy(original)
++            next(row for row in changed["open_items"] if row["id"] == field)["value"] = "UNAPPROVED_VALUE"
++            attacks.append(json.dumps(changed).encode())
++        changed = deepcopy(original)
++        changed["source"]["original_sha256"] = "0" * 64
++        changed["source"]["approval_receipt"] = {"self_asserted": True}
++        attacks += [json.dumps(changed).encode(), self.raw + b" ", b"private secret must not echo"]
++        for raw in attacks:
++            with self.subTest(length=len(raw)):
++                report = authority_report(raw)
++                self.assertEqual(report["status"], "HOLD")
++                self.assertFalse(report["production_go"])
++                self.assertNotIn("secret", json.dumps(report))
++        for value in (None, True, "not bytes", bytearray(self.raw)):
++            self.assertEqual(authority_report(value)["status"], "HOLD")
++
++    def test_projection_is_a_copy_and_no_arbitrary_configuration_is_accepted(self):
++        projected = project_authority(self.raw)
++        projected["M0"]["confirmatory_family_size"] = "UNAPPROVED_VALUE"
++        projected["open_items"][0]["value"] = "UNAPPROVED_VALUE"
++        again = project_authority(self.raw)
++        self.assertEqual(again["M0"]["confirmatory_family_size"], 1)
++        self.assertIsNone(again["open_items"][0]["value"])
++        with patch.object(Path, "read_bytes", side_effect=AssertionError("UNEXPECTED_IO")):
++            self.assertFalse(project_authority(self.raw)["production_go"])
++
++    def test_provenance_routes_are_distinct_and_historical_A_is_not_rewritten(self):
++        record = load_provenance_override()
++        direct, transfer = record["provenance_routes"]
++        self.assertEqual(direct["confirmation"], "CLAUDE_CONFIRMED_PER_FORWARDED_REPORT")
++        self.assertEqual(direct["statement"], "先生のおすすめを採用で！")
++        self.assertEqual(direct["Codex_observation"], "RECEIVED_FORWARD_ONLY_NOT_DIRECT_WITNESS")
++        self.assertEqual(transfer["Claude_confirmation"], "UNVERIFIED")
++        self.assertEqual(transfer["reported_time"], "2026-11-05T20:36:00+09:00")
++        self.assertTrue(all(row["source_original_sha256"] is None and row["approval_receipt"] is None
++                            for row in record["provenance_routes"]))
++        self.assertTrue(all(row["value"] is None for row in record["open_items"]))
++        self.assertFalse(record["new_numeric_candidates_created"])
++        self.assertEqual(hashlib.sha256(OLD.read_bytes()).hexdigest(), OLD_SHA)
++        self.assertEqual(json.loads(OLD.read_bytes())["M0_M2_M1_ORDER"], "RECOMMENDATION_ONLY_NOT_ADOPTED")
++        self.assertFalse(record["production_go"])
++
++    def test_market_only_and_all_other_weights_never_grant_superiority(self):
++        for weight in [0,.25,.5,.75,.9,1.0]:
++            report = model_claim_status(weight, ledger_raw=self.raw)
++            self.assertFalse(report["model_superiority_allowed"])
++            self.assertEqual(report["confirmatory_family_size"], 1)
++            self.assertFalse(report["actual_test_performed"])
++            if weight == 1.0: self.assertEqual(report["status"], "NO_MODEL_SUPERIORITY")
++            else: self.assertIn("UNVERIFIED", report["status"])
++        for bad in (True, False, None, -1, .1, math.nan, math.inf, "1.0"):
++            with self.assertRaises(AuthorityHold):
++                model_claim_status(bad, ledger_raw=self.raw)
++
++
++class SignTests(unittest.TestCase):
++    def test_roundtrip_and_favorable_direction(self):
++        for value in (-10.,-1.,-.25,-0.,0.,.25,1.,10.):
++            self.assertEqual(m0_to_pilot(pilot_to_m0(value)), value)
++            self.assertEqual(pilot_to_m0(m0_to_pilot(value)), value)
++        self.assertGreater(pilot_to_m0(-1), 0)
++        self.assertLess(m0_to_pilot(1), 0)
++        self.assertEqual(math.copysign(1,pilot_to_m0(0.)), -1)
++        self.assertEqual(math.copysign(1,m0_to_pilot(pilot_to_m0(-0.))), -1)
++
++    def test_day_mean_sign_changes_sd_does_not_and_input_remains_unchanged(self):
++        values = [-2.,0.,4.]
++        original = values[:]
++        summary = convert_paired_day_means(values)
++        self.assertEqual(values, original)
++        self.assertAlmostEqual(summary["d_M0_mean_market_minus_model"], -summary["pilot_mean_model_minus_market"])
++        self.assertEqual(summary["pilot_sd_day"], summary["d_M0_sd_day"])
++        self.assertEqual(summary["pilot_sd_day"], math.sqrt(28/3))
++        self.assertEqual(summary["sample_variance_denominator"], "K_MINUS_1")
++        self.assertEqual(summary["unit"], "PAIRED_DAY_MEANS_EQUAL_WEIGHT")
++        self.assertFalse(summary["actual_test_performed"])
++        self.assertFalse(summary["production_go"])
++
++    def test_missing_and_zero_dispersion_are_not_relabelled_as_adequacy(self):
++        for values in ([],[1.]):
++            report = convert_paired_day_means(values)
++            self.assertIsNone(report["pilot_sd_day"])
++            self.assertIn("UNVERIFIED", report["sd_status"])
++        zero = convert_paired_day_means([1.,1.])
++        self.assertEqual(zero["pilot_sd_day"], 0)
++        self.assertEqual(zero["d_M0_sd_day"], 0)
++        self.assertEqual(zero["sd_status"], "OBSERVED_ZERO_NOT_ZERO_FUTURE_VARIANCE")
++        for bad in (None,"1",[True],[math.nan],[math.inf],["1"],[10**10000]):
++            with self.assertRaises(SignInputError): convert_paired_day_means(bad)
++
++    def test_one_sided_tail_identity_and_rejection_direction_not_an_actual_test(self):
++        for value in (-8.,-3.,-1.,0.,1.,3.,8.):
++            result = one_sided_normal_tail_diagnostic(value)
++            self.assertEqual(result["pilot_tail"], "LOWER")
++            self.assertEqual(result["M0_tail"], "UPPER")
++            self.assertEqual(result["d_M0_z"], -value)
++            self.assertEqual(result["pilot_lower_tail"], result["M0_upper_tail"])
++            self.assertFalse(result["actual_test_performed"])
++            self.assertIsNone(result["test_pass"])
++            for cutoff in (.5,1.,2.):
++                self.assertEqual(value < -cutoff, result["d_M0_z"] > cutoff)
++        self.assertEqual(one_sided_normal_tail_diagnostic(0)["pilot_lower_tail"], .5)
++        self.assertLess(one_sided_normal_tail_diagnostic(-1)["pilot_lower_tail"], .5)
++        self.assertGreater(one_sided_normal_tail_diagnostic(1)["pilot_lower_tail"], .5)
++
++    def test_supplied_summary_keeps_unknown_variance_and_rejects_contradictions(self):
++        report = convert_pilot_statistics(-.25,.5,3)
++        self.assertEqual(report["d_M0_mean"], .25)
++        self.assertEqual(report["pilot_sd_day"], report["d_M0_sd_day"])
++        self.assertFalse(report["actual_test_performed"])
++        self.assertIsNone(convert_pilot_statistics(1,None,1)["d_M0_sd_day"])
++        self.assertIsNone(convert_pilot_statistics(None,None,0)["d_M0_mean"])
++        for args in ((1,0,1),(None,None,1),(1,None,2),(1,-1,2),(1,1,True),(0,None,0)):
++            with self.assertRaises(SignInputError): convert_pilot_statistics(*args)
++
++    def test_nonfinite_scalar_and_tail_values_fail_safe_without_echo(self):
++        for value in (True,None,"DO_NOT_ECHO",math.nan,math.inf,-math.inf,10**10000):
++            for function in (pilot_to_m0,m0_to_pilot,one_sided_normal_tail_diagnostic):
++                with self.assertRaises(SignInputError) as caught: function(value)
++                self.assertNotIn("DO_NOT_ECHO", str(caught.exception))
++
++
++if __name__ == "__main__": unittest.main()
+--- /dev/null
++++ b/development/model11/tests/test_preintegration_raw_verifier.py
+@@ -0,0 +1,169 @@
++"""Independent synthetic raw-score/cohort checks, no production or live readers."""
++from copy import deepcopy
++from datetime import datetime, timedelta
++import hashlib
++import json
++import math
++from pathlib import Path
++import sys
++import unittest
++
++sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
++from preintegration_v008.raw_logloss import audit_saved_prediction, sha256, TICKETS
++from preintegration_v008.cohort_guards import audit_cohorts, selection_projection_sha256
++
++ROOT=Path(__file__).resolve().parents[1]
++def raw(value): return (json.dumps(value,sort_keys=True,ensure_ascii=True,separators=(",",":"),allow_nan=False)+"\n").encode("ascii")
++def times(value="2099-01-07T12:54:00+09:00"):return {k:value for k in ("acquired_at","available_at","revision_at")}
++def distribution(p=None):
++    if p is None:return {key:1/120 for key in TICKETS}
++    return {key:p if key=="1-2-3" else (1-p)/119 for key in TICKETS}
++def prediction():
++    info={"feature_times":{str(b):{f:times() for f in ("st","turn","motor","ability","exhibition")} for b in range(1,7)},
++          "state_times":{str(b):{f:times() for f in ("course","fl","scratched")} for b in range(1,7)},"odds_times":times()}
++    return {"schema":"INDEPENDENT_PROBABILITY_INPUT_V001_PROPOSED","data_classification":"SYNTHETIC_ONLY","synthetic":True,
++        "source":"MODEL11_RESEARCH","race_id":"SYNTHETIC_R1","target_date":"2099-01-07",
++        "prediction_at":"2099-01-07T12:55:00+09:00","generated_at":"2099-01-07T12:55:01+09:00","deadline":"2099-01-07T13:00:00+09:00",
++        "information":info,"distributions":{k:distribution() for k in ("P_raw","P_model","P_market","P_shrunk")},"production_go":False}
++def final_result(race="SYNTHETIC_R1"):
++    return {"schema":"INDEPENDENT_RESULT_INPUT_V001_PROPOSED","race_id":race,"outcome":[1,2,3],"status":"FINAL",
++        "published_at":"2099-01-07T13:10:00+09:00","available_at":"2099-01-07T13:10:01+09:00","revision_at":"2099-01-07T13:10:00+09:00"}
++def bound(p,r):
++    pb,rb=raw(p),raw(r)
++    return {"schema":"SAVED_RAW_LOGLOSS_BINDING_V001_PROPOSED","forecast_sha256":sha256(pb),"result_sha256":sha256(rb),"race_id":p["race_id"],
++        "lock_at":"2099-01-07T12:55:02+09:00","prediction_available_at":"2099-01-07T12:55:01+09:00","prediction_revision_at":"2099-01-07T12:55:01+09:00",
++        "model_odds_snapshot_sha256":sha256(b"SYNTHETIC_SNAPSHOT"),"market_odds_snapshot_sha256":sha256(b"SYNTHETIC_SNAPSHOT"),
++        "odds_acquired_at":p["information"].get("odds_times",times())["acquired_at"],"odds_available_at":p["information"].get("odds_times",times())["available_at"],
++        "odds_revision_at":p["information"].get("odds_times",times())["revision_at"],"evaluation_purpose":"HASHED_RAW_EVALUATION_ONLY"}
++def score(p=None,r=None,b=None,stage="P_shrunk"):
++    p=prediction() if p is None else p;r=final_result(p["race_id"]) if r is None else r
++    return audit_saved_prediction(raw(p),sha256(raw(p)),raw(r),sha256(raw(r)),bound(p,r) if b is None else b,stage=stage)
++def row(role,day):
++    d=f"2099-01-{day:02d}"
++    return {"race_id":"SYNTHETIC_"+role,"target_date":d,"raw_sha256":sha256(role.encode()),
++        "prediction_at":d+"T12:55:00+09:00","deadline":d+"T13:00:00+09:00","record_available_at":d+"T13:10:00+09:00"}
++def cohort():
++    return {"schema":"COHORT_AUDIT_ROSTER_V001_PROPOSED","data_classification":"SYNTHETIC_ONLY","synthetic":True,
++        "partitions":{role:[row(role,day)] for role,day in (("training",1),("selection",3),("pilot",2),("holdout",5))}}
++MODEL=b'{"schema":"SYNTHETIC_FROZEN_MODEL","parameters":[]}'
++def seal(c):return {"schema":"SINGLE_CHAMPION_SEAL_V001_PROPOSED","model_raw_sha256":sha256(MODEL),
++    "selection_projection_sha256":selection_projection_sha256(c["partitions"]["selection"]),"selected_at":"2099-01-04T12:00:00+09:00",
++    "frozen_at":"2099-01-04T12:01:00+09:00","champion_count":1}
++def audit(c=None,s=None,model=MODEL):
++    c=cohort() if c is None else c;s=seal(c) if s is None else s
++    return audit_cohorts(raw(c),sha256(raw(c)),raw(s),sha256(raw(s)),model,sha256(MODEL))
++
++class RawLoglossTests(unittest.TestCase):
++    def test_uniform_all_stages_exact_known_logloss_no_normalization(self):
++        for stage in ("P_raw","P_model","P_market","P_shrunk"):
++            with self.subTest(stage=stage):
++                r=score(stage=stage);self.assertEqual(r["status"],"RECOMPUTED_AUDIT_ONLY");self.assertAlmostEqual(r["logloss"],math.log(120))
++                self.assertFalse(r["normalization_applied"]);self.assertFalse(r["probability_floor_applied"]);self.assertFalse(r["production_go"])
++    def test_stage_selection_is_distinct(self):
++        p=prediction();p["distributions"]["P_market"]=distribution(.5);p["distributions"]["P_model"]=distribution(.25)
++        self.assertAlmostEqual(score(p,stage="P_market")["logloss"],math.log(2));self.assertAlmostEqual(score(p,stage="P_model")["logloss"],math.log(4))
++    def test_explicit_stage_and_expected_raw_hash_not_canonical_reencoding(self):
++        p,r=prediction(),final_result();pb,rb=raw(p),raw(r);b=bound(p,r)
++        wrong=audit_saved_prediction(pb+b" ",sha256(pb),rb,sha256(rb),b,stage="P_shrunk")
++        self.assertEqual(wrong["reason_codes"],["RAW_SHA256_MISMATCH"])
++        for stage in (None,"P_calibrated",[],True):self.assertEqual(score(stage=stage)["status"],"HOLD")
++    def test_semantically_equal_raw_layout_has_distinct_hash_and_is_not_silently_canonicalized(self):
++        p,r=prediction(),final_result();pb=json.dumps(p,indent=1).encode();rb=raw(r);b=bound(p,r);b["forecast_sha256"]=sha256(pb)
++        result=audit_saved_prediction(pb,sha256(pb),rb,sha256(rb),b,stage="P_shrunk")
++        self.assertEqual(result["status"],"RECOMPUTED_AUDIT_ONLY");self.assertNotEqual(sha256(pb),sha256(raw(p)))
++    def test_duplicate_json_keys_and_nonfinite_tokens_rejected_without_echo(self):
++        p,r=prediction(),final_result();rb=raw(r);b=bound(p,r)
++        for pb in (b'{"secret":"DO_NOT_ECHO","secret":1}',b'{"x":NaN}',b'{"x":Infinity}',b'\xff'):
++            b["forecast_sha256"]=sha256(pb);out=audit_saved_prediction(pb,sha256(pb),rb,sha256(rb),b,stage="P_shrunk")
++            self.assertEqual(out["status"],"HOLD");self.assertNotIn("DO_NOT_ECHO",str(out));self.assertNotIn("secret",str(out))
++    def test_all_probability_domains_values_sums_and_stage_presence(self):
++        changes=[lambda v:v.pop("1-2-3"),lambda v:v.update({"1-1-2":v.pop("1-2-3")}),lambda v:v.update({"1-2-3":-1}),
++                 lambda v:v.update({"1-2-3":True}),lambda v:v.update({"1-2-3":2}),lambda v:v.update({"1-2-3":.8})]
++        for index,change in enumerate(changes):
++            with self.subTest(index=index):
++                p=prediction();change(p["distributions"]["P_raw"]);self.assertEqual(score(p)["status"],"HOLD")
++        p=prediction();p["distributions"].pop("P_market");self.assertEqual(score(p)["status"],"HOLD")
++    def test_zero_probability_is_infinite_unverified_not_clipped(self):
++        p=prediction();p["distributions"]["P_shrunk"]=distribution(0);out=score(p)
++        self.assertEqual(out["status"],"UNVERIFIED_INFINITE_LOGLOSS");self.assertIsNone(out["logloss"]);self.assertEqual(out["nonfinite_logloss"],"POSITIVE_INFINITY")
++        p["distributions"]["P_shrunk"]=distribution(1);self.assertEqual(score(p)["logloss"],0.0)
++    def test_future_feature_state_and_training_times_rejected(self):
++        for group,field in (("feature_times","motor"),("state_times","course")):
++            p=prediction();p["information"][group]["1"][field]["revision_at"]="2099-01-07T12:56:00+09:00"
++            self.assertEqual(score(p)["reason_codes"],["FUTURE_INFORMATION_IN_SAVED_FORECAST"])
++        p=prediction();p["information"]["normalizer"]={"training_max_available_at":"2099-01-08T00:00:00+09:00"}
++        self.assertEqual(score(p)["status"],"HOLD")
++    def test_all_required_time_evidence_missing_or_invalid_and_deadline(self):
++        for group in ("feature_times","state_times","odds_times"):
++            p=prediction();p["information"].pop(group)
++            self.assertEqual(score(p)["status"],"HOLD")
++        for value in ("2099-01-07T12:55:00","2099-01-07T12:55:00-00:00","2099-01-07T25:00:00+09:00"):
++            p=prediction();p["prediction_at"]=value;self.assertEqual(score(p)["status"],"HOLD")
++        p,r=prediction(),final_result();b=bound(p,r);b["lock_at"]=p["deadline"];self.assertEqual(score(p,r,b)["status"],"HOLD")
++    def test_outcomes_in_forecast_and_nonfinal_result_or_future_result(self):
++        for key in ("outcome","result","payout"):
++            p=prediction();p["information"][key]="DO_NOT_ECHO";o=score(p);self.assertEqual(o["status"],"HOLD");self.assertNotIn("DO_NOT_ECHO",str(o))
++        for changes in ({"status":"CANCELLED"},{"outcome":[1,1,2]},{"outcome":[True,2,3]},{"published_at":"2099-01-07T12:59:00+09:00"},{"race_id":"OTHER"}):
++            p,r=prediction(),final_result();r.update(changes);self.assertEqual(score(p,r)["status"],"HOLD")
++    def test_snapshot_hash_time_binding_and_record_hash_binding(self):
++        p,r=prediction(),final_result()
++        for field,value in (("market_odds_snapshot_sha256",sha256(b"OTHER")),("odds_available_at","2099-01-07T12:54:01+09:00"),
++                            ("forecast_sha256",sha256(b"OTHER")),("prediction_available_at","2099-01-07T12:55:03+09:00")):
++            b=bound(p,r);b[field]=value;self.assertEqual(score(p,r,b)["status"],"HOLD")
++    def test_private_real_and_unknown_schema_withheld_ab_evaluation_only(self):
++        p=prediction();p["data_classification"]="PRIVATE_REAL";p["synthetic"]=False;self.assertEqual(score(p)["status"],"HOLD")
++        p=prediction();p["schema"]="UNKNOWN_REAL_SCHEMA";self.assertEqual(score(p)["status"],"HOLD")
++        for source in ("A","B"):
++            p=prediction();p["source"]=source;out=score(p);self.assertEqual(out["AB_input_role"],"INDEPENDENT_RAW_EVALUATION_ONLY");self.assertFalse(out["production_go"])
++    def test_existing_frozen_v005_synthetic_raw_record_is_supported(self):
++        pb=(ROOT/"shadow_launch_v005/results/synthetic-demo-python314/example-forecast.raw.json").read_bytes();p=json.loads(pb);r=final_result(p["race_id"]);rb=raw(r)
++        projected={**p["forecast"],"generated_at":p["generated_at"]};b=bound(projected,r);b["forecast_sha256"]=sha256(pb)
++        out=audit_saved_prediction(pb,sha256(pb),rb,sha256(rb),b,stage="P_shrunk")
++        self.assertEqual(out["status"],"RECOMPUTED_AUDIT_ONLY");self.assertAlmostEqual(out["logloss"],-math.log(p["forecast"]["distributions"]["P_shrunk"]["1-2-3"]))
++    def test_v005_future_training_and_nested_outcomes_do_not_hide_outside_projection(self):
++        original=json.loads((ROOT/"shadow_launch_v005/results/synthetic-demo-python314/example-forecast.raw.json").read_bytes())
++        for attack in ("future", "outcome"):
++            p=deepcopy(original)
++            if attack=="future":p["forecast"]["model_spec"]["base_model"]["training_max_available_at"]="2099-01-08T00:00:00+09:00"
++            else:p["forecast"]["config"]["result"]="DO_NOT_ECHO"
++            r=final_result(p["race_id"]);pb,rb=raw(p),raw(r);projected={**p["forecast"],"generated_at":p["generated_at"]};b=bound(projected,r);b["forecast_sha256"]=sha256(pb)
++            out=audit_saved_prediction(pb,sha256(pb),rb,sha256(rb),b,stage="P_shrunk")
++            self.assertEqual(out["status"],"HOLD");self.assertNotIn("DO_NOT_ECHO",str(out))
++    def test_function_inputs_are_unchanged_and_authentication_never_promoted(self):
++        p,r=prediction(),final_result();b=bound(p,r);before=deepcopy((p,r,b))
++        out=score(p,r,b)
++        self.assertEqual((p,r,b),before);self.assertEqual(out["formal_eligibility"],"UNVERIFIED")
++        self.assertIn("NOT_AUTHENTICATED",out["timing_claim"])
++    def test_modules_have_no_model_engine_or_io_import_connections(self):
++        import ast
++        for name in ("raw_logloss.py","cohort_guards.py"):
++            tree=ast.parse((ROOT/"preintegration_v008"/name).read_text())
++            imports=[n.module or "" for n in ast.walk(tree) if isinstance(n,ast.ImportFrom)]
++            self.assertFalse(any("model11" in name or any(part in name for part in ("engine","selection","storage","runner")) for name in imports))
++
++class CohortGuardTests(unittest.TestCase):
++    def test_valid_sealed_roles_are_audit_only_without_f5_values(self):
++        out=audit();self.assertEqual(out["status"],"COHORT_INVARIANTS_MATCHED_AUDIT_ONLY");self.assertIsNone(out["minimum_selection_days"]);self.assertFalse(out["production_go"])
++    def test_cross_role_race_raw_and_pilot_holdout_day_overlap(self):
++        for key in ("race_id","raw_sha256"):
++            c=cohort();c["partitions"]["holdout"][0][key]=c["partitions"]["pilot"][0][key];self.assertEqual(audit(c)["status"],"HOLD")
++        c=cohort();c["partitions"]["holdout"][0]=dict(row("holdout",2));self.assertEqual(audit(c)["reason_codes"],["CROSS_ROLE_DAY_CLUSTER_CONTAMINATION"])
++    def test_same_role_duplicate_raw_or_race_and_day_cluster_multiple_races(self):
++        c=cohort();r=deepcopy(c["partitions"]["selection"][0]);c["partitions"]["selection"].append(r);self.assertEqual(audit(c)["status"],"HOLD")
++        c=cohort();r=row("selection-second",3);c["partitions"]["selection"].append(r);self.assertEqual(audit(c)["status"],"COHORT_INVARIANTS_MATCHED_AUDIT_ONLY")
++    def test_future_training_record_and_selection_holdout_order(self):
++        c=cohort();c["partitions"]["training"][0]["record_available_at"]="2099-01-03T13:11:00+09:00";self.assertEqual(audit(c)["status"],"HOLD")
++        c=cohort();c["partitions"]["selection"][0]=row("selection",6);self.assertEqual(audit(c)["status"],"HOLD")
++    def test_champion_raw_selection_seal_and_time_are_bound(self):
++        for field,value in (("champion_count",2),("champion_count",True),("selection_projection_sha256",sha256(b"OTHER")),
++                            ("model_raw_sha256",sha256(b"OTHER")),("frozen_at","2099-01-05T12:55:00+09:00"),("selected_at","2099-01-03T12:00:00+09:00")):
++            c=cohort();s=seal(c);s[field]=value;self.assertEqual(audit(c,s)["status"],"HOLD")
++        self.assertEqual(audit(model=MODEL+b" ")["reason_codes"],["FROZEN_MODEL_RAW_SHA_MISMATCH"])
++    def test_roster_and_seal_raw_hashes_not_normalized_and_malformed_records(self):
++        c,s=cohort(),seal(cohort());cb,sb=raw(c),raw(s)
++        out=audit_cohorts(cb+b" ",sha256(cb),sb,sha256(sb),MODEL,sha256(MODEL));self.assertEqual(out["reason_codes"],["RAW_SHA256_MISMATCH"])
++        for mutate in (lambda c:c["partitions"].pop("pilot"),lambda c:c["partitions"].update(training=[]),lambda c:c.update(synthetic=False),
++                       lambda c:c["partitions"]["pilot"][0].update(target_date="2099-02-30")):
++            c=cohort();mutate(c);self.assertEqual(audit(c)["status"],"HOLD")
++
++if __name__=="__main__":unittest.main()

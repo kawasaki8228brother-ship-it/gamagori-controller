@@ -1,0 +1,92 @@
+[
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/preintegration_v008/evidence/full312.raw.log",
+    "original_bytes": 96066,
+    "original_sha256": "64d255ffc06aeceaab0ec142c69939e06db39fb8f0fd3d275664c8798ad6b6af",
+    "published_bytes": 96066,
+    "published_sha256": "64d255ffc06aeceaab0ec142c69939e06db39fb8f0fd3d275664c8798ad6b6af",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/preintegration_v008/evidence/full314.raw.log",
+    "original_bytes": 96065,
+    "original_sha256": "9126bf4cffb0e86bde554bf227e507e806cd5658dfb5ad798fb694c539cc1650",
+    "published_bytes": 96065,
+    "published_sha256": "9126bf4cffb0e86bde554bf227e507e806cd5658dfb5ad798fb694c539cc1650",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/preintegration_v008/evidence/baseline312.raw.log",
+    "original_bytes": 90084,
+    "original_sha256": "b4279f3c909bba6d40d327c8c172230a79be86bb28571d8721a6b1d0c42f55a6",
+    "published_bytes": 90084,
+    "published_sha256": "b4279f3c909bba6d40d327c8c172230a79be86bb28571d8721a6b1d0c42f55a6",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/preintegration_v008/evidence/root312.raw.log",
+    "original_bytes": 736,
+    "original_sha256": "bd1efd33c953e6bd007bd3b4891bffdc1baad6db0c521e0c361a4b30042558d0",
+    "published_bytes": 736,
+    "published_sha256": "bd1efd33c953e6bd007bd3b4891bffdc1baad6db0c521e0c361a4b30042558d0",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/preintegration_v008/evidence/root314.raw.log",
+    "original_bytes": 735,
+    "original_sha256": "3ac26d1f992f519275098af1733d84f1aff357e81d0c922699e8ac4239453954",
+    "published_bytes": 735,
+    "published_sha256": "3ac26d1f992f519275098af1733d84f1aff357e81d0c922699e8ac4239453954",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/preintegration_v008/evidence/authority-sign-312.raw.log",
+    "original_bytes": 2423,
+    "original_sha256": "f2e3fc54d47fed846e2eb20e7324ccbfe8978600fa1e72aa5da3570db53e1678",
+    "published_bytes": 2423,
+    "published_sha256": "f2e3fc54d47fed846e2eb20e7324ccbfe8978600fa1e72aa5da3570db53e1678",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/preintegration_v008/evidence/authority-sign-314.raw.log",
+    "original_bytes": 2422,
+    "original_sha256": "e67b78f83381aeb78887fcd918f058695c9d62690515e379053df30bc9723414",
+    "published_bytes": 2422,
+    "published_sha256": "e67b78f83381aeb78887fcd918f058695c9d62690515e379053df30bc9723414",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/preintegration_v008/evidence/raw-verifier-initial314.log",
+    "original_bytes": 5059,
+    "original_sha256": "6697d3eb2f127c234905d0d0b096ff123b16e0d84d97c4392b491c53aa65ca4d",
+    "published_bytes": 4789,
+    "published_sha256": "1ef5bc46ae58b2980a981311aee6f931790475174e9c0879295ddb81469ec1bd",
+    "trust": "REDACTED"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/preintegration_v008/evidence/raw-verifier-final312-with-runtime.log",
+    "original_bytes": 4467,
+    "original_sha256": "9dd7138aeb3ba846db2d6eea6d51f78b1d6460fb00c1b921b8f45a6169ae8da0",
+    "published_bytes": 4467,
+    "published_sha256": "9dd7138aeb3ba846db2d6eea6d51f78b1d6460fb00c1b921b8f45a6169ae8da0",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  },
+  {
+    "environment_context": "RUNTIME_MATRIX.json and runtime headers; initial failure logs preserve their original output, not a later successful run",
+    "file": "development/model11/preintegration_v008/evidence/raw-verifier-final314-with-runtime.log",
+    "original_bytes": 4466,
+    "original_sha256": "4786fe5dd26dbb802e69255f74809da00be3ecc6a9c443b6dd064f1630035774",
+    "published_bytes": 4466,
+    "published_sha256": "4786fe5dd26dbb802e69255f74809da00be3ecc6a9c443b6dd064f1630035774",
+    "trust": "RAW_UNMODIFIED_SYNTHETIC"
+  }
+]

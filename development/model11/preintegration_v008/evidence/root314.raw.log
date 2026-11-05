@@ -1,0 +1,7 @@
+{"existing_environments_changed": false, "network": "BLOCKED", "openssl": "OpenSSL 3.5.5 27 Jan 2026", "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "production_go": false, "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]", "scope": "root", "sqlite": "3.50.4"}
+........................................................................ [ 29%]
+........................................................................ [ 58%]
+........................................................................ [ 87%]
+................................                                         [100%]
+248 passed in 2.24s
+{"categories": {"passed": 248}, "exit_code": 0, "production_go": false, "status": "PASS", "tests_collected": 248}

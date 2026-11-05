@@ -1,0 +1,40 @@
+test_champion_raw_selection_seal_and_time_are_bound (test_preintegration_raw_verifier.CohortGuardTests.test_champion_raw_selection_seal_and_time_are_bound) ... ok
+test_cross_role_race_raw_and_pilot_holdout_day_overlap (test_preintegration_raw_verifier.CohortGuardTests.test_cross_role_race_raw_and_pilot_holdout_day_overlap) ... ok
+test_future_training_record_and_selection_holdout_order (test_preintegration_raw_verifier.CohortGuardTests.test_future_training_record_and_selection_holdout_order) ... ok
+test_roster_and_seal_raw_hashes_not_normalized_and_malformed_records (test_preintegration_raw_verifier.CohortGuardTests.test_roster_and_seal_raw_hashes_not_normalized_and_malformed_records) ... ok
+test_same_role_duplicate_raw_or_race_and_day_cluster_multiple_races (test_preintegration_raw_verifier.CohortGuardTests.test_same_role_duplicate_raw_or_race_and_day_cluster_multiple_races) ... ok
+test_valid_sealed_roles_are_audit_only_without_f5_values (test_preintegration_raw_verifier.CohortGuardTests.test_valid_sealed_roles_are_audit_only_without_f5_values) ... ok
+test_all_probability_domains_values_sums_and_stage_presence (test_preintegration_raw_verifier.RawLoglossTests.test_all_probability_domains_values_sums_and_stage_presence) ... ok
+test_all_required_time_evidence_missing_or_invalid_and_deadline (test_preintegration_raw_verifier.RawLoglossTests.test_all_required_time_evidence_missing_or_invalid_and_deadline) ... ERROR
+test_duplicate_json_keys_and_nonfinite_tokens_rejected_without_echo (test_preintegration_raw_verifier.RawLoglossTests.test_duplicate_json_keys_and_nonfinite_tokens_rejected_without_echo) ... ok
+test_existing_frozen_v005_synthetic_raw_record_is_supported (test_preintegration_raw_verifier.RawLoglossTests.test_existing_frozen_v005_synthetic_raw_record_is_supported) ... ok
+test_explicit_stage_and_expected_raw_hash_not_canonical_reencoding (test_preintegration_raw_verifier.RawLoglossTests.test_explicit_stage_and_expected_raw_hash_not_canonical_reencoding) ... ok
+test_future_feature_state_and_training_times_rejected (test_preintegration_raw_verifier.RawLoglossTests.test_future_feature_state_and_training_times_rejected) ... ok
+test_modules_have_no_model_engine_or_io_import_connections (test_preintegration_raw_verifier.RawLoglossTests.test_modules_have_no_model_engine_or_io_import_connections) ... ok
+test_outcomes_in_forecast_and_nonfinal_result_or_future_result (test_preintegration_raw_verifier.RawLoglossTests.test_outcomes_in_forecast_and_nonfinal_result_or_future_result) ... ok
+test_private_real_and_unknown_schema_withheld_ab_evaluation_only (test_preintegration_raw_verifier.RawLoglossTests.test_private_real_and_unknown_schema_withheld_ab_evaluation_only) ... ok
+test_semantically_equal_raw_layout_has_distinct_hash_and_is_not_silently_canonicalized (test_preintegration_raw_verifier.RawLoglossTests.test_semantically_equal_raw_layout_has_distinct_hash_and_is_not_silently_canonicalized) ... ok
+test_snapshot_hash_time_binding_and_record_hash_binding (test_preintegration_raw_verifier.RawLoglossTests.test_snapshot_hash_time_binding_and_record_hash_binding) ... ok
+test_stage_selection_is_distinct (test_preintegration_raw_verifier.RawLoglossTests.test_stage_selection_is_distinct) ... ok
+test_uniform_all_stages_exact_known_logloss_no_normalization (test_preintegration_raw_verifier.RawLoglossTests.test_uniform_all_stages_exact_known_logloss_no_normalization) ... ok
+test_zero_probability_is_infinite_unverified_not_clipped (test_preintegration_raw_verifier.RawLoglossTests.test_zero_probability_is_infinite_unverified_not_clipped) ... ok
+
+======================================================================
+ERROR: test_all_required_time_evidence_missing_or_invalid_and_deadline (test_preintegration_raw_verifier.RawLoglossTests.test_all_required_time_evidence_missing_or_invalid_and_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "[REDACTED_INTERNAL_PATH]", line 99, in test_all_required_time_evidence_missing_or_invalid_and_deadline
+    self.assertEqual(score(p)["status"],"HOLD")
+                     ~~~~~^^^
+  File "[REDACTED_INTERNAL_PATH]", line 40, in score
+    return audit_saved_prediction(raw(p),sha256(raw(p)),raw(r),sha256(raw(r)),bound(p,r) if b is None else b,stage=stage)
+                                                                              ~~~~~^^^^^
+  File "[REDACTED_INTERNAL_PATH]", line 36, in bound
+    "odds_acquired_at":p["information"]["odds_times"]["acquired_at"],"odds_available_at":p["information"]["odds_times"]["available_at"],
+                       ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'odds_times'
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.118s
+
+FAILED (errors=1)

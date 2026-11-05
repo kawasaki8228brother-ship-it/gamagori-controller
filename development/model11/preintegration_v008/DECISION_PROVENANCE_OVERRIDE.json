@@ -1,0 +1,90 @@
+{
+  "branch_integration_authorized": false,
+  "execution_go": false,
+  "existing_v007A_body_unchanged": true,
+  "instruction_source": "HQ14_OFFLINE_DEVELOPMENT_AND_FORWARDED_CLAUDE_F5_20261106",
+  "new_numeric_candidates_created": false,
+  "open_items": [
+    {
+      "id": "SESOI",
+      "status": "OPEN",
+      "value": null
+    },
+    {
+      "id": "MIN_SELECTION_DAYS",
+      "status": "OPEN",
+      "value": null
+    },
+    {
+      "id": "HOLDOUT_START_AND_DAYS",
+      "status": "OPEN",
+      "value": null
+    },
+    {
+      "id": "ALPHA_SPENDING_NEED",
+      "status": "OPEN",
+      "value": null
+    },
+    {
+      "id": "SCRATCH_REFUND_CANCELLATION_RULES",
+      "status": "OPEN",
+      "value": null
+    },
+    {
+      "id": "ODDS_MISSING_AND_MAX_RATE",
+      "status": "OPEN",
+      "value": null
+    },
+    {
+      "id": "DAY_MEETING_DEPENDENCE",
+      "status": "OPEN",
+      "value": null
+    },
+    {
+      "id": "POST_PASS_ALLOWED_SCOPE",
+      "status": "OPEN",
+      "value": null
+    }
+  ],
+  "production_go": false,
+  "provenance_routes": [
+    {
+      "Codex_observation": "RECEIVED_FORWARD_ONLY_NOT_DIRECT_WITNESS",
+      "approval_receipt": null,
+      "confirmation": "CLAUDE_CONFIRMED_PER_FORWARDED_REPORT",
+      "route": "CLAUDE_DIRECT_WITNESS",
+      "source_original_sha256": null,
+      "statement": "\u5148\u751f\u306e\u304a\u3059\u3059\u3081\u3092\u63a1\u7528\u3067\uff01",
+      "witness": "Claude"
+    },
+    {
+      "Claude_confirmation": "UNVERIFIED",
+      "Codex_observation": "RECEIVED_FORWARD_ONLY",
+      "approval_receipt": null,
+      "reported_time": "2026-11-05T20:36:00+09:00",
+      "route": "HQ14_FORWARDED_TIME",
+      "source_original_sha256": null
+    }
+  ],
+  "record_type": "ADDITIVE_SUPERSESSION_NOT_REWRITE_OF_V007A",
+  "replacement_interpretation": "M0_THEN_M2_THEN_M1_DECISION_RECORDED_IN_PINNED_F5_LEDGER",
+  "schema_version": "F5_ADDITIVE_PROVENANCE_OVERRIDE_PREINTEGRATION_V008",
+  "sole_policy_authority": {
+    "approval_receipt": null,
+    "artifact_bytes": 6541,
+    "artifact_hash_is_original_decision_hash": false,
+    "artifact_sha256": "1eda58d7b8aaa221314b02c2be90ae2b5f9640873a33d192aa5b59411e9a222d",
+    "commit": "1778d2e4080dad8b5f1e80b7cc22ea0f5ce7df67",
+    "original_decision_record_sha256": null,
+    "path": "development/model11/f5_preregistration_v007/DECISION_LEDGER.json"
+  },
+  "source_connection_authorized": false,
+  "statistical_pass_granted": false,
+  "superseded_artifact": {
+    "bytes_modified": false,
+    "historical_field": "M0_M2_M1_ORDER",
+    "historical_value": "RECOMMENDATION_ONLY_NOT_ADOPTED",
+    "path": "development/model11/offline_refinements_v007/results/TEST_RESULTS.json",
+    "sha256": "255f559f186cbdd351f03a876855fcea2c83cb7023764fa96bbce7421b7edfb2"
+  }
+}

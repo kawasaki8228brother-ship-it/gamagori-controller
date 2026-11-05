@@ -1,0 +1,38 @@
+{
+  "case": "p1",
+  "completion": "OFFLINE_SCOPE_COMPLETE_CLAUDE_REVIEW_PENDING",
+  "external": [
+    {
+      "id": "decision_original_receipt",
+      "minimum_resolution_steps": 2,
+      "owner": "HQ14 / Claude",
+      "required_evidence": "Existing decision evidence if later preserved; original SHA and approval receipt currently nonexistent, remain null",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "id": "eight_open_values",
+      "minimum_resolution_steps": 3,
+      "owner": "HQ14 / Claude / Andy",
+      "required_evidence": "Finalize the eight preregistration inputs before real evaluation; no numeric proposals added",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "id": "real_comparison",
+      "minimum_resolution_steps": 3,
+      "owner": "HQ14 private environment",
+      "required_evidence": "Authorized point-in-time snapshots, frozen model outputs, actual cohort provenance",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "id": "v008_integration_go",
+      "minimum_resolution_steps": 3,
+      "owner": "HQ14 / Claude / Andy",
+      "required_evidence": "Individual integration approval and approved lineage; components remain separate",
+      "state": "BLOCKED_EXTERNAL"
+    }
+  ],
+  "failed_open": [],
+  "go": false,
+  "implementation": "IMPLEMENTED",
+  "synthetic_tests": "TESTED"
+}

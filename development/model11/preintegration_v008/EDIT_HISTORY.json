@@ -1,0 +1,105 @@
+{
+  "history": [
+    {
+      "after_sha256": "62c2876f4f42febcf2070d45106ea9def1b828c0de5ad960da09ecfbec0db6da",
+      "before_sha256": "6015d60ebabdd45c9cefd81b6e1062235be162cce182d12e35e5e5f560437a9b",
+      "bytes": 6320,
+      "path": "development/model11/preintegration_v008/cohort_guards.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "6015d60ebabdd45c9cefd81b6e1062235be162cce182d12e35e5e5f560437a9b",
+      "before_sha256": null,
+      "bytes": 6300,
+      "path": "development/model11/preintegration_v008/cohort_guards.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "06611de17b0e08ac200f389900aa3ba50a0ab8ac6334ddf48f910b8d2246d973",
+      "before_sha256": null,
+      "bytes": 13112,
+      "path": "development/model11/preintegration_v008/raw_logloss.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "cc8d1ecec89980987806def9cd7f9d4e77d55e3127536d7cd2fd4c7357b5a992",
+      "before_sha256": null,
+      "bytes": 13498,
+      "path": "development/model11/tests/test_preintegration_raw_verifier.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b1c814e9e9abdd1d93f0be23db3bf0711bd51128594560015356e7490bf7b6d1",
+      "before_sha256": null,
+      "bytes": 8748,
+      "path": "development/model11/preintegration_v008/REVIEW_GUIDE.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b09c72bde632a39b4d15923ec86411dc877c2106c60b8fd3ec3ca08fc8c38c17",
+      "before_sha256": null,
+      "bytes": 5502,
+      "path": "development/model11/preintegration_v008/AUTHORITY_AND_SIGN.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "3ac9eb6f3ad22475785e50bb60cc829c4930c6b66c7d8662d3e1f9cc92755d73",
+      "before_sha256": null,
+      "bytes": 2768,
+      "path": "development/model11/preintegration_v008/DECISION_PROVENANCE_OVERRIDE.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "61f9e311674b4d85f3f9d862f3e6131c624097a2a8e7fc7930b62d1105f0c582",
+      "before_sha256": null,
+      "bytes": 5760,
+      "path": "development/model11/preintegration_v008/authority.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "d71e0e5c0091d0507053bfc6dc41c3139efb843ac1d5f7a0dcbb48e6fe82687f",
+      "before_sha256": null,
+      "bytes": 4968,
+      "path": "development/model11/preintegration_v008/signs.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "c3000c6bc6e75ad527ddda6f39c7b23b781be0690dbc7d8816700dc7b6927e9f",
+      "before_sha256": null,
+      "bytes": 10045,
+      "path": "development/model11/tests/test_preintegration_authority.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "1eda58d7b8aaa221314b02c2be90ae2b5f9640873a33d192aa5b59411e9a222d",
+      "before_sha256": null,
+      "bytes": 6541,
+      "path": "development/model11/preintegration_v008/references/F5_DECISION_LEDGER_1778d2e.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "47af66d0ad251968aa4e325258153a4550359f3e0fb81745a941c0a6c3c92a6e",
+      "before_sha256": "06611de17b0e08ac200f389900aa3ba50a0ab8ac6334ddf48f910b8d2246d973",
+      "bytes": 13209,
+      "path": "development/model11/preintegration_v008/raw_logloss.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "dbf37b54fbe590e4b650a0671c9bd55ba64d14f61a089179058c0bf9c987e5d1",
+      "before_sha256": "cc8d1ecec89980987806def9cd7f9d4e77d55e3127536d7cd2fd4c7357b5a992",
+      "bytes": 14731,
+      "path": "development/model11/tests/test_preintegration_raw_verifier.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "03a47977c9f376fbf604bec68535b2ac3ef18591a43a0e38d7b1bea41eb96e7c",
+      "before_sha256": null,
+      "bytes": 8465,
+      "path": "development/model11/preintegration_v008/INDEPENDENT_VERIFICATION.md",
+      "revision": 1
+    }
+  ],
+  "max_revisions": 2,
+  "scope": "guarded source/test/doc stages before final metadata generation",
+  "stop_events": 0
+}
