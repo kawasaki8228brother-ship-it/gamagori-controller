@@ -28,21 +28,21 @@
     },
     {
       "original_bytes": 1680,
-      "original_name": "candidate314.raw.log",
-      "original_sha256": "e5a781d7977dc483e924288252c62439c2ed79367a1644cb29d60405aa9a9aaa",
+      "original_name": "candidate314.r2.raw.log",
+      "original_sha256": "c6248373de513d72997e86ec12b881036d0481a0589c2fd25d4e7d12aed0bebf",
       "published_bytes": 1680,
       "published_path": "development/health_residuals_20261106_v003/evidence/candidate314.raw.log",
-      "published_sha256": "e5a781d7977dc483e924288252c62439c2ed79367a1644cb29d60405aa9a9aaa",
+      "published_sha256": "c6248373de513d72997e86ec12b881036d0481a0589c2fd25d4e7d12aed0bebf",
       "scope": "SYNTHETIC_AND_OFFLINE_RUNTIME_ONLY",
       "trust": "RAW_UNMODIFIED"
     },
     {
       "original_bytes": 1681,
-      "original_name": "candidate312.raw.log",
-      "original_sha256": "ef2cdf07876f23a67ce1ad4939a532ddde7688b15c2f1ddac476757d3bd00ada",
+      "original_name": "candidate312.r2.raw.log",
+      "original_sha256": "3024977bbd1be03f4e291845deb7792a879f80a6e1d5caf1912b6fbcf87ec51e",
       "published_bytes": 1681,
       "published_path": "development/health_residuals_20261106_v003/evidence/candidate312.raw.log",
-      "published_sha256": "ef2cdf07876f23a67ce1ad4939a532ddde7688b15c2f1ddac476757d3bd00ada",
+      "published_sha256": "3024977bbd1be03f4e291845deb7792a879f80a6e1d5caf1912b6fbcf87ec51e",
       "scope": "SYNTHETIC_AND_OFFLINE_RUNTIME_ONLY",
       "trust": "RAW_UNMODIFIED"
     },

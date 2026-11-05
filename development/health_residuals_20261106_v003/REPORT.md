@@ -60,11 +60,17 @@ render.yamlにはPython版の宣言がありません。現在の本番patch版�
 
 実測件数・skip・runtime・比較結果は`evidence/RESULTS.json`と生ログが正本です。ローカル合成試験PASSを公式互換性、実本番適合、208B原文検証のPASSと扱いません。
 
-最終全回帰は、両runtimeでそれぞれ**549 passed・1 skipped（UNVERIFIED）・27 subtests passed**でした。550 primary collectionとJUnit577 recordsを区別します。親v002は両runtimeで418 passed・18 subtests passedです。実測OpenSSL/SQLiteは、3.12.14側が3.5.8/3.53.1、3.14.3側が3.5.5/3.50.4であり、現在本番との一致は未確認です。
+02:20 JST追記後の最終全回帰は、両runtimeでそれぞれ**554 passed・1 skipped（UNVERIFIED）・27 subtests passed**でした。555 primary collectionとJUnit582 recordsを区別します。親v002は両runtimeで418 passed・18 subtests passedです。実測OpenSSL/SQLiteは、3.12.14側が3.5.8/3.53.1、3.14.3側が3.5.5/3.50.4であり、現在本番との一致は未確認です。
 
 4版比較は各67fixtureを実行し、v003は全て現在の合成期待と一致しました。これは旧版の全結果をそのまま保存するという意味ではなく、政策拒否と誤中止修正を含む明示された期待です。実行イベント比較ではa/b/eが一致、cは両版で終端0、dはR7の誤CANCELLED除去による意図差となりました。cの翌日未完了数は供給された合成12件としてC5で可視化し、実DB全体の網羅性は認定しません。
 
 内部レビューで判明した「前日tracking JSONで蒲郡欠損を先に判定すると、当日の非開催候補へ誤分類する」問題も修正しました。payload/programs宣言日付を会場欠損より先に検査し、前日データは通常のTRACKING_PAYLOAD_DATE_MISMATCH障害として扱います。対応回帰を追加し、他のStateMachine規則は変更していません。
+
+追記2に従い、payload/programsの少なくとも一方に明示dateを必須化しました。両方にある場合は両方が対象日と一致しなければなりません。日付欄なしはTRACKING_PARSE_FAILED／TRACKING_PAYLOAD_DATE_UNVERIFIEDで、当日会場欠損やNON_RACE候補の根拠にはしません。stadium内のdateだけでこの前提を代用せず、未確認の情報形式は拒否します。古いJSONを現在URLから返すcache模擬も回帰に含め、未観測のHTTP Age等へ数値閾値を追加していません。
+
+変更した既存テスト5本の[assert対応表](ASSERT_MAPPING.md)と[全AST抽出台帳](ASSERT_MAPPING.json)を追加しました。廃止APIの検査撤回、検査対象をconstructor拒否へ置換した箇所、privacy assertの一部撤回、HOLDから監視継続への反転等を隠さず示します。全てを同等維持・一律厳格化とは主張しません。当日会場欠損fixtureへのdate追加は入力契約の明確化で、TRACKING_MISSING assert自体は維持しています。
+
+最初のv003 commit `971c63a95385690b365e16cadf22a8b1b50d097b`は固定履歴として保全し、追記2は同じ新規隔離ブランチの追加commitへ保存します。旧v001/v002や他ブランチは変更しません。Claude再監査は11/6 05:00〜06:30 JSTのcertifi作業より後に行う前提です。予定枠終了だけでcertifiの成功・CLOSEや本番GOを認定せず、作業が延長された場合もそれより先に審査を進めません。
 
 ## 移植範囲・STOP・復元
 

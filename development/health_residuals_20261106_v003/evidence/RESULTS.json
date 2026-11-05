@@ -2,6 +2,7 @@
   "C4_runtime_transport_integration": "OPEN_NOT_IMPLEMENTED",
   "C5_unknown_prior_nonterminal_provided_rows": 12,
   "Claude_reaudit": "PENDING",
+  "Claude_reaudit_after": "CERTIFI_20261106_0500_0630_JST_WORK_COMPLETED_NOT_TIME_ALONE",
   "P11_P13": "POLICY_PENDING_REAL_HTML_REJECTED",
   "R1_R3_R4_R5_R6_R13_R20": "POLICY_PENDING_REAL_HTML_REJECTED",
   "candidate_matrix": {
@@ -10,17 +11,17 @@
       "errors": 0,
       "exit_code": 0,
       "failures": 0,
-      "junit_testcase_records_including_subtests": 577,
+      "junit_testcase_records_including_subtests": 582,
       "production_go": false,
       "pytest_result_categories": {
-        "passed": 549,
+        "passed": 554,
         "skipped": 1,
         "subtests passed": 27
       },
       "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
       "skipped": 1,
       "status": "PASS_WITH_UNVERIFIED_SKIPS",
-      "tests": 550,
+      "tests": 555,
       "unexecuted_tests": "UNVERIFIED_NOT_PASS"
     },
     "314": {
@@ -28,23 +29,24 @@
       "errors": 0,
       "exit_code": 0,
       "failures": 0,
-      "junit_testcase_records_including_subtests": 577,
+      "junit_testcase_records_including_subtests": 582,
       "production_go": false,
       "pytest_result_categories": {
-        "passed": 549,
+        "passed": 554,
         "skipped": 1,
         "subtests passed": 27
       },
       "scope": "ISOLATED_SYNTHETIC_AND_PRESERVED_BASE_TESTS_ONLY",
       "skipped": 1,
       "status": "PASS_WITH_UNVERIFIED_SKIPS",
-      "tests": 550,
+      "tests": 555,
       "unexecuted_tests": "UNVERIFIED_NOT_PASS"
     }
   },
   "candidate_parser_expectations_matched": 67,
   "classification": "OFFLINE_SYNTHETIC_ONLY",
   "current_production_runtime_and_official_HTML": "UNVERIFIED_NOT_READ",
+  "date_unknown_tracking": "TRACKING_PARSE_FAILED_UNVERIFIED_NOT_NON_RACE_EVIDENCE",
   "five_event_cases": {
     "a": {
       "all_compared_semantic_fields_match": true,
@@ -2785,6 +2787,7 @@
       }
     ]
   },
+  "initial_v003_commit": "971c63a95385690b365e16cadf22a8b1b50d097b",
   "internal_review": "ONE_TRACKING_DATE_ORDER_FINDING_FIXED_WITH_REGRESSION_NOT_CLAUDE_REAUDIT",
   "legacy_provider_exception_and_latch": "REMOVED_FROM_ACTIVE_SOURCE",
   "modified_parent_files": [

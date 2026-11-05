@@ -5,7 +5,7 @@
   "approval": "OFFLINE_DEVELOPMENT_ONLY_NOT_PORT_OR_PRODUCTION_GO",
   "candidate_source_groups": [
     {"path": "parsers.py", "hunks": ["exact_state_after_time_removal_from_semantic_closing_and_unique_state_cells", "POLICY_PENDING_REAL_HTML_rejection_reasons", "missing_clock_status_policy"], "gate": "REAL_HTML_AND_STATE_VOCABULARY_REVIEW_REQUIRED_BEFORE_PORT"},
-    {"path": "official.py", "hunks": ["remove_provider_constructor_and_schedule_shortcut", "fixed_full_twelve_expectation", "exact_no_rows_reason"], "gate": "OFFICIAL_SOURCE_AND_HTML_COMPATIBILITY_UNVERIFIED"},
+    {"path": "official.py", "hunks": ["remove_provider_constructor_and_schedule_shortcut", "fixed_full_twelve_expectation", "exact_no_rows_reason", "explicit_tracking_date_required_before_venue_absence"], "gate": "OFFICIAL_SOURCE_AND_HTML_COMPATIBILITY_UNVERIFIED"},
     {"path": "raceindex_status.py", "hunks": ["remove_unverified_no_race_APIs_and_special_exception", "safe_generic_failure_classification", "dedicated_unauthenticated_no_rows_reason"], "gate": "NO_AUTHENTICATION_OR_NONRACE_CERTIFICATION_IMPLEMENTED"},
     {"path": "main.py", "hunks": ["remove_process_HOLD_latch", "day_scoped_diagnostic_material", "NON_RACE_CANDIDATE_diagnostic_only", "watchdog_on_empty_polls_and_read_error_observation"], "gate": "CONTROLLER_BEHAVIOR_REAUDIT_AND_EVENT_COMPARISON_REQUIRED"}
   ],

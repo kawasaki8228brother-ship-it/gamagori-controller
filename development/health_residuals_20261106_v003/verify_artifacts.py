@@ -60,7 +60,7 @@ def verify():
     outcomes = json.loads((doc / "evidence/RESULTS.json").read_bytes())
     for runtime in ("312", "314"):
         result = outcomes["candidate_matrix"][runtime]
-        assert result["pytest_result_categories"]["passed"] == 549 and result["skipped"] == 1, "MATRIX_COUNTS"
+        assert result["pytest_result_categories"]["passed"] == 554 and result["skipped"] == 1, "MATRIX_COUNTS"
         assert result["pytest_result_categories"]["subtests passed"] == 27, "SUBTEST_COUNTS"
     assert outcomes["formal_208B_original"] == "SKIP_UNVERIFIED_NOT_SUPPLIED", "SPEC_MUST_NOT_BE_PASS"
     return {"status": "PASS", "scope": "LOCAL_ARTIFACT_INTEGRITY_ONLY", "manifest_files": len(names),

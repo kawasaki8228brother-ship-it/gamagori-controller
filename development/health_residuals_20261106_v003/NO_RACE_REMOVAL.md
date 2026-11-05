@@ -131,3 +131,30 @@ both yield TRACKING_PARSE_FAILED / TRACKING_PAYLOAD_DATE_MISMATCH and
 NORMAL_SOURCE_FAILURE, never NON_RACE_CANDIDATE_UNAUTHENTICATED; no race/event
 write or dispatch occurs. Root main is unchanged by this correction. Final
 scoped count becomes 70 (41 + 15 + 14), with existing index/tracking cases retained.
+
+## 02:20 review addendum: explicit document date is required
+
+The tracking document must explicitly declare date in payload or programs (at
+least one). Every declared date still must match the requested target using the
+unchanged date/type/format conditions. If neither document-level field exists,
+classification is TRACKING_PARSE_FAILED / TRACKING_PAYLOAD_DATE_UNVERIFIED,
+regardless of stadium7 presence. A stadium-internal date cannot substitute:
+when stadium7 is missing, its internal metadata cannot be inspected at all.
+Unsupported actual source shapes therefore remain OPEN/UNVERIFIED.
+
+Absent/previous-day dates do not yield TRACKING_STADIUM_7_MISSING and cannot
+support D4's current-day diagnostic. A current request URL or local acquisition
+timestamp does not freshen an old mocked JSON body. No actual response cache
+headers, CDN behavior or Age values were observed; no new Age threshold, cache
+rule or HTTP behavior is introduced.
+
+Five added synthetic cases cover missing document date with stadium7 absent or
+present, preserving an existing current-day cache, a current request receiving
+old JSON, and a current root date with previous-day programs date. Combined with
+official no-row HTML, all remain normal source failure with calendar UNVERIFIED;
+there is no NON_RACE candidate, fabricated official zero universe, write or
+dispatch. One old stadium7-absence fixture now explicitly includes current date
+to preserve its existing TRACKING_MISSING assertion. That input clarification,
+not an assertion weakening, is reported to root's separate test-change table.
+Final scoped verification after this addendum: 75 passed (41 + 15 + 19), plus
+in-memory compilation of owned Python files; no bytecode/pytest cache written.

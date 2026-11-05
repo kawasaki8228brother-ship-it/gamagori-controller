@@ -174,7 +174,8 @@ async def test_tracking_complete_remains_tracking_only_even_raw_closed_flags():
 
 @pytest.mark.asyncio
 async def test_tracking_absent_stadium7_is_missing_never_calendar_absence():
-    obj = fetcher(json.dumps({"programs": {"stadiums": {"5": {}}}}))
+    # A stadium-absence observation now requires an explicit current source date.
+    obj = fetcher(json.dumps({"date": DATE, "programs": {"stadiums": {"5": {}}}}))
     try:
         with pytest.raises(IndexFailure) as caught:
             await obj.fetch_tracking_race_index(NOW)

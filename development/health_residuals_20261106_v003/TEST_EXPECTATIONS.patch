@@ -183,6 +183,16 @@
  
  
  @pytest.mark.asyncio
+@@ -183,7 +174,8 @@
+ 
+ @pytest.mark.asyncio
+ async def test_tracking_absent_stadium7_is_missing_never_calendar_absence():
+-    obj = fetcher(json.dumps({"programs": {"stadiums": {"5": {}}}}))
++    # A stadium-absence observation now requires an explicit current source date.
++    obj = fetcher(json.dumps({"date": DATE, "programs": {"stadiums": {"5": {}}}}))
+     try:
+         with pytest.raises(IndexFailure) as caught:
+             await obj.fetch_tracking_race_index(NOW)
 --- a/tests/test_health_raceindex_parser.py
 +++ b/tests/test_health_raceindex_parser.py
 @@ -18,9 +18,10 @@

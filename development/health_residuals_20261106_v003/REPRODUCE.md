@@ -11,7 +11,7 @@ python -B development/health_residuals_20261106_v003/inspect_runtime.py
 python -B development/health_residuals_20261106_v003/run_offline_tests.py --repo . --junit-output /tmp/health-v003-new.xml
 ```
 
-Run once with each prepared interpreter. The runner disables network, pytest plugin autoload and pytest cache, explicitly loads the asyncio plugin and records environment/counts. Expected measured result per interpreter: **549 passed, 1 UNVERIFIED skipped, 27 subtests passed**; 550 primary collected, JUnit records577. These are separate counts. The formal208-byte specification test is not a PASS.
+Run once with each prepared interpreter. The runner disables network, pytest plugin autoload and pytest cache, explicitly loads the asyncio plugin and records environment/counts. Final measured result after the dated-tracking follow-up per interpreter: **554 passed, 1 UNVERIFIED skipped, 27 subtests passed**; 555 primary collected, JUnit records582. These are separate counts. The formal208-byte specification test is not a PASS.
 
 To repeat parent regression, use `--repo` with a separate byte-verified local copy of `48333a2315628ae17e1fa3ce4f8ef12c70e2662f`. Do not overwrite an existing branch or worktree. Parent measured result is418 passed/18 subtests for both interpreters. PARENT_FILES.json inventories all123 parent files.
 

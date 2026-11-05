@@ -1,8 +1,11 @@
 {
   "added_excluding_self_manifests": [
+    "development/health_residuals_20261106_v003/ASSERT_MAPPING.json",
+    "development/health_residuals_20261106_v003/ASSERT_MAPPING.md",
     "development/health_residuals_20261106_v003/AUDIT_QUALITY_DESIGN.md",
     "development/health_residuals_20261106_v003/CONTROLLER_AND_EVENT_REVIEW.md",
     "development/health_residuals_20261106_v003/C_SOURCE.patch",
+    "development/health_residuals_20261106_v003/DIFF_STAT.json",
     "development/health_residuals_20261106_v003/INDEX.md",
     "development/health_residuals_20261106_v003/LOG_PROVENANCE.json",
     "development/health_residuals_20261106_v003/NO_RACE_REMOVAL.md",
@@ -73,9 +76,9 @@
       "removed_lines": 25
     },
     {
-      "added_lines": 14,
-      "after_bytes": 14312,
-      "after_sha256": "923ce076c47b5a27445c6ed3339f78405237a966117470490df331a44065fd53",
+      "added_lines": 16,
+      "after_bytes": 14465,
+      "after_sha256": "d8daeb27af5d74de67e0eba0bead7333e877163958a0ddf7ea6ec92b7418cadd",
       "before_bytes": 14639,
       "before_sha256": "64666c31a51aca3c3ffe358b0e57035a62fd7c01f05ddb87310359c061f8d19f",
       "path": "official.py",
@@ -91,13 +94,13 @@
       "removed_lines": 13
     },
     {
-      "added_lines": 5,
-      "after_bytes": 2117,
-      "after_sha256": "c955a34e3c196375a0230ae05acfe1d33cb22acfd244cde53e0fd219a27e0e4e",
+      "added_lines": 7,
+      "after_bytes": 2157,
+      "after_sha256": "9df2b3f6bba5c41983c68d65cb973fd52abe9ead33c4657a65fa6b156ba10443",
       "before_bytes": 3510,
       "before_sha256": "09c13544552c40c2ed2761de0df08c999876814d256117b9069135c8391dbdb0",
       "path": "raceindex_status.py",
-      "removed_lines": 33
+      "removed_lines": 34
     },
     {
       "added_lines": 10,
@@ -109,13 +112,13 @@
       "removed_lines": 6
     },
     {
-      "added_lines": 41,
-      "after_bytes": 11143,
-      "after_sha256": "481ef28fd8837df5402f78f8d7a5e7c581b73b277daf980df10cb77a80438c8a",
+      "added_lines": 43,
+      "after_bytes": 11239,
+      "after_sha256": "b8e6956d9c5607a412ff561ff4f6d963157b79860d8925143698f1e81c497257",
       "before_bytes": 11672,
       "before_sha256": "c8191a39c2e41edc96d45af7c404fd452e1ec3fe2deffdce8e263546c3f09434",
       "path": "tests/test_health_official_index.py",
-      "removed_lines": 50
+      "removed_lines": 51
     },
     {
       "added_lines": 4,

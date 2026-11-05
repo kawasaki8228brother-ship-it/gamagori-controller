@@ -150,6 +150,8 @@ class OfficialDataFetcher:
         stadiums = programs.get("stadiums")
         if not isinstance(stadiums, dict):
             raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_STADIUMS_NOT_OBJECT")
+        if "date" not in payload and "date" not in programs:
+            raise IndexFailure("TRACKING_PARSE_FAILED", "TRACKING_PAYLOAD_DATE_UNVERIFIED")
         # A missing venue in a stale document is not current-day absence.
         for container in (payload, programs):
             if "date" in container and container["date"] not in (date_str, now_jst.date().isoformat()):

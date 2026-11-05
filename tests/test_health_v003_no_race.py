@@ -152,3 +152,68 @@ async def test_stale_declared_tracking_date_precedes_stadium_absence_diagnostic(
         value.repo.append_shadow_event_atomic.assert_not_awaited()
     finally:
         await obj.close()
+
+
+async def _no_rows_with_tracking(payload, *, known=None):
+    from test_health_controller_scope import controller
+    obj = fetcher("unused")
+    obj._get_text.side_effect = [
+        ("<html>No race rows in this invented official response</html>", NOW.isoformat()),
+        (json.dumps(payload), NOW.isoformat()),
+    ]
+    value = controller(known=known)
+    value.fetcher = obj
+    try:
+        assert await value._refresh_race_universe(NOW, 1) == (True, False)
+        assert value._last_index_outcome["official_reason"] == NO_ROWS_CODE
+        assert value._last_index_outcome["tracking"] == "TRACKING_PARSE_FAILED"
+        assert value._last_index_outcome["diagnostic"] == "NORMAL_SOURCE_FAILURE"
+        value.state_machine.process_race.assert_not_awaited()
+        value.repo.save_race_state.assert_not_awaited()
+        value.repo.append_shadow_event_atomic.assert_not_awaited()
+        return value, obj._get_text.await_args_list
+    finally:
+        await obj.close()
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("stadium_present", [False, True])
+async def test_no_declared_root_or_programs_date_is_unverified_not_current_absence(stadium_present, caplog):
+    payload = tracking() if stadium_present else {"programs": {"stadiums": {"1": {}}}}
+    payload.pop("date", None)
+    payload["programs"].pop("date", None)
+    if stadium_present:
+        # A venue-internal date cannot replace the required document-level one.
+        payload["programs"]["stadiums"]["7"]["date"] = NOW.date().isoformat()
+    value, _ = await _no_rows_with_tracking(payload)
+    assert value._last_index_outcome["tracking_reason"] == "TRACKING_PAYLOAD_DATE_UNVERIFIED"
+    assert value._last_index_outcome["calendar_status"] == "UNVERIFIED"
+    assert value._last_index_outcome["official"] != "OFFICIAL_INDEX_PARSED"
+    assert "NON_RACE_CANDIDATE_UNAUTHENTICATED" not in caplog.text
+
+
+@pytest.mark.asyncio
+async def test_unknown_date_does_not_zero_current_day_cache():
+    from test_health_controller_scope import race
+    current = race(1)
+    payload = {"programs": {"stadiums": {"1": {}}}}
+    value, _ = await _no_rows_with_tracking(payload, known={current.race_id: current})
+    assert value._last_index_outcome["tracking_reason"] == "TRACKING_PAYLOAD_DATE_UNVERIFIED"
+    assert value._known_races == {current.race_id: current}
+    value.repo.list_all_states.assert_not_awaited()
+
+
+@pytest.mark.asyncio
+async def test_old_cached_json_is_not_freshened_by_current_request_or_acquisition():
+    payload = {"date": "20990106", "programs": {"stadiums": {"1": {}}}}
+    value, requests = await _no_rows_with_tracking(payload)
+    assert "/20990107.json" in requests[1].args[0]
+    assert value._last_index_outcome["tracking_reason"] == "TRACKING_PAYLOAD_DATE_MISMATCH"
+    assert value._last_index_outcome["calendar_status"] == "UNVERIFIED"
+
+
+@pytest.mark.asyncio
+async def test_current_root_date_cannot_hide_previous_day_programs():
+    payload = {"date": "20990107", "programs": {"date": "20990106", "stadiums": {"1": {}}}}
+    value, _ = await _no_rows_with_tracking(payload)
+    assert value._last_index_outcome["tracking_reason"] == "TRACKING_PAYLOAD_DATE_MISMATCH"
