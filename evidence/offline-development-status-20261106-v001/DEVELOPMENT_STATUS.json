@@ -1,0 +1,450 @@
+{
+  "approval": {
+    "claude_independent_review": "PENDING",
+    "integration_go": false,
+    "production_go": false,
+    "real_data_go": false,
+    "shadow_launch_go": false
+  },
+  "blocked_external": [
+    {
+      "case": "p0",
+      "id": "official_html",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Andy capture; Claude compare",
+      "required_evidence": "Private original HTML, capture/transport evidence, reviewed format policy",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p0",
+      "id": "spec_208_bytes",
+      "minimum_resolution_steps": 2,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Claude",
+      "required_evidence": "Exact approved 208 UTF-8 bytes for independent SHA recomputation; not received",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p0",
+      "id": "deployment_runtime",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Andy",
+      "required_evidence": "Actual approved runtime/dependency observations and post-certifi base; no service access this turn",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p0",
+      "id": "adoption",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "Claude / HQ14 / Andy",
+      "required_evidence": "Independent review then individually approved port/integration; no production GO",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p1",
+      "id": "decision_original_receipt",
+      "minimum_resolution_steps": 2,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Claude",
+      "required_evidence": "Existing decision evidence if later preserved; original SHA and approval receipt currently nonexistent, remain null",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p1",
+      "id": "eight_open_values",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Claude / Andy",
+      "required_evidence": "Finalize the eight preregistration inputs before real evaluation; no numeric proposals added",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p1",
+      "id": "real_comparison",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 private environment",
+      "required_evidence": "Authorized point-in-time snapshots, frozen model outputs, actual cohort provenance",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p1",
+      "id": "v008_integration_go",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Claude / Andy",
+      "required_evidence": "Individual integration approval and approved lineage; components remain separate",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p2",
+      "id": "official_mapping",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Claude",
+      "required_evidence": "Privately verified official field/source/time mapping; synthetic inventory is not authenticated",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p2",
+      "id": "odds_freshness",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Claude / Andy",
+      "required_evidence": "Approved freshness/missingness rules; current threshold remains null",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p2",
+      "id": "real_host",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Andy",
+      "required_evidence": "Dedicated host/storage/clock/process evidence after separate approval",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p2",
+      "id": "settlement_policy",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Claude / Andy",
+      "required_evidence": "Official cancellation/scratch/refund evidence and adopted settlement policy; unadopted cases HOLD",
+      "state": "BLOCKED_EXTERNAL"
+    },
+    {
+      "case": "p2",
+      "id": "realdata_shadow_go",
+      "minimum_resolution_steps": 3,
+      "minimum_resolution_steps_are": "minimum review/delivery steps, not a time estimate; explicit approval cannot be inferred",
+      "owner": "HQ14 / Claude / Andy",
+      "required_evidence": "Independent review, preregistration and explicit real-data/Shadow GO",
+      "state": "BLOCKED_EXTERNAL"
+    }
+  ],
+  "cases": {
+    "p0": {
+      "branch": "dev/health-offline-completion-20261106-v004",
+      "byte_readback": "PASS",
+      "claims": [
+        {
+          "claim": "HTTP status, HTTPX observed wire bytes, decoded bytes, body/transport completeness and HTML parsing are distinct; unknown stays null.",
+          "evidence": "development/health_offline_completion_v004/REVIEW_GUIDE.md",
+          "id": "transport_separation",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "New structured diagnostic namespace emits fixed safe values; legacy and HTTPX logging are outside the guarantee.",
+          "evidence": "development/health_offline_completion_v004/REVIEW_GUIDE.md",
+          "id": "diagnostic_privacy",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Six research transformations, ambiguous rejection, and orphan-row before/after regression are exercised. Production parser policy remains unchanged and pending real HTML.",
+          "evidence": "development/health_offline_completion_v004/REVIEW_GUIDE.md",
+          "id": "research_html",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Private-input checker and iPhone procedure prepared; iPhone usability and actual official input remain external.",
+          "evidence": "development/health_offline_completion_v004/REVIEW_GUIDE.md",
+          "id": "private_capture_tools",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Inherited race status/StateMachine/LOCK tests remain unchanged; only official transport wrapper is modified.",
+          "evidence": "development/health_offline_completion_v004/REVIEW_GUIDE.md",
+          "id": "terminal_regression",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Exact final Health commit trial-merged locally onto PR6 head, conflict-free, same candidate tree except approved requirements; both full suites passed with disclosed external skip.",
+          "evidence": "development/health_offline_completion_v004/REVIEW_GUIDE.md",
+          "id": "local_certifi_trial",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        }
+      ],
+      "claude_review": "PENDING",
+      "commit": "2da08256b89f5de5fa9219698401f87005f0dc23",
+      "implementation": "IMPLEMENTED",
+      "index_path": "development/health_offline_completion_v004/INDEX.md",
+      "manifest": {
+        "bytes": 58145,
+        "path": "development/health_offline_completion_v004/MANIFEST.json",
+        "sha256": "a9861f01cfcae743c090c521ca0d5a1fac0f1a29be31d6947214d0fe2f9e749b"
+      },
+      "parent": "fbd19ff2d1b619e31534c81939c4e03665053636",
+      "source_diff": "development/health_offline_completion_v004/SOURCE.patch",
+      "synthetic_verification": "TESTED",
+      "test_results": {
+        "branch": "dev/health-offline-completion-20261106-v004",
+        "case": "p0",
+        "claude_review": "PENDING",
+        "no_real_data_received": true,
+        "old_files_modified": [
+          "official.py"
+        ],
+        "old_files_preserved": 188,
+        "parent_commit": "fbd19ff2d1b619e31534c81939c4e03665053636",
+        "production_go": false,
+        "runtime_warning": "3.12 uses existing system-site environment, not a new hermetic install. No dependency environment changed. Neither OpenSSL/SQLite pair proves production runtime equivalence.",
+        "suites": {
+          "python312": {
+            "collected": 594,
+            "passed": 593,
+            "skipped_unverified": 1,
+            "subtests_passed": 35
+          },
+          "python314": {
+            "collected": 594,
+            "passed": 593,
+            "skipped_unverified": 1,
+            "subtests_passed": 35
+          }
+        },
+        "synthetic_only": true,
+        "test_scope": "P0 root suite; P1/P2 complete Model suite. Model branches share byte-identical baseline root code; P1 root 248 tests passed both versions and cover that unchanged shared root.",
+        "unverified_skips": [
+          "Approved 208-byte A specification original absent; SHA-reference shape test passes but original recomputation not run"
+        ]
+      },
+      "tree": "f6eb9dd52633c7533c28b581b5e97593b718598e"
+    },
+    "p1": {
+      "branch": "dev/model11-v008-preintegration-20261106-v001",
+      "byte_readback": "PASS",
+      "claims": [
+        {
+          "claim": "Pinned F5 decision ledger is the decision projection source; old examples and recommendation labels cannot authorize evaluation.",
+          "evidence": "development/model11/preintegration_v008/REVIEW_GUIDE.md",
+          "id": "authority",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Claude direct-statement observation and HQ14 forwarded time are distinct; nonexistent original SHA/receipt remain null.",
+          "evidence": "development/model11/preintegration_v008/REVIEW_GUIDE.md",
+          "id": "provenance",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Eight undecided fields remain null; no candidate numerical values generated.",
+          "evidence": "development/model11/preintegration_v008/REVIEW_GUIDE.md",
+          "id": "eight_open",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "d_M0=-delta_pilot, roundtrip, equal day SD, correct one-sided direction; mathematical identity is not an adopted test procedure.",
+          "evidence": "development/model11/preintegration_v008/REVIEW_GUIDE.md",
+          "id": "signs",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Independent verifier hashes raw saved prediction bytes before strict 120-way stage-specific log-loss recomputation and time checks.",
+          "evidence": "development/model11/preintegration_v008/REVIEW_GUIDE.md",
+          "id": "raw_recomputation",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Pilot, selection, holdout race/day/hash overlap and later labels are refused.",
+          "evidence": "development/model11/preintegration_v008/REVIEW_GUIDE.md",
+          "id": "cohort_isolation",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "No engine, market grid, five selections, BOX or old v007 document changed; no actual v008 integration.",
+          "evidence": "development/model11/preintegration_v008/REVIEW_GUIDE.md",
+          "id": "preintegration_only",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        }
+      ],
+      "claude_review": "PENDING",
+      "commit": "33ffbfd599a49ae4010943b0444e91d5ecb1528f",
+      "implementation": "IMPLEMENTED",
+      "index_path": "development/model11/preintegration_v008/INDEX.md",
+      "manifest": {
+        "bytes": 89532,
+        "path": "development/model11/preintegration_v008/MANIFEST.json",
+        "sha256": "a7f92c50baaeeebde321370cbca435cef97b5c00f7dcbdbe91709637e173826a"
+      },
+      "parent": "148c156f472c874075a0b25d4f0b6b7e9fafdcfe",
+      "source_diff": "development/model11/preintegration_v008/SOURCE.patch",
+      "synthetic_verification": "TESTED",
+      "test_results": {
+        "branch": "dev/model11-v008-preintegration-20261106-v001",
+        "case": "p1",
+        "claude_review": "PENDING",
+        "no_real_data_received": true,
+        "old_files_modified": [],
+        "old_files_preserved": 320,
+        "parent_commit": "148c156f472c874075a0b25d4f0b6b7e9fafdcfe",
+        "production_go": false,
+        "runtime_warning": "3.12 uses existing system-site environment, not a new hermetic install. No dependency environment changed. Neither OpenSSL/SQLite pair proves production runtime equivalence.",
+        "suites": {
+          "python312": {
+            "passed": 591,
+            "skipped_unverified": 0
+          },
+          "python314": {
+            "passed": 591,
+            "skipped_unverified": 0
+          }
+        },
+        "synthetic_only": true,
+        "test_scope": "P0 root suite; P1/P2 complete Model suite. Model branches share byte-identical baseline root code; P1 root 248 tests passed both versions and cover that unchanged shared root.",
+        "unverified_skips": []
+      },
+      "tree": "5b01474e7a28098dc106aeed34ac2d461199f2e3"
+    },
+    "p2": {
+      "branch": "dev/model11-shadow-offline-20261106-v008",
+      "byte_readback": "PASS",
+      "claims": [
+        {
+          "claim": "264 required patterns expand to 554 targets; 2216 mutations yielded 2208 HOLD and 8 explicit conditional N/A, no unexpected result.",
+          "evidence": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md",
+          "id": "contract_matrix",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Future-snapshot synthetic 120-way odds completeness/PIT/type checks; no final-odds fallback or invented freshness cutoff.",
+          "evidence": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md",
+          "id": "odds",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Future-revised features and labels cannot enter historical training or selection.",
+          "evidence": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md",
+          "id": "historical_pit",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Existing isolated writer exercised for 12R, duplicate attempts, restart and receipts without changing the writer.",
+          "evidence": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md",
+          "id": "twelve_and_duplicates",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Save failures and ACK uncertainty retain partial evidence, durable STOP and restart HOLD; no silent replay.",
+          "evidence": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md",
+          "id": "storage_failure",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Wall-clock reversal/deadline and processing-delay synthetic scenarios tested; host clock/monotonic operational assurance remains external.",
+          "evidence": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md",
+          "id": "clock_faults",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Result correction and refunds remain separate, stakes500/600 independent; unadopted cancellation/scratch rules remain HOLD.",
+          "evidence": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md",
+          "id": "settlements",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        },
+        {
+          "claim": "Scoped AST import inspection, pointer/readspy tests and poisoned inputs show no A/B feature/selection dependency; not a universal noninterference proof.",
+          "evidence": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md",
+          "id": "ab_independence",
+          "implementation": "IMPLEMENTED",
+          "state": "TESTED"
+        }
+      ],
+      "claude_review": "PENDING",
+      "commit": "ad549a57c79de62bfe772e5a7ff989917d5b239a",
+      "implementation": "IMPLEMENTED",
+      "index_path": "development/model11/shadow_offline_v008/INDEX.md",
+      "manifest": {
+        "bytes": 89814,
+        "path": "development/model11/shadow_offline_v008/MANIFEST.json",
+        "sha256": "1803d7b159039496473b8bb2b4bd1dd43f813c026ad0ed6e04941d75a6d1ca37"
+      },
+      "parent": "148c156f472c874075a0b25d4f0b6b7e9fafdcfe",
+      "source_diff": "development/model11/shadow_offline_v008/SOURCE.patch",
+      "synthetic_verification": "TESTED",
+      "test_results": {
+        "branch": "dev/model11-shadow-offline-20261106-v008",
+        "case": "p2",
+        "claude_review": "PENDING",
+        "conditional_not_applicable": 8,
+        "contract_patterns": 264,
+        "counting_note": "Outer tests and nested vector executions are separate counts; not summed as independent unittest methods.",
+        "expanded_targets": 554,
+        "fault_cli_vectors": 20,
+        "hold": 2208,
+        "mutations": 2216,
+        "nested_existing_fault_vectors": 18,
+        "new_outer_tests": 26,
+        "no_real_data_received": true,
+        "old_files_modified": [],
+        "old_files_preserved": 320,
+        "parent_commit": "148c156f472c874075a0b25d4f0b6b7e9fafdcfe",
+        "production_go": false,
+        "runtime_warning": "3.12 uses existing system-site environment, not a new hermetic install. No dependency environment changed. Neither OpenSSL/SQLite pair proves production runtime equivalence.",
+        "suites": {
+          "python312": {
+            "passed": 584,
+            "skipped_unverified": 0
+          },
+          "python314": {
+            "passed": 584,
+            "skipped_unverified": 0
+          }
+        },
+        "synthetic_only": true,
+        "test_scope": "P0 root suite; P1/P2 complete Model suite. Model branches share byte-identical baseline root code; P1 root 248 tests passed both versions and cover that unchanged shared root.",
+        "unexpected": 0,
+        "unverified_skips": []
+      },
+      "tree": "d3435afefc7d1fe861e8203cf629ddcc5dbe885f"
+    }
+  },
+  "classification_labels": [
+    "IMPLEMENTED",
+    "TESTED",
+    "BLOCKED_EXTERNAL",
+    "FAILED_OPEN"
+  ],
+  "decision_approval_receipt": null,
+  "decision_original_sha256": null,
+  "failed_open": [],
+  "frozen_production_components": [
+    "Model1.0",
+    "BOXVer1",
+    "A/B",
+    "LOCK",
+    "Freeze",
+    "canonical",
+    "POINTER"
+  ],
+  "mutation_cutoff_margin_jst": "04:55",
+  "no_new_eight_open_value_candidates": true,
+  "priority": "certifi, SYS-01/02 and existing G1-G6 unchanged",
+  "push_blackout_jst": "2026-11-06T05:00:00+09:00/2026-11-06T06:30:00+09:00",
+  "scope": "Only the newly requested P0/P1/P2 offline components and P3 evidence; not all future development or external readiness",
+  "scope_status": "OFFLINE_COMPLETE_CLAUDE_REVIEW_PENDING",
+  "test_count_warning": "Case suites share baseline tests. Do not sum counts across branches/runtimes or count subtests as separate independent pytest tests.",
+  "version": "OFFLINE_COMPLETION_20261106_V001"
+}

@@ -1,0 +1,1046 @@
+{
+  "cases": {
+    "p0": {
+      "guarded_files": 41,
+      "immutable_receipt_batches": 12,
+      "max_content_revisions": 2,
+      "source_and_final_metadata_included": true,
+      "stop_events": 0
+    },
+    "p1": {
+      "guarded_files": 34,
+      "immutable_receipt_batches": 10,
+      "max_content_revisions": 2,
+      "source_and_final_metadata_included": true,
+      "stop_events": 0
+    },
+    "p2": {
+      "guarded_files": 35,
+      "immutable_receipt_batches": 11,
+      "max_content_revisions": 2,
+      "source_and_final_metadata_included": true,
+      "stop_events": 0
+    }
+  },
+  "changes": [
+    {
+      "after_sha256": "a9861f01cfcae743c090c521ca0d5a1fac0f1a29be31d6947214d0fe2f9e749b",
+      "before_sha256": null,
+      "bytes": 58145,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/MANIFEST.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "15551e53b5afc345b9fd66a1295b54609ad88e550cdbcd15b47b8f0d446c7210",
+      "before_sha256": null,
+      "bytes": 28515,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/SHA256SUMS.txt",
+      "revision": 1
+    },
+    {
+      "after_sha256": "6783e4cfd4462a6b505676f61702058114cfd59f030e6cc553e9c104d8633c56",
+      "before_sha256": "abf41bd0a49b3b3357774a80f6e8fa48f5d84927ae6810297745abfd6f1c2b5c",
+      "bytes": 7591,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/inspect_private_html.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "23535dc4e8734a95ca4245d453a24ce6f3e811c195cef2fcbf8435008b7d1690",
+      "before_sha256": "9b63dfaab3e93fe088cfa7639515ae36e7e0976d990ce01e0681c75898f4eca7",
+      "bytes": 11241,
+      "case": "p0",
+      "path": "tests/test_offline_html_research.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "e434abd21f9c1e47987e46b82a6b29c3d04d0229d9463b630cfa06bfe9bd9b71",
+      "before_sha256": null,
+      "bytes": 1266,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/CASE_STATUS.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "e4e31bd8caea4e712f0dcf82aeacada3715d5cc631dd52eac4171a7a03dbdfab",
+      "before_sha256": null,
+      "bytes": 5510,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/EDIT_HISTORY.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "9770b9a73038e54b38ee401d21517238babe254a50f3e94198918dcd998ea688",
+      "before_sha256": null,
+      "bytes": 7999,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/EVIDENCE_TRUST.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "907f00d9a37a24bb6bfd43a9efa6e820f9f1515619cc7fd55ae2ba5f6d49433c",
+      "before_sha256": null,
+      "bytes": 1431,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/INDEX.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "21f493262acfedeef28880ca7c441162400beeabde24cce68c85ae217a77b71b",
+      "before_sha256": null,
+      "bytes": 48017,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/PARENT_FILES.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "6a87169d50d9fdc0d0f9dcf7dcd4cfab5031d57961d9bf47a1d2e0971214b10a",
+      "before_sha256": null,
+      "bytes": 1159,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/RESULTS.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b7af0b92ff27221b25f6fb08fa5d78d35f9657479bd0334f0e947e450c72be58",
+      "before_sha256": null,
+      "bytes": 20687,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/RUNTIME_MATRIX.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "67c56be67a2be9ef797a69e83d6f2a55ee5461e9d5df40e2b377293fc5907ef6",
+      "before_sha256": null,
+      "bytes": 104349,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/SOURCE.patch",
+      "revision": 1
+    },
+    {
+      "after_sha256": "ba2a8473fafcfd3bb4344e29d08f3a67903b638d3786983d1723fb7eb2e6b7f6",
+      "before_sha256": null,
+      "bytes": 2611,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/SOURCE_CHANGES.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "f3a1e5ecd1de75e8765e0580bf8bb108123db5ce3aa6c9ac52f00850931c7233",
+      "before_sha256": null,
+      "bytes": 1198,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/baseline314.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "9e3286ed5fb2ce8ac6d778bbf262b8841ce2df6e98ae750feb12dbd9bb31e06d",
+      "before_sha256": null,
+      "bytes": 1191,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/full312.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "948d6d9d41e79f8e7559502997bd1986fe3e44c4b15a83a5995d9fc6e025d08e",
+      "before_sha256": null,
+      "bytes": 1190,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/full314.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "1923212b5f325632bae4e90daf3f6bc86597aa01157880b168476b749e549898",
+      "before_sha256": null,
+      "bytes": 334,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/html312-post-orphan.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "a8c9d41baa86591ccaacaeeabc9dca7752bda0f9cd6a57530d5215a0fd4adb2e",
+      "before_sha256": null,
+      "bytes": 333,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/html314-post-orphan.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "5df61ac25a271808d3a013d95d7c764db2222c8aff8ad7d9847221df434ba21f",
+      "before_sha256": null,
+      "bytes": 662,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/orphan-public-after.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "72d296a58e802f426c76977ebe8af8c8edf8e2d1774e25fe5271a80d54d124f8",
+      "before_sha256": null,
+      "bytes": 695,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/orphan-public-before.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "f7ef89c829d65dd117a807a015d367d93108342854aee2b82a5b558533b84784",
+      "before_sha256": null,
+      "bytes": 171,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/private-html-not-supplied.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "5fc230ecfb1cebb28c47ed5b8ef4b16a52420ff856ec9abe38f645439a5b9121",
+      "before_sha256": null,
+      "bytes": 481,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/private-html-privacy-before-after.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "277a9627f8fd91a3ced1d4db58bcd89b92e97b55386b9ad7065962473594d936",
+      "before_sha256": null,
+      "bytes": 180,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/transport-compat-initial314.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "e949cba784f1a6877cba08ca501df07f9d97a43f51f90e044b351c6da35f9d25",
+      "before_sha256": null,
+      "bytes": 262,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/transport-environment312.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "54cba5a576d9b2d82d877cbe8737c4cf5dbbc224f429eb0344201911e60f257c",
+      "before_sha256": null,
+      "bytes": 261,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/transport-environment314.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "4399c89d2909b989d321ea90f84e692673a753d9210de7a9e119d1ea2f833e6d",
+      "before_sha256": null,
+      "bytes": 180,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/transport-final312.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "02991a74967e336b957e5315b15a5d7c925beef41bfe6303f0f90d6aa25cbe38",
+      "before_sha256": null,
+      "bytes": 180,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/transport-final314.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "f56dd4ca05ff45af426ff172d2ad855bb378255cafc58876326c27c4d453b595",
+      "before_sha256": null,
+      "bytes": 99,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/evidence/transport-initial314.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "d8daeb27af5d74de67e0eba0bead7333e877163958a0ddf7ea6ec92b7418cadd",
+      "before_sha256": null,
+      "bytes": 14465,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/references/official_parent.py.txt",
+      "revision": 1
+    },
+    {
+      "after_sha256": "0281e6ee883b42d2abc5bfb972d2bf5719b0eddd750f5131f977e052661e6eba",
+      "before_sha256": null,
+      "bytes": 2603,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/run_regressions.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "e4247f35e2070b14057ee6019d3dd9d85cdfc75e52d6389f77e8c1e384594413",
+      "before_sha256": null,
+      "bytes": 1124,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/verify_artifacts.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "bf59b0910c2ed5d5ea91795074f3d8939e88a80ed770ca6c07114dca0f7adcc1",
+      "before_sha256": null,
+      "bytes": 4790,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/HTML_RESEARCH.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "4a404f0218ef8858c02ef0b3f762755853b3e7f7573665286e6f84444e941ac4",
+      "before_sha256": null,
+      "bytes": 3764,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/IPHONE_CAPTURE_PROPOSED.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "7863bea4c520cba48bedb719c7f9c635c98dc9b664a73d5be82cc1f6e4ef45c0",
+      "before_sha256": null,
+      "bytes": 11380,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/html_research.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "abf41bd0a49b3b3357774a80f6e8fa48f5d84927ae6810297745abfd6f1c2b5c",
+      "before_sha256": null,
+      "bytes": 6807,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/inspect_private_html.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "9b63dfaab3e93fe088cfa7639515ae36e7e0976d990ce01e0681c75898f4eca7",
+      "before_sha256": null,
+      "bytes": 9355,
+      "case": "p0",
+      "path": "tests/test_offline_html_research.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "be1bea822aa2d58b126c61913cb3007494746d28b61ef5544fc476b42a02def1",
+      "before_sha256": null,
+      "bytes": 7745,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/TRANSPORT_DESIGN.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b02cea0dce59f551abfb50ff064559070fc1c6c1d5ea3bcbc4dd47f2a7c908ea",
+      "before_sha256": "64f35a64438c46e3952f014fabf0d89b4dbd0abdc73ffbb3fd0f601816ca7025",
+      "bytes": 6431,
+      "case": "p0",
+      "path": "http_transport_observation.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "723950aff0ff12771e962c930aa204bde3f34f73584f33ed76d8fd3a2c9de54d",
+      "before_sha256": "d113bd982fa60c42c2faef3f7c59ebb44f1e9a70723ac4d10ad2fe4a4abb7250",
+      "bytes": 17603,
+      "case": "p0",
+      "path": "official.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "ee3b12a85dd0eac9e4b26b138a4fcca935c91d3a2eb3dcd666a40b2ce59ebdaf",
+      "before_sha256": "1a7d3c6b66ca0bd0f4e460ce5ede5d201882ca4d991aee5a3a27d8a0b76635e0",
+      "bytes": 14406,
+      "case": "p0",
+      "path": "tests/test_offline_transport.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "dc84153b86811cad8666ee734615c96690b298f112ca99f7f2cbc11f120bec88",
+      "before_sha256": "7863bea4c520cba48bedb719c7f9c635c98dc9b664a73d5be82cc1f6e4ef45c0",
+      "bytes": 12145,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/html_research.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "656e5b6f2f00ab64925ec1f987927889362a05700098d1d2832d3a7fee24241a",
+      "before_sha256": null,
+      "bytes": 2092,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/orphan_reproduction.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "7863bea4c520cba48bedb719c7f9c635c98dc9b664a73d5be82cc1f6e4ef45c0",
+      "before_sha256": null,
+      "bytes": 11380,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/references/html_research_rev1.py.txt",
+      "revision": 1
+    },
+    {
+      "after_sha256": "64f35a64438c46e3952f014fabf0d89b4dbd0abdc73ffbb3fd0f601816ca7025",
+      "before_sha256": null,
+      "bytes": 5507,
+      "case": "p0",
+      "path": "http_transport_observation.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "d113bd982fa60c42c2faef3f7c59ebb44f1e9a70723ac4d10ad2fe4a4abb7250",
+      "before_sha256": "d8daeb27af5d74de67e0eba0bead7333e877163958a0ddf7ea6ec92b7418cadd",
+      "bytes": 17318,
+      "case": "p0",
+      "path": "official.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "1a7d3c6b66ca0bd0f4e460ce5ede5d201882ca4d991aee5a3a27d8a0b76635e0",
+      "before_sha256": null,
+      "bytes": 9570,
+      "case": "p0",
+      "path": "tests/test_offline_transport.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "ae2c73bee4d2cc8d78522b531949ad5d7bfb9df0657d437b8d9b16ad4671b452",
+      "before_sha256": "bf59b0910c2ed5d5ea91795074f3d8939e88a80ed770ca6c07114dca0f7adcc1",
+      "bytes": 6793,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/HTML_RESEARCH.md",
+      "revision": 2
+    },
+    {
+      "after_sha256": "0b0d786d0ce14d6318694ab7070bceeed7c110d9a34083fd32bbc9b5fa16f7e8",
+      "before_sha256": "4a404f0218ef8858c02ef0b3f762755853b3e7f7573665286e6f84444e941ac4",
+      "bytes": 4062,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/IPHONE_CAPTURE_PROPOSED.md",
+      "revision": 2
+    },
+    {
+      "after_sha256": "bb8ef1580ee7390c6a7bda777cd853ee9cdcdb7436a56029bb2448621510c05c",
+      "before_sha256": null,
+      "bytes": 10943,
+      "case": "p0",
+      "path": "development/health_offline_completion_v004/REVIEW_GUIDE.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "62c2876f4f42febcf2070d45106ea9def1b828c0de5ad960da09ecfbec0db6da",
+      "before_sha256": "6015d60ebabdd45c9cefd81b6e1062235be162cce182d12e35e5e5f560437a9b",
+      "bytes": 6320,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/cohort_guards.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "b1c814e9e9abdd1d93f0be23db3bf0711bd51128594560015356e7490bf7b6d1",
+      "before_sha256": null,
+      "bytes": 8748,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/REVIEW_GUIDE.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "6015d60ebabdd45c9cefd81b6e1062235be162cce182d12e35e5e5f560437a9b",
+      "before_sha256": null,
+      "bytes": 6300,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/cohort_guards.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "06611de17b0e08ac200f389900aa3ba50a0ab8ac6334ddf48f910b8d2246d973",
+      "before_sha256": null,
+      "bytes": 13112,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/raw_logloss.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "cc8d1ecec89980987806def9cd7f9d4e77d55e3127536d7cd2fd4c7357b5a992",
+      "before_sha256": null,
+      "bytes": 13498,
+      "case": "p1",
+      "path": "development/model11/tests/test_preintegration_raw_verifier.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "8f97ddddf4f988fcf02287f77e496c89c94213b1ea740ae6abf42aa5faf62e2f",
+      "before_sha256": null,
+      "bytes": 1327,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/CASE_STATUS.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "99a95af156c517d96c295f9f131f7a685d51fc778b51a7e0d469b6286938ef9c",
+      "before_sha256": null,
+      "bytes": 3845,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/EDIT_HISTORY.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "a75fc147e472303dfec5d1fac9ddb6f5cc7708a6d52ec0c640492ce09af88726",
+      "before_sha256": null,
+      "bytes": 5273,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/EVIDENCE_TRUST.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b5d2acd667b4a86a4f5548bb0dd66b000892e5300f54d6e6a2acd0daba1552cd",
+      "before_sha256": null,
+      "bytes": 1428,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/INDEX.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "8550e93ad61101a0950965f6b0269d750afc08139bbc397e8e40b80ec2fe7249",
+      "before_sha256": null,
+      "bytes": 81089,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/PARENT_FILES.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "ed870a6dccc38c215f31b4f5b75bd938f57e0fe81891b167cf7d332886ff0888",
+      "before_sha256": null,
+      "bytes": 907,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/RESULTS.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b7af0b92ff27221b25f6fb08fa5d78d35f9657479bd0334f0e947e450c72be58",
+      "before_sha256": null,
+      "bytes": 20687,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/RUNTIME_MATRIX.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "8aabd20c58ebcd359ea6ccc7ff1b61bcf3e60d8e88da1acd7bf0897973bf277d",
+      "before_sha256": null,
+      "bytes": 89387,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/SOURCE.patch",
+      "revision": 1
+    },
+    {
+      "after_sha256": "edcfba50b1f1c032527dbd492ac49ba78a550edf52406d58601dae64ba5f5fb4",
+      "before_sha256": null,
+      "bytes": 2430,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/SOURCE_CHANGES.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "f2e3fc54d47fed846e2eb20e7324ccbfe8978600fa1e72aa5da3570db53e1678",
+      "before_sha256": null,
+      "bytes": 2423,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/evidence/authority-sign-312.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "e67b78f83381aeb78887fcd918f058695c9d62690515e379053df30bc9723414",
+      "before_sha256": null,
+      "bytes": 2422,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/evidence/authority-sign-314.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b4279f3c909bba6d40d327c8c172230a79be86bb28571d8721a6b1d0c42f55a6",
+      "before_sha256": null,
+      "bytes": 90084,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/evidence/baseline312.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "64d255ffc06aeceaab0ec142c69939e06db39fb8f0fd3d275664c8798ad6b6af",
+      "before_sha256": null,
+      "bytes": 96066,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/evidence/full312.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "9126bf4cffb0e86bde554bf227e507e806cd5658dfb5ad798fb694c539cc1650",
+      "before_sha256": null,
+      "bytes": 96065,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/evidence/full314.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "9dd7138aeb3ba846db2d6eea6d51f78b1d6460fb00c1b921b8f45a6169ae8da0",
+      "before_sha256": null,
+      "bytes": 4467,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/evidence/raw-verifier-final312-with-runtime.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "4786fe5dd26dbb802e69255f74809da00be3ecc6a9c443b6dd064f1630035774",
+      "before_sha256": null,
+      "bytes": 4466,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/evidence/raw-verifier-final314-with-runtime.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "1ef5bc46ae58b2980a981311aee6f931790475174e9c0879295ddb81469ec1bd",
+      "before_sha256": null,
+      "bytes": 4789,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/evidence/raw-verifier-initial314.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "bd1efd33c953e6bd007bd3b4891bffdc1baad6db0c521e0c361a4b30042558d0",
+      "before_sha256": null,
+      "bytes": 736,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/evidence/root312.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "3ac26d1f992f519275098af1733d84f1aff357e81d0c922699e8ac4239453954",
+      "before_sha256": null,
+      "bytes": 735,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/evidence/root314.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "0281e6ee883b42d2abc5bfb972d2bf5719b0eddd750f5131f977e052661e6eba",
+      "before_sha256": null,
+      "bytes": 2603,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/run_regressions.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "e4247f35e2070b14057ee6019d3dd9d85cdfc75e52d6389f77e8c1e384594413",
+      "before_sha256": null,
+      "bytes": 1124,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/verify_artifacts.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "47af66d0ad251968aa4e325258153a4550359f3e0fb81745a941c0a6c3c92a6e",
+      "before_sha256": "06611de17b0e08ac200f389900aa3ba50a0ab8ac6334ddf48f910b8d2246d973",
+      "bytes": 13209,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/raw_logloss.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "dbf37b54fbe590e4b650a0671c9bd55ba64d14f61a089179058c0bf9c987e5d1",
+      "before_sha256": "cc8d1ecec89980987806def9cd7f9d4e77d55e3127536d7cd2fd4c7357b5a992",
+      "bytes": 14731,
+      "case": "p1",
+      "path": "development/model11/tests/test_preintegration_raw_verifier.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "1eda58d7b8aaa221314b02c2be90ae2b5f9640873a33d192aa5b59411e9a222d",
+      "before_sha256": null,
+      "bytes": 6541,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/references/F5_DECISION_LEDGER_1778d2e.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "55c1fc80ecbe63c9bb4be1377ef0594d07239683f92ab67123d772b916b0334b",
+      "before_sha256": null,
+      "bytes": 43602,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/SHA256SUMS.txt",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b09c72bde632a39b4d15923ec86411dc877c2106c60b8fd3ec3ca08fc8c38c17",
+      "before_sha256": null,
+      "bytes": 5502,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/AUTHORITY_AND_SIGN.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "3ac9eb6f3ad22475785e50bb60cc829c4930c6b66c7d8662d3e1f9cc92755d73",
+      "before_sha256": null,
+      "bytes": 2768,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/DECISION_PROVENANCE_OVERRIDE.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "61f9e311674b4d85f3f9d862f3e6131c624097a2a8e7fc7930b62d1105f0c582",
+      "before_sha256": null,
+      "bytes": 5760,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/authority.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "d71e0e5c0091d0507053bfc6dc41c3139efb843ac1d5f7a0dcbb48e6fe82687f",
+      "before_sha256": null,
+      "bytes": 4968,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/signs.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "c3000c6bc6e75ad527ddda6f39c7b23b781be0690dbc7d8816700dc7b6927e9f",
+      "before_sha256": null,
+      "bytes": 10045,
+      "case": "p1",
+      "path": "development/model11/tests/test_preintegration_authority.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "a7f92c50baaeeebde321370cbca435cef97b5c00f7dcbdbe91709637e173826a",
+      "before_sha256": null,
+      "bytes": 89532,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/MANIFEST.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "03a47977c9f376fbf604bec68535b2ac3ef18591a43a0e38d7b1bea41eb96e7c",
+      "before_sha256": null,
+      "bytes": 8465,
+      "case": "p1",
+      "path": "development/model11/preintegration_v008/INDEPENDENT_VERIFICATION.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "8f6d050ee0362c5a53c5bb84b8cb931cf9384975b627435d7619c4b73b78af56",
+      "before_sha256": null,
+      "bytes": 43750,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/SHA256SUMS.txt",
+      "revision": 1
+    },
+    {
+      "after_sha256": "2f44a93f1a64f2852f2bede099b32b2b32ec919367eeaefc600c2fc4601bda82",
+      "before_sha256": null,
+      "bytes": 8581,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/fault_suite.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "47371e0d26f1c42395e367569f53bb92afb5de72a2c62f9f97a1631c92e68919",
+      "before_sha256": null,
+      "bytes": 6089,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/independence.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "0ce6624f171e88624c3d0dfdc3d71a98f388822f365428fc462da8bab447f6e8",
+      "before_sha256": null,
+      "bytes": 3835,
+      "case": "p2",
+      "path": "development/model11/tests/test_shadow_offline_faults.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "6845cb12ec6867fd1d03188736477c94257cf631a31985ce38c4180df529f549",
+      "before_sha256": null,
+      "bytes": 10846,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/REVIEW_GUIDE.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "f5b6ed6c78627920f1fb15ad7ff6c041a5cb7e9cac0224b1a5fb17a617317f6e",
+      "before_sha256": null,
+      "bytes": 12090,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/CONTRACT_AND_DATA_REVIEW.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "be073e88a173ac530848ae52037b710bbb6f14715b5da08dbf6f09772e1577f8",
+      "before_sha256": "2f44a93f1a64f2852f2bede099b32b2b32ec919367eeaefc600c2fc4601bda82",
+      "bytes": 10662,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/fault_suite.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "f1b008c8fc9fa46bbc6b0f1ac1c5e04de2cbe93293cf4d7af2eb10a5208b999d",
+      "before_sha256": "47371e0d26f1c42395e367569f53bb92afb5de72a2c62f9f97a1631c92e68919",
+      "bytes": 6126,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/independence.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "dd27b8ba1e36d0c16ae95bd580e1c8200c409fe4e0ca5ea4e505d0ca03ac6e7a",
+      "before_sha256": "0ce6624f171e88624c3d0dfdc3d71a98f388822f365428fc462da8bab447f6e8",
+      "bytes": 4003,
+      "case": "p2",
+      "path": "development/model11/tests/test_shadow_offline_faults.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "83c3b0eceebbbb18d2289d129a9b1d55695cb65aef674875f684ee9fa43936b5",
+      "before_sha256": null,
+      "bytes": 9323,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/SHADOW_FAULTS_AND_INDEPENDENCE.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "df7b1a82058e8a417d26a41de2409c5dc1706ea8ee085c5d8a84e42104d27871",
+      "before_sha256": "10f3d0cdccb326e6aae1518008fb5d21917a3fc7b940087c4194d84253b847c1",
+      "bytes": 5498,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/odds_audit.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "fceaea156aa6db267d876865eded06888221bfa46e731275e1072cf675a5bee3",
+      "before_sha256": "e88104a2a79a09fa83603a69c0bcf4627a859b7c89a09e8519c34b91b57898a9",
+      "bytes": 13553,
+      "case": "p2",
+      "path": "development/model11/tests/test_shadow_offline_contract.py",
+      "revision": 2
+    },
+    {
+      "after_sha256": "dad794fba6f2ecde27cfba26f44b913444db72bedb01085e3878ef0ce0eb45f2",
+      "before_sha256": null,
+      "bytes": 1510,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/CASE_STATUS.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "655179b406896fd4d27e52a89d89da6ecae0ca29fa259fdaee37b31e9cca6210",
+      "before_sha256": null,
+      "bytes": 4253,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/EDIT_HISTORY.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "5069b80c99a79807abc4cc1b3621cc159c4b54d4e12fa361b945849626eaf4a2",
+      "before_sha256": null,
+      "bytes": 6866,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/EVIDENCE_TRUST.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "40ecf01902a8bf650cd2ef0bb06b32d2538c2dcbd04d541861d4022d5f6f136a",
+      "before_sha256": null,
+      "bytes": 1423,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/INDEX.md",
+      "revision": 1
+    },
+    {
+      "after_sha256": "8550e93ad61101a0950965f6b0269d750afc08139bbc397e8e40b80ec2fe7249",
+      "before_sha256": null,
+      "bytes": 81089,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/PARENT_FILES.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "7755d667a5326c55948f99ab519087e4737dd27a1554db3917c618829990f83f",
+      "before_sha256": null,
+      "bytes": 1267,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/RESULTS.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b7af0b92ff27221b25f6fb08fa5d78d35f9657479bd0334f0e947e450c72be58",
+      "before_sha256": null,
+      "bytes": 20687,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/RUNTIME_MATRIX.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "da44db308eb8066c78377eeb68eca502a39778ada4fb47ae47c15804e28cc4f9",
+      "before_sha256": null,
+      "bytes": 83040,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/SOURCE.patch",
+      "revision": 1
+    },
+    {
+      "after_sha256": "5c0b14861b399a2a1e719868ac4a1609580e6dba7eca080c9b392a6f085be2be",
+      "before_sha256": null,
+      "bytes": 1970,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/SOURCE_CHANGES.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "f722994ae3908ecd2384354aea98c86d4068c757779d4d3035a3fed6b72a1dd5",
+      "before_sha256": null,
+      "bytes": 843659,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/contract-matrix314.raw.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "d356051bbcd9a0f9cc68f41e658f67a3a827822c2e1d87bf02f59f069211962b",
+      "before_sha256": null,
+      "bytes": 247,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/contract-runtime312.raw.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "2526aa50d09c9a72355c3cf48c8c0e638949ceba87d5114c56b7fe7550e4e553",
+      "before_sha256": null,
+      "bytes": 3482,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/contract-tests312-final.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b4843077389d91d7f85074ccd58ecfaf54c83dd7c8cb55c387c9539837d8b202",
+      "before_sha256": null,
+      "bytes": 2898,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/contract-tests312-initial.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "494b19350c9fa9aeabd0b9711e251b15710d9aded06a46efb4b04d843ebdba18",
+      "before_sha256": null,
+      "bytes": 3840,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/contract-tests314-final.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "c6b0b67ba7fda508f894e065464e81e46568564220f30cb1cd528b0e2c8354ab",
+      "before_sha256": null,
+      "bytes": 2898,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/contract-tests314.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "7e2109424a388661877707f4064e0926a2b13c6b4e56c4d277499bd09d80f68c",
+      "before_sha256": null,
+      "bytes": 5858,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/fault-vectors-314.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "3ff014e95e49696f63753650a3d364d3998440329a62799db9d5f7fcd12aa958",
+      "before_sha256": null,
+      "bytes": 1749,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/faults-final-312.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "5dcb323e7d5d4049142d5600bf6aa271c568634b30bfceed897fdbd04832004d",
+      "before_sha256": null,
+      "bytes": 1748,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/faults-final-314.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "475c3664a46f8f2f5e3637056dc85f846f0de4dff5a85eaf7b79a3881b7678d9",
+      "before_sha256": null,
+      "bytes": 2946,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/faults-first-314.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "92fda10e79c7297cfb8f13fca346f317de7d290df044f672a6b41b69e8587934",
+      "before_sha256": null,
+      "bytes": 95016,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/full312.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "cbf470f2fe44dd64030aaad3f9449d8f7671d807378ca27472f759cdd5bf3c04",
+      "before_sha256": null,
+      "bytes": 95015,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/full314.raw.log",
+      "revision": 1
+    },
+    {
+      "after_sha256": "b052cf7aae472a07b3c0813f3e1d90f031cb1f22e629963883bb5be039634dab",
+      "before_sha256": null,
+      "bytes": 3100,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/evidence/independence-314.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "0281e6ee883b42d2abc5bfb972d2bf5719b0eddd750f5131f977e052661e6eba",
+      "before_sha256": null,
+      "bytes": 2603,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/run_regressions.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "e4247f35e2070b14057ee6019d3dd9d85cdfc75e52d6389f77e8c1e384594413",
+      "before_sha256": null,
+      "bytes": 1124,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/verify_artifacts.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "1803d7b159039496473b8bb2b4bd1dd43f813c026ad0ed6e04941d75a6d1ca37",
+      "before_sha256": null,
+      "bytes": 89814,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/MANIFEST.json",
+      "revision": 1
+    },
+    {
+      "after_sha256": "abb78992c71632d46174daf134c4382154318c9108e43fc3a59462bac93ce3c2",
+      "before_sha256": null,
+      "bytes": 8872,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/contract_matrix.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "10f3d0cdccb326e6aae1518008fb5d21917a3fc7b940087c4194d84253b847c1",
+      "before_sha256": null,
+      "bytes": 5166,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/odds_audit.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "e88104a2a79a09fa83603a69c0bcf4627a859b7c89a09e8519c34b91b57898a9",
+      "before_sha256": null,
+      "bytes": 11209,
+      "case": "p2",
+      "path": "development/model11/tests/test_shadow_offline_contract.py",
+      "revision": 1
+    },
+    {
+      "after_sha256": "805fd4f609cf0bd71c03846198a79ce2358366219a53927f8594d1815e1e9293",
+      "before_sha256": "f5b6ed6c78627920f1fb15ad7ff6c041a5cb7e9cac0224b1a5fb17a617317f6e",
+      "bytes": 12086,
+      "case": "p2",
+      "path": "development/model11/shadow_offline_v008/CONTRACT_AND_DATA_REVIEW.md",
+      "revision": 2
+    }
+  ],
+  "coordination_files_policy": "exclusive-create revision1; full file hashes in manifest",
+  "policy": "At most two content-changing writes to the same path; no rename escape; coordinator uses exclusive create once.",
+  "third_revision_stop_events": 0
+}

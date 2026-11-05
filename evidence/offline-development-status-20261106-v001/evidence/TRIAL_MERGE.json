@@ -1,0 +1,100 @@
+{
+  "candidate": "2da08256b89f5de5fa9219698401f87005f0dc23",
+  "candidate_parent": "fbd19ff2d1b619e31534c81939c4e03665053636",
+  "case": "P0_EXACT_FINAL_LOCAL_TRIAL_MERGE",
+  "commands": [
+    {
+      "args": [
+        "status",
+        "--porcelain"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "args": [
+        "checkout",
+        "--detach",
+        "97640c8c307fed8eaa19f2557f5057ccade18da1"
+      ],
+      "returncode": 0,
+      "stderr": "HEAD is now at 97640c8 Pin observed production dependencies and update certifi\n",
+      "stdout": ""
+    },
+    {
+      "args": [
+        "merge",
+        "--no-ff",
+        "--no-commit",
+        "2da08256b89f5de5fa9219698401f87005f0dc23"
+      ],
+      "returncode": 0,
+      "stderr": "Automatic merge went well; stopped before committing as requested\n",
+      "stdout": ""
+    },
+    {
+      "args": [
+        "ls-files",
+        "-u"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "args": [
+        "write-tree"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "34782038a2618ffbca77613ebf2abab6005bf1ce\n"
+    }
+  ],
+  "conflicts": 0,
+  "full_candidate_tree_preserved_except_certifi_requirements": true,
+  "head_before_merge": "97640c8c307fed8eaa19f2557f5057ccade18da1",
+  "local_only": true,
+  "merge_commit_created": false,
+  "merged_index_tree": "34782038a2618ffbca77613ebf2abab6005bf1ce",
+  "merged_vs_final_candidate_files_changed": [
+    "requirements.txt"
+  ],
+  "production_go": false,
+  "requirements_bytes": 340,
+  "requirements_sha256": "dba91fc609884c39b70c1660151e959779d86613fe0ce13c61626506123a2dc7",
+  "runtime_results": {
+    "312": {
+      "log_bytes": 1191,
+      "log_sha256": "df0bae429e03dfe06b2388eaab4429fe5265b12b0fa09b773b4560dd45bd09b0",
+      "result": {
+        "categories": {
+          "passed": 593,
+          "skipped": 1,
+          "subtests passed": 35
+        },
+        "exit_code": 0,
+        "production_go": false,
+        "status": "PASS_WITH_UNVERIFIED_SKIPS",
+        "tests_collected": 594
+      },
+      "unverified_skip": "208-byte approved specification raw absent; not a test PASS"
+    },
+    "314": {
+      "log_bytes": 1190,
+      "log_sha256": "cfe3428ba996cae01aacc8ecf8737b7b1c38344dfbc5523928e769a195ebf45b",
+      "result": {
+        "categories": {
+          "passed": 593,
+          "skipped": 1,
+          "subtests passed": 35
+        },
+        "exit_code": 0,
+        "production_go": false,
+        "status": "PASS_WITH_UNVERIFIED_SKIPS",
+        "tests_collected": 594
+      },
+      "unverified_skip": "208-byte approved specification raw absent; not a test PASS"
+    }
+  }
+}

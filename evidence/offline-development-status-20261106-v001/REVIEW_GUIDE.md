@@ -1,0 +1,16 @@
+# Review guide: ten highest-priority claims
+
+No Claude review result is asserted. These commands are offline checks in the corresponding pinned checkout.
+
+1. Case separation and exact ancestry: inspect `evidence/READBACK_CASES.json`, compare each parent/commit/tree with GitHub read-only commit pages. Expected: P0 parentfbd19ff2, P1/P2 parent148c156; P1/P2 are siblings, no branch integration.
+2. Full file integrity: run `python -B evidence/offline-development-status-20261106-v001/verify_artifacts.py --repo .`; repeat each case's verify_artifacts.py. Expected: bad=[],PASS. Evidence: manifests and recomputed readback receipts.
+3. New/changed remote bytes: inspect READBACK_CASES downloaded_files; expected41+34+35 files, GitHub fetch-file content and recomputed SHA256/bytes identical, full tree229/354/355. Existing old branches are covered by READBACK_PRE_COORDINATION.
+4. Local certifi trial: inspect TRIAL_MERGE.json and two raw test logs. Expected: candidate2da08256, head97640c8c, conflicts0, merged tree34782038, delta onlyrequirements.txt, SHA dba91fc6...,593PASS+35subtests+1UNVERIFIEDskip on both Python versions. No remote trial branch or merge commit.
+5. P0 semantic boundary: run P0 run_regressions --scope root. Expected: transport/parse distinction, privacy guard/cancellation, unchanged StateMachine/LOCK tests; research HTML and actual official compatibility remain different. Source patch changes only one old fileofficial.py, other old files preserved.
+6. P0 discovered defect evidence: execute P0 orphan_reproduction.py --stage before and --stage after. Expected beforebadformsRESEARCH_PARSED; afterbadformsHOLD/UNANCHORED_RACE_ROWS; normalcandidate stillparsed. Old snapshot SHA pinned; no third file edit.
+7. P1 decision/sign integrity: run its full model regression runner. Inspect authority/sign tests and provenance override. Expected:591PASS, d_M0=-pilot, SD unchanged, one-sided direction correct; eight OPEN null; two provenance paths; no fabricated original/receipt or authorization.
+8. P1 independent scoring/cohort: inspect raw verifier tests and initial failure trust record. Expected: rawSHA-before-JSON,120 eachstage, strict time proof, unchanged engine; pilot/holdout overlap rejected. Private-real execution remainsHOLD; no superiority claim.
+9. P2 contracts/faults/independence: run P2 full model regression runner. Expected:584PASS; matrix2216=2208HOLD+8conditionalN/A;20CLI faultvectors; A/B unknown extras neverread/forwarded and declaredA/BpoisonHOLD. Imported helper18existingvectors are not counted as18new independent unittest methods.
+10. F7/F8 and external boundaries: inspect REVISION_LIMIT and DEVELOPMENT_STATUS. Expected:max2edits,zeroSTOP; all offline claimsIMPLEMENTED/TESTED, externalitemsowner/evidence/minsteps,FAILED_OPENempty. This is scoped offline complete pending independent review. No live capability/threshold/mapping is invented, no purchase/writer/Shadow activation is authorized.
+
+Each source case's REVIEW_GUIDE.md supplies detailed commands, expected values and evidence paths for its own top ten claims. Shared baseline tests are not additive across branches or Python versions. The new diagnostic privacy claim excludes existing HTTPX and legacy application logs.

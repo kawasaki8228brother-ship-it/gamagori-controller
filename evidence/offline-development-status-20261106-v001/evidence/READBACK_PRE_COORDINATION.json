@@ -1,0 +1,14 @@
+{
+  "main": "8172aec010894a52f36f48b7091476d26494e4ee",
+  "new_branches": 3,
+  "old_branches": 36,
+  "old_refs_unchanged": true,
+  "pr6": {
+    "base": "8172aec010894a52f36f48b7091476d26494e4ee",
+    "draft": true,
+    "head": "97640c8c307fed8eaa19f2557f5057ccade18da1",
+    "merged": false
+  },
+  "production_go": false,
+  "status": "PASS"
+}
