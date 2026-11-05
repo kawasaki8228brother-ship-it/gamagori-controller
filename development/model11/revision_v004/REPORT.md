@@ -1,0 +1,13 @@
+# N1完了報告・独立再審査用
+
+実装候補：N1のみ。修正実行コード1ファイル。policy hash3件不変。
+Python3.12.14／3.14.3で各346件PASS、失敗・error・skip0。socket接続は禁止。
+旧v003正常40Rのfull-summaryはSHA256 8e26fe7ffba6b749932c98b388382e1c65c45d0466a3af00311336134e37190aで親と一致。
+保存済み他134ファイルは不変。旧course原本17860bytes／SHA256 48b53e1b372c9c8b63027567d920514ac4e23668f0373d9f4f9a559789f0f66bを別保全。
+親commit・v001/v002/v003ブランチ・出力原本は更新しない。
+N1-matrixは24件の読取再現、7新規methodは追加の境界・全入口を検査。
+独立開発レビューの69validatorケースと正常出力／学習の互換性照合はINDEPENDENT_REVIEW参照。Claude再監査の代替ではない。
+
+PRIVATE_REAL+登録OFFICIAL sourceは分類検査のみ通過し、external_authenticity=UNVERIFIED。
+実データ投入・Shadow起動・正式採用は承認されていない。外部原本・時刻・証拠とHQ14/Claude/Andyの確認が別途必要。
+今回追加されたShadow完成形開発は次の別ブランチへ分離し、N1差分へ混入させない。

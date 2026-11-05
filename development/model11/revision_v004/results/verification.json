@@ -1,0 +1,74 @@
+{
+  "old_other_files_unchanged": 134,
+  "original_target_archive": {
+    "bytes": 17860,
+    "sha256": "48b53e1b372c9c8b63027567d920514ac4e23668f0373d9f4f9a559789f0f66b"
+  },
+  "policy_hashes_unchanged": true,
+  "production_go": false,
+  "real_data_used": false,
+  "real_execution": "HOLD_UNCHANGED",
+  "runtime_312": {
+    "executed_at": "2026-11-05T07:45:43.585511+00:00",
+    "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "production_go": false,
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+  },
+  "runtime_314": {
+    "executed_at": "2026-11-05T07:45:43.061604+00:00",
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "production_go": false,
+    "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"
+  },
+  "tests": {
+    "312": {
+      "bytes": 53219,
+      "result": {
+        "errors": 0,
+        "failures": 0,
+        "real_performance": "UNVERIFIED",
+        "scope": "SYNTHETIC_SOFTWARE_ONLY",
+        "skipped": 0,
+        "status": "PASS",
+        "tests_run": 346
+      },
+      "runtime": {
+        "data": "SYNTHETIC_ONLY",
+        "network": "BLOCKED_IN_PROCESS",
+        "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "production_go": false,
+        "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+      },
+      "sha256": "784099cae37b2ce39e566b230fffc70ec9d5d8c0a4f1456129905a922e047d68"
+    },
+    "314": {
+      "bytes": 53218,
+      "result": {
+        "errors": 0,
+        "failures": 0,
+        "real_performance": "UNVERIFIED",
+        "scope": "SYNTHETIC_SOFTWARE_ONLY",
+        "skipped": 0,
+        "status": "PASS",
+        "tests_run": 346
+      },
+      "runtime": {
+        "data": "SYNTHETIC_ONLY",
+        "network": "BLOCKED_IN_PROCESS",
+        "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "production_go": false,
+        "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"
+      },
+      "sha256": "0f1df2b130ec408b80509cac6d0e1f177bd9143a9c537053eba05247bd7d1006"
+    }
+  },
+  "valid_demo_same_as_parent_and_cross_runtime": true,
+  "valid_v003_summary": {
+    "bytes": 1225982,
+    "sha256": "8e26fe7ffba6b749932c98b388382e1c65c45d0466a3af00311336134e37190a"
+  }
+}

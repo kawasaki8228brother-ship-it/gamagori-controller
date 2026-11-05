@@ -1,0 +1,437 @@
+{
+  "all_expected_results": true,
+  "case_count": 24,
+  "cases": [
+    {
+      "after_eligible": true,
+      "before_eligible": true,
+      "case": "valid_synthetic",
+      "classification": "SYNTHETIC_ONLY",
+      "classification_reasons": [],
+      "errors": [],
+      "expected": true,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "FRAME_ONLY_V001",
+      "synthetic_flag": true
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "private_synthetic_both",
+      "classification": "PRIVATE_REAL",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "frame",
+          "reason": "The predeclared source family contradicts the data classification."
+        },
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "exhibition",
+          "reason": "The predeclared source family contradicts the data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_SOURCE_CLASSIFICATION_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "FRAME_ONLY_V001",
+      "synthetic_flag": false
+    },
+    {
+      "after_eligible": true,
+      "before_eligible": true,
+      "case": "private_official",
+      "classification": "PRIVATE_REAL",
+      "classification_reasons": [],
+      "errors": [],
+      "expected": true,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "FRAME_ONLY_V001",
+      "synthetic_flag": false
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "flag_contradiction",
+      "classification": "SYNTHETIC_ONLY",
+      "classification_reasons": [
+        {
+          "code": "COURSE_CLASSIFICATION_FLAG_MISMATCH",
+          "observation": null,
+          "reason": "The synthetic flag contradicts the declared data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_CLASSIFICATION_FLAG_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "FRAME_ONLY_V001",
+      "synthetic_flag": false
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "classification_unknown",
+      "classification": "UNKNOWN_CLASS",
+      "classification_reasons": [
+        {
+          "code": "COURSE_DATA_CLASSIFICATION_MISSING_OR_UNKNOWN",
+          "observation": null,
+          "reason": "A registered data classification is required."
+        }
+      ],
+      "errors": [
+        "COURSE_DATA_CLASSIFICATION_MISSING_OR_UNKNOWN"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "FRAME_ONLY_V001",
+      "synthetic_flag": true
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "flag_nonbool",
+      "classification": "SYNTHETIC_ONLY",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SYNTHETIC_FLAG_MISSING_OR_INVALID",
+          "observation": null,
+          "reason": "The synthetic flag must be an explicit boolean."
+        }
+      ],
+      "errors": [
+        "COURSE_SYNTHETIC_FLAG_MISSING_OR_INVALID"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "FRAME_ONLY_V001",
+      "synthetic_flag": 1
+    },
+    {
+      "after_eligible": false,
+      "case": "private_synthetic_frame",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "frame",
+          "reason": "The predeclared source family contradicts the data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_SOURCE_CLASSIFICATION_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "FRAME_ONLY_V001"
+    },
+    {
+      "after_eligible": false,
+      "case": "private_synthetic_exhibition",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "exhibition",
+          "reason": "The predeclared source family contradicts the data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_SOURCE_CLASSIFICATION_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "FRAME_ONLY_V001"
+    },
+    {
+      "after_eligible": true,
+      "before_eligible": true,
+      "case": "valid_synthetic",
+      "classification": "SYNTHETIC_ONLY",
+      "classification_reasons": [],
+      "errors": [],
+      "expected": true,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ONLY_V001",
+      "synthetic_flag": true
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "private_synthetic_both",
+      "classification": "PRIVATE_REAL",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "frame",
+          "reason": "The predeclared source family contradicts the data classification."
+        },
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "exhibition",
+          "reason": "The predeclared source family contradicts the data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_SOURCE_CLASSIFICATION_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ONLY_V001",
+      "synthetic_flag": false
+    },
+    {
+      "after_eligible": true,
+      "before_eligible": true,
+      "case": "private_official",
+      "classification": "PRIVATE_REAL",
+      "classification_reasons": [],
+      "errors": [],
+      "expected": true,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ONLY_V001",
+      "synthetic_flag": false
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "flag_contradiction",
+      "classification": "SYNTHETIC_ONLY",
+      "classification_reasons": [
+        {
+          "code": "COURSE_CLASSIFICATION_FLAG_MISMATCH",
+          "observation": null,
+          "reason": "The synthetic flag contradicts the declared data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_CLASSIFICATION_FLAG_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ONLY_V001",
+      "synthetic_flag": false
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "classification_unknown",
+      "classification": "UNKNOWN_CLASS",
+      "classification_reasons": [
+        {
+          "code": "COURSE_DATA_CLASSIFICATION_MISSING_OR_UNKNOWN",
+          "observation": null,
+          "reason": "A registered data classification is required."
+        }
+      ],
+      "errors": [
+        "COURSE_DATA_CLASSIFICATION_MISSING_OR_UNKNOWN"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ONLY_V001",
+      "synthetic_flag": true
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "flag_nonbool",
+      "classification": "SYNTHETIC_ONLY",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SYNTHETIC_FLAG_MISSING_OR_INVALID",
+          "observation": null,
+          "reason": "The synthetic flag must be an explicit boolean."
+        }
+      ],
+      "errors": [
+        "COURSE_SYNTHETIC_FLAG_MISSING_OR_INVALID"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ONLY_V001",
+      "synthetic_flag": 1
+    },
+    {
+      "after_eligible": false,
+      "case": "private_synthetic_frame",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "frame",
+          "reason": "The predeclared source family contradicts the data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_SOURCE_CLASSIFICATION_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ONLY_V001"
+    },
+    {
+      "after_eligible": false,
+      "case": "private_synthetic_exhibition",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "exhibition",
+          "reason": "The predeclared source family contradicts the data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_SOURCE_CLASSIFICATION_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ONLY_V001"
+    },
+    {
+      "after_eligible": true,
+      "before_eligible": true,
+      "case": "valid_synthetic",
+      "classification": "SYNTHETIC_ONLY",
+      "classification_reasons": [],
+      "errors": [],
+      "expected": true,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ELSE_FRAME_V001",
+      "synthetic_flag": true
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "private_synthetic_both",
+      "classification": "PRIVATE_REAL",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "frame",
+          "reason": "The predeclared source family contradicts the data classification."
+        },
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "exhibition",
+          "reason": "The predeclared source family contradicts the data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_SOURCE_CLASSIFICATION_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ELSE_FRAME_V001",
+      "synthetic_flag": false
+    },
+    {
+      "after_eligible": true,
+      "before_eligible": true,
+      "case": "private_official",
+      "classification": "PRIVATE_REAL",
+      "classification_reasons": [],
+      "errors": [],
+      "expected": true,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ELSE_FRAME_V001",
+      "synthetic_flag": false
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "flag_contradiction",
+      "classification": "SYNTHETIC_ONLY",
+      "classification_reasons": [
+        {
+          "code": "COURSE_CLASSIFICATION_FLAG_MISMATCH",
+          "observation": null,
+          "reason": "The synthetic flag contradicts the declared data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_CLASSIFICATION_FLAG_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ELSE_FRAME_V001",
+      "synthetic_flag": false
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "classification_unknown",
+      "classification": "UNKNOWN_CLASS",
+      "classification_reasons": [
+        {
+          "code": "COURSE_DATA_CLASSIFICATION_MISSING_OR_UNKNOWN",
+          "observation": null,
+          "reason": "A registered data classification is required."
+        }
+      ],
+      "errors": [
+        "COURSE_DATA_CLASSIFICATION_MISSING_OR_UNKNOWN"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ELSE_FRAME_V001",
+      "synthetic_flag": true
+    },
+    {
+      "after_eligible": false,
+      "before_eligible": true,
+      "case": "flag_nonbool",
+      "classification": "SYNTHETIC_ONLY",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SYNTHETIC_FLAG_MISSING_OR_INVALID",
+          "observation": null,
+          "reason": "The synthetic flag must be an explicit boolean."
+        }
+      ],
+      "errors": [
+        "COURSE_SYNTHETIC_FLAG_MISSING_OR_INVALID"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ELSE_FRAME_V001",
+      "synthetic_flag": 1
+    },
+    {
+      "after_eligible": false,
+      "case": "private_synthetic_frame",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "frame",
+          "reason": "The predeclared source family contradicts the data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_SOURCE_CLASSIFICATION_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ELSE_FRAME_V001"
+    },
+    {
+      "after_eligible": false,
+      "case": "private_synthetic_exhibition",
+      "classification_reasons": [
+        {
+          "code": "COURSE_SOURCE_CLASSIFICATION_MISMATCH",
+          "observation": "exhibition",
+          "reason": "The predeclared source family contradicts the data classification."
+        }
+      ],
+      "errors": [
+        "COURSE_SOURCE_CLASSIFICATION_MISMATCH"
+      ],
+      "expected": false,
+      "external_authenticity": "UNVERIFIED",
+      "policy": "EXHIBITION_ELSE_FRAME_V001"
+    }
+  ],
+  "classification": "INVENTED_2099_ATTACK_FIXTURES_ONLY_NOT_REAL_DATA",
+  "production_go": false
+}

@@ -1,0 +1,61 @@
+--- a/model11/revision_v003/course.py
++++ b/model11/revision_v003/course.py
+@@ -107,6 +107,46 @@
+     return deepcopy(value)
+ 
+ 
++def _classification_source_checks(race):
++    """N1: bind declared data class and strict flag to both non-null sources.
++
++    Registered OFFICIAL identifiers remain assertions, not authentication.
++    Reasons are fixed text; submitted source values are never echoed.
++    """
++    reasons = []
++
++    def reject(code, reason, observation=None):
++        reasons.append({"code": code, "reason": reason, "observation": observation})
++
++    classification = race.get("data_classification")
++    flag = race.get("synthetic")
++    known = isinstance(classification, str) and classification in ("SYNTHETIC_ONLY", "PRIVATE_REAL")
++    if not known:
++        reject("COURSE_DATA_CLASSIFICATION_MISSING_OR_UNKNOWN",
++               "A registered data classification is required.")
++    if type(flag) is not bool:
++        reject("COURSE_SYNTHETIC_FLAG_MISSING_OR_INVALID",
++               "The synthetic flag must be an explicit boolean.")
++    elif known and flag is not (classification == "SYNTHETIC_ONLY"):
++        reject("COURSE_CLASSIFICATION_FLAG_MISMATCH",
++               "The synthetic flag contradicts the declared data classification.")
++    inputs = race.get("course_inputs")
++    if not isinstance(inputs, dict):
++        return reasons  # Existing structural validation rejects this input.
++    for key, definition in (("frame", "FRAME_NUMBER"), ("exhibition", "EXHIBITION_ENTRY")):
++        observation = inputs.get(key)
++        if observation is None:
++            continue
++        source = observation.get("source_id") if isinstance(observation, dict) else None
++        if not isinstance(source, str) or source not in _SOURCES[definition]:
++            reject("COURSE_SOURCE_MISSING_OR_UNKNOWN",
++                   "A predeclared source for this observation definition is required.", key)
++        elif known and not source.startswith("SYNTHETIC_" if classification == "SYNTHETIC_ONLY" else "OFFICIAL_"):
++            reject("COURSE_SOURCE_CLASSIFICATION_MISMATCH",
++                   "The predeclared source family contradicts the data classification.", key)
++    return reasons
++
++
+ def validate_course(race, policy):
+     """Reject unknown/present-invalid observations; fallback is null-only.
+ 
+@@ -127,6 +167,11 @@
+     if not isinstance(race, dict):
+         errors.append("COURSE_RACE_SHAPE")
+         return result
++    reasons = _classification_source_checks(race)
++    if reasons:
++        result["classification_reasons"] = reasons
++        for reason in reasons:
++            _add(errors, reason["code"])
+     try:
+         core = validate_race(race)
+     except (TypeError, ValueError, OverflowError, RecursionError):
