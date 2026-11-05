@@ -1,0 +1,1338 @@
+{
+  "application_status": "HOLD",
+  "classification": "SYNTHETIC_ONLY_INVENTED_2099",
+  "model_run": false,
+  "monotonic_implementation": "NOT_ADDED_DESIGN_ONLY",
+  "pilot": {
+    "baseline_binding": "MATCHED_SELF_REPORTED_FIXED_ID_AND_VERSION",
+    "counts": {
+      "missing_rows": 1,
+      "no_observation_rows_in_supplied_roster": 1,
+      "paired_day_clusters": 3,
+      "paired_races": 6,
+      "planned_race_denominator": 9,
+      "read_failed_rows": 1,
+      "supplied_observation_rows": 8,
+      "supplied_roster_rows": 9
+    },
+    "day_independence": "UNVERIFIED",
+    "dispersion_status": "OBSERVED_SAMPLE_SD_DAY_ASSUMPTIONS_UNVERIFIED",
+    "estimand": "EQUAL_DAY_SAMPLE_SD_OF_WITHIN_DAY_MEAN_MODEL_LL_MINUS_MARKET_LL",
+    "f2_changed": false,
+    "f5_adopted": false,
+    "logarithm": "NATURAL",
+    "losses_origin": "CALLER_SUPPLIED_NOT_RECOMPUTED",
+    "missing_rates": {
+      "MISSING": 0.1111111111111111,
+      "NO_OBSERVATION": 0.1111111111111111,
+      "READ_FAILED": 0.1111111111111111,
+      "TOTAL_UNPAIRED": 0.3333333333333333
+    },
+    "missing_reason_counts": {
+      "BOTH_READ_FAILED": 1,
+      "MARKET_MISSING": 1
+    },
+    "model_binding": "UNVERIFIED_NOT_SUPPLIED",
+    "odds_fallback": "NOT_IMPLEMENTED",
+    "paired_eligibility": "CALLER_DECLARED_NOT_INDEPENDENTLY_VERIFIED",
+    "performance_verdict": "NOT_PROVIDED",
+    "pilot_size_adequacy": "UNVERIFIED_NO_THRESHOLD_ADOPTED",
+    "pit_and_predeadline_baseline_audit": "UNVERIFIED_EXTERNAL_EVIDENCE_REQUIRED_BEFORE_F5_USE",
+    "power_guarantee": false,
+    "production_go": false,
+    "reason_codes": [],
+    "roster_completeness": "DECLARED_FULL_ROSTER_NOT_AUTHENTICATED",
+    "sample_variance_denominator": "K_MINUS_1",
+    "sd_day": 1.5275252316519468,
+    "source_data_authenticity": "UNVERIFIED_SELF_REPORTED_INPUT",
+    "status": "SUMMARY_COMPUTED_UNVERIFIED"
+  },
+  "pilot_roster_unconfirmed": {
+    "baseline_binding": "MATCHED_SELF_REPORTED_FIXED_ID_AND_VERSION",
+    "counts": {
+      "missing_rows": 1,
+      "no_observation_rows_in_supplied_roster": 1,
+      "paired_day_clusters": 3,
+      "paired_races": 6,
+      "planned_race_denominator": null,
+      "read_failed_rows": 1,
+      "supplied_observation_rows": 8,
+      "supplied_roster_rows": 9
+    },
+    "day_independence": "UNVERIFIED",
+    "dispersion_status": "OBSERVED_SAMPLE_SD_DAY_ASSUMPTIONS_UNVERIFIED",
+    "estimand": "EQUAL_DAY_SAMPLE_SD_OF_WITHIN_DAY_MEAN_MODEL_LL_MINUS_MARKET_LL",
+    "f2_changed": false,
+    "f5_adopted": false,
+    "logarithm": "NATURAL",
+    "losses_origin": "CALLER_SUPPLIED_NOT_RECOMPUTED",
+    "missing_rates": {
+      "MISSING": null,
+      "NO_OBSERVATION": null,
+      "READ_FAILED": null,
+      "TOTAL_UNPAIRED": null
+    },
+    "missing_reason_counts": {
+      "BOTH_READ_FAILED": 1,
+      "MARKET_MISSING": 1
+    },
+    "model_binding": "UNVERIFIED_NOT_SUPPLIED",
+    "odds_fallback": "NOT_IMPLEMENTED",
+    "paired_eligibility": "CALLER_DECLARED_NOT_INDEPENDENTLY_VERIFIED",
+    "performance_verdict": "NOT_PROVIDED",
+    "pilot_size_adequacy": "UNVERIFIED_NO_THRESHOLD_ADOPTED",
+    "pit_and_predeadline_baseline_audit": "UNVERIFIED_EXTERNAL_EVIDENCE_REQUIRED_BEFORE_F5_USE",
+    "power_guarantee": false,
+    "production_go": false,
+    "reason_codes": [
+      "FULL_PLANNED_ROSTER_COMPLETENESS_UNVERIFIED"
+    ],
+    "roster_completeness": "UNVERIFIED",
+    "sample_variance_denominator": "K_MINUS_1",
+    "sd_day": 1.5275252316519468,
+    "source_data_authenticity": "UNVERIFIED_SELF_REPORTED_INPUT",
+    "status": "SUMMARY_COMPUTED_UNVERIFIED"
+  },
+  "point_in_time": {
+    "component_after_archive": {
+      "actual_source_mapping": "OPEN",
+      "application_status": "HOLD",
+      "expected_value_eligible": false,
+      "external_authenticity": "UNVERIFIED",
+      "feature_eligible": false,
+      "feature_reasons": [
+        "FEATURE_SOURCE_TIME_AFTER_SNAPSHOT_PRESERVATION"
+      ],
+      "market_baseline_eligible": true,
+      "market_eligible": true,
+      "market_reasons": [],
+      "origin_proof": "SELF_REPORTED_ONLY",
+      "production_go": false,
+      "real_input_status": "HOLD",
+      "reasons": [
+        "FEATURE_SOURCE_TIME_AFTER_SNAPSHOT_PRESERVATION"
+      ],
+      "schema": "POINT_IN_TIME_AUDIT_V007_PROPOSED",
+      "software_check": "UNVERIFIED",
+      "status": "HOLD",
+      "training_context_status": "UNVERIFIED_NOT_SUPPLIED"
+    },
+    "final_odds": {
+      "actual_source_mapping": "OPEN",
+      "application_status": "HOLD",
+      "expected_value_eligible": false,
+      "external_authenticity": "UNVERIFIED",
+      "feature_eligible": true,
+      "feature_reasons": [],
+      "market_baseline_eligible": false,
+      "market_eligible": false,
+      "market_reasons": [
+        "FINAL_OR_POST_RACE_ODDS_FORBIDDEN"
+      ],
+      "origin_proof": "SELF_REPORTED_ONLY",
+      "production_go": false,
+      "real_input_status": "HOLD",
+      "reasons": [
+        "FINAL_OR_POST_RACE_ODDS_FORBIDDEN"
+      ],
+      "schema": "POINT_IN_TIME_AUDIT_V007_PROPOSED",
+      "software_check": "UNVERIFIED",
+      "status": "HOLD",
+      "training_context_status": "UNVERIFIED_NOT_SUPPLIED"
+    },
+    "later_revision": {
+      "actual_source_mapping": "OPEN",
+      "application_status": "HOLD",
+      "expected_value_eligible": false,
+      "external_authenticity": "UNVERIFIED",
+      "feature_eligible": false,
+      "feature_reasons": [
+        "FEATURE_UPDATED_OR_AVAILABLE_AFTER_AS_OF",
+        "FEATURE_SOURCE_TIME_AFTER_SNAPSHOT_PRESERVATION"
+      ],
+      "market_baseline_eligible": true,
+      "market_eligible": true,
+      "market_reasons": [],
+      "origin_proof": "SELF_REPORTED_ONLY",
+      "production_go": false,
+      "real_input_status": "HOLD",
+      "reasons": [
+        "FEATURE_UPDATED_OR_AVAILABLE_AFTER_AS_OF",
+        "FEATURE_SOURCE_TIME_AFTER_SNAPSHOT_PRESERVATION"
+      ],
+      "schema": "POINT_IN_TIME_AUDIT_V007_PROPOSED",
+      "software_check": "UNVERIFIED",
+      "status": "HOLD",
+      "training_context_status": "UNVERIFIED_NOT_SUPPLIED"
+    },
+    "missing_odds": {
+      "actual_source_mapping": "OPEN",
+      "application_status": "HOLD",
+      "expected_value_eligible": false,
+      "external_authenticity": "UNVERIFIED",
+      "feature_eligible": true,
+      "feature_reasons": [],
+      "market_baseline_eligible": false,
+      "market_eligible": false,
+      "market_reasons": [
+        "PRE_DEADLINE_ODDS_MISSING_NO_FINAL_FALLBACK"
+      ],
+      "origin_proof": "SELF_REPORTED_ONLY",
+      "production_go": false,
+      "real_input_status": "HOLD",
+      "reasons": [
+        "PRE_DEADLINE_ODDS_MISSING_NO_FINAL_FALLBACK"
+      ],
+      "schema": "POINT_IN_TIME_AUDIT_V007_PROPOSED",
+      "software_check": "UNVERIFIED",
+      "status": "HOLD",
+      "training_context_status": "UNVERIFIED_NOT_SUPPLIED"
+    },
+    "valid": {
+      "actual_source_mapping": "OPEN",
+      "application_status": "HOLD",
+      "expected_value_eligible": true,
+      "external_authenticity": "UNVERIFIED",
+      "feature_eligible": true,
+      "feature_reasons": [],
+      "market_baseline_eligible": true,
+      "market_eligible": true,
+      "market_reasons": [],
+      "origin_proof": "SELF_REPORTED_ONLY",
+      "production_go": false,
+      "real_input_status": "HOLD",
+      "reasons": [],
+      "schema": "POINT_IN_TIME_AUDIT_V007_PROPOSED",
+      "software_check": "PASS",
+      "status": "SYNTHETIC_POINT_IN_TIME_CANDIDATE",
+      "training_context_status": "UNVERIFIED_NOT_SUPPLIED"
+    }
+  },
+  "predictions_changed": false,
+  "production_go": false,
+  "schedule": {
+    "all_cancelled": {
+      "ac1_or_first_lock_assessment": "NOT_PERFORMED_CURRENT_MANIFEST_ONLY",
+      "active_expected": 0,
+      "active_expected_basis": "DECLARED_SCHEDULED_ROWS_NOT_AC1_OR_LOCK_DENOMINATOR",
+      "cancellation_authenticity": "UNVERIFIED",
+      "cancelled_official": 12,
+      "excluded_observations_supplied": 0,
+      "excluded_predictions_present": 0,
+      "excluded_read_failed": 0,
+      "existing_predictions": "NEVER_MODIFIED",
+      "external_source_authenticity": "UNVERIFIED",
+      "issues": [],
+      "late": 0,
+      "lock_semantics": "UNCHANGED",
+      "manifest_sha256": "893dd10efedef265f5104fd36b256b26f45bfdc5a49b52fc43528ce0981a6471",
+      "no_observation": 0,
+      "not_saved": 0,
+      "other_invalid": 0,
+      "parent_verifier_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+      "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+      "production_go": false,
+      "read_failed": 0,
+      "review_metadata": "SELF_REPORTED_REQUIRED_BINDINGS_MATCHED",
+      "rows": [
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 0,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 1,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 1,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 2,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 2,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 3,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 3,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 4,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 4,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 5,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 5,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 6,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 6,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 7,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 7,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 8,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 8,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 9,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 9,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 10,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 10,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 11,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 11,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 12,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        }
+      ],
+      "saved_predeadline_local": 0,
+      "status": "OBSERVATION_COMPLETE_LOCAL",
+      "uncertain": 0,
+      "withdrawn_official": 0
+    },
+    "cancel_after_deadline_with_prediction": {
+      "ac1_or_first_lock_assessment": "NOT_PERFORMED_CURRENT_MANIFEST_ONLY",
+      "active_expected": 11,
+      "active_expected_basis": "DECLARED_SCHEDULED_ROWS_NOT_AC1_OR_LOCK_DENOMINATOR",
+      "cancellation_authenticity": "UNVERIFIED",
+      "cancelled_official": 1,
+      "excluded_observations_supplied": 1,
+      "excluded_predictions_present": 1,
+      "excluded_read_failed": 0,
+      "existing_predictions": "NEVER_MODIFIED",
+      "external_source_authenticity": "UNVERIFIED",
+      "issues": [],
+      "late": 0,
+      "lock_semantics": "UNCHANGED",
+      "manifest_sha256": "099107a7d21e3980ad730fc5631f54eadae92202261a72312911b30c1224d990",
+      "no_observation": 0,
+      "not_saved": 0,
+      "other_invalid": 0,
+      "parent_verifier_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+      "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+      "production_go": false,
+      "read_failed": 0,
+      "review_metadata": "SELF_REPORTED_REQUIRED_BINDINGS_MATCHED",
+      "rows": [
+        {
+          "effective_vs_deadline": "AFTER_DEADLINE",
+          "effective_vs_generation": "AFTER_GENERATION",
+          "evidence_known_vs_generation": "AFTER_GENERATION",
+          "excluded_observation": "READ_OK",
+          "manifest_index": 0,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [
+            0
+          ],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 1,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF",
+          "timing_basis": "LOCAL_BYTE_BOUND_GENERATION_ONLY_NOT_VALIDITY_OR_AUTHENTICITY"
+        },
+        {
+          "manifest_index": 1,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            1
+          ],
+          "race_no": 2,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 2,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            2
+          ],
+          "race_no": 3,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 3,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            3
+          ],
+          "race_no": 4,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 4,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            4
+          ],
+          "race_no": 5,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 5,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            5
+          ],
+          "race_no": 6,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 6,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            6
+          ],
+          "race_no": 7,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 7,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            7
+          ],
+          "race_no": 8,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 8,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            8
+          ],
+          "race_no": 9,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 9,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            9
+          ],
+          "race_no": 10,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 10,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            10
+          ],
+          "race_no": 11,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 11,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            11
+          ],
+          "race_no": 12,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        }
+      ],
+      "saved_predeadline_local": 11,
+      "status": "OBSERVATION_COMPLETE_LOCAL",
+      "uncertain": 0,
+      "withdrawn_official": 0
+    },
+    "empty": {
+      "ac1_or_first_lock_assessment": "NOT_PERFORMED_CURRENT_MANIFEST_ONLY",
+      "active_expected": 0,
+      "active_expected_basis": "DECLARED_SCHEDULED_ROWS_NOT_AC1_OR_LOCK_DENOMINATOR",
+      "cancellation_authenticity": "UNVERIFIED",
+      "cancelled_official": 0,
+      "excluded_observations_supplied": 0,
+      "excluded_predictions_present": 0,
+      "excluded_read_failed": 0,
+      "existing_predictions": "NEVER_MODIFIED",
+      "external_source_authenticity": "UNVERIFIED",
+      "issues": [
+        {
+          "reason": "OFFICIAL_STATUS_PROOF_REQUIRED"
+        }
+      ],
+      "late": 0,
+      "lock_semantics": "UNCHANGED",
+      "manifest_sha256": "fbe318d1ba55b808f65f1cbac140b5d55ae9720e139fbd111997794527e827fb",
+      "no_observation": 0,
+      "not_saved": 0,
+      "other_invalid": 0,
+      "parent_verifier_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+      "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+      "production_go": false,
+      "read_failed": 0,
+      "review_metadata": "SELF_REPORTED_REQUIRED_BINDINGS_MATCHED",
+      "rows": [],
+      "saved_predeadline_local": 0,
+      "status": "HOLD",
+      "uncertain": 0,
+      "withdrawn_official": 0
+    },
+    "empty_closed": {
+      "ac1_or_first_lock_assessment": "NOT_PERFORMED_CURRENT_MANIFEST_ONLY",
+      "active_expected": 0,
+      "active_expected_basis": "DECLARED_SCHEDULED_ROWS_NOT_AC1_OR_LOCK_DENOMINATOR",
+      "cancellation_authenticity": "UNVERIFIED",
+      "cancelled_official": 0,
+      "empty_day_basis": "LOCAL_BOUND_CLOSED_OFFICIAL_PROOF_AUTHENTICITY_UNVERIFIED",
+      "excluded_observations_supplied": 0,
+      "excluded_predictions_present": 0,
+      "excluded_read_failed": 0,
+      "existing_predictions": "NEVER_MODIFIED",
+      "external_source_authenticity": "UNVERIFIED",
+      "issues": [],
+      "late": 0,
+      "lock_semantics": "UNCHANGED",
+      "manifest_sha256": "a363a5655c95ed954bf69f22b704c68b7fcfbf5a552b2cd3400bf5c71e3a489c",
+      "no_observation": 0,
+      "not_saved": 0,
+      "other_invalid": 0,
+      "parent_verifier_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+      "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+      "production_go": false,
+      "read_failed": 0,
+      "review_metadata": "SELF_REPORTED_REQUIRED_BINDINGS_MATCHED",
+      "rows": [],
+      "saved_predeadline_local": 0,
+      "status": "OBSERVATION_COMPLETE_LOCAL",
+      "uncertain": 0,
+      "withdrawn_official": 0
+    },
+    "full": {
+      "ac1_or_first_lock_assessment": "NOT_PERFORMED_CURRENT_MANIFEST_ONLY",
+      "active_expected": 12,
+      "active_expected_basis": "DECLARED_SCHEDULED_ROWS_NOT_AC1_OR_LOCK_DENOMINATOR",
+      "cancellation_authenticity": "UNVERIFIED",
+      "cancelled_official": 0,
+      "excluded_observations_supplied": 0,
+      "excluded_predictions_present": 0,
+      "excluded_read_failed": 0,
+      "existing_predictions": "NEVER_MODIFIED",
+      "external_source_authenticity": "UNVERIFIED",
+      "issues": [],
+      "late": 0,
+      "lock_semantics": "UNCHANGED",
+      "manifest_sha256": "17bfe6111379765192c5262736095d4c7ed980f14fa05befdb4ce14d05fffc7a",
+      "no_observation": 0,
+      "not_saved": 0,
+      "other_invalid": 0,
+      "parent_verifier_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+      "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+      "production_go": false,
+      "read_failed": 0,
+      "review_metadata": "SELF_REPORTED_REQUIRED_BINDINGS_MATCHED",
+      "rows": [
+        {
+          "manifest_index": 0,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            0
+          ],
+          "race_no": 1,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 1,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            1
+          ],
+          "race_no": 2,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 2,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            2
+          ],
+          "race_no": 3,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 3,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            3
+          ],
+          "race_no": 4,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 4,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            4
+          ],
+          "race_no": 5,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 5,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            5
+          ],
+          "race_no": 6,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 6,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            6
+          ],
+          "race_no": 7,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 7,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            7
+          ],
+          "race_no": 8,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 8,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            8
+          ],
+          "race_no": 9,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 9,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            9
+          ],
+          "race_no": 10,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 10,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            10
+          ],
+          "race_no": 11,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 11,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            11
+          ],
+          "race_no": 12,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        }
+      ],
+      "saved_predeadline_local": 12,
+      "status": "OBSERVATION_COMPLETE_LOCAL",
+      "uncertain": 0,
+      "withdrawn_official": 0
+    },
+    "one_cancelled": {
+      "ac1_or_first_lock_assessment": "NOT_PERFORMED_CURRENT_MANIFEST_ONLY",
+      "active_expected": 11,
+      "active_expected_basis": "DECLARED_SCHEDULED_ROWS_NOT_AC1_OR_LOCK_DENOMINATOR",
+      "cancellation_authenticity": "UNVERIFIED",
+      "cancelled_official": 1,
+      "excluded_observations_supplied": 0,
+      "excluded_predictions_present": 0,
+      "excluded_read_failed": 0,
+      "existing_predictions": "NEVER_MODIFIED",
+      "external_source_authenticity": "UNVERIFIED",
+      "issues": [],
+      "late": 0,
+      "lock_semantics": "UNCHANGED",
+      "manifest_sha256": "9d22e036e1753bf5896e9d154c37e0f062c37b51d18136ebd97bf6b9988b2e59",
+      "no_observation": 0,
+      "not_saved": 0,
+      "other_invalid": 0,
+      "parent_verifier_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+      "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+      "production_go": false,
+      "read_failed": 0,
+      "review_metadata": "SELF_REPORTED_REQUIRED_BINDINGS_MATCHED",
+      "rows": [
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 0,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 1,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "manifest_index": 1,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            0
+          ],
+          "race_no": 2,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 2,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            1
+          ],
+          "race_no": 3,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 3,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            2
+          ],
+          "race_no": 4,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 4,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            3
+          ],
+          "race_no": 5,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 5,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            4
+          ],
+          "race_no": 6,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 6,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            5
+          ],
+          "race_no": 7,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 7,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            6
+          ],
+          "race_no": 8,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 8,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            7
+          ],
+          "race_no": 9,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 9,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            8
+          ],
+          "race_no": 10,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 10,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            9
+          ],
+          "race_no": 11,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 11,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            10
+          ],
+          "race_no": 12,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        }
+      ],
+      "saved_predeadline_local": 11,
+      "status": "OBSERVATION_COMPLETE_LOCAL",
+      "uncertain": 0,
+      "withdrawn_official": 0
+    },
+    "one_cancelled_with_prediction": {
+      "ac1_or_first_lock_assessment": "NOT_PERFORMED_CURRENT_MANIFEST_ONLY",
+      "active_expected": 11,
+      "active_expected_basis": "DECLARED_SCHEDULED_ROWS_NOT_AC1_OR_LOCK_DENOMINATOR",
+      "cancellation_authenticity": "UNVERIFIED",
+      "cancelled_official": 1,
+      "excluded_observations_supplied": 1,
+      "excluded_predictions_present": 1,
+      "excluded_read_failed": 0,
+      "existing_predictions": "NEVER_MODIFIED",
+      "external_source_authenticity": "UNVERIFIED",
+      "issues": [],
+      "late": 0,
+      "lock_semantics": "UNCHANGED",
+      "manifest_sha256": "9d22e036e1753bf5896e9d154c37e0f062c37b51d18136ebd97bf6b9988b2e59",
+      "no_observation": 0,
+      "not_saved": 0,
+      "other_invalid": 0,
+      "parent_verifier_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+      "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+      "production_go": false,
+      "read_failed": 0,
+      "review_metadata": "SELF_REPORTED_REQUIRED_BINDINGS_MATCHED",
+      "rows": [
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "effective_vs_generation": "BEFORE_GENERATION",
+          "evidence_known_vs_generation": "BEFORE_GENERATION",
+          "excluded_observation": "READ_OK",
+          "manifest_index": 0,
+          "manifest_status": "CANCELLED_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [
+            0
+          ],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 1,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF",
+          "timing_basis": "LOCAL_BYTE_BOUND_GENERATION_ONLY_NOT_VALIDITY_OR_AUTHENTICITY"
+        },
+        {
+          "manifest_index": 1,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            1
+          ],
+          "race_no": 2,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 2,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            2
+          ],
+          "race_no": 3,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 3,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            3
+          ],
+          "race_no": 4,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 4,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            4
+          ],
+          "race_no": 5,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 5,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            5
+          ],
+          "race_no": 6,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 6,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            6
+          ],
+          "race_no": 7,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 7,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            7
+          ],
+          "race_no": 8,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 8,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            8
+          ],
+          "race_no": 9,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 9,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            9
+          ],
+          "race_no": 10,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 10,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            10
+          ],
+          "race_no": 11,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 11,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            11
+          ],
+          "race_no": 12,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        }
+      ],
+      "saved_predeadline_local": 11,
+      "status": "OBSERVATION_COMPLETE_LOCAL",
+      "uncertain": 0,
+      "withdrawn_official": 0
+    },
+    "one_withdrawn": {
+      "ac1_or_first_lock_assessment": "NOT_PERFORMED_CURRENT_MANIFEST_ONLY",
+      "active_expected": 11,
+      "active_expected_basis": "DECLARED_SCHEDULED_ROWS_NOT_AC1_OR_LOCK_DENOMINATOR",
+      "cancellation_authenticity": "UNVERIFIED",
+      "cancelled_official": 0,
+      "excluded_observations_supplied": 0,
+      "excluded_predictions_present": 0,
+      "excluded_read_failed": 0,
+      "existing_predictions": "NEVER_MODIFIED",
+      "external_source_authenticity": "UNVERIFIED",
+      "issues": [],
+      "late": 0,
+      "lock_semantics": "UNCHANGED",
+      "manifest_sha256": "c633da9b6c23fa27725262fc74c485d67243d1996f5ab0bca08fb12b5b32074c",
+      "no_observation": 0,
+      "not_saved": 0,
+      "other_invalid": 0,
+      "parent_verifier_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+      "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+      "production_go": false,
+      "read_failed": 0,
+      "review_metadata": "SELF_REPORTED_REQUIRED_BINDINGS_MATCHED",
+      "rows": [
+        {
+          "effective_vs_deadline": "BEFORE_DEADLINE",
+          "excluded_observation": "NO_OBSERVATION_NO_PREDICTION_REQUIRED_BY_THIS_MANIFEST",
+          "manifest_index": 0,
+          "manifest_status": "WITHDRAWN_OFFICIAL",
+          "prediction_assessment": "UNASSESSED_OFFICIAL_EXCLUSION",
+          "prediction_indices": [],
+          "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+          "race_no": 1,
+          "reasons": [],
+          "status": "EXCLUDED_BY_DECLARED_STATUS_LOCAL_PROOF"
+        },
+        {
+          "manifest_index": 1,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            0
+          ],
+          "race_no": 2,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 2,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            1
+          ],
+          "race_no": 3,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 3,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            2
+          ],
+          "race_no": 4,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 4,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            3
+          ],
+          "race_no": 5,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 5,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            4
+          ],
+          "race_no": 6,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 6,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            5
+          ],
+          "race_no": 7,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 7,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            6
+          ],
+          "race_no": 8,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 8,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            7
+          ],
+          "race_no": 9,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 9,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            8
+          ],
+          "race_no": 10,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 10,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            9
+          ],
+          "race_no": 11,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 11,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            10
+          ],
+          "race_no": 12,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        }
+      ],
+      "saved_predeadline_local": 11,
+      "status": "OBSERVATION_COMPLETE_LOCAL",
+      "uncertain": 0,
+      "withdrawn_official": 1
+    },
+    "short8": {
+      "ac1_or_first_lock_assessment": "NOT_PERFORMED_CURRENT_MANIFEST_ONLY",
+      "active_expected": 8,
+      "active_expected_basis": "DECLARED_SCHEDULED_ROWS_NOT_AC1_OR_LOCK_DENOMINATOR",
+      "cancellation_authenticity": "UNVERIFIED",
+      "cancelled_official": 0,
+      "excluded_observations_supplied": 0,
+      "excluded_predictions_present": 0,
+      "excluded_read_failed": 0,
+      "existing_predictions": "NEVER_MODIFIED",
+      "external_source_authenticity": "UNVERIFIED",
+      "issues": [],
+      "late": 0,
+      "lock_semantics": "UNCHANGED",
+      "manifest_sha256": "a9a38a20a146584616cd306f9afdd04af3f79531236bc6703c47e26ff678263b",
+      "no_observation": 0,
+      "not_saved": 0,
+      "other_invalid": 0,
+      "parent_verifier_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+      "prior_deadline_obligation": "UNVERIFIED_ORIGINAL_SNAPSHOT_NOT_PROVIDED",
+      "production_go": false,
+      "read_failed": 0,
+      "review_metadata": "SELF_REPORTED_REQUIRED_BINDINGS_MATCHED",
+      "rows": [
+        {
+          "manifest_index": 0,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            0
+          ],
+          "race_no": 1,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 1,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            1
+          ],
+          "race_no": 2,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 2,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            2
+          ],
+          "race_no": 3,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 3,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            3
+          ],
+          "race_no": 4,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 4,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            4
+          ],
+          "race_no": 5,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 5,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            5
+          ],
+          "race_no": 6,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 6,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            6
+          ],
+          "race_no": 7,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        },
+        {
+          "manifest_index": 7,
+          "manifest_status": "SCHEDULED",
+          "prediction_indices": [
+            7
+          ],
+          "race_no": 8,
+          "reasons": [],
+          "status": "SAVED_PREDEADLINE_LOCAL"
+        }
+      ],
+      "saved_predeadline_local": 8,
+      "status": "OBSERVATION_COMPLETE_LOCAL",
+      "uncertain": 0,
+      "withdrawn_official": 0
+    }
+  },
+  "source_fixture": {
+    "bytes": 384869,
+    "parent_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+    "path": "shadow_preparation_v006/results/SYNTHETIC_ONLY.prediction-evidence-python312.json.gz.b64.txt",
+    "sha256": "c2f8a77af4c96055bd722fb8b4484ccbd83b2efdb4e8ca9568e8cf64cfac4732"
+  },
+  "store_opened": false,
+  "thresholds_adopted": false
+}

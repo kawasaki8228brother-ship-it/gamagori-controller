@@ -1,0 +1,44 @@
+{
+  "baseline_binding": "MATCHED_SELF_REPORTED_FIXED_ID_AND_VERSION",
+  "counts": {
+    "missing_rows": 1,
+    "no_observation_rows_in_supplied_roster": 1,
+    "paired_day_clusters": 3,
+    "paired_races": 6,
+    "planned_race_denominator": 9,
+    "read_failed_rows": 1,
+    "supplied_observation_rows": 8,
+    "supplied_roster_rows": 9
+  },
+  "day_independence": "UNVERIFIED",
+  "dispersion_status": "OBSERVED_SAMPLE_SD_DAY_ASSUMPTIONS_UNVERIFIED",
+  "estimand": "EQUAL_DAY_SAMPLE_SD_OF_WITHIN_DAY_MEAN_MODEL_LL_MINUS_MARKET_LL",
+  "f2_changed": false,
+  "f5_adopted": false,
+  "logarithm": "NATURAL",
+  "losses_origin": "CALLER_SUPPLIED_NOT_RECOMPUTED",
+  "missing_rates": {
+    "MISSING": 0.1111111111111111,
+    "NO_OBSERVATION": 0.1111111111111111,
+    "READ_FAILED": 0.1111111111111111,
+    "TOTAL_UNPAIRED": 0.3333333333333333
+  },
+  "missing_reason_counts": {
+    "BOTH_READ_FAILED": 1,
+    "MARKET_MISSING": 1
+  },
+  "model_binding": "UNVERIFIED_NOT_SUPPLIED",
+  "odds_fallback": "NOT_IMPLEMENTED",
+  "paired_eligibility": "CALLER_DECLARED_NOT_INDEPENDENTLY_VERIFIED",
+  "performance_verdict": "NOT_PROVIDED",
+  "pilot_size_adequacy": "UNVERIFIED_NO_THRESHOLD_ADOPTED",
+  "pit_and_predeadline_baseline_audit": "UNVERIFIED_EXTERNAL_EVIDENCE_REQUIRED_BEFORE_F5_USE",
+  "power_guarantee": false,
+  "production_go": false,
+  "reason_codes": [],
+  "roster_completeness": "DECLARED_FULL_ROSTER_NOT_AUTHENTICATED",
+  "sample_variance_denominator": "K_MINUS_1",
+  "sd_day": 1.5275252316519468,
+  "source_data_authenticity": "UNVERIFIED_SELF_REPORTED_INPUT",
+  "status": "SUMMARY_COMPUTED_UNVERIFIED"
+}

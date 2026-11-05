@@ -1,0 +1,2 @@
+{"data": "SYNTHETIC_ONLY", "network": "BLOCKED_IN_PROCESS", "openssl": "OpenSSL 3.5.5 27 Jan 2026", "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "production_go": false, "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]"}
+{"application_status": "HOLD", "pilot_paired_days": 3, "point_in_time_cases": 5, "production_go": false, "schedule_cases": 9, "status": "SYNTHETIC_OFFLINE_REFINEMENTS_COMPLETE"}

@@ -1,0 +1,82 @@
+[
+  {
+    "baseline_id": "SYNTHETIC_MARKET",
+    "baseline_version": "v001",
+    "market_ll": 10,
+    "missing_reason": null,
+    "model_ll": 11,
+    "race_id": "SYNTHETIC_PILOT_1",
+    "state": "PAIRED",
+    "target_date": "2099-02-01"
+  },
+  {
+    "baseline_id": "SYNTHETIC_MARKET",
+    "baseline_version": "v001",
+    "market_ll": 10,
+    "missing_reason": null,
+    "model_ll": 11,
+    "race_id": "SYNTHETIC_PILOT_2",
+    "state": "PAIRED",
+    "target_date": "2099-02-02"
+  },
+  {
+    "baseline_id": "SYNTHETIC_MARKET",
+    "baseline_version": "v001",
+    "market_ll": 10,
+    "missing_reason": null,
+    "model_ll": 13,
+    "race_id": "SYNTHETIC_PILOT_3",
+    "state": "PAIRED",
+    "target_date": "2099-02-02"
+  },
+  {
+    "baseline_id": "SYNTHETIC_MARKET",
+    "baseline_version": "v001",
+    "market_ll": 10,
+    "missing_reason": null,
+    "model_ll": 12,
+    "race_id": "SYNTHETIC_PILOT_4",
+    "state": "PAIRED",
+    "target_date": "2099-02-03"
+  },
+  {
+    "baseline_id": "SYNTHETIC_MARKET",
+    "baseline_version": "v001",
+    "market_ll": 10,
+    "missing_reason": null,
+    "model_ll": 14,
+    "race_id": "SYNTHETIC_PILOT_5",
+    "state": "PAIRED",
+    "target_date": "2099-02-03"
+  },
+  {
+    "baseline_id": "SYNTHETIC_MARKET",
+    "baseline_version": "v001",
+    "market_ll": 10,
+    "missing_reason": null,
+    "model_ll": 16,
+    "race_id": "SYNTHETIC_PILOT_6",
+    "state": "PAIRED",
+    "target_date": "2099-02-03"
+  },
+  {
+    "baseline_id": "SYNTHETIC_MARKET",
+    "baseline_version": "v001",
+    "market_ll": null,
+    "missing_reason": "MARKET_MISSING",
+    "model_ll": 10,
+    "race_id": "SYNTHETIC_PILOT_7",
+    "state": "MISSING",
+    "target_date": "2099-02-03"
+  },
+  {
+    "baseline_id": "SYNTHETIC_MARKET",
+    "baseline_version": "v001",
+    "market_ll": null,
+    "missing_reason": "BOTH_READ_FAILED",
+    "model_ll": null,
+    "race_id": "SYNTHETIC_PILOT_8",
+    "state": "READ_FAILED",
+    "target_date": "2099-02-03"
+  }
+]

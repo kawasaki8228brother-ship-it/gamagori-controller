@@ -1,0 +1,38 @@
+[
+  {
+    "race_id": "SYNTHETIC_PILOT_1",
+    "target_date": "2099-02-01"
+  },
+  {
+    "race_id": "SYNTHETIC_PILOT_2",
+    "target_date": "2099-02-02"
+  },
+  {
+    "race_id": "SYNTHETIC_PILOT_3",
+    "target_date": "2099-02-02"
+  },
+  {
+    "race_id": "SYNTHETIC_PILOT_4",
+    "target_date": "2099-02-03"
+  },
+  {
+    "race_id": "SYNTHETIC_PILOT_5",
+    "target_date": "2099-02-03"
+  },
+  {
+    "race_id": "SYNTHETIC_PILOT_6",
+    "target_date": "2099-02-03"
+  },
+  {
+    "race_id": "SYNTHETIC_PILOT_7",
+    "target_date": "2099-02-03"
+  },
+  {
+    "race_id": "SYNTHETIC_PILOT_8",
+    "target_date": "2099-02-03"
+  },
+  {
+    "race_id": "SYNTHETIC_PILOT_9",
+    "target_date": "2099-02-03"
+  }
+]
