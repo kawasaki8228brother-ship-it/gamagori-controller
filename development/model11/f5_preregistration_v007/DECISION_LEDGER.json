@@ -1,0 +1,192 @@
+{
+  "schema_version": "F5_DECISION_LEDGER_V007",
+  "parent_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+  "document_version": "v007",
+  "executable_configuration": false,
+  "source": {
+    "decision_time": "2026-11-05T20:36:00+09:00",
+    "source_description": "Andy formal decision forwarded by HQ14 in the current user instruction",
+    "decision_recording_status": "RECEIVED_AND_RECORDED",
+    "original_sha256": null,
+    "approval_receipt": null,
+    "evidence_status": "UNVERIFIED_ORIGINAL_BYTES_AND_INDEPENDENT_LINKAGE_PENDING",
+    "hq14_claude_independent_linkage": "PENDING",
+    "execution_approval_status": "NOT_GRANTED_BY_THIS_DOCUMENT"
+  },
+  "M0": {
+    "status": "DECIDED",
+    "subject": "CONFIRMATORY_COMPARISON_FRAMEWORK",
+    "candidate": "SINGLE_FROZEN_CHAMPION",
+    "comparator": "P_market",
+    "endpoint": "JOINT_120_LOGLOSS",
+    "market_snapshot_requirement": "THE_SAME_PREDEADLINE_FULL_120_ODDS_SNAPSHOT",
+    "weighting": "PAIRED_DAY_EQUAL_WEIGHT",
+    "within_day": "MEAN_OVER_IDENTICAL_PAIRED_ELIGIBLE_RACES",
+    "comparison_direction": "LOWER_CHAMPION_LOGLOSS",
+    "test_sidedness": "ONE_SIDED",
+    "significance_alpha": 0.025,
+    "power_target": 0.8,
+    "confirmatory_family_size": 1,
+    "six_market_weights_are_six_confirmatory_tests": false,
+    "optional_stopping_allowed": false,
+    "posthoc_changes_allowed": false,
+    "market_only_w1_interpretation": "NO_MODEL_SUPERIORITY",
+    "statistical_pass_implemented_or_granted": false
+  },
+  "M2": {
+    "status": "DECIDED",
+    "subject": "FIRST_THIRD_RESEARCH_SHADOW_OPERATING_DAY_PILOT",
+    "role": "PILOT_ONLY",
+    "entry_rule": "FIRST_THIRD_RESEARCH_SHADOW_OPERATING_DAY_IS_PILOT_ENTRY",
+    "first_operating_day": null,
+    "actual_pilot_duration_days": null,
+    "pilot_duration_status": "UNSPECIFIED_NOT_FIXED_TO_ONE_DAY_OR_CANDIDATE_WINDOW",
+    "sd_day_constraint": "UNVERIFIED_WHEN_FEWER_THAN_TWO_PAIRED_DAYS_NO_AUTOMATIC_EXTENSION",
+    "candidate_window": {
+      "start": "2026-11-21",
+      "end": "2026-11-24",
+      "timezone": "Asia/Tokyo",
+      "or_later": true,
+      "status": "CANDIDATE_ONLY_NOT_SCHEDULED"
+    },
+    "separate_execution_go_required": true,
+    "measurements": [
+      "FULL_120_PREDEADLINE_ODDS_CAPTURE_RATE",
+      "MISSING_RATE_AND_MISSING_CAUSES",
+      "PAIRED_DAILY_LOGLOSS_DIFFERENCES",
+      "SD_DAY_IF_ESTIMABLE",
+      "TIMING_EVIDENCE_AND_SOURCE_MAPPING_PRACTICAL_CHECK",
+      "PREDICTION_SAVE_AND_RESULT_RECONCILIATION_OPERATIONS"
+    ],
+    "pilot_is_holdout": false,
+    "improvement_claim_allowed": false,
+    "profit_claim_allowed": false,
+    "promotion_claim_allowed": false,
+    "scheduled_or_execution_authorized": false
+  },
+  "M1": {
+    "status": "FUTURE_DESIGN_DECIDED",
+    "subject": "FUTURE_CONFIRMATORY_CANDIDATE_FAMILY",
+    "option": "A_REDUCED_FIXED_CALIBRATION",
+    "model": "hierarchical",
+    "course_alpha": 0.5,
+    "temperature": 1.0,
+    "market_weights": [0, 0.25, 0.5, 0.75, 0.9, 1.0],
+    "market_weight_definition": "w_MARKET_AND_1_MINUS_w_MODEL",
+    "selection_action": "CHOOSE_w_ON_SELECTION_THEN_FREEZE_ONE_CHAMPION_BEFORE_HOLDOUT",
+    "confirmatory_option": "A_ONLY",
+    "B_role": "EXPLORATORY_ONLY",
+    "C_role": "EXPLORATORY_ONLY",
+    "source_model_name_check": {
+      "status": "CHECKED_LOCAL_SOURCE",
+      "source": "model11/shadow_preparation/evaluation_design.py:proposed_options",
+      "option_id": "A_REDUCED_FIXED_CALIBRATION",
+      "candidate_name": "hierarchical"
+    },
+    "existing_model_or_grid_changed": false,
+    "executable_application_authorized": false
+  },
+  "open_items": [
+    {
+      "id": "SESOI",
+      "status": "OPEN",
+      "value": null,
+      "subject": "Smallest effect of interest and its decision interpretation"
+    },
+    {
+      "id": "MIN_SELECTION_DAYS",
+      "status": "OPEN",
+      "value": null,
+      "subject": "Minimum selection-day requirement and evidence for adequacy"
+    },
+    {
+      "id": "HOLDOUT_START_AND_DAYS",
+      "status": "OPEN",
+      "value": null,
+      "subject": "Untouched holdout start, required days, and sealed identities"
+    },
+    {
+      "id": "ALPHA_SPENDING_NEED",
+      "status": "OPEN",
+      "value": null,
+      "subject": "Whether an alpha-spending plan is required; optional stopping remains prohibited"
+    },
+    {
+      "id": "SCRATCH_REFUND_CANCELLATION_RULES",
+      "status": "OPEN",
+      "value": null,
+      "subject": "Preregistered scratch, refund, cancellation and denominator rules"
+    },
+    {
+      "id": "ODDS_MISSING_AND_MAX_RATE",
+      "status": "OPEN",
+      "value": null,
+      "subject": "Odds-missing treatment, reporting and maximum allowed rate"
+    },
+    {
+      "id": "DAY_MEETING_DEPENDENCE",
+      "status": "OPEN",
+      "value": null,
+      "subject": "Day and meeting dependence, inference and variance handling"
+    },
+    {
+      "id": "POST_PASS_ALLOWED_SCOPE",
+      "status": "OPEN",
+      "value": null,
+      "subject": "Actions allowed after a future statistical pass; no automatic promotion"
+    }
+  ],
+  "prior_examples": [
+    {
+      "option": "A",
+      "selection_days_example": 24,
+      "holdout_days_example": 60,
+      "status": "ILLUSTRATIVE_NOT_ADOPTED"
+    },
+    {
+      "option": "B",
+      "selection_days_example": 36,
+      "holdout_days_example": 90,
+      "status": "ILLUSTRATIVE_NOT_ADOPTED"
+    },
+    {
+      "option": "C",
+      "selection_days_example": 60,
+      "holdout_days_example": 120,
+      "status": "ILLUSTRATIVE_NOT_ADOPTED"
+    }
+  ],
+  "operational_permissions": {
+    "private_data_ingestion": false,
+    "source_connection": false,
+    "shadow_start": false,
+    "pilot_execution": false,
+    "confirmatory_holdout_execution": false,
+    "production_change": false,
+    "model_or_box_change": false,
+    "configuration_change": false,
+    "task_or_schedule_change": false,
+    "canonical_or_pointer_change": false,
+    "render_operation": false,
+    "pr_ready_merge_or_deploy": false,
+    "formal_promotion": false,
+    "automatic_post_pass_action": false
+  },
+  "F2": {
+    "status": "PROPOSED_NOT_ADOPTED",
+    "existing_thresholds_or_logic_changed": false,
+    "new_thresholds_adopted": false
+  },
+  "freeze_and_gates": {
+    "Model_1_0": "PRESERVED_NO_CHANGE",
+    "BOX_Ver_1": "PRESERVED_NO_CHANGE",
+    "formal_A_B": "PRESERVED_NO_CHANGE",
+    "existing_freeze": "PRESERVED_NO_CHANGE",
+    "G1_G6": {
+      "status": "PRESERVED_NO_CHANGE",
+      "definitions_status": "UNVERIFIED_NOT_PROVIDED",
+      "definitions": null,
+      "redefinition_allowed": false
+    }
+  }
+}

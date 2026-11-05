@@ -1,0 +1,65 @@
+{
+  "namespace": "F5_PREREGISTRATION_V007",
+  "parent_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+  "classification": "DOCUMENT_ONLY_RECEIVED_POLICY_DECISION",
+  "received_information": {
+    "reported_decider": "ANDY",
+    "reported_decision_time": "2026-11-05T20:36+09:00",
+    "forwarded_by": "HQ14",
+    "reported_forward_source": "CLAUDE12",
+    "received_at": null,
+    "basis": "USER_FORWARDED_INFORMATION_NO_ORIGINAL_BYTES",
+    "policy_status": "DECIDED_AS_RECEIVED",
+    "external_authenticity": "UNVERIFIED_PENDING_INDEPENDENT_MATCH"
+  },
+  "source_references": {
+    "raw_original": {"id": null, "bytes": null, "sha256": null, "status": "NOT_PROVIDED"},
+    "andy_decision_receipt": {"id": null, "bytes": null, "sha256": null, "status": "NOT_PROVIDED"},
+    "forward_receipt": {"id": null, "bytes": null, "sha256": null, "status": "NOT_PROVIDED"}
+  },
+  "independent_source_match": {
+    "HQ14": {"status": "PENDING", "evidence_id": null, "evidence_sha256": null},
+    "CLAUDE": {"status": "PENDING", "evidence_id": null, "evidence_sha256": null}
+  },
+  "decision_scopes": {
+    "M0": "DECIDED_FROZEN_SINGLE_CHAMPION_VS_SAME_PREDEADLINE_MARKET",
+    "M2": "DECIDED_FIRST_THIRD_RESEARCH_SHADOW_DAY_IS_PILOT_NOT_HOLDOUT",
+    "M1": "FUTURE_EVALUATION_DESIGN_ONLY_A_HIERARCHICAL",
+    "actual_start": null,
+    "eight_open_choices_adopted": false
+  },
+  "eight_open_items": [
+    "SESOI",
+    "MINIMUM_SELECTION_DAYS",
+    "HOLDOUT_START_AND_REQUIRED_DAYS",
+    "NEED_FOR_ALPHA_SPENDING",
+    "WITHDRAWAL_REFUND_CANCELLATION",
+    "MISSING_ODDS_AND_MAX_MISSING_RATE",
+    "DAY_AND_MEETING_DEPENDENCE",
+    "SCOPE_PERMITTED_AFTER_PASS"
+  ],
+  "preserved_gates": {
+    "received_instruction": "Prioritize infrastructure and preserve G1-G6 approval gates",
+    "G1_G6_definitions": null,
+    "G1_G6_reference": null,
+    "G1_G6_match_status": "UNVERIFIED_DEFINITIONS_NOT_PROVIDED"
+  },
+  "formal_claude_review": {"status": "AWAITING", "original_id": null, "original_bytes": null, "original_sha256": null},
+  "operational_go": {
+    "actual_data_use": false,
+    "pilot_execution": false,
+    "shadow_start": false,
+    "runtime_enablement": false,
+    "production_change": false,
+    "deployment_or_merge": false,
+    "promotion_or_close": false
+  },
+  "preservation": {
+    "old_v001_through_v006_byte_preservation_required": true,
+    "prior_offline_refinements_v007_integrated": false,
+    "prior_offline_refinements_v007_overwritten": false
+  },
+  "hash_scope_notice": "Generated SHA covers Codex-created bytes, never the Andy original or approval receipt.",
+  "source_fetch_performed": false,
+  "production_go": false
+}

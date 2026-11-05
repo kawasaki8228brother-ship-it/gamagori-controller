@@ -1,0 +1,62 @@
+{
+  "namespace": "F5_PREREGISTRATION_V007",
+  "status": "PROPOSED_NOT_ADOPTED",
+  "executable": false,
+  "exporter_implemented": false,
+  "actual_host_or_logs_tested": false,
+  "third_party_original_sha256": null,
+  "proposed_summary_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["kind", "stage", "error_code", "code_commit", "counts"],
+    "properties": {
+      "kind": {"const": "SAFE_DIAGNOSTIC_SUMMARY"},
+      "stage": {"enum": ["INPUT_VALIDATION", "SOURCE_MAPPING", "CLOCK_CHECK", "PREDICTION", "SAVE", "READBACK", "SETTLEMENT"]},
+      "error_code": {"enum": ["INPUT_INVALID", "SOURCE_COMPLETE_MARKET_REQUIRED", "CLOCK_EVIDENCE_UNVERIFIED", "PREDICTION_UNVERIFIED", "SAVE_UNCERTAIN", "READBACK_UNVERIFIED", "SETTLEMENT_UNVERIFIED"]},
+      "code_commit": {"type": "string", "maxLength": 40, "pattern": "^[0-9a-f]{40}$"},
+      "counts": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["observations", "failures", "unknown"],
+        "properties": {
+          "observations": {"type": ["integer", "null"], "minimum": 0},
+          "failures": {"type": ["integer", "null"], "minimum": 0},
+          "unknown": {"type": ["integer", "null"], "minimum": 0}
+        }
+      }
+    }
+  },
+  "proposed_additional_checks": {
+    "unknown_field_or_enum": "REJECT_EXPORT",
+    "invalid_or_unsafe_value": "REJECT_EXPORT",
+    "boolean_as_count": "REJECT_EXPORT",
+    "when_all_counts_known": "FAILURES_PLUS_UNKNOWN_MUST_NOT_EXCEED_OBSERVATIONS",
+    "missing_count": "UNKNOWN_NULL_NEVER_FILL_ZERO",
+    "stage_error_relationship": "REQUIRES_REVIEWED_FIXED_MAPPING_BEFORE_IMPLEMENTATION",
+    "raw_source": "REMAINS_PRIVATE_NO_RAW_LOG_PASS_THROUGH",
+    "external_share": "HQ14_MANUAL_REVIEW_REQUIRED_BEFORE_ANY_SHARE",
+    "preferred_reproduction": "WHOLLY_SYNTHETIC_MINIMAL_CASE",
+    "complete_anonymity": "NOT_GUARANTEED",
+    "commit_pattern": "SYNTAX_ONLY_NOT_SOURCE_AUTHENTICATION"
+  },
+  "excluded_content": [
+    "ARBITRARY_EXCEPTION_TEXT", "TRACEBACKS_AND_LOCALS", "URL_QUERY_HEADER_PROXY_ENV_VALUES",
+    "INTERNAL_PATHS_AND_HOST_IDENTITIES", "RAW_RACE_DATA_AND_IDENTIFIERS", "DATES_AND_SCORE_ROWS",
+    "PREDICTIONS_OR_SCORE_DISTRIBUTIONS", "PII_TOKENS_CREDENTIALS", "APPROVAL_ORIGINALS"
+  ],
+  "unadopted_parameters": {
+    "deadline_buffer_seconds": null,
+    "clock_drift_tolerance": null,
+    "maximum_odds_age_override": null,
+    "retry_policy": null,
+    "no_odds_statistical_cohort_rule": null,
+    "tail_quantile_levels": null,
+    "tail_bin_edges": null,
+    "minimum_disclosure_group_count": null
+  },
+  "operational_go": {"implementation": false, "host_probe": false, "actual_export": false, "external_share": false, "shadow_start": false, "production_change": false},
+  "M0_M2_M1_policy_changed": false,
+  "eight_open_choices_filled": false,
+  "F2_adopted": false,
+  "production_go": false
+}

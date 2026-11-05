@@ -1,0 +1,95 @@
+{
+  "Chrome_proposals": "DOCUMENT_DESIGN_ONLY_NOT_ADOPTED_OR_IMPLEMENTED",
+  "actual_anonymizer_or_exporter_tested": false,
+  "actual_data_evaluation": "NOT_RUN",
+  "eight_open_values": "UNRESOLVED_NULL",
+  "formal_claude_review": "AWAITING",
+  "initial_mutation_failure_provenance": {
+    "actual_document_auto_extension": false,
+    "finding": "STATIC_CHECKER_DID_NOT_REJECT_INJECTED_AUTO_PILOT_EXTENSION_FLAG",
+    "initial_result": "12_TESTS_ONE_MUTATION_TEST_FAILURE",
+    "model_or_operational_change": false,
+    "original": {
+      "bytes": 4278,
+      "public": false,
+      "sha256": "e790c787e1978f3e04722ee020fa5cd311498c0bb759a865b4289a22b2753355",
+      "trust": "LOCAL_TEST_LOG_NOT_APPROVAL_RECEIPT"
+    },
+    "resolution": "BIND_OPEN_PILOT_SPAN_REUSE_SD_AND_ROLE_STATUSES_AND_MANDATORY_KEYS",
+    "submitted": {
+      "bytes": 4040,
+      "file": "initial-static.REDACTED.log",
+      "sha256": "dad53146c9907fd7bdb9d2c206915153e2988e96d1fce5777b74fb9af373a362",
+      "trust": "REDACTED"
+    }
+  },
+  "namespace": "F5_PREREGISTRATION_V007",
+  "original_source_sha_and_receipt": "NOT_PROVIDED_NULL_FIELDS_PRESERVED",
+  "parent_commit": "7aec4fdb6b9f311ee01bf3a2752410e683d83e42",
+  "parent_files_byte_unchanged": 245,
+  "policy_as_received": {
+    "M0": "DECIDED",
+    "M1": "FUTURE_DESIGN_DECIDED",
+    "M2": "DECIDED"
+  },
+  "prediction_or_evaluation_engine_tests_rerun": false,
+  "production_go": false,
+  "real_data_go": false,
+  "regression_scope": "EXACT_BYTES_AND_SHA_OF_ALL245_PRESERVED_PUBLIC_PARENT_PACKAGE_FILES",
+  "runs": {
+    "312": {
+      "bytes": 4039,
+      "file": "static-python312.raw.log",
+      "result": {
+        "errors": 0,
+        "failures": 0,
+        "production_go": false,
+        "scope": "STATIC_DOCUMENT_AND_BYTE_PRESERVATION_ONLY",
+        "skipped": 0,
+        "status": "PASS",
+        "tests_run": 18
+      },
+      "runtime": {
+        "network": "BLOCKED_IN_PROCESS",
+        "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "production_go": false,
+        "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+        "source_data": "DOCUMENTS_AND_SYNTHETIC_PARTITION_METADATA_ONLY",
+        "statistical_evaluation_performed": false
+      },
+      "sha256": "4ec4d1e3ebaa125dffda82768b632f1fd8db1ff7bd700076aaae95e7887c413e",
+      "trust": "RAW_UNMODIFIED"
+    },
+    "314": {
+      "bytes": 4038,
+      "file": "static-python314.raw.log",
+      "result": {
+        "errors": 0,
+        "failures": 0,
+        "production_go": false,
+        "scope": "STATIC_DOCUMENT_AND_BYTE_PRESERVATION_ONLY",
+        "skipped": 0,
+        "status": "PASS",
+        "tests_run": 18
+      },
+      "runtime": {
+        "network": "BLOCKED_IN_PROCESS",
+        "openssl": "OpenSSL 3.5.5 27 Jan 2026",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "production_go": false,
+        "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]",
+        "source_data": "DOCUMENTS_AND_SYNTHETIC_PARTITION_METADATA_ONLY",
+        "statistical_evaluation_performed": false
+      },
+      "sha256": "99a02060ef4723de48f7593988d9cdb03e0363362003c815257f35fd254f6fa5",
+      "trust": "RAW_UNMODIFIED"
+    }
+  },
+  "shadow_go": false,
+  "static_test_methods_by_file": {
+    "test_document_constraints.py": 12,
+    "test_parent_regression.py": 3,
+    "test_review_proposal.py": 3
+  }
+}

@@ -1,0 +1,26 @@
+F5_DOCUMENT_STATIC_TESTS_ONLY
+{"network": "BLOCKED_IN_PROCESS", "openssl": "OpenSSL 3.5.5 27 Jan 2026", "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "production_go": false, "python": "3.14.3 (main, Mar 24 2026, 22:50:36) [Clang 22.1.1 ]", "source_data": "DOCUMENTS_AND_SYNTHETIC_PARTITION_METADATA_ONLY", "statistical_evaluation_performed": false}
+test_actual_dates_or_unknown_registry_roles_do_not_close_the_open_design (test_document_constraints.DocumentConstraintTests.test_actual_dates_or_unknown_registry_roles_do_not_close_the_open_design) ... ok
+test_current_three_records_are_consistent_without_granting_execution (test_document_constraints.DocumentConstraintTests.test_current_three_records_are_consistent_without_granting_execution) ... ok
+test_date_inversion_unknown_roles_and_unresolved_pilot_development_reuse_hold (test_document_constraints.DocumentConstraintTests.test_date_inversion_unknown_roles_and_unresolved_pilot_development_reuse_hold) ... ok
+test_future_a_only_design_does_not_expand_search_or_apply_configuration (test_document_constraints.DocumentConstraintTests.test_future_a_only_design_does_not_expand_search_or_apply_configuration) ... ok
+test_m0_alpha_power_family_endpoint_day_weight_and_one_sidedness_are_frozen (test_document_constraints.DocumentConstraintTests.test_m0_alpha_power_family_endpoint_day_weight_and_one_sidedness_are_frozen) ... ok
+test_market_only_w1_cannot_be_recorded_as_a_model_victory (test_document_constraints.DocumentConstraintTests.test_market_only_w1_cannot_be_recorded_as_a_model_victory) ... ok
+test_open_choices_examples_and_f2_cannot_be_promoted_to_adopted_values (test_document_constraints.DocumentConstraintTests.test_open_choices_examples_and_f2_cannot_be_promoted_to_adopted_values) ... ok
+test_pilot_holdout_overlap_by_day_or_race_is_rejected (test_document_constraints.DocumentConstraintTests.test_pilot_holdout_overlap_by_day_or_race_is_rejected) ... ok
+test_policy_decision_never_implies_any_operational_go (test_document_constraints.DocumentConstraintTests.test_policy_decision_never_implies_any_operational_go) ... ok
+test_source_original_sha_receipts_and_independent_match_are_not_fabricated (test_document_constraints.DocumentConstraintTests.test_source_original_sha_receipts_and_independent_match_are_not_fabricated) ... ok
+test_static_audits_are_pure_fixed_diagnostics_with_no_file_network_or_database_calls (test_document_constraints.DocumentConstraintTests.test_static_audits_are_pure_fixed_diagnostics_with_no_file_network_or_database_calls) ... ok
+test_synthetic_disjoint_partition_fixture_is_consistent_but_not_adoption (test_document_constraints.DocumentConstraintTests.test_synthetic_disjoint_partition_fixture_is_consistent_but_not_adoption) ... ok
+test_all245_parent_files_remain_exact_bytes_and_sizes (test_parent_regression.ParentPreservationTests.test_all245_parent_files_remain_exact_bytes_and_sizes) ... ok
+test_duplicate_metadata_cannot_fake_the_preserved_file_count (test_parent_regression.ParentPreservationTests.test_duplicate_metadata_cannot_fake_the_preserved_file_count) ... ok
+test_expected_hash_mismatch_is_detected_without_editing_parent (test_parent_regression.ParentPreservationTests.test_expected_hash_mismatch_is_detected_without_editing_parent) ... ok
+test_free_text_and_regex_masking_are_not_the_allowlisted_schema (test_review_proposal.ReviewProposalTests.test_free_text_and_regex_masking_are_not_the_allowlisted_schema) ... ok
+test_received_proposal_remains_nonexecutable_and_unadopted (test_review_proposal.ReviewProposalTests.test_received_proposal_remains_nonexecutable_and_unadopted) ... ok
+test_suggestion_cannot_become_execution_or_threshold_approval (test_review_proposal.ReviewProposalTests.test_suggestion_cannot_become_execution_or_threshold_approval) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.032s
+
+OK
+{"errors": 0, "failures": 0, "production_go": false, "scope": "STATIC_DOCUMENT_AND_BYTE_PRESERVATION_ONLY", "skipped": 0, "status": "PASS", "tests_run": 18}

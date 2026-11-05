@@ -1,0 +1,75 @@
+{
+  "fixture": {
+    "classification": "SYNTHETIC_ONLY",
+    "partitions": {
+      "holdout": {
+        "day_ids": [
+          "2099-01-04"
+        ],
+        "race_ids": [
+          "SYNTHETIC_R4"
+        ]
+      },
+      "pilot": {
+        "day_ids": [
+          "2099-01-03"
+        ],
+        "race_ids": [
+          "SYNTHETIC_R3"
+        ]
+      },
+      "selection": {
+        "day_ids": [
+          "2099-01-02"
+        ],
+        "race_ids": [
+          "SYNTHETIC_R2"
+        ]
+      },
+      "training": {
+        "day_ids": [
+          "2099-01-01"
+        ],
+        "race_ids": [
+          "SYNTHETIC_R1"
+        ]
+      }
+    }
+  },
+  "production_go": false,
+  "results": {
+    "pilot_day_reused_in_holdout": {
+      "issues": [
+        "HOLDOUT_REUSES_PREVIOUSLY_SEEN_DAY_OR_RACE",
+        "PARTITION_CHRONOLOGY_INVALID"
+      ],
+      "production_go": false,
+      "real_data_go": false,
+      "scope": "STATIC_DOCUMENT_OR_SYNTHETIC_METADATA_ONLY",
+      "shadow_go": false,
+      "statistical_evaluation_performed": false,
+      "status": "HOLD"
+    },
+    "pilot_race_reused_in_holdout": {
+      "issues": [
+        "HOLDOUT_REUSES_PREVIOUSLY_SEEN_DAY_OR_RACE"
+      ],
+      "production_go": false,
+      "real_data_go": false,
+      "scope": "STATIC_DOCUMENT_OR_SYNTHETIC_METADATA_ONLY",
+      "shadow_go": false,
+      "statistical_evaluation_performed": false,
+      "status": "HOLD"
+    },
+    "valid": {
+      "issues": [],
+      "production_go": false,
+      "real_data_go": false,
+      "scope": "STATIC_DOCUMENT_OR_SYNTHETIC_METADATA_ONLY",
+      "shadow_go": false,
+      "statistical_evaluation_performed": false,
+      "status": "FIXTURE_CONSISTENT"
+    }
+  },
+  "scope": "STATIC_SYNTHETIC_MEMBERSHIP_NOT_AN_ACTUAL_PARTITION_REGISTRY"
+}
