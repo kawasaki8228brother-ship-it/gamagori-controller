@@ -1,0 +1,39 @@
+name: Stage13 single postday evidence trial
+on:
+  pull_request:
+    branches: [main]
+    paths: ['.github/workflows/stage13-postday-review.yml']
+permissions:
+  contents: read
+jobs:
+  one-time-postday-trial:
+    if: >-
+      github.event.pull_request.number == 2 &&
+      github.event.pull_request.head.ref == 'v11-audit-parser-candidate-20260919' &&
+      github.run_number == 1 && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository dependencies
+        run: pip install -r requirements.txt
+      - name: Full offline regression
+        run: |
+          mkdir -p review_artifacts
+          python -m pytest -q --junitxml=review_artifacts/all-tests.xml
+      - name: One fixed past-day phase, 24 requests maximum, no retries
+        run: |
+          timeout --signal=TERM --kill-after=10s 420s python tools/capture_postday_review.py --output review_artifacts/postday --allow-network
+      - name: Preserve completed and partial evidence for independent review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage13-postday-${{ github.run_id }}
+          path: review_artifacts/
+          if-no-files-found: error
+          retention-days: 14

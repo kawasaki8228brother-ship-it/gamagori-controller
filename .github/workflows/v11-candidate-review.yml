@@ -1,0 +1,41 @@
+name: V11 candidate review - no production writes
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'v11_candidate/**'
+      - 'tests/test_v11*'
+      - 'tools/capture_official_fixture.py'
+      - '.github/workflows/v11-candidate-review.yml'
+permissions:
+  contents: read
+jobs:
+  regression-and-fixture-capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned repository dependencies
+        run: pip install -r requirements.txt
+      - name: Compile sources
+        run: python -m compileall -q .
+      - name: Run complete repository test suite
+        run: |
+          mkdir -p review_artifacts
+          python -m pytest -q --junitxml=review_artifacts/all-tests.xml
+      - name: Capture three public post-incident responses, read-only
+        if: always()
+        run: python tools/capture_official_fixture.py
+      - name: Upload review evidence, not a production success certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v11-review-${{ github.run_id }}
+          path: review_artifacts/
+          if-no-files-found: warn
+          retention-days: 14
